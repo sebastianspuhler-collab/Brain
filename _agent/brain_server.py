@@ -1259,20 +1259,25 @@ class Handler(BaseHTTPRequestHandler):
 
     def _list_files(self):
         """Alle Dateien im Vault auflisten (für Datei-Browser)."""
-        from urllib.parse import urlencode
-        _SKIP = {"_inbox", ".git", ".obsidian", "_fehler", "__pycache__", "_agent"}
+        _SKIP = {"_inbox", ".git", ".obsidian", "_fehler", "__pycache__", "_agent",
+                 "node_modules", ".claude"}
+        _SKIP_EXT = {".pyc", ".log", ".pid", ".bin"}
         files = []
         for f in sorted(VAULT.rglob("*")):
-            if f.is_file() and not any(p in _SKIP for p in f.parts):
-                rel = f.relative_to(VAULT)
-                if rel.parts[0] in _SKIP:
-                    continue
-                files.append({
-                    "path": str(rel),
-                    "name": f.name,
-                    "size": f.stat().st_size,
-                    "url": f"/files/{rel}",
-                })
+            if not f.is_file():
+                continue
+            rel = f.relative_to(VAULT)
+            parts = rel.parts
+            if any(p in _SKIP or p.startswith(".") for p in parts):
+                continue
+            if f.suffix.lower() in _SKIP_EXT:
+                continue
+            files.append({
+                "path": str(rel).replace("\\", "/"),
+                "name": f.name,
+                "size": f.stat().st_size,
+                "url": "/files/" + str(rel).replace("\\", "/"),
+            })
         self.json_response({"files": files})
 
     def _handle_upload(self):
