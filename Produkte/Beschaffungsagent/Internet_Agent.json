@@ -1,0 +1,757 @@
+{
+  "name": "Internet-Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        200,
+        -160
+      ],
+      "id": "4dde6ee1-e813-4bcc-9ef7-e92d3e07f2b6",
+      "name": "When chat message received",
+      "webhookId": "5098f362-c62a-4b7b-9370-0129f90e8553"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        440,
+        300
+      ],
+      "id": "aa0e94f4-2c2f-4063-ae42-4099ee43409a",
+      "name": "Memory"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash-preview-04-17",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        300,
+        300
+      ],
+      "id": "fc6f49c7-0c3d-4695-af59-82d30d27bcc7",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "AqH11RGGAEKsWLFF",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "profileName": "={{ $json.profile_name }}",
+        "additionalFields": {}
+      },
+      "id": "a4f5f13e-9505-41b6-a8e9-ff8e6bdc91ef",
+      "name": "Session",
+      "type": "n8n-nodes-base.airtop",
+      "position": [
+        380,
+        -320
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "airtopApi": {
+          "id": "xqAhqADK2aYvvtbL",
+          "name": "Airtop account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "window",
+        "url": "={{ $('When Executed by Another Workflow').item.json.url }}",
+        "getLiveView": true,
+        "additionalFields": {}
+      },
+      "id": "98850403-e61b-42bb-8380-35819fad3e5d",
+      "name": "Window",
+      "type": "n8n-nodes-base.airtop",
+      "position": [
+        660,
+        -320
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "airtopApi": {
+          "id": "xqAhqADK2aYvvtbL",
+          "name": "Airtop account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0a0680af-39bd-4bc7-b9cd-84c1766c79a1",
+              "name": "sessionId",
+              "type": "string",
+              "value": "={{ $('Session').item.json.sessionId }}"
+            },
+            {
+              "id": "13940ee8-c1d4-4718-a7b4-176c44c097b7",
+              "name": "windowId",
+              "type": "string",
+              "value": "={{ $('Window').item.json.data.windowId }}"
+            },
+            {
+              "id": "a0f2005c-2cd2-4a8d-891b-a4759b72a124",
+              "name": "output",
+              "type": "string",
+              "value": "Session and window created successfully"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3aa24336-405f-419a-9354-b9b7a8dd0d8f",
+      "name": "Return IDs",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1120,
+        -160
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "url"
+            },
+            {
+              "name": "profile_name"
+            }
+          ]
+        }
+      },
+      "id": "f7eb6570-a5b5-4251-9ab6-ae33138d7a67",
+      "name": "When Executed by Another Workflow",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        200,
+        -320
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1LfhqpyjimLjyQcmWY8mUr6YtNBcifiOVLIhAJGV9jiM",
+          "mode": "list",
+          "cachedResultName": "CRM",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LfhqpyjimLjyQcmWY8mUr6YtNBcifiOVLIhAJGV9jiM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Companies",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LfhqpyjimLjyQcmWY8mUr6YtNBcifiOVLIhAJGV9jiM/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json.data.liveViewUrl }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Website",
+              "displayName": "Website",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "LinkedIn",
+              "displayName": "LinkedIn",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Summary",
+              "displayName": "Summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Score",
+              "displayName": "Score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "State",
+              "displayName": "State",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        840,
+        -320
+      ],
+      "id": "8713243e-adca-4d7f-8a2f-96b909746bfa",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "yhHD1FQRime3dLsm",
+          "name": "Digamma"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "=Du bist ein intelligenter, fortschrittlicher Web-Agent, der mit Tools verbunden ist, die es dir ermöglichen, einen entfernten Webbrowser zu steuern. Dein primäres Ziel ist es, die Anfragen des Menschen genau und effizient zu erfüllen, indem du mit Webseiten über deine Tools interagierst.\n\nTools\n\nStart_Browser\nStarte immer mit diesem Tool. Es liefert eine sessionId und windowId, die für alle weiteren Tool-Aufrufe erforderlich sind. Du musst diese IDs bei jedem weiteren Tool-Aufruf angeben.\n\nLoad URL\nLädt eine Website im Browserfenster. Übermittle sessionId, windowId und die gewünschte URL (z.B. \"https://www.stol.it\").\n\nQuery\nDu hast keinen direkten Zugriff auf den Browser-Bildschirm, aber du kannst dieses Tool nutzen, um Informationen und Hinweise über das aktuelle Browserfenster zu erhalten. Verwende dieses Tool, um Informationen abzurufen, die der Mensch angefragt hat.\n\nClick\nNutze dieses Tool, um auf Elemente wie Buttons zu klicken.\n\nType\nNutze dieses Tool, um Text in ein sichtbares Eingabefeld einzutippen. Dieses Tool führt nach dem Tippen automatisch ENTER aus, daher brauchst du keinen ENTER-Befehl senden.\n\nEnd Session\nWenn die Aufgabe vollständig abgeschlossen ist, nutze dieses Tool, um die Browser-Session ordnungsgemäß zu beenden. Du musst dieses Tool immer verwenden, bevor du dem Menschen antwortest.\n\nThink\nNutze dieses Tool, wenn du über deine bisherigen Schritte nachdenken und überlegen willst, welche nächsten Schritte sinnvoll sind.\n\nWichtig\nDenke immer schrittweise. Verwende Query, wann immer du unsicher bist, was auf dem Bildschirm ist oder was du als Nächstes klicken oder tippen sollst. Du musst dich niemals einloggen.",
+          "maxIterations": 20,
+          "returnIntermediateSteps": false,
+          "passthroughBinaryImages": true
+        }
+      },
+      "id": "e1d4cbd5-bc60-4247-9e04-a2a0d053b688",
+      "name": "Internet-Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        760,
+        -160
+      ],
+      "retryOnFail": true,
+      "typeVersion": 1.8,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "description": "Verwende dieses Tool, um über etwas nachzudenken. Es ruft dabei keine neuen Informationen ab und verändert auch nicht die Datenbank, sondern fügt den Gedanken lediglich dem Protokoll hinzu. Nutze es, wenn komplexes Nachdenken oder eine Art Zwischenspeicher benötigt wird.\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "typeVersion": 1,
+      "position": [
+        580,
+        300
+      ],
+      "id": "fcfd8c71-84b7-42be-bf30-ebe3cbb1f3ec",
+      "name": "Grübeln"
+    },
+    {
+      "parameters": {
+        "name": "Start_Browser",
+        "description": "Starte eine neue Browser-Session und ein neues Fenster.\n",
+        "workflowId": {
+          "__rl": true,
+          "value": "g6LpZJ9CL7qRNWQt",
+          "mode": "list",
+          "cachedResultName": "Open Browser"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "url": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('url', ``, 'string') }}",
+            "profile_name": "lukasbrgg"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "profile_name",
+              "displayName": "profile_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "id": "811d0d12-d977-4ec5-9429-c3b4270d2f3e",
+      "name": "Browser Starten",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "position": [
+        960,
+        300
+      ],
+      "typeVersion": 2.1
+    },
+    {
+      "parameters": {
+        "toolDescription": "Verwende dieses Tool, um auf ein Element zu klicken.",
+        "method": "POST",
+        "url": "=https://api.airtop.ai/api/v1/sessions/{{ $fromAI('sessionId') }}/windows/{{ $fromAI('windowId') }}/click",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "elementDescription",
+              "value": "={{ $fromAI('elementDescription', `the element to click on in as much detail as possible`, 'string') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        840,
+        300
+      ],
+      "id": "d65bcfd7-cbb5-46af-8980-18f63f946780",
+      "name": "Klick",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "Y5MC1Y5yI7axcDEg",
+          "name": "Runway"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "interaction",
+        "operation": "type",
+        "sessionId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Session_ID', \"The `sessionId` returned by the `Start_Browser` tool\", 'string') }}",
+        "windowId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Window_ID', \"The `windowId` returned by the `Start_Browser` tool\", 'string') }}",
+        "text": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Text', ``, 'string') }}",
+        "pressEnterKey": true,
+        "elementDescription": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Element_Description', `Search bars usually contain a placeholder that says \"search\"`, 'string') }}",
+        "additionalFields": {}
+      },
+      "id": "627589c3-4047-4a3f-afa5-9eeaab13682f",
+      "name": "Tippen",
+      "type": "n8n-nodes-base.airtopTool",
+      "position": [
+        1420,
+        300
+      ],
+      "typeVersion": 1,
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtopApi": {
+          "id": "xqAhqADK2aYvvtbL",
+          "name": "Airtop account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "extraction",
+        "operation": "query",
+        "sessionId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Session_ID', \"The `sessionId` returned by the `Start_Browser` tool\", 'string') }}",
+        "windowId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Window_ID', \"The `windowId` returned by the `Start_Browser` tool\", 'string') }}",
+        "prompt": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Prompt', ``, 'string') }}",
+        "additionalFields": {}
+      },
+      "id": "f47fbdc4-fd9b-4e0a-82b2-caf67ba55261",
+      "name": "Anfrage",
+      "type": "n8n-nodes-base.airtopTool",
+      "position": [
+        720,
+        300
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "airtopApi": {
+          "id": "xqAhqADK2aYvvtbL",
+          "name": "Airtop account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "window",
+        "operation": "load",
+        "sessionId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Session_ID', `Die sessionId, die vom Tool Start_Browser zurückgegeben wird.`, 'string') }}",
+        "windowId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Window_ID', `Die \\`windowId\\`, die vom Tool \\`Start_Browser\\` zurückgegeben wird.\n`, 'string') }}",
+        "url": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('URL', ``, 'string') }}",
+        "additionalFields": {}
+      },
+      "id": "c1f8acbb-10dc-4472-b12d-2995871c7629",
+      "name": "URL Finden",
+      "type": "n8n-nodes-base.airtopTool",
+      "position": [
+        1580,
+        300
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "airtopApi": {
+          "id": "xqAhqADK2aYvvtbL",
+          "name": "Airtop account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "terminate",
+        "sessionId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Session_ID', `Die sessionId, die vom Tool Start_Browser zurückgegeben wird.`, 'string') }}"
+      },
+      "id": "66f19cd5-03d5-4b26-abba-462535939c66",
+      "name": "Session beenden",
+      "type": "n8n-nodes-base.airtopTool",
+      "position": [
+        1720,
+        300
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "airtopApi": {
+          "id": "xqAhqADK2aYvvtbL",
+          "name": "Airtop account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "interaction",
+        "sessionId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Session_ID', `Die sessionId, die vom Tool Start_Browser zurückgegeben wird`, 'string') }}",
+        "windowId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Window_ID', `Die windowId, die vom Tool Start_Browser zurückgegeben wird`, 'string') }}",
+        "elementDescription": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Element_Description', `Beschreibe das anzuklickende Element im Detail, z.B.: Der Menüpunkt „Über uns“ oben auf der Seite.`, 'string') }}",
+        "additionalFields": {
+          "waitForNavigation": "domcontentloaded"
+        }
+      },
+      "id": "84056bd0-e28b-40a4-93b0-ce650fb0c2f6",
+      "name": "Klicken Tool",
+      "type": "n8n-nodes-base.airtopTool",
+      "position": [
+        1900,
+        300
+      ],
+      "typeVersion": 1,
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtopApi": {
+          "id": "xqAhqADK2aYvvtbL",
+          "name": "Airtop account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "=",
+        "toolDescription": "=",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "=",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.2,
+      "position": [
+        1080,
+        300
+      ],
+      "id": "dc631257-fdb4-42c7-97ec-7971ebac6bf1",
+      "name": "Pinecone Vector Store",
+      "credentials": {
+        "pineconeApi": {
+          "id": "xduTJCobgrYYhwJc",
+          "name": "PineconeApi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1100,
+        480
+      ],
+      "id": "c68fd06b-3493-447f-8ceb-a70a815e725c",
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "4OZJn7qr8FpluAuj",
+          "name": "Greenreb"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "![Image](https://agents.digamma.io/123.png)\n\n\n*Ein Workflow, erstellt von Agents by Digamma*\n\nwww.agents.digamma.io\n\nKontakt:\nlukas.b@digamma.io\njonas.n@digamma.io\n\nOder:\nhttps://calendly.com/agents-by-digamma/30min\n\t",
+        "height": 460,
+        "width": 420,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -440,
+        -200
+      ],
+      "typeVersion": 1,
+      "id": "f5f77afd-66e7-4b41-b8d2-873bc94cae23",
+      "name": "Sticky Note"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Internet-Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Internet-Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Internet-Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Session": {
+      "main": [
+        [
+          {
+            "node": "Window",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Session",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Return IDs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Grübeln": {
+      "ai_tool": [
+        [
+          {
+            "node": "Internet-Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Browser Starten": {
+      "ai_tool": [
+        [
+          {
+            "node": "Internet-Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Klick": {
+      "ai_tool": [
+        [
+          {
+            "node": "Internet-Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tippen": {
+      "ai_tool": [
+        [
+          {
+            "node": "Internet-Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anfrage": {
+      "ai_tool": [
+        [
+          {
+            "node": "Internet-Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "URL Finden": {
+      "ai_tool": [
+        [
+          {
+            "node": "Internet-Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Session beenden": {
+      "ai_tool": [
+        [
+          {
+            "node": "Internet-Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Klicken Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "Internet-Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinecone Vector Store": {
+      "ai_tool": [
+        [
+          {
+            "node": "Internet-Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "28aa7e35-c242-4be3-bec7-413d339b8c8d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "9482a9d9d0aa48d0caaf5ba240dd00b71547cfad28d1c4bc4396d2ffe58f251b"
+  },
+  "id": "OZJGl3ndDUvR8Pn5",
+  "tags": []
+}

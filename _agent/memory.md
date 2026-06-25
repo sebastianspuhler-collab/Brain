@@ -1,0 +1,141 @@
+
+
+## PROZESS
+- [2026-06-25 16:21] Klarstellung zu Schaufler erforderlich bezüglich separater Serverkosten
+- [2026-06-25 16:05] Deploy des Servers ist Teil der Umsetzung der Server-Infrastruktur für Schaufler
+- [2026-06-25 15:53] Sebastian fordert an: Transkript analysieren und in bestehende Schaufler-Dokumentstruktur einsortieren
+- [2026-06-16 15:57] Der Chatbot soll aktiv melden, wenn eine Datei nicht zuordenbar ist, das Problem klar benennen, Kontext liefern (z.B. Hinweise auf Fehler wie '0 am Ende') und konkrete Ablagerichtlinien geben
+- [2026-06-16 15:35] Benachrichtigung muss Kontext liefern und konkrete Handlungsanweisung geben (z.B. Ablagerichtlinien wie Dateiendung '0')
+- [2026-06-16 15:35] Benachrichtigung muss Problem klar benennen (z.B. 'Achtung: wir haben ein Problem')
+- [2026-06-16 15:35] Chatbot soll aktive Benachrichtigungen schicken, wenn Dateien mit falscher Positionsnummer oder falschem Projekt vom Lieferanten ankommen
+- [2026-06-16 15:34] Benjamin Schmohl Visionsidee: Chatbot-System zur automatischen Benachrichtigung bei nicht zuordenbaren Dateien (ähnlich ChatGPT-Funktionalität)
+- [2026-06-16 15:34] Benjamin Schmohl schlägt vor: Alle Messberichte in einen zentralen Ordner packen und sauber umbenennen, da Zuordnung ohnehin manuell erfolgt
+- [2026-06-16 15:17] Auftragsbestätigung für Bestellung 127412 hat hohe Priorität und steht noch aus
+- [2026-06-16 15:15] [Email: WG: Messberichte] Idee: Chatbot für Benachrichtigungen, wenn Dateien nicht zuordenbar sind
+- [2026-06-16 15:15] [Email: Bestellung 127412] Auftragsbestätigung erforderlich: Bestellung 127412 mit Datum, Signatur und Firmenstempel zurückschicken
+- [2026-06-16 15:15] [Email: WG: Messberichte] Möglichkeit: Alle Dateien in einen Ordner packen und sauber umbenennen
+egeln, Prozesse.
+Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
+
+## REGEL
+- [2026-06-25 16:28] Sebastian benötigt echte, dokumentierte Zahlen statt allgemeiner Informationen
+- [2026-06-16 09:58] Ton für Posts: Direkt, sachkundig, kein Bullshit
+- [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
+
+## KORREKTUR
+- [2026-06-25 16:35] Der Hetzner CCX23 kostet exakt 38,90 € netto pro Monat laut aktueller Rechnung — ein zuvor abweichender Wert war falsch.
+- [2026-06-25 16:21] Serverkosten (Hetzner) sind NICHT in der 220 €/Monat Verwaltungspauschale enthalten — kommen zusätzlich hinzu
+- [2026-06-16 15:36] Sebastian weist darauf hin, dass Dateien in der Vault-Struktur organisiert sein sollten und erwartet bessere Struktur bei der Datenverwaltung
+- [2026-06-16 12:07] Sebastian korrigiert Brain: Das Thema betrifft nicht den Agenten, sondern eine eingegangene Bestellung
+- [2026-06-16 09:31] Donnerstag ist der 18.06. (nicht der 19.06.)
+- [2026-06-16 09:30] Mittwoch ist der 18.06., Donnerstag ist der 19.06. (Sebastian hatte das Datum verwechselt)
+- [2026-06-16 09:30] Mittwoch ist der 18.06., nicht ein anderes Datum
+- [2026-06-13 12:47] Sebastian weist darauf hin, dass Brain auch Zugriff auf das LinkedIn Brain haben sollte, nicht nur auf den Vault
+- [2026-06-13 12:22] Schaufler Tooling GmbH: Monatliches Hosting/Retainer ab Juli 2026 auf 280 € erhöht (vorher 220 €)
+
+## PROZESS
+- [2026-06-16 15:15] [Email: Bestellung 127412] Neue Bestellung 127412 von Schaufler Tooling GmbH & Co. KG eingegangen
+- [2026-06-16 15:15] [Email: WG: Messberichte] Weitere Transfer Links für Messberichte-Formen kommen hinzu
+- [2026-06-16 15:15] [Email: Kontakte-Feature testen und erster Partner Online ] Reseller-Dashboard ermöglicht es, nächste Kunden selbst anzulegen und Abrechnung zu übernehmen
+- [2026-06-16 15:15] [Email: Kontakte-Feature testen und erster Partner Online ] Neue Kontakte-Funktion von fonio ab Donnerstag verfügbar - erfasst automatisch Personen aus Anrufen/WhatsApp und speichert ihre Informationen
+- [2026-06-16 15:15] [Email: Kontakte-Feature testen und erster Partner Online ] Einladung zum ersten Partner-Online-Stammtisch von fonio
+- [2026-06-16 15:15] [Email: Kontakte-Feature testen und erster Partner Online ] Reseller-Dashboard: Möglichkeit, nächste Kunden anzulegen und Abrechnung selbst zu übernehmen
+- [2026-06-16 15:15] [Email: Kontakte-Feature testen und erster Partner Online ] Neue Kontakte-Funktion ab Donnerstag verfügbar - automatische Erfassung von Anrufern und WhatsApp-Kontakten mit Informationsspeicherung
+- [2026-06-16 15:15] [Email: Zugesagt: Potenzialanalyse Endin X Prozessia] Neuer Auftrag: Potenzialanalyse für Endin X Prozessia
+- [2026-06-16 12:07] Sebastian erwartet, dass Brain E-Mails und Dokumente zur Bestellung selbstständig überprüft
+- [2026-06-16 09:58] Content-Generator für 3 Posts ausgelöst: Di 16.06. DSGVO-Bußgelder, Mi 17.06. KI-Strategie im Einkauf (52%), Do 18.06. KI ohne IT
+- [2026-06-16 09:58] Content-Generator für 3 LinkedIn Posts ausgelöst: Di 16.06. DSGVO-Bußgelder, Mi 17.06. 52% ohne KI-Strategie, Do 18.06. KI ohne IT
+- [2026-06-16 09:57] Content-Generator wird ausgelöst für drei Posts: Di 16.06. DSGVO-Bußgelder, Mi 17.06. 52% ohne KI-Strategie, Do 18.06. KI ohne IT-Abteilung
+- [2026-06-16 09:32] Sebastian nutzt einen 'contentgenerator' zur Erstellung von LinkedIn Posts
+- [2026-06-16 09:31] Sebastian bestätigt Veröffentlichungsplan und erwartet Ausschreitung aller drei Artikel zur Veröffentlichung
+- [2026-06-16 09:31] Drei Content-Stücke sind terminiert: Dienstag 16.06. (DSGVO-Bußgelder 1,2 Mrd. €), Mittwoch 17.06. (52 % ohne KI-Strategie im Einkauf), Donnerstag 18.06. (KI ohne IT-Abteilung für KMU)
+- [2026-06-16 09:30] Posts werden an drei Tagen erstellt: Dienstag 16.06., Mittwoch 17.06., Donnerstag 19.06.
+- [2026-06-16 09:29] Brain schlägt vor, dass maximal zwei Posts pro Woche möglich sind und bietet drei Optionen zur Auswahl
+- [2026-06-16 09:28] Zwei LinkedIn Posts sollen für KW 25 geplant werden
+- [2026-06-13 12:37] Sebastian möchte einen Recherche-Prompt für Claude erhalten, um die besten Messen und Veranstaltungen für dieses Jahr zu identifizieren
+- [2026-06-13 12:22] Lexoffice-Angebot für Schaufler vor Versand auf 280 €/Monat prüfen und ggf. anpassen
+
+## KONTEXT
+- [2026-06-25 16:28] Hetzner-Serverkosten für Schaufler (CCX23) sind im Vault nicht dokumentiert
+- [2026-06-25 16:28] Verwaltungspauschale für Schaufler (Prozessias Leistung): 220 €/Monat netto – umfasst Docker-Monitoring, Security-Updates, SSL, Backups, 24/7 Uptime, Support, Versionskontrolle, kleinere Anpassungen und Deployment weiterer KI-Agenten
+- [2026-06-25 16:23] Preis für monatliche Wartung & Management Server + KI-Agent: 220 €/Monat
+- [2026-06-25 16:23] Serverpauschalbestellung basiert auf Angebot AG0024
+- [2026-06-25 16:23] Bestellung Nr. 127412 für Schaufler Tooling GmbH & Co. KG liegt bei Brain vor
+- [2026-06-25 16:21] Bestellung BEST-PROZESSIA-127412 von Schaufler: 220 €/Monat Verwaltungspauschale (Wartung & Management mit KI-Agent) laut Angebot AG0024
+- [2026-06-25 16:14] Neue Bestellung BEST-PROZESSIA-127412 wurde heute eingespeichert
+- [2026-06-25 16:14] Bestellung BEST-PROZESSIA-124952 über 10.000€ netto für Beschaffungsagent vorhanden
+- [2026-06-25 16:14] NDA v13 zwischen Schaufler Tooling GmbH & Prozessia GbR vom 22.01.2026 existiert
+- [2026-06-25 16:14] Schaufler-Ordner enthält ~50 Dokumente
+- [2026-06-25 16:05] Prozessia erhält Zugriffsrechte zur Verwaltung des Hetzner Cloud-Servers
+- [2026-06-25 16:05] Schaufler beschafft einen Hetzner Cloud-Server
+- [2026-06-25 16:02] Thema: Messberichte (Format/Details unklar wegen abgebrochenem Transkript)
+- [2026-06-25 16:02] Hauptgesprächspartner sind Sebastian Spuhler und Michael Maier
+- [2026-06-25 16:02] Das Transkript vom 15. Juni ist unvollständig/wurde abgebrochen (Satz beginnt mit 'in welcher For...')
+- [2026-06-25 16:02] Benjamin Schmohl ist nur Transkriptions-Initiator, hat nicht gesprochen
+- [2026-06-25 15:53] Zugehörige Dokumente zum Projekt existieren bereits: Besprechung vom 2026-06-09, Angebot Serververwaltung, Azure_OpenAI_Anleitung
+- [2026-06-25 15:53] Datei 'Besprechung Umsetzung Server Infrastruktur Schaufler.docx' (756 KB) wurde hochgeladen - Inhalt nicht lesbar, da Word-Format
+- [2026-06-25 15:48] [Email: Automatische Antwort: Ein Austausch, Herr Fuchs?] Frank Fuchs von Roth Hydraulics ist bis 29.06.2026 abwesend, Zentrale erreichbar unter +49 (6461) 9330
+- [2026-06-25 15:48] [Email: Action required: security vulnerabilities detected] Sicherheitsmitteilung von Supabase - keine geschäftsrelevanten Informationen für Aufträge, Preise oder Deadlines
+- [2026-06-16 17:13] Benjamin wünscht sich Benachrichtigung mit Kontext bei nicht zuordenbaren Dateien
+- [2026-06-16 17:13] Benjamin möchte Chatbot-System, das aktiv meldet wenn Datei nicht zuordenbar ist
+- [2026-06-16 17:13] Problem: Lieferanten vergeben falsche Positionsnummern oder falsches Projekt auf Dateien → ProLeis kann nicht automatisch zuordnen
+- [2026-06-16 17:13] Benjamin Schmohl (Schaufler Tooling) hat am 15.06 Mail mit Messberichten und Transkript gesendet
+- [2026-06-16 15:57] Benjamin möchte einen Chatbot zur Lösung eines Lieferanten-Problems einsetzen: Messberichte werden mit falschen Positionsnummern oder falschem Projekt eingereicht und können nicht automatisch in ProLeis zugeordnet werden
+- [2026-06-16 15:35] Vorbild für Benachrichtigungsformat: Chat-Funktion bei ChatGPT
+- [2026-06-16 15:34] Messberichte landen dadurch nicht korrekt zugeordnet in ProLeis
+- [2026-06-16 15:34] Kunde Schaufler: Lieferanten vergeben falsche Positionsnummern oder falsche Projekte bei Messberichten
+- [2026-06-16 15:30] Schaufler: Bestellung 127412 ist offen und benötigt Auftragsbestätigung
+- [2026-06-16 15:30] Schaufler: Hosting/Retainer-Preis ab Juli 2026 auf 280 €/Monat erhöht
+- [2026-06-16 15:17] Schaufler Tooling GmbH & Co. KG ist zahlender Kunde mit monatlichem Abo von 280€
+- [2026-06-16 15:17] Bestellung 127412 von Schaufler Tooling GmbH & Co. KG vom 15.06.2026 erfordert Auftragsbestätigung mit Datum, Signatur und Firmenstempel
+- [2026-06-16 15:15] [Email: Bestellung 127412] Ansprechpartner: Christoph Nagel-Knospe, Leiter Service-Center, Tel. +49 (0)7333 9608-130
+- [2026-06-16 15:15] [Email: Ihr Besuch auf der MTO Stuttgart 2026] Nächste Messe: FMB in Bad Salzuflen vom 03.-05.11.2026
+- [2026-06-16 15:15] [Email: Ihr Besuch auf der MTO Stuttgart 2026] Hoedtke bietet Überblicksinformationen via YouTube-Videos und Website www.hoedtke.de an
+- [2026-06-16 15:15] [Email: Ihr Besuch auf der MTO Stuttgart 2026] Sebastian Spuhler hat Messestand von Hoedtke GmbH & Co. KG auf MTO Stuttgart 2026 besucht
+- [2026-06-16 15:15] [Email: Lexware Office-Update in Kürze 🔔] Finom kündigt neue Lexware Office-Integration an, Migration ab 22. Juni 2026 geplant
+- [2026-06-16 15:15] [Email: Kontakte-Feature testen und erster Partner Online ] Erster Partner-Online-Stammtisch von fonio - Anmeldung möglich
+- [2026-06-16 15:15] [Email: Transkript] Transkript von Schaufler Tooling GmbH erhalten
+- [2026-06-16 15:15] [Email: Zugesagt: Potenzialanalyse Endin X Prozessia] Cyril Dietz von Endin bestätigt Zusage für Potenzialanalyse zwischen Endin und Prozessia
+- [2026-06-16 15:05] Bekannte Bestellung Schaufler (BEST-PROZESSIA-124952) vom Februar 2026: 10.000 € netto für Beschaffungsagent
+- [2026-06-16 15:05] Cyril Dietz (Endin) hat den Kalendertermin 'Potenzialanalyse Endin X Prozessia' zugesagt
+- [2026-06-16 12:07] Gestern wurde eine Bestellung erhalten
+- [2026-06-16 12:07] Angebot für Schaufler wurde bereits ausgegeben
+- [2026-06-16 12:07] Messberichte-Thema ist dokumentiert und sollte aus bestehenden Dokumenten bekannt sein
+- [2026-06-16 12:07] Anbindung zu Winform/Proleis ist in Arbeit
+- [2026-06-16 12:07] Offene Bestellung von Schaufler liegt vor mit Auftragsbestätigung
+- [2026-06-16 12:05] Schaufler: Lexoffice-Angebot muss fertiggestellt werden mit Retainer ab Juli 2026 auf 280 €/Monat (erhöht von 220 €)
+- [2026-06-16 11:27] Langfristig ist eine Migration des Schaufler-Servers auf eine Cloud-Lösung geplant
+- [2026-06-16 11:27] Server für Schaufler: Hetzner CCX23 mit 16 GB RAM und 200 GB Speicher
+- [2026-06-16 09:58] DSGVO-Bußgelder: 1,2 Mrd. Euro bis 2026
+- [2026-06-16 09:58] Zielgruppe: Einkaufsleiter Werkzeugbau
+- [2026-06-16 09:58] Zielgruppe: Einkaufsleiter Werkzeugbau
+- [2026-06-16 09:57] Häufige DSGVO-Verstöße bei Einkaufsleitern: Lieferantendaten per unverschlüsselter E-Mail, Angebotsunterlagen auf privaten Endgeräten, ABs mit Preisinformationen in ungesicherten Postfächern
+- [2026-06-16 09:57] 1,2 Milliarden Euro DSGVO-Bußgelder wurden 2023 verhängt, auch gegen Mittelständler
+- [2026-06-16 09:57] Zielgruppe für alle drei Posts: Einkaufsleiter Werkzeugbau
+- [2026-06-16 09:51] 2023 wurden in der EU über 1,2 Mrd. € DSGVO-Bußgelder verhängt, auch gegen mittelständische Unternehmen
+- [2026-06-16 09:51] Zielgruppe der Posts: Einkaufsleiter Werkzeugbau
+- [2026-06-16 09:51] Sebastian benötigt 3 LinkedIn Posts für KW 25: A) Di 16.06. DSGVO-Bußgelder, C) Mi 17.06. 52% ohne KI-Strategie, D) Do 18.06. KI ohne IT
+- [2026-06-16 09:32] Zielgruppe: Einkaufsleiter und Geschäftsführer in Werkzeugbau und produzierendem Gewerbe Deutschland
+- [2026-06-16 09:32] Veröffentlichungstermine: Dienstag 16.06., Mittwoch 17.06., Donnerstag 18.06.
+- [2026-06-16 09:32] Drei LinkedIn Posts für KW25 geplant: DSGVO-Bußgelder (1,2 Mrd. €), KI-Strategie im Einkauf (52% ohne), KI für KMU ohne IT-Abteilung
+- [2026-06-16 09:31] Es gibt einen Datums-Konflikt: zwei Donnerstage in der Planung, Klärung der korrekten drei Tage erforderlich
+- [2026-06-16 09:30] Drei geplante Themen: Mi 18.06. – C (52% ohne KI-Strategie im Einkauf), Do 19.06. – D (KI ohne IT-Abteilung für KMU), Di 16.06. – A (DSGVO-Bußgelder 1,2 Mrd. €)
+- [2026-06-16 09:30] Drei geplante Posts: Di 16.06. (DSGVO-Bußgelder 1,2 Mrd. €), Mi 18.06. (52 % ohne KI-Strategie im Einkauf), Do 19.06. (KI ohne IT-Abteilung für KMU)
+- [2026-06-16 09:30] Post Do 19.06.: KI ohne IT-Abteilung für KMU
+- [2026-06-16 09:30] Post Mi 17.06.: 52 % ohne KI-Strategie im Einkauf
+- [2026-06-16 09:30] Post Di 16.06.: DSGVO-Bußgelder 1,2 Mrd. €
+- [2026-06-16 09:29] Geplante Veröffentlichungstage: Dienstag 17.06. und Donnerstag 19.06.
+- [2026-06-16 09:29] Geplante Post-Themen: DSGVO-Bußgelder (A), 52% ohne KI-Strategie im Einkauf (C), KI ohne IT-Abteilung (D)
+- [2026-06-16 09:29] Sebastian möchte Posts A, C und D veröffentlichen
+- [2026-06-16 09:28] Bewährter Posting-Rhythmus: Dienstag + Donnerstag
+- [2026-06-13 13:09] Brain hat Zugriff nur auf 5 Ideen aus dem LinkedIn Autoposter-Export vom 07.06, weitere Dateien (ideen-2026-06-07.json, ContentIdeas.xlsx) sind nicht geladen
+- [2026-06-13 13:09] Sebastian vermutet, dass es weitere Content-Ideen zu Bußgeldern und allgemeiner KI-Verwendung gibt, die nicht in den bisherigen 5 Ideen enthalten sind
+- [2026-06-13 13:08] Zwei LinkedIn-Beiträge waren geplant für 11.06. und 12.06., sind aber bereits vergangen (heute 13.06.)
+- [2026-06-13 12:49] Es existieren generierte LinkedIn-Beitrags-Ideen, die noch nicht eingeplant sind
+- [2026-06-13 12:49] LinkedIn-Beiträge für KW 25 (16.–20. Juni 2026) sind aktuell nicht geplant
+- [2026-06-13 12:47] Für KW 25 (16.–20. Juni 2026) sind aktuell keine LinkedIn-Beiträge geplant
+- [2026-06-13 12:47] Zielgruppe für Social-Media-Beiträge: Werkzeugbau/Batterie-Fertigung
+- [2026-06-13 12:47] Für nächste Woche (KW 25, 16.–20. Juni) sind keine LinkedIn-Beiträge geplant
+- [2026-06-13 12:37] Sebastian sucht Messen und Veranstaltungen für Vertrieb in der Zielgruppe Elektroauto-Herstellung, speziell mit Fokus auf Batteriefertigung
+- [2026-06-13 12:22] Ansprechpartner Schaufler Tooling GmbH: Thomas Issel, Einkaufsleiter
+- [2026-06-13 12:17] Test: Gedächtnis-Endpoint funktioniert korrekt

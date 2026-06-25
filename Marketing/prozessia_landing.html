@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prozessia Brain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0D0D0D;
+      --surface: #111111;
+      --surface-raised: #161616;
+      --border: #1C1C1C;
+      --border-active: #2A2A2A;
+      --purple: #534AB7;
+      --purple-dim: #3D368A;
+      --purple-light: #B088FF;
+      --purple-glow: rgba(83, 74, 183, 0.12);
+      --text: #E8E6F0;
+      --text-secondary: #8A8799;
+      --text-muted: #4A4858;
+      --green: #3DB87A;
+      --amber: #D4A843;
+      --red: #C04E4E;
+
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --sidebar-w: 200px;
+      --header-h: 52px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* LAYOUT */
+    .shell {
+      display: grid;
+      grid-template-columns: var(--sidebar-w) 1fr;
+      grid-template-rows: var(--header-h) 1fr;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* HEADER */
+    .header {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      padding: 0 20px 0 16px;
+      border-bottom: 1px solid var(--border);
+      gap: 12px;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-mark {
+      width: 26px;
+      height: 26px;
+      background: var(--purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-mark svg {
+      width: 14px;
+      height: 14px;
+      fill: #fff;
+    }
+
+    .logo-text {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--text);
+    }
+
+    .header-sep {
+      width: 1px;
+      height: 20px;
+      background: var(--border);
+      margin-left: 4px;
+    }
+
+    .header-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--text-secondary);
+      letter-spacing: 0.04em;
+    }
+
+    .header-right {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .status-dot {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-secondary);
+      letter-spacing: 0.04em;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 6px var(--green);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .header-user {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .nav {
+      flex: 1;
+      padding: 16px 0;
+      overflow-y: auto;
+    }
+
+    .nav-section {
+      margin-bottom: 20px;
+    }
+
+    .nav-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      padding: 0 16px;
+      margin-bottom: 4px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: color 0.15s, background 0.15s;
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      user-select: none;
+    }
+
+    .nav-item:hover {
+      color: var(--text);
+      background: var(--surface-raised);
+    }
+
+    .nav-item.active {
+      color: var(--purple-light);
+      border-left-color: var(--purple);
+      background: var(--purple-glow);
+    }
+
+    .nav-item .badge {
+      margin-left: auto;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--purple-light);
+      background: rgba(176, 136, 255, 0.1);
+      padding: 1px 5px;
+      border-radius: 2px;
+    }
+
+    /* Typenschild — signature element */
+    .typenschild {
+      margin: 12px;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--purple-dim);
+    }
+
+    .typenschild-id {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--text-muted);
+      letter-spacing: 0.14em;
+      line-height: 1.8;
+    }
+
+    .typenschild-name {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--purple-light);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+
+    /* MAIN */
+    .main {
+      overflow-y: auto;
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .greeting {
+      font-family: var(--font-display);
+      font-size: 28px;
+      line-height: 1.1;
+      color: var(--text);
+    }
+
+    .greeting em {
+      font-style: italic;
+      color: var(--purple-light);
+    }
+
+    .subgreeting {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    /* STATS ROW */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      border: 1px solid var(--border);
+      background: var(--border);
+    }
+
+    .stat {
+      background: var(--surface);
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .stat-value {
+      font-family: var(--font-display);
+      font-size: 28px;
+      line-height: 1;
+      color: var(--text);
+    }
+
+    .stat-value.accent { color: var(--purple-light); }
+    .stat-value.green { color: var(--green); }
+    .stat-value.amber { color: var(--amber); }
+
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* TWO-COLUMN GRID */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 20px;
+    }
+
+    /* PANELS */
+    .panel {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .panel-title {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+    }
+
+    .panel-action {
+      font-size: 11px;
+      color: var(--purple-light);
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+
+    .panel-action:hover { color: var(--text); }
+
+    .panel-body {
+      flex: 1;
+      padding: 8px 0;
+    }
+
+    /* TASKS */
+    .task {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 16px;
+      border-bottom: 1px solid transparent;
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+
+    .task:hover { background: var(--surface-raised); }
+    .task:last-child { border-bottom: none; }
+
+    .task-check {
+      width: 14px;
+      height: 14px;
+      border: 1px solid var(--border-active);
+      margin-top: 2px;
+      flex-shrink: 0;
+      cursor: pointer;
+      position: relative;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .task-check:hover { border-color: var(--purple); }
+
+    .task-check.checked {
+      background: var(--purple);
+      border-color: var(--purple);
+    }
+
+    .task-check.checked::after {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 1px;
+      width: 6px;
+      height: 4px;
+      border-left: 1.5px solid #fff;
+      border-bottom: 1.5px solid #fff;
+      transform: rotate(-45deg);
+    }
+
+    .task-content { flex: 1; min-width: 0; }
+
+    .task-text {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .task.done .task-text {
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .task-meta {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .task-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      padding: 1px 5px;
+      border: 1px solid var(--border-active);
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    .task-tag.urgent { border-color: var(--amber); color: var(--amber); }
+
+    /* CALENDAR */
+    .cal-entry {
+      display: flex;
+      gap: 12px;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+
+    .cal-entry:last-child { border-bottom: none; }
+
+    .cal-date {
+      text-align: center;
+      flex-shrink: 0;
+      width: 36px;
+    }
+
+    .cal-day {
+      font-family: var(--font-display);
+      font-size: 20px;
+      line-height: 1;
+      color: var(--text);
+    }
+
+    .cal-month {
+      font-family: var(--font-mono);
+      font-size: 8px;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .cal-bar {
+      width: 2px;
+      min-height: 40px;
+      background: var(--border-active);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .cal-bar.purple { background: var(--purple); }
+    .cal-bar.amber { background: var(--amber); }
+
+    .cal-content { flex: 1; }
+
+    .cal-title {
+      font-size: 13px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .cal-sub {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    /* KUNDEN GRID */
+    .kunden-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .kunden-card {
+      background: var(--surface);
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: background 0.1s;
+      text-decoration: none;
+      display: block;
+    }
+
+    .kunden-card:hover { background: var(--surface-raised); }
+
+    .kunden-name {
+      font-size: 13px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .kunden-status {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 4px;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.06em;
+    }
+
+    .dot-sm {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+    }
+
+    .dot-green { background: var(--green); box-shadow: 0 0 4px var(--green); }
+    .dot-amber { background: var(--amber); }
+    .dot-dim   { background: var(--text-muted); }
+
+    .kunden-rev {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--green);
+      margin-top: 6px;
+    }
+
+    /* CHAT */
+    .chat-panel {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .chat-body {
+      flex: 1;
+      padding: 16px;
+      min-height: 140px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow-y: auto;
+    }
+
+    .chat-bubble {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .chat-bubble.assistant .chat-text {
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .chat-bubble.user { align-items: flex-end; }
+
+    .chat-bubble.user .chat-text {
+      background: var(--purple-glow);
+      border: 1px solid rgba(83, 74, 183, 0.25);
+      color: var(--purple-light);
+    }
+
+    .chat-text {
+      padding: 8px 12px;
+      font-size: 12.5px;
+      line-height: 1.5;
+      max-width: 90%;
+    }
+
+    .chat-who {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+
+    .chat-input-row {
+      display: flex;
+      border-top: 1px solid var(--border);
+    }
+
+    .chat-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      padding: 12px 16px;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 13px;
+      outline: none;
+    }
+
+    .chat-input::placeholder { color: var(--text-muted); }
+
+    .chat-send {
+      padding: 0 16px;
+      background: var(--purple);
+      border: none;
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .chat-send:hover { background: var(--purple-dim); }
+
+    /* SECTION LABEL */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* QUICK ACTIONS */
+    .quick-actions {
+      display: flex;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .qbtn {
+      flex: 1;
+      background: var(--surface);
+      border: none;
+      padding: 10px 16px;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.1s, color 0.1s;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+    }
+
+    .qbtn:hover { background: var(--surface-raised); color: var(--purple-light); }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border-active); border-radius: 2px; }
+
+    /* VIEWS */
+    .view { display: none; flex-direction: column; gap: 24px; }
+    .view.active { display: flex; }
+
+    /* FINANZEN TABLE */
+    .fin-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+
+    .fin-table th {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 8px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fin-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text); }
+    .fin-table tr:last-child td { border-bottom: none; }
+    .fin-table tr:hover td { background: var(--surface-raised); }
+
+    .fin-amount { font-family: var(--font-mono); font-size: 12px; }
+    .fin-amount.pos { color: var(--green); }
+    .fin-amount.neg { color: var(--red); }
+
+    /* MAIL */
+    .mail-entry {
+      display: flex;
+      gap: 10px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.1s;
+      align-items: flex-start;
+    }
+
+    .mail-entry:hover { background: var(--surface-raised); }
+    .mail-entry:last-child { border-bottom: none; }
+
+    .mail-unread-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--purple);
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+
+    .mail-unread-dot.read { background: transparent; }
+
+    .mail-from { font-size: 12.5px; font-weight: 500; color: var(--text); }
+    .mail-subject { font-size: 12.5px; color: var(--text-secondary); margin-top: 1px; }
+    .mail-time { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); margin-left: auto; flex-shrink: 0; }
+
+    /* FADE IN */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in { animation: fadeUp 0.35s ease both; }
+    .fade-in:nth-child(2) { animation-delay: 0.07s; }
+    .fade-in:nth-child(3) { animation-delay: 0.14s; }
+    .fade-in:nth-child(4) { animation-delay: 0.21s; }
+    .fade-in:nth-child(5) { animation-delay: 0.28s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in { animation: none; }
+      .dot { animation: none; }
+    }
+
+    /* INFO BAR */
+    .info-bar {
+      padding: 10px 16px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .info-bar a { color: var(--purple-light); text-decoration: none; }
+    .info-bar a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="shell">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 2h5v5H2zM9 2h5v5H9zM2 9h5v5H2zM12 9h2v2h-2zM9 12h2v2H9zM12 12h2v2h-2z"/>
+          </svg>
+        </div>
+        <span class="logo-text">PROZESSIA BRAIN</span>
+      </div>
+      <div class="header-sep"></div>
+      <span class="header-date" id="header-date"></span>
+      <div class="header-right">
+        <div class="status-dot">
+          <span class="dot"></span>
+          <span>Brain aktiv</span>
+        </div>
+        <span class="header-user">Sebastian Spuhler</span>
+      </div>
+    </header>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <nav class="nav">
+        <div class="nav-section">
+          <div class="nav-label">Workspace</div>
+          <a class="nav-item active" onclick="switchView('uebersicht', this)">
+            Übersicht <span class="badge" id="badge-tasks">5</span>
+          </a>
+          <a class="nav-item" onclick="switchView('aufgaben', this)">Aufgaben</a>
+          <a class="nav-item" onclick="switchView('chat', this)">Chat</a>
+        </div>
+        <div class="nav-section">
+          <div class="nav-label">Kunden</div>
+          <a class="nav-item" onclick="switchView('kunden', this)">Alle Kunden</a>
+          <a class="nav-item" onclick="switchView('finanzen', this)">Finanzen</a>
+        </div>
+        <div class="nav-section">
+          <div class="nav-label">Kommunikation</div>
+          <a class="nav-item" onclick="switchView('inbox', this)">
+            Inbox <span class="badge">3</span>
+          </a>
+          <a class="nav-item" onclick="switchView('termine', this)">Termine</a>
+        </div>
+        <div class="nav-section">
+          <div class="nav-label">Extern</div>
+          <a class="nav-item" href="http://localhost:8501" target="_blank">Brain App</a>
+          <a class="nav-item" href="https://crm.prozessia.space" target="_blank">CRM</a>
+        </div>
+      </nav>
+
+      <div class="typenschild">
+        <div class="typenschild-name">S. SPUHLER</div>
+        <div class="typenschild-id">PZA · 2026<br>REV · 01 · SB</div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <!-- ÜBERSICHT -->
+      <div class="view active" id="view-uebersicht">
+
+        <div class="page-header fade-in">
+          <h1 class="greeting" id="greeting-text">Guten Morgen, <em>Sebastian.</em></h1>
+          <p class="subgreeting" id="sub-date"></p>
+        </div>
+
+        <div class="stats-row fade-in">
+          <div class="stat">
+            <div class="stat-value accent" id="stat-tasks">5</div>
+            <div class="stat-label">Offene Aufgaben</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value green">1</div>
+            <div class="stat-label">Aktive Kunden</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value amber">2</div>
+            <div class="stat-label">Termine diese Woche</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">220</div>
+            <div class="stat-label">MRR · Euro / Monat</div>
+          </div>
+        </div>
+
+        <div class="quick-actions fade-in">
+          <a class="qbtn" href="http://localhost:8501" target="_blank">Brain Chat</a>
+          <a class="qbtn" onclick="switchView('inbox', null)">E-Mail</a>
+          <a class="qbtn" onclick="switchView('termine', null)">Kalender</a>
+          <a class="qbtn" href="https://crm.prozessia.space" target="_blank">CRM</a>
+          <a class="qbtn" onclick="newMemo()">Memo</a>
+        </div>
+
+        <div class="grid-2 fade-in">
+
+          <div class="panel">
+            <div class="panel-head">
+              <span class="panel-title">Prioritäten</span>
+              <a class="panel-action" onclick="switchView('aufgaben', null)">Alle</a>
+            </div>
+            <div class="panel-body" id="task-list-overview"></div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <span class="panel-title">Nächste Termine</span>
+              <a class="panel-action" onclick="switchView('termine', null)">Kalender</a>
+            </div>
+            <div class="panel-body">
+              <div class="cal-entry">
+                <div class="cal-date"><div class="cal-day">29</div><div class="cal-month">Jun</div></div>
+                <div class="cal-bar amber"></div>
+                <div class="cal-content">
+                  <div class="cal-title">Folgetermin Mundinger</div>
+                  <div class="cal-sub">10:30 · KI-Schulung</div>
+                </div>
+              </div>
+              <div class="cal-entry">
+                <div class="cal-date"><div class="cal-day">05</div><div class="cal-month">Jul</div></div>
+                <div class="cal-bar purple"></div>
+                <div class="cal-content">
+                  <div class="cal-title">Webinar · Deadline</div>
+                  <div class="cal-sub">EU AI Act Kompetenz</div>
+                </div>
+              </div>
+              <div class="cal-entry">
+                <div class="cal-date"><div class="cal-day">—</div><div class="cal-month">TBD</div></div>
+                <div class="cal-bar"></div>
+                <div class="cal-content">
+                  <div class="cal-title">Instillo / nanoSaar</div>
+                  <div class="cal-sub">Vor-Ort · noch offen</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px" class="fade-in">
+          <div class="section-label">Kunden</div>
+          <div class="panel">
+            <div class="kunden-grid">
+              <div class="kunden-card" onclick="switchView('kunden', null)">
+                <div class="kunden-name">Schaufler Tooling GmbH</div>
+                <div class="kunden-status">
+                  <span class="dot-sm dot-green"></span>
+                  <span style="color:var(--green)">Aktiv · Live</span>
+                </div>
+                <div class="kunden-rev">220 €/Mon</div>
+              </div>
+              <div class="kunden-card">
+                <div class="kunden-name">Mundinger GmbH</div>
+                <div class="kunden-status">
+                  <span class="dot-sm dot-amber"></span>
+                  <span style="color:var(--amber)">Lead · 29.06 Termin</span>
+                </div>
+              </div>
+              <div class="kunden-card">
+                <div class="kunden-name">Jochem / nanoSaar</div>
+                <div class="kunden-status">
+                  <span class="dot-sm dot-dim"></span>
+                  <span>Lead · Vor-Ort offen</span>
+                </div>
+              </div>
+              <div class="kunden-card">
+                <div class="kunden-name">Voigt Salus</div>
+                <div class="kunden-status">
+                  <span class="dot-sm dot-dim"></span>
+                  <span>Lead · Angebot gestellt</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- AUFGABEN -->
+      <div class="view" id="view-aufgaben">
+        <div class="page-header">
+          <h1 class="greeting">Aufgaben</h1>
+          <p class="subgreeting">Alle offenen Prioritäten · Prozessia GbR</p>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span class="panel-title">Offen</span></div>
+          <div class="panel-body" id="task-list-full"></div>
+        </div>
+      </div>
+
+      <!-- CHAT -->
+      <div class="view" id="view-chat">
+        <div class="page-header">
+          <h1 class="greeting">Brain Chat</h1>
+          <p class="subgreeting">Lokale Vorschau · Vollversion unter localhost:8501</p>
+        </div>
+        <div class="chat-panel">
+          <div class="panel-head">
+            <span class="panel-title">Assistent</span>
+            <a class="panel-action" href="http://localhost:8501" target="_blank">Brain App</a>
+          </div>
+          <div class="chat-body" id="chat-body">
+            <div class="chat-bubble assistant">
+              <span class="chat-who">BRAIN</span>
+              <div class="chat-text">Hallo Sebastian. Wie kann ich helfen? Kunden, Dokumente, Aufgaben oder E-Mails — frag einfach.</div>
+            </div>
+          </div>
+          <div class="chat-input-row">
+            <input class="chat-input" id="chat-input" type="text" placeholder="Frag das Brain..." onkeydown="if(event.key==='Enter') sendChat()">
+            <button class="chat-send" onclick="sendChat()">Senden</button>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span class="panel-title">Schnellzugriff</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)">
+            <button class="qbtn" style="text-align:left;font-size:11px;padding:12px 16px" onclick="fillChat('Zeig mir alle Infos zu Schaufler Tooling')">Alles zu Schaufler</button>
+            <button class="qbtn" style="text-align:left;font-size:11px;padding:12px 16px" onclick="fillChat('Was sind meine offenen Aufgaben?')">Offene Aufgaben</button>
+            <button class="qbtn" style="text-align:left;font-size:11px;padding:12px 16px" onclick="fillChat('Fasse den letzten Kundentermin zusammen')">Letzter Termin</button>
+            <button class="qbtn" style="text-align:left;font-size:11px;padding:12px 16px" onclick="fillChat('Erstelle ein Memo zu ')">Neues Memo</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- KUNDEN -->
+      <div class="view" id="view-kunden">
+        <div class="page-header">
+          <h1 class="greeting">Kunden</h1>
+          <p class="subgreeting">Aktive Kunden und Leads</p>
+        </div>
+
+        <div class="section-label">Aktiv</div>
+        <div class="panel">
+          <div class="panel-head">
+            <span class="panel-title">Schaufler Tooling GmbH &amp; Co. KG</span>
+            <span style="font-family:var(--font-mono);font-size:10px;color:var(--green)">LIVE · 220€/Mon</span>
+          </div>
+          <div class="panel-body">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)">
+              <div style="background:var(--surface);padding:14px 16px">
+                <div style="font-family:var(--font-mono);font-size:9px;color:var(--text-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Produkt</div>
+                <div style="font-size:13px;color:var(--text)">Beschaffungsagent</div>
+                <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-secondary);margin-top:4px">Proleis + ELO-Anbindung</div>
+              </div>
+              <div style="background:var(--surface);padding:14px 16px">
+                <div style="font-family:var(--font-mono);font-size:9px;color:var(--text-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Revenue</div>
+                <div style="font-size:13px;color:var(--green);font-family:var(--font-mono)">220 €/Monat</div>
+                <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-secondary);margin-top:4px">Hosting Basis + 1 Agent</div>
+              </div>
+              <div style="background:var(--surface);padding:14px 16px">
+                <div style="font-family:var(--font-mono);font-size:9px;color:var(--text-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Offen</div>
+                <div style="font-size:13px;color:var(--amber)">Lexoffice-Angebot</div>
+                <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-secondary);margin-top:4px">Angebot fertigstellen</div>
+              </div>
+              <div style="background:var(--surface);padding:14px 16px">
+                <div style="font-family:var(--font-mono);font-size:9px;color:var(--text-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Infrastruktur</div>
+                <div style="font-size:13px;color:var(--text)">Hetzner CCX23</div>
+                <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-secondary);margin-top:4px">Azure OpenAI EU DataZone</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-label">Leads</div>
+        <div class="panel">
+          <div class="panel-body">
+            <div class="cal-entry">
+              <div class="cal-date"><div class="cal-day">29</div><div class="cal-month">Jun</div></div>
+              <div class="cal-bar amber"></div>
+              <div class="cal-content">
+                <div class="cal-title">Mundinger GmbH</div>
+                <div class="cal-sub">Folgetermin 29.6. · 10:30 Uhr · KI-Schulung EU AI Act</div>
+              </div>
+            </div>
+            <div class="cal-entry">
+              <div class="cal-date"><div class="cal-day">—</div><div class="cal-month">TBD</div></div>
+              <div class="cal-bar"></div>
+              <div class="cal-content">
+                <div class="cal-title">Jochem / nanoSaar (Instillo)</div>
+                <div class="cal-sub">Vor-Ort-Termin noch zu vereinbaren</div>
+              </div>
+            </div>
+            <div class="cal-entry">
+              <div class="cal-date"><div class="cal-day">—</div><div class="cal-month">TBD</div></div>
+              <div class="cal-bar"></div>
+              <div class="cal-content">
+                <div class="cal-title">Voigt Salus</div>
+                <div class="cal-sub">Angebot KI-Assistent gestellt · Testzeitraum</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FINANZEN -->
+      <div class="view" id="view-finanzen">
+        <div class="page-header">
+          <h1 class="greeting">Finanzen</h1>
+          <p class="subgreeting">MRR, Angebote, Preismodell · Prozessia GbR</p>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat">
+            <div class="stat-value green">220</div>
+            <div class="stat-label">MRR · Euro</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value accent">3</div>
+            <div class="stat-label">Offene Angebote</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">12K</div>
+            <div class="stat-label">Pilot Festpreis ab</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">1</div>
+            <div class="stat-label">Aktiver Agent</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><span class="panel-title">Preismodell</span></div>
+          <div class="panel-body">
+            <table class="fin-table">
+              <thead>
+                <tr><th>Position</th><th>Betrag</th><th>Typ</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Pilotprojekt</td>
+                  <td class="fin-amount pos">ab 12.000 €</td>
+                  <td style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted)">Festpreis netto</td>
+                </tr>
+                <tr>
+                  <td>Hosting Basis</td>
+                  <td class="fin-amount pos">100 €/Mon</td>
+                  <td style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted)">Recurring</td>
+                </tr>
+                <tr>
+                  <td>Agent 1</td>
+                  <td class="fin-amount pos">120 €/Mon</td>
+                  <td style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted)">Recurring</td>
+                </tr>
+                <tr>
+                  <td>Agent 2</td>
+                  <td class="fin-amount pos">110 €/Mon</td>
+                  <td style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted)">Recurring</td>
+                </tr>
+                <tr>
+                  <td>Gegina Provision</td>
+                  <td class="fin-amount neg">30 / 10 / 5%</td>
+                  <td style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted)">+ 35€/qualif. Termin</td>
+                </tr>
+                <tr>
+                  <td>Segschneider Provision</td>
+                  <td class="fin-amount neg">20% einmalig</td>
+                  <td style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted)">+ 35€/qualif. Termin</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- INBOX -->
+      <div class="view" id="view-inbox">
+        <div class="page-header">
+          <h1 class="greeting">Inbox</h1>
+          <p class="subgreeting">sebastian.spuhler@prozessia.de</p>
+        </div>
+        <div class="panel">
+          <div class="panel-head">
+            <span class="panel-title">Eingang</span>
+            <a class="panel-action" href="http://localhost:8501" target="_blank">Live in Brain App</a>
+          </div>
+          <div class="panel-body">
+            <div class="mail-entry">
+              <div class="mail-unread-dot"></div>
+              <div style="flex:1">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div class="mail-from">Schaufler, M.</div>
+                  <div class="mail-time">gestern</div>
+                </div>
+                <div class="mail-subject">Re: Lexoffice-Anbindung — Rückfrage Freigabeprozess</div>
+              </div>
+            </div>
+            <div class="mail-entry">
+              <div class="mail-unread-dot"></div>
+              <div style="flex:1">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div class="mail-from">Mundinger, K.</div>
+                  <div class="mail-time">Di 10:15</div>
+                </div>
+                <div class="mail-subject">Termin 29. Juni — bitte Agenda zusenden</div>
+              </div>
+            </div>
+            <div class="mail-entry">
+              <div class="mail-unread-dot"></div>
+              <div style="flex:1">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div class="mail-from">Apify Billing</div>
+                  <div class="mail-time">Mo</div>
+                </div>
+                <div class="mail-subject">Invoice #202510060569 — $49.00 USD</div>
+              </div>
+            </div>
+            <div class="mail-entry">
+              <div class="mail-unread-dot read"></div>
+              <div style="flex:1">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div class="mail-from" style="font-weight:400">Amin</div>
+                  <div class="mail-time">Fr</div>
+                </div>
+                <div class="mail-subject">LinkedIn Insight Tag — warte noch auf Zugang</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="info-bar">
+          Gmail via MCP verbunden · <a href="http://localhost:8501" target="_blank">Brain App für Live-Daten öffnen</a>
+        </div>
+      </div>
+
+      <!-- TERMINE -->
+      <div class="view" id="view-termine">
+        <div class="page-header">
+          <h1 class="greeting">Termine</h1>
+          <p class="subgreeting">Kalender · Juni / Juli 2026</p>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span class="panel-title">Kommend</span></div>
+          <div class="panel-body">
+            <div class="cal-entry">
+              <div class="cal-date"><div class="cal-day">29</div><div class="cal-month">Jun</div></div>
+              <div class="cal-bar amber"></div>
+              <div class="cal-content">
+                <div class="cal-title">Folgetermin Mundinger</div>
+                <div class="cal-sub">10:30 Uhr · KI-Schulung EU AI Act · Art. 4 Kompetenznachweis</div>
+              </div>
+            </div>
+            <div class="cal-entry">
+              <div class="cal-date"><div class="cal-day">05</div><div class="cal-month">Jul</div></div>
+              <div class="cal-bar purple"></div>
+              <div class="cal-content">
+                <div class="cal-title">Webinar · Deadline Vorbereitung</div>
+                <div class="cal-sub">EU AI Act Kompetenz · alle Unterlagen fertigstellen</div>
+              </div>
+            </div>
+            <div class="cal-entry">
+              <div class="cal-date"><div class="cal-day">—</div><div class="cal-month">TBD</div></div>
+              <div class="cal-bar"></div>
+              <div class="cal-content">
+                <div class="cal-title">Instillo / nanoSaar · Vor-Ort</div>
+                <div class="cal-sub">Termin noch offen · bitte vereinbaren</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="info-bar">
+          Outlook Kalender via MS Graph konfiguriert · nach Claude-Neustart verfügbar
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    // DATE & GREETING
+    const DAYS   = ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
+    const MONTHS = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+    const now    = new Date();
+    const dateStr = `${DAYS[now.getDay()]}, ${now.getDate()}. ${MONTHS[now.getMonth()]} ${now.getFullYear()}`;
+
+    document.getElementById('header-date').textContent = dateStr;
+    document.getElementById('sub-date').textContent = dateStr + ' · Prozessia GbR, Saarbrücken';
+
+    const h = now.getHours();
+    const greet = h < 12 ? 'Guten Morgen' : h < 18 ? 'Guten Tag' : 'Guten Abend';
+    document.getElementById('greeting-text').innerHTML = `${greet}, <em>Sebastian.</em>`;
+
+    // TASKS
+    const TASKS = [
+      { text: 'Webinar 5. Juli 2026 vorbereiten',            tag: 'Deadline 05.07', urgent: true  },
+      { text: 'Folgetermin Mundinger 29.6. · 10:30 bestätigen', tag: '29.06',       urgent: true  },
+      { text: 'Schaufler Lexoffice-Angebot fertigstellen',   tag: 'Schaufler',     urgent: false },
+      { text: 'Instillo / nanoSaar Vor-Ort-Termin vereinbaren', tag: 'Lead',        urgent: false },
+      { text: 'LinkedIn Insight Tag installieren',           tag: 'Amin',          urgent: false },
+    ];
+
+    const taskState = TASKS.map(() => false);
+
+    function renderTasks(id, limit) {
+      const el   = document.getElementById(id);
+      const list = limit ? TASKS.slice(0, limit) : TASKS;
+      el.innerHTML = list.map((t, i) => `
+        <div class="task${taskState[i] ? ' done' : ''}">
+          <div class="task-check${taskState[i] ? ' checked' : ''}" onclick="toggleTask(${i})"></div>
+          <div class="task-content">
+            <div class="task-text">${t.text}</div>
+            <span class="task-tag${t.urgent ? ' urgent' : ''}">${t.tag}</span>
+          </div>
+        </div>`).join('');
+    }
+
+    function toggleTask(i) {
+      taskState[i] = !taskState[i];
+      const open = taskState.filter(s => !s).length;
+      document.getElementById('stat-tasks').textContent = open;
+      document.getElementById('badge-tasks').textContent = open;
+      renderTasks('task-list-overview', 5);
+      renderTasks('task-list-full');
+    }
+
+    renderTasks('task-list-overview', 5);
+    renderTasks('task-list-full');
+
+    // NAV
+    function switchView(viewId, el) {
+      document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      document.getElementById('view-' + viewId).classList.add('active');
+      if (el) el.classList.add('active');
+    }
+
+    // CHAT
+    const REPLIES = {
+      schaufler:  'Schaufler Tooling GmbH ist dein aktiver Kunde. Beschaffungsagent live. Offenes Thema: Lexoffice-Angebot. MRR: 220€/Monat.',
+      aufgaben:   () => `${taskState.filter(s => !s).length} offene Aufgaben:\n• ${TASKS.filter((_,i) => !taskState[i]).map(t => t.text).join('\n• ')}`,
+      mundinger:  'Mundinger GmbH: Lead, Folgetermin 29. Juni 10:30 Uhr. Thema: KI-Schulung EU AI Act Art. 4.',
+      nanosaar:   'Instillo / nanoSaar: Vor-Ort-Termin noch offen. Lead-Status.',
+      voigt:      'Voigt Salus: Angebot für KI-Assistent (Testzeitraum) wurde gestellt. Follow-up ausstehend.',
+      webinar:    'Webinar am 5. Juli 2026. Deadline für Vorbereitung: EU AI Act Kompetenznachweis.',
+      memo:       'Neues Memo — sag mir einen Titel, ich erstelle es als Memos/DATUM-Titel.md.',
+    };
+
+    function sendChat() {
+      const input = document.getElementById('chat-input');
+      const text  = input.value.trim();
+      if (!text) return;
+
+      const body = document.getElementById('chat-body');
+
+      const userDiv = document.createElement('div');
+      userDiv.className = 'chat-bubble user';
+      userDiv.innerHTML = `<span class="chat-who">SEBASTIAN</span><div class="chat-text">${text}</div>`;
+      body.appendChild(userDiv);
+      input.value = '';
+
+      const lower = text.toLowerCase();
+      let reply = 'Für Dokumentsuche und E-Mail bitte die <a href="http://localhost:8501" target="_blank" style="color:var(--purple-light)">Brain App</a> öffnen.';
+      for (const [key, val] of Object.entries(REPLIES)) {
+        if (lower.includes(key)) {
+          reply = typeof val === 'function' ? val() : val;
+          break;
+        }
+      }
+
+      setTimeout(() => {
+        const aiDiv = document.createElement('div');
+        aiDiv.className = 'chat-bubble assistant';
+        aiDiv.innerHTML = `<span class="chat-who">BRAIN</span><div class="chat-text">${reply.replace(/\n/g,'<br>')}</div>`;
+        body.appendChild(aiDiv);
+        body.scrollTop = body.scrollHeight;
+      }, 280);
+
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function fillChat(text) {
+      switchView('chat', null);
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      document.getElementById('chat-input').value = text;
+      document.getElementById('chat-input').focus();
+    }
+
+    function newMemo() {
+      const title = prompt('Memo-Titel:');
+      if (title) {
+        const d = new Date().toISOString().slice(0,10);
+        fillChat(`Erstelle ein Memo: Memos/${d}-${title}.md`);
+      }
+    }
+  </script>
+</body>
+</html>

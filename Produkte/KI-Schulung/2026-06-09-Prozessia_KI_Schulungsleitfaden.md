@@ -1,0 +1,18 @@
+---
+tags:
+  - KI-Schulung
+  - Industrie-Maschinenbau
+  - Workshop-Konzept
+  - Marktanalyse
+  - EU-AI-Act
+quelle: Prozessia_KI_Schulungsleitfaden.pdf
+datum: 2026-06-09
+kategorie: Produkt
+---
+
+# Prozessia_KI_Schulungsleitfaden
+
+Vollständiger interner Leitfaden für das Prozessia KI-Schulungsprogramm mit Fokus auf Industrie und Maschinenbau (Version 1.0, April 2026). Das Dokument umfasst Marktanalyse, Wettbewerbsrecherche, Positionierungsempfehlungen sowie Konzepte für Förderung, Marketing und LinkedIn-Akquise. Es beschreibt den Workshop als strategischen Vertriebskanal für Folgeprojekte wie Beschaffungsagent und Stücklistenagent.
+
+## Vollständiger Inhalt
+PROZESSIA  KI-Schulungsprogramm Industrie & Maschinenbau  Vollständiger Leitfaden: Konzept · Förderung · Marketing · LinkedIn-Akquise  Version 1.0  ·  April 2026  ·  Vertraulich – nur für internen Gebrauch    1. Marktanalyse: Was erfolgreiche Anbieter richtig machen  1.1 Aktuelle Marktsituation Der Markt für KI-Schulungen im deutschen Mittelstand befindet sich in einer frühen Wachstumsphase mit erheblichem Nachfrageüberhang. Die Zahlen sprechen für sich:  Marktdaten KI-Schulungen Deutschland 2025/2026 79 % der Mittelständler fehlt ein KI-Governance-Framework (KI-Studie Maximal Digital 2025) Nur 21 % haben strukturierte KI-Trainings etabliert – 79 % sind Zielgruppe EU AI Act (Art. 4): Seit Februar 2025 verpflichtend – Unternehmen MÜSSEN KI-Kompetenz nachweisen Stärkstes Wachstumssegment: KI in Produktion, Beschaffung und Büroautomatisierung Größte Hemmnisse: fehlendes Know-how, Datenschutzbedenken, unklar was konkret möglich ist  Das bedeutet: Fast jedes Industrieunternehmen hat Bedarf, aber kein passendes Angebot. Generische IT-Schulungsanbieter liefern Theorie ohne Industriebezug. Prozessia kann die Lücke schließen. 1.2 Was erfolgreiche Anbieter richtig machen Recherche über marktführende KI-Workshop-Anbieter wie pmagentur.com, audius, Ventum Consulting, Datasolut, Fraunhofer IAIS und Construktiv zeigt klare Erfolgsmuster:  a) Preis als Qualitätssignal, nicht als Hürde Erfolgreiche Anbieter verlangen 1.490 bis 5.000 € pro Workshop und positionieren das als Investition, nicht als Ausgabe. pmagentur.com (Hamburg/Berlin) verlangt 5.000 € – und rechnet 50 % der Workshop-Kosten auf ein Folgeprojekt an. Das ist der entscheidende Hebel: Der Workshop kostet de facto nichts, wenn Umsetzung folgt. Empfehlung für Prozessia: 1.500 € mit 100 %-Anrechnung auf Folgeprojekt. b) Live-Demo statt Folien Alle erfolgreichen Anbieter unterscheiden sich durch Live-Demonstrationen echter Systeme. Fraunhofer IAIS zeigt laufende ML-Systeme. Datasolut präsentiert echte Kundenprojekte. Ventum Consulting arbeitet mit Real-Use-Cases der Teilnehmer. Generische ChatGPT-Demos wirken amateurhaft – Prozessia muss den Beschaffungsagenten und Stücklistenagenten live zeigen. c) Branchenspezifität als Alleinstellungsmerkmal Anbieter die sich auf eine Branche fokussieren erzielen deutlich höhere Abschlussquoten als Generalisten. Im Maschinenbau und Industriebereich gibt es kaum spezialisierte Anbieter. Das ist Prozessias wichtigstes Differenzierungsmerkmal: Ihr redet nicht über KI im Allgemeinen, sondern über Stücklisten, Beschaffungsagenten, Predictive Maintenance und Produktionsprozesse. d) Der Workshop als Vertriebskanal Das entscheidende Muster bei allen erfolgreichen Anbietern: Der Workshop selbst ist kein Kerngeschäft, sondern ein bezahlter Verkaufsprozess. Ventum Consulting, pmagentur.com und audius berichten alle, dass 60-80 % der Workshop-Kunden Folgeprojekte buchen. Der Workshop  schafft Vertrauen, Einblick in die Prozesse des Kunden und eine natürliche Gesprächsbasis für Um

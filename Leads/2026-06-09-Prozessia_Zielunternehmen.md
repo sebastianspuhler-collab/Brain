@@ -1,0 +1,18 @@
+---
+tags:
+  - Zielunternehmen
+  - Akquise
+  - Werkzeugbau
+  - Stanztechnik
+  - Automotive
+quelle: Prozessia_Zielunternehmen.xlsx
+datum: 2026-06-09
+kategorie: Lead
+---
+
+# Prozessia_Zielunternehmen
+
+Die Datei enthält eine strukturierte Liste potenzieller Zielunternehmen für Prozessia GbR, unterteilt in Kategorien wie Werkzeugbau/Formenbau und Stanztechnik/Umformtechnik. Für jedes Unternehmen sind Kontaktdaten, Branche, Mitarbeiterzahl, Umsatz und besondere Hinweise aufgeführt. Die Liste dient offensichtlich als Grundlage für die Vertriebsansprache im Bereich Beschaffungs- und KI-Lösungen.
+
+## Vollständiger Inhalt
+# Kategorie Unternehmensname Straße PLZ Stadt Bundesland Branche Größe (MA) Webseite Umsatz (ca.) Notiz / Besonderheit KATEGORIE A – WERKZEUGBAU / FORMENBAU 1 Werkzeugbau / Formenbau Schaufler Tooling GmbH & Co. KG Goethestr. 72 89150 Laichingen BW Druckgussformen / Automotive ~200 MA www.schaufler.de ~26 Mio. € (Bilanzsumme 2021) Referenzunternehmen 2 Werkzeugbau / Formenbau POLAR-FORM Werkzeugbau GmbH Langestr. 6 77933 Lahr/Schwarzwald BW Spritzgießwerkzeuge / Automotive ~80-120 MA www.polar-form.de k.A. Inhabergeführt, GF Dieter Göppert 3 Werkzeugbau / Formenbau Siebenwurst Werkzeugbau GmbH Herschelstr. 4 08060 Zwickau Sachsen Stanz-/Umformwerkzeuge / Automotive ~190 MA www.siebenwurst-wzb.de 10-50 Mio. € Familienunternehmen 4 Werkzeugbau / Formenbau M+W Maschinen- und Werkzeugbau GmbH Luisenglück 44 44225 Dortmund NRW Maschinenbau / Werkzeugbau 110 MA www.muw-do.de 10-50 Mio. € Inhabergeführt seit 2011 5 Werkzeugbau / Formenbau WEFOMA Werkzeug- und Formenbau GmbH k.A. k.A. Deutschland k.A. Formenbau / Automotive k.A. k.A. k.A. Schaufler-ähnliches Profil 6 Werkzeugbau / Formenbau Krämer + Grebe GmbH & Co. KG Siegener Str. 100 35216 Biedenkopf Hessen Werkzeugbau / Formenbau k.A. www.kraemer-grebe.de k.A. Schaufler-Netzwerk 7 Werkzeugbau / Formenbau Heck & Becker GmbH & Co. KG k.A. k.A. Deutschland k.A. Werkzeugbau / Formenbau k.A. k.A. k.A. Schaufler-ähnliches Profil 9 Werkzeugbau / Formenbau REINER Unternehmensgruppe Wiesentalstr. 93 78120 Furtwangen BW Werkzeugbau / Druckguss / Spritzguss 100-199 MA www.reiner.de k.A. Seit 1913 10 Werkzeugbau / Formenbau Klaus Baier GmbH & Co. KG Tiefenbacher Str. 26 87459 Pfronten Bayern Werkzeugbau / Stanztechnik k.A. www.baier-tooling.de k.A. Hochpräzise Werkzeuge KATEGORIE B – STANZTECHNIK / UMFORMTECHNIK 11 Stanztechnik / Umformtechnik Kölle GmbH Werkzeugbau und Stanzerei Erich-Blum-Str. 30 71665 Vaihingen/Enz BW Stanzteile / Automotive / Luftfahrt 110 MA www.koelle-gmbh.de ~20 Mio. € 3. Generation, seit 1933 12 Stanztechnik / Umformtechnik Sixt GmbH Stanz- & Umformtechnik Rudolf-Diesel-Str. 1 71106 Magstadt BW Stanz-/Tiefziehteile / Automotive k.A. www.sixt-gmbh.de k.A. Seit 65+ Jahren, IATF 16949 13 Stanztechnik / Umformtechnik Römer Stanz- und Umformtechnik GmbH k.A. 58840 Plettenberg NRW Stanzteile / Automotive / Maschinenbau k.A. www.roemer-gmbh.com k.A. Familienunternehmen 14 Stanztechnik / Umformtechnik SCHROEDER + BAUER Werkzeugbau Stanztechnik k.A. 75245 Neulingen BW Werkzeugbau / Stanztechnik / Automotive k.A. k.A. k.A. 50+ Jahre Familienunternehmen 15 Stanztechnik / Umformtechnik AS Metal GmbH k.A. k.A. Deutschland k.A. Stanztechnik / Umformtechnik / Automotive k.A. www.asmetal.de k.A. Eigener Werkzeugbau 16 Stanztechnik / Umformtechnik Martin Gruppe k.A. k.A. Deutschland k.A. Stanzen / Biegen / Tiefziehen / Automotive k.A. www.martin-metall.de k.A. Serienproduktion 17 Stanztechnik / Umformtechnik Uebele GmbH Stanztechnik k.A. k.A. Baden-Württemberg BW Feinstanzen / Stanzteile / Automotive k.A

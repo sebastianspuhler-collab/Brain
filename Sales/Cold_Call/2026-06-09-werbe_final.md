@@ -1,0 +1,18 @@
+---
+tags:
+  - Cold-Outreach
+  - Kaltakquise
+  - KI-Agent
+  - Marketing-Branche
+  - Lead-Generierung
+quelle: werbe_final.xlsx
+datum: 2026-06-09
+kategorie: Sales
+---
+
+# werbe_final
+
+Die Datei enthält personalisierte Kaltakquise-Nachrichten für mehrere Kontakte aus der Marketing- & Advertising-Branche, darunter Marko Tadic (Mr.M), Astrid Saminejad (Lovemark PR), Holger Hammes (Bliggit) und Oliver Ratzke (adEvents). Jede Nachricht adressiert spezifische Schmerzpunkte wie Reporting, Koordination und Status-Updates und positioniert einen KI-Agenten als Lösung. Es handelt sich um vorbereitete Cold-Outreach-Templates für potenzielle Neukunden.
+
+## Vollständiger Inhalt
+                                                                                                                                                                                             tadic.marko@mrm-style.com marketing & advertising https://www.mrm-style.com Mr.M by Marko Tadic Marko Tadic http://www.linkedin.com/in/markotadicbloger Ergebnisse zu liefern heißt für euch mehr als nur schöne Kampagnen zu schaffen – ihr liefert Klarheit und Performance. Das klappt dank enger Abstimmungen, schneller Reaktionen und permanentem Steuern. Das kostet viel Energie und Koordination. Ein KI-Agent könnte euch bei Reporting und Status-Updates entlasten. Sehr geehrter Herr Tadic, Wenn Sie möchten, erkläre ich Ihnen in einem kurzen Gespräch, wie das für Mr.M by Marko Tadic aussehen kann: astrid@lovemark-pr.com marketing & advertising https://www.lovemark-pr.com Lovemark Public Relations GmbH Astrid Saminejad http://www.linkedin.com/in/astrid-saminejad-5aa907149 Lovemark Public Relations schafft emotionale und leidenschaftliche Markenkommunikation, die internationale Premiummarken in Mode, Schmuck und Lifestyle begeistert. Eure Arbeit mit langfristigen und projektbasierten Kampagnen erfordert viel Fokus und Koordination. Ein KI-Agent könnte Reporting und Status-Updates übernehmen, damit ihr euch auf die Qualität konzentrieren könnt. Sehr geehrte Frau Saminejad, Wenn Sie möchten, erkläre ich Ihnen in einem kurzen Gespräch, wie das für die Lovemark Public Relations GmbH aussehen kann: holger.hammes@bliggit.de marketing & advertising https://www.bliggit.de Bliggit Wuppertal Holger Hammes http://www.linkedin.com/in/holger-hammes-94ab9b1a9 Bliggit hilft Nutzern, ihre Stadt mit cleveren Tipps und wichtigen Infos neu zu erleben. Die enge Zusammenarbeit mit lokalen Partnern zeigt echten Anspruch an Nutzen und Relevanz. Das verlangt viel Koordination und ständige Updates. Ein KI-Agent könnte hier Routineaufgaben übernehmen und Ihnen mehr Raum für Ihre Hands-on-Betreuung lassen. Sehr geehrter Herr Hammes, Wenn Sie möchten, erkläre ich Ihnen in einem kurzen Gespräch, wie das für Bliggit Wuppertal aussehen kann: oliver@adevents.de marketing & advertising https://www.adevents.de adEvents cross media AG Oliver Ratzke http://www.linkedin.com/in/oliver-ratzke-09156a151 adEvents fokussiert sich auf digitale Fachkommunikation und hybride Events, speziell für Energie- und Automobilbranchen, das schätze ich sehr. Solche Projekte erfordern viel Abstimmung, Koordination und ständige Status-Updates, was enormen Aufwand bedeutet. Genau hier könnte ein KI-Agent als digitaler Klon entlasten, ohne die Qualität zu schmältern. Sehr geehrter Herr Ratzke, Wenn Sie möchten, erkläre ich Ihnen in einem kurzen Gespräch, wie das für die adEvents cross media AG aussehen kann: holger.hammes@bliggit.de marketing & advertising https://www.bliggit.de Bliggit Wuppertal Holger Hammes http://www.linkedin.com/in/holger-hammes-94ab9b1a9 Bliggit erleichtert mit der App Freizeit- und Alltagsplanung in der

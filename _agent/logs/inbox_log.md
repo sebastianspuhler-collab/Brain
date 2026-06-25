@@ -1,0 +1,743 @@
+- 2026-06-09 09:32 | test_rechnung.txt → Finanzen/Rechnungen | Rechnung der Firma Hetzner über 38,07 Euro für den Monat Juni 2026. Vermutlich h
+- 2026-06-09 10:18 | leadingmedicine_video.mp4 → Memos/Medien | Videodatei mit Bezug zu 'Leading Medicine', vermutlich ein Referenz-, Präsentati
+- 2026-06-09 10:18 | Rechnung Vapi Martin Veser.pdf → Finanzen/Rechnungen | Ausgangsrechnung der Prozessia GbR an die Martin Veser Unternehmergesellschaft (
+- 2026-06-09 10:18 | Finanzamt Bescheid.pdf → Finanzen/Rechnungen | Bescheid des Finanzamts, gerichtet an Prozessia GbR. Das Dokument enthält eine o
+- 2026-06-09 10:18 | Konzept Voice Agent REIFFEN.docx → Kunden/[NeuerKunde] | Das Dokument beschreibt ein detailliertes Konzept für einen Voice Agent für den 
+- 2026-06-09 10:18 | Der-digitale-Kanzlei-Assistent (1).pptx → Sales/Praesentationen | Verkaufspräsentation für einen 'Digitalen Kanzlei-Assistenten' – einen maßgeschn
+- 2026-06-09 10:18 | Invoice-BCE54405-0019 (1).pdf → Finanzen/Rechnungen | Rechnung von Instantly (instantly.ai) an Sebastian Spuhler / Prozessia GbR über 
+- 2026-06-09 10:18 | Dienstleistungsvertrag Cocomin.docx → Vertraege | Agenturdienstleistungsvertrag zwischen WebWokr (Sebastian Spuhler / Mohamed Amin
+- 2026-06-09 10:18 | Cocomin-KI-Agent .pptx → Sales/Praesentationen | Verkaufspräsentation für einen KI-Agenten, der unter dem Markennamen 'Cocomin' v
+- 2026-06-09 10:18 | Remove Now-.textClipping → Memos | Eine .textClipping-Datei mit unbekanntem oder leerem Inhalt, die vermutlich ein 
+- 2026-06-09 10:18 | Coaching.xlsx → Leads | Die Datei enthält eine Liste von Kontakten aus der Branche 'Professional Trainin
+- 2026-06-09 10:18 | Kopie von Dienstleistungsvertrag (2).pdf → Vertraege | Agenturdienstleistungsvertrag zwischen WebWokr (Sebastian Spuhler / Mohamed Amin
+- 2026-06-09 10:18 | Titelbild WebWokr_v2.png → Marketing/Branding | Bilddatei mit dem Titel 'WebWork_v2', vermutlich ein Titelbild oder Banner für e
+- 2026-06-09 10:19 | Recruiing_final.csv → Leads | CSV-Datei mit 5 personalisierten Kaltakquise-Kontakten aus der Recruiting- und H
+- 2026-06-09 10:19 | Navigation in Twilio zum bestehenden SIP Trunk.docx → Memos | Das Dokument beschreibt die Navigation und Konfiguration eines bestehenden SIP T
+- 2026-06-09 10:19 | Angebot_Schaufler_Retainer.pdf → Finanzen/Angebote | Angebot AG0021 der Prozessia GbR an SCHAUFLER Tooling GmbH & Co. KG vom 09.02.20
+- 2026-06-09 10:19 | Immobilien_final.csv → Leads | Eine CSV-Datei mit vorbereiteten Cold-Outreach-Kontakten aus der Immobilienbranc
+- 2026-06-09 10:19 | info@webwokr.de (5).png → Memos/Medien | Bilddatei ohne extrahierbaren Text, eingegangen über die E-Mail-Adresse info@web
+- 2026-06-09 10:19 | 20260105_NDA-Prozessia (2).pdf → Vertraege | Gegenseitige Vertraulichkeitsvereinbarung (NDA) zwischen digitalisierungs.net – 
+- 2026-06-09 10:19 | DVGI_Video.mp3.html → Memos/Medien | Eine gespeicherte HTML-Datei einer WhatsApp-Webseite, vermutlich ein exportierte
+- 2026-06-09 10:19 | 2025-10_26_Beschaffungs_Agent.pdf → Produkte/Beschaffungsagent | Das Dokument präsentiert das Konzept eines KI-basierten Beschaffungsagenten, der
+- 2026-06-09 10:19 | Präsentationen.zip → Sales/Praesentationen | ZIP-Archiv mit mehreren Präsentationen, vermutlich Vertriebspräsentationen für K
+- 2026-06-09 10:19 | Finom_payment_13112025 (1).pdf → Finanzen/Rechnungen | Zahlungsbeleg über eine Ausgabe von 450,00 EUR, abgewickelt über Finom am 13.11.
+- 2026-06-09 10:19 | WhatsApp Video 2025-09-09 at 18.07.03.mp4 → Memos/Medien | WhatsApp-Videodatei vom 09.09.2025, aufgezeichnet um 18:07 Uhr. Da es sich um ei
+- 2026-06-09 10:20 | Gewerbeanmeldung Sebastian Spuhler.pdf → Vertraege | Gewerbeanmeldung der Sebastian Spuhler, Mohamed Douioui GbR bei der Landeshaupts
+- 2026-06-09 10:20 | Recruitement.xlsx → Leads | Die Datei enthält eine Liste von Recruiting- und HR-Agenturen aus dem DACH-Raum 
+- 2026-06-09 10:20 | DVFGI_video.html → Memos/Medien | Eine gespeicherte HTML-Datei einer WhatsApp Web-Seite, vermutlich ein exportiert
+- 2026-06-09 10:20 | Kostenkalkulation.pdf → Finanzen/Angebote | Das Dokument enthält eine detaillierte Kostenkalkulation für einen 4-wöchigen KI
+- 2026-06-09 10:20 | 21cd977d-d549-4090-bde7-6dafae8580a3.jpeg.zip → Memos/Medien | ZIP-Archiv mit einer JPEG-Bilddatei, deren Inhalt nicht direkt einsehbar ist. De
+- 2026-06-09 10:20 | Marketing.zip → Marketing | ZIP-Archiv mit Marketingmaterialien für Prozessia GbR. Der genaue Inhalt ist nic
+- 2026-06-09 10:20 | Finom_payment_13112025.pdf → Finanzen/Rechnungen | Zahlungsbeleg über eine Transaktion von 450,00 EUR, abgewickelt über Finom am 13
+- 2026-06-09 10:20 | Apify_Invoice_202510060569.pdf → Finanzen/Rechnungen | Rechnung von Apify Technologies für die Nutzung der Web-Scraping-Plattform im Ze
+- 2026-06-09 10:20 | Werbedienstleistungen.xlsx → Leads | Die Datei enthält eine strukturierte Kontaktliste mit Ansprechpartnern aus der M
+- 2026-06-09 10:30 | info@webwokr.de (3).png → Memos/Medien | Bilddatei ohne extrahierbaren Text, eingegangen über die E-Mail-Adresse info@web
+- 2026-06-09 10:30 | Immobilien_neu.xlsx → Leads | Die Datei enthält eine strukturierte Liste von Kontakten aus der deutschen Immob
+- 2026-06-09 10:30 | Kostenkalkulation.docx → Finanzen/Angebote | Das Dokument enthält eine detaillierte Kostenkalkulation für einen 4-wöchigen Te
+- 2026-06-09 10:30 | Coaching.csv → Memos | Die Datei 'Coaching.csv' enthält scheinbar keinen verwertbaren Inhalt – der Date
+- 2026-06-09 10:30 | Path.docx → Produkte/Beschaffungsagent | Das Dokument enthält den Quellcode einer Serverless-Funktion (Twilio/VAPI-Handle
+- 2026-06-09 10:30 | Automatisierung Kostenvoranschlag.html → Finanzen/Angebote | Das Dokument trägt den Dateinamen 'Automatisierung Kostenvoranschlag' und schein
+- 2026-06-09 10:30 | Konzept Voice Agent REIFFEN.pdf → Kunden/[NeuerKunde] | Detailliertes technisches Konzept für einen Voice Agent für den Kunden REIFFEN (
+- 2026-06-09 10:30 | Immobilien.xlsx → Leads | Die Datei enthält eine Liste von Kontakten aus der Immobilienbranche mit Namen, 
+- 2026-06-09 10:30 | WebWokr Titelbild.png → Marketing/Branding | Bilddatei mit dem Titel 'WebWork Titelbild', vermutlich ein visuelles Asset (z.B
+- 2026-06-09 10:30 | Report Immobilienmarkler.pdf → Marketing/Flyer | Der Report beschreibt typische Prozessprobleme in Immobilienunternehmen wie zers
+- 2026-06-09 10:31 | Kopie von Dienstleistungsvertrag_Kanzleien.docx → Vertraege | Dienstleistungsvertrag zwischen Prozessia (Agentur) und einem Musterkunden (Max 
+- 2026-06-09 10:31 | Report Recruiting.pdf → Sales/Praesentationen | Der Report beschreibt Prozessoptimierungspotenziale für Recruiting-Agenturen und
+- 2026-06-09 10:31 | Angebot_AG0010_17.09.2025.pdf → Finanzen/Angebote | Angebot Nr. AG0010 von WebWokr an Prozessia GbR (Kundennr. 10001), datiert 17.09
+- 2026-06-09 10:31 | Allgemeine Geschäftsbedingungen.docx → Vertraege | Dieses Dokument enthält die Allgemeinen Geschäftsbedingungen von Prozessia GbR f
+- 2026-06-09 10:31 | PROJECT-2026-Das-Manifest (1).pdf → Marketing/Branding | Das Dokument ist ein strategisches Manifest von Prozessia GbR für das Jahr 2026 
+- 2026-06-09 10:31 | Logo-removebg-preview.png → Marketing/Branding | Bilddatei eines Logos mit entferntem Hintergrund (transparent). Es handelt sich 
+- 2026-06-09 10:31 | 1. Vertragsänderung M-2024-16_Spuhler_webwokr.pdf → Vertraege | Erste Vertragsänderung zum Mietvertrag Nr. M-2024-16 zwischen der Triathlon Tran
+- 2026-06-09 10:31 | Immobilien.csv → Leads | CSV-Datei mit Kontaktdaten von 17 Personen aus der Immobilienbranche (real estat
+- 2026-06-09 10:31 | Gamma Presentation (1).json → Sales/Praesentationen | Eine n8n-Workflow-JSON-Datei zur automatisierten Erstellung von Präsentationen ü
+- 2026-06-09 10:31 | Werbeagenturen.docx → Sales/Praesentationen | Report über Prozessoptimierung speziell für Werbeagenturen, der typische Herausf
+- 2026-06-09 10:31 | Invoice-BCE54405-0018.pdf → Finanzen/Rechnungen | Rechnung von Instantly (instantly.ai) an Sebastian Spuhler / Prozessia GbR über 
+- 2026-06-09 10:32 | Voigtsalus-Video.mov → Kunden/Voigt_Salus | Videodatei mit Bezug zum Kunden Voigt Salus. Der genaue Inhalt ist nicht extrahi
+- 2026-06-09 10:32 | Angebot Webseite.pdf → Finanzen/Angebote | Angebot von Prozessia an SaarHaus Catering GmbH für die Erstellung einer moderne
+- 2026-06-09 10:32 | Allgemeine Geschäftsbedingungen.pdf → Vertraege | Allgemeine Geschäftsbedingungen von Prozessia für KI- und Automatisierungsdienst
+- 2026-06-09 10:32 | Die Lösungsbausteine.docx → Produkte/Beschaffungsagent | Das Dokument beschreibt fünf modulare Lösungsbausteine für eine automatisierte A
+- 2026-06-09 10:32 | Werbeagenturen.pdf → Sales/Praesentationen | Branchenreport über Prozessoptimierungspotenziale für Werbeagenturen, der typisc
+- 2026-06-09 10:32 | Report Recruiting.docx → Marketing/Flyer | Der Report beschreibt typische Herausforderungen im Recruiting-Agentur-Bereich w
+- 2026-06-09 10:32 | Invoice-BCE54405-0019.pdf → Finanzen/Rechnungen | Rechnung von Instantly (instantly.ai) an Sebastian Spuhler / Prozessia GbR für d
+- 2026-06-09 10:32 | Apify_Invoice_202508060773.pdf → Finanzen/Rechnungen | Rechnung von Apify Technologies an Sebastian Spuhler (WebWokr) für ein monatlich
+- 2026-06-09 10:32 | Ausweis S (1).pdf → Memos/Medien | Das Dokument scheint ein eingescannter Ausweis oder Identifikationsdokument zu s
+- 2026-06-09 10:32 | Unterlassungserklärung WebWokr.pdf → Vertraege | Eine Unterlassungserklärung von Sebastian Spuhler (WebWokr, Saarbrücken) gegenüb
+- 2026-06-09 10:32 | Titelbild_1.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich ein Titelbild oder grafisches Ass
+- 2026-06-09 10:32 | werbe_final.xlsx → Sales/Cold_Call | Die Datei enthält personalisierte Kaltakquise-Nachrichten an mehrere Kontakte au
+- 2026-06-09 10:32 | Logo_converted.png → Marketing/Branding | Bilddatei mit dem Namen 'Logo_converted', vermutlich ein konvertiertes Logo (z.B
+- 2026-06-09 10:33 | 20260105_NDA-Prozessia (1).pdf → Vertraege | Gegenseitige Vertraulichkeitsvereinbarung (NDA) zwischen digitalisierungs.net – 
+- 2026-06-09 10:33 | 1. Vertragsänderung M-2024-16_Spuhler_webwokr (1) (2).pdf → Vertraege | Erste Vertragsänderung zum Mietvertrag Nr. M-2024-16 zwischen der Triathlon Tran
+- 2026-06-09 10:33 | Lead Enrichment with Personalized German Icebreakers from Website Content (1).json → Produkte/Beschaffungsagent | n8n-Workflow zur automatisierten Lead-Anreicherung mit personalisierten deutsche
+- 2026-06-09 10:33 | Dienstleistungsvertrag Handwerker.docx → Vertraege | Agenturdienstleistungsvertrag von WebWokr (Sebastian Spuhler / Mohamed Amin Doui
+- 2026-06-09 10:33 | WebWokr_Titelbild.png → Marketing/Webinar | Bilddatei mit dem Namen 'WebWokr_Titelbild', vermutlich ein Titelbild für ein We
+- 2026-06-09 10:33 | Logo.jpeg → Marketing/Branding | Bilddatei mit dem Dateinamen 'Logo.jpeg'. Vermutlich handelt es sich um ein Logo
+- 2026-06-09 10:33 | Titelbild.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich ein Titelbild. Aufgrund des Datei
+- 2026-06-09 10:33 | Kopie von Dienstleistungsvertrag.docx.pdf → Vertraege | Agenturdienstleistungsvertrag zwischen WebWokr (Sebastian Spuhler / Mohamed Amin
+- 2026-06-09 10:33 | Dienstleistungsvertrag Autor des Dokuments.docx → Vertraege | Vorlage eines Agenturdienstleistungsvertrags, erstellt von WebWokr (Sebastian Sp
+- 2026-06-09 10:33 | Bildschirmfoto 2025-10-29 um 15.49.16.png → Memos/Medien | Bilddatei (Screenshot vom 29.10.2025, 15:49 Uhr), deren Inhalt nicht extrahierba
+- 2026-06-09 10:33 | Kopie von Dienstleistungsvertrag (1).pdf → Vertraege | Agenturdienstleistungsvertrag zwischen WebWokr (Sebastian Spuhler / Mohamed Amin
+- 2026-06-09 10:34 | 21cd977d-d549-4090-bde7-6dafae8580a3 2.jpeg → Memos/Medien | Bilddatei ohne extrahierbaren Text. Der Inhalt ist visueller Natur und konnte ni
+- 2026-06-09 10:34 | Finom_statement_30122025 (1).pdf → Finanzen/Rechnungen | Kontoauszug des Finom-Geschäftskontos der Prozessia GbR (Sebastian Spuhler, Moha
+- 2026-06-09 10:34 | Rechnung_vapi.pdf → Finanzen/Rechnungen | Rechnung Nr. RE250006 vom 23.10.2025, ausgestellt von Prozessia an die Martin Ve
+- 2026-06-09 10:34 | U.pdf → Vertraege | Unterlassungserklärung gerichtet an Sebastian Spuhler (WebWork Campus, Saarbrück
+- 2026-06-09 10:34 | Automated Social Media Content Generation from News Sources.json → Marketing/Social-Media | Dieses Dokument enthält einen n8n-Workflow zur automatisierten Generierung von S
+- 2026-06-09 10:34 | WhatsApp Video 2025-09-21 at 15.24.22.mp4 → Memos/Medien | WhatsApp-Videodatei vom 21. September 2025, aufgezeichnet um 15:24 Uhr. Da es si
+- 2026-06-09 10:34 | Report Immobilienmarkler.docx → Leads | Das Dokument ist ein Report über Prozessoptimierung für Immobilienunternehmen un
+- 2026-06-09 10:34 | 21cd977d-d549-4090-bde7-6dafae8580a3.jpeg → Memos/Medien | Bilddatei ohne extrahierbaren Text. Der Inhalt ist visueller Natur und konnte ni
+- 2026-06-09 10:34 | Sebastian SPuhler.png → Memos/Medien | Bilddatei mit dem Namen 'Sebastian Spuhler'. Es handelt sich vermutlich um ein F
+- 2026-06-09 10:34 | Kopie von Dienstleistungsvertrag (2) (1).pdf → Vertraege | Agenturdienstleistungsvertrag zwischen WebWokr (Sebastian Spuhler / Mohamed Amin
+- 2026-06-09 10:34 | Werbedienstleisutngen.csv → Leads | CSV-Datei mit Kontaktdaten von Personen aus der Marketing- und Werbebranche, dar
+- 2026-06-09 10:34 | Visitenkarten Prozessia.pdf → Marketing/Branding | Visitenkarte von Sebastian Spuhler, Founder & CEO der Prozessia GbR, mit Kontakt
+- 2026-06-09 10:34 | Automatisierung Adrise.MOV → Sales/Praesentationen | Videodatei mit dem Titel 'Automatisierung Adrise'. Da kein Text extrahierbar ist
+- 2026-06-09 10:35 | werbe_final.csv → Sales/Cold_Call | Eine CSV-Datei für eine Werbekampagne mit Spalten für E-Mail, Branche, Website, 
+- 2026-06-09 10:35 | Rag_Agent_Übersicht.jpeg → Produkte/Beschaffungsagent | Bilddatei mit einer Übersicht zu einem RAG-Agenten (Retrieval-Augmented Generati
+- 2026-06-09 10:35 | Finom_statement_31122025.pdf → Finanzen/Rechnungen | Kontoauszug des Finom-Geschäftskontos der Prozessia GbR (Sebastian Spuhler, Moha
+- 2026-06-09 10:35 | coaching_final.csv → Leads | CSV-Datei mit personalisierten Kaltakquise-Kontakten aus der Branche 'Profession
+- 2026-06-09 10:35 | 1741810930224.jpeg → Memos/Medien | Bilddatei ohne extrahierbaren Text. Der genaue Inhalt ist nicht bestimmbar, da e
+- 2026-06-09 10:35 | KI-Agent-X-Voigt-Salus.pptx → Kunden/Voigt_Salus | Verkaufspräsentation des Produkts 'KI-Agent X' von Prozessia, adressiert an den 
+- 2026-06-09 10:35 | Dokumentation Twilio Anruftransfer.docx → Produkte/Beschaffungsagent | Technische Dokumentation eines Twilio-basierten Warm-Transfer-Systems, das über 
+- 2026-06-09 10:35 | d0c69908-1de0-45bd-8f2a-aea8e9db690f.jpeg → Memos/Medien | Bilddatei ohne extrahierbaren Text. Der Inhalt ist visueller Natur und konnte ni
+- 2026-06-09 10:35 | Recruiting.csv → Leads | Die CSV-Datei enthält eine Liste von 16 Kontakten aus der Recruiting- und HR-Bra
+- 2026-06-09 10:35 | Modul-3-Uberblick-weiterer-relevanter-Rechtsgrundlagen.pdf → Produkte/KI-Schulung | Schulungsmodul 3 aus der Reihe 'KI-Recht verständlich dargestellt', das einen Üb
+- 2026-06-09 10:35 | Modul_2_Transkript.pdf → Produkte/KI-Schulung | Transkript des zweiten Moduls einer KI-Schulung zum Thema 'Risiken der KI-Nutzun
+- 2026-06-09 10:35 | Modul_5_Transkript.pdf → Produkte/KI-Schulung | Transkript von Modul 5 einer KI-Schulung zum Thema Datenschutz und IT-Sicherheit
+- 2026-06-09 10:36 | Prozessia — Unternehmenspräsentation.pdf → Sales/Praesentationen | Unternehmspräsentation von Prozessia für Maschinenbau und produzierende Industri
+- 2026-06-09 10:36 | Modul_4_Transkript.pdf → Produkte/KI-Schulung | Transkript von Modul 4 einer KI-Schulung zum Thema KI-Ethik, Bias und Diskrimini
+- 2026-06-09 10:36 | Modul-4-Ethik-Bias-and-Diskriminierung.pdf → Produkte/KI-Schulung | Schulungsmodul 4 zum Thema KI-Ethik, Bias und Diskriminierung im Unternehmenskon
+- 2026-06-09 10:36 | Modul_3_Transkript.pdf → Produkte/KI-Schulung | Transkript von Modul 3 einer KI-Schulung, das sich mit rechtlichen Grundlagen fü
+- 2026-06-09 10:36 | Modul-2-Risiken-der-KI-Nutzung (1).pdf → Produkte/KI-Schulung | Schulungsmodul 2 zum Thema 'Risiken der KI-Nutzung' im Rahmen einer KI-Schulung 
+- 2026-06-09 10:36 | Modul_1_Transkript.pdf → Produkte/KI-Schulung | Transkript des ersten Moduls einer KI-Schulung zum Thema EU AI Act. Es werden gr
+- 2026-06-09 10:36 | Modul_6_Transkript.pdf → Produkte/KI-Schulung | Transkript von Modul 6 einer KI-Schulung mit dem Schwerpunkt Compliance im Konte
+- 2026-06-09 10:36 | Prozessia_Schulungskonzept_v2.pdf → Produkte/KI-Schulung | Vollständiges internes Schulungskonzept 'Der KI-Kompass für den Industriemittels
+- 2026-06-09 10:36 | Modul-1-Einfuhrung-in-Kunstliche-Intelligenz-gemass-EU-AI-Act.pdf → Produkte/KI-Schulung | Schulungsmodul 1 zur Einführung in den EU AI Act (KI-Verordnung), das grundlegen
+- 2026-06-09 10:37 | Modul-5-Datenschutz-and-IT-Sicherheit-bei-KI-Nutzung.pdf → Produkte/Beschaffungsagent | Schulungsmodul 5 zum Thema Datenschutz und IT-Sicherheit beim KI-Einsatz im Unte
+- 2026-06-09 10:37 | KI-Kompass Industriemittelstand_ Ganztags-Schulungskonzept für Geschäftsführer und Entscheider.pdf → Produkte/KI-Schulung | Detailliertes Ganztags-Schulungskonzept von Prozessia GbR für Geschäftsführer un
+- 2026-06-09 10:37 | Prozessia_Landingpage_Brief_v2.docx → Marketing/Flyer | Content-Notizen für das Design-Team zur Landingpage des eintägigen KI-Workshops 
+- 2026-06-09 10:37 | Prozessia_KI_Schulungsleitfaden.pdf → Produkte/KI-Schulung | Vollständiger interner Schulungsleitfaden für das KI-Schulungsprogramm von Proze
+- 2026-06-09 10:37 | Modul-6-KI-Compliance-in-der-Praxis.pdf → Produkte/KI-Schulung | Schulungsmodul 6 zum Thema KI-Compliance in der Praxis, das Unternehmen dabei un
+- 2026-06-09 10:37 | Grau und Weiß Einfach Minimalistisch Immobilien Visitenkarte (2).pdf → Marketing/Branding | Visitenkarte von Sebastian Spuhler, Founder & CEO von Prozessia GbR. Enthält Kon
+- 2026-06-09 10:37 | file.png → Marketing/Branding | Bilddatei aus dem Unterordner 'Branding', vermutlich ein Logo, eine Grafik oder 
+- 2026-06-09 10:37 | 2.png → Marketing/Branding | Bilddatei aus dem Unterordner 'Branding', vermutlich ein Logo, eine Markenvisual
+- 2026-06-09 10:37 | 1.png → Marketing/Branding | Bilddatei ohne extrahierbaren Text, abgelegt im Unterordner 'Branding'. Es hande
+- 2026-06-09 10:37 | Grau und Weiß Einfach Minimalistisch Immobilien Visitenkarte (1).pdf → Marketing/Branding | Visitenkarte von Sebastian Spuhler, Founder & CEO der Prozessia GbR. Enthält Kon
+- 2026-06-09 10:37 | carousel-run.log → Marketing/LinkedIn | Log-Datei eines automatisierten Carousel-Posting-Prozesses für LinkedIn, eingebe
+- 2026-06-09 10:37 | 20693345_proof.png → Marketing/LinkedIn | Bilddatei aus dem Unterordner 'Branding/claude-linkedin-auto-poster', vermutlich
+- 2026-06-09 10:38 | README.md → Marketing/LinkedIn | README-Dokumentation eines Open-Source-Tools zur automatisierten Erstellung und 
+- 2026-06-09 10:38 | LICENSE → Marketing/Branding | Dies ist eine Lizenzdatei (LICENSE) aus dem Node.js-Paket 'pako', einer JavaScri
+- 2026-06-09 10:38 | CHANGELOG.md → Marketing/LinkedIn | Changelog der Open-Source-Bibliothek 'pako' (JavaScript zlib-Port), die als node
+- 2026-06-09 10:38 | README.md → Marketing/LinkedIn | README-Datei der Open-Source-Bibliothek 'pako', einer JavaScript-Portierung der 
+- 2026-06-09 10:38 | README → Marketing/Branding | README-Datei aus dem node_modules-Verzeichnis der pako/zlib-Bibliothek, die Teil
+- 2026-06-09 10:38 | LICENSE → Marketing/LinkedIn | Eine LICENSE-Datei aus dem Node.js-Paket 'agentkeepalive', das im Rahmen des Lin
+- 2026-06-09 10:38 | README.md → Marketing/Branding | README-Datei des npm-Pakets 'agentkeepalive', einer Node.js-Bibliothek zur Verbe
+- 2026-06-09 10:38 | LICENSE → Marketing/Branding | Eine LICENSE-Datei aus dem Node.js-Paket 'humanize-ms', das Teil des claude-link
+- 2026-06-09 10:38 | History.md → Marketing/LinkedIn | Changelog-Datei der npm-Bibliothek 'humanize-ms', die als Abhängigkeit im Projek
+- 2026-06-09 10:38 | README.md → Marketing/LinkedIn | README-Datei der NPM-Bibliothek 'humanize-ms', die menschenlesbare Zeitangaben i
+- 2026-06-09 10:38 | LICENSE → Marketing/LinkedIn | Eine LICENSE-Datei aus dem Node.js-Paket 'destroy', das sich im node_modules-Ver
+- 2026-06-09 10:38 | README.md → Marketing/Branding | README-Datei des NPM-Pakets 'destroy', einer Node.js-Hilfsbibliothek zum zuverlä
+- 2026-06-09 10:38 | LICENSE → Marketing/Branding | Eine LICENSE-Datei aus dem npm-Paket @types/node-fetch, das sich im node_modules
+- 2026-06-09 10:39 | README.md → Marketing/LinkedIn | README-Datei des npm-Pakets @types/node-fetch, das TypeScript-Typdefinitionen fü
+- 2026-06-09 10:39 | LICENSE → Marketing/LinkedIn | Eine LICENSE-Datei aus dem node_modules-Paket @types/node, das Teil des claude-l
+- 2026-06-09 10:39 | README.md → Marketing/LinkedIn | README-Datei eines npm-Pakets (@types/node), das TypeScript-Typdefinitionen für 
+- 2026-06-09 10:39 | LICENSE → Marketing/Branding | Lizenzdatei der JavaScript-Bibliothek Lodash, die im node_modules-Verzeichnis ei
+- 2026-06-09 10:39 | README.md → Marketing/Branding | README-Datei der Lodash-Bibliothek v4.18.1, einer JavaScript-Utility-Library für
+- 2026-06-09 10:39 | license.md → Marketing/Branding | MIT-Lizenz für das Node.js-Paket 'process-nextick-args' von Calvin Metcalf (2015
+- 2026-06-09 10:39 | readme.md → Marketing/LinkedIn | README-Datei für das npm-Paket 'process-nextick-args', eine technische Abhängigk
+- 2026-06-09 10:39 | LICENSE → Marketing/Branding | Eine LICENSE-Datei aus dem Node.js-Paket 'web-streams-polyfill', das Teil des Pr
+- 2026-06-09 10:39 | README.md → Marketing/Branding | README-Datei der npm-Bibliothek 'web-streams-polyfill', eine technische Abhängig
+- 2026-06-09 10:39 | tsdoc-metadata.json → Marketing/LinkedIn | TSDoc-Metadatendatei für das NPM-Paket 'web-streams-polyfill', das als Abhängigk
+- 2026-06-09 10:39 | openai → Marketing/LinkedIn | Binäre oder ausführbare Datei aus dem node_modules/.bin-Verzeichnis eines Linked
+- 2026-06-09 10:39 | LICENSE → Marketing/LinkedIn | Lizenzdatei des npm-Pakets 'toidentifier', einer Open-Source-Abhängigkeit im Nod
+- 2026-06-09 10:39 | HISTORY.md → Marketing/LinkedIn | Changelog-Datei des npm-Pakets 'toidentifier', einer Abhängigkeit im claude-link
+- 2026-06-09 10:40 | README.md → Marketing/LinkedIn | README-Dokumentation für das npm-Paket 'toidentifier', eine Node.js-Hilfsbibliot
+- 2026-06-09 10:40 | LICENSE → Marketing/Branding | Eine LICENSE-Datei aus dem Node.js-Paket 'content-type', das Teil des 'claude-li
+- 2026-06-09 10:40 | HISTORY.md → Marketing/LinkedIn | Changelog-Datei der NPM-Bibliothek 'content-type' aus dem node_modules-Verzeichn
+- 2026-06-09 10:40 | README.md → Marketing/LinkedIn | README-Datei einer npm-Bibliothek namens 'content-type', die das Parsen und Form
+- 2026-06-09 10:40 | LICENSE → Marketing/Branding | Eine LICENSE-Datei aus dem Node.js-Paket 'es-errors', das Teil des npm-Abhängigk
+- 2026-06-09 10:40 | CHANGELOG.md → Marketing/LinkedIn | Dies ist die Changelog-Datei der npm-Bibliothek 'es-errors', einer JavaScript-Ab
+- 2026-06-09 10:40 | README.md → Marketing/Branding | README-Datei des npm-Pakets 'es-errors', einer Hilfsbibliothek für JavaScript-Fe
+- 2026-06-09 10:40 | tsconfig.json → Marketing/Branding | TypeScript-Konfigurationsdatei (tsconfig.json) aus dem Node-Modul 'es-errors', d
+- 2026-06-09 10:40 | LICENSE → Marketing/LinkedIn | Eine LICENSE-Datei aus dem node-domexception npm-Paket, das Teil der Abhängigkei
+- 2026-06-09 10:41 | info@webwokr.de (3).png → Memos/Medien | Bilddatei ohne extrahierbaren Text, eingegangen über die E-Mail-Adresse info@web
+- 2026-06-09 10:41 | Immobilien_neu.xlsx → Leads | Die Datei enthält eine Liste von Kontakten aus der Immobilienbranche mit Namen, 
+- 2026-06-09 10:41 | Kostenkalkulation.docx → Finanzen/Angebote | Das Dokument enthält eine detaillierte Kostenkalkulation für einen 4-wöchigen Te
+- 2026-06-09 10:41 | Coaching.csv → Memos | Die Datei 'Coaching.csv' enthält ausschließlich einen leeren Inhalt (BOM-Zeichen
+- 2026-06-09 10:41 | Path.docx → Produkte/Beschaffungsagent | Das Dokument enthält den Quellcode einer serverlosen Handler-Funktion (vermutlic
+- 2026-06-09 10:41 | Automatisierung Kostenvoranschlag.html → Finanzen/Angebote | Das Dokument ist eine gespeicherte HTML-Datei einer WhatsApp-Webseite mit dem Ti
+- 2026-06-09 10:42 | Konzept Voice Agent REIFFEN.pdf → Kunden/[NeuerKunde] | Das Dokument beschreibt das technische Konzept für einen Voice Agent für den Kun
+- 2026-06-09 10:42 | Immobilien.xlsx → Leads | Die Datei enthält eine Liste von Kontakten aus der Immobilienbranche mit Namen, 
+- 2026-06-09 10:42 | WebWokr Titelbild.png → Marketing/Webinar | Bilddatei mit dem Titel 'WebWork Titelbild', vermutlich ein visuelles Asset (z.B
+- 2026-06-09 10:42 | Report Immobilienmarkler.pdf → Marketing/Flyer | Der Report beschreibt typische Prozessprobleme in Immobilienunternehmen wie zers
+- 2026-06-09 10:42 | Kopie von Dienstleistungsvertrag_Kanzleien.docx → Vertraege | Dienstleistungsvertrag zwischen Prozessia (Agentur) und einem Musterkunden (Max 
+- 2026-06-09 10:42 | Report Recruiting.pdf → Sales/Praesentationen | Ein Prozessoptimierungs-Report speziell für Recruiting-Agenturen, der fünf zentr
+- 2026-06-09 10:42 | Angebot_AG0010_17.09.2025.pdf → Finanzen/Angebote | Angebot von WebWokr an Prozessia GbR (Kundennr. 10001) vom 17.09.2025, gültig bi
+- 2026-06-09 10:42 | Allgemeine Geschäftsbedingungen.docx → Vertraege | Allgemeine Geschäftsbedingungen von Prozessia GbR für KI- und Automatisierungsdi
+- 2026-06-09 10:42 | PROJECT-2026-Das-Manifest (1).pdf → Marketing/Branding | Das Manifest 'PROJECT 2026' beschreibt die strategische Ausrichtung, Kernprodukt
+- 2026-06-09 10:42 | Logo-removebg-preview.png → Marketing/Branding | Bilddatei einer PNG-Grafik mit entferntem Hintergrund (transparent), vermutlich 
+- 2026-06-09 10:42 | 1. Vertragsänderung M-2024-16_Spuhler_webwokr.pdf → Vertraege | Erste Vertragsänderung zum Mietvertrag Nr. M-2024-16 zwischen der Triathlon Tran
+- 2026-06-09 10:43 | Immobilien.csv → Leads | CSV-Datei mit 17 Kontakten aus der Immobilienbranche (Real Estate), darunter Mak
+- 2026-06-09 10:43 | Gamma Presentation (1).json → Sales/Praesentationen | JSON-Export eines n8n-Workflows zur automatisierten Präsentationserstellung über
+- 2026-06-09 10:43 | Werbeagenturen.docx → Sales/Praesentationen | Report über Prozessoptimierung speziell für Werbeagenturen, der typische Herausf
+- 2026-06-09 10:43 | Invoice-BCE54405-0018.pdf → Finanzen/Rechnungen | Rechnung von Instantly (instantly.ai) an Sebastian Spuhler / Prozessia GbR über 
+- 2026-06-09 10:43 | Voigtsalus-Video.mov → Kunden/Voigt_Salus | Videodatei mit Bezug zum Kunden Voigt Salus. Da kein Text extrahierbar ist, hand
+- 2026-06-09 10:43 | Angebot Webseite.pdf → Finanzen/Angebote | Ausgehendes Angebot von Prozessia an die SaarHaus Catering GmbH für die Erstellu
+- 2026-06-09 10:43 | Allgemeine Geschäftsbedingungen.pdf → Vertraege | Allgemeine Geschäftsbedingungen von Prozessia für KI- und Automatisierungsdienst
+- 2026-06-09 10:43 | Die Lösungsbausteine.docx → Produkte/Beschaffungsagent | Das Dokument beschreibt fünf zentrale Lösungsbausteine für eine automatisierte A
+- 2026-06-09 10:43 | Werbeagenturen.pdf → Sales/Praesentationen | Der Report analysiert die größten Prozessprobleme in Werbeagenturen, darunter ze
+- 2026-06-09 10:43 | Report Recruiting.docx → Leads | Der Report beschreibt typische Prozessprobleme in Recruiting-Agenturen und präse
+- 2026-06-09 10:43 | Invoice-BCE54405-0019.pdf → Finanzen/Rechnungen | Rechnung von Instantly (instantly.ai) an Sebastian Spuhler / Prozessia GbR über 
+- 2026-06-09 10:44 | Apify_Invoice_202508060773.pdf → Finanzen/Rechnungen | Rechnung von Apify Technologies für den Starter Plan (monatliches Abonnement) im
+- 2026-06-09 10:44 | Ausweis S (1).pdf → Memos/Medien | Das Dokument scheint ein gescannter Ausweis oder Identitätsdokument zu sein, ers
+- 2026-06-09 10:44 | Unterlassungserklärung WebWokr.pdf → Vertraege | Unterlassungserklärung von Sebastian Spuhler (WebWokr, Saarbrücken) gegenüber Ma
+- 2026-06-09 10:44 | Titelbild_1.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich ein Titelbild oder grafisches Ass
+- 2026-06-09 10:44 | werbe_final.xlsx → Sales/Cold_Call | Die Datei enthält personalisierte Kaltakquise-Nachrichten für mehrere Kontakte a
+- 2026-06-09 10:44 | Logo_converted.png → Marketing/Branding | Bilddatei mit einem konvertierten Logo, vermutlich das Logo von Prozessia GbR od
+- 2026-06-09 10:44 | 20260105_NDA-Prozessia (1).pdf → Vertraege | Gegenseitige Vertraulichkeitsvereinbarung (NDA) zwischen digitalisierungs.net – 
+- 2026-06-09 10:44 | 1. Vertragsänderung M-2024-16_Spuhler_webwokr (1) (2).pdf → Vertraege | Erste Vertragsänderung zum Mietvertrag Nr. M-2024-16 zwischen der Triathlon Tran
+- 2026-06-09 10:44 | Lead Enrichment with Personalized German Icebreakers from Website Content (1).json → Produkte/Beschaffungsagent | n8n-Workflow-Definition für ein Lead-Enrichment-System, das Website-Inhalte von 
+- 2026-06-09 10:44 | Dienstleistungsvertrag Handwerker.docx → Vertraege | Agenturdienstleistungsvertrag der WebWork (Sebastian Spuhler / Mohamed Amin Doui
+- 2026-06-09 10:44 | WebWokr_Titelbild.png → Marketing/Branding | Bilddatei, die vermutlich als Titelbild für eine Website oder einen Webauftritt 
+- 2026-06-09 10:44 | Logo.jpeg → Marketing/Branding | Bilddatei mit dem Dateinamen 'Logo.jpeg'. Es handelt sich vermutlich um ein Logo
+- 2026-06-09 10:44 | Titelbild.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich ein Titelbild für eine Präsentati
+- 2026-06-09 10:45 | Kopie von Dienstleistungsvertrag.docx.pdf → Vertraege | Agenturdienstleistungsvertrag von WebWokr (Sebastian Spuhler / Mohamed Amin Doui
+- 2026-06-09 10:45 | Dienstleistungsvertrag Autor des Dokuments.docx → Vertraege | Agenturdienstleistungsvertrag der Firma WebWokr (Sebastian Spuhler / Mohamed Ami
+- 2026-06-09 10:45 | Bildschirmfoto 2025-10-29 um 15.49.16.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich ein Screenshot vom 29. Oktober 20
+- 2026-06-09 10:45 | Kopie von Dienstleistungsvertrag (1).pdf → Vertraege | Agenturdienstleistungsvertrag zwischen WebWokr (Sebastian Spuhler / Mohamed Amin
+- 2026-06-09 10:45 | 21cd977d-d549-4090-bde7-6dafae8580a3 2.jpeg → Memos/Medien | Bilddatei ohne extrahierbaren Text. Der Inhalt ist visueller Natur und konnte ni
+- 2026-06-09 10:45 | Finom_statement_30122025 (1).pdf → Finanzen/Rechnungen | Kontoauszug des Finom-Geschäftskontos der Prozessia GbR (Sebastian Spuhler, Moha
+- 2026-06-09 10:45 | Rechnung_vapi.pdf → Finanzen/Rechnungen | Ausgangsrechnung der Prozessia GbR (RE250006) an die Martin Veser Unternehmerges
+- 2026-06-09 10:45 | U.pdf → Vertraege | Unterlassungserklärung gerichtet an Sebastian Spuhler (WebWork Campus, Saarbrück
+- 2026-06-09 10:45 | Automated Social Media Content Generation from News Sources.json → Marketing/Social-Media | Dieses Dokument enthält einen n8n-Workflow zur automatisierten Generierung von S
+- 2026-06-09 10:45 | WhatsApp Video 2025-09-21 at 15.24.22.mp4 → Memos/Medien | WhatsApp-Videodatei vom 21. September 2025, vermutlich eine persönliche oder ges
+- 2026-06-09 10:45 | Report Immobilienmarkler.docx → Sales/Praesentationen | Das Dokument ist ein strukturierter Report zur Prozessoptimierung für Immobilien
+- 2026-06-09 10:46 | 21cd977d-d549-4090-bde7-6dafae8580a3.jpeg → Memos/Medien | Bilddatei ohne extrahierbaren Text. Der Inhalt ist visueller Natur und konnte ni
+- 2026-06-09 10:46 | Sebastian SPuhler.png → Memos/Medien | Bilddatei mit dem Namen 'Sebastian Spuhler'. Es handelt sich vermutlich um ein P
+- 2026-06-09 10:46 | Kopie von Dienstleistungsvertrag (2) (1).pdf → Vertraege | Agenturdienstleistungsvertrag zwischen WebWokr (Sebastian Spuhler / Mohamed Amin
+- 2026-06-09 10:46 | Werbedienstleisutngen.csv → Leads | CSV-Datei mit Kontaktdaten von Personen aus der Marketing- und Werbebranche, ein
+- 2026-06-09 10:46 | Visitenkarten Prozessia.pdf → Marketing/Branding | Visitenkarte von Sebastian Spuhler, Founder & CEO von Prozessia GbR, mit Kontakt
+- 2026-06-09 10:46 | Automatisierung Adrise.MOV → Leads | Videodatei mit dem Titel 'Automatisierung Adrise'. Da kein Text extrahierbar ist
+- 2026-06-09 10:46 | werbe_final.csv → Marketing/LinkedIn | Eine CSV-Datei für eine Werbekampagne mit Spalten für E-Mail, Branche, Website, 
+- 2026-06-09 10:46 | Rag_Agent_Übersicht.jpeg → Memos/Medien | Bilddatei mit dem Titel 'Rag_Agent_Übersicht', vermutlich eine visuelle Übersich
+- 2026-06-09 10:46 | Finom_statement_31122025.pdf → Finanzen/Rechnungen | Kontoauszug des Finom-Geschäftskontos der Prozessia GbR (Sebastian Spuhler, Moha
+- 2026-06-09 10:46 | coaching_final.csv → Leads | CSV-Datei mit personalisierten Cold-Outreach-Kontakten aus der Branche 'Professi
+- 2026-06-09 10:46 | 1741810930224.jpeg → Memos/Medien | Bilddatei ohne extrahierbaren Text. Der Inhalt ist visueller Natur und konnte ni
+- 2026-06-09 10:46 | KI-Agent-X-Voigt-Salus.pptx → Sales/Praesentationen | Verkaufspräsentation von Prozessia für den Kunden Voigt Salus, die den KI-Agente
+- 2026-06-09 10:47 | Dokumentation Twilio Anruftransfer.docx → Produkte/Beschaffungsagent | Technische Dokumentation des Twilio Warm-Transfer-Systems für eingehende Anrufe,
+- 2026-06-09 10:47 | d0c69908-1de0-45bd-8f2a-aea8e9db690f.jpeg → Memos/Medien | Bilddatei ohne extrahierbaren Text. Der Inhalt ist visueller Natur und konnte ni
+- 2026-06-09 10:47 | Recruiting.csv → Leads | Die CSV-Datei enthält eine Liste von Kontakten aus der Recruiting- und HR-Branch
+- 2026-06-09 10:47 | Modul-3-Uberblick-weiterer-relevanter-Rechtsgrundlagen.pdf → Produkte/KI-Schulung | Schulungsmodul 3 aus der Reihe 'KI-Recht verständlich dargestellt', das einen Üb
+- 2026-06-09 10:47 | Modul_2_Transkript.pdf → Produkte/KI-Schulung | Transkript von Modul 2 einer KI-Schulung zum Thema 'Risiken der KI-Nutzung'. Das
+- 2026-06-09 10:47 | Modul_5_Transkript.pdf → Produkte/KI-Schulung | Transkript von Modul 5 einer KI-Schulung zum Thema Datenschutz und IT-Sicherheit
+- 2026-06-09 10:47 | Prozessia — Unternehmenspräsentation.pdf → Sales/Praesentationen | Unternehmens­präsentation von Prozessia für Maschinenbau und produzierende Indus
+- 2026-06-09 10:47 | Modul_4_Transkript.pdf → Produkte/KI-Schulung | Transkript eines Schulungsmoduls (Modul 4) zum Thema KI-Ethik, Bias und Diskrimi
+- 2026-06-09 10:47 | Modul-4-Ethik-Bias-and-Diskriminierung.pdf → Produkte/KI-Schulung | Schulungsmodul 4 zu KI-Ethik, Bias und Diskriminierung im Unternehmenskontext. D
+- 2026-06-09 10:47 | Modul_3_Transkript.pdf → Produkte/KI-Schulung | Transkript eines Schulungsmoduls (Modul 3) über relevante Rechtsgrundlagen beim 
+- 2026-06-09 10:47 | Modul-2-Risiken-der-KI-Nutzung (1).pdf → Produkte/KI-Schulung | Dieses Dokument ist Modul 2 einer KI-Schulung und behandelt die Risiken der KI-N
+- 2026-06-09 10:47 | Modul_1_Transkript.pdf → Produkte/KI-Schulung | Transkript von Modul 1 einer KI-Schulung mit dem Thema Einführung in den EU AI A
+- 2026-06-09 10:48 | Modul_6_Transkript.pdf → Produkte/KI-Schulung | Transkript von Modul 6 einer KI-Schulung mit dem Schwerpunkt Compliance im Konte
+- 2026-06-09 10:48 | Prozessia_Schulungskonzept_v2.pdf → Produkte/KI-Schulung | Vollständiges internes Schulungskonzept 'Der KI-Kompass für den Industriemittels
+- 2026-06-09 10:48 | Modul-1-Einfuhrung-in-Kunstliche-Intelligenz-gemass-EU-AI-Act.pdf → Produkte/KI-Schulung | Schulungsmodul 1 zur Einführung in den EU AI Act (KI-Verordnung) mit Erläuterung
+- 2026-06-09 10:48 | Modul-5-Datenschutz-and-IT-Sicherheit-bei-KI-Nutzung.pdf → Produkte/KI-Schulung | Schulungsmodul 5 zum Thema Datenschutz und IT-Sicherheit beim KI-Einsatz im Unte
+- 2026-06-09 10:48 | KI-Kompass Industriemittelstand_ Ganztags-Schulungskonzept für Geschäftsführer und Entscheider.pdf → Produkte/KI-Schulung | Detailliertes Ganztags-Schulungskonzept von Prozessia GbR für Geschäftsführer un
+- 2026-06-09 10:48 | Prozessia_Landingpage_Brief_v2.docx → Marketing/Flyer | Content-Notizen für das Design-Team zur Landingpage des eintägigen KI-Workshops 
+- 2026-06-09 10:48 | Prozessia_KI_Schulungsleitfaden.pdf → Produkte/KI-Schulung | Vollständiger interner Leitfaden für das Prozessia KI-Schulungsprogramm mit Foku
+- 2026-06-09 10:48 | Modul-6-KI-Compliance-in-der-Praxis.pdf → Produkte/KI-Schulung | Modul 6 einer KI-Schulung behandelt das Thema KI-Compliance in der Praxis, einsc
+- 2026-06-09 10:48 | Grau und Weiß Einfach Minimalistisch Immobilien Visitenkarte (2).pdf → Marketing/Branding | Visitenkarte von Sebastian Spuhler, Founder & CEO von Prozessia GbR. Enthält Kon
+- 2026-06-09 10:48 | file.png → Marketing/Branding | Bilddatei im Unterordner Branding, kein Text extrahierbar. Es handelt sich wahrs
+- 2026-06-09 10:48 | 2.png → Marketing/Branding | Bilddatei aus dem Unterordner 'Branding', vermutlich ein Logo, ein Designelement
+- 2026-06-09 10:48 | 1.png → Marketing/Branding | Bilddatei aus dem Branding-Unterordner der Inbox. Da kein Text extrahierbar ist,
+- 2026-06-09 10:49 | Grau und Weiß Einfach Minimalistisch Immobilien Visitenkarte (1).pdf → Marketing/Branding | Visitenkarte von Sebastian Spuhler, Founder & CEO der Prozessia GbR. Enthält Kon
+- 2026-06-09 10:49 | carousel-run.log → Marketing/LinkedIn | Log-Datei eines automatisierten Carousel-Posting-Prozesses für LinkedIn, vermutl
+- 2026-06-09 10:49 | 20693345_proof.png → Marketing/LinkedIn | Bilddatei aus dem Unterordner 'Branding/claude-linkedin-auto-poster', vermutlich
+- 2026-06-09 10:49 | slide-5-frontend.png → Marketing/LinkedIn | Bilddatei einer Präsentationsfolie (Slide 5) mit Frontend-Bezug, erstellt im Rah
+- 2026-06-09 10:49 | slide-3-diagram.png → Marketing/LinkedIn | Eine Bilddatei (PNG) aus dem LinkedIn-Auto-Poster-Output-Ordner, vermutlich ein 
+- 2026-06-09 10:49 | ideen-2026-06-07.json → Marketing/LinkedIn | JSON-Output eines automatisierten LinkedIn-Post-Generators (claude-linkedin-auto
+- 2026-06-09 10:49 | beitraege-2026-06-07.json → Marketing/LinkedIn | JSON-Output-Datei des LinkedIn-Auto-Posters mit zwei geplanten Beiträgen für Don
+- 2026-06-09 10:49 | slide-4-remotion.png → Marketing/LinkedIn | Eine Bilddatei (PNG), die offenbar eine Folie (Slide 4) aus einem mit Remotion e
+- 2026-06-09 10:49 | carousel-claude-skills.pdf → Marketing/LinkedIn | Eine Carousel-Präsentation (vermutlich LinkedIn-Karussell-Post) über Claude-KI-S
+- 2026-06-09 10:49 | slide-1-hook.png → Marketing/LinkedIn | Eine Bilddatei (PNG) die als erster Slide/Hook-Folie für einen LinkedIn-Post ers
+- 2026-06-09 10:49 | slide-6-pdf-cta.png → Marketing/LinkedIn | Eine Bilddatei (PNG) aus dem Output-Ordner des Claude-LinkedIn-Auto-Posters, ver
+- 2026-06-09 10:50 | slide-2-humanizer.png → Marketing/LinkedIn | Bilddatei aus dem Output-Ordner eines LinkedIn-Auto-Poster-Workflows, vermutlich
+- 2026-06-09 10:50 | index.html → Marketing/LinkedIn | Eine HTML-Frontend-Datei für ein Cloudinary Media Browser Interface, das Teil de
+- 2026-06-09 10:50 | thumbnail-1 (22).jpg → Marketing/Branding | Bilddatei (Thumbnail/Vorschaubild) aus dem Unterordner eines LinkedIn-Auto-Poste
+- 2026-06-09 10:50 | generated-image-1777509579260.png → Marketing/Branding | Bilddatei aus dem Style-Guide-Bereich des claude-linkedin-auto-poster Projekts u
+- 2026-06-09 10:50 | thumbnail-3 (4).jpg → Marketing/Branding | Bilddatei (Thumbnail/Vorschaubild) aus dem Style-Guide-Bereich des claude-linked
+- 2026-06-09 10:50 | thumbnail-3 (5).jpg → Marketing/Branding | Bilddatei (Thumbnail/Vorschaubild) aus dem Unterordner eines LinkedIn-Auto-Poste
+- 2026-06-09 10:50 | generated-image-1777940165259.png → Marketing/Branding | Bilddatei aus dem Style-Guide-Verzeichnis des claude-linkedin-auto-poster Projek
+- 2026-06-09 10:50 | thumbnail-1 (20).jpg → Marketing/Branding | Bilddatei (Thumbnail/Grafik) aus dem Unterordner des Claude LinkedIn Auto-Poster
+- 2026-06-09 10:50 | settings.local.json → Marketing/LinkedIn | Claude-Konfigurationsdatei mit definierten Berechtigungen für ein lokales Entwic
+- 2026-06-09 10:50 | Handwerker_1.png → Marketing/Social-Media | Bilddatei mit Handwerker-Motiv aus dem Social-Media-Bereich. Das Bild wurde verm
+- 2026-06-09 10:50 | Briefe.xlsx → Leads | Die Excel-Datei enthält eine strukturierte Leaddatenbank mit ca. 33 Kontakten au
+- 2026-06-09 10:50 | Prozessia_Leads_Komplett_v5.xlsx → Leads | Strukturierte Leaddatenbank mit 16+ verifizierten B2B-Kontakten aus dem Bereich 
+- 2026-06-09 10:50 | Prozessia_Leads_NurNeu (1).xlsx → Leads | Excel-Tabelle mit neu erfassten Leads (Nr. 60–70) aus der Branchen Werkzeugbau, 
+- 2026-06-09 10:51 | Prozessia-Agent-Funktions-und-Datenschutzubersicht (1).pptx → Sales/Handelsvertreter | Präsentation des Prozessia Agent, einem KI-gestützten System zur Unterstützung v
+- 2026-06-09 10:51 | Kooperationsvereinbarung_Prozessia (1).pdf → Sales/Handelsvertreter | Kooperationsvereinbarung zwischen Prozessia GbR und einem noch nicht namentlich 
+- 2026-06-09 10:51 | Chatbot leading medicine.mp4 → Sales/Handelsvertreter | Videodatei mit dem Titel 'Chatbot leading medicine', vermutlich eine Demo oder P
+- 2026-06-09 10:51 | Vertriebsvereinbarung (1).pdf → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR und einem noch nicht namentlich ben
+- 2026-06-09 10:51 | Vertriebsvereinbarung_Adrian_Mueller (1).pdf → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR (Sebastian Spuhler & Mohamed Douiou
+- 2026-06-09 10:51 | prozessia_Beschaffungsagent_Marketing.pptx → Sales/Praesentationen | Marketingpräsentation (PowerPoint) für den Prozessia KI-Beschaffungsagenten, ger
+- 2026-06-09 10:51 | Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.pptx.pdf → Sales/Praesentationen | Verkaufspräsentation des Prozessia KI-Agenten für Rechtsanwaltskanzleien, erstel
+- 2026-06-09 10:51 | Kooperationsvereinbarung_Prozessia (2).pdf → Sales/Handelsvertreter | Kooperationsvereinbarung zwischen Prozessia GbR und einem noch nicht ausgefüllte
+- 2026-06-09 10:51 | Vertriebsvereinbarung_HOS_Elias_Haghverdi-1.pdf → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Home of Solar GmbH (Hamburg) und Elias Haghverdi 
+- 2026-06-09 10:51 | Copy of fonio Public Partner Angebotsvorlage.pdf → Sales/Handelsvertreter | Eine Angebotsvorlage von Fonio für Partner/Handelsvertreter zur Weitergabe an En
+- 2026-06-09 10:51 | 2026-arbeiten-Unternehmen-mit-KI-Agenten-Die-Frage-ist-nur-mit-wem.pdf → Marketing/Flyer | Marketingflyer von Prozessia GbR, der KI-Agenten-Lösungen für Unternehmen bewirb
+- 2026-06-09 10:51 | Demovideo Prozessia Agent für Kanzleien.mp4 → Sales/Handelsvertreter | Demovideo des Prozessia-Agenten speziell für Kanzleien als Zielgruppe. Das Video
+- 2026-06-09 10:52 | Prozessia-Informationen-fur-Vertriebspartner (1).pptx → Sales/Handelsvertreter | Präsentation für Vertriebspartner/Handelsvertreter von Prozessia mit Information
+- 2026-06-09 10:52 | Vertriebsvereinbarung Handelsvertreter.pdf → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR und einem noch nicht namentlich gen
+- 2026-06-09 10:52 | Prozessia_Voice_Agents_Produktbeschreibung_LANG_FINAL_CLEAN.pdf → Sales/Praesentationen | Detaillierte Produktbeschreibung der Prozessia Voice Agents (Stand 19.12.2025): 
+- 2026-06-09 10:52 | Vertriebsvereinbarung.docx → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR und einem noch nicht namentlich gen
+- 2026-06-09 10:52 | Präsentation_ Datenschutz .pptx.pdf → Sales/Handelsvertreter | Diese Präsentation vergleicht ChatGPT Business/Enterprise mit einem Digitalen Ka
+- 2026-06-09 10:52 | Vertriebsvereinbarung.pdf → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR und einem (noch unbenannten) Vertri
+- 2026-06-09 10:52 | Preismodell - Basismodell.pdf → Sales/Handelsvertreter | Dieses Dokument beschreibt das Basismodell (Stufe A) von Prozessia GbR für Anwal
+- 2026-06-09 10:52 | Prozessia_Agent_Produktbeschreibung_LANG_FINAL.pdf → Sales/Handelsvertreter | Detaillierte Produktbeschreibung des Prozessia Agent, einem unternehmensspezifis
+- 2026-06-09 10:52 | Prozessia-KI-Losungen-fur-moderne-Unternehmen (1).pdf → Sales/Handelsvertreter | Unternehmspräsentation von Prozessia für Handelsvertreter, die die zwei Kernprod
+- 2026-06-09 10:52 | Prozessia-Agent-Funktions-und-Datenschutzubersicht (1).pdf → Sales/Handelsvertreter | Präsentation des Prozessia Agent – einem KI-gestützten System, das auf Kundenser
+- 2026-06-09 10:52 | Prozessia-Informationen-fur-Vertriebspartner (1).pdf → Sales/Handelsvertreter | Präsentation für Vertriebspartner/Handelsvertreter von Prozessia mit Information
+- 2026-06-09 10:53 | Prozessia-Voice-Agents (1).pdf → Sales/Handelsvertreter | Präsentation von Prozessia Voice Agents – einer telefonbasierten KI-Lösung für e
+- 2026-06-09 10:53 | Demo Video Prozessia Agent für Kanzleien.html → Sales/Handelsvertreter | Demo-Video (als HTML gespeichert, vermutlich WhatsApp-Weiterleitung) eines Proze
+- 2026-06-09 10:53 | Listen.xlsx → Leads | Das Dokument enthält zwei Händlerlisten aus dem Raum Saarbrücken, erstellt im Ko
+- 2026-06-09 10:53 | DE_Partner_Deck.pptx → Sales/Praesentationen | Partnerpräsentation von Fonio, einem KI-Telefonassistenten für den deutschsprach
+- 2026-06-09 10:53 | DE_Partner_Deck.pdf → Sales/Praesentationen | Partner-Deck von Fonio, einem KI-Telefonassistenten speziell für den deutschspra
+- 2026-06-09 10:53 | Präsentation_Beschaffungsagent_Prozessia.pdf → Sales/Praesentationen | Verkaufspräsentation des Prozessia Beschaffungsagenten, die den KI-gestützten Au
+- 2026-06-09 10:53 | Prozessia.docx → Marketing/Flyer | Akquise-Anschreiben von Prozessia (Sebastian Spuhler) an potenzielle Neukunden (
+- 2026-06-09 10:53 | New Record from Google Meet (1).pdf → Sales/Handelsvertreter | Aufgezeichnetes Google Meet Gespräch mit Sebastian Spuhler (Karriere-/KI-Agentur
+- 2026-06-09 10:53 | Seriendruck2_Seriendruck_FINAL.xlsx → Sales/Cold_Call | Excel-Datei mit Seriendruckdaten für 28 Ansprechpartner aus deutschen Industrieu
+- 2026-06-09 10:53 | Prozessia_Zielunternehmen.xlsx → Leads | Die Datei enthält eine strukturierte Liste von Zielunternehmen aus den Branchen 
+- 2026-06-09 10:53 | Prozessia_Serienbrief_FINAL_vorlage.docx → Marketing/Flyer | Serienbrief-Vorlage von Prozessia (Sebastian Spuhler) für die Kaltakquise in der
+- 2026-06-09 10:54 | prozessia_Beschaffungsagent_Marketing (1).pptx → Marketing/Flyer | Verkaufspräsentation (PowerPoint) für den Prozessia KI-Beschaffungsagenten, geri
+- 2026-06-09 10:54 | Campus Starterzentrum.docx → Marketing/Flyer | Outbound-Akquiseschreiben von Prozessia an mehrere Industrieunternehmen (u.a. Si
+- 2026-06-09 10:54 | Seriendruck_KOMPLETT_FINAL (1).xlsx → Sales/Cold_Call | Seriendruckdatei mit einer umfangreichen Kontaktliste potenzieller B2B-Kunden au
+- 2026-06-09 10:54 | Prozessia_Lieferantenbewerbung_Windhoff.pdf → Leads | Ausgehendes Akquiseschreiben von Prozessia an WINDHOFF Bahn- und Anlagentechnik 
+- 2026-06-09 10:54 | Serienbrief_2.pdf → Marketing/Flyer | Serienbrief von Prozessia (Sebastian Spuhler) an potenzielle B2B-Kunden aus der 
+- 2026-06-09 10:54 | 01fae0.png → Finanzen/Angebote | Bilddatei aus dem Unterordner 'Automatisierung Kostenvoranschlag_files', vermutl
+- 2026-06-09 10:54 | WhatsApp Video 2025-09-21 at 15.24.22.mp4 → Finanzen/Angebote | Video-Datei aus einem WhatsApp-Chat, die im Kontext eines Kostenvoranschlags für
+- 2026-06-09 10:54 | Susanne Riedt (Huissel GmbH) X Prozessia.pdf.zip → Kunden/[NeuerKunde] | ZIP-Archiv im Zusammenhang mit Susanne Riedt von der Huissel GmbH, einem neuen K
+- 2026-06-09 10:54 | Susanne Riedt (Huissel GmbH) X Prozessia.pdf → Leads | Transkript eines Verkaufsgesprächs zwischen Sebastian Spuhler (Prozessia) und Su
+- 2026-06-09 10:55 | Prozessia-X-Schaufler Beschafungsagent.pdf → Sales/Praesentationen | Präsentation des digitalen Beschaffungsagenten von Prozessia, zugeschnitten auf 
+- 2026-06-09 10:55 | Systemhandbuch_Beschaffungsagent_v1.1 → Produkte/Beschaffungsagent | Systemhandbuch für den Beschaffungsagenten in Version 1.1, vermutlich erstellt f
+- 2026-06-09 10:55 | Digitaler-Beschaffungsagent-fur-Schaufler.pptx → Kunden/Schaufler | Präsentation eines digitalen Beschaffungsagenten für den Kunden Schaufler, der d
+- 2026-06-09 10:55 | Schaufler_Hosting.pdf → Kunden/Schaufler | Das Dokument bezieht sich auf Hosting-Leistungen für den Kunden Schaufler. Es ha
+- 2026-06-09 10:55 | Angebot_AG0018_15.12.2025.pdf → Finanzen/Angebote | Angebot der Prozessia GbR an die SCHAUFLER Tooling GmbH & Co. KG vom 15.12.2025,
+- 2026-06-09 10:55 | Angebot_Schaufler_Beschaffungsagent.pdf → Finanzen/Angebote | Angebot Nr. AG0018 von Prozessia GbR an SCHAUFLER Tooling GmbH & Co. KG vom 09.0
+- 2026-06-09 10:55 | Prozessia --- Ergebnisse Machbarkeit Stücklistenprojekt.pdf → Kunden/Schaufler | Transkript eines Meetings (ca. 40 Min.) zur Machbarkeitsprüfung des Stücklistenp
+- 2026-06-09 10:55 | Schnittstellenanforderungen_ProLeiS .pdf → Kunden/Schaufler | Das Dokument beschreibt die technischen Schnittstellenanforderungen an das Syste
+- 2026-06-09 10:55 | Zwischenstand Prototyp.pdf → Kunden/Schaufler | Aufzeichnung eines Meetings mit dem Kunden Schaufler zur Präsentation des Zwisch
+- 2026-06-09 10:55 | Angebot_Schaufler_Retainer.pdf → Finanzen/Angebote | Angebot AG0021 vom 09.02.2026 von Prozessia GbR an SCHAUFLER Tooling GmbH & Co. 
+- 2026-06-09 10:55 | Untitled document.pdf → Produkte/Beschaffungsagent | Fachkonzept für den Beschaffungsagenten von Schaufler, abgeleitet aus einer Präs
+- 2026-06-09 10:56 | Prozessia_Intern_Schaufler_Hosting.pdf → Kunden/Schaufler | Internes, vertrauliches Hosting- und Wartungskonzept für den Kunden Schaufler (A
+- 2026-06-09 10:56 | Prozessia_Stuecklisten_Agent.pdf → Kunden/Schaufler | Dieses Dokument ist ein Produktflyer für den Prozessia Stücklisten-Agenten, der 
+- 2026-06-09 10:56 | Hetzner_Kosten.jpeg → Kunden/Schaufler | Bilddatei mit dem Namen 'Hetzner_Kosten', vermutlich ein Screenshot oder Foto ei
+- 2026-06-09 10:56 | 63f3799ea18e3455466349.jpg → Memos/Medien | Bilddatei ohne extrahierbaren Text, zugeordnet zum Kundenbereich Schaufler. Da d
+- 2026-06-09 10:56 | Schaufler_Hosting_Praesentation (4).pdf → Kunden/Schaufler | Präsentation von Prozessia für den Kunden Schaufler zum KI-Hosting- und Wartungs
+- 2026-06-09 10:56 | Schnittstelle ProLeiS und Prozessia.pdf → Kunden/Schaufler | Transkript eines Meetings zwischen Prozessia und dem Kunden Schaufler (vertreten
+- 2026-06-09 10:56 | Systemhandbuch_Beschaffungsagent_v1.1.pdf → Produkte/Beschaffungsagent | Systemhandbuch für den Beschaffungsagenten der Schaufler Fischer Group in Versio
+- 2026-06-09 10:56 | Schaufler_Hosting_Praesentation (4).pptx → Sales/Praesentationen | Verkaufspräsentation von Prozessia für ein KI-Hosting- und Wartungsmodell, adres
+- 2026-06-09 10:56 | Server Hosting KI-Agend.pdf → Kunden/Schaufler | Meeting-Transkript zwischen Prozessia und dem Kunden Schaufler sowie deren exter
+- 2026-06-09 10:56 | Rechnung_Prototyp.pdf → Finanzen/Rechnungen | Ausgangsrechnung von Prozessia GbR an SCHAUFLER Tooling GmbH & Co. KG vom 25.03.
+- 2026-06-09 10:56 | BEST-PROZESSIA-124952.pdf → Kunden/Schaufler | Bestellung Nr. 124952 von Schaufler Tooling GmbH & Co. KG an Prozessia GbR vom 2
+- 2026-06-09 10:56 | BEST-PROZESSIA-124952-unterschrieben.pdf → Kunden/Schaufler | Bestellung Nr. 124952 von Schaufler Tooling GmbH & Co. KG an Prozessia GbR über 
+- 2026-06-09 10:57 | Beschaffungsagent_Schaufler_Final4.pptx → Sales/Praesentationen | Verkaufspräsentation von Prozessia für die Schaufler Tooling GmbH zum Produkt 'B
+- 2026-06-09 10:57 | 2026-01-22_Schaufler Tooling GmbH Co. KG_Vertraulichkeitsvereinbarung_13.00 - Prozessia (1).pdf → Kunden/Schaufler | Vertraulichkeitsvereinbarung (NDA) zwischen Schaufler Tooling GmbH & Co. KG (Lai
+- 2026-06-09 10:57 | Prozessia_Wartungsmodell.docx → Kunden/Schaufler | Das Dokument beschreibt das Hosting- und Wartungsmodell von Prozessia GbR mit ei
+- 2026-06-09 10:57 | Angebot Serververwaltung.pdf → Kunden/Schaufler | Angebot von Prozessia GbR an die SCHAUFLER Tooling GmbH & Co. KG über die monatl
+- 2026-06-09 10:57 | Schaufler_Hosting_Praesentation.pdf → Kunden/Schaufler | Eine Verkaufspräsentation von Prozessia für das KI-Hosting- und Wartungsmodell, 
+- 2026-06-09 10:57 | Schaufler_Hosting.pdf.zip → Kunden/Schaufler | ZIP-Archiv mit Hosting-bezogenen Unterlagen für den Kunden Schaufler. Das Archiv
+- 2026-06-09 10:57 | Rechnung_Prototyp → Finanzen/Rechnungen | Eine Rechnung mit Bezug zu einem Prototyp, abgelegt im Kundenordner Schaufler. D
+- 2026-06-09 10:57 | Azure_OpenAI_Anleitung.docx → Kunden/Schaufler | Interne Einrichtungsanleitung von Prozessia für die Konfiguration von Azure Open
+- 2026-06-09 10:57 | Nio.docx → Kunden/Schaufler | Das Dokument befindet sich im Unterordner des Kunden Schaufler und enthält die K
+- 2026-06-09 10:57 | Schnittstellenanforderungen_ProLeiS (2).pdf → Kunden/Schaufler | Technisches Dokument der Schaufler Fischer Group, das die Schnittstellenanforder
+- 2026-06-09 10:57 | Blau Creme Modern Typografie Name Initialen Stempel Logo (1).png → Marketing/Branding | Bilddatei mit einem Logo-Design im Stil eines Stempels mit blau-cremer Farbgebun
+- 2026-06-09 10:58 | Schaufler Prototyp.pdf → Kunden/Schaufler | Transkript eines Meetings vom 25.03. zwischen Prozessia (Amin) und dem Kunden Sc
+- 2026-06-09 10:58 | Angebot_Schaufler_final.pdf → Finanzen/Angebote | Angebot von Prozessia GbR an die SCHAUFLER Tooling GmbH & Co. KG über die Implem
+- 2026-06-09 10:58 | Prozessia-X-Schaufler Beschafungsagent.pptx → Sales/Praesentationen | Verkaufspräsentation von Prozessia für den Kunden Schaufler zum Produkt 'Digital
+- 2026-06-09 10:58 | Besprechung Server-Infrastruktur Schaufler.pdf → Kunden/Schaufler | Meeting-Transkript einer Besprechung zur Server-Infrastruktur mit dem Kunden Sch
+- 2026-06-09 10:58 | Server Hosting KI-Agend (1).pdf → Kunden/Schaufler | Transkript eines Meetings vom 17. April zwischen Sebastian Spuhler, Jonas Rösch 
+- 2026-06-09 10:58 | Angebot_AG0024_27.05.2026.pdf → Finanzen/Angebote | Angebot Nr. AG0024 vom 27.05.2026 von Prozessia GbR an die SCHAUFLER Tooling Gmb
+- 2026-06-09 10:58 | Systemhandbuch_Beschaffungsagent (2).pdf → Produkte/Beschaffungsagent | Systemhandbuch des KI-gestützten Beschaffungsagenten, entwickelt für die Schaufl
+- 2026-06-09 10:58 | NDA_Schaufler_Prozessia_unterschrieben.pdf → Kunden/Schaufler | Unterzeichnete Vertraulichkeitsvereinbarung (NDA) zwischen Schaufler Tooling Gmb
+- 2026-06-09 10:58 | 20230703_194011-1030x579.jpg → Kunden/Schaufler | Bilddatei aus dem Unterordner 'Schaufler', aufgenommen am 03.07.2023. Da kein Te
+- 2026-06-09 10:58 | 🗓️ Workshop-Agenda – Prozessaufnahme Beschaffungsagent (Ist-Zustand).pdf → Kunden/Schaufler | Workshop-Agenda zur Prozessaufnahme (Ist-Zustand) für den Beschaffungsagenten be
+- 2026-06-09 10:59 | SFIP052_Lastenheft.pdf → Kunden/Schaufler | Lastenheft des Kunden Schaufler für ein KI-gestütztes System zur automatisierten
+- 2026-06-09 10:59 | Schaufler_Hosting_Praesentation (1).pdf → Sales/Praesentationen | Verkaufspräsentation von Prozessia für das KI-Hosting- und Wartungsmodell, adres
+- 2026-06-09 10:59 | New Record from Google Meet (3).pdf → Kunden/Schaufler | Aufzeichnung eines Google Meet-Gesprächs vom 04.02. zwischen Sebastian Spuhler u
+- 2026-06-09 10:59 | BBR_Developer_Spec.pdf → Kunden/Schaufler | Technische Entwicklerspezifikation (v1.0) für das Spiel 'Beat Battle Royale', be
+- 2026-06-09 10:59 | BOM-Mapper_Erklaerung.pdf → Produkte/Stuecklistenagent | Technische Erklärungsdokumentation zum BOM-Mapper, einem KI-gestützten System fü
+- 2026-06-09 10:59 | Stückliste A.pdf → Produkte/Stuecklistenagent | Technische Stückliste (FB-WZ-BM-001, Revision 1) für ein Getriebegehäuse B3-HST,
+- 2026-06-09 10:59 | Vertriebsvereinbarung_Segschneider.docx → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR und dem Vertriebspartner Segschneid
+- 2026-06-09 10:59 | Vertriebsvereinbarung_Segschneider (1).pdf → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR und einem Vertriebspartner namens S
+- 2026-06-09 10:59 | Präsentation_Beschaffungsagent_Prozessia.pdf → Sales/Praesentationen | Verkaufspräsentation des Prozessia Beschaffungsagenten, die den Nutzen für Branc
+- 2026-06-09 10:59 | Cold_Call_Leitfaden_Prozessia_v5 (5).docx → Sales/Cold_Call | Interner Cold-Call-Leitfaden für Setter bei Prozessia (Version 5, Mai 2026). Bes
+- 2026-06-09 10:59 | prozessia_flyer.py → Marketing/Flyer | Python-Skript mit dem Namen 'prozessia_flyer', das vermutlich zur Generierung od
+- 2026-06-09 10:59 | Prozessia_Stuecklisten_Agent.pdf → Produkte/Stuecklistenagent | Produktpräsentation des Prozessia Stücklisten-Agenten, der Kunden-Stücklisten au
+- 2026-06-09 11:00 | Kooperationsvereinbarung_Prozessia (4) (1).pdf → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR und einem noch nicht benannten Vert
+- 2026-06-09 11:00 | Kooperationsvereinbarung_Prozessia (4).pdf → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR und einem noch nicht namentlich gen
+- 2026-06-09 11:00 | Vertriebsvereinbarung_Geginat.pdf → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR und einem noch nicht namentlich ein
+- 2026-06-09 11:00 | Cold_Call_Leitfaden_Prozessia.docx → Sales/Cold_Call | Interner Cold-Call-Leitfaden für Setter bei Prozessia GbR (Mai 2026). Beschreibt
+- 2026-06-09 11:00 | Vertriebsvereinbarung_Geginat .pdf → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR und einem Vertriebspartner namens G
+- 2026-06-09 11:00 | Prozessia.pdf → Marketing/Flyer | Marketingflyer von Prozessia für Maschinenbau und produzierende Industrie im DAC
+- 2026-06-09 11:00 | Vertriebsvereinbarung_Segschneider_unterschrieben.pdf → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR und einem Vertriebspartner namens S
+- 2026-06-09 11:00 | Prozessia_Flyer_Messe.pdf → Marketing/Flyer | Messflyer von Prozessia mit Fokus auf KI-Lösungen für die Industrie. Der Flyer b
+- 2026-06-09 11:00 | klageschrift_entwurf_arbeitsrecht.docx → Kunden/Voigt Salus | Entwurf einer Klageschrift der Kanzlei Voigt Salus für eine arbeitsrechtliche Au
+- 2026-06-09 11:00 | Voigt_Salus_Arbeitsalltag (1).xlsx → Kunden/Voigt Salus | Excel-Datei mit vollständiger Kanzleiverwaltung der Anwaltskanzlei Voigt Salus i
+- 2026-06-09 11:00 | Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.pptx → Sales/Praesentationen | Verkaufspräsentation von Prozessia für die Kanzlei Voigt Salus, die den Prozessi
+- 2026-06-09 11:01 | Präsentation_ Datenschutz.pptx → Kunden/Voigt Salus | Die Präsentation vergleicht Datenschutzoptionen für eine Kanzlei (Voigt Salus) z
+- 2026-06-09 11:01 | Angebot Testzeitraum.pdf → Finanzen/Angebote | Angebot von Prozessia an Voigt Salus (AG0016) vom 04.12.2025, gültig bis 18.12.2
+- 2026-06-09 11:01 | Kostenkalkulation Testphase.pdf → Kunden/Voigt_Salus | Kostenkalkulation für eine Testphase (Pilotprojekt) bei Voigt Salus über einen M
+- 2026-06-09 11:01 | Präsentation_ Datenschutz .pptx → Kunden/Voigt Salus | Die Präsentation vergleicht Datenschutz- und Kostenaspekte von ChatGPT Business/
+- 2026-06-09 11:01 | kanzlei_memo_intern.pdf → Kunden/Voigt Salus | Internes Kanzlei-Memo der Kanzlei Voigt Salus vom 18.11.2025 über den geplanten 
+- 2026-06-09 11:01 | Angebot testphase KI-Assistent VOIGT SALUS-.pdf → Finanzen/Angebote | Angebot von Prozessia an Voigt Salus (Berlin) über einen 6-wöchigen Testzeitraum
+- 2026-06-09 11:01 | Kostenkalkulation Testphase.docx → Kunden/Voigt Salus | Detaillierte Kostenkalkulation für eine KI-Pilotphase bei Voigt Salus, aufgeschl
+- 2026-06-09 11:01 | mandatsuebersicht.xlsx → Kunden/Voigt Salus | Mandatsübersicht der Kanzlei Voigt Salus mit fünf aktiven Mandaten aus verschied
+- 2026-06-09 11:01 | Beschaffungsagent_Prozessia.pdf → Produkte/Beschaffungsagent | Verkaufspräsentation des Prozessia KI-Beschaffungsagenten, der manuelle Beschaff
+- 2026-06-09 11:01 | Stücklistenagent_Prozessia.pdf → Produkte/Stuecklistenagent | Produktpräsentation des Prozessia BOM-Mapper, einem KI-basierten Stücklistenagen
+- 2026-06-09 11:01 | Prozessia.pdf → Sales/Praesentationen | Verkaufspräsentation von Prozessia für den Maschinenbau und die produzierende In
+- 2026-06-09 11:02 | Beschaffungsagent_Prozessia.pptx → Sales/Praesentationen | Vertriebspräsentation des Prozessia KI-Beschaffungsagenten für Industriekunden (
+- 2026-06-09 11:02 | Stücklistenagent_Prozessia.pptx → Produkte/Stuecklistenagent | Verkaufspräsentation des Prozessia BOM-Mapper, einem KI-basierten Stücklistenage
+- 2026-06-09 11:02 | Prozessia_AI_Produktpräsentation (1).pdf → Sales/Praesentationen | Produktpräsentation von Prozessia AI, dem flexiblen KI-System für mittelständisc
+- 2026-06-09 11:02 | Akquisenachricht Automobil.docx → Marketing/LinkedIn | LinkedIn-Akquisenachricht von Sebastian Spuhler (Geschäftsführer Prozessia) zur 
+- 2026-06-09 11:23 | info@webwokr.de (3).png → Memos/Medien | Bilddatei ohne extrahierbaren Text, eingegangen über die E-Mail-Adresse info@web
+- 2026-06-09 11:23 | Immobilien_neu.xlsx → Leads | Die Datei enthält eine Liste von Kontakten aus der Immobilienbranche mit Namen, 
+- 2026-06-09 11:23 | Kostenkalkulation.docx → Finanzen/Angebote | Das Dokument enthält eine detaillierte Kostenkalkulation für einen 4-wöchigen KI
+- 2026-06-09 11:23 | Coaching.csv → Memos | Die Datei 'Coaching.csv' enthält scheinbar keinen verwertbaren Inhalt – der Date
+- 2026-06-09 11:23 | Path.docx → Produkte/Beschaffungsagent | Das Dokument enthält den Quellcode einer Serverless-Funktion (Twilio/VAPI-Handle
+- 2026-06-09 11:23 | Automatisierung Kostenvoranschlag.html → Finanzen/Angebote | Das Dokument ist eine gespeicherte HTML-Datei einer WhatsApp-Webseite und enthäl
+- 2026-06-09 11:23 | Konzept Voice Agent REIFFEN.pdf → Kunden/[NeuerKunde] | Das Dokument beschreibt das Konzept eines Voice Agents für den Kunden REIFFEN, d
+- 2026-06-09 11:23 | Immobilien.xlsx → Leads | Die Datei enthält eine strukturierte Liste von Kontakten aus der Immobilienbranc
+- 2026-06-09 11:23 | WebWokr Titelbild.png → Marketing/Branding | Bilddatei mit dem Titel 'WebWork Titelbild', vermutlich ein visuelles Asset (z.B
+- 2026-06-09 11:23 | Report Immobilienmarkler.pdf → Sales/Praesentationen | Der Report beschreibt typische Prozessprobleme in Immobilienunternehmen, wie zer
+- 2026-06-09 11:23 | Kopie von Dienstleistungsvertrag_Kanzleien.docx → Vertraege | Dienstleistungsvertrag (Agenturleistungsvertrag) zwischen Prozessia (Sebastian S
+- 2026-06-09 11:24 | Report Recruiting.pdf → Marketing/Flyer | Der Report beschreibt typische Prozessprobleme in Recruiting-Agenturen (z. B. un
+- 2026-06-09 11:24 | Angebot_AG0010_17.09.2025.pdf → Finanzen/Angebote | Angebot von WebWokr an Prozessia GbR (Kundennr. 10001) vom 17.09.2025, gültig bi
+- 2026-06-09 11:24 | Allgemeine Geschäftsbedingungen.docx → Vertraege | Allgemeine Geschäftsbedingungen von Prozessia GbR für KI- und Automatisierungsdi
+- 2026-06-09 11:24 | PROJECT-2026-Das-Manifest (1).pdf → Marketing/Branding | Das Manifest 'PROJECT 2026' beschreibt die strategische Ausrichtung der Prozessi
+- 2026-06-09 11:24 | Logo-removebg-preview.png → Marketing/Branding | Bilddatei einer Logo-Grafik, vermutlich das Logo von Prozessia GbR oder eines Ku
+- 2026-06-09 11:24 | 1. Vertragsänderung M-2024-16_Spuhler_webwokr.pdf → Vertraege | Erste Vertragsänderung zum Mietvertrag Nr. M-2024-16 zwischen der Triathlon Tran
+- 2026-06-09 11:24 | Immobilien.csv → Leads | CSV-Datei mit 17 Kontakten aus der Immobilienbranche (real estate), inklusive E-
+- 2026-06-09 11:24 | Gamma Presentation (1).json → Sales/Praesentationen | Ein n8n-Workflow (JSON-Export) zur automatischen Generierung von Präsentationen 
+- 2026-06-09 11:24 | Werbeagenturen.docx → Sales/Praesentationen | Ein strukturierter Report, der die wichtigsten Prozessoptimierungspotenziale für
+- 2026-06-09 11:24 | Invoice-BCE54405-0018.pdf → Finanzen/Rechnungen | Rechnung von Instantly (instantly.ai) an Sebastian Spuhler / Prozessia GbR, Saar
+- 2026-06-09 11:24 | Voigtsalus-Video.mov → Kunden/Voigt_Salus | Videodatei mit Bezug zum Kunden Voigt Salus. Da kein Text extrahierbar ist, hand
+- 2026-06-09 11:25 | Angebot Webseite.pdf → Finanzen/Angebote | Angebot von Prozessia an SaarHaus Catering GmbH für die Erstellung einer moderne
+- 2026-06-09 11:25 | Allgemeine Geschäftsbedingungen.pdf → Vertraege | Allgemeine Geschäftsbedingungen von Prozessia für KI- und Automatisierungsdienst
+- 2026-06-09 11:25 | Die Lösungsbausteine.docx → Produkte/Beschaffungsagent | Das Dokument beschreibt fünf modulare Lösungsbausteine für eine ganzheitliche Ag
+- 2026-06-09 11:25 | Werbeagenturen.pdf → Sales/Praesentationen | Report zur Prozessoptimierung speziell für Werbeagenturen, der typische Herausfo
+- 2026-06-09 11:25 | Report Recruiting.docx → Marketing/Flyer | Das Dokument ist ein Report über Prozessoptimierung für Recruiting-Agenturen und
+- 2026-06-09 11:25 | Invoice-BCE54405-0019.pdf → Finanzen/Rechnungen | Rechnung von Instantly (instantly.ai) an Sebastian Spuhler / Prozessia GbR über 
+- 2026-06-09 11:25 | Apify_Invoice_202508060773.pdf → Finanzen/Rechnungen | Rechnung von Apify Technologies s.r.o. an Sebastian Spuhler (WebWokr) über den S
+- 2026-06-09 11:25 | Ausweis S (1).pdf → Memos/Medien | Das Dokument scheint ein eingescannter Ausweis oder ein ähnliches Ausweisdokumen
+- 2026-06-09 11:25 | Unterlassungserklärung WebWokr.pdf → Vertraege | Unterlassungserklärung von Sebastian Spuhler (WebWokr, Saarbrücken) gegenüber Ma
+- 2026-06-09 11:25 | Titelbild_1.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich ein Titelbild oder grafisches Ass
+- 2026-06-09 11:25 | werbe_final.xlsx → Sales/Cold_Call | Die Datei enthält personalisierte Kaltakquise-Nachrichten für mehrere Kontakte a
+- 2026-06-09 11:25 | Logo_converted.png → Marketing/Branding | Bilddatei mit einem konvertierten Logo, vermutlich das Logo von Prozessia GbR od
+- 2026-06-09 11:25 | 20260105_NDA-Prozessia (1).pdf → Vertraege | Gegenseitige Vertraulichkeitsvereinbarung (NDA) zwischen digitalisierungs.net (M
+- 2026-06-09 11:26 | 1. Vertragsänderung M-2024-16_Spuhler_webwokr (1) (2).pdf → Vertraege | Erste Vertragsänderung zum Mietvertrag Nr. M-2024-16 zwischen der Triathlon Tran
+- 2026-06-09 11:26 | Lead Enrichment with Personalized German Icebreakers from Website Content (1).json → Produkte/Beschaffungsagent | n8n-Workflow zur automatisierten Lead-Anreicherung mit personalisierten deutsche
+- 2026-06-09 11:26 | Dienstleistungsvertrag Handwerker.docx → Vertraege | Agenturdienstleistungsvertrag der Firma WebWokr (Sebastian Spuhler / Mohamed Ami
+- 2026-06-09 11:26 | WebWokr_Titelbild.png → Marketing/Webinar | Bilddatei mit dem Namen 'WebWokr_Titelbild', vermutlich ein Titelbild für eine W
+- 2026-06-09 11:26 | Logo.jpeg → Marketing/Branding | Bilddatei mit dem Dateinamen 'Logo.jpeg', vermutlich ein Logo (von Prozessia GbR
+- 2026-06-09 11:26 | Titelbild.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich ein Titelbild für ein Dokument, e
+- 2026-06-09 11:26 | Kopie von Dienstleistungsvertrag.docx.pdf → Vertraege | Agenturdienstleistungsvertrag der Agentur WebWokr (Sebastian Spuhler / Mohamed A
+- 2026-06-09 11:26 | Dienstleistungsvertrag Autor des Dokuments.docx → Vertraege | Vorlage eines Agenturdienstleistungsvertrags, erstellt von WebWokr (Sebastian Sp
+- 2026-06-09 11:26 | Bildschirmfoto 2025-10-29 um 15.49.16.png → Memos/Medien | Bilddatei (Screenshot vom 29.10.2025, 15:49 Uhr), deren Inhalt nicht extrahierba
+- 2026-06-09 11:26 | Kopie von Dienstleistungsvertrag (1).pdf → Vertraege | Agenturdienstleistungsvertrag der Agentur WebWokr (Sebastian Spuhler / Mohamed A
+- 2026-06-09 11:26 | 21cd977d-d549-4090-bde7-6dafae8580a3 2.jpeg → Memos/Medien | Bilddatei ohne extrahierbaren Text. Der Inhalt ist visueller Natur und konnte ni
+- 2026-06-09 11:26 | Finom_statement_30122025 (1).pdf → Finanzen/Rechnungen | Kontoauszug des Finom-Geschäftskontos der Prozessia GbR (Sebastian Spuhler, Moha
+- 2026-06-09 11:27 | Rechnung_vapi.pdf → Finanzen/Rechnungen | Ausgangsrechnung der Prozessia GbR an die Martin Veser Unternehmergesellschaft (
+- 2026-06-09 11:27 | U.pdf → Vertraege | Unterlassungserklärung gerichtet an Sebastian Spuhler (WebWork Campus, Saarbrück
+- 2026-06-09 11:27 | Automated Social Media Content Generation from News Sources.json → Marketing/Social-Media | Dieses Dokument ist ein n8n-Workflow zur automatisierten Erstellung von Social-M
+- 2026-06-09 11:27 | WhatsApp Video 2025-09-21 at 15.24.22.mp4 → Memos/Medien | WhatsApp-Videodatei vom 21. September 2025, aufgezeichnet um 15:24 Uhr. Da es si
+- 2026-06-09 11:27 | Report Immobilienmarkler.docx → Sales/Praesentationen | Das Dokument ist ein strukturierter Report, der die typischen Prozessprobleme vo
+- 2026-06-09 11:27 | 21cd977d-d549-4090-bde7-6dafae8580a3.jpeg → Memos/Medien | Bilddatei ohne extrahierbaren Text. Der Inhalt des Bildes konnte nicht analysier
+- 2026-06-09 11:27 | Sebastian SPuhler.png → Memos/Medien | Bilddatei mit dem Namen 'Sebastian Spuhler'. Es handelt sich vermutlich um ein F
+- 2026-06-09 11:27 | Kopie von Dienstleistungsvertrag (2) (1).pdf → Vertraege | Agenturdienstleistungsvertrag zwischen WebWokr (Sebastian Spuhler / Mohamed Amin
+- 2026-06-09 11:27 | Werbedienstleisutngen.csv → Leads | CSV-Datei mit Kontaktdaten von Personen aus der Marketing- & Werbedienstleistung
+- 2026-06-09 11:27 | Visitenkarten Prozessia.pdf → Marketing/Branding | Visitenkarte von Sebastian Spuhler, Founder & CEO von Prozessia GbR, mit Kontakt
+- 2026-06-09 11:27 | Automatisierung Adrise.MOV → Sales/Praesentationen | Videodatei mit dem Titel 'Automatisierung Adrise'. Da kein Text extrahierbar ist
+- 2026-06-09 11:27 | werbe_final.csv → Marketing/LinkedIn | Eine CSV-Datei mit Spaltenköpfen für eine E-Mail-Werbekampagne (u.a. E-Mail, Bra
+- 2026-06-09 11:27 | Rag_Agent_Übersicht.jpeg → Memos/Medien | Bilddatei (JPEG) mit einer Übersicht zu einem RAG-Agenten, vermutlich eine visue
+- 2026-06-09 11:28 | Finom_statement_31122025.pdf → Finanzen/Rechnungen | Kontoauszug des Finom-Geschäftskontos der Prozessia GbR (Sebastian Spuhler, Moha
+- 2026-06-09 11:28 | coaching_final.csv → Leads | CSV-Datei mit personalisierten Cold-Outreach-Kontakten aus der Branche 'Professi
+- 2026-06-09 11:28 | 1741810930224.jpeg → Memos/Medien | Bilddatei ohne extrahierbaren Text. Der Inhalt ist visueller Natur und konnte ni
+- 2026-06-09 11:28 | KI-Agent-X-Voigt-Salus.pptx → Kunden/Voigt_Salus | Verkaufspräsentation des Produkts 'KI-Agent X' von Prozessia, adressiert an den 
+- 2026-06-09 11:28 | Dokumentation Twilio Anruftransfer.docx → Produkte/Beschaffungsagent | Technische Dokumentation eines Twilio-basierten Warm-Transfer-Systems für eingeh
+- 2026-06-09 11:28 | d0c69908-1de0-45bd-8f2a-aea8e9db690f.jpeg → Memos/Medien | Bilddatei ohne extrahierbaren Text. Der Inhalt ist visueller Natur und konnte ni
+- 2026-06-09 11:28 | Recruiting.csv → Leads | CSV-Datei mit Kontaktdaten von 16 Recruiting- und HR-Agenturen aus Deutschland u
+- 2026-06-09 11:28 | Modul-3-Uberblick-weiterer-relevanter-Rechtsgrundlagen.pdf → Produkte/KI-Schulung | Schulungsmodul 3 zur rechtlichen Grundlage beim KI-Einsatz, das Themen wie Gesch
+- 2026-06-09 11:28 | Modul_2_Transkript.pdf → Produkte/KI-Schulung | Transkript des zweiten Moduls einer KI-Schulung zum Thema 'Risiken der KI-Nutzun
+- 2026-06-09 11:28 | Modul_5_Transkript.pdf → Produkte/KI-Schulung | Transkript des fünften Moduls einer KI-Schulung zum Thema Datenschutz und IT-Sic
+- 2026-06-09 11:29 | Prozessia — Unternehmenspräsentation.pdf → Sales/Praesentationen | Unternehmenspräsentation von Prozessia für den Maschinenbau und die produzierend
+- 2026-06-09 11:29 | Modul_4_Transkript.pdf → Produkte/KI-Schulung | Transkript einer Schulungssession (Modul 4) zum Thema KI-Ethik, Bias und Diskrim
+- 2026-06-09 11:29 | Modul-4-Ethik-Bias-and-Diskriminierung.pdf → Produkte/KI-Schulung | Schulungsmodul 4 zum Thema KI-Ethik, Bias und Diskriminierung als Teil einer meh
+- 2026-06-09 11:29 | Modul_3_Transkript.pdf → Produkte/KI-Schulung | Transkript eines Schulungsmoduls (Modul 3) zu relevanten Rechtsgrundlagen für de
+- 2026-06-09 11:29 | Modul-2-Risiken-der-KI-Nutzung (1).pdf → Produkte/KI-Schulung | Dieses Dokument ist das zweite Modul einer KI-Schulung und behandelt Risiken der
+- 2026-06-09 11:29 | Modul_1_Transkript.pdf → Produkte/KI-Schulung | Transkript des ersten Moduls einer KI-Schulung zum Thema EU AI Act. Es werden gr
+- 2026-06-09 11:29 | Modul_6_Transkript.pdf → Produkte/KI-Schulung | Transkript von Modul 6 einer KI-Schulung, das sich mit dem Thema Compliance im K
+- 2026-06-09 11:29 | Prozessia_Schulungskonzept_v2.pdf → Produkte/KI-Schulung | Vollständiges internes Schulungskonzept 'Der KI-Kompass für den Industriemittels
+- 2026-06-09 11:29 | Modul-1-Einfuhrung-in-Kunstliche-Intelligenz-gemass-EU-AI-Act.pdf → Produkte/KI-Schulung | Schulungsmodul 1 zur Einführung in die KI-Verordnung (EU AI Act) mit Begriffsbes
+- 2026-06-09 11:29 | Modul-5-Datenschutz-and-IT-Sicherheit-bei-KI-Nutzung.pdf → Produkte/KI-Schulung | Schulungsmodul 5 zur KI-Nutzung im Unternehmen mit Fokus auf Datenschutz und IT-
+- 2026-06-09 11:30 | KI-Kompass Industriemittelstand_ Ganztags-Schulungskonzept für Geschäftsführer und Entscheider.pdf → Produkte/KI-Schulung | Detailliertes Ganztags-Schulungskonzept von Prozessia GbR für Geschäftsführer un
+- 2026-06-09 11:30 | Prozessia_Landingpage_Brief_v2.docx → Marketing/Flyer | Content-Notizen für das Design-Team zur Gestaltung der Landingpage des eintägige
+- 2026-06-09 11:30 | Prozessia_KI_Schulungsleitfaden.pdf → Produkte/Stuecklistenagent | Vollständiger interner Leitfaden für das Prozessia KI-Schulungsprogramm mit Foku
+- 2026-06-09 11:30 | Modul-6-KI-Compliance-in-der-Praxis.pdf → Produkte/KI-Schulung | Modul 6 einer KI-Schulungsreihe zum Thema KI-Compliance in der Praxis. Das Dokum
+- 2026-06-09 11:30 | Grau und Weiß Einfach Minimalistisch Immobilien Visitenkarte (2).pdf → Marketing/Branding | Visitenkarte von Sebastian Spuhler, Founder & CEO von Prozessia GbR. Enthält Kon
+- 2026-06-09 11:30 | file.png → Marketing/Branding | Bilddatei ohne extrahierbaren Text, abgelegt im Unterordner 'Branding'. Es hande
+- 2026-06-09 11:30 | 2.png → Marketing/Branding | Bilddatei aus dem Unterordner 'Branding', vermutlich ein Logo, eine Grafik oder 
+- 2026-06-09 11:30 | 1.png → Marketing/Branding | Bilddatei aus dem Unterordner 'Branding', die wahrscheinlich ein Logo, eine Graf
+- 2026-06-09 11:30 | Grau und Weiß Einfach Minimalistisch Immobilien Visitenkarte (1).pdf → Marketing/Branding | Visitenkarte von Sebastian Spuhler, Founder & CEO der Prozessia GbR. Enthält Kon
+- 2026-06-09 11:30 | carousel-run.log → Marketing/LinkedIn | Log-Datei eines automatisierten Carousel-Posting-Prozesses für LinkedIn, vermutl
+- 2026-06-09 11:30 | 20693345_proof.png → Marketing/LinkedIn | Bilddatei aus dem Unterordner 'Branding/claude-linkedin-auto-poster', vermutlich
+- 2026-06-09 11:30 | slide-5-frontend.png → Marketing/LinkedIn | Bilddatei einer Präsentationsfolie (Slide 5) mit Fokus auf Frontend-Inhalte, wah
+- 2026-06-09 11:30 | slide-3-diagram.png → Marketing/LinkedIn | Bilddatei einer Diagramm-Folie (Slide 3), vermutlich aus einer Präsentation oder
+- 2026-06-09 11:31 | ideen-2026-06-07.json → Marketing/LinkedIn | JSON-Output-Datei eines automatisierten LinkedIn-Post-Generators (claude-linkedi
+- 2026-06-09 11:32 | beitraege-2026-06-07.json → Marketing/LinkedIn | JSON-Output-Datei des automatisierten LinkedIn-Posters (claude-linkedin-auto-pos
+- 2026-06-09 11:32 | slide-4-remotion.png → Marketing/LinkedIn | Bilddatei einer Präsentationsfolie (Slide 4), erstellt mit Remotion (React-basie
+- 2026-06-09 11:32 | carousel-claude-skills.pdf → Marketing/LinkedIn | Das Dokument ist ein LinkedIn-Karussell-Output über Claude-KI-Skills, erstellt d
+- 2026-06-09 11:32 | slide-1-hook.png → Marketing/LinkedIn | Bilddatei einer Präsentationsfolie (Slide 1 – Hook), die vermutlich als erster H
+- 2026-06-09 11:32 | slide-6-pdf-cta.png → Marketing/LinkedIn | Eine Bilddatei (PNG), die als Call-to-Action-Slide (Folie 6) aus einem LinkedIn-
+- 2026-06-09 11:32 | slide-2-humanizer.png → Marketing/LinkedIn | Bilddatei aus dem Output-Ordner des Claude-LinkedIn-Auto-Posters, vermutlich ein
+- 2026-06-09 11:32 | index.html → Marketing/Branding | Eine HTML-Datei, die eine Cloudinary Media Browser-Oberfläche implementiert. Sie
+- 2026-06-09 11:32 | thumbnail-1 (22).jpg → Marketing/Branding | Bilddatei (Thumbnail/Vorschaubild) aus dem Branding-Bereich des claude-linkedin-
+- 2026-06-09 11:32 | generated-image-1777509579260.png → Marketing/Branding | Bilddatei, vermutlich ein KI-generiertes Bild für den LinkedIn Auto-Poster von P
+- 2026-06-09 11:32 | thumbnail-3 (4).jpg → Marketing/Branding | Bilddatei (Thumbnail/Grafik) aus dem Unterordner des LinkedIn-Auto-Poster-Projek
+- 2026-06-09 11:33 | thumbnail-3 (5).jpg → Marketing/Branding | Bilddatei (Thumbnail/Vorschaubild) aus dem Unterordner des Claude LinkedIn Auto-
+- 2026-06-09 11:33 | generated-image-1777940165259.png → Marketing/Branding | Generiertes Bild im Rahmen des Claude-LinkedIn-Auto-Poster-Projekts, zugehörig z
+- 2026-06-09 11:33 | thumbnail-1 (20).jpg → Marketing/Branding | Bilddatei (Thumbnail/Vorschaubild) aus dem Style-Guide-Bereich des claude-linked
+- 2026-06-09 11:33 | settings.local.json → Marketing/LinkedIn | Lokale Claude-Berechtigungskonfiguration (settings.local.json) für ein Branding-
+- 2026-06-09 11:33 | Handwerker_1.png → Marketing/Social-Media | Bilddatei mit Handwerker-Motiv, vermutlich für Social-Media-Zwecke erstellt. Das
+- 2026-06-09 11:33 | Briefe.xlsx → Leads | Die Excel-Datei enthält eine strukturierte Leaddatenbank mit Briefanreden, Anspr
+- 2026-06-09 11:33 | Prozessia_Leads_Komplett_v5.xlsx → Leads | Strukturierte Leaddatenbank mit 16+ verifizierten B2B-Kontakten aus dem Bereich 
+- 2026-06-09 11:33 | Prozessia_Leads_NurNeu (1).xlsx → Leads | Excel-Datei mit neuen, noch nicht kontaktierten Leads (Nr. 60–70) aus der Leadda
+- 2026-06-09 11:33 | Prozessia-Agent-Funktions-und-Datenschutzubersicht (1).pptx → Sales/Handelsvertreter | Präsentation des Prozessia Agents als KI-gestütztes System zur Unterstützung von
+- 2026-06-09 11:33 | Kooperationsvereinbarung_Prozessia (1).pdf → Sales/Handelsvertreter | Kooperationsvereinbarung zwischen Prozessia GbR und einem (noch unbenannten) Koo
+- 2026-06-09 11:33 | Chatbot leading medicine.mp4 → Sales/Handelsvertreter | Videodatei zum Thema Chatbot-Einsatz im medizinischen Bereich (Leading Medicine)
+- 2026-06-09 11:33 | Vertriebsvereinbarung (1).pdf → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR und einem noch nicht namentlich ein
+- 2026-06-09 11:34 | Vertriebsvereinbarung_Adrian_Mueller (1).pdf → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR (Sebastian Spuhler & Mohamed Douiou
+- 2026-06-09 11:34 | prozessia_Beschaffungsagent_Marketing.pptx → Sales/Handelsvertreter | Verkaufspräsentation (PowerPoint) für den Prozessia KI-Beschaffungsagenten, geri
+- 2026-06-09 11:34 | Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.pptx.pdf → Sales/Praesentationen | Verkaufspräsentation des Prozessia KI-Agenten für die Kanzlei Voigt Salus, die e
+- 2026-06-09 11:34 | Kooperationsvereinbarung_Prozessia (2).pdf → Sales/Handelsvertreter | Kooperationsvereinbarung zwischen Prozessia GbR und einem noch nicht ausgefüllte
+- 2026-06-09 11:34 | Vertriebsvereinbarung_HOS_Elias_Haghverdi-1.pdf → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Home of Solar GmbH (Hamburg) und Elias Haghverdi 
+- 2026-06-09 11:34 | Copy of fonio Public Partner Angebotsvorlage.pdf → Sales/Handelsvertreter | Es handelt sich um eine Angebotsvorlage für Fonio-Partner (Voice-KI-Lösung), die
+- 2026-06-09 11:34 | 2026-arbeiten-Unternehmen-mit-KI-Agenten-Die-Frage-ist-nur-mit-wem.pdf → Marketing/Flyer | Verkaufsflyer von Prozessia GbR, der die Vorteile von KI-Agenten für Unternehmen
+- 2026-06-09 11:34 | Demovideo Prozessia Agent für Kanzleien.mp4 → Sales/Handelsvertreter | Demovideo des Prozessia Agenten, speziell ausgerichtet auf den Einsatz in Kanzle
+- 2026-06-09 11:34 | Prozessia-Informationen-fur-Vertriebspartner (1).pptx → Sales/Handelsvertreter | Präsentation für Vertriebspartner/Handelsvertreter von Prozessia mit Information
+- 2026-06-09 11:34 | Vertriebsvereinbarung Handelsvertreter.pdf → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR und einem noch nicht namentlich gen
+- 2026-06-09 11:34 | Prozessia_Voice_Agents_Produktbeschreibung_LANG_FINAL_CLEAN.pdf → Sales/Handelsvertreter | Detaillierte Produktbeschreibung der Prozessia Voice Agents (Stand 19.12.2025): 
+- 2026-06-09 11:35 | Vertriebsvereinbarung.docx → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR und einem noch nicht namentlich ben
+- 2026-06-09 11:35 | Präsentation_ Datenschutz .pptx.pdf → Sales/Handelsvertreter | Die Präsentation vergleicht datenschutzrechtliche Aspekte und Kosten von ChatGPT
+- 2026-06-09 11:35 | Vertriebsvereinbarung.pdf → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR und einem noch nicht namentlich gen
+- 2026-06-09 11:35 | Preismodell - Basismodell.pdf → Sales/Handelsvertreter | Dieses Dokument beschreibt das Basispreismodell (Stufe A) von Prozessia GbR für 
+- 2026-06-09 11:35 | Prozessia_Agent_Produktbeschreibung_LANG_FINAL.pdf → Sales/Praesentationen | Detaillierte Produktbeschreibung des Prozessia Agent, einem unternehmensspezifis
+- 2026-06-09 11:35 | Prozessia-KI-Losungen-fur-moderne-Unternehmen (1).pdf → Sales/Handelsvertreter | Verkaufspräsentation von Prozessia für Handelsvertreter, die die zwei Hauptprodu
+- 2026-06-09 11:35 | Prozessia-Agent-Funktions-und-Datenschutzubersicht (1).pdf → Sales/Handelsvertreter | Präsentation des Prozessia Agent als KI-gestütztes System zur Unterstützung von 
+- 2026-06-09 11:35 | Prozessia-Informationen-fur-Vertriebspartner (1).pdf → Sales/Handelsvertreter | Präsentationsdokument für potenzielle Vertriebspartner (Handelsvertreter) von Pr
+- 2026-06-09 11:35 | Prozessia-Voice-Agents (1).pdf → Sales/Handelsvertreter | Produktpräsentation von Prozessia zu Voice Agents – telefonbasierten KI-Assisten
+- 2026-06-09 11:35 | Demo Video Prozessia Agent für Kanzleien.html → Sales/Handelsvertreter | Eine gespeicherte HTML-Datei einer WhatsApp-Konversation, die ein Demo-Video des
+- 2026-06-09 11:35 | Listen.xlsx → Leads | Das Dokument enthält zwei strukturierte Listen mit potenziellen Geschäftskunden 
+- 2026-06-09 11:35 | DE_Partner_Deck.pptx → Sales/Praesentationen | Partner-Deck von fonio, einem KI-Telefonassistenten für den deutschsprachigen Ra
+- 2026-06-09 11:36 | DE_Partner_Deck.pdf → Sales/Praesentationen | Partner-Präsentation von Fonio, einem KI-Telefonassistenten speziell für den deu
+- 2026-06-09 11:36 | Präsentation_Beschaffungsagent_Prozessia.pdf → Sales/Praesentationen | Verkaufspräsentation des Prozessia Beschaffungsagenten für Branchen wie Automoti
+- 2026-06-09 11:36 | Prozessia.docx → Marketing/Flyer | Akquise-Anschreiben von Prozessia (Sebastian Spuhler) an potenzielle B2B-Kunden 
+- 2026-06-09 11:36 | New Record from Google Meet (1).pdf → Sales/Handelsvertreter | Aufzeichnung eines Google Meet-Gesprächs mit Sebastian Spuhler, dem Inhaber eine
+- 2026-06-09 11:36 | Seriendruck2_Seriendruck_FINAL.xlsx → Sales/Cold_Call | Excel-Datei mit Serienbriefempfängern für eine Marketingkampagne, bestehend aus 
+- 2026-06-09 11:36 | Prozessia_Zielunternehmen.xlsx → Leads | Die Datei enthält eine strukturierte Liste potenzieller Zielunternehmen für Proz
+- 2026-06-09 11:36 | Prozessia_Serienbrief_FINAL_vorlage.docx → Marketing/Flyer | Serienbrief-Vorlage von Prozessia für eine Kaltakquise-Kampagne im Bereich Werkz
+- 2026-06-09 11:36 | prozessia_Beschaffungsagent_Marketing (1).pptx → Marketing/Flyer | Marketingpräsentation (PowerPoint) des Prozessia Beschaffungsagenten, die Funkti
+- 2026-06-09 11:36 | Campus Starterzentrum.docx → Marketing/Flyer | Personalisierte Akquise-Briefe (Direct Mail) von Prozessia an potenzielle Neukun
+- 2026-06-09 11:36 | Seriendruck_KOMPLETT_FINAL (1).xlsx → Sales/Cold_Call | Eine vollständige Seriendruck-Kontaktliste mit ca. 32 Unternehmen aus dem Bereic
+- 2026-06-09 11:36 | Prozessia_Lieferantenbewerbung_Windhoff.pdf → Leads | Ausgehendes Akquiseschreiben von Prozessia an WINDHOFF Bahn- und Anlagentechnik 
+- 2026-06-09 11:37 | Serienbrief_2.pdf → Marketing/Flyer | Serienbrief von Prozessia (Sebastian Spuhler) an potenzielle B2B-Kunden aus der 
+- 2026-06-09 11:37 | 01fae0.png → Finanzen/Angebote | Bilddatei aus dem Unterordner 'Automatisierung Kostenvoranschlag_files', vermutl
+- 2026-06-09 11:37 | WhatsApp Video 2025-09-21 at 15.24.22.mp4 → Finanzen/Angebote | Video-Datei aus einem WhatsApp-Chat, die im Unterordner eines Kostenvoranschlags
+- 2026-06-09 11:37 | Susanne Riedt (Huissel GmbH) X Prozessia.pdf.zip → Leads | ZIP-Archiv im Kontext eines Kontakts mit Susanne Riedt von der Huissel GmbH, ein
+- 2026-06-09 11:37 | Susanne Riedt (Huissel GmbH) X Prozessia.pdf → Leads | Transkript eines Erstgesprächs zwischen Sebastian Spuhler (Prozessia) und Susann
+- 2026-06-09 11:37 | Rechnung_RE250004_03.08.2025.pdf → Finanzen/Rechnungen | Anzahlungsrechnung (RE250004) vom 03.08.2025 von WebWokr an Prozessia GbR (Joel 
+- 2026-06-09 11:37 |  Prozessia-KI-Losungen-fur-moderne-Unternehmen (1).pdf → Marketing/Flyer | Unternehmensbroschüre/Flyer von Prozessia, die das Leistungsportfolio der KI-Age
+- 2026-06-09 11:37 |  Prozessia-Voice-Agents .pdf → Produkte/Voice-Agents | Dieses Dokument ist eine Funktions- und Angebotsübersicht für den Prozessia Voic
+- 2026-06-09 11:37 | Workflow Voice Agent.png → Produkte/Beschaffungsagent | Bilddatei mit einem Workflow-Diagramm für einen Voice Agent. Das Dokument zeigt 
+- 2026-06-09 11:38 | Beispiel3_Vorher.png → Memos/Medien | Bilddatei aus dem Unterordner 'Bildergenerierung' von Thomas Issel, vermutlich e
+- 2026-06-09 11:38 | Beispiel2_Nacher1.jpeg → Memos/Medien | Bilddatei aus dem Unterordner 'Bildergenerierung' von Thomas Issel, vermutlich e
+- 2026-06-09 11:38 | Beispiel2_Vorher.jpeg → Marketing/Branding | Bilddatei aus dem Unterordner 'Bildergenerierung' von Thomas Issel, vermutlich e
+- 2026-06-09 11:38 | Prozessia-Image-Generator-Workflow.pdf → Produkte/Beschaffungsagent | Beschreibung des Prozessia Image Generator Workflows, einem vollautomatisierten 
+- 2026-06-09 11:38 | Beispiel2_Nacher2.jpeg → Memos/Medien | Bilddatei aus dem Unterordner 'Bildergenerierung' von Thomas Issel. Es handelt s
+- 2026-06-09 11:38 | Beispiel3_Nacher.jpeg → Memos/Medien | Bilddatei aus dem Unterordner 'Bildergenerierung' von Thomas Issel, vermutlich e
+- 2026-06-09 11:38 | Prozessia-Agent-Funktions-und-Datenschutzubersicht (1).pdf → Produkte/Beschaffungsagent | Das Dokument beschreibt den Prozessia Agent, ein KI-gestütztes System zur Unters
+- 2026-06-09 11:38 | Posts.xlsx → Marketing/Social-Media | Die Datei enthält exportierte Social-Media-Posts (LinkedIn) von Prozessia, die K
+- 2026-06-09 11:38 | ContentIdeas.xlsx → Marketing/LinkedIn | Die Datei enthält zwei ausgearbeitete Content-Ideen für LinkedIn-Karussell-Posts
+- 2026-06-09 11:38 | Rag_1.png → Marketing/Social-Media | Bilddatei aus dem Social-Media-Bereich, importiert via Google Drive. Da kein Tex
+- 2026-06-09 11:38 | rag_2.png → Marketing/Social-Media | Bilddatei aus dem Social-Media-Bereich, importiert aus einem Drive-Import-Ordner
+- 2026-06-09 11:38 | Deep Research.png → Marketing/Social-Media | Bilddatei mit dem Titel 'Deep Research', abgelegt im Social-Media-Ordner. Vermut
+- 2026-06-09 11:39 | ContentPosts.xlsx → Marketing/Social-Media | Das Dokument enthält aufbereitete Social-Media-Content-Posts für LinkedIn, spezi
+- 2026-06-09 11:39 | kalender.json → Marketing/Social-Media | Leere JSON-Datei mit dem Namen 'kalender.json', vermutlich ein Platzhalter oder 
+- 2026-06-09 11:39 | posts.json → Marketing/Social-Media | Leere JSON-Datei (posts.json) aus dem Serververzeichnis der Prozessia Content En
+- 2026-06-09 11:39 | ideen.json → Marketing/Social-Media | Leere JSON-Datei mit dem Namen 'ideen.json', die sich im Verzeichnis der prozess
+- 2026-06-09 11:39 | index.html → Marketing/Social-Media | Frontend-Einstiegsdatei (index.html) der 'Prozessia Content Engine', einem inter
+- 2026-06-09 11:39 | cleaned_leads.xlsx → Leads | Eine bereinigte Lead-Datenbank mit Kontaktdaten aus der Weiterbildungs- und Bera
+- 2026-06-09 11:39 | services_intern.csv → Leads | Eine CSV-Datei mit einer Leaddatenbank aus einem Drive-Import, die Kontaktdaten 
+- 2026-06-09 11:39 | advertising_extern.csv → Leads | CSV-Datei mit einer Leaddatenbank aus dem Bereich Marketing & Advertising sowie 
+- 2026-06-09 11:39 | final.xlsx → Leads | Eine strukturierte Leaddatenbank im Excel-Format mit personalisierten Kaltakquis
+- 2026-06-09 11:39 | real_estate&consum_extern.csv → Leads | CSV-Exportdatei mit ca. 20 Kontakten aus den Branchen Real Estate und Consumer S
+- 2026-06-09 11:39 | financial_intern.csv → Leads | CSV-Exportdatei aus einer Leaddatenbank mit Kontaktdaten von ca. 19 Personen aus
+- 2026-06-09 11:39 | Untitled document.docx → Sales/Cold_Call | Das Dokument enthält ein n8n-Workflow-Template für einen personalisierten KI-ges
+- 2026-06-09 11:40 | leads.xlsx → Leads | Eine Excel-Datei mit einer strukturierten Leaddatenbank, die Kontaktdaten von Ve
+- 2026-06-09 11:40 | Marketing an Advertising.csv → Leads | CSV-Exportdatei aus Apollo mit Lead-Datensätzen aus dem Bereich Marketing & Adve
+- 2026-06-09 11:40 | test.xlsx → Leads | Excel-Datei mit einem Lead-Datensatz aus einer Leaddatenbank. Enthält Kontaktinf
+- 2026-06-09 11:40 | retail_extern.csv → Leads | CSV-Datei mit 20 Kontakten aus dem Einzelhandel und angrenzenden Branchen (Retai
+- 2026-06-09 11:40 | leads_out_with_icebreakers.csv → Leads | CSV-Exportdatei mit 14 Lead-Datensätzen aus dem Bereich Professional Training & 
+- 2026-06-09 11:40 | Prozessia_Voice_Agents_Produktbeschreibung.pdf → Produkte/Voice_Agents | Detaillierte Produktbeschreibung der Prozessia Voice Agents (Stand: 19.12.2025).
+- 2026-06-09 11:40 | Präsentation_ Datenschutz .pptx.pdf → Sales/Handelsvertreter | Diese Präsentation vergleicht ChatGPT Business/Enterprise mit einem 'Digitalen K
+- 2026-06-09 11:40 | Vertriebsvereinbarung.pdf → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR und einem noch nicht namentlich ein
+- 2026-06-09 11:40 | Prozessia-KI-Losungen-fur-moderne-Unternehmen (1).pdf → Sales/Handelsvertreter | Unternehmens-Präsentation/Flyer von Prozessia, der die zwei Kernprodukte 'Prozes
+- 2026-06-09 11:40 | Prozessia-Agent-Funktions-und-Datenschutzubersicht (1).pdf → Sales/Handelsvertreter | Das Dokument beschreibt den Prozessia Agent, ein KI-gestütztes System zur Unters
+- 2026-06-09 11:40 | PROZESSIA AGENT → Sales/Handelsvertreter | Das Dokument trägt den Namen 'PROZESSIA AGENT' und befindet sich im Handelsvertr
+- 2026-06-09 11:40 | Prozessia-Informationen-fur-Vertriebspartner (1).pdf → Sales/Handelsvertreter | Informationsdokument für Vertriebspartner von Prozessia mit Details zu Rolle, Ab
+- 2026-06-09 11:41 | Prozessia-Voice-Agents (1).pdf → Sales/Handelsvertreter | Das Dokument ist eine Funktions- und Angebotsübersicht für den Prozessia Voice A
+- 2026-06-09 11:41 | PROZESSIA AGENT.docx → Produkte/Beschaffungsagent | Detaillierte Produktbeschreibung des 'Prozessia Agent', einem unternehmensspezif
+- 2026-06-09 11:41 | 2026-01-22_Schaufler Tooling GmbH Co. KG_Vertraulichkeitsvereinbarung_13.00 - Prozessia (1).pdf → Vertraege | Vertraulichkeitsvereinbarung (NDA) zwischen Schaufler Tooling GmbH & Co. KG (Lai
+- 2026-06-09 11:41 | Zwischenstand Prototyp.pdf → Kunden/Schaufler | Transkript eines Meeting-Calls (23 Min.) vom 03.11. zwischen Prozessia (Sebastia
+- 2026-06-09 11:41 | 2025-10_26_Beschaffungs_Agent.pdf → Kunden/Schaufler | Technisches Konzeptdokument für den Beschaffungsagenten im Kundenprojekt Schaufl
+- 2026-06-09 11:41 | Schaufler Prototyp.pdf → Kunden/Schaufler | Transkript eines Meetings vom 25.03. zur Vorstellung eines Prototyps für den Kun
+- 2026-06-09 11:41 | Projektfahrplan_Schaufler_Prototyp_v2.pdf → Kunden/Schaufler | Detaillierter Projektfahrplan für den KI-Beschaffungsagenten der Schaufler Fisch
+- 2026-06-09 11:41 | Systemhandbuch_Beschaffungsagent (3).pdf → Produkte/Beschaffungsagent | Systemhandbuch für den Beschaffungsagenten, entwickelt für die Schaufler Fischer
+- 2026-06-09 11:41 | env.example → Kunden/Schaufler | Hierbei handelt es sich um eine .env.example-Datei, die typischerweise Umgebungs
+- 2026-06-09 11:41 | SFIP052_Lastenheft.pdf → Kunden/Schaufler | Lastenheft für ein KI-gestütztes System zur automatisierten Lieferterminverfolgu
+- 2026-06-09 11:42 | Schnittstellenanforderungen_ProLeiS .pdf → Kunden/Schaufler | Technisches Dokument mit den Schnittstellenanforderungen an das ERP-System ProLe
+- 2026-06-09 11:42 | Schnittstelle ProLeiS und Prozessia.pdf → Kunden/Schaufler | Meeting-Transkript eines Abstimmungsgesprächs zwischen Schaufler, ProLeiS und Pr
+- 2026-06-09 11:42 | Prozessia-X-Schaufler Beschafungsagent.pdf → Kunden/Schaufler | Angebotspräsentation von Prozessia für den Kunden Schaufler zum Produkt 'Digital
+- 2026-06-09 11:42 | 🗓️ Workshop-Agenda – Prozessaufnahme Beschaffungsagent (Ist-Zustand).docx → Kunden/Schaufler | Workshop-Agenda zur Ist-Zustand-Aufnahme des Beschaffungsagenten für den Kunden 
+- 2026-06-09 11:42 | Bestelldruck → Kunden/Schaufler | Das Dokument mit dem Namen 'Bestelldruck' befindet sich in der Angebotsphase des
+- 2026-06-09 11:42 | Bestelldruck.docx → Kunden/Schaufler | Bestellung der Schaufler Tooling GmbH & Co. KG an Prozessia GbR über die Impleme
+- 2026-06-09 11:42 | Mitschrift.docx → Kunden/Schaufler | Mitschrift eines Arbeitsgesprächs mit dem Kunden Schaufler über die Anforderunge
+- 2026-06-09 11:42 | 📄 Fachkonzept – Beschaffungsagent.docx → Kunden/Schaufler | Fachkonzept für einen KI-gestützten Beschaffungsagenten im Rahmen der Angebotsph
+- 2026-06-09 11:42 | Angebot_Schaufler_final.pdf → Finanzen/Angebote | Angebot Nr. AG0018 von Prozessia GbR an SCHAUFLER Tooling GmbH & Co. KG vom 25.0
+- 2026-06-09 11:42 | Server Hosting KI-Agend (2).pdf → Kunden/Schaufler | Meeting-Transkript vom 15.04. zwischen Prozessia und dem Kunden Schaufler sowie 
+- 2026-06-09 11:42 | Prozessia_Intern_Schaufler_Hosting.pdf → Kunden/Schaufler | Internes, vertrauliches Hosting- und Wartungskonzept für den Kunden Schaufler (A
+- 2026-06-09 11:43 | Deployment-Anleitung Beschaffungsagent.pdf → Kunden/Schaufler | Technische Deployment-Anleitung für den Schaufler Beschaffungsagenten mit Docker
+- 2026-06-09 11:43 | Schaufler_Hosting_Praesentation.pdf → Kunden/Schaufler | Präsentation von Prozessia für den Kunden Schaufler zum Thema KI-Hosting und War
+- 2026-06-09 11:43 | Server Hosting KI-Agend (1).pdf → Kunden/Schaufler | Transkript eines Meetings vom 17.04. zwischen Sebastian Spuhler, Jonas Rösch und
+- 2026-06-09 11:43 | Prozessia_Angebotsplan_Wartung_Monitoring.pdf → Kunden/Schaufler | Internes Angebotsdokument von Prozessia für die Schaufler Fischer Group, vorbere
+- 2026-06-09 11:43 |  Das Spielkonzept: "Sound-Timeline".docx → Kunden/[NeuerKunde] | Detailliertes Spielkonzept für eine webbasierte Musik-Quiz-App namens 'Sound-Tim
+- 2026-06-09 11:43 | Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.pptx → Sales/Praesentationen | Verkaufspräsentation von Prozessia für den Kunden Voigt Salus (Kanzlei). Das Dok
+- 2026-06-09 11:43 | Kostenkalkulation Testphase.pdf → Kunden/Voigt Salus | Detaillierte Kostenkalkulation für eine vierwöchige Testphase eines KI-Systems b
+- 2026-06-09 11:43 | Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.docx → Kunden/Voigt Salus | Technisches Onboarding-Dokument für die Einrichtung des Prozessia KI-Agenten bei
+- 2026-06-09 11:43 | Präsentation_ Datenschutz .pptx → Kunden/Voigt Salus | Die Präsentation vergleicht Datenschutz- und Kostenaspekte von ChatGPT Business/
+- 2026-06-09 11:43 | KI-Agent-X-Voigt-Salus (2).pptx → Kunden/Voigt_Salus | Verkaufspräsentation für den KI-Agenten 'Agent X', entwickelt von Prozessia spez
+- 2026-06-09 11:43 | Angebot Testphase KI-Assistent VOIGT SALUS-.pdf → Finanzen/Angebote | Angebot von Prozessia an Voigt Salus über einen 6-wöchigen Testzeitraum für eine
+- 2026-06-09 11:43 | kanzlei_memo_intern.pdf → Kunden/Voigt Salus | Internes Kanzlei-Memo der Kanzlei Voigt Salus vom 18.11.2025 über eine Besprechu
+- 2026-06-09 11:44 | mandatsuebersicht.xlsx → Kunden/Voigt Salus | Mandatsübersicht der Kanzlei Voigt Salus mit fünf aktiven Mandaten aus verschied
+- 2026-06-09 11:44 | Template Autohäuser.docx → Sales/Praesentationen | Hierbei handelt es sich um eine Präsentationsvorlage (Template) für Voice-Agent-
+- 2026-06-09 11:44 | 🚗 Autohaus Royal: KI-Voice-Agent für bessere Telefonservice & Kundenerlebnis 📞 – Prozessia.docx → Leads | Vertriebspräsentation von Prozessia für das Autohaus Royal GmbH (Berlin/Ludwigsf
+- 2026-06-09 11:44 | 🚗 Effizienter Kundenservice im Autohaus mit KI-Voice-Agent 🤖 – Prozessia.docx → Marketing/Flyer | Das Dokument ist ein Marketing-Flyer/Pitch für den Prozessia Voice Agent, der sp
+- 2026-06-09 11:44 | 🔧 Cold-Call Skript: "KI-Voice-Agent für Handwerksbetriebe".docx → Sales/Cold_Call | Cold-Call-Skript für den telefonischen Vertrieb eines KI-Voice-Agenten speziell 
+- 2026-06-09 11:44 | prozessia_notes.docx → Produkte/Beschaffungsagent | Das Dokument beschreibt den Prozessia Voice Agent für Autohäuser als Produkt: Zi
+- 2026-06-09 11:44 | 📞 Autohaus Royal: Telefonstress ade mit dem Prozessia Voice Agent 🚗 – Prozessia.docx → Leads | Verkaufspräsentation/Pitch-Dokument für das Autohaus Royal GmbH in Berlin, das d
+- 2026-06-09 11:44 | 🚗 Effizienter Service im Autohaus mit KI-Voice-Agent 🎙️ – Prozessia.docx → Marketing/Flyer | Marketingdokument (Flyer/Pitch) für den Prozessia Voice Agent, ausgerichtet auf 
+- 2026-06-09 11:44 | 🚗 Mehr Servicequalität für Automobile Görres mit KI-Telefonagent 🤖 – Prozessia.docx → Leads | Verkaufspräsentation/Pitch-Dokument für Automobile Görres in Wadgassen, das den 
+- 2026-06-09 11:44 | 📞 Effiziente Telefonentlastung für Ihr Autohaus – mit Prozessia Voice Agent 🚗 – Prozessia.docx → Marketing/Flyer | Dieses Dokument ist ein Flyer/Pitch-Dokument für den Prozessia Voice Agent, der 
+- 2026-06-09 11:44 | 🚗 Autohaus Royal GmbH: Stressfrei telefonieren mit KI-Voice-Agent 📞 – Prozessia.docx → Leads | Verkaufspräsentation/Pitch-Dokument für den potenziellen Neukunden Autohaus Roya
+- 2026-06-09 11:44 | 🚗 Effiziente Kundenbetreuung im Autohaus – mit Prozessia Voice Agent 📞 – Prozessia.docx → Marketing/Flyer | Marketingdokument (Flyer/Pitch) von Prozessia für Autohäuser, das den KI-basiert
+- 2026-06-09 11:45 | Leads.xlsx → Leads | Excel-Datei mit einer Liste potenzieller Leads aus der Automobilbranche (Autohäu
+- 2026-06-09 11:45 | 📞 Effiziente Anrufentlastung im Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.docx → Sales/Praesentationen | Das Dokument beschreibt den Prozessia Voice Agent als Lösung zur Anrufentlastung
+- 2026-06-09 11:45 | 🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.docx → Sales/Praesentationen | Verkaufspräsentation für einen Voice Agent, der das Telefonaufkommen in einem Au
+- 2026-06-09 11:45 | Listen.xlsx → Sales/Cold_Call | Die Datei enthält eine strukturierte Liste von 26 Autohändlern im Raum Saarbrück
+- 2026-06-09 11:45 | Copy of undefined.docx → Leads | Vertriebsdokument (Pitch/Proposal) für die Autohaus Royal GmbH in Berlin/Branden
+- 2026-06-09 11:45 | 🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia.docx → Leads | Verkaufspräsentation/Pitch-Dokument für den Prozessia Voice Agent, adressiert an
+- 2026-06-09 11:45 | 🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.docx → Sales/Praesentationen | Verkaufspräsentation bzw. Pitch-Dokument für den Prozessia Voice Agent, speziell
+- 2026-06-09 11:45 | 📞 Effiziente Telefonbetreuung mit dem Prozessia Voice Agent für AM Autoservice 🚗 – Prozessia.docx → Leads | Vertriebsdokument/Präsentation für AM Autoservice (Kfz-Werkstatt, Saarbrücken), 
+- 2026-06-09 11:45 | 🏢 ZIELGRUPPE 2: HAUSVERWALTUNGEN .docx → Sales/Praesentationen | Detailliertes Voice-Agent-Konzept für die Zielgruppe Hausverwaltungen, das Einsa
+- 2026-06-09 11:45 | 🚗 Autohaus Royal GmbH: Mehr Servicequalität mit KI-Telefonagenten 🤖 – Prozessia.docx → Marketing/Flyer | Case-Study-/Flyer-Dokument für das Autohaus Royal GmbH, das den Einsatz des Proz
+- 2026-06-09 11:45 | 📞 Effiziente Anrufsteuerung im Autohaus mit KI-Voice-Agent 🚗 – Prozessia.docx → Marketing/Flyer | Marketingdokument (Flyer/Pitch) von Prozessia für einen KI-Voice-Agent speziell 
+- 2026-06-09 11:46 | 🚗 ZIELGRUPPE 1: AUTOHÄUSER .docx → Sales/Praesentationen | Dieses Dokument beschreibt ein Voice Agent Konzept speziell für Autohäuser als Z
+- 2026-06-09 11:46 | 🚗 Auto Galerie Saar GmbH: Entlastung und mehr Service am Telefon mit KI 🤖 – Prozessia.docx → Leads | Verkaufsdokument/Pitch-Präsentation für die Auto Galerie Saar GmbH in Saarbrücke
+- 2026-06-09 11:46 | 📞 Cold-Call Einstiegsskript – Zielgruppe: Autohaus Entscheider.docx → Sales/Cold_Call | Cold-Call Einstiegsskript für die Zielgruppe Autohaus-Entscheider, das einen KI-
+- 2026-06-09 11:46 | 🚗 Effiziente Telefonentlastung für Ihr Autohaus 🚗 – Prozessia.docx → Sales/Praesentationen | Verkaufspräsentation/Flyer für den Prozessia Voice Agent, speziell zugeschnitten
+- 2026-06-09 11:46 | 🔧 ZIELGRUPPE 3: HANDWERKSBETRIEBE .docx → Sales/Praesentationen | Detailliertes Voice-Agent-Konzept für die Zielgruppe Handwerksbetriebe, das Eins
+- 2026-06-09 11:46 | ✅ Cold-Call-Skript für Hausverwaltung.docx → Sales/Cold_Call | Cold-Call-Skript für den Vertrieb eines DSGVO-konformen Voice-Agents (Fonio) spe
+- 2026-06-09 11:46 | 📞 Effiziente Telefonentlastung für Ihr Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.docx → Marketing/Flyer | Marketingdokument (Flyer/Pitch) für den Prozessia Voice Agent, speziell zugeschn
+- 2026-06-09 11:46 | Case Studies – Webwokr.pdf → Sales/Praesentationen | Case Studies der Agentur WebWokr, die KI-gestützte Automatisierungsprojekte für 
+- 2026-06-09 11:46 | Case Studies – Webwokr.docx → Marketing/Flyer | Dieses Dokument enthält Case Studies der Agentur WebWokr, die abgeschlossene KI-
+- 2026-06-09 11:46 | Rag Agent.json → Produkte/Beschaffungsagent | Ein n8n-Workflow (RAG Agent) zur Verarbeitung und Abfrage von Unternehmensdokume
+- 2026-06-09 11:46 | Meta Ads → Marketing/Social-Media | Das Dokument bezieht sich auf Meta Ads und stammt aus einem n8n-Import-Verzeichn
+- 2026-06-09 11:47 | Internet_Agent.json → Produkte/Beschaffungsagent | JSON-Export eines n8n-Workflows namens 'Internet-Agent', der einen browserbasier
+- 2026-06-09 11:47 | Recruitement Rejection → Memos | Das Dokument trägt den Titel 'Recruitement Rejection' und stammt aus einem n8n-I
+- 2026-06-09 11:47 | Client Onboarding → Kunden/[NeuerKunde] | Dieses Dokument trägt den Titel 'Client Onboarding' und stammt aus einem n8n-Imp
+- 2026-06-09 11:47 | Untitled document.docx → Leads | Allgemeines Informationsdokument über WebWokr GbR, ein Webdesign- und KI-Automat
+- 2026-06-09 11:47 | Beschaffungsagent (1).pptx → Produkte/Beschaffungsagent | Eine PowerPoint-Präsentation zum Produkt 'Beschaffungsagent' von Prozessia GbR. 
+- 2026-06-09 11:47 | Formular zur Gewerbeanmeldung.pdf → Vertraege | Offizielles Formular GewA 1 zur Gewerbeanmeldung nach § 14 oder § 55c der Gewerb
+- 2026-06-09 11:47 | Telefonliste Beschaffungsagent_1.xlsx → Sales/Cold_Call | Telefonliste eines Beschaffungsagenten mit ca. 20 Kontakten aus der Industrie (W
+- 2026-06-09 11:47 | Leads_1.xlsx → Leads | Excel-Tabelle mit verifizierten B2B-Leads aus der Industrie (Werkzeugbau, Stanzt
+- 2026-06-09 11:47 | Prozessia_Schulungskonzept_v2.pdf → Produkte/KI-Schulung | Vollständiges internes Schulungskonzept 'Der KI-Kompass für den Industriemittels
+- 2026-06-09 11:47 | Prozessia_Landingpage_Brief_v2.docx → Marketing/Flyer | Content-Notizen für das Design-Team zur Landingpage des Prozessia KI-Tagesworksh
+- 2026-06-09 11:47 | Prozessia_KI_Schulungsleitfaden.pdf → Produkte/Beschaffungsagent | Vollständiger interner Leitfaden für das KI-Schulungsprogramm von Prozessia mit 
+- 2026-06-09 11:47 | f3b502e9-d468-45a5-99ad-2424ee7abece.jpeg → Marketing/Branding | Bilddatei mit einem Logo, abgelegt im Unterordner 'Logo' des Drive-Imports. Es h
+- 2026-06-09 11:48 | webwokr_logo.jpeg → Marketing/Branding | Bilddatei mit dem Logo von 'webwokr'. Es handelt sich vermutlich um ein Kundenlo
+- 2026-06-09 11:48 | Lexoffice 06 25.pdf → Finanzen/Rechnungen | Rechnung von Haufe Service Center GmbH (lexoffice) an WebWokr / Sebastian Spuhle
+- 2026-06-09 11:48 | Lexoffice 04 25.pdf → Finanzen/Rechnungen | Rechnung von Haufe Service Center GmbH (lexoffice) an WebWokr/Sebastian Spuhler 
+- 2026-06-09 11:48 | 05b869a0-4824-4fb2-b89f-cdb651e1dad6.html → Finanzen/Rechnungen | Das Dokument ist eine PDF-Datei (als HTML gespeichert) aus dem Buchhaltungsordne
+- 2026-06-09 11:48 | Lexoffice 05 25.pdf → Finanzen/Rechnungen | Rechnung von Haufe Service Center GmbH (lexoffice) an WebWork/Sebastian Spuhler,
+- 2026-06-09 11:48 | Instantly 05 25.pdf → Finanzen/Rechnungen | Zahlungsbeleg von Instantly (instantly.ai) über 32,87 USD, bezahlt am 18. Mai 20
+- 2026-06-09 11:48 | Instantly 050 25.pdf → Finanzen/Rechnungen | Zahlungsbeleg von Instantly (instantly.ai) über 37,00 USD, bezahlt am 4. Mai 202
+- 2026-06-09 11:48 | Instantly 04 25.pdf → Finanzen/Rechnungen | Zahlungsbeleg von Instantly (instantly.ai) über 37,00 USD, bezahlt am 4. April 2
+- 2026-06-09 11:48 | Instantly 061 25.pdf → Finanzen/Rechnungen | Zahlungsbeleg von Instantly (instantly.ai) über 20,00 USD, bezahlt am 15. Juni 2
+- 2026-06-09 11:48 | Instantly 06 25.pdf → Finanzen/Rechnungen | Zahlungsbeleg von Instantly (instantly.ai) für den Hypergrowth Plan, bezahlt am 
+- 2026-06-09 11:48 | Instantly 051 25.pdf → Finanzen/Rechnungen | Zahlungsbeleg von Instantly.ai über 20,00 USD, bezahlt am 15. Mai 2025 via Visa-
+- 2026-06-09 11:49 | Instantly 041 25.pdf → Finanzen/Rechnungen | Zahlungsbeleg von Instantly (instantly.ai) über 35,00 USD (33,32 EUR), bezahlt a
+- 2026-06-09 11:49 | Invoice-LRDKYW8R-0002.pdf → Finanzen/Rechnungen | Rechnung von StackBlitz, Inc. (Bolt.new) an Sebastian Spuhler über 20,00 USD für
+- 2026-06-09 11:49 | Lexoffice 12 24.pdf → Finanzen/Rechnungen | Rechnung von Haufe Service Center GmbH (lexoffice) vom 07.12.2024 an WebWokr / S
+- 2026-06-09 11:49 | Finom 2024.pdf → Finanzen/Rechnungen | Rechnung von PNL Fintech B.V. (Finom) an Prozessia GbR (WebWokr Gbr) über 99,96 
+- 2026-06-09 11:49 | Lexoffice 11 24.pdf → Finanzen/Rechnungen | Rechnung von Haufe Service Center GmbH (lexoffice) vom 06.11.2024 an WebWokr / S
+- 2026-06-09 11:49 | Triathlon Miete.pdf → Finanzen/Rechnungen | Dauerrechnung der Triathlon Transfer GmbH (Nr. SZ.SBR-2024-27) vom 01.10.2024 üb
+- 2026-06-09 11:49 | wix domain 2024.pdf → Finanzen/Rechnungen | Rechnung von Wix.com für die Domain webwokr.de, ausgestellt an Sebastian Spuhler
+- 2026-06-09 11:49 | Premiumpaket Wix 2024.pdf → Finanzen/Rechnungen | Rechnung von Wix.com LTD für das Premiumpaket Standard (jährlich) für die Websit
+- 2026-06-09 11:49 | Wix Google Workspace 2024.pdf → Finanzen/Rechnungen | Rechnung von Wix.com (Nr. 1134835415) vom 4. September 2024 über 85,68 € (inkl. 
+- 2026-06-09 11:49 | Gewerbeschein WebWokr.pdf → Vertraege | Gewerbeanmeldung (GewA 1) der Sebastian Spuhler, Mohamed Douioui GbR bei der Lan
+- 2026-06-09 11:49 | Gewerbeanmeldung Sebastian Spuhler.pdf → Finanzen/Rechnungen | Gewerbeanmeldung der Sebastian Spuhler, Mohamed Douioui GbR beim Gewerbeamt der 
+- 2026-06-09 11:49 | dabdf808-8706-4d9c-8111-ac218a331f15.html → Finanzen/Rechnungen | Es handelt sich um ein PDF-Dokument (als HTML-Datei gespeichert), das im Buchhal
+- 2026-06-09 11:50 | Gewerbeanmeldung Sebastian Spuhler.pdf → Finanzen/Rechnungen | Gewerbeanmeldung der Sebastian Spuhler, Mohamed Douioui GbR beim Gewerbeamt der 
+- 2026-06-09 11:50 | Lexoffice 08 25.pdf → Finanzen/Rechnungen | Rechnung von Haufe Service Center GmbH (lexoffice) an WebWokr/Sebastian Spuhler 
+- 2026-06-09 11:50 | Lexoffice 07 25.pdf → Finanzen/Rechnungen | Rechnung von Haufe Service Center GmbH (lexoffice) an WebWokr / Sebastian Spuhle
+- 2026-06-09 11:50 | Lexoffice 09 25.pdf → Finanzen/Rechnungen | Rechnung der Haufe Service Center GmbH (lexoffice) vom 07.09.2025 an WebWokr/Seb
+- 2026-06-09 11:50 | Instantly 07 25.pdf → Finanzen/Rechnungen | Zahlungsbeleg von Instantly (instantly.ai) über 97,00 USD, bezahlt am 4. Juli 20
+- 2026-06-09 11:50 | Invoice-BCE54405-0014.pdf → Finanzen/Rechnungen | Rechnung von Instantly (instantly.ai) an Sebastian Spuhler / Prozessia GbR, Saar
+- 2026-06-09 11:50 | Invoice-BCE54405-0015.pdf → Finanzen/Rechnungen | Rechnung von Instantly (instantly.ai) an Sebastian Spuhler / Prozessia GbR über 
+- 2026-06-09 11:50 | Invoice-BCE54405-0017.pdf → Finanzen/Rechnungen | Rechnung von Instantly (instantly.ai) über 20,00 USD für ein monatliches Email A
+- 2026-06-09 11:50 | Apify_Invoice_202509060156.pdf → Finanzen/Rechnungen | Rechnung von Apify Technologies an Sebastian Spuhler (WebWokr) für den Starter-P
+- 2026-06-09 11:50 | Invoice-BCE54405-0016.pdf → Finanzen/Rechnungen | Rechnung von Instantly (instantly.ai) an Sebastian Spuhler / Prozessia GbR über 
+- 2026-06-09 11:50 | Invoice-BCE54405-0010.pdf → Finanzen/Rechnungen | Rechnung von Instantly (instantly.ai) an Sebastian Spuhler / Prozessia GbR über 
+- 2026-06-09 11:50 | Instantly 08 25.pdf → Finanzen/Rechnungen | Zahlungsbeleg von Instantly (support@instantly.ai) für den Hypergrowth Plan, abg
+- 2026-06-09 11:51 | Apify_Invoice_202508060773.pdf → Finanzen/Rechnungen | Rechnung von Apify Technologies für ein monatliches Starter-Plan-Abonnement (Web
+- 2026-06-09 11:51 | Rechnung Joel Wagner.pdf → Finanzen/Rechnungen | Eingangsrechnung von WebWokr (Joel Wagner) an Prozessia GbR über eine Excel Meta
+- 2026-06-09 11:51 | Rechnung_RE073.pdf → Finanzen/Rechnungen | Eingangsrechnung der Matthä & Wimmler eGbR (RE073) vom 01.09.2025 über 97,58 € b
+- 2026-06-09 11:51 | Rechnung_RE0009 (1).pdf → Finanzen/Rechnungen | Auslagenabrechnung von Benito Ferrise (RE0009, 10.09.2025) über verauslagte Kost
+- 2026-06-09 11:51 | Invoice-CXFCCFMI-0003.pdf → Finanzen/Rechnungen | Rechnung Nr. CXFCCFMI-0003 von Retell AI (San Carlos, CA) an Sebastian Spuhler, 
+- 2026-06-09 11:51 | Triathlon Miete.pdf → Finanzen/Rechnungen | Dauerrechnung Nr. SZ.SBR-2024-27 der Triathlon Transfer GmbH über ein monatliche
+- 2026-06-09 11:51 | IONOS Rechnung 2025-09-13 - RG_100171679573 (1).pdf → Finanzen/Rechnungen | IONOS-Rechnung vom 13.09.2025 (RG 100171679573) für Prozessia GbR, ausgestellt a
+- 2026-06-09 11:52 | Funnelcockpit_2.pdf → Finanzen/Rechnungen | Rechnung der Digistore24 GmbH an WebWokr / Sebastian Spuhler (Saarbrücken) für d
+- 2026-06-09 11:52 | Rechnung_TJC9SRX6_73763127-de.pdf → Finanzen/Rechnungen | Rechnung von Digistore24 GmbH über FunnelCockpit Lite (Testzugang) für den Zeitr
+- 2026-06-09 11:52 | Funnelcockpit_1.pdf → Finanzen/Rechnungen | Rechnung von Digistore24 GmbH an WebWokr / Sebastian Spuhler (Saarbrücken) für d
+- 2026-06-09 11:52 | Domain webwokr.pdf → Finanzen/Rechnungen | Rechnung von Wix.com an Sebastian Spuhler für die jährliche Domain-Registrierung
+- 2026-06-09 11:52 | Premium Paket 2025.pdf → Finanzen/Rechnungen | Rechnung von Wix.com LTD für ein jährliches Premiumpaket (Standard) der Website 
+- 2026-06-09 11:52 | Google Workspace 2025.pdf → Finanzen/Rechnungen | Rechnung von Wix.com (Nr. 1191877299) vom 5. August 2025 für 2 Google Workspace 
+- 2026-06-09 11:52 | LNKD_INVOICE_789144507558.pdf → Finanzen/Rechnungen | LinkedIn-Rechnung (Nr. 789144507558) vom 18.09.2025 über 118,99 EUR (inkl. 19% U
+- 2026-06-09 11:52 | 876cdb25-f3f5-4c8e-87b7-9c44fbc3f49e.html → Finanzen/Rechnungen | Das Dokument ist eine PDF-Datei (als HTML gespeichert) aus dem Buchhaltungsordne
+- 2026-06-09 11:52 | e2a326b2-ade7-430c-ad97-bafe06fe26ce.pdf → Finanzen/Rechnungen | Rechnung der Haufe Service Center GmbH (Lexware/lexoffice) an Prozessia, Sebasti
+- 2026-06-09 11:52 | a9c2c58e-ea2a-45d6-a7e5-43a3744c3a21.pdf → Finanzen/Rechnungen | Rechnung der Haufe Service Center GmbH (Lexware/lexoffice) an Prozessia, Sebasti
+- 2026-06-09 12:12 |  Prozessia-KI-Losungen-fur-moderne-Unternehmen (1).pdf → Marketing/Flyer | Unternehmens-Präsentation/Flyer von Prozessia, die das Leistungsangebot (Prozess
+- 2026-06-09 12:12 |  Prozessia-Voice-Agents .pdf → Produkte/Voice-Agent | Das Dokument beschreibt den Prozessia Voice Agent – einen telefonbasierten KI-As
+- 2026-06-09 12:12 |  Das Spielkonzept: "Sound-Timeline".docx → Kunden/[NeuerKunde] | Das Dokument beschreibt das Spielkonzept 'Sound-Timeline', eine webbasierte Musi
+- 2026-06-25 15:48 | BEST-PROZESSIA-127412.pdf → Kunden/Schaufler | Bestellung Nr. 127412 von Schaufler Tooling GmbH & Co. KG an Prozessia GbR vom 1
+- 2026-06-25 15:48 | messberichte-angebot-argumentation.pdf → Sales/Praesentationen | Das Dokument enthält interne Argumentationsunterlagen für Kundengespräche zu zwe
+- 2026-06-25 15:48 | Vertriebsvereinbarung_Geginat (1).pdf → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR (Sebastian Spuhler & Mohamed Douiou
+- 2026-06-25 15:48 | Vertriebsvereinbarung_Geginat (1).pdf → Sales/Handelsvertreter | Vertriebsvereinbarung zwischen Prozessia GbR und einem noch nicht ausgefüllten V
+- 2026-06-25 15:48 | Prozessia Abstimmung Messdokumente (1).docx → Kunden/Schaufler | Besprechungstranskript vom 15. Juni 2026 zwischen Sebastian Spuhler und Michael 
+- 2026-06-25 15:49 | Prozessia Karrieresystem.docx → Sales/Handelsvertreter | Internes Regelwerk zum Karriere- und Vergütungssystem von Prozessia GbR (Stand J
+- 2026-06-25 15:49 | CLAUDE.md → Marketing/LinkedIn | Technische Konfigurationsdatei (CLAUDE.md) für einen KI-gestützten LinkedIn Auto
+- 2026-06-25 15:49 | CLAUDE.md → Marketing/LinkedIn | Technische Konfigurationsdatei (CLAUDE.md) für einen automatisierten LinkedIn-Po
+- 2026-06-25 15:49 | brain-direction.md → Marketing/LinkedIn | Konfigurationsdatei für den LinkedIn Autoposter, die die aktuelle inhaltliche Au
+- 2026-06-25 15:49 | brain-direction.md → Marketing/LinkedIn | Konfigurationsdatei für den LinkedIn Autoposter, die die aktuelle inhaltliche Au
+- 2026-06-25 15:49 | beitraege-2026-06-16.json → Marketing/LinkedIn | JSON-Output des Claude-LinkedIn-Auto-Posters mit drei fertig generierten LinkedI
+- 2026-06-25 15:49 | beitraege-2026-06-16.json → Marketing/LinkedIn | JSON-Ausgabedatei des LinkedIn-Auto-Posters mit drei fertig generierten LinkedIn
+- 2026-06-25 15:49 | beitraege-2026-06-16.json → Marketing/LinkedIn | Automatisch generierte JSON-Ausgabedatei des LinkedIn-Auto-Posters mit drei fert
+- 2026-06-25 15:49 | ideen-2026-06-16.json → Marketing/LinkedIn | JSON-Output des claude-linkedin-auto-posters mit 10 generierten LinkedIn-Post-Id
+- 2026-06-25 15:49 | ideen-2026-06-16.json → Marketing/LinkedIn | JSON-Output des claude-linkedin-auto-posters mit 10 generierten LinkedIn-Post-Id
+- 2026-06-25 15:49 | ideen-2026-06-16.json → Marketing/LinkedIn | JSON-Output des claude-linkedin-auto-posters mit 10 generierten LinkedIn-Post-Id
+- 2026-06-25 16:04 | test_upload.txt → Memos | Testdokument zur Überprüfung der Upload-Funktion des Systems. Der Inhalt ist ein
+- 2026-06-25 16:05 | Besprechung Umsetzung Server Infrastruktur Schaufler.docx → Kunden/Schaufler | Besprechungstranskript vom 25. Juni 2026 zur Umsetzung der Server-Infrastruktur 

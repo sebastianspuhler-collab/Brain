@@ -1,0 +1,18 @@
+---
+tags:
+  - Beschaffungsagent
+  - Schaufler
+  - Automatisierung
+  - Lieferterminüberwachung
+  - Versanddokumentation
+quelle: Digitaler-Beschaffungsagent-fur-Schaufler.pptx
+datum: 2026-06-09
+kategorie: Kunde
+---
+
+# Digitaler-Beschaffungsagent-fur-Schaufler
+
+Präsentation eines digitalen Beschaffungsagenten für den Kunden Schaufler, der drei intelligente Module umfasst: automatisierte Bearbeitung von Auftragsbestätigungen, intelligente Lieferterminüberwachung und Versanddokumentation mit Tracking. Das Dokument beschreibt die geschäftlichen Vorteile jedes Moduls, darunter Effizienzgewinne, Planungssicherheit und durchgängige Transparenz im Beschaffungsprozess.
+
+## Vollständiger Inhalt
+Digitaler Beschaffungsagent für Schaufler Automatisierung und Transparenz im Beschaffungsprozess durch intelligente Module für Auftragsbestätigungen, Lieferterminüberwachung und Versanddokumentation. Modul 1: Automatisierte Bearbeitung von Auftragsbestätigungen   Automatische Verarbeitung Eingehende Auftragsbestätigungs-E-Mails werden automatisch erfasst und relevante Daten extrahiert.   Zentrale Datenpflege Liefertermine und Referenzen werden automatisch in der Datenbasis aktualisiert und stets aktuell gehalten.   Intelligente Erinnerungen Bei fehlenden Bestätigungen oder Terminverschiebungen erfolgen automatische Lieferantenerinnerungen mit Eskalation. Geschäftliche Vorteile: Auftragsbestätigungen Effizienzgewinn Drastische Reduktion manueller E-Mail-Bearbeitung Keine zeitaufwändige Suche nach Bestätigungen Automatisierte Nachverfolgung spart Arbeitszeit Datenqualität Konsistent aktuelle Liefertermine Zentrale, verlässliche Datenbasis Reduzierung von Erfassungsfehlern Kommunikation Strukturierte Lieferantenansprache Nachvollziehbare Eskalationsprozesse Klare Verantwortlichkeiten im Einkauf Modul 2: Intelligente Lieferterminüberwachung 01  Proaktive Prüfung Regelmäßige Überwachung anstehender Lieferungen anhand definierter Zeitfenster pro Land und Region. 02  Statusabfrage Automatische Anforderung von Statusmeldungen und Transportinformationen bei Lieferanten für zukünftige Lieferungen. 03  Verzugserkennung Systematische Identifikation überfälliger Lieferungen auf Basis erwarteter und bestätigter Termine mit gestuften Erinnerungen. Geschäftliche Vorteile: Lieferterminüberwachung Frühwarnsystem Potenzielle Verzögerungen werden frühzeitig erkannt, bevor sie kritisch werden. Dies ermöglicht rechtzeitiges Gegensteuern und alternative Planung. Planungssicherheit Verlässliche Terminübersicht verbessert die Produktionsplanung und Ressourcendisposition erheblich. Engpässe werden vermieden. Lieferzuverlässigkeit Systematisches Nachhalten erhöht die Termintreue der Lieferanten messbar und stärkt die gesamte Lieferkette nachhaltig. Modul 3: Versanddokumentation und Tracking Dokumentenverarbeitung Automatische Extraktion von Packing Lists und Commercial Invoices aus E-Mails mit Zuordnung zu Bestellpositionen. Tracking-Integration Pflege interner erwarteter Liefertermine auf Basis von Tracking-Daten und definierten Zeitpuffern. Fehlererkennung Automatische Identifikation fehlender Versanddokumente mit Lieferantenerinnerung. Geschäftliche Vorteile: Versanddokumentation   Durchgängige Transparenz Vollständiger Überblick über den Lieferstatus aller Bestellungen in Echtzeit – von der Auftragsbestätigung bis zur Zustellung.   Zeitersparnis Kein manuelles Durchsuchen von E-Mail-Postfächern mehr notwendig. Alle relevanten Informationen sind zentral verfügbar.   Vollständigkeitskontrolle Klarer Überblick, welche Bestellungen vollständig dokumentiert sind und wo noch Informationen oder Dokumente fehlen. Verfügbare Abfragen für Einkauf und Planung Die durch die Module

@@ -1,0 +1,18 @@
+---
+tags:
+  - Dienstleistungsvertrag
+  - Vertragsvorlage
+  - KI-Automatisierung
+  - Agenturvertrag
+  - WebWokr
+quelle: Dienstleistungsvertrag Autor des Dokuments.docx
+datum: 2026-06-09
+kategorie: Vertrag
+---
+
+# Dienstleistungsvertrag Autor des Dokuments
+
+Vorlage eines Agenturdienstleistungsvertrags, erstellt von WebWokr (Sebastian Spuhler / Mohamed Amin Douioui), verfasst von Dr. jur. Michael Metzner. Der Vertrag regelt die Erbringung von Dienstleistungen im Bereich digitale Automatisierung, KI-Lösungen und Social Media Marketing zwischen der Agentur und einem Kunden (Mustermann als Platzhalter). Er enthält Regelungen zu Vertragsgegenstand, Leistungsumfang und Unterauftragnehmern.
+
+## Vollständiger Inhalt
+Dienstleistungsvertrag Autor des Dokuments: Dr. jur. Michael Metzner – https://www.kanzlei-metzner.de Agenturdienstleistungs-Vertrag zwischen WebWokr Sebastian Spuhler / Mohamed Amin Douioui Campus Starterzentrum Gebäude A1 1 66123 Saarbrücken - nachfolgend „Agentur“ - und Max Mustermann Mussterstraße 16 66130 Saarbrücken - nachfolgend „Kunde“ - wird folgender Vertrag über Agenturleistungen geschlossen: © WebWokr - Alle Rechte sind vorbehalten. Nachdruck, Kopieren oder Reproduktion (auch auszugsweise) in irgendeiner Form (Druck, Fotokopie, Screenshot, Kopieren oder anderes Verfahren) sowie die Einspeicherung, Verarbeitung, Vervielfältigung und Verbreitung mit Hilfe elektronischer Systeme jeglicher Art, gesamt oder auszugsweise, ist ohne ausdrückliche schriftliche Genehmigung des Urhebers untersagt. Alle Übersetzungsrechte sind vorbehalten. § 1 Vertragspartner, Geltungsbereich 1. Die Agentur erbringt für den Kunden Social Media- und Marketingdienstleistungen. 2. Der Kunde erklärt, dass er die Leistungen der Agentur ausschließlich für sein Unternehmen erwirbt. 3. Entgegenstehende Geschäftsbedingungen des Kunden gelten nicht. § 2 Vertragsgegenstand (1) Der Leistungsumfang der Agentur erstreckt sich auf Dienstleistungen im Bereich Beratung, Konzeption, Implementierung und Betreuung von digitalen Automatisierungs- und KI-Lösungen. Hierzu können unter anderem folgende Tätigkeiten gehören: ● Analyse bestehender Geschäftsprozesse und Identifikation von Automatisierungs Potenzialen, ● Beratung zu geeigneten Systemen, Tools und Integrationen, ● Planung, Entwicklung und Implementierung von Workflows und Automatisierungslösungen (z. B. mit n8n oder vergleichbaren Plattformen), ● Einrichtung, Anpassung und Betreuung von Schnittstellen zwischen verschiedenen Softwaresystemen, ● Monitoring, Wartung, Fehlerbehebung und Optimierung bestehender Lösungen, ● Schulung, Dokumentation und Unterstützung des Kunden bei der Nutzung. (2) Der genaue Leistungsumfang wird zu Beginn des Projekts individuell mit dem Kunden abgestimmt und schriftlich festgehalten. Änderungen oder Erweiterungen können jederzeit im Einvernehmen der Parteien erfolgen. © WebWokr - Alle Rechte sind vorbehalten. Nachdruck, Kopieren oder Reproduktion (auch auszugsweise) in irgendeiner Form (Druck, Fotokopie, Screenshot, Kopieren oder anderes Verfahren) sowie die Einspeicherung, Verarbeitung, Vervielfältigung und Verbreitung mit Hilfe elektronischer Systeme jeglicher Art, gesamt oder auszugsweise, ist ohne ausdrückliche schriftliche Genehmigung des Urhebers untersagt. Alle Übersetzungsrechte sind vorbehalten. (3) Die Agentur schuldet die Erbringung von Dienstleistungen, nicht jedoch den Eintritt eines bestimmten wirtschaftlichen Erfolges (z. B. bestimmte Umsatzsteigerungen, Kosteneinsparungen oder Kennzahlen). (4) Die Agentur kann zur Erfüllung ihrer Pflichten geeignete Unterauftragnehmer einsetzen. (5) Die für die Umsetzung erforderlichen Systeme, Software-Lizenzen, Hosting-Dienste, Drittanbieter-APIs 

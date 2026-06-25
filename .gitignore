@@ -1,0 +1,62 @@
+# ── Credentials & Tokens (NIEMALS einchecken) ────────────────────────────────
+_agent/drive_credentials.json
+_agent/drive_token.json
+_agent/gmail_token.json
+_agent/ms_token_cache.bin
+_agent/ms_config.json
+_agent/watcher.pid
+.env
+.env.local
+*.key
+*.pem
+
+# ── Persönliche Daten (bleibt lokal) ─────────────────────────────────────────
+_agent/email_cache/
+_agent/conversations/
+_agent/daily/
+_agent/logs/
+
+# ── Inbox (temporär, nicht committen) ────────────────────────────────────────
+_inbox/
+
+# ── RAG-Index (lokal generiert, nicht übertragen) ────────────────────────────
+_agent/vault.index
+_agent/vault_metadata.json
+_agent/processed_cache.json
+
+# ── Binärdateien (zu groß / nicht sinnvoll in Git) ───────────────────────────
+*.pdf
+*.docx
+*.doc
+*.xlsx
+*.xls
+*.pptx
+*.ppt
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.webp
+*.mp4
+*.mov
+*.avi
+*.mp3
+*.zip
+*.csv
+*.bin
+*.pyc
+__pycache__/
+
+# ── System ───────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.log
+
+# ── Obsidian (gerätespezifisch) ───────────────────────────────────────────────
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+
+# ── Claude Code (lokal) ──────────────────────────────────────────────────────
+.claude/settings.local.json

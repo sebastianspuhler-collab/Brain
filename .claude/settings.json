@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(osascript -e 'tell application \"Google Chrome\" to activate')",
+      "Bash(screencapture -x /tmp/brain_ui_4.png)",
+      "Bash(npx -y skills add anthropics/skills --skill frontend-design --agent claude-code)",
+      "Bash(python3 -c \"import ast; ast.parse\\(open\\('/Users/sesp01-user/Documents/Prozessia-Brain/_agent/brain_ui.py'\\).read\\(\\)\\); print\\('Syntax OK'\\)\")",
+      "Bash(python3 -m streamlit run _agent/brain_ui.py --server.port 8501 --server.headless true)",
+      "Bash(screencapture -x /tmp/brain_final.png)"
+    ]
+  }
+}

@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cloudinary Media</title>
+  <style>
+    :root {
+      --bg: #0e0f12;
+      --panel: #16181d;
+      --border: #262932;
+      --text: #e6e8ee;
+      --muted: #8a90a0;
+      --accent: #6ea8fe;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px 24px; border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; background: var(--bg); z-index: 10;
+    }
+    h1 { font-size: 16px; margin: 0; font-weight: 600; }
+    .controls { display: flex; gap: 8px; margin-left: auto; align-items: center; }
+    button, select, input {
+      background: var(--panel); color: var(--text); border: 1px solid var(--border);
+      padding: 6px 12px; border-radius: 6px; font-size: 13px; cursor: pointer;
+    }
+    button:hover { border-color: var(--accent); }
+    .upload-zone {
+      margin: 16px 24px; padding: 16px; border: 1px dashed var(--border);
+      border-radius: 8px; text-align: center; color: var(--muted);
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .upload-zone.drag { border-color: var(--accent); background: rgba(110,168,254,0.05); }
+    .grid {
+      display: grid; gap: 12px; padding: 16px 24px;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+    .card {
+      background: var(--panel); border: 1px solid var(--border);
+      border-radius: 8px; overflow: hidden; cursor: pointer;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .card .media {
+      width: 100%; aspect-ratio: 1; background: #0a0b0d;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .card img, .card video { width: 100%; height: 100%; object-fit: cover; }
+    .card .meta { padding: 8px 10px; font-size: 11px; color: var(--muted); }
+    .card .name {
+      color: var(--text); font-size: 12px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .empty { padding: 64px 24px; text-align: center; color: var(--muted); }
+    .toast {
+      position: fixed; bottom: 24px; right: 24px;
+      background: var(--panel); border: 1px solid var(--border);
+      padding: 10px 14px; border-radius: 6px; font-size: 13px;
+      opacity: 0; transition: opacity 0.2s; pointer-events: none;
+    }
+    .toast.show { opacity: 1; }
+    dialog {
+      background: var(--panel); color: var(--text); border: 1px solid var(--border);
+      border-radius: 8px; max-width: 90vw; max-height: 90vh; padding: 0;
+    }
+    dialog::backdrop { background: rgba(0,0,0,0.7); }
+    dialog .body { padding: 16px; max-height: 80vh; overflow: auto; }
+    dialog img, dialog video { max-width: 100%; max-height: 70vh; display: block; }
+    dialog pre {
+      background: #0a0b0d; padding: 8px; border-radius: 4px;
+      font-size: 11px; overflow-x: auto; user-select: all;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Cloudinary Media</h1>
+    <div class="controls">
+      <select id="type">
+        <option value="image">Images</option>
+        <option value="video">Videos</option>
+      </select>
+      <input id="tag" placeholder="filter by tag" style="width:140px" />
+      <button id="refresh">Refresh</button>
+    </div>
+  </header>
+
+  <div id="dropzone" class="upload-zone">
+    Drop a file here to upload, or <label style="color:var(--accent);cursor:pointer">
+      <input type="file" id="picker" hidden />browse
+    </label>
+  </div>
+
+  <div id="grid" class="grid"></div>
+  <div id="empty" class="empty" hidden>No media found yet. Upload something above.</div>
+
+  <dialog id="modal">
+    <div class="body">
+      <div id="modalMedia"></div>
+      <pre id="modalUrl"></pre>
+      <pre id="modalMeta"></pre>
+    </div>
+  </dialog>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    const grid = document.getElementById('grid');
+    const empty = document.getElementById('empty');
+    const typeSel = document.getElementById('type');
+    const tagInput = document.getElementById('tag');
+    const refreshBtn = document.getElementById('refresh');
+    const dropzone = document.getElementById('dropzone');
+    const picker = document.getElementById('picker');
+    const modal = document.getElementById('modal');
+    const modalMedia = document.getElementById('modalMedia');
+    const modalUrl = document.getElementById('modalUrl');
+    const modalMeta = document.getElementById('modalMeta');
+    const toast = document.getElementById('toast');
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+
+    function fmtBytes(b) {
+      if (!b) return '';
+      if (b < 1024) return b + 'B';
+      if (b < 1024*1024) return (b/1024).toFixed(1) + 'KB';
+      return (b/1024/1024).toFixed(1) + 'MB';
+    }
+
+    function fmtDate(s) {
+      try { return new Date(s).toLocaleString(); } catch { return s; }
+    }
+
+    async function load() {
+      grid.innerHTML = '';
+      empty.hidden = true;
+      const params = new URLSearchParams({ type: typeSel.value });
+      if (tagInput.value.trim()) params.set('tag', tagInput.value.trim());
+      try {
+        const res = await fetch('/api/media?' + params);
+        const items = await res.json();
+        if (!Array.isArray(items)) throw new Error(items.error || 'Failed to load');
+        if (!items.length) { empty.hidden = false; return; }
+        for (const item of items) grid.appendChild(card(item));
+      } catch (e) {
+        showToast('Load failed: ' + e.message);
+      }
+    }
+
+    function card(item) {
+      const el = document.createElement('div');
+      el.className = 'card';
+      const isVideo = item.type === 'video';
+      const thumbUrl = isVideo
+        ? item.url.replace('/upload/', '/upload/so_0,w_400,h_400,c_fill/').replace(/\.[^.]+$/, '.jpg')
+        : item.url.replace('/upload/', '/upload/w_400,h_400,c_fill,q_auto,f_auto/');
+      el.innerHTML = `
+        <div class="media">
+          <img src="${thumbUrl}" alt="" loading="lazy" />
+        </div>
+        <div class="meta">
+          <div class="name">${item.publicId.split('/').pop()}</div>
+          <div>${item.format} · ${fmtBytes(item.bytes)} · ${fmtDate(item.createdAt)}</div>
+        </div>
+      `;
+      el.onclick = () => openModal(item);
+      return el;
+    }
+
+    function openModal(item) {
+      const isVideo = item.type === 'video';
+      modalMedia.innerHTML = isVideo
+        ? `<video src="${item.url}" controls autoplay></video>`
+        : `<img src="${item.url}" />`;
+      modalUrl.textContent = item.url;
+      modalMeta.textContent = JSON.stringify(item, null, 2);
+      modal.showModal();
+    }
+    modal.addEventListener('click', e => { if (e.target === modal) modal.close(); });
+
+    async function uploadFile(file) {
+      const fd = new FormData();
+      fd.append('file', file);
+      showToast('Uploading ' + file.name + '...');
+      try {
+        const res = await fetch('/api/upload', { method: 'POST', body: fd });
+        const data = await res.json();
+        if (data.error) throw new Error(data.error);
+        showToast('Uploaded: ' + data.publicId);
+        load();
+      } catch (e) {
+        showToast('Upload failed: ' + e.message);
+      }
+    }
+
+    dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('drag'); });
+    dropzone.addEventListener('dragleave', () => dropzone.classList.remove('drag'));
+    dropzone.addEventListener('drop', e => {
+      e.preventDefault();
+      dropzone.classList.remove('drag');
+      const file = e.dataTransfer.files[0];
+      if (file) uploadFile(file);
+    });
+    picker.addEventListener('change', e => {
+      const file = e.target.files[0];
+      if (file) uploadFile(file);
+      e.target.value = '';
+    });
+
+    refreshBtn.onclick = load;
+    typeSel.onchange = load;
+    tagInput.addEventListener('keydown', e => { if (e.key === 'Enter') load(); });
+
+    load();
+  </script>
+</body>
+</html>

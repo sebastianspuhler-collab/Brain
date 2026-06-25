@@ -1,0 +1,18 @@
+---
+tags:
+  - Recruiting
+  - Leads
+  - Kontaktliste
+  - HR-Agenturen
+  - Kaltakquise
+quelle: Recruitement.xlsx
+datum: 2026-06-09
+kategorie: Lead
+---
+
+# Recruitement
+
+Die Datei enthält eine Liste von Recruiting- und HR-Agenturen aus dem DACH-Raum und angrenzenden Ländern mit Kontaktdaten (E-Mail, LinkedIn, Website). Es handelt sich um potenzielle Akquisekontakte für Prozessia GbR, da diese Unternehmen als Vermittler oder Kooperationspartner für KI-Lösungen infrage kommen könnten. Die Kontakte stammen überwiegend aus den Branchen Staffing & Recruiting sowie Human Resources.
+
+## Vollständiger Inhalt
+email industry organization_city organization_name organization_website_url first_name last_name name linkedin_url one@elbanana.com staffing & recruiting Munich Zero to One Search | Recruitment Agency http://www.zerotoonesearch.com Marat Yakupov Marat Yakupov http://www.linkedin.com/in/maratyakupov mathias@kooku.de human resources Berlin Kooku Recruiting GmbH http://www.kooku.de Mathias Mengel Mathias Mengel http://www.linkedin.com/in/mathiasmengel michael.kischmeroff@wonderland-recruitment.de staffing & recruiting Konstanz Wonderland Recruitment Services GbR http://www.wonderland-recruitment.de Michael Kischmeroff Michael Kischmeroff http://www.linkedin.com/in/michael-kischmeroff-6a0919192 daniel.kischmeroff@wonderland-recruitment.de staffing & recruiting Konstanz Wonderland Recruitment Services GbR http://www.wonderland-recruitment.de Daniel Kischmeroff Daniel Kischmeroff http://www.linkedin.com/in/daniel-kischmeroff-9a9ab5178 thore.kamphausen@highr.de staffing & recruiting Krefeld Highr. http://www.highr.de Thore Kamphausen Thore Kamphausen http://www.linkedin.com/in/thore-kamphausen-876a94214 jamila@top-tier-talents.com human resources TopTierTalent Recruiting http://www.toptiertalentrecruiting.com Jamila Messerschmidt Jamila Messerschmidt http://www.linkedin.com/in/jamila-me%c3%9ferschmidt-b2bb39204 laura@careerbee.de staffing & recruiting Berlin CareerBee http://www.careerbee.io Laura Villafuerte Laura Villafuerte http://www.linkedin.com/in/villafuerte-laura angelo.komnenic@culture-match.com staffing & recruiting Berlin Culture Match http://www.culture-match.com Angelo Komnenic Angelo Komnenic http://www.linkedin.com/in/angelo-komnenic-990b44127 j.lecot@eurojob-consulting.com staffing & recruiting Lyon Eurojob Consulting http://www.eurojob-consulting.com Jerome Recruiting Jerome Recruiting http://www.linkedin.com/in/jerome-lecot-recrutement-franco-allemand florian.schultheiss@sineo.de staffing & recruiting Karlsruhe SINEO GmbH http://www.sineo.de Florian Schultheiss Florian Schultheiss http://www.linkedin.com/in/florian-schulthei%c3%9f-529602bb h.sabin@hsc-personal.de management consulting Berlin HSC Personalmanagement Recruiting http://www.hsc-personal.de Harald Sabin Harald Sabin http://www.linkedin.com/in/harald-k-sabin-143967 giordano.righi@libertymorgan.com staffing & recruiting Duesseldorf Liberty Morgan http://www.libertymorgan.com Giordano Righi Giordano Righi http://www.linkedin.com/in/giordanorighihays a.zahiti@hire-connect.de staffing & recruiting Berlin Hire Connect GmbH http://www.hire-connect.de Auron Zahiti Auron Zahiti http://www.linkedin.com/in/auronzahiti pavlos.batziakas@cyprec.com information technology & services Larnaca Cyprec IT Solutions Ltd. http://www.cyprec.com Pavlos Batziakas Pavlos Batziakas http://www.linkedin.com/in/pavlosbatziakas d.knoerr@vonsteig.com staffing & recruiting Frankfurt VON STEIG http://www.vonsteig-legal.com Dominic Knoerr Dominic Knoerr http://www.linkedin.com/in/dr-dominic-kn%c3%b6rr-ll-m-74

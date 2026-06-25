@@ -1,0 +1,18 @@
+---
+tags:
+  - KI-Schulung
+  - Schulungskonzept
+  - Industriemittelstand
+  - EU-AI-Act
+  - Workshop
+quelle: Prozessia_Schulungskonzept_v2.pdf
+datum: 2026-06-09
+kategorie: Produkt
+---
+
+# Prozessia_Schulungskonzept_v2
+
+Vollständiges internes Schulungskonzept 'Der KI-Kompass für den Industriemittelstand' von Prozessia GbR in Version 2.0 (April 2026). Das Dokument beschreibt einen strukturierten Ganztages-Workshop mit Zeitplan, Lerninhalten und didaktischen Methoden zu KI-Grundlagen, EU AI Act, DSGVO und industriellen Anwendungsfällen. Es enthält wissenschaftlich belegte Inhalte, Moderationshinweise und Quellenangaben für Entscheider im Industriemittelstand.
+
+## Vollständiger Inhalt
+PROZESSIA  Der KI-Kompass fur den Industriemittelstand  Vollstandiges Schulungskonzept mit Quellenangaben · Version 2.0 · April 2026  Internes Dokument · Prozessia GbR · sebastian.spuhler@prozessia.de    Zeitplan Gesamttag  Zeit / Dauer Block & Inhalt 09:00-09:20 (20 Min) Block 0: Ankommen & Kalibrierung 09:20-10:50 (90 Min) Block 1: Wie KI wirklich funktioniert 10:50-11:05 (15 Min) Pause 11:05-12:45 (100 Min) Block 2: Rechtlicher Rahmen I - EU AI Act & DSGVO 12:45-13:30 (45 Min) Mittagspause 13:30-15:05 (95 Min) Block 3: Rechtlicher Rahmen II + Losungen + KI-Compliance 15:05-15:15 (10 Min) Kaffeepause 15:15-16:30 (75 Min) Block 4: Chancen & Risiken in der Industrie 16:30-17:00 (30 Min) Block 5: Quick-Check, 90-Tage-Plan & Abschluss  Bruttodauer 8 Stunden, netto reine Lernzeit 6 h 25 Min. Bewusst Ganztag statt Halbtag: Halbtage reichen nicht fur substanzielle Vermittlung des Rechtsteils und Transfer-Ubungen. Fraunhofer IEM, TUV NORD und Bitkom Akademie nutzen alle den Ganztag als Mindestformat fur Entscheider. Quellen Formatentscheidung: Fraunhofer IEM, KI-Strategie Top-Management (iem.fraunhofer.de); TUV NORD Intensivseminar KI-Management (tuev-nord.de); Bitkom Akademie KI-Kompass (bitkom-akademie.de)    Block 0 – Ankommen und Kalibrierung (20 Min)  Vorstellungsrunde: Jeder Teilnehmer sagt in 60 Sekunden, wo sein Unternehmen bei KI steht (Skala 1-10). Moderatorin notiert Zahlen sichtbar. Typischer Schnitt: 3-4. Entkrampft sofort.  Einstiegsstatistik fur die Moderatorin 40 % der deutschen Unternehmen wissen, dass ihre Mitarbeiter heimlich KI nutzen (Bitkom 2025) Real nutzen 57 % aller Arbeitnehmer KI ohne Wissen der Fuhrung (KPMG/University of Melbourne 2025) Botschaft: 'Sie haben schon KI im Betrieb. Die Frage ist nicht ob, sondern ob Sie es wissen.' Bitkom-Unternehmensumfrage 2025 (bitkom.org); KPMG/University of Melbourne Workforce AI Use Survey 2025    Block 1 – Wie KI wirklich funktioniert (90 Min, 09:20-10:50)  Lernziel: Entscheider konnen drei Satze eigenstandig formulieren: 'Ein LLM ist ein statistischer Wort-Vorhersager.' 'RAG ist nutzlicher fur mich als Fine-Tuning.' 'Agent ist LLM plus Werkzeuge plus Eigeninitiative.' 1.1 Die KI-Landkarte (20 Min, 09:20-09:40) Dreistufige Taxonomie als Schaubild: Klassisches Machine Learning (Predictive Maintenance, Anomalieerkennung) → Deep Learning (Computer Vision, Spracherkennung) → Generative KI (LLMs, Bild-/Audio-/Videogeneratoren) → Agenten (LLM + Werkzeuge + Planungsschleife). Historischer Anker: ChatGPT-Launch November 2022 als Wendepunkt. Quelle Taxonomie: Russell/Norvig, Artificial Intelligence: A Modern Approach, 4. Aufl. 2020; Fraunhofer IAIS KI-Kompendium 2024 (iais.fraunhofer.de) 1.2 So funktioniert ein LLM (30 Min, 09:40-10:10) Analogie 1 - Der belesene Praktikant: 'Stellen Sie sich ein LLM wie einen Praktikanten vor, der das gesamte Internet gelesen hat - aber in Ihrem Betrieb erst seit heute arbeitet. Hat Allgemeinwissen im Uberfluss, null Firmenkontext. Ist eloquent, schnell, und man

@@ -1,0 +1,5 @@
+{
+  "templates_folder": "_agent/templates",
+  "auto_jump_to_cursor": false,
+  "trigger_on_file_creation": false
+}

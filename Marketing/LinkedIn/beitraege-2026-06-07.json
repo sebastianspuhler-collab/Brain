@@ -1,0 +1,39 @@
+{
+  "generiert_am": "2026-06-07T20:24:58.661Z",
+  "kanaele": [
+    "6a25d2578f1d11f9b260c5ee",
+    "6a25d2578f1d11f9b260c5ef"
+  ],
+  "donnerstag": {
+    "termin": "2026-06-11T09:30:00+02:00",
+    "idee": "80 % sehen KI als strategisch wichtig",
+    "text": "Mehr als 80 % der Maschinenbauer messen KI hohe Bedeutung bei.\n\nDoch während die strategische Bedeutung von Künstlicher Intelligenz (KI) im Maschinenbau unbestritten ist, klafft zwischen Anspruch und Wirklichkeit oft eine Lücke. Viele Unternehmen haben erkannt, dass KI nicht nur ein Trend, sondern ein entscheidender Faktor für die Wettbewerbsfähigkeit ist. Dennoch bleibt der tatsächliche Einsatz von KI hinter den Erwartungen zurück – ein Umstand, der in den kommenden Jahren schwerwiegende Folgen haben könnte.\n\nEin zentraler Aspekt ist die EU-Verordnung zur Künstlichen Intelligenz (EU AI Act), die am 1. August 2024 in Kraft trat. Diese Verordnung sieht für kleine und mittlere Unternehmen (KMU) im Maschinenbau einen gestaffelten Umsetzungsplan vor. Bereits bis zum 2. Februar 2025 müssen bestimmte KI-Praktiken, wie das Social Scoring durch Behörden, verboten werden. Bis zum 2. August 2025 sind Anbieter von General Purpose AI-Modellen gefordert, neue Pflichten zu erfüllen, und bis zum 2. Dezember 2026 treten Transparenzpflichten für KI-generierte Inhalte in Kraft.\n\nDiese Fristen sind nicht nur Meilensteine, sondern auch Weckrufe. Für Maschinenbauer, insbesondere für Geschäftsführer mittelständischer Unternehmen, bedeutet dies, dass der Fahrplan zur Integration und Regelung von KI-Technologien jetzt begonnen werden muss. Ein passives Abwarten könnte nicht nur zu regulatorischen Schwierigkeiten führen, sondern auch zur Verfehlung von Wettbewerbsvorteilen, die KI verspricht.\n\nEin weiteres Beispiel für die Konsequenzen mangelnder Vorbereitung sind die jüngsten Bußgelder im Rahmen der Datenschutz-Grundverordnung (DSGVO). Im Mai 2025 verhängte die niederländische Datenschutzbehörde ein Bußgeld von 30,5 Millionen Euro gegen Clearview AI wegen Verstößen gegen die DSGVO. Diese Sanktionen zeigen deutlich, dass technologische Innovationen nicht ohne die notwendige Compliance und ethische Verantwortung umgesetzt werden können.\n\nWie sieht es in Ihrem Unternehmen aus? Haben Sie bereits eine klare Strategie zur Implementierung von KI? Oder besteht Handlungsbedarf, um nicht den Anschluss zu verlieren? \n\nWie wichtig ist KI für Ihre Strategie? \n\n#Maschinenbau #KünstlicheIntelligenz"
+  },
+  "freitag": {
+    "termin": "2026-06-12T09:30:00+02:00",
+    "idee": "Verbotene KI-Praktiken seit 2025",
+    "text": "Seit Februar 2025 sind bestimmte KI-Praktiken in der EU verboten.\n\nDie Einführung des EU AI Acts bringt bedeutende Veränderungen für Unternehmen im Mittelstand mit sich. Besonders Compliance-Officer sollten die neuen Regelungen im Blick haben, um empfindliche Bußgelder zu vermeiden. Seit dem 1. August 2024 ist die Verordnung in Kraft, und die erste entscheidende Frist war der 2. Februar 2025. Ab diesem Datum sind bestimmte Praktiken, wie das Social Scoring durch Behörden und unterschwellige Manipulationstechniken, gemäß Artikel 5 der Verordnung, verboten.\n\nFür kleinere und mittlere Unternehmen ist es entscheidend, sich frühzeitig auf die weiteren Fristen vorzubereiten. So stehen am 2. August 2025 die Pflichten für Anbieter von General Purpose AI-Modellen an, und am 2. Dezember 2026 müssen KI-generierte Inhalte transparent gekennzeichnet werden. Diese zeitlich gestaffelten Maßnahmen sollen den Unternehmen helfen, sich schrittweise an die neuen Anforderungen anzupassen.\n\nDie aktuelle Durchsetzung der Datenschutz-Grundverordnung (DSGVO) hat gezeigt, dass Verstöße im KI-Bereich nicht ohne Konsequenzen bleiben. Allein im Mai 2025 verhängte die niederländische Datenschutzbehörde gegen Clearview AI ein Bußgeld von 30,5 Millionen Euro, und die italienische Datenschutzbehörde sanktionierte Luka Inc. mit 5 Millionen Euro. Diese Beispiele verdeutlichen, dass ein Versäumnis bei der Einhaltung der neuen Regelungen erhebliche finanzielle Risiken birgt.\n\nEs ist daher unerlässlich, dass Unternehmen die neuen KI-Vorschriften ernst nehmen und entsprechende Compliance-Maßnahmen implementieren. Nur so können sie sicherstellen, dass sie den Anforderungen gerecht werden und potenzielle Bußgelder vermeiden. Welche Maßnahmen haben Sie zur Einhaltung ergriffen?\n\n#Compliance #KünstlicheIntelligenz"
+  },
+  "planungen": [
+    {
+      "erfolg": true,
+      "postId": "6a25d39a52eb7fd342a682e7",
+      "dueAt": "2026-06-11T07:30:00.000Z"
+    },
+    {
+      "erfolg": true,
+      "postId": "6a25d39a32bfe18df58d2af4",
+      "dueAt": "2026-06-12T07:30:00.000Z"
+    },
+    {
+      "erfolg": true,
+      "postId": "6a25d39a52eb7fd342a682b2",
+      "dueAt": "2026-06-11T07:30:00.000Z"
+    },
+    {
+      "erfolg": true,
+      "postId": "6a25d39a52eb7fd342a682ad",
+      "dueAt": "2026-06-12T07:30:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+---
+tags:
+  - Beschaffungsagent
+  - Schaufler
+  - Präsentation
+  - Automatisierung
+  - Einkauf
+quelle: Prozessia-X-Schaufler Beschafungsagent.pptx
+datum: 2026-06-09
+kategorie: Sales
+---
+
+# Prozessia-X-Schaufler Beschafungsagent
+
+Verkaufspräsentation von Prozessia für den Kunden Schaufler zum Produkt 'Digitaler Beschaffungsagent'. Die Präsentation beschreibt vier Module zur Automatisierung von Beschaffungsprozessen: Verarbeitung von Auftragsbestätigungen, Lieferterminüberwachung, Versanddokumente/Tracking und eine interaktive Kommunikationsschnittstelle. Ziel ist die Reduktion manueller Tätigkeiten und Steigerung der Prozesstransparenz bei Schaufler.
+
+## Vollständiger Inhalt
+Prozessia X Schaufler Digitale Beschaffungsautomatisierung für mehr Effizienz und Transparenz Potenziale im Beschaffungsmanagement  Automatisierungspotenzial Ressourcen durch Reduzierung manueller Schritte effizienter nutzen.  Terminverlässlichkeit Präzise Lieferzeiten und vorausschauende Planung durch automatische Überwachung.    Prozesstransparenz Klarer Status von Bestellungen und Lieferungen für proaktives Handeln.  Datenbasierte Entscheidungen Fundierte Management- und Planungsentscheidungen durch verbesserte Datenbasis. Prozessia als Ihr Partner Kompetenz in KI-Automatisierung Prozessia (https://www.prozessia.de/) ist spezialisiert auf intelligente Automatisierungslösungen mit Schwerpunkt auf Chatbots und KI-gestützte Prozessautomatisierung. Unser digitaler Beschaffungsagent bietet eine durchdachte, mehrmodulige Lösung, die exakt auf Ihre Anforderungen zugeschnitten ist. Pragmatisch, zuverlässig und sofort einsetzbar für Ihre Einkaufs- und Dispositionsprozesse. Modul 1: Automatisierte Verarbeitung von Auftragsbestätigungen 01  Erkennung eingehender E-Mails Automatische Identifikation relevanter Auftragsbestätigungen im Posteingang ohne manuelle Sortierung 02  Intelligente Datenextraktion KI-gestützte Erfassung aller relevanten Bestelldaten aus unterschiedlichen Dokumenten 03  Nachverfolgung fehlender Dokumente Systematisches Monitoring ausstehender Bestätigungen mit automatisierten Erinnerungen 04  Eskalationsstufen Definierte Prozesse bei ausbleibenden Rückmeldungen mit automatischer Benachrichtigung der Verantwortlichen Modul 2: Automatisierte Lieferterminüberwachung    1 Länderspezifische Zeitfenster Berücksichtigung regionaler Lieferzeiten und Besonderheiten für präzise Terminplanung   2 Erkennung überfälliger Lieferungen Kontinuierliche Überwachung aller Termine mit sofortiger Identifikation kritischer Fälle   3 Automatische Erinnerungsschreiben Proaktiver Versand strukturierter Nachrichten an Lieferanten bei Terminverzug Modul 3: Versanddokumente und Tracking Automatisierte Zuordnung Intelligente Verknüpfung von Versanddokumenten mit entsprechenden Bestellungen Automatische Extraktion von Trackinginformationen aus verschiedenen Quellen Aktualisierung erwarteter Liefertermine in Echtzeit Proaktives Einfordern fehlender Unterlagen bei Lieferanten Modul 4: Interaktive Kommunikationsschnittstelle   Schnelle Informationsbeschaffung Mitarbeitende können jederzeit strukturierte Abfragen zum aktuellen Status durchführen   Übersicht zu Auftragsstatus Vollständige Transparenz über alle laufenden Bestellungen und deren Bearbeitungsstand   Ausstehende Dokumente Klare Darstellung fehlender Unterlagen und offener Punkte je Lieferant   Überfälligkeiten im Blick Sofortiger Zugriff auf kritische Fälle für prioritäre Bearbeitung Vorteile für Schaufler    Deutliche Reduktion manueller Tätigkeiten Automatisierung repetitiver Aufgaben setzt Kapazitäten für wertschöpfende Aktivitäten frei    Höhere Terminsicherheit Frühzeitige Erkennung kritischer Fälle er

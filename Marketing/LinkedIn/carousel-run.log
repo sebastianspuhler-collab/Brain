@@ -1,0 +1,59 @@
+Loading style reference images...
+[slide-1-hook] Generating with gpt-image-2...
+[slide-1-hook] Saved local. Uploading to Cloudinary...
+[slide-1-hook] DONE — https://res.cloudinary.com/dkbp6yrcm/image/upload/v1780850153/carousel/claude-skills/2026-06-07/slide-1-hook.png
+[slide-2-humanizer] Generating with gpt-image-2...
+[slide-2-humanizer] Saved local. Uploading to Cloudinary...
+[slide-2-humanizer] DONE — https://res.cloudinary.com/dkbp6yrcm/image/upload/v1780850360/carousel/claude-skills/2026-06-07/slide-2-humanizer.png
+[slide-3-diagram] Generating with gpt-image-2...
+[slide-3-diagram] Saved local. Uploading to Cloudinary...
+[slide-3-diagram] DONE — https://res.cloudinary.com/dkbp6yrcm/image/upload/v1780850563/carousel/claude-skills/2026-06-07/slide-3-diagram.png
+[slide-4-remotion] Generating with gpt-image-2...
+[slide-4-remotion] Saved local. Uploading to Cloudinary...
+[slide-4-remotion] DONE — https://res.cloudinary.com/dkbp6yrcm/image/upload/v1780850783/carousel/claude-skills/2026-06-07/slide-4-remotion.png
+[slide-5-frontend] Generating with gpt-image-2...
+[slide-5-frontend] Saved local. Uploading to Cloudinary...
+[slide-5-frontend] DONE — https://res.cloudinary.com/dkbp6yrcm/image/upload/v1780851007/carousel/claude-skills/2026-06-07/slide-5-frontend.png
+[slide-6-pdf-cta] Generating with gpt-image-2...
+[slide-6-pdf-cta] Saved local. Uploading to Cloudinary...
+[slide-6-pdf-cta] DONE — https://res.cloudinary.com/dkbp6yrcm/image/upload/v1780851203/carousel/claude-skills/2026-06-07/slide-6-pdf-cta.png
+
+=== Carousel Results ===
+[
+  {
+    "slide": "slide-1-hook",
+    "label": "Hook",
+    "url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1780850153/carousel/claude-skills/2026-06-07/slide-1-hook.png",
+    "model": "gpt-image-2"
+  },
+  {
+    "slide": "slide-2-humanizer",
+    "label": "Humanizer",
+    "url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1780850360/carousel/claude-skills/2026-06-07/slide-2-humanizer.png",
+    "model": "gpt-image-2"
+  },
+  {
+    "slide": "slide-3-diagram",
+    "label": "Diagram",
+    "url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1780850563/carousel/claude-skills/2026-06-07/slide-3-diagram.png",
+    "model": "gpt-image-2"
+  },
+  {
+    "slide": "slide-4-remotion",
+    "label": "Remotion",
+    "url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1780850783/carousel/claude-skills/2026-06-07/slide-4-remotion.png",
+    "model": "gpt-image-2"
+  },
+  {
+    "slide": "slide-5-frontend",
+    "label": "Frontend Design",
+    "url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1780851007/carousel/claude-skills/2026-06-07/slide-5-frontend.png",
+    "model": "gpt-image-2"
+  },
+  {
+    "slide": "slide-6-pdf-cta",
+    "label": "PDF + CTA",
+    "url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1780851203/carousel/claude-skills/2026-06-07/slide-6-pdf-cta.png",
+    "model": "gpt-image-2"
+  }
+]

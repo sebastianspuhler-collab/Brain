@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install *)",
+      "Bash(pip3 install *)",
+      "Bash(chmod +x ~/Documents/Prozessia-Brain/_agent/start_watcher.sh ~/Documents/Prozessia-Brain/_agent/stop_watcher.sh)",
+      "Bash(python3 -c \"import anthropic, watchdog, PyPDF2, docx, openpyxl, frontmatter; print\\('Alle Module OK'\\)\")",
+      "Bash(python3 -c \"import anthropic, watchdog, PyPDF2, docx, openpyxl; print\\('Alle Module OK'\\)\")",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 ~/Documents/Prozessia-Brain/_agent/heartbeat.py)",
+      "Bash(bash ~/Documents/Prozessia-Brain/_agent/start_watcher.sh)",
+      "Bash(grep -i \"ANTHROPIC\" ~/.zshrc ~/.zprofile ~/.bash_profile ~/.bashrc 2>/dev/null | sed 's/sk-ant-[^\"']*/sk-ant-***REDACTED***/g')",
+      "Read(//Users/sesp01-user/**)",
+      "Bash(echo \"Server gestartet mit PID $!\")",
+      "Bash(python3 -c \"import sys,json; ids=json.load\\(sys.stdin\\); print\\(f'{len\\(ids\\)} IDs gespeichert'\\)\")",
+      "Bash(curl -s -X POST http://localhost:3001/api/chat -H 'Content-Type: application/json' -d '{\"message\":\"Gibt es eine E-Mail zur Bestellung 127412?\",\"model\":\"claude-haiku-4-5-20251001\"}' --max-time 30)",
+      "Bash(curl -s -X POST http://localhost:3001/api/chat -H 'Content-Type: application/json' -d '{\"messages\":[{\"role\":\"user\",\"content\":\"Gibt es eine E-Mail zur Bestellung 127412?\"}],\"model\":\"claude-haiku-4-5-20251001\"}' --max-time 30)",
+      "Bash(python3 -c \"import ast; ast.parse\\(open\\('_agent/brain_server.py'\\).read\\(\\)\\); print\\('Syntax OK'\\)\")",
+      "Bash(curl -s -X POST http://localhost:3001/api/chat -H 'Content-Type: application/json' -d '{\"messages\":[{\"role\":\"user\",\"content\":\"Analysiere mir den Stand bei Schaufler - was läuft, was ist offen, was kommt als nächstes?\"}],\"model\":\"claude-sonnet-4-6\"}' --max-time 60)",
+      "Bash(launchctl load *)",
+      "Bash(python3 -c \"import ast; ast.parse\\(open\\('_agent/brain_server.py'\\).read\\(\\)\\); print\\('OK'\\)\")",
+      "Bash(curl -s -X POST http://localhost:3001/api/chat -H 'Content-Type: application/json' -d '{ *)",
+      "Bash(curl -s -X POST http://localhost:3001/api/inbox_process --max-time 30)",
+      "Bash(curl -sv -X POST http://localhost:3001/api/inbox_process --max-time 30)",
+      "Bash(python3 -c \"import ast; ast.parse\\(open\\('_agent/brain_server.py'\\).read\\(\\)\\); print\\('Server OK'\\)\")",
+      "Bash(curl -s -X POST http://localhost:3001/api/chat -H 'Content-Type: application/json' -d '{\"messages\":[{\"role\":\"user\",\"content\":\"Was hat Benjamin Schmohl im Transkript vom 15. Juni gesagt? Welche technischen Anforderungen, welche Probleme mit ProLeis und was sind die nächsten Schritte?\"}],\"model\":\"claude-sonnet-4-6\"}' --max-time 60)",
+      "Bash(curl -s -X POST http://localhost:3001/api/upload -F file=@/tmp/test_upload.txt --max-time 30)",
+      "Bash(curl -s -X POST http://localhost:3001/api/chat -H 'Content-Type: application/json' -d '{\"messages\":[{\"role\":\"user\",\"content\":\"Was kostet der Hetzner Server bei Schaufler genau, und was ist der Unterschied zwischen Verwaltungspauschale und Serverkosten? Ich brauche die echten Zahlen.\"}],\"model\":\"claude-sonnet-4-6\"}' --max-time 60)",
+      "Bash(curl -s -X POST http://localhost:3001/api/chat -H 'Content-Type: application/json' -d '{\"messages\":[{\"role\":\"user\",\"content\":\"nein, der Hetzner CCX23 kostet genau 38,90€ netto pro Monat, das steht in unserer aktuellen Rechnung, merke dir das!\"}],\"model\":\"claude-sonnet-4-6\"}' --max-time 45)",
+      "Bash(gh auth *)",
+      "Bash(pip3 show *)",
+      "Bash(awk '{print $2\"==\"$4}')",
+      "Bash(brew install *)",
+      "Bash(which brew *)",
+      "Read(//opt/homebrew/bin/**)",
+      "Bash(git --version)",
+      "Bash(git config *)",
+      "Bash(git check-ignore *)",
+      "Bash(git add *)"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+---
+tags:
+  - Icebreaker
+  - Cold-Outreach
+  - KI-Automatisierung
+  - Leadgenerierung
+  - n8n
+quelle: Untitled document.docx
+datum: 2026-06-09
+kategorie: Sales
+---
+
+# Untitled document
+
+Das Dokument enthält ein n8n-Workflow-Template für einen personalisierten KI-gestützten Icebreaker-Generator im Rahmen der Kaltakquise. Es verarbeitet Lead-Daten (E-Mail, Branche, Name, Website, LinkedIn) und generiert automatisiert eine deutsche Ansprache für potenzielle Kunden. Das Template unterscheidet zwischen verwertbarem und unbrauchbarem Kontext und folgt einer definierten Ausgabelogik.
+
+## Vollständiger Inhalt
+Du bekommst die folgenden Input-Daten zu einer Organisation:  email: "{{$json.email}}" industry: "{{$json.industry}}" organization_name: "{{$json.organization_name}}" organization_website_url: "{{$json.organization_website_url}}" first_name: "{{$json.first_name}}" last_name: "{{$json.last_name}}" linkedin_url: "{{$json.linkedin_url}}"  Kontext (Originalbeschreibung / Außenauftritt von {{$json.organization_name}}): """{{$json.text}}"""  WICHTIG – KONTEXT-LOGIK: 1. FALL A (Kontext ist inhaltlich verwertbar = enthält echte Aussagen über Haltung, Anspruch, Wirkung, Entwicklung, Führung, Menschen, Teams, Kunden, Lernprozesse, Programme, Methoden etc.):    - Verwende AUSSCHLIESSLICH Formulierungen, Begriffe, Versprechen, Schwerpunkte und Effekte, die im Kontext GENAU so vorkommen oder eindeutig daraus ableitbar sind.    - Erfinde KEINE Programme, Methoden, Claims oder Versprechen, die NICHT explizit oder klar erkennbar im Kontext stehen.    - Nenne KEINE Begriffe, die NICHT im Kontext vorkommen.  2. FALL B (Kontext ist leer, technisch, unbrauchbar oder sagt faktisch nichts über Haltung / Wirkung / Arbeit mit Menschen aus – z. B. nur Login-Hinweise, Cookie-Banner, Navigation, generischer Text oder gar kein echter Inhalt):    - Dann formuliere bitte trotzdem einen Icebreaker für {{$json.organization_name}} mit folgender Idee:      - Einstieg: Sprich allgemein über den Anspruch, Menschen/Führung/Teams wirklich zu entwickeln und zu begleiten (auch wenn der Kontext nichts liefert). Du DARFST hier allgemein über menschliche Entwicklung, Führungskraft-Stärkung, Klarheit im Alltag, Teamenergie sprechen.      - Wertschätzung: Mach spürbar, dass dieser Anspruch echte Veränderung bei Menschen braucht, nicht nur Theorie.      - Aufwand: Betone, dass das enorm viel persönliche Präsenz, Fokus und ständiges Dranbleiben frisst.      - Digitaler Klon: Deute an, dass ein eigener KI-Agent als euer digitaler Klon nervige Routinearbeit abfangen und euch Freiraum geben könnte – ohne eure menschliche Stärke zu schwächen.    - GANZ WICHTIG: Du DARFST NIEMALS sagen oder andeuten, dass man „von außen wenig sieht“, „kaum Infos findet“, „kein Auftritt erkennt“, „öffentlich nichts sichtbar ist“, „man nicht viel über euch findet“, „euer Außenauftritt ist reduziert“ oder ähnliche Formulierungen. Solche Sätze sind VERBOTEN.    - Du DARFST NICHT behaupten, dass ihr absichtlich wenig nach außen zeigt.  Aufgabe: Erzeuge eine personalisierte deutsche Icebreaker-Ansprache (max. 350 Zeichen), die sich direkt an {{$json.organization_name}} richtet.  Die Ansprache darf aus 1 bis 3 kurzen Sätzen bestehen (kein Zeilenumbruch) und MUSS diese vier Elemente, in genau dieser Reihenfolge, enthalten:  1. Einstieg:    - FALL A: Starte mit einer klaren Beobachtung aus dem Kontext zu {{$json.organization_name}}. Greife Formulierungen, Schwerpunkte oder Wirkversprechen auf, die EXPLIZIT im Kontext stehen.    - FALL B: Wenn der Kontext unbrauchbar ist (siehe oben), starte mit einer Beobachtung über euren
