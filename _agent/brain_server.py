@@ -1228,8 +1228,52 @@ class Handler(BaseHTTPRequestHandler):
             self.json_response(api_linkedin_posts())
         elif self.path == "/api/linkedin/direction":
             self.json_response(api_linkedin_direction_get())
+        elif self.path.startswith("/files/"):
+            self._serve_file()
+        elif self.path == "/api/files":
+            self._list_files()
         else:
             self.json_response({"error": "not found"}, 404)
+
+    def _serve_file(self):
+        """Datei aus dem Vault zum Download ausliefern."""
+        import mimetypes, urllib.parse
+        rel = urllib.parse.unquote(self.path[len("/files/"):])
+        # Sicherheit: kein path traversal
+        target = (VAULT / rel).resolve()
+        if not str(target).startswith(str(VAULT.resolve())):
+            self.json_response({"error": "forbidden"}, 403)
+            return
+        if not target.exists() or not target.is_file():
+            self.json_response({"error": "not found"}, 404)
+            return
+        mime = mimetypes.guess_type(str(target))[0] or "application/octet-stream"
+        data = target.read_bytes()
+        self.send_response(200)
+        self.send_header("Content-Type", mime)
+        self.send_header("Content-Length", str(len(data)))
+        self.send_header("Content-Disposition", f'attachment; filename="{target.name}"')
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.end_headers()
+        self.wfile.write(data)
+
+    def _list_files(self):
+        """Alle Dateien im Vault auflisten (für Datei-Browser)."""
+        from urllib.parse import urlencode
+        _SKIP = {"_inbox", ".git", ".obsidian", "_fehler", "__pycache__", "_agent"}
+        files = []
+        for f in sorted(VAULT.rglob("*")):
+            if f.is_file() and not any(p in _SKIP for p in f.parts):
+                rel = f.relative_to(VAULT)
+                if rel.parts[0] in _SKIP:
+                    continue
+                files.append({
+                    "path": str(rel),
+                    "name": f.name,
+                    "size": f.stat().st_size,
+                    "url": f"/files/{rel}",
+                })
+        self.json_response({"files": files})
 
     def _handle_upload(self):
         """Datei empfangen, in _inbox/ ablegen, sofort verarbeiten und indexieren."""

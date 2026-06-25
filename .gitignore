@@ -24,14 +24,11 @@ _agent/vault.index
 _agent/vault_metadata.json
 _agent/processed_cache.json
 
-# ── Binärdateien (zu groß / nicht sinnvoll in Git) ───────────────────────────
-*.pdf
-*.docx
-*.doc
-*.xlsx
-*.xls
+# ── Präsentationen (zu groß für Git, im RAG als Text erfasst) ────────────────
 *.pptx
 *.ppt
+
+# ── Mediadateien (kein Mehrwert in Git) ──────────────────────────────────────
 *.png
 *.jpg
 *.jpeg
@@ -43,7 +40,6 @@ _agent/processed_cache.json
 *.avi
 *.mp3
 *.zip
-*.csv
 *.bin
 *.pyc
 __pycache__/
