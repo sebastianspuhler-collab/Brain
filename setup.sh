@@ -83,6 +83,12 @@ systemctl daemon-reload
 systemctl enable $SERVICE_NAME
 systemctl restart $SERVICE_NAME
 
+# ── Auto-Sync: alle 5 Min git pull + Reindex ─────────────────────────────────
+echo "[4b/5] Auto-Sync Cron einrichten..."
+CRON_JOB="*/5 * * * * cd $VAULT_DIR && git pull --quiet origin main 2>/dev/null && curl -s -X POST http://localhost:3001/api/inbox_process > /dev/null 2>&1"
+(crontab -u "$SERVICE_USER" -l 2>/dev/null | grep -v "prozessia.*git pull"; echo "$CRON_JOB") | crontab -u "$SERVICE_USER" -
+echo "  Vault wird alle 5 Minuten von GitHub synchronisiert."
+
 sleep 3
 
 # ── 5. Status prüfen ─────────────────────────────────────────────────────────
