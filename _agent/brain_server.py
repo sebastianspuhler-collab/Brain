@@ -1074,6 +1074,64 @@ def api_remember(text: str) -> dict:
     except Exception as e:
         return {"error": str(e)}
 
+# ── Auth ─────────────────────────────────────────────────────────────────────
+# Passwörter für Remote-Zugriff (lokal wird automatisch durchgelassen)
+_AUTH_TOKENS = {
+    "prozessia2026",   # Sebastian
+    "amin2026",        # Amin
+}
+
+def _check_auth(handler) -> bool:
+    """Lokal immer erlaubt. Remote: Token im Header oder URL-Parameter prüfen."""
+    host = handler.headers.get("Host", "")
+    # Lokaler Zugriff immer erlaubt
+    if "localhost" in host or "127.0.0.1" in host:
+        return True
+    # Token aus Header: Authorization: Bearer <token>
+    auth_header = handler.headers.get("Authorization", "")
+    if auth_header.startswith("Bearer "):
+        return auth_header[7:].strip() in _AUTH_TOKENS
+    # Token aus Cookie: brain_token=<token>
+    cookie = handler.headers.get("Cookie", "")
+    for part in cookie.split(";"):
+        if "brain_token=" in part:
+            token = part.split("brain_token=", 1)[1].strip()
+            if token in _AUTH_TOKENS:
+                return True
+    # Token aus Query-String: /?token=<token>
+    from urllib.parse import urlparse, parse_qs
+    qs = parse_qs(urlparse(handler.path).query)
+    if qs.get("token", [""])[0] in _AUTH_TOKENS:
+        return True
+    return False
+
+_LOGIN_HTML = """<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">
+<title>Prozessia Brain — Login</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#111;display:flex;align-items:center;
+justify-content:center;height:100vh;font-family:system-ui,sans-serif;color:#e0e0e0}
+.card{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:40px;width:320px;text-align:center}
+h2{margin:0 0 8px;font-size:18px}p{margin:0 0 24px;font-size:13px;color:#888}
+input{width:100%;padding:10px 14px;background:#242424;border:1px solid #444;border-radius:8px;
+color:#e0e0e0;font-size:14px;outline:none;margin-bottom:12px}
+input:focus{border-color:#7c6af7}
+button{width:100%;padding:10px;background:#7c6af7;border:none;border-radius:8px;color:#fff;
+font-size:14px;cursor:pointer;font-weight:600}
+button:hover{background:#9b8dff}.err{color:#ff6b6b;font-size:12px;margin-top:8px;display:none}
+</style></head><body><div class="card">
+<h2>Prozessia Brain</h2><p>Zugangscode eingeben</p>
+<input type="password" id="pw" placeholder="Passwort" onkeydown="if(event.key==='Enter')login()">
+<button onclick="login()">Einloggen</button>
+<div class="err" id="err">Falsches Passwort</div></div>
+<script>
+function login(){
+  const pw=document.getElementById('pw').value;
+  fetch('/api/auth',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({token:pw})}).then(r=>r.json()).then(d=>{
+    if(d.ok){document.cookie='brain_token='+pw+';path=/;max-age=2592000';location.reload()}
+    else{document.getElementById('err').style.display='block'}
+  })
+}</script></body></html>"""
+
 # ── HTTP Handler ─────────────────────────────────────────────────────────────
 
 class Handler(BaseHTTPRequestHandler):
@@ -1098,7 +1156,56 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Content-Length", "0")
         self.end_headers()
 
+    def _serve_login(self):
+        body = _LOGIN_HTML.encode("utf-8")
+        self.send_response(200)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def _serve_html(self):
+        """Liefert die Brain UI HTML-Datei aus — damit Amin nur eine URL braucht."""
+        html_path = VAULT / "prozessia_brain_ui.html"
+        try:
+            html = html_path.read_bytes()
+            # API-URL auf relativen Pfad anpassen (funktioniert lokal UND remote über Tunnel)
+            html = html.replace(
+                b"const API = 'http://localhost:3001'",
+                b"const API = window.location.origin"
+            )
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Length", str(len(html)))
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            self.wfile.write(html)
+        except Exception as ex:
+            self.send_response(500)
+            self.end_headers()
+            self.wfile.write(str(ex).encode())
+
     def do_GET(self):
+        if self.path in ("/", "/ui", "/brain"):
+            if not _check_auth(self):
+                self._serve_login()
+                return
+            self._serve_html()
+            return
+        # /api/status ist öffentlich (zeigt keine sensiblen Daten)
+        elif self.path == "/api/status":
+            self.json_response({
+                "ok": True,
+                "gmail": GMAIL_OK,
+                "outlook": OUTLOOK_OK,
+                "date": datetime.now().strftime("%d.%m.%Y"),
+                "rag_docs": len(_rag_meta) if _rag_meta else 0,
+            })
+            return
+        # Alle anderen GET-Endpoints brauchen Auth
+        if not _check_auth(self):
+            self.json_response({"error": "unauthorized"}, 401)
+            return
         if self.path == "/api/gmail":
             self.json_response(api_gmail())
         elif self.path == "/api/calendar":
@@ -1111,14 +1218,6 @@ class Handler(BaseHTTPRequestHandler):
             self.json_response(api_linkedin_posts())
         elif self.path == "/api/linkedin/direction":
             self.json_response(api_linkedin_direction_get())
-        elif self.path == "/api/status":
-            self.json_response({
-                "ok": True,
-                "gmail": GMAIL_OK,
-                "outlook": OUTLOOK_OK,
-                "date": datetime.now().strftime("%d.%m.%Y"),
-                "rag_docs": len(_rag_meta) if _rag_meta else 0,
-            })
         else:
             self.json_response({"error": "not found"}, 404)
 
@@ -1189,6 +1288,22 @@ class Handler(BaseHTTPRequestHandler):
             self.json_response({"error": str(ex)}, 400)
 
     def do_POST(self):
+        if self.path == "/api/auth":
+            try:
+                length = int(self.headers.get("Content-Length", 0))
+                body = json.loads(self.rfile.read(length))
+                token = body.get("token", "")
+                if token in _AUTH_TOKENS:
+                    self.json_response({"ok": True})
+                else:
+                    self.json_response({"ok": False}, 401)
+            except Exception as ex:
+                self.json_response({"ok": False, "error": str(ex)}, 400)
+            return
+        # Alle anderen POST-Endpoints brauchen Auth
+        if not _check_auth(self):
+            self.json_response({"error": "unauthorized"}, 401)
+            return
         if self.path == "/api/chat":
             self.handle_chat()
         elif self.path == "/api/inbox_process":
