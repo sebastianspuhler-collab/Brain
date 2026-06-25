@@ -1194,12 +1194,22 @@ class Handler(BaseHTTPRequestHandler):
             return
         # /api/status ist öffentlich (zeigt keine sensiblen Daten)
         elif self.path == "/api/status":
+            ngrok_url = ""
+            try:
+                import urllib.request
+                with urllib.request.urlopen("http://127.0.0.1:4040/api/tunnels", timeout=1) as r:
+                    tunnels = json.loads(r.read())["tunnels"]
+                    if tunnels:
+                        ngrok_url = tunnels[0]["public_url"]
+            except Exception:
+                pass
             self.json_response({
                 "ok": True,
                 "gmail": GMAIL_OK,
                 "outlook": OUTLOOK_OK,
                 "date": datetime.now().strftime("%d.%m.%Y"),
                 "rag_docs": len(_rag_meta) if _rag_meta else 0,
+                "ngrok_url": ngrok_url,
             })
             return
         # Alle anderen GET-Endpoints brauchen Auth
