@@ -232,11 +232,12 @@ def _faiss_add_doc(rel_path: str, content: str):
 _SKIP_INDEX = {"_inbox", ".git", ".obsidian", "_fehler", "node_modules"}
 
 def reindex_new_vault_files():
-    """Alle .md-Dateien die noch nicht in FAISS sind sofort hinzufügen."""
+    """Alle .md-Dateien die noch nicht in FAISS sind sofort hinzufügen + daraus lernen."""
     if _rag_meta is None or _rag_model is None:
         return 0
     existing = {(m.get("path", "") if isinstance(m, dict) else str(m)) for m in _rag_meta}
     added = 0
+    new_files = []
     for md_file in sorted(VAULT.rglob("*.md")):
         if any(skip in md_file.parts for skip in _SKIP_INDEX):
             continue
@@ -247,9 +248,17 @@ def reindex_new_vault_files():
             content = md_file.read_text(errors="ignore")[:1500]
             if len(content) > 50:
                 _faiss_add_doc(rel, content)
+                new_files.append((rel, content))
                 added += 1
         except Exception:
             pass
+    # Aus neuen Dateien automatisch lernen (im Hintergrund)
+    for rel, content in new_files:
+        threading.Thread(
+            target=_auto_memory_from_file,
+            args=(rel, content),
+            daemon=True
+        ).start()
     return added
 
 
@@ -311,32 +320,31 @@ def _strip_html(text: str) -> str:
     return re.sub(r'\s+', ' ', text).strip()
 
 def _is_important_email(sender: str, subject: str, body: str) -> bool:
-    combined = (sender + " " + subject + " " + body[:500]).lower()
-    if any(d in combined for d in CUSTOMER_DOMAINS):
-        return True
-    if any(k in combined for k in IMPORTANT_KEYWORDS):
-        return True
-    return False
+    """Filtert nur offensichtlichen Spam/Newsletter raus — lernt sonst von allem."""
+    combined = (sender + " " + subject + " " + body[:200]).lower()
+    spam = {"newsletter", "unsubscribe", "abmelden", "noreply", "no-reply",
+            "donotreply", "marketing@", "info@mailchimp", "notification"}
+    return not any(s in combined for s in spam)
 
 def _auto_memory_from_email(sender: str, subject: str, body: str):
     try:
-        prompt = f"""Analysiere diese E-Mail und extrahiere NUR dauerhaft wichtige Informationen für Sebastian Spuhler (Prozessia GbR).
+        prompt = f"""Analysiere diese E-Mail für Sebastian Spuhler (Prozessia GbR) und extrahiere wichtige Informationen.
 
-Wichtig: neue Aufträge, Preise, Deadlines, Kundenwünsche, Zusagen, Absagen, konkrete nächste Schritte.
-Nicht wichtig: Newsletters, allgemeine Anfragen, Spam, automatische Bestätigungen.
+SPEICHERN: Aufträge, Preise, Deadlines, Kundenwünsche, Zusagen, Absagen, Namen+Rollen, nächste Schritte, Entscheidungen
+NICHT SPEICHERN: reine Bestätigungen ohne neuen Inhalt, Kalendereinladungen ohne Kontext
 
 Von: {sender}
 Betreff: {subject}
-Inhalt: {body[:600]}
+Inhalt: {body[:1000]}
 
-Antworte NUR mit JSON (kein Markdown):
-{{"items": [{{"kategorie": "KONTEXT", "fakt": "kurze Aussage auf Deutsch"}}]}}
-Kategorien: KONTEXT, PROZESS, KORREKTUR
-Wenn nichts Wichtiges: {{"items": []}}"""
+NUR JSON (kein Markdown):
+{{"items": [{{"kategorie": "KONTEXT", "fakt": "präzise Aussage auf Deutsch mit Datum falls vorhanden"}}]}}
+Kategorien: KONTEXT, PROZESS, KORREKTUR, KUNDE
+Wenn nichts Neues: {{"items": []}}"""
 
         result = ANTHROPIC.messages.create(
             model="claude-haiku-4-5-20251001",
-            max_tokens=300,
+            max_tokens=400,
             messages=[{"role": "user", "content": prompt}]
         )
         text = result.content[0].text.strip()
@@ -344,11 +352,59 @@ Wenn nichts Wichtiges: {{"items": []}}"""
         if not m:
             return
         data = json.loads(m.group())
+        memory_path = VAULT / "_agent" / "memory.md"
+        existing = memory_path.read_text(encoding="utf-8") if memory_path.exists() else ""
         for item in data.get("items", []):
             kat = item.get("kategorie", "KONTEXT").upper()
             fakt = item.get("fakt", "").strip()
-            if fakt:
-                _append_to_memory(kat, f"[Email: {subject[:50]}] {fakt}")
+            if fakt and len(fakt) > 10:
+                key_words = set(fakt.lower().split()[:5])
+                if not any(len(key_words & set(line.lower().split())) >= 3
+                           for line in existing.split('\n') if line.strip()):
+                    _append_to_memory(kat, f"[{subject[:40]}] {fakt}")
+                    existing += f"\n{fakt}"
+    except Exception:
+        pass
+
+def _auto_memory_from_file(rel_path: str, content: str):
+    """Lernt aus neu verarbeiteten Vault-Dateien."""
+    try:
+        prompt = f"""Eine neue Datei wurde in den Prozessia-Vault aufgenommen. Extrahiere dauerhaft wichtige Fakten für Sebastian Spuhler.
+
+SPEICHERN: Kundendaten, Preise, Vertragsdetails, Deadlines, Anforderungen, Entscheidungen, Projektstatus
+NICHT SPEICHERN: Formatierungsinfos, allgemeine Erklärungen, offensichtliche Standardinhalte
+
+Datei: {rel_path}
+Inhalt (Auszug):
+{content[:1500]}
+
+NUR JSON:
+{{"items": [{{"kategorie": "KONTEXT", "fakt": "präziser Fakt auf Deutsch"}}]}}
+Kategorien: KONTEXT, KUNDE, PROZESS, KORREKTUR
+Max 5 Items. Wenn nichts Neues: {{"items": []}}"""
+
+        result = ANTHROPIC.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=500,
+            messages=[{"role": "user", "content": prompt}]
+        )
+        text = result.content[0].text.strip()
+        m = re.search(r'\{.*\}', text, re.DOTALL)
+        if not m:
+            return
+        data = json.loads(m.group())
+        memory_path = VAULT / "_agent" / "memory.md"
+        existing = memory_path.read_text(encoding="utf-8") if memory_path.exists() else ""
+        filename = Path(rel_path).name
+        for item in data.get("items", []):
+            kat = item.get("kategorie", "KONTEXT").upper()
+            fakt = item.get("fakt", "").strip()
+            if fakt and len(fakt) > 15:
+                key_words = set(fakt.lower().split()[:5])
+                if not any(len(key_words & set(line.lower().split())) >= 3
+                           for line in existing.split('\n') if line.strip()):
+                    _append_to_memory(kat, f"[{filename}] {fakt}")
+                    existing += f"\n{fakt}"
     except Exception:
         pass
 
@@ -1029,16 +1085,17 @@ Analysiere diesen Gesprächsaustausch und extrahiere NUR dauerhaft wichtige Info
 
 {"⚠️ ACHTUNG: Sebastian korrigiert etwas — diese Korrektur unbedingt als KORREKTUR-Eintrag speichern!" if is_correction else ""}
 
-SPEICHERN:
+SPEICHERN — aggressiv, lieber zu viel als zu wenig:
 - Korrekturen (Sebastian sagt etwas ist falsch/anders) → KORREKTUR
 - Neue Fakten: Preise, Vertragsinhalte, Deadlines, Entscheidungen → KONTEXT
+- Kundensituationen, Projektstände, neue Kontakte → KUNDE
 - Arbeitsregeln und Präferenzen von Sebastian → REGEL
-- Neue Abläufe oder Prozessentscheidungen → PROZESS
+- Prozessentscheidungen, Abläufe → PROZESS
+- Alles was Sebastian explizit erwähnt und relevant klingt → KONTEXT
 
 NICHT SPEICHERN:
 - Reine Informationsabfragen ohne neuen Fakt
-- Dinge die Brain schon weiß (kein Duplikat)
-- Operationelle Kleinstdetails (E-Mail-Snippets, Aufzählungen)
+- Bereits bekannte Dinge (kein Duplikat)
 
 Sebastian: {user_msg[:800]}
 
