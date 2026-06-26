@@ -352,7 +352,9 @@ Wenn nichts Wichtiges: {{"items": []}}"""
     except Exception:
         pass
 
-def index_new_emails():
+_DEEP_SCAN_DONE_PATH = EMAIL_CACHE_DIR / "deep_scan_done.flag"
+
+def index_new_emails(deep=False):
     if not GMAIL_OK:
         return
     # Warte bis RAG geladen
@@ -365,7 +367,9 @@ def index_new_emails():
 
     try:
         indexed = set(json.loads(_INDEXED_IDS_PATH.read_text())) if _INDEXED_IDS_PATH.exists() else set()
-        raw_mails = gmail_client.get_emails(top=50)
+        # Deep-Scan: 500 Mails beim ersten Start; danach 50 für neue Mails
+        limit = 500 if deep else 50
+        raw_mails = gmail_client.get_emails(top=limit)
         new_count = 0
 
         for e in raw_mails:
@@ -416,8 +420,14 @@ def index_new_emails():
 def _email_indexer_loop():
     import time
     time.sleep(15)  # Warte bis RAG + Clients bereit
+    # Einmaliger Deep-Scan beim ersten Start (500 Mails = ~6 Monate zurück)
+    if not _DEEP_SCAN_DONE_PATH.exists():
+        print("  Email Deep-Scan: lese 500 Mails ein (einmalig)...")
+        index_new_emails(deep=True)
+        _DEEP_SCAN_DONE_PATH.write_text("done")
+        print("  Email Deep-Scan abgeschlossen.")
     while True:
-        index_new_emails()
+        index_new_emails(deep=False)
         time.sleep(300)  # alle 5 Minuten
 
 threading.Thread(target=_email_indexer_loop, daemon=True).start()
@@ -593,7 +603,7 @@ def api_gmail():
     if not GMAIL_OK:
         return []
     try:
-        raw = gmail_client.get_emails(top=25)
+        raw = gmail_client.get_emails(top=50)
         result = []
         for e in raw:
             sender = e.get("from", "")
