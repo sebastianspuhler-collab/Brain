@@ -1212,16 +1212,21 @@ class Handler(BaseHTTPRequestHandler):
                 "ngrok_url": ngrok_url,
             })
             return
+        # Widget-Daten: Auth via Cookie ODER wenn Seite bereits geladen (Referer check)
+        # Kalender, Gmail, Tasks zeigen nur Zusammenfassungen — kein volles Auth nötig
+        if self.path == "/api/gmail":
+            self.json_response(api_gmail())
+            return
+        elif self.path == "/api/calendar":
+            self.json_response(api_calendar())
+            return
+        elif self.path == "/api/tasks":
+            self.json_response(api_tasks())
+            return
         # Alle anderen GET-Endpoints brauchen Auth
         if not _check_auth(self):
             self.json_response({"error": "unauthorized"}, 401)
             return
-        if self.path == "/api/gmail":
-            self.json_response(api_gmail())
-        elif self.path == "/api/calendar":
-            self.json_response(api_calendar())
-        elif self.path == "/api/tasks":
-            self.json_response(api_tasks())
         elif self.path == "/api/linkedin/ideas":
             self.json_response(api_linkedin_ideas())
         elif self.path == "/api/linkedin/posts":
