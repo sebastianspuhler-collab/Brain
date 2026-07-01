@@ -1,0 +1,42 @@
+services:
+  backend:
+    build: ./backend
+    env_file: ./backend/.env
+    environment:
+      - VAULT_PATH=/vault
+      - USERS_FILE=/run/secrets/users.json
+    volumes:
+      - ${VAULT_PATH}:/vault
+      - ./backend/users.json:/run/secrets/users.json:ro
+    restart: unless-stopped
+    networks:
+      - default
+
+  # Frontend + Caddy als reiner Static-File-Server + interner Reverse-Proxy zu
+  # backend:8000 - KEIN eigenes TLS mehr (das übernimmt das bestehende Traefik
+  # vor diesem Container). Caddy hört nur noch auf Port 80 im internen Netz.
+  web:
+    build: ./frontend
+    restart: unless-stopped
+    networks:
+      - default
+      - traefik_web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik_web"
+
+      - "traefik.http.routers.brain.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.brain.entrypoints=websecure"
+      - "traefik.http.routers.brain.tls.certresolver=letsencrypt"
+      - "traefik.http.services.brain.loadbalancer.server.port=80"
+
+      # HTTP -> HTTPS Redirect (Traefiks ACME-HTTP-Challenge auf Port 80 bleibt
+      # davon unberührt, die fängt Traefik auf Entrypoint-Ebene vorher ab)
+      - "traefik.http.routers.brain-http.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.brain-http.entrypoints=web"
+      - "traefik.http.routers.brain-http.middlewares=brain-https-redirect"
+      - "traefik.http.middlewares.brain-https-redirect.redirectscheme.scheme=https"
+
+networks:
+  traefik_web:
+    external: true

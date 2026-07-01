@@ -1,0 +1,19 @@
+:80 {
+	encode gzip
+
+	# API + SSE-Chat-Streaming an das FastAPI-Backend weiterleiten.
+	# flush_interval -1 sorgt dafür, dass Caddy SSE-Chunks sofort durchreicht
+	# statt sie zu puffern (sonst würde der Chat nicht live streamen).
+	handle /api/* {
+		reverse_proxy backend:8000 {
+			flush_interval -1
+		}
+	}
+
+	# React-Router: alle unbekannten Pfade auf index.html zurückfallen lassen.
+	handle {
+		root * /srv
+		try_files {path} /index.html
+		file_server
+	}
+}
