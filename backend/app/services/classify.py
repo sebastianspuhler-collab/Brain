@@ -91,7 +91,8 @@ def extract_text(filepath: Path) -> str | None:
             p.feed(filepath.read_text(encoding="utf-8", errors="ignore"))
             return " ".join(p.parts)[:3000]
         if suffix == ".json":
-            return f"[JSON-Datei] {filepath.read_text(encoding="utf-8", errors="ignore")[:3000]}"
+            raw = filepath.read_text(encoding="utf-8", errors="ignore")[:3000]
+            return f"[JSON-Datei] {raw}"
         if suffix in (".txt", ".md", ".markdown", ".csv"):
             return filepath.read_text(encoding="utf-8", errors="ignore")[:3000]
         if suffix in (".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp"):
