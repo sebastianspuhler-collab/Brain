@@ -20,9 +20,11 @@ _agent/logs/
 # ── Inbox (temporär, nicht committen) ────────────────────────────────────────
 _inbox/
 
-# ── RAG-Index (lokal generiert, nicht übertragen) ────────────────────────────
-_agent/vault.index
-_agent/vault_metadata.json
+# ── RAG-Index ─────────────────────────────────────────────────────────────────
+# Wird bewusst NICHT ignoriert: der VPS hat zu wenig Luft, um das
+# Embedding-Modell selbst laufen zu lassen (hat schon zweimal den Container-
+# Stack durcheinandergebracht) - Index wird lokal gebaut und per Git auf den
+# VPS transportiert, da kein direkter scp-Zugriff vom Laptop besteht.
 _agent/processed_cache.json
 
 # ── Präsentationen (zu groß für Git, im RAG als Text erfasst) ────────────────
