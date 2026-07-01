@@ -43,6 +43,13 @@ else
     echo "  .env bereits vorhanden."
 fi
 
+# ── Hinweis: Gmail & Kalender ────────────────────────────────────────────────
+echo ""
+echo "  ℹ️  Gmail & Kalender: NUR auf Sebastians Mac verfügbar."
+echo "     Auf dem VPS werden diese Felder einfach leer angezeigt."
+echo "     Keine Credentials nötig — Brain läuft ohne Gmail problemlos!"
+echo ""
+
 # ── 4. Passwörter setzen (optional) ─────────────────────────────────────────
 echo ""
 echo "  Aktuell eingestellte Passwörter:"

@@ -9,7 +9,7 @@ from pathlib import Path
 import requests
 import msal
 
-VAULT = Path.home() / "Documents" / "Prozessia-Brain"
+VAULT = Path(__file__).parent.parent
 CONFIG_PATH = VAULT / "_agent" / "ms_config.json"
 TOKEN_CACHE_PATH = VAULT / "_agent" / "ms_token_cache.bin"
 GRAPH = "https://graph.microsoft.com/v1.0"

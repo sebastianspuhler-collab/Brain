@@ -5,7 +5,7 @@ from datetime import datetime
 from pathlib import Path
 import anthropic
 
-VAULT_PATH = Path.home() / "Documents" / "Prozessia-Brain"
+VAULT_PATH = Path(__file__).parent.parent
 INBOX_PATH = VAULT_PATH / "_inbox"
 FEHLER_PATH = VAULT_PATH / "_inbox" / "_fehler"
 LOGS_PATH = VAULT_PATH / "_agent" / "logs"
