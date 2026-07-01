@@ -5,8 +5,9 @@ from pathlib import Path
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-VAULT_PATH = Path.home() / "Documents" / "Prozessia-Brain"
+VAULT_PATH = Path(__file__).parent.parent
 HEARTBEAT = str(VAULT_PATH / "_agent" / "heartbeat.py")
+BUFFER_SYNC = str(VAULT_PATH / "_agent" / "buffer_sync.py")
 
 class InboxHandler(FileSystemEventHandler):
     def __init__(self):
@@ -26,6 +27,8 @@ class InboxHandler(FileSystemEventHandler):
 if __name__ == "__main__":
     inbox = str(VAULT_PATH / "_inbox")
     print(f"Watcher aktiv: {inbox}")
+    # Buffer-Status beim Start einmal aktualisieren
+    subprocess.run([sys.executable, BUFFER_SYNC], capture_output=True)
     observer = Observer()
     observer.schedule(InboxHandler(), inbox, recursive=True)
     observer.start()

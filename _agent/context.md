@@ -11,6 +11,8 @@ updated: 2026-06-12
 - [ ] Instillo / nanoSaar Vor-Ort-Termin vereinbaren
 - [ ] LinkedIn Insight Tag installieren (Amin zuständig)
 
+- [ ] Bender/Spamer Kundenprofil anlegen und Demo-Termin für ISOMETER iso175 Chatbot vereinbaren
+- [ ] Endin Potenzialanalyse abschließen und Angebot erstellen
 ## Laufende Projekte
 - Schaufler Tooling: Beschaffungsagent live (220€/Mon). Nächster Schritt: Lexoffice-Angebot
 - Mundinger: KI-Schulung EU AI Act — Termin 29.6.

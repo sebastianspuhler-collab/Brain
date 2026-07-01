@@ -16,7 +16,7 @@ import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
-VAULT = Path.home() / "Documents" / "Prozessia-Brain"
+VAULT = Path(__file__).parent.parent
 INDEX_PATH = VAULT / "_agent" / "vault.index"
 META_PATH = VAULT / "_agent" / "vault_metadata.json"
 MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"

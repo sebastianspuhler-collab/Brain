@@ -1,6 +1,82 @@
 
 
 ## PROZESS
+- [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Zusätzlich zu GraphQL-API existieren ältere COM-/Aktiv-Schnittstellen für Windows-Anwendungen
+- [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] microtech bietet GraphQL-API für Zugriff auf ERP-Daten und externe Systemintegration
+- [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-1.md] Vier Prozeßbeschreibungen zur Analyse vorgesehen: Kleinaufträge (Ersatzteile), ergänzender Workflow, Lohnfertigung, Wareneingang
+- [2026-07-01 13:33] [2026-07-01-AVV_Schaufler_Prozessia.md] Gegenstand: Entwicklung, Bereitstellung und Betrieb eines softwarebasierten Beschaffungsagenten zur automatisierten Verarbeitung von Beschaffungsdokumenten und ERP-Abgleich
+- [2026-07-01 13:33] [AW: Unser Gespräch MTO Days] Nach Erhalt der Unterlagen: Prozessia wird interaktiven Chatbot-Beispiel demonstrieren
+- [2026-07-01 13:33] [AW: Unser Gespräch MTO Days] Kunde (Bender) soll repräsentative Unterlagen für Chatbot-Wissensbasis zusammenstellen
+- [2026-07-01 13:33] [AW: Unser Gespräch MTO Days] Machbarkeitsstudie geplant: Abbildung des Handbuchs des Produkts ISOMETER® iso175
+- [2026-07-01 13:32] [Generate AI images with the Cloudinary c] Neue Funktion nutzt bestehende API-Credentials, Media Library und CDN-Pipeline - keine neue Infrastruktur erforderlich
+- [2026-07-01 13:32] [Generate AI images with the Cloudinary c] Cloudinary Image Generation ist ab sofort im Account verfügbar und ermöglicht AI-gestützte Bildgenerierung ohne zusätzliche Integration
+- [2026-07-01 13:32] [4 Jahre lang Werbeanzeigen falsch gescha] Empfohlene Methode: Vier verschiedene Marketing-Winkel definieren und zu jedem eine einfache Anzeige produzieren (Timeframe: 3-4 Tage statt 3 Wochen für Visual-Diskussionen)
+- [2026-07-01 13:32] [Collaboration | community_customs_st ZRS] Nächster Schritt: LinkedIn-Verbindung mit Trinity Coleman erwägen und Relevanz des Angebots für community_customs_st klären
+- [2026-07-01 13:32] [Angebot AG0027 von Prozessia] Angebot AG0027 liegt als Anhang vor und wurde dem Empfänger zugestellt
+- [2026-06-30 15:06] [2026-06-30.md] Dokumente vorhanden: AVV_Schaufler_Prozessia_ausgefuellt, SLA_Schaufler
+- [2026-06-30 15:05] [ISO 27001 bei Prozessia] Automatisierte Plattform mit geschätztem internem Aufwand von etwa 6 Stunden pro Woche
+- [2026-06-30 15:05] [ISO 27001 bei Prozessia] Secfix bietet Lösung zur ISO 27001 Konformität innerhalb von 8 Wochen an
+- [2026-06-30 15:05] [ISO 27001 bei Prozessia] Anfrage: Stehen ISO 27001, SOC 2 oder weitere Compliance-Anforderungen für 2026 auf der Roadmap von Prozessia?
+- [2026-06-30 15:05] [AW: Potenzialanalyse Endin X Prozessia] Workflow zum Wareneingang (Teil der Abwicklung)
+- [2026-06-30 15:05] [AW: Potenzialanalyse Endin X Prozessia] Ergänzender Workflow zum Kleinauftrags-Prozess
+- [2026-06-30 15:05] [AW: Potenzialanalyse Endin X Prozessia] Prozess zur Abwicklung von Kleinaufträgen (z.B. Ersatzteile)
+- [2026-06-30 15:05] [AW: Potenzialanalyse Endin X Prozessia] Cyril Dietz stellt Prozessbeschreibungen zur Verfügung für Potenzialanalyse Endin X Prozessia
+- [2026-06-30 15:05] [Infomaterial + Antragslinks American Exp] Beantragungslink für Karte mit verlängertem Zahlungsziel bereitgestellt
+- [2026-06-30 15:05] [Infomaterial + Antragslinks American Exp] Angebot: American Express Business Platinum Card mit 200.000 Membership Rewards Punkte bei 15.000 EUR Umsatz auf Businesskarten in ersten 6 Monaten
+- [2026-06-30 15:05] [Looking forward to meeting you | H3F6MZ7] Noelle Shoemaker bietet an, Sebastian Spuhler von ihrer Kontaktliste zu entfernen, falls kein Interesse besteht
+- [2026-06-30 15:05] [AW: Potenzialanalyse Endin X Prozessia] Verfügbare Schnittstellen für microtech: GraphQL-API (modern), COM-/Aktiv-Schnittstellen (Windows), REST-Middleware von Drittanbietern
+- [2026-06-30 15:05] [AW: Potenzialanalyse Endin X Prozessia] microtech-Programmierschnittstellen sind nicht so offen dokumentiert wie Lexoffice oder sevDesk
+- [2026-06-30 15:05] [Partner-Sommer-Bonus: 35% + plus 150€ Ex] Update-Webinar findet morgen statt
+- [2026-06-30 15:05] [Partner-Sommer-Bonus: 35% + plus 150€ Ex] Ab sofort müssen alle Leads im Reservierungstool von fonio eingetragen werden
+- [2026-06-29 14:09] Sebastian hält den Rabatt bei Schaufler bewusst in der Hinterhand und definiert Laufzeiten (Mindestlaufzeit, Verlängerung, Kündigung) im SLA statt im AVV, damit alles rechtlich stimmig ist.
+- [2026-06-29 13:56] [2026-06-29-AVV_Schaufler_Prozessia_ausgefuellt (2).md] Entwicklung und Betrieb eines softwarebasierten Beschaffungsagenten zur automatisierten Verarbeitung von Beschaffungsdokumenten und ERP-Abgleich
+- [2026-06-29 13:56] [New product | QRV7G00 ZRSMQTG] Kundin sucht Unterstützung für Social-Media-Management
+- [2026-06-29 13:56] [Sebastian - looking forward to meeting y] Nächster Schritt: Arbeitsbeispiele/Portfolio-Samples an Sariah Oleary senden
+- [2026-06-29 13:56] [Would love to work with you | Q62KE79 ZR] Nächstes Treffen findet in der kommenden Woche statt
+- [2026-06-29 13:56] [Would love to work with you | Q62KE79 ZR] Sophia Cooper fordert Arbeitsbeispiele und Portfolio-Samples an
+- [2026-06-29 13:56] [Ihre Zugangsdaten] Weitere E-Mails mit Serverzugangsdaten folgen nach Fertigstellung, falls Server bestellt wurde
+- [2026-06-29 13:56] [Ihre Zugangsdaten] Cloud Angebot verfügbar unter https://console.hetzner.com
+- [2026-06-29 13:56] [Ihre Zugangsdaten] Hetzner Administrationsoberfläche Zugangsdaten bereitgestellt: URL https://accounts.hetzner.com, Kundennummer K0631688826, Login sebastian.spuhler@prozessia.de
+- [2026-06-29 13:56] [Sebastian, we'd like to hear from you! |] Telefonat mit Josh Whitfield geplant für nächste Woche
+- [2026-06-29 13:56] [Sebastian, let's get together! | 82HW7MA] Sarah Jaars bittet um Feedback zu ihrem aktuellen Projekt
+- [2026-06-29 13:56] [prozessia.de in ChatGPT verbessern] Einmaliges Sonderangebot zur Optimierung der KI-Sichtbarkeit für 79,99 €
+- [2026-06-29 13:56] [Sebastian - got your email | 1E6X767 ZRS] Anfrage: Kann jemand aus Sebastians Team Social-Media-Management übernehmen?
+- [2026-06-29 13:56] [Re: Unser Termin] Vorlagen für die Besprechung wurden von Gert Mundinger nicht zusammengestellt
+- [2026-06-29 13:56] [Sebastian - we can’t wait to see you | 4] Demo-Angebot von Janelle J. liegt vor
+- [2026-06-29 13:56] [Need your help | G2NE2AW ZRSMQTG] Nächster Schritt: Spencer Lussier möchte sich über LinkedIn verbinden
+- [2026-06-27 16:45] [Wenn du auf der Stelle trittst...] Empfehlung: Alle anderen Aktivitäten (Webseite, CRM, neue Kanäle, Rebranding) aufschieben, da sie nur Ablenkung sind
+- [2026-06-27 16:45] [Wenn du auf der Stelle trittst...] Empfehlung: In dieser Wachstumsphase nur zwei Aktivitäten priorisieren - Terminvergabe und Terminabschluss
+- [2026-06-27 15:35] [New API key created on Buffer] API-Schlüssel 'Mykey' für Buffer wurde am 27. Juni 2026 um 13:31:25 UTC erfolgreich erstellt
+- [2026-06-27 15:30] [Sebastian - interested in learning more?] Anfrage zur Entwicklung einer neuen Website/App/Produkt
+- [2026-06-27 13:08] [Bildschirmfoto 2026-06-27 um 13.07.15_vision.md] Infrastruktur: 1 Bankkonto, 1 Kasse, PayPal als Payment Provider, ca. 138 Anlagegüter
+- [2026-06-27 13:08] [Bildschirmfoto 2026-06-27 um 13.07.15_vision.md] Zahlungsvolumen: ca. 100 manuelle Zahlungen/Monat, ca. 90 Ausgangsrechnungen/Monat, ca. 170 Bankbuchungen/Monat, ca. 10 Kassenbuchungen/Monat
+- [2026-06-27 13:08] [2026-06-27-Bildschirmfoto 2026-06-27 um 13.07.15_vision.md] Mengengerüst umfasst zusätzlich: Bankkonten, Kassen, Anlagevermögen, Reisekostenabrechnungen, Kreditkartenabrechnungen und Reporting
+- [2026-06-27 13:08] [2026-06-27-Bildschirmfoto 2026-06-27 um 13.07.15_vision.md] Verkauf über eBay mit PayPal als Payment-Provider; Rechnungen aus ERP-Programm und manuelle Erfassung im Buchhaltungsprogramm
+- [2026-06-27 13:08] [2026-06-27-Bildschirmfoto 2026-06-27 um 13.07.15_vision.md] Circa 100 manuelle Zahlungen pro Monat, keine aus Fibu erzeugten Zahlläufe
+- [2026-06-27 13:07] [2026-06-27-Bildschirmfoto 2026-06-27 um 13.05.52_vision.md] Finanzbuchhaltung: SKR 04, DATEV, ca. 800 Buchungssätze/Monat, ca. 130 Eingangsrechnungen/Monat
+- [2026-06-27 13:07] [Bildschirmfoto 2026-06-27 um 13.05.52_vision.md] Buchhaltungssoftware: Datev Kanzlei Rewe
+- [2026-06-27 13:07] [Bildschirmfoto 2026-06-27 um 13.05.52_vision.md] Kontenrahmen: SKR 04
+- [2026-06-27 13:03] [2026-06-27-Outsourcing Checkliste.md] Kostenrechnung-Daten erforderlich: Anzahl Kostenstellen und Kostenträger
+- [2026-06-27 13:03] [2026-06-27-Outsourcing Checkliste.md] Mengengerüst-Erfassung: Genehmigungsverfahren, Anzahl Eingangsrechnungen/Monat, Aufteilung Lastschrift/Überweisung
+- [2026-06-27 13:03] [2026-06-27-Outsourcing Checkliste.md] Erforderliche Daten: Kontenrahmen, Buchhaltungssoftware, monatliche Buchungssätze, Mitarbeiterzahl Finanzbuchhaltung (inkl. Aufteilung Kreditoren/Debitoren)
+- [2026-06-27 13:03] [2026-06-27-Outsourcing Checkliste.md] Checkliste erfasst Unternehmensinformationen in Bereichen: Kreditoren, Debitoren, Banken, Kassen, Anlagevermögen, Reisekosten und Reporting
+- [2026-06-27 12:53] LinkedIn-Posts werden in Buffer eingeplant, jeweils für die Prozessia Unternehmensseite UND Sebastians privaten LinkedIn-Account (= immer doppelte Einträge pro Post).
+- [2026-06-27 12:51] [2026-06-27-beitraege-2026-06-27.md] Claude-LinkedIn-Auto-Poster generiert wöchentlich automatisierte LinkedIn-Posts (Generierungsdatum: 27.06.2026 für Woche 01.–03.07.2026)
+- [2026-06-27 12:50] [2026-06-27-ideen-2026-06-27.md] Post-Ideen enthalten standardisiert: Hook, Kernbotschaft, Zielgruppe, Formatempfehlung, CTA – noch nicht als fertige Texte ausgeschrieben
+- [2026-06-27 12:50] [2026-06-27-ideen-2026-06-27.md] Claude-LinkedIn-Auto-Poster generiert regelmäßig Post-Ideen für Prozessia GbR (zuletzt 27.06.2026 mit 10 Ideen)
+- [2026-06-27 12:47] [2026-06-27.md] 10 generierte Post-Ideen vorhanden (Stand 07.06.2026), noch nicht als fertige Posts ausgeschrieben. Themen: KI-Strategie im Einkauf, DSGVO-Bußgelder, KI-Implementierung für KMU
+- [2026-06-27 12:47] [2026-06-27.md] LinkedIn Autoposter: Für Woche 30.06.–06.07.2026 sind keine Beiträge geplant
+- [2026-06-27 10:24] [Sebastian - what's the next step? | ough] Simon Rieck (Nordic Scale Solutions) möchte ein Gespräch mit Sebastian Spuhler vereinbaren, um eine mögliche Zusammenarbeit zu besprechen
+- [2026-06-27 10:24] [I need to discuss this with you | DAVM9X] Selena Church bietet an, auf Facebook oder LinkedIn in Kontakt zu bleiben
+- [2026-06-27 10:24] [I need to discuss this with you | DAVM9X] Selena Church möchte über ein neues Website/App/Produkt-Projekt diskutieren
+- [2026-06-27 10:24] [Sebastian, new customers? | DAVM9XE ZRSM] Telefonisches Gespräch zur Diskussion der Zusammenarbeit wird angeboten
+- [2026-06-27 10:24] [Let's get together! | CBR25T8 ZRSMQTG] Sabrina möchte Sebastians Blog lesen und bittet um Gedanken zu einem Post
+- [2026-06-27 10:24] [Let's get together! | CBR25T8 ZRSMQTG] Sabrina sucht nach einem Partner im Content-Bereich und hat einen potenziellen Client, der passen könnte
+- [2026-06-27 10:24] [Sebastian - we can do this! | QRV7G00 ZR] Tasha Kirkland schlägt ein Telefongespräch für die nächste Woche vor, um ein neues Projekt zu besprechen
+- [2026-06-27 10:24] [Sebastian, your social media plan | GN41] Anfrage nach Kontakten/Partnern für SEO-Projekt - Antwort erforderlich
+- [2026-06-26 13:47] [Can we talk? | been_rate ZRSMQTG] Nächster Schritt: Angebot der Spezialisierungen und Dienstleistungen von Prozessia GbR klären
+- [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] John soll nächste Woche eine Erinnerung senden
+- [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Nächster Schritt: Sebastian soll Arbeitsproben und Beispiele seiner bisherigen Arbeiten einreichen
 - [2026-06-25 16:21] Klarstellung zu Schaufler erforderlich bezüglich separater Serverkosten
 - [2026-06-25 16:05] Deploy des Servers ist Teil der Umsetzung der Server-Infrastruktur für Schaufler
 - [2026-06-25 15:53] Sebastian fordert an: Transkript analysieren und in bestehende Schaufler-Dokumentstruktur einsortieren
@@ -18,11 +94,36 @@ egeln, Prozesse.
 Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 
 ## REGEL
+- [2026-07-01 14:23] In Kundenordner kommen nur echte Dateien/Dokumente – keine E-Mails oder sonstige Mail-Dateien.
+- [2026-06-29 14:35] Sebastian will keine Bruttowerte berechnet bekommen – ausschließlich Nettowerte verwenden
+- [2026-06-27 17:01] Sebastian kann / möchte dass Brain direkt in Buffer arbeitet und Posts dort anlegt
+- [2026-06-27 12:54] Sebastian möchte generierte Social-Media-Posts direkt in Buffer zur Vorschau/Planung sehen
 - [2026-06-25 16:28] Sebastian benötigt echte, dokumentierte Zahlen statt allgemeiner Informationen
 - [2026-06-16 09:58] Ton für Posts: Direkt, sachkundig, kein Bullshit
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## KORREKTUR
+- [2026-07-01 14:21] Kunde heißt 'Spamer' (nicht 'Spammer') und 'Endin' – beide sind als separate Kunden im Vault unter Kunden/Spamer und Kunden/Endin anzulegen
+- [2026-06-30 15:07] SLA-Dokumente sollen unter 'Verträge' abgelegt/kategorisiert werden, nicht separat
+- [2026-06-30 15:05] [AW: Potenzialanalyse Endin X Prozessia] Cyril Dietz signalisiert begrenzte Aussagekraft seiner Antwort ('Mehr kann ich dazu auch nicht sagen')
+- [2026-06-29 14:24] SLA für Schaufler Tooling: Maximale Reaktionszeit entfernt, Leistungen exakt aus der Bestellung übernommen (kein Mehr/Weniger), Vergütung nicht im SLA (steht in Bestellung/Angebot), Hetzner-Kosten werden direkt weitergegeben, Kosten für Sprachmodell trägt Prozessia selbst, Laufzeit muss explizit ins SLA rein
+- [2026-06-29 14:19] Server wird bei Hetzner gekauft und gehört Prozessia/Sebastian — kein reines Hosting/Miete. Deshalb besteht AVV-Pflicht und Prozessia haftet nicht für Hetzner-seitige Ausfälle (Rechenzentrum, Netzwerk, Hardware-Defekte auf Hetzner-Ebene). Muss im SLA explizit ausgeschlossen sein.
+- [2026-06-29 13:56] [Here's what we're working on now - let's] E-Mail enthält keinen verwertbaren Inhalt zur Speicherung nach den definierten Kriterien
+- [2026-06-29 13:56] [Re: Unser Termin] Gert Mundinger kann den vereinbarten Termin am 29.06.2026 nicht wahrnehmen - kurzfristig unterwegs
+- [2026-06-27 19:05] Geginat hat keine Termingebühr – Sebastian stellt klar, dass die 35€ pro qualifiziertem Termin NICHT für Geginat gilt
+- [2026-06-27 19:04] Geginat ist ein Mann (nicht 'Gegina'). Bekommt 30% (erste Stufe der Staffel).
+- [2026-06-27 17:03] Beim Bedienen des Slide-Generators müssen Slides einzeln übergeben werden, nicht als langer Fließtext. Sebastian hat explizit korrigiert, dass das Schreiben von 'slides' in den Text falsch ist.
+- [2026-06-27 16:36] Die beiden Buffer-Posts (01. und 03. Juli) sind reine Textposts, keine anderen Formate
+- [2026-06-27 16:09] Buffer-Inhalte sollen im Buffer sichtbar sein, nicht direkt im Vault — Sebastian korrigierte die Erwartung wo Daten einsehbar sein müssen
+- [2026-06-27 16:03] Die generierten LinkedIn-Posts enthalten fehlerhafte Schrägstriche (/) — Sebastian hat dies als Qualitätsproblem moniert. Ursache vermutlich fehlerhafte JSON-Formatierung im automatischen Post-Generator.
+- [2026-06-27 13:27] PayPal, eBay und Buhl Unternehmer 365 Professional sind Daten von Endin (aus deren Outsourcing-Checkliste), nicht von Prozessia. Brain hatte diese fälschlicherweise in einen falschen Kontext gebracht.
+- [2026-06-27 13:15] Der Firmenname des Kunden wurde falsch gelesen. Korrekt ist 'Endin', nicht 'Forlin'.
+- [2026-06-27 13:06] Die Outsourcing-Checkliste (2026-06-27-Outsourcing Checkliste.md) ist bereits ausgefüllt — Brain hat fälschlicherweise angenommen, nur eine leere Vorlage zu existieren.
+- [2026-06-27 13:04] Das aktuelle Projekt ist keine Buchhaltungs-Outsourcing-Lösung für einen Dienstleister, sondern eine Buchhaltungsautomatisierung für eine Industriefirma — Prozessia soll die Buchhaltungsprozesse dieser Industriefirma intern automatisieren.
+- [2026-06-27 18:00] KORREKTUR: [SCHEDULE_BUFFER] ist veraltet und ersetzt durch [PUSH_TO_BUFFER]. Das Signal [PUSH_TO_BUFFER] wird vom Brain-Server (brain_server.py) AUTOMATISCH AUSGEFÜHRT — es macht einen echten GraphQL API-Call an Buffer (api.buffer.com/graphql). Beweis: Am 27.06.2026 wurden 4 Posts (01.07. + 03.07. × Sebastian + Prozessia) erfolgreich in Buffer eingeplant. Die Buffer-Integration ist vollständig. Der Server hat direkten API-Zugriff und führt Signale serverseitig aus.
+- [2026-06-27 10:24] [$250,000 in just 2 days for your busines] E-Mail adressiert Empfänger als 'Quentin', nicht als Sebastian Spuhler - Indiz für Massenversand/Phishing
+- [2026-06-26 14:00] [2026-06-26-Indeed.md] Datei enthält keine verwertbaren Informationen - erneutes Hochladen oder Format-Konvertierung erforderlich
+- [2026-06-26 12:21] Das Lastenheft von Schaufler (Jürgen Mahler) für den Stücklistenagenten ist noch nicht eingegangen — es wurde fälschlicherweise mit dem Transkript verwechselt. Stand: Lastenheft ausstehend, Angebot kann noch nicht erstellt werden.
 - [2026-06-25 16:35] Der Hetzner CCX23 kostet exakt 38,90 € netto pro Monat laut aktueller Rechnung — ein zuvor abweichender Wert war falsch.
 - [2026-06-25 16:21] Serverkosten (Hetzner) sind NICHT in der 220 €/Monat Verwaltungspauschale enthalten — kommen zusätzlich hinzu
 - [2026-06-16 15:36] Sebastian weist darauf hin, dass Dateien in der Vault-Struktur organisiert sein sollten und erwartet bessere Struktur bei der Datenverwaltung
@@ -56,6 +157,107 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-13 12:22] Lexoffice-Angebot für Schaufler vor Versand auf 280 €/Monat prüfen und ggf. anpassen
 
 ## KONTEXT
+- [2026-07-01 18:06] Beschaffungsagent-Testsystem URL: https://beschaffungsagent-test-system.prozessia.space/auftragsbestaetigung — Login: demo / demo123. Wurde an Herrn Ackermann als Demo-Zugang weitergegeben (1.7.2026).
+- [2026-07-01 18:06] [Let us be your guide. | 0496GSG ZRSMQTG] Unspezifische Kontaktaufnahme von Logan Martin ohne geschäftlichen Bezug zu Prozessia GbR
+- [2026-07-01 15:01] [Need to touch base | 9XAT619 ZRSMQTG] Follow-up auf vorherige E-Mail aus der Vorwoche
+- [2026-07-01 15:01] [Need to touch base | 9XAT619 ZRSMQTG] Winston Chi (winston.chi@searchnoso.info) von SearchNoso inquiriert bezüglich Recruiting-Dienstleistungen für Prozessia GbR
+- [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Kontakt: Cyril Dietz (PMP, Geschäftsführer ENDIN GmbH), Tel. +49(0)7934/99544-102, cyril.dietz@endin-email.eu
+- [2026-07-01 14:21] [2026-07-01-AW-Unser-Gespraech-MTO-Days.md] Kontakt initiated nach Gespräch auf MTO Days; Ziel: interaktiver Chatbot zur Vereinfachung der Kommunikation bei Bender
+- [2026-07-01 14:21] [2026-07-01-AW-Unser-Gespraech-MTO-Days.md] Kontakt entstanden über MTO Days; Präsentation von Prozessia bereits übermittelt
+- [2026-07-01 14:21] [2026-06-16-Zugesagt-Potenzialanalyse.md] Zusage-Datum: 16. Juni 2026
+- [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] API-Dokumentation von microtech weniger offen als bei Lexoffice oder sevDesk
+- [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Verfügbarkeit der Schnittstellen variiert je nach microtech-Version und Einsatzszenario
+- [2026-07-01 14:21] [2026-06-16-Zugesagt-Potenzialanalyse.md] Bestätigung eingegangen am 16.06.2026
+- [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] microtech-APIs weniger offen dokumentiert als Lexoffice oder sevDesk
+- [2026-07-01 13:33] [2026-07-01-AVV_Schaufler_Prozessia.md] Mindestlaufzeit: 12 Monate mit automatischer Verlängerung, gekoppelt an zugehöriges SLA
+- [2026-07-01 13:33] [2026-07-01-AVV_Schaufler_Prozessia.md] Vertragsparteien Prozessia: Mohamed-Amin Douioui und Sebastian Spuhler
+- [2026-07-01 13:33] [Sebastian, let's chat next week? | blow_] Seraphina Nix (seraphina.nix@salcido-brokerage.info) möchte nächste Woche mit Sebastian Spuhler über ihre geplante Gründung eines Consulting-Unternehmens sprechen und bittet um Tipps und Ressourcen
+- [2026-07-01 13:33] [AW: Unser Gespräch MTO Days] Vorangegangenes Gespräch bei MTO Days (Termin unbekannt, vor 29. Juni 2026)
+- [2026-07-01 13:32] [Sebastian, let's discuss your requiremen] Unternehmenswebsite von Ambridge Bequest wurde von Regina Gil zur Verfügung gestellt
+- [2026-07-01 13:32] [Sebastian, let's discuss your requiremen] Regina Gil ist aktuell telefonisch erreichbar und hat Kapazität für ein kurzes Gespräch
+- [2026-07-01 13:32] [Jetzt noch schnell Platz sichern: Live-W] Webinar-Teilnahme kostenlos
+- [2026-07-01 13:32] [Jetzt noch schnell Platz sichern: Live-W] Neue KI-Kennzeichnungspflicht gilt ab August
+- [2026-07-01 13:32] [Jetzt noch schnell Platz sichern: Live-W] Live-Webinar zur KI-Kennzeichnungspflicht am Mittwoch, 1. Juli 2026, 11:00-12:00 Uhr mit Rechtsanwältin Marlene Schreiber
+- [2026-07-01 13:32] [Sebastian, want to chat? | use--fact ZRS] Callie Foxe (Casey Escrow) möchte Kontakt mit Sebastian Spuhler aufnehmen und über ein neues Projekt diskutieren
+- [2026-07-01 13:32] [Angebot AG0027 von Prozessia] Angebot AG0027 wurde am 01.07.2026 erstellt und versendet
+- [2026-06-30 15:06] [2026-06-30.md] SLA (Service Level Agreement) mit Schaufler war zum 2026-06-29 noch nicht fertiggestellt
+- [2026-06-30 15:05] [ISO 27001 bei Prozessia] Secfix unterstützt bereits über 500 Unternehmen bei ISO 27001 Konformität
+- [2026-06-30 15:05] [Infomaterial + Antragslinks American Exp] Hinweis: Freundschaftslink zu verwenden, falls Sebastian Spuhler geworben wurde
+- [2026-06-30 15:05] [Infomaterial + Antragslinks American Exp] Zahlungsziel: 28 Tage nach Rechnungstellung (Liquiditätsvorteil bis zu 58 Tagen)
+- [2026-06-30 15:05] [Infomaterial + Antragslinks American Exp] Jahresgebühr: 850 EUR für Gesamtpaket
+- [2026-06-30 15:05] [Sebastian, drop me a line! | P02T1X5 ZRS] Evan Shelley plant Treffen nächste Woche
+- [2026-06-30 15:05] [Sebastian, drop me a line! | P02T1X5 ZRS] Evan Shelley von meetfleetparkingspace.com fragt nach Interesse an Backend-Engineer-Position
+- [2026-06-30 15:05] [Sebastian - meeting request | TQNZ5F8 ZR] Taylor Rowland ist derzeit telefonisch erreichbar und steht für ein kurzes Gespräch zur Verfügung
+- [2026-06-30 15:05] [Sebastian - meeting request | TQNZ5F8 ZR] Taylor Rowland von clearnowshift.info hat Sebastians Präsentation der letzten Woche positiv bewertet
+- [2026-06-30 15:05] [Sebastian - new customers? | Y0PKTM7 ZRS] Unternehmenswebsite von Spencer Lowery ist in der E-Mail verlinkt (Recinos Portfolio)
+- [2026-06-30 15:05] [Zugesagt: Angebotsdurchsprache Endin X P] Cyril Dietz (cyril.dietz@endin-email.eu) ist Kontaktperson bei Endin
+- [2026-06-30 15:05] [Partner-Sommer-Bonus: 35% + plus 150€ Ex] Kontaktperson: David von fonio (partner@fonio.info)
+- [2026-06-30 15:05] [Partner-Sommer-Bonus: 35% + plus 150€ Ex] Bonus-Aktion läuft bis Ende August
+- [2026-06-30 15:05] [Partner-Sommer-Bonus: 35% + plus 150€ Ex] Partner-Sommer-Bonus-Aktion: 35% Provision plus 150€ Extra-Bonus pro Kunde
+- [2026-06-30 15:05] [Sebastian, what can I do for you? | rod.] Shiloh Kraft von SyncAdaptNow kontaktiert Sebastian Spuhler bezüglich Business Development und Personalvermittlung
+- [2026-06-30 15:05] [Sebastian - sync call | WK2FX1R ZRSMQTG] Rebecca Rose von Stud.eo Conversion bietet ein Gespräch über Hiring/Personalvermittlung an
+- [2026-06-29 14:03] Im bisherigen Schaufler-Angebot sind weder Laufzeit noch Rabattstaffel definiert — beides muss noch ergänzt werden.
+- [2026-06-29 13:56] [2026-06-29-AVV_Schaufler_Prozessia_ausgefuellt (2).md] Vertrag regelt datenschutzkonforme Verarbeitung personenbezogener Daten im Rahmen der Zusammenarbeit
+- [2026-06-29 13:56] [2026-06-29-AVV_Schaufler_Prozessia_ausgefuellt (2).md] Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DS-GVO unterzeichnet am 2026-06-29
+- [2026-06-29 13:56] [Sebastian - i’d love to hear your though] Anfrage nach Blog-Inhalten oder Gedankenaustausch zum Thema
+- [2026-06-29 13:56] [Sebastian - i’d love to hear your though] Tonia Bose (Modern Strategy Councils) lobte Sebastians Präsentation der Vorwoche
+- [2026-06-29 13:56] [Sie hatte 14k Follower und löscht ihr Li] Inhalt ist Verkaufs-E-Mail für Coaching-Programm, keine geschäftliche Anfrage oder Auftrag für Prozessia
+- [2026-06-29 13:56] [Here's what we're working on now - let's] Absender rohan.aus@em.bodyhacking.com - keine klare Geschäftsbeziehung zu Prozessia GbR erkennbar
+- [2026-06-29 13:56] [Sebastian - looking forward to meeting y] LinkedIn-Verbindung wird als Optional angeboten
+- [2026-06-29 13:56] [Would love to work with you | Q62KE79 ZR] Referenznummer: Q62KE79 ZRSMQTG
+- [2026-06-29 13:56] [Umsatz pro Mitarbeiter] Recruiting-Agentur-Modell: 1 Account Manager + 1 Content Creator können 20-30 Kunden bei 2.000 € Retainer (40.000-60.000 € monatlich) betreuen
+- [2026-06-29 13:56] [Umsatz pro Mitarbeiter] Empfehlung von Alexander Heeg (support@agentur-consulting.de): Umsatz pro Mitarbeiter sollte 20.000-25.000 € pro Monat betragen als Kennzahl für effiziente Teamauslastung
+- [2026-06-29 13:56] [Sebastian - need a partner? | G46KD5X ZR] Absender hat Code-Referenz G46KD5X ZRSMQTG in der E-Mail
+- [2026-06-29 13:56] [Sebastian - need a partner? | G46KD5X ZR] Nicole Oneill bietet möglicherweise SEO-Spezialist-Services an und möchte Sebastian Spuhler treffen
+- [2026-06-29 13:56] [Sebastian, let's get together! | 82HW7MA] Anfrage zur Zusammenarbeit / Empfehlungsanfrage - nächster Schritt: Antwort von Sebastian erforderlich
+- [2026-06-29 13:56] [Sebastian, feedback for your business | ] Kshitij Ingle (getecliptix.com) folgt auf eine E-Mail von der Vorwoche auf
+- [2026-06-29 13:56] [Sebastian - got your email | 1E6X767 ZRS] Referenznummer: 1E6X767 ZRSMQTG
+- [2026-06-29 13:56] [When would be a good time to get togethe] Ameer Mullin (ameer.mullin@kathymindset.com) hatte telefonisches Gespräch mit Sebastian Spuhler und möchte sich treffen
+- [2026-06-29 13:56] [Sebastian, we can do this! | CQ9C7TV ZRS] Ein vorheriges Gespräch zwischen Todd Porter und Sebastian Spuhler hat bereits stattgefunden
+- [2026-06-29 13:56] [Automatische Antwort: Ergebnisse Testrei] E-Mails werden nicht weitergeleitet
+- [2026-06-29 13:56] [Automatische Antwort: Ergebnisse Testrei] Kontaktperson für dringende Fälle während der Abwesenheit: Andreas Klotz
+- [2026-06-29 13:56] [Automatische Antwort: Ergebnisse Testrei] Jörg Schwindling ist bis 16.07.2026 abwesend und antwortet nicht persönlich
+- [2026-06-29 13:56] [Need your help | G2NE2AW ZRSMQTG] Kontaktaufnahme basiert auf Website von Prozessia GbR
+- [2026-06-27 17:35] Sebastian muss Mundinger eine Erinnerungsmail schicken (vor Termin 29.06. 10:30 Uhr) und den Endin-Termin vorbereiten (Angebotsstruktur für Buchhaltungsagent)
+- [2026-06-27 16:45] [Wenn du auf der Stelle trittst...] Zielgruppe: Agenturen im Umsatzbereich 30k-100k monatlich
+- [2026-06-27 16:11] [buffer_status.md] Über 80% der Maschinenbauer messen KI hohe Bedeutung bei
+- [2026-06-27 16:11] [buffer_status.md] Seit Februar 2025 sind bestimmte KI-Praktiken in der EU verboten
+- [2026-06-27 15:35] [New API key created on Buffer] Sicherheitshinweis: API-Schlüssel ist privat zu halten und nicht öffentlich zu teilen
+- [2026-06-27 15:35] [New API key created on Buffer] Buffer API ist nun für Integration verfügbar
+- [2026-06-27 15:30] [Was alle unsere besten Kunden verbindet] Erfolgskriterium nach Heineke: Kunden mit klarer Vorstellung von Minimalzielen (z.B. 25k/Monat) unabhängig vom Startpunkt
+- [2026-06-27 15:30] [Was alle unsere besten Kunden verbindet] Heineke teilt persönliche Erkenntnis: Erfolgreichste Kunden zeichnen sich nicht durch Status quo (Teamgröße, Umsatz, Kapital) aus, sondern durch Wachstumshunger
+- [2026-06-27 15:30] [Was alle unsere besten Kunden verbindet] E-Mail von Robert Heineke (Leaders Media) an Sebastian Spuhler ist unvollständig/abgebrochen (endet bei 'Wir arbeit')
+- [2026-06-27 15:30] [Sebastian - interested in learning more?] Whitepaper als PDF-Anhang vorhanden (Referenznummer: KT12SK5 ZRSMQTG)
+- [2026-06-27 13:08] [Call me about that idea | KT12SK5 ZRSMQT] Scott Jones bietet Hilfe bei Sebastians Projekt an
+- [2026-06-27 13:08] [Call me about that idea | KT12SK5 ZRSMQT] Scott Jones (scott.jones@conversionizecareers.com) hatte Telefonat mit Sebastian Spuhler und möchte sich über das Projekt austauschen
+- [2026-06-27 13:08] [Bildschirmfoto 2026-06-27 um 13.07.15_vision.md] Keine automatisierten Fibu-Zahlläufe vorhanden; alle Zahlungen manuell verwaltet
+- [2026-06-27 13:08] [2026-06-27-Bildschirmfoto 2026-06-27 um 13.07.15_vision.md] Checkliste erstellt durch Dienstleister 'Zahlen im Takt' am 2026-06-27
+- [2026-06-27 13:07] [2026-06-27-Bildschirmfoto 2026-06-27 um 13.05.52_vision.md] Datum Checkliste: 2026-06-27
+- [2026-06-27 13:07] [2026-06-27-Bildschirmfoto 2026-06-27 um 13.05.52_vision.md] Lead-Status: Outsourcing-Checkliste 'Zahlen im Takt' ausgefüllt, Basis für Angebotserstellung Buchhaltungs-Outsourcing
+- [2026-06-27 13:03] [2026-06-27-Outsourcing Checkliste.md] Outsourcing Checkliste für Finanz- und Rechnungswesen als standardisierter Fragebogen für potenzielle Kunden
+- [2026-06-27 12:51] [2026-06-27-beitraege-2026-06-27.md] Zielgruppe: Geschäftsführer produzierender Betriebe mit 30–70 Mitarbeitern (KMU ohne IT-Struktur)
+- [2026-06-27 12:51] [2026-06-27-beitraege-2026-06-27.md] Kernstatistik: 78 % der Kunden haben beim Projektstart keinen internen IT-Spezialisten
+- [2026-06-27 12:51] [2026-06-27-beitraege-2026-06-27.md] Geplante Posts: Dienstag 01.07.2026 zum Thema 'KI-Einsatz ohne IT-Abteilung' und Freitag 03.07.2026 zum Thema 'KI trotz schlechter Datenqualität'
+- [2026-06-27 12:50] [2026-06-27-ideen-2026-06-27.md] Identifizierte Use-Cases: KI-Workflows für Zeitersparnis (2h/Tag), Lieferantenvergleich-Automatisierung (10 Min statt 3 Tage)
+- [2026-06-27 12:50] LinkedIn Post Idee 9 'Keine IT-Abteilung? Kein Problem beim KI-Einsatz' ist geplant für Dienstag 01.07.2026 (Liste-Format)
+- [2026-06-27 12:47] [2026-06-27.md] Zielgruppe: Produzierendes Gewerbe, Werkzeugbau, Einkauf
+- [2026-06-27 10:24] [$250,000 in just 2 days for your busines] Dies ist eine unaufgeforderte Werbe-E-Mail von Lyft Capital an Sebastian Spuhler, keine legitime Geschäftskommunikation für Prozessia GbR
+- [2026-06-27 10:24] [I'm just trying to understand you better] Vage Lunch-Einladung ohne konkreten Termin oder Zweck
+- [2026-06-27 10:24] [I'm just trying to understand you better] Absender: Simone White (trygrowthchannel.com) - bietet Promotion Pricing für Startups an
+- [2026-06-27 10:24] [I'm just trying to understand you better] E-Mail ist Werbe-Follow-up ohne spezifische geschäftliche Inhalte für Prozessia GbR
+- [2026-06-27 10:24] [Let's get together! | CBR25T8 ZRSMQTG] Referenznummer/Code: CBR25T8 ZRSMQTG
+- [2026-06-27 10:24] [Sebastian - tried calling you | WK4H58H ] Referenznummer: WK4H58H ZRSMQTG
+- [2026-06-27 10:24] [Sebastian - tried calling you | WK4H58H ] Steve Upton ist erreichbar für Rest der Woche und stellt Buchungsseite zur Verfügung
+- [2026-06-27 10:24] [Let's chat about it | TQNZ5F8 ZRSMQTG] Vorheriges Telefonat zwischen Sam Allisen und Sebastian Spuhler fand letzte Woche statt
+- [2026-06-27 10:24] [Let's chat about it | TQNZ5F8 ZRSMQTG] Sam Allisen hat Interesse an den Services von Sebastian Spuhler/Prozessia GbR und möchte mehr über die Spezialitäten erfahren
+- [2026-06-27 10:24] [Sebastian - we’d love to chat. | ought-c] Sarah Miller (s.miller@useconsultingpipeline.one) möchte mit Sebastian Spuhler ein Gespräch führen und benötigt einen Calendly-Link
+- [2026-06-26 14:00] [2026-06-26-Indeed.md] Vermutlich Stellenanzeige, Bewerbung oder Kandidatenprofil von Indeed
+- [2026-06-26 14:00] [2026-06-26-Indeed.md] Datei aus Indeed vom 26.06.2026 - Inhalt konnte nicht ausgelesen werden (unbekanntes Format)
+- [2026-06-26 13:47] [Sebastian - let's discuss how we can hel] Hazel Stewart (aisystemskit.com) folgt auf vorheriges Telefonat auf und möchte diskutieren, wie das Angebot für Prozessia GbR relevant ist
+- [2026-06-26 13:47] [Can we talk? | been_rate ZRSMQTG] Anfrage zu Spezialisierungen und Dienstleistungen
+- [2026-06-26 13:47] [Sebastian, i thought about this a lot | ] Winston Chi möchte ein Treffen zum Mittagessen innerhalb des nächsten Monats vereinbaren
+- [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Referenz/Projekt-ID: warmup ZRSMQTG
+- [2026-06-26 12:20] Jürgen Mahler ist von der Firma Schaufler. Schaufler schickt ein Lastenheft, danach soll Prozessia ein Angebot erstellen.
 - [2026-06-25 16:28] Hetzner-Serverkosten für Schaufler (CCX23) sind im Vault nicht dokumentiert
 - [2026-06-25 16:28] Verwaltungspauschale für Schaufler (Prozessias Leistung): 220 €/Monat netto – umfasst Docker-Monitoring, Security-Updates, SSL, Backups, 24/7 Uptime, Support, Versionskontrolle, kleinere Anpassungen und Deployment weiterer KI-Agenten
 - [2026-06-25 16:23] Preis für monatliche Wartung & Management Server + KI-Agent: 220 €/Monat
@@ -139,3 +341,61 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-13 12:37] Sebastian sucht Messen und Veranstaltungen für Vertrieb in der Zielgruppe Elektroauto-Herstellung, speziell mit Fokus auf Batteriefertigung
 - [2026-06-13 12:22] Ansprechpartner Schaufler Tooling GmbH: Thomas Issel, Einkaufsleiter
 - [2026-06-13 12:17] Test: Gedächtnis-Endpoint funktioniert korrekt
+
+## KUNDE
+- [2026-07-01 18:07] W. Ackermann von Oswald hat die E-Mail-Adresse w.ackermann@oswald.de und wurde mit Demo-Zugang zum Beschaffungsagenten kontaktiert (https://beschaffungsagent-test-system.prozessia.space/auftragsbestaetigung, Login: demo / demo123).
+- [2026-07-01 14:21] [2026-07-01-AW-Unser-Gespraech-MTO-Days.md] Bender-Ansprechpartner: Christian Spamer (Sales eMobility Germany EMEA-E, christian.spamer@bender.de, +49 6401 807-596)
+- [2026-07-01 14:21] [2026-06-16-Zugesagt-Potenzialanalyse.md] Endin hat einer Potenzialanalyse zugestimmt
+- [2026-07-01 13:33] [AW: Unser Gespräch MTO Days] Bender (Kontakt: Christian Spamer, Sales eMobility Germany EMEA-E, christian.spamer@bender.de, +49 6401 807-596)
+- [2026-07-01 13:32] [Sebastian, when would be a good time to ] Pete Wyatte (Angora Guarantor) bietet Recruiting/Hiring-Services an und interessiert sich für ein Gespräch mit Prozessia GbR
+- [2026-07-01 13:32] [would love your feedback | press.of ZRSM] Natalie Freeman (press.of ZRSMQTG) hat einen potenziellen Partner im Content-Bereich, der für Prozessia GbR passen könnte
+- [2026-07-01 13:32] [Collaboration | community_customs_st ZRS] Trinity Coleman (community_customs_st ZRSMQTG) interessiert sich für Zusammenarbeit und möchte verstehen, wie Produkt/Service von Prozessia in ihren Kontext passt
+- [2026-06-30 15:06] [2026-06-30.md] Kunde: Schaufler
+- [2026-06-30 15:05] [ISO 27001 bei Prozessia] Linus Dangmann, Risk & Compliance bei Secfix GmbH, kontaktiert Sebastian Spuhler bezüglich ISO 27001 Zertifizierung
+- [2026-06-30 15:05] [AW: Potenzialanalyse Endin X Prozessia] Cyril Dietz, PMP, Geschäftsführer der ENDIN GmbH (cyril.dietz@endin-email.eu)
+- [2026-06-30 15:05] [Infomaterial + Antragslinks American Exp] Kontakt: Moritz Vitting (Moritz.Vitting@aexp.com) von American Express
+- [2026-06-30 15:05] [Looking forward to meeting you | H3F6MZ7] Noelle Shoemaker von Sylvania Clearing möchte mehr über die Relevanz des Produkts/Service für ihren Kontext erfahren
+- [2026-06-30 15:05] [Sebastian - new customers? | Y0PKTM7 ZRS] Spencer Lowery (spencer.lowery@recinosportfolio.info) interessiert sich für Sebastian Spuhlers Blog-Post und möchte darüber diskutieren
+- [2026-06-29 13:56] [2026-06-29-AVV_Schaufler_Prozessia_ausgefuellt (2).md] Schaufler-Gruppe ist Auftraggeber/Verantwortlicher im AVV mit Prozessia GbR
+- [2026-06-29 13:56] [New product | QRV7G00 ZRSMQTG] Teresa Halbrook, E-Mail: teresa.halbrook@assetventuresadvisorys.shop
+- [2026-06-29 13:56] [Sebastian - looking forward to meeting y] Sariah Oleary (sommer-advisors.info) möchte Arbeitsbeispiele von Sebastian Spuhler sehen
+- [2026-06-29 13:56] [Would love to work with you | Q62KE79 ZR] Sophia Cooper (sophia.cooper@sysnecta.info) möchte mit Prozessia GbR zusammenarbeiten
+- [2026-06-29 13:56] [Sebastian, we'd like to hear from you! |] Josh Whitfield von Signaliz Intel System möchte Webinar-Link von Sebastian Spuhler erhalten und sich anmelden
+- [2026-06-29 13:56] [Sebastian, let's get together! | 82HW7MA] Sarah Jaars (sarah.j@senseb2bai.com) sucht SEO-Expert für Projekt und fragt nach Empfehlungen von Prozessia
+- [2026-06-29 13:56] [prozessia.de in ChatGPT verbessern] AISignal hat prozessia.de getestet
+- [2026-06-29 13:56] [Sebastian - how can we make it work? | c] Tilly Ogden möchte einen Artikel über Sebastians Industrie in ihrem bevorstehenden Newsletter veröffentlichen
+- [2026-06-29 13:56] [Here's what we're working on now - let's] Spencer Warren (s.warren@esposito-trust.info) erkundigt sich nach offener Stelle für Social Media Manager Position
+- [2026-06-29 13:56] [Sebastian - we can’t wait to see you | 4] Janelle J. (support.team@janellewell.com) interessiert sich für weiteres Gespräch mit Sebastian Spuhler
+- [2026-06-29 13:56] [Need your help | G2NE2AW ZRSMQTG] Spencer Lussier (s.lussier@networkedcenterlabs.com) sucht einen Grafikdesigner
+- [2026-06-27 15:30] [Sebastian - interested in learning more?] Susan Roberts (susan.roberts@converzconversionize.com) interessiert sich für Zusammenarbeit
+- [2026-06-27 13:08] [Bildschirmfoto 2026-06-27 um 13.07.15_vision.md] Verkaufskanäle: eBay; Verkaufsregionen: Deutschland, EU, Schweiz, Tunesien, USA, Mexiko
+- [2026-06-27 13:08] [2026-06-27-Bildschirmfoto 2026-06-27 um 13.07.15_vision.md] Potenzieller Buchhaltungs-Outsourcing-Kunde mit ERP-System Buhl Unternehmer 365 Professional
+- [2026-06-27 13:07] [Bildschirmfoto 2026-06-27 um 13.05.52_vision.md] Ansprechpartner: Herr Hoof (Geschäftsführender Gesellschafter)
+- [2026-06-27 13:07] [Bildschirmfoto 2026-06-27 um 13.05.52_vision.md] Forlin GmbH, Kreuzstraße 1, 97990 Weikersheim, Branche Lohnverguss/Sondermaschinenbau, 33 Mitarbeiter, Jahresumsatz ca. 2.600.000 EUR
+- [2026-06-27 12:50] [2026-06-27-ideen-2026-06-27.md] Zielgruppen für LinkedIn-Content: Geschäftsführer Mittelstand (20–80 MA, technisch affin), Branchen: KI-Tipps, Compliance (EU AI Act), Industrie (Predictive Maintenance), Einkauf
+- [2026-06-27 10:24] [I need to discuss this with you | DAVM9X] Selena Church (selena.church@drawtrywith.co) interessiert sich für Zusammenarbeit mit Prozessia GbR
+- [2026-06-27 10:24] [Sebastian, new customers? | DAVM9XE ZRSM] Megan Whitehead (puente-advisors.info) signalisiert neue Geschäftsmöglichkeit und möchte zeitnah Kontakt aufnehmen
+- [2026-06-27 10:24] [Sebastian - we can do this! | QRV7G00 ZR] Tasha Kirkland (Global Capitals Offices) interessiert sich für Blogbeiträge von Sebastian Spuhler
+- [2026-06-27 10:24] [Let's get together! | CBR25T8 ZRSMQTG] Sabrina Mendez von Engage Conversion Labs (sabrina@engageconversionslabs.com) hat Sebastians Anfrage erhalten
+- [2026-06-27 10:24] [Sebastian, your social media plan | GN41] Stephanie Caldwell von topsecurecapsolutionsnow.com sucht SEO-Experten-Empfehlung
+- [2026-06-26 13:47] [Can we talk? | been_rate ZRSMQTG] Barbara Fuentes (barbara.f@craftfoundhq.co) von CraftFound interessiert sich für Dienstleistungen von Prozessia GbR
+- [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
+
+## DEADLINE
+- [2026-06-27 12:47] [2026-06-27.md] Webinar am 05.07.2026 (in 8 Tagen) – LinkedIn-Ankündigungspost fehlt komplett
+
+## KUNDENWUNSCH
+- [2026-06-30 15:05] [ISO 27001 bei Prozessia] Linus Dangmann bietet unverbindliches Gespräch zur Vorstellung der Plattform und Kostenübersicht für ISO 27001 Zertifizierung an
+
+## KONTAKT
+- [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
+
+## ANFORDERUNG
+- [2026-07-01 14:21] [2026-07-01-AW-Unser-Gespraech-MTO-Days.md] Bender benötigt repräsentative Unterlagen/Dokumentation zur Wissensbasis für Chatbot-Demonstration
+
+## ENTSCHEIDUNG
+- [2026-07-01 14:21] [2026-07-01-AW-Unser-Gespraech-MTO-Days.md] Spamer soll representative Unterlagen/Dokumentation zum Produkt iso175 bereitstellen als Grundlage für Chatbot-Demonstration
+- [2026-07-01 14:21] [2026-07-01-AW-Unser-Gespraech-MTO-Days.md] Ziel: Demonstration eines interaktiven Chatbots zur Vereinfachung der Kommunikation bei Bender
+
+## PROJEKTSTATUS
+- [2026-07-01 14:21] [2026-07-01-AW-Unser-Gespraech-MTO-Days.md] Nachverfolgung erforderlich: Christian Spamer sollte Unterlagen zusammenstellen (Stand 1. Juli 2026: noch nicht eingegangen)

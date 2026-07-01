@@ -16,8 +16,8 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
-VAULT = Path.home() / "Documents" / "Prozessia-Brain"
-CREDS_PATH  = VAULT / "_agent" / "drive_credentials.json"   # wiederverwendet
+VAULT = Path(__file__).parent.parent
+CREDS_PATH  = VAULT / "_agent" / "drive_credentials.json"
 TOKEN_PATH  = VAULT / "_agent" / "gmail_token.json"
 
 SCOPES = [
@@ -27,29 +27,27 @@ SCOPES = [
 
 
 def get_service():
+    """Returns Gmail service or None if credentials are missing (e.g. on VPS)."""
+    if not TOKEN_PATH.exists() and not CREDS_PATH.exists():
+        return None
     creds = None
     if TOKEN_PATH.exists():
         creds = Credentials.from_authorized_user_file(str(TOKEN_PATH), SCOPES)
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
-        else:
-            if not CREDS_PATH.exists():
-                raise FileNotFoundError(
-                    f"{CREDS_PATH} nicht gefunden. "
-                    "Stelle sicher dass drive_credentials.json vorhanden ist "
-                    "und Gmail API im Google Cloud Projekt aktiviert ist."
-                )
+        elif CREDS_PATH.exists():
             flow = InstalledAppFlow.from_client_secrets_file(str(CREDS_PATH), SCOPES)
             creds = flow.run_local_server(port=0)
+        else:
+            return None
         TOKEN_PATH.write_text(creds.to_json())
     return build("gmail", "v1", credentials=creds)
 
 
-def is_authenticated():
+def is_authenticated() -> bool:
     try:
-        get_service()
-        return True
+        return get_service() is not None
     except Exception:
         return False
 
@@ -108,18 +106,34 @@ def get_emails(top=20, unread_only=False):
             userId="me", id=mid, format="full"
         ).execute()
         body = _extract_body(msg.get("payload", {}))
+        # Anhänge aus Payload extrahieren (kein Extra-API-Call nötig)
+        atts = []
+        def _scan_atts(parts):
+            for p in parts:
+                fname = p.get("filename", "")
+                att_id = p.get("body", {}).get("attachmentId")
+                if fname and att_id:
+                    atts.append({
+                        "attachmentId": att_id,
+                        "filename": fname,
+                        "mimeType": p.get("mimeType", "application/octet-stream"),
+                        "size": p.get("body", {}).get("size", 0),
+                    })
+                _scan_atts(p.get("parts", []))
+        _scan_atts(msg.get("payload", {}).get("parts", []))
         emails.append({
-            "id":         msg["id"],
-            "threadId":   msg["threadId"],
-            "subject":    _header(msg, "Subject") or "(kein Betreff)",
-            "from":       _header(msg, "From"),
-            "to":         _header(msg, "To"),
-            "date":       _header(msg, "Date"),
-            "message_id": _header(msg, "Message-ID"),
-            "references": _header(msg, "References"),
-            "snippet":    msg.get("snippet", ""),
-            "body":       body[:6000],
-            "isRead":     "UNREAD" not in msg.get("labelIds", []),
+            "id":          msg["id"],
+            "threadId":    msg["threadId"],
+            "subject":     _header(msg, "Subject") or "(kein Betreff)",
+            "from":        _header(msg, "From"),
+            "to":          _header(msg, "To"),
+            "date":        _header(msg, "Date"),
+            "message_id":  _header(msg, "Message-ID"),
+            "references":  _header(msg, "References"),
+            "snippet":     msg.get("snippet", ""),
+            "body":        body[:6000],
+            "isRead":      "UNREAD" not in msg.get("labelIds", []),
+            "attachments": atts,
         })
     return emails
 
@@ -163,3 +177,54 @@ def reply_email(message_id, thread_id, to, orig_subject, orig_message_id,
         body={"raw": raw, "threadId": thread_id}
     ).execute()
     return "Antwort gesendet."
+
+
+def get_attachments(message_id: str) -> list:
+    """Gibt alle Anhänge einer Mail zurück (ohne Inhalt, nur Metadaten)."""
+    svc = get_service()
+    msg = svc.users().messages().get(userId="me", id=message_id, format="full").execute()
+
+    attachments = []
+
+    def _scan_parts(parts):
+        for part in parts:
+            filename = part.get("filename", "")
+            body = part.get("body", {})
+            attachment_id = body.get("attachmentId")
+            size = body.get("size", 0)
+            mime = part.get("mimeType", "application/octet-stream")
+            if filename and attachment_id:
+                attachments.append({
+                    "attachmentId": attachment_id,
+                    "filename": filename,
+                    "mimeType": mime,
+                    "size": size,
+                })
+            sub = part.get("parts", [])
+            if sub:
+                _scan_parts(sub)
+
+    payload = msg.get("payload", {})
+    _scan_parts(payload.get("parts", []))
+    # Manchmal ist der Anhang direkt im Payload (kein multipart)
+    if not attachments and payload.get("body", {}).get("attachmentId"):
+        attachments.append({
+            "attachmentId": payload["body"]["attachmentId"],
+            "filename": payload.get("filename", "anhang"),
+            "mimeType": payload.get("mimeType", "application/octet-stream"),
+            "size": payload["body"].get("size", 0),
+        })
+    return attachments
+
+
+def download_attachment(message_id: str, attachment_id: str) -> bytes:
+    """Lädt einen Anhang herunter und gibt die Rohdaten zurück."""
+    svc = get_service()
+    result = svc.users().messages().attachments().get(
+        userId="me", messageId=message_id, id=attachment_id
+    ).execute()
+    data = result.get("data", "")
+    if not data:
+        return b""
+    padded = data + "=" * (4 - len(data) % 4)
+    return base64.urlsafe_b64decode(padded)
