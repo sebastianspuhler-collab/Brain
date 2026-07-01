@@ -7,6 +7,7 @@ _agent/ms_config.json
 _agent/watcher.pid
 .env
 .env.local
+backend/users.json
 *.key
 *.pem
 
@@ -43,6 +44,7 @@ _agent/processed_cache.json
 *.bin
 *.pyc
 __pycache__/
+.venv/
 
 # ── System ───────────────────────────────────────────────────────────────────
 .DS_Store
@@ -56,3 +58,6 @@ Thumbs.db
 
 # ── Claude Code (lokal) ──────────────────────────────────────────────────────
 .claude/settings.local.json
+
+# ── Editor (lokal) ────────────────────────────────────────────────────────────
+.vscode/
