@@ -804,6 +804,64 @@ def api_tasks():
     except Exception:
         return []
 
+def _match_task_line(line: str, target: str) -> bool:
+    if "- [ ]" not in line and "- [x]" not in line.lower():
+        return False
+    current = re.sub(r'-\s*\[[ xX]\]\s*', '', line).strip()
+    return current == target
+
+def api_task_add(text: str) -> dict:
+    text = text.strip()
+    if not text:
+        return {"error": "kein Text"}
+    try:
+        ctx_path = VAULT / "_agent" / "context.md"
+        content = ctx_path.read_text(encoding="utf-8") if ctx_path.exists() else ""
+        header = "## Offene Aufgaben"
+        entry = f"- [ ] {text}"
+        if header in content:
+            content = content.replace(header, f"{header}\n{entry}", 1)
+        else:
+            content = content.rstrip() + f"\n\n{header}\n{entry}\n"
+        ctx_path.write_text(content, encoding="utf-8")
+        return {"ok": True}
+    except Exception as e:
+        return {"error": str(e)}
+
+def api_task_toggle(text: str, done: bool) -> dict:
+    target = text.strip()
+    try:
+        ctx_path = VAULT / "_agent" / "context.md"
+        lines = ctx_path.read_text(encoding="utf-8").splitlines()
+        marker = "[x]" if done else "[ ]"
+        changed = False
+        for i, line in enumerate(lines):
+            if _match_task_line(line, target):
+                lines[i] = re.sub(r'\[[ xX]\]', marker, line, count=1)
+                changed = True
+                break
+        ctx_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        return {"ok": True, "changed": changed}
+    except Exception as e:
+        return {"error": str(e)}
+
+def api_task_delete(text: str) -> dict:
+    target = text.strip()
+    try:
+        ctx_path = VAULT / "_agent" / "context.md"
+        lines = ctx_path.read_text(encoding="utf-8").splitlines()
+        removed = False
+        new_lines = []
+        for line in lines:
+            if not removed and _match_task_line(line, target):
+                removed = True
+                continue
+            new_lines.append(line)
+        ctx_path.write_text("\n".join(new_lines) + "\n", encoding="utf-8")
+        return {"ok": True, "removed": removed}
+    except Exception as e:
+        return {"error": str(e)}
+
 # ── LinkedIn Autoposter Bridge ────────────────────────────────────────────────
 
 def _latest_autoposter_file(prefix: str):
@@ -1468,6 +1526,27 @@ class Handler(BaseHTTPRequestHandler):
                 length = int(self.headers.get("Content-Length", 0))
                 body = json.loads(self.rfile.read(length)) if length else {}
                 self.json_response(api_linkedin_generate_ideas(body.get("focus", "")))
+            except Exception as ex:
+                self.json_response({"error": str(ex)}, 400)
+        elif self.path == "/api/tasks/add":
+            try:
+                length = int(self.headers.get("Content-Length", 0))
+                body = json.loads(self.rfile.read(length))
+                self.json_response(api_task_add(body.get("text", "")))
+            except Exception as ex:
+                self.json_response({"error": str(ex)}, 400)
+        elif self.path == "/api/tasks/toggle":
+            try:
+                length = int(self.headers.get("Content-Length", 0))
+                body = json.loads(self.rfile.read(length))
+                self.json_response(api_task_toggle(body.get("text", ""), bool(body.get("done"))))
+            except Exception as ex:
+                self.json_response({"error": str(ex)}, 400)
+        elif self.path == "/api/tasks/delete":
+            try:
+                length = int(self.headers.get("Content-Length", 0))
+                body = json.loads(self.rfile.read(length))
+                self.json_response(api_task_delete(body.get("text", "")))
             except Exception as ex:
                 self.json_response({"error": str(ex)}, 400)
         else:

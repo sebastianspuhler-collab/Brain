@@ -4,7 +4,7 @@ import re
 from datetime import datetime, timedelta
 
 from app.config import get_settings
-from app.services import cache
+from app.services import cache, tasks_service
 from app.services import outlook_client
 
 
@@ -47,6 +47,26 @@ def get_calendar_events() -> list[dict]:
     try:
         ctx = settings.context_path.read_text(encoding="utf-8")
         for line in ctx.splitlines():
+            parsed = tasks_service.parse_task_line(line)
+            if parsed and parsed["due"] and not parsed["done"]:
+                try:
+                    dt = datetime.fromisoformat(parsed["due"])
+                    if dt >= datetime.now() - timedelta(days=1):
+                        events.append({
+                            "title": parsed["text"][:55],
+                            "start": dt.strftime("%Y-%m-%dT00:00"),
+                            "type": "deadline",
+                            "allDay": True,
+                        })
+                except ValueError:
+                    pass
+                # Aufgabe hat ein strukturiertes Fälligkeitsdatum (!due-Tag) -
+                # den Freitext-Fallback unten für diese Zeile überspringen, sonst
+                # entstehen doppelte/verstümmelte Einträge.
+                continue
+
+            # Legacy: Datum direkt im Aufgabentext, z.B. "(DEADLINE: 5.7.)" -
+            # für Alt-Einträge ohne !due-Tag.
             if "- [ ]" not in line and "DEADLINE" not in line.upper():
                 continue
             for match in re.findall(r"\b(\d{1,2})\.(\d{1,2})\.?(?:\s*(\d{4}))?", line):
@@ -80,6 +100,8 @@ def get_calendar_events() -> list[dict]:
             seen.add(key)
             unique.append(e)
 
-    result = unique[:12]
+    # Höheres Limit als früher (12) - die Monatsansicht im Frontend braucht alle
+    # Termine im 45-Tage-Fenster, nicht nur die nächsten paar.
+    result = unique[:200]
     cache.set("calendar", result)
     return result
