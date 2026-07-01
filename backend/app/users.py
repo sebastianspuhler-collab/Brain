@@ -14,12 +14,16 @@ from app.config import get_settings
 @lru_cache
 def get_user_hashes() -> dict[str, str]:
     path = get_settings().users_file
-    if not path.exists():
+    # is_file() statt exists(): wenn die Datei auf dem Host beim ersten
+    # "docker compose up" noch fehlte, legt Docker am Bind-Mount-Ziel
+    # automatisch ein leeres VERZEICHNIS an - path.read_text() würde dann
+    # mit einem nicht abgefangenen IsADirectoryError abstürzen (500 statt 401).
+    if not path.is_file():
         return {}
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
         return data if isinstance(data, dict) else {}
-    except json.JSONDecodeError:
+    except (json.JSONDecodeError, OSError):
         return {}
 
 

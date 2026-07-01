@@ -40,3 +40,17 @@ def test_malformed_file_returns_empty(tmp_path, monkeypatch):
 
     assert get_user_hashes() == {}
     _clear_caches()
+
+
+def test_directory_at_users_file_path_returns_empty_instead_of_crashing(tmp_path, monkeypatch):
+    """Reproduziert den Docker-Bind-Mount-Fall: fehlt users.json auf dem Host beim
+    ersten 'docker compose up', legt Docker dort automatisch ein leeres Verzeichnis
+    an. Das darf den Login-Endpoint nicht mit 500 abschießen."""
+    users_dir = tmp_path / "users.json"
+    users_dir.mkdir()
+    monkeypatch.setenv("USERS_FILE", str(users_dir))
+    _clear_caches()
+
+    assert get_user_hashes() == {}
+    assert not user_exists("amin")
+    _clear_caches()
