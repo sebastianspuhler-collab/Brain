@@ -18,6 +18,21 @@ class Settings(BaseSettings):
     # kaputt schreibt ($2b$12$... würde zu Teilen verschwinden). Siehe .env.example.
     users_file: Path = Path("users.json")
 
+    # ── Onboarding-Automatisierung ────────────────────────────────────────────
+    google_service_account_json: str = ""
+    drive_kunden_folder_id: str = ""
+    github_token: str = ""
+    github_org: str = "Prozessia"
+    smtp_host: str = ""
+    smtp_port: int = 587
+    smtp_user: str = ""
+    smtp_password: str = ""
+    notification_email: str = ""
+
+    @property
+    def avv_template_path(self) -> Path:
+        return Path(__file__).resolve().parent.parent / "templates" / "AVV_Prozessia_TEMPLATE.docx"
+
     @property
     def agent_dir(self) -> Path:
         return self.vault_path / "_agent"

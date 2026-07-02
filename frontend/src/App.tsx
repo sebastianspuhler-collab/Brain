@@ -7,6 +7,7 @@ import { ChatPage } from "@/pages/ChatPage";
 import { FilesPage } from "@/pages/FilesPage";
 import { LinkedInPage } from "@/pages/LinkedInPage";
 import { MailPage } from "@/pages/MailPage";
+import { OnboardingPage } from "@/pages/Onboarding";
 import { TasksPage } from "@/pages/TasksPage";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="mail" element={<MailPage />} />
         <Route path="dateien" element={<FilesPage />} />
         <Route path="linkedin" element={<LinkedInPage />} />
+        <Route path="onboarding" element={<OnboardingPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>

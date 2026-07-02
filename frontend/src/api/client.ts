@@ -11,11 +11,15 @@ export class ApiError extends Error {
 }
 
 async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
+  // FormData bekommt bewusst KEIN Content-Type - der Browser setzt
+  // "multipart/form-data; boundary=..." selbst, ein manueller "application/json"-
+  // Header hier würde den Multipart-Body für den Server unlesbar machen.
+  const isFormData = options.body instanceof FormData;
   const res = await fetch(`${API_BASE}${path}`, {
     ...options,
     credentials: "include",
     headers: {
-      ...(options.body ? { "Content-Type": "application/json" } : {}),
+      ...(options.body && !isFormData ? { "Content-Type": "application/json" } : {}),
       ...options.headers,
     },
   });
@@ -36,6 +40,7 @@ export const api = {
     form.append("file", file);
     return request<T>(path, { method: "POST", body: form as unknown as BodyInit });
   },
+  postForm: <T>(path: string, form: FormData) => request<T>(path, { method: "POST", body: form as unknown as BodyInit }),
 };
 
 export interface ChatMessage {
@@ -85,6 +90,49 @@ export async function streamChat(
       }
       if (data.error) throw new Error(data.error);
       if (data.chunk) onChunk(data.chunk);
+    }
+  }
+}
+
+export interface OnboardingEvent {
+  step: string;
+  status: "running" | "done" | "error" | "warning";
+  message?: string;
+  link?: string;
+  drive_link?: string;
+  github_link?: string;
+}
+
+/** Streamt den Onboarding-Automatisierungslauf per SSE. onEvent wird für jeden Schritt-Status aufgerufen. */
+export async function streamOnboarding(form: FormData, onEvent: (event: OnboardingEvent) => void): Promise<void> {
+  const res = await fetch(`${API_BASE}/api/onboarding`, {
+    method: "POST",
+    credentials: "include",
+    body: form,
+  });
+  if (!res.ok || !res.body) {
+    const body = await res.json().catch(() => ({}));
+    throw new ApiError(res.status, body.detail ?? "Onboarding-Anfrage fehlgeschlagen");
+  }
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+
+    const lines = buffer.split("\n\n");
+    buffer = lines.pop() ?? "";
+    for (const line of lines) {
+      if (!line.startsWith("data: ")) continue;
+      try {
+        onEvent(JSON.parse(line.slice(6)));
+      } catch {
+        continue;
+      }
     }
   }
 }

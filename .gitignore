@@ -8,6 +8,7 @@ _agent/watcher.pid
 .env
 .env.local
 backend/users.json
+backend/templates/AVV_Prozessia_TEMPLATE.docx
 *.key
 *.pem
 
