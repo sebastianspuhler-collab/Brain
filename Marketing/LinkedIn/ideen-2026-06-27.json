@@ -1,0 +1,106 @@
+{
+  "generiert_am": "2026-06-27T12:50:02.941510",
+  "anzahl": 10,
+  "ideen": [
+    {
+      "kategorie": "KI-Tipp",
+      "branche": "Allgemein",
+      "titel": "Ich nutze KI täglich – so spare ich 2h pro Tag",
+      "hook": "Ich habe aufgehört, E-Mails selbst zu schreiben.",
+      "kern_botschaft": "Konkrete, sofort umsetzbare KI-Workflows für Führungskräfte im Mittelstand – ohne IT-Kenntnisse.",
+      "zielgruppe_spezifisch": "Geschäftsführer Mittelstand, 20–80 MA, technisch affin",
+      "format_empfehlung": "Liste",
+      "cta_vorschlag": "Welchen Task würdet ihr als erstes automatisieren? Kommentiert unten."
+    },
+    {
+      "kategorie": "Einkauf",
+      "branche": "Maschinenbau",
+      "titel": "Lieferantenvergleich in 10 Minuten statt 3 Tagen",
+      "hook": "3 Tage für einen Lieferantenvergleich – das war 2023.",
+      "kern_botschaft": "KI-gestützte Beschaffungsanalyse reduziert Recherchezeit drastisch und verbessert Entscheidungsqualität im Einkauf.",
+      "zielgruppe_spezifisch": "Einkaufsleiter Maschinenbau, 50 MA",
+      "format_empfehlung": "Story",
+      "cta_vorschlag": "Wie lange braucht ihr aktuell für einen vollständigen Lieferantenvergleich?"
+    },
+    {
+      "kategorie": "Compliance",
+      "branche": "Allgemein",
+      "titel": "EU AI Act: Was Mittelständler jetzt wissen müssen",
+      "hook": "Ab 2026 drohen Bußgelder – kennt ihr euer KI-Risiko?",
+      "kern_botschaft": "Der EU AI Act betrifft auch KMU. Wer KI einsetzt, muss Risikoklassen kennen und Dokumentationspflichten erfüllen.",
+      "zielgruppe_spezifisch": "Geschäftsführer produzierendes Gewerbe, DACH, 40–80 MA",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Habt ihr euren KI-Einsatz schon auf EU AI Act Konformität geprüft?"
+    },
+    {
+      "kategorie": "Industrie",
+      "branche": "Werkzeugbau",
+      "titel": "Wartungskosten um 30% senken mit Predictive AI",
+      "hook": "Eine ungeplante Maschinenstillstand kostet uns 4.000 € – stündlich.",
+      "kern_botschaft": "Predictive Maintenance durch KI ist kein Luxus mehr. Auch kleine Werkzeugbaubetriebe können mit einfachen Sensordaten starten.",
+      "zielgruppe_spezifisch": "Produktionsleiter Werkzeugbau, 35 MA",
+      "format_empfehlung": "Story",
+      "cta_vorschlag": "Setzt ihr bereits Predictive Maintenance ein – oder plant ihr es?"
+    },
+    {
+      "kategorie": "KI-Tipp",
+      "branche": "Allgemein",
+      "titel": "5 Prompts, die ich jeden Morgen benutze",
+      "hook": "Mein KI-Morgenritual spart mir 45 Minuten – jeden Tag.",
+      "kern_botschaft": "Fünf konkrete, kopierfertige Prompts für Führungskräfte: Tagesplanung, Entscheidungsvorbereitung, Zusammenfassungen, Angebote, Risikocheck.",
+      "zielgruppe_spezifisch": "Geschäftsführer und Bereichsleiter, alle Branchen",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Welcher Prompt fehlt auf dieser Liste? Teilt eure besten mit mir."
+    },
+    {
+      "kategorie": "Kundenstory",
+      "branche": "Kunststofftechnik",
+      "titel": "Wie ein 45-MA-Betrieb 60h Arbeit pro Monat spart",
+      "hook": "Thomas wollte eigentlich nur den Angebotsprozess vereinfachen.",
+      "kern_botschaft": "Reales Beispiel: Wie ein Kunststoffhersteller mit KI-Automatisierung im Einkauf und in der Disposition messbar Zeit und Kosten gespart hat.",
+      "zielgruppe_spezifisch": "Einkaufs- und Produktionsleiter Kunststofftechnik, 40–60 MA",
+      "format_empfehlung": "Story",
+      "cta_vorschlag": "Würde euch interessieren, wie das konkret umgesetzt wurde? Schreibt mir direkt."
+    },
+    {
+      "kategorie": "Einkauf",
+      "branche": "Metallverarbeitung",
+      "titel": "Preisschwankungen bei Rohstoffen: KI als Frühwarnsystem",
+      "hook": "Stahl +18% in 6 Wochen – haben wir zu spät reagiert.",
+      "kern_botschaft": "KI-basierte Marktbeobachtung hilft Einkäufern, Preisrisiken früher zu erkennen und Beschaffungsstrategien proaktiv anzupassen.",
+      "zielgruppe_spezifisch": "Einkaufsleiter Metallverarbeitung, 50–80 MA",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie behaltet ihr aktuell Rohstoffpreise im Blick – manuell oder automatisiert?"
+    },
+    {
+      "kategorie": "KI-Tipp",
+      "branche": "Allgemein",
+      "titel": "Ich habe Claude 3 Tage lang getestet – mein Fazit",
+      "hook": "Ich habe KI eine Woche lang wie einen Mitarbeiter behandelt.",
+      "kern_botschaft": "Ehrliche Ich-Perspektive: Was KI wirklich kann, wo sie scheitert und wie man als Nicht-Techniker trotzdem sofort Nutzen zieht.",
+      "zielgruppe_spezifisch": "Geschäftsführer und Bereichsleiter ohne IT-Hintergrund",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Habt ihr schon KI-Tools ernsthaft im Berufsalltag getestet – was war euer größtes Learning?"
+    },
+    {
+      "kategorie": "Industrie",
+      "branche": "Automobilzulieferer",
+      "titel": "Qualitätskontrolle: KI erkennt Fehler, die Menschen übersehen",
+      "hook": "0,3 mm Abweichung – sehen wir erst beim Kunden. Nicht mehr.",
+      "kern_botschaft": "Bildbasierte KI-Qualitätskontrolle ist für mittelgroße Zulieferer erschwinglich geworden und reduziert Ausschuss und Reklamationen deutlich.",
+      "zielgruppe_spezifisch": "Produktionsleiter Automobilzulieferer, 60–80 MA",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Wie hoch ist euer aktueller Ausschuss in der Produktion – und was kostet euch das jährlich?"
+    },
+    {
+      "kategorie": "Compliance",
+      "branche": "Allgemein",
+      "titel": "KI einführen ohne Betriebsrat zu verlieren",
+      "hook": "Die größte Hürde bei KI im Mittelstand? Nicht die Technik.",
+      "kern_botschaft": "Change Management und Mitarbeiterbeteiligung entscheiden über Erfolg oder Scheitern von KI-Projekten – praktische Schritte für KMU-Führungskräfte.",
+      "zielgruppe_spezifisch": "Geschäftsführer mit Betriebsrat, produzierendes Gewerbe, DACH",
+      "format_empfehlung": "Liste",
+      "cta_vorschlag": "Wie habt ihr eure Belegschaft bei der KI-Einführung mitgenommen – was hat funktioniert?"
+    }
+  ]
+}
