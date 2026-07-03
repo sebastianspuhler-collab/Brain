@@ -106,52 +106,86 @@ def load_memory_rules():
     return ""
 
 
+def _scan_vault_folders() -> str:
+    """Liest die aktuelle Ordnerstruktur des Vault dynamisch aus."""
+    lines = []
+    for top in sorted(VAULT_PATH.iterdir()):
+        if top.name.startswith(".") or top.name.startswith("_") or not top.is_dir():
+            continue
+        if top.name in ["backend", "frontend", "Uni"]:
+            continue
+        subs = sorted(p.name for p in top.iterdir() if p.is_dir() and not p.name.startswith("."))
+        if subs:
+            for sub in subs:
+                subsubs = sorted(p.name for p in (top / sub).iterdir() if p.is_dir() and not p.name.startswith("."))
+                if subsubs:
+                    for ss in subsubs:
+                        lines.append(f"- {top.name}/{sub}/{ss}")
+                else:
+                    lines.append(f"- {top.name}/{sub}")
+        else:
+            lines.append(f"- {top.name}")
+    return "\n".join(lines)
+
+
 def classify(filepath, content):
     client = anthropic.Anthropic(api_key=API_KEY)
 
     relative = filepath.relative_to(INBOX_PATH)
     ordner_kontext = str(relative.parent) if str(relative.parent) != "." else ""
     memory_rules = load_memory_rules()
+    vault_struktur = _scan_vault_folders()
 
-    prompt = f"""Klassifiziere dieses Dokument für Prozessia GbR (KI-Agentur, Saarbrücken).
+    prompt = f"""Du sortierst Dokumente für Prozessia GbR (KI-Agentur, Saarbrücken) ein.
+
 Dateiname: {filepath.name}
-Unterordner in Inbox: {ordner_kontext or "keiner"}
-Inhalt: {content}
+Inbox-Unterordner: {ordner_kontext or "keiner"}
+Inhalt (Auszug): {content}
 
-Bekannte Kunden: Schaufler, Mundinger, Jochem/nanoSaar, Voigt Salus, Fonio
-Bekannte Produkte: Beschaffungsagent, Stücklistenagent, KI-Schulung
-Vertrieb: Handelsvertreter, Gegina, Segschneider
-{f"Gelernte Ablageregeln:{chr(10)}{memory_rules}" if memory_rules else ""}
+{f"Gelernte Ablageregeln:{chr(10)}{memory_rules}{chr(10)}" if memory_rules else ""}
+Aktuelle Vault-Struktur (alle existierenden Ordner):
+{vault_struktur}
 
-Mögliche Zielordner:
-- Kunden/Schaufler, Kunden/Mundinger, Kunden/Jochem_nanoSaar, Kunden/[NeuerKunde]
-- Leads
-- Produkte/Beschaffungsagent, Produkte/Stuecklistenagent
-- Vertraege
-- Marketing/Flyer, Marketing/LinkedIn, Marketing/Webinar, Marketing/Branding, Marketing/Social-Media
-- Sales/Cold_Call, Sales/Praesentationen, Sales/Handelsvertreter
-- Finanzen/Rechnungen, Finanzen/Angebote
-- Uni
-- Memos
-- Memos/Medien (für Bilder/Videos ohne klare Kategorie)
+REGELN:
+- Kundendokumente → Kunden/[Kundenname]/[Unterordner]
+  Unterordner-Logik:
+  · Vertraege/   → NDA, AVV, SLA, Bestellungen, Rechnungen, Auftragsbestätigungen
+  · Angebote/    → Angebote, Kostenkalkulationen, Wartungsmodelle, Preislisten
+  · Meetings/    → Besprechungen, Protokolle, Mitschriften, Meet-Aufzeichnungen
+  · Praesentationen/ → Präsentationen, Pitches, Slides
+  · Dokumente/   → alles andere (Specs, Fachkonzepte, Anleitungen, Projektpläne)
+- Neuer Kunde erkannt → zielordner: "Kunden/[Firmenname]/Dokumente" (Ordner wird automatisch erstellt)
+- Verträge die keinen Kunden zugeordnet werden können → Vertraege/
+- Leads → Leads/
+- Finanzen → Finanzen/Rechnungen oder Finanzen/Angebote
+- Marketing → Marketing/[passender Unterordner]
+- Sales → Sales/[passender Unterordner]
 
 Bestimme:
-1. kategorie: Kunde/Lead/Produkt/Vertrag/Marketing/Sales/Finanzen/Uni/Memo
-2. zusammenfassung: 2-3 Sätze was das Dokument enthält (bei Medien: kurze Beschreibung)
-3. tags: 3-5 relevante Tags als JSON-Array
-4. zielordner: exakter relativer Pfad aus den Möglichen Zielordnern oben
+1. kategorie: Kunde/Lead/Produkt/Vertrag/Marketing/Sales/Finanzen/Memo
+2. zusammenfassung: 2-3 Sätze Inhalt
+3. tags: 3-5 Tags als JSON-Array
+4. zielordner: exakter relativer Pfad (darf neu sein, wird erstellt)
+5. neuer_kunde: true/false (ob ein bisher unbekannter Kunde erkannt wurde)
 
 Antworte NUR als JSON, keine Erklärung."""
 
     try:
         resp = client.messages.create(
             model="claude-sonnet-4-6",
-            max_tokens=400,
+            max_tokens=500,
             messages=[{"role": "user", "content": prompt}]
         )
         raw = resp.content[0].text.strip()
         raw = raw.replace("```json", "").replace("```", "").strip()
-        return json.loads(raw)
+        result = json.loads(raw)
+        # Wenn neuer Kunde: Standard-Unterordner anlegen
+        if result.get("neuer_kunde"):
+            ziel = VAULT_PATH / result.get("zielordner", "Memos")
+            kunde_root = ziel.parent if ziel.name in ["Vertraege","Angebote","Dokumente","Meetings","Praesentationen"] else ziel
+            for sub in ["Vertraege", "Angebote", "Dokumente", "Meetings"]:
+                (kunde_root / sub).mkdir(parents=True, exist_ok=True)
+        return result
     except Exception:
         return None
 
