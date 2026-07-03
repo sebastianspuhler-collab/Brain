@@ -29,31 +29,29 @@ def _token_path():
 
 
 def get_service():
+    """Returns Gmail service or None if credentials are missing (e.g. on VPS without tokens)."""
     creds_path = _creds_path()
     token_path = _token_path()
+    if not token_path.exists() and not creds_path.exists():
+        return None
     creds = None
     if token_path.exists():
         creds = Credentials.from_authorized_user_file(str(token_path), SCOPES)
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
-        else:
-            if not creds_path.exists():
-                raise FileNotFoundError(
-                    f"{creds_path} nicht gefunden. "
-                    "Stelle sicher dass drive_credentials.json vorhanden ist "
-                    "und Gmail API im Google Cloud Projekt aktiviert ist."
-                )
+        elif creds_path.exists():
             flow = InstalledAppFlow.from_client_secrets_file(str(creds_path), SCOPES)
             creds = flow.run_local_server(port=0)
+        else:
+            return None
         token_path.write_text(creds.to_json())
     return build("gmail", "v1", credentials=creds)
 
 
-def is_authenticated():
+def is_authenticated() -> bool:
     try:
-        get_service()
-        return True
+        return get_service() is not None
     except Exception:
         return False
 
