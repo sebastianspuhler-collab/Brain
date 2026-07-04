@@ -734,6 +734,73 @@ def cache_set(key, data):
 
 # ── System Prompt ────────────────────────────────────────────────────────────
 
+DAYS_DE = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
+DAYS_SHORT = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+
+
+def format_calendar_week(events: list, today: datetime) -> list:
+    """Formatiert Kalender-Events als Wochenansicht (Mo-So, 2 Wochen)."""
+    from collections import defaultdict
+    monday = today - timedelta(days=today.weekday())
+    by_date = defaultdict(list)
+    for e in events:
+        start = e.get("start", "")
+        try:
+            d = datetime.fromisoformat(start[:10]).date()
+            by_date[d].append(e)
+        except Exception:
+            pass
+
+    lines = ["=== KALENDER — DIESE WOCHE & NÄCHSTE WOCHE ==="]
+    for week_offset in range(2):
+        week_start = monday + timedelta(weeks=week_offset)
+        week_label = "DIESE WOCHE" if week_offset == 0 else "NÄCHSTE WOCHE"
+        lines.append(f"\n  ── {week_label} ──")
+        for i in range(7):
+            d = (week_start + timedelta(days=i)).date()
+            day_name = DAYS_DE[d.weekday()]
+            date_str = d.strftime("%d.%m.%Y")
+            is_today = d == today.date()
+            is_past = d < today.date()
+            marker = " ◄ HEUTE" if is_today else (" [vergangen]" if is_past else "")
+            day_events = sorted(by_date.get(d, []), key=lambda x: x.get("start", ""))
+            if not day_events:
+                # Wochentage ohne Termine nur anzeigen wenn nicht vergangen (Sa/So sowieso)
+                if not is_past or is_today:
+                    lines.append(f"  {day_name}, {date_str}{marker}  — frei")
+            else:
+                lines.append(f"  {day_name}, {date_str}{marker}:")
+                for e in day_events:
+                    start = e.get("start", "")
+                    time_s = (start[11:16] + " Uhr") if "T" in start else "ganztägig"
+                    loc = f" 📍{e['location']}" if e.get("location") else ""
+                    lines.append(f"    {time_s}  {e.get('title', '')}{loc}")
+    return lines
+
+
+def get_overdue_tasks(today: datetime) -> list:
+    """Liest context.md und gibt Aufgaben zurück deren Datum bereits vergangen ist."""
+    overdue = []
+    try:
+        ctx = (VAULT / "_agent" / "context.md").read_text()
+        for line in ctx.splitlines():
+            if "- [ ]" not in line:
+                continue
+            for m in re.finditer(r'\b(\d{1,2})\.(\d{2})\.(?:(\d{4}))?\b', line):
+                day, month = int(m.group(1)), int(m.group(2))
+                year = int(m.group(3)) if m.group(3) else today.year
+                try:
+                    task_dt = datetime(year, month, day)
+                    if task_dt.date() < today.date():
+                        task_text = re.sub(r'^\s*-\s*\[[ x]\]\s*', '', line).strip()
+                        overdue.append(f"  ÜBERFÄLLIG seit {task_dt.strftime('%d.%m.%Y')}: {task_text[:100]}")
+                except Exception:
+                    pass
+    except Exception:
+        pass
+    return overdue
+
+
 def vault_tree(max_depth: int = 3) -> str:
     skip = {".git", ".obsidian", "__pycache__", ".DS_Store", "node_modules"}
     lines = ["Prozessia-Brain/"]
@@ -825,6 +892,17 @@ def build_system():
         "Wenn Sebastian sagt 'füge Aufgabe X hinzu' oder 'hak Y ab' oder 'aktualisiere meine todos' — nutze IMMER das entsprechende Signal.",
         "Schreibe das Signal am Ende deiner Antwort. Es wird ausgeführt und die Sidebar aktualisiert sich sofort.",
         "",
+        "AUTOMATISCHE AUFGABEN-PRÜFUNG (bei JEDER Antwort pflichtmäßig):",
+        "1. ABGELAUFENE TERMINE: Wenn der Kalender zeigt dass ein Meeting bereits stattgefunden hat (Datum vergangen),",
+        "   prüfe ob es eine offene Aufgabe dafür gibt → entferne sie mit [TASK_DONE] oder update sie.",
+        "2. ÜBERFÄLLIGE DEADLINES: Die Sektion '=== ÜBERFÄLLIGE AUFGABEN ===' oben zeigt vorberechnete Überfälligkeiten.",
+        "   Handle diese automatisch: Wenn eindeutig erledigt → [TASK_DONE], wenn noch offen → behalte + weise darauf hin.",
+        "3. SEBASTIAN SAGT ETWAS IST ERLEDIGT: Wenn er sagt 'X ist passiert', 'X ist fertig', 'X weg', 'hab X gemacht'",
+        "   → SOFORT [TASK_DONE: X] oder [TASK_REMOVE: X] ausgeben, KEIN Nachfragen.",
+        "4. NEUER TERMIN IM KALENDER: Wenn im Kalender ein Termin steht der eine offene Aufgabe erledigt (z.B. Folgetermin",
+        "   vereinbart, Angebot abgeschickt) → Aufgabe automatisch abhaken.",
+        "Ziel: Die Aufgabenliste ist IMMER aktuell. Veraltete Einträge nie stehen lassen.",
+        "",
         "GMAIL-ANHÄNGE (Agent-Aktion):",
         "Du kannst Anhänge aus Gmail-Mails herunterladen und automatisch in den Vault aufnehmen:",
         "  [DOWNLOAD_ATTACHMENT: message_id]  → lädt ALLE Anhänge dieser Mail herunter, speichert in _inbox/, indexiert sie sofort",
@@ -870,24 +948,21 @@ def build_system():
     except Exception:
         pass
 
-    # Kalender live einlesen
+    # Kalender als vollständige Wochenansicht (Diese Woche + Nächste Woche)
     try:
         if OUTLOOK_OK:
             events = api_calendar()
-            if events:
-                cal_lines = ["=== OUTLOOK-KALENDER (nächste 21 Tage) ==="]
-                for e in events[:20]:
-                    start = e.get("start", "")
-                    if "T" in start:
-                        date_s = start[:10]
-                        time_s = start[11:16] + " Uhr"
-                    else:
-                        date_s = start
-                        time_s = "ganztägig"
-                    loc = f" ({e['location']})" if e.get("location") else ""
-                    tag = e.get("type", "meeting")
-                    cal_lines.append(f"  {date_s} {time_s} — {e.get('title','')}{loc} [{tag}]")
+            if events is not None:
+                cal_lines = format_calendar_week(events, now)
                 parts += ["\n".join(cal_lines), ""]
+    except Exception:
+        pass
+
+    # Überfällige Aufgaben vorberechnen (Server-seitig, bevor Claude antwortet)
+    try:
+        overdue = get_overdue_tasks(now)
+        if overdue:
+            parts += ["=== ÜBERFÄLLIGE AUFGABEN (Datum vergangen) ==="] + overdue + [""]
     except Exception:
         pass
 
