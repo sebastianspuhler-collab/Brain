@@ -3,7 +3,7 @@ Liest/schreibt JSON-Output des externen Autoposter-Skripts im Vault."""
 import json
 import re
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from app.config import get_settings
 from app.services import cache
@@ -37,6 +37,7 @@ def get_ideas() -> dict:
             "datum": data.get("generiert_am", "")[:10],
             "ideen": [
                 {
+                    "typ": i.get("typ", ""),
                     "titel": i.get("titel", ""),
                     "hook": i.get("hook", ""),
                     "kategorie": i.get("kategorie", ""),
@@ -113,27 +114,61 @@ def set_direction(prompt: str) -> dict:
     return {"ok": True, "path": str(path)}
 
 
+def _next_posting_slot(after: datetime | None = None) -> str:
+    """Nächster erlaubter Slot: Dienstag–Donnerstag, 07:00 oder 12:00 Uhr (Berlin)."""
+    now = after or datetime.now()
+    candidate = (now + timedelta(hours=2)).replace(minute=0, second=0, microsecond=0)
+    for _ in range(42):
+        if candidate.weekday() in (1, 2, 3):
+            for hour in (7, 12):
+                slot = candidate.replace(hour=hour, minute=0)
+                if slot > now + timedelta(hours=2):
+                    return slot.strftime("%Y-%m-%dT%H:00:00+02:00")
+        candidate = (candidate + timedelta(days=1)).replace(hour=0)
+    return (now + timedelta(days=2)).strftime("%Y-%m-%dT07:00:00+02:00")
+
+
 def generate_ideas(focus: str = "") -> dict:
     current_direction = _current_direction()
-    prompt = f"""Du bist LinkedIn-Content-Stratege für Prozessia (KI-Automatisierung für produzierende KMU, 20-80 MA, DACH).
-Zielgruppe: Einkaufsleiter, Produktionsleiter, Geschäftsführer im Mittelstand.
-Themen: KI-Beschaffung, Automatisierung, EU AI Act, Produktivität, Mittelstand.
+    prompt = f"""Du bist LinkedIn-Content-Stratege für Prozessia.
 
-{f"Richtungsvorgabe von Sebastian: {current_direction}" if current_direction else ""}
+Zielgruppe: Einkaufsleiter und Geschäftsführer in produzierenden Betrieben, 20–80 MA, DACH.
+Prozessia automatisiert Beschaffungsprozesse und Stücklistenprüfung — keine Beratung, konkrete Agenten die Arbeit abnehmen.
+
+{f"Richtungsvorgabe: {current_direction}" if current_direction else ""}
 {f"Zusätzlicher Fokus: {focus}" if focus else ""}
 
-Generiere genau 10 LinkedIn-Ideen als JSON. Jede Idee muss enthalten:
-- kategorie: "Einkauf" | "Industrie" | "Compliance" | "KI-Tipp" | "Kundenstory"
-- branche: z.B. "Maschinenbau", "Allgemein", "Werkzeugbau"
-- titel: prägnanter Titel (max 60 Zeichen)
-- hook: erste Zeile des Posts - neugierig machend (max 80 Zeichen)
-- kern_botschaft: was der Leser mitnimmt
-- zielgruppe_spezifisch: konkrete Persona (z.B. "Einkaufsleiter Werkzeugbau, 60 MA")
-- format_empfehlung: "Text" | "Karussell" | "Liste" | "Story"
-- cta_vorschlag: Abschlussfrage oder Call-to-Action
+Jede Idee bekommt EINEN dieser drei Post-Typen:
+- Typ A – Schmerz-Post: Ich-Perspektive, konkreter Alltags-Schmerz der Zielgruppe, keine Lösung im ersten Satz
+- Typ B – Carousel/Dokument-Post: Framework, Checkliste oder Schritt-für-Schritt (3–7 Punkte)
+- Typ C – Story-Post: anonymes Vorher/Nachher eines Kunden mit konkreten Zahlen (Zeit, Geld, Aufwand)
 
-Antworte NUR mit validem JSON, kein Markdown drumherum:
-{{"generiert_am": "ISO-DATUM", "anzahl": 10, "ideen": [...]}}"""
+Generiere GENAU 10 Ideen: 4× Typ A, 3× Typ B, 3× Typ C.
+
+VERBOTEN für jeden Hook und Post:
+- Statistik oder Prozentzahl als erster Satz
+- Wörter: innovativ, nachhaltig, ganzheitlich, Lösungen, Transformation
+- Engagement-Bait ("Teile diesen Post", "Tag jemanden")
+- Compliance-Sprache
+
+PFLICHT für jeden Hook:
+- Stoppt den Scroll innerhalb von 3 Sekunden
+- Ich-Perspektive ODER direkte Du-Ansprache
+- Kein vollständiger Satz — eher Fragment oder Frage
+
+Antworte NUR mit validem JSON, kein Markdown:
+{{"generiert_am": "ISO-DATUM", "anzahl": 10, "ideen": [
+  {{
+    "typ": "A",
+    "titel": "max 60 Zeichen",
+    "hook": "erste Zeile, max 80 Zeichen, stoppt den Scroll",
+    "kern_botschaft": "was der Leser mitnimmt",
+    "branche": "Werkzeugbau|Maschinenbau|Lohnfertiger|Elektrotechnik|Allgemein",
+    "zielgruppe_spezifisch": "Einkaufsleiter, 45 MA, Werkzeugbau",
+    "format_empfehlung": "Text|Karussell|Liste",
+    "cta_vorschlag": "eine spezifische Frage für Kommentare — kein Engagement-Bait"
+  }}
+]}}"""
 
     try:
         result = get_client().messages.create(
@@ -165,12 +200,35 @@ Antworte NUR mit validem JSON, kein Markdown drumherum:
 
 def generate_posts(spec: str) -> dict:
     current_direction = _current_direction()
-    prompt = f"""Du bist LinkedIn-Texter für Prozessia (KI-Automatisierung für produzierende KMU, 20-80 MA, DACH).
-Zielgruppe: Einkaufsleiter, Produktionsleiter, Geschäftsführer im Mittelstand.
-Stil: sachlich, direkt, keine leeren Phrasen, kein "In der heutigen Zeit". Mit konkreten Zahlen.
-Max. 1.200 Zeichen pro Post. Keine Emojis außer 1-2 sparsam. Hashtags am Ende (3-5).
+    prompt = f"""Du bist LinkedIn-Texter für Prozessia.
+
+Zielgruppe: Einkaufsleiter und Geschäftsführer in produzierenden Betrieben, 20–80 MA, DACH.
+Prozessia automatisiert Beschaffungsprozesse und Stücklistenprüfung — konkrete Agenten, keine Beratung.
 
 {f"Richtungsvorgabe: {current_direction}" if current_direction else ""}
+
+POST-TYPEN (steht in der Spezifikation):
+- Typ A – Schmerz-Post: Ich-Perspektive, Alltags-Schmerz der Zielgruppe, keine KI-Lösung im ersten Satz
+- Typ B – Karussell/Dokument: Framework, Checkliste oder Schritt-für-Schritt mit 3–7 nummerierten Punkten
+- Typ C – Story-Post: anonymes Vorher/Nachher eines Kunden, konkrete Zahlen (Stunden, €, Prozent)
+
+FORMAT-REGELN (ausnahmslos):
+- Max. 15 Wörter pro Satz
+- Leerzeile nach jeder 2. Zeile (nicht nach jeder Zeile)
+- Max. 3 Hashtags, immer am Ende
+- VERBOTENE Hashtags: #KI, #AI, #Innovation, #Digitalisierung, #Mittelstand, #Automation (zu groß, zu allgemein)
+- Erlaubte Hashtags: #Einkauf, #Beschaffung, #Produktion, #Werkzeugbau, #Lohnfertigung, #ERP
+- 0 Emojis, außer maximal 1 in der letzten Zeile (optional)
+- Links NIEMALS im Post-Text — nur als separater Kommentar
+
+VERBOTENE WÖRTER: innovativ, nachhaltig, ganzheitlich, Lösung, Transformation, revolutionieren, disruptiv, zukunftsfähig
+VERBOTENE NAMEN: konkrete Firmennamen von Kunden (anonymisieren)
+VERBOTEN: "In der heutigen Zeit", "Die KI wird", Statistiken als erster Satz, Engagement-Bait
+
+ERSTE ZEILE (Hook):
+- Stoppt den Scroll in 3 Sekunden
+- Fragment oder kurze Frage, kein vollständiger Satz
+- Ich-Perspektive oder Du-Ansprache
 
 Spezifikation für die Posts:
 {spec}
@@ -182,8 +240,11 @@ Schreibe jeden Post vollständig aus. Antworte NUR mit validem JSON:
     {{
       "tag": "Dienstag",
       "datum": "YYYY-MM-DD",
+      "typ": "A",
       "thema": "Themenname",
-      "text": "Vollständiger Post-Text fertig zum Kopieren"
+      "text": "Vollständiger Post-Text fertig zum Kopieren",
+      "hashtags": ["#Einkauf", "#Beschaffung"],
+      "erster_kommentar": "Link oder weiterführende Info — wird als Kommentar gepostet, nicht im Post"
     }}
   ]
 }}"""
@@ -221,12 +282,16 @@ Schreibe jeden Post vollständig aus. Antworte NUR mit validem JSON:
             return {"error": "Keine Posts extrahiert", "raw": raw[:500]}
 
         out_data = {"generiert_am": datetime.now().isoformat(), "kanaele": [], "planungen": []}
+        last_slot = None
         for p in posts:
             key = p.get("tag", "").lower()
+            slot = _next_posting_slot(after=last_slot)
+            last_slot = datetime.fromisoformat(slot.replace("+02:00", "")) + timedelta(hours=1)
             out_data[key] = {
-                "termin": f"{p.get('datum', '')}T09:30:00+02:00",
+                "termin": slot,
                 "idee": p.get("thema", ""),
                 "text": p.get("text", ""),
+                "typ": p.get("typ", ""),
             }
         out_path = get_settings().autoposter_dir / "output" / f"beitraege-{datetime.now().strftime('%Y-%m-%d')}.json"
         out_path.parent.mkdir(parents=True, exist_ok=True)

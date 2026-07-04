@@ -1672,11 +1672,26 @@ def api_buffer_push(json_path: str = None) -> dict:
         cmd.append(json_path)
     try:
         result = subprocess.run(cmd, capture_output=True, text=True, cwd=str(VAULT), timeout=30)
-        _cache.pop("buffer_status", None)  # Cache invalidieren
-        return {
-            "ok": result.returncode == 0,
-            "output": result.stdout.strip() or result.stderr.strip()
-        }
+        _cache.pop("buffer_status", None)
+        ok = result.returncode == 0
+        output = result.stdout.strip() or result.stderr.strip()
+        if ok:
+            # Erinnerungsaufgabe in context.md eintragen
+            try:
+                ctx_path = VAULT / "_agent" / "context.md"
+                reminder = "- [ ] Post ist live – jetzt 60 Minuten Kommentare beantworten!"
+                content = ctx_path.read_text(encoding="utf-8") if ctx_path.exists() else ""
+                if reminder not in content:
+                    header = "## Offene Aufgaben"
+                    if header in content:
+                        content = content.replace(header, f"{header}\n{reminder}", 1)
+                    else:
+                        content = content.rstrip() + f"\n\n{header}\n{reminder}\n"
+                    ctx_path.write_text(content, encoding="utf-8")
+            except Exception:
+                pass
+            output += "\n\n⚡ Post ist live — jetzt 60 Minuten Kommentare beantworten!"
+        return {"ok": ok, "output": output}
     except Exception as e:
         return {"ok": False, "error": str(e)}
 
@@ -1762,6 +1777,7 @@ def api_linkedin_ideas() -> dict:
             "datum": data.get("generiert_am", "")[:10],
             "ideen": [
                 {
+                    "typ": i.get("typ", ""),
                     "titel": i.get("titel", ""),
                     "hook": i.get("hook", ""),
                     "kategorie": i.get("kategorie", ""),
@@ -1828,6 +1844,20 @@ def api_linkedin_direction(prompt: str) -> dict:
     except Exception as e:
         return {"error": str(e)}
 
+def _next_posting_slot(after: datetime = None) -> str:
+    """Nächster erlaubter Slot: Dienstag–Donnerstag, 07:00 oder 12:00 Uhr (Berlin)."""
+    now = after or datetime.now()
+    candidate = (now + timedelta(hours=2)).replace(minute=0, second=0, microsecond=0)
+    for _ in range(42):  # max 3 Wochen × 2 Slots/Tag
+        if candidate.weekday() in (1, 2, 3):  # Di=1, Mi=2, Do=3
+            for hour in (7, 12):
+                slot = candidate.replace(hour=hour, minute=0)
+                if slot > now + timedelta(hours=2):
+                    return slot.strftime("%Y-%m-%dT%H:00:00+02:00")
+        candidate = (candidate + timedelta(days=1)).replace(hour=0)
+    return (now + timedelta(days=2)).strftime("%Y-%m-%dT07:00:00+02:00")
+
+
 def api_linkedin_generate_ideas(focus: str = "") -> dict:
     direction_path = AUTOPOSTER / "brain-direction.md"
     current_direction = ""
@@ -1837,25 +1867,45 @@ def api_linkedin_generate_ideas(focus: str = "") -> dict:
         if match:
             current_direction = match.group(1).strip()
 
-    prompt = f"""Du bist LinkedIn-Content-Stratege für Prozessia (KI-Automatisierung für produzierende KMU, 20–80 MA, DACH).
-Zielgruppe: Einkaufsleiter, Produktionsleiter, Geschäftsführer im Mittelstand.
-Themen: KI-Beschaffung, Automatisierung, EU AI Act, Produktivität, Mittelstand.
+    prompt = f"""Du bist LinkedIn-Content-Stratege für Prozessia.
 
-{f"Richtungsvorgabe von Sebastian: {current_direction}" if current_direction else ""}
+Zielgruppe: Einkaufsleiter und Geschäftsführer in produzierenden Betrieben, 20–80 MA, DACH.
+Prozessia automatisiert Beschaffungsprozesse und Stücklistenprüfung — keine Beratung, konkrete Agenten die Arbeit abnehmen.
+
+{f"Richtungsvorgabe: {current_direction}" if current_direction else ""}
 {f"Zusätzlicher Fokus: {focus}" if focus else ""}
 
-Generiere genau 10 LinkedIn-Ideen als JSON. Jede Idee muss enthalten:
-- kategorie: "Einkauf" | "Industrie" | "Compliance" | "KI-Tipp" | "Kundenstory"
-- branche: z.B. "Maschinenbau", "Allgemein", "Werkzeugbau"
-- titel: prägnanter Titel (max 60 Zeichen)
-- hook: erste Zeile des Posts — neugierig machend (max 80 Zeichen)
-- kern_botschaft: was der Leser mitnimmt
-- zielgruppe_spezifisch: konkrete Persona (z.B. "Einkaufsleiter Werkzeugbau, 60 MA")
-- format_empfehlung: "Text" | "Karussell" | "Liste" | "Story"
-- cta_vorschlag: Abschlussfrage oder Call-to-Action
+Jede Idee bekommt EINEN dieser drei Post-Typen:
+- Typ A – Schmerz-Post: Ich-Perspektive, konkreter Alltags-Schmerz der Zielgruppe, keine Lösung im ersten Satz
+- Typ B – Carousel/Dokument-Post: Framework, Checkliste oder Schritt-für-Schritt (3–7 Punkte)
+- Typ C – Story-Post: anonymes Vorher/Nachher eines Kunden mit konkreten Zahlen (Zeit, Geld, Aufwand)
 
-Antworte NUR mit validem JSON, kein Markdown drumherum:
-{{"generiert_am": "ISO-DATUM", "anzahl": 10, "ideen": [...]}}"""
+Generiere GENAU 10 Ideen: 4× Typ A, 3× Typ B, 3× Typ C.
+
+VERBOTEN für jeden Hook und Post:
+- Statistik oder Prozentzahl als erster Satz
+- Wörter: innovativ, nachhaltig, ganzheitlich, Lösungen, Transformation
+- Engagement-Bait ("Teile diesen Post", "Tag jemanden")
+- Compliance-Sprache
+
+PFLICHT für jeden Hook:
+- Stoppt den Scroll innerhalb von 3 Sekunden
+- Ich-Perspektive ODER direkte Du-Ansprache (nicht beides)
+- Kein vollständiger Satz — eher Fragment oder Frage
+
+Antworte NUR mit validem JSON, kein Markdown:
+{{"generiert_am": "ISO-DATUM", "anzahl": 10, "ideen": [
+  {{
+    "typ": "A",
+    "titel": "max 60 Zeichen",
+    "hook": "erste Zeile, max 80 Zeichen, stoppt den Scroll",
+    "kern_botschaft": "was der Leser mitnimmt",
+    "branche": "Werkzeugbau|Maschinenbau|Lohnfertiger|Elektrotechnik|Allgemein",
+    "zielgruppe_spezifisch": "Einkaufsleiter, 45 MA, Werkzeugbau",
+    "format_empfehlung": "Text|Karussell|Liste",
+    "cta_vorschlag": "eine spezifische Frage für Kommentare — kein Engagement-Bait"
+  }}
+]}}"""
 
     try:
         result = ANTHROPIC.messages.create(
@@ -1879,7 +1929,7 @@ Antworte NUR mit validem JSON, kein Markdown drumherum:
         _cache.pop("li_ideas", None)
 
         return {"ok": True, "anzahl": data["anzahl"], "ideen": [
-            {"titel": i.get("titel",""), "hook": i.get("hook",""),
+            {"typ": i.get("typ",""), "titel": i.get("titel",""), "hook": i.get("hook",""),
              "kategorie": i.get("kategorie",""), "format": i.get("format_empfehlung",""),
              "cta": i.get("cta_vorschlag","")}
             for i in data.get("ideen", [])
@@ -1899,25 +1949,54 @@ def api_linkedin_generate_posts(spec: str) -> dict:
         if m:
             current_direction = m.group(1).strip()
 
-    prompt = f"""Du bist LinkedIn-Texter für Prozessia (KI-Automatisierung für produzierende KMU, 20–80 MA, DACH).
-Zielgruppe: Einkaufsleiter, Produktionsleiter, Geschäftsführer im Mittelstand.
-Stil: sachlich, direkt, keine leeren Phrasen, kein "In der heutigen Zeit". Mit konkreten Zahlen.
-Max. 1.200 Zeichen pro Post. Keine Emojis außer 1–2 sparsam. Hashtags am Ende (3–5).
+    prompt = f"""Du bist LinkedIn-Texter für Prozessia.
+Zielgruppe: Einkaufsleiter und GFs in produzierenden Betrieben, 20–80 MA, DACH.
+
+POST-TYP-REGELN (immer einhalten):
+Typ A – Schmerz-Post:
+  Erste Zeile = konkreter Schmerz aus Ich-Sicht. Keine Lösung vor Zeile 5.
+  Endet mit einer direkten Frage an die Leser.
+Typ B – Carousel/Dokument-Post:
+  Nummerierte Punkte, jeder auf eigener Zeile. Kurzes Intro, kurzes Outro.
+  Endet mit Frage oder Hinweis auf weitere Ressource.
+Typ C – Story-Post:
+  Anonym. Beginnt mit "Ein Betrieb..." oder "Vor drei Monaten...".
+  Nie echte Namen. Klares Vorher/Nachher mit konkreten Zahlen.
+  Endet mit Frage: "Wie ist das bei euch?"
+
+FORMAT-REGELN (keine Ausnahmen):
+- Maximal 1.200 Zeichen
+- Jeder Satz maximal 15 Wörter — längere Sätze aufteilen
+- Leerzeile nach jeder 2. Zeile
+- Kein Emoji außer höchstens 1 ganz am Ende
+- Maximal 3 Hashtags am Ende
+- KEINE Hashtags über 1 Mio Follower: #KI, #Digitalisierung, #Innovation, #Automatisierung sind verboten
+- Erlaubte Hashtags: #Werkzeugbau, #Einkauf, #Beschaffung, #Mittelstand, #Prozessia, #Maschinenbau, #KIEinkauf
+- Keine externen URLs im Post-Text — wenn Link nötig: "(Link in den Kommentaren)" an das Ende
+- Keine Firmen- oder Personennamen — auch keine erkennbaren Details
+- VERBOTENE WÖRTER: innovativ, nachhaltig, ganzheitlich, Lösungen, Transformation, in der heutigen Zeit
+
+PFLICHT in jedem Post:
+- Erste Zeile stoppt den Scroll — Fragment oder provokante These, kein Vollsatz
+- Ich-Perspektive ODER direkte Du-Ansprache
+- Eine einzige spezifische Frage ganz am Ende
 
 {f"Richtungsvorgabe: {current_direction}" if current_direction else ""}
 
-Spezifikation für die Posts:
+Spezifikation:
 {spec}
 
-Schreibe jeden Post vollständig aus. WICHTIG: Das "datum" Feld MUSS EXAKT dem Datum in der Spezifikation entsprechen (als YYYY-MM-DD formatiert). Antworte NUR mit validem JSON:
+Datum-Felder exakt wie in der Spezifikation angegeben (YYYY-MM-DD).
+Antworte NUR mit validem JSON:
 {{
   "generiert_am": "ISO-DATUM",
   "posts": [
     {{
+      "typ": "A|B|C",
       "tag": "Dienstag",
-      "datum": "2026-07-01",
+      "datum": "YYYY-MM-DD",
       "thema": "Themenname",
-      "text": "Vollständiger Post-Text fertig zum Kopieren"
+      "text": "Vollständiger Post-Text"
     }}
   ]
 }}"""
@@ -1961,12 +2040,32 @@ Schreibe jeden Post vollständig aus. WICHTIG: Das "datum" Feld MUSS EXAKT dem D
             "kanaele": list(BUFFER_CHANNELS.keys()),  # beide Kanäle
             "planungen": [],
         }
+        # Slots sequenziell vergeben: jeder Post bekommt den nächsten freien Di/Mi/Do-Slot
+        slot_cursor = datetime.now()
         for p in posts:
             key = p.get("tag", "").lower()
+            # Datum aus Spec bevorzugen, sonst nächsten freien Slot berechnen
+            raw_datum = p.get("datum", "")
+            if raw_datum and re.match(r"\d{4}-\d{2}-\d{2}", raw_datum):
+                # Prüfen ob Datum ein erlaubter Wochentag ist (Di-Do)
+                try:
+                    slot_dt = datetime.strptime(raw_datum, "%Y-%m-%d")
+                    if slot_dt.weekday() in (1, 2, 3):  # Di/Mi/Do
+                        termin = f"{raw_datum}T07:00:00+02:00"
+                    else:
+                        termin = _next_posting_slot(slot_cursor)
+                        slot_cursor = datetime.fromisoformat(termin[:19]) + timedelta(days=1)
+                except Exception:
+                    termin = _next_posting_slot(slot_cursor)
+                    slot_cursor = datetime.fromisoformat(termin[:19]) + timedelta(days=1)
+            else:
+                termin = _next_posting_slot(slot_cursor)
+                slot_cursor = datetime.fromisoformat(termin[:19]) + timedelta(days=1)
             out_data[key] = {
-                "termin": f"{p.get('datum','')}T09:30:00+02:00",
+                "termin": termin,
                 "idee": p.get("thema", ""),
                 "text": p.get("text", ""),
+                "typ": p.get("typ", ""),
             }
         LINKEDIN_PATH.mkdir(parents=True, exist_ok=True)
         out_path = LINKEDIN_PATH / f"beitraege-{datetime.now().strftime('%Y-%m-%d')}.json"
