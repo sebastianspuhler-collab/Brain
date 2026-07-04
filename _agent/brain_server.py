@@ -196,9 +196,11 @@ def search_vault_by_name(query: str, history: list = None) -> str:
     results = []
     seen_paths = set()
     for f in VAULT.rglob("*.md"):
-        # _agent/ und .obsidian/ überspringen (kein Nutzer-Content)
-        parts_set = set(f.parts)
-        if any(p.startswith(".") or p == "_agent" for p in f.parts):
+        rel_parts = f.relative_to(VAULT).parts
+        if any(p.startswith(".") for p in rel_parts):
+            continue
+        # _agent/ überspringen — AUSSER email_cache (die sind suchbar)
+        if "_agent" in rel_parts and "email_cache" not in rel_parts:
             continue
         f_lower = f.stem.lower()
         if any(kw in f_lower for kw in candidates) and str(f) not in seen_paths:
@@ -786,12 +788,22 @@ def build_system():
         "ZUGRIFF:",
         "Du hast ECHTZEIT-Zugriff auf Gmail, Outlook-Kalender, den gesamten Vault und alle indizierten E-Mails.",
         "Sage NIEMALS 'kein Zugriff' — alle Dateien stehen dir zur Verfügung.",
-        "DIREKTE DATEI-ANFORDERUNG: Wenn du eine bestimmte Datei lesen willst, schreibe [READ: Dateiname oder Pfad] in deine Antwort.",
-        "  Beispiel: [READ: Sales/Handelsvertreter/2026-06-25-Vertriebsvereinbarung_Geginat.md]",
+        "",
+        "DATEI LESEN:",
+        "  [READ: Dateiname oder Pfad]       → Datei aus Vault lesen — Server liefert Inhalt sofort nach.",
+        "  Beispiel: [READ: Sales/Geginat/Vertriebsvereinbarung.md]",
         "  Beispiel: [READ: Geginat] — sucht automatisch nach passenden Dateien im Vault.",
-        "  Der Server liest die Datei und schickt den Inhalt sofort nach.",
-        "Wenn eine Datei bereits im Kontext steht (erkennbar an [DIREKT GELESEN] oder [VAULT-TREFFER]), dann nutze diesen Inhalt direkt.",
-        "Wenn eine Datei NICHT im Kontext steht: nutze [READ: name] statt zu sagen 'kann ich nicht einsehen'.",
+        "Wenn eine Datei bereits im Kontext steht ([DIREKT GELESEN] oder [VAULT-TREFFER]), nutze diesen Inhalt direkt.",
+        "Wenn nicht im Kontext: schreibe [READ: name] statt 'kann ich nicht einsehen'.",
+        "",
+        "E-MAIL-SUCHE (WICHTIG — lies das genau):",
+        "  [SEARCH_EMAILS: Stichwort]        → sucht GEZIELT in email_cache nach Absender/Betreff/Inhalt.",
+        "  Beispiele: [SEARCH_EMAILS: Müller Mittelstand]  |  [SEARCH_EMAILS: Schaufler Rechnung]  |  [SEARCH_EMAILS: Michelle]",
+        "WARNUNG: NIEMALS [VAULT_LIST: _agent/email_cache] verwenden — das listet 250+ Dateien ohne Filter und ist unbrauchbar.",
+        "IMMER [SEARCH_EMAILS: Name oder Betreff-Wort] statt VAULT_LIST wenn du nach E-Mails suchst.",
+        "E-Mail-Dateien folgen Schema: DD-ID-Betreff.md (DD = Tag des Monats). Wenn Sebastian sagt 'Anfang Juni' = Tag 01-10.",
+        "Bei mehreren Stichwörtern: Leerzeichen zwischen ihnen verwenden, z.B. [SEARCH_EMAILS: Mittelstand Digital Michelle]",
+        "",
         "Wenn eine E-Mail nur 'anbei das Dokument' enthält ohne Body-Text, erkläre das klar: der Anhang war eine Datei, kein Text.",
         "Wenn Sebastian ein Datum oder eine persönliche Tatsache nennt: glaube ihm sofort, kein Widerspruch.",
         "",
@@ -825,7 +837,7 @@ def build_system():
         "  [VAULT_CREATE: Pfad/Zum/Ordner]              → erstellt neuen Ordner (auch verschachtelt)",
         "  [VAULT_MOVE: Quelle/datei.md → Ziel/datei.md] → verschiebt Datei oder Ordner",
         "  [VAULT_RENAME: alter/name.md → neuer-name.md] → benennt um",
-        "  [VAULT_LIST: Pfad/Ordner]                    → zeigt Inhalt eines Ordners",
+        "  [VAULT_LIST: Pfad/Ordner]                    → zeigt Ordnerinhalt (NUR für Struktur-Übersichten — NICHT für E-Mail-Suche!)",
         "  [VAULT_REORGANIZE: Anweisungen in natürlicher Sprache] → KI analysiert Vault + erstellt Plan + führt ihn aus",
         "Wenn Sebastian sagt 'erstelle einen Ordner für X', 'verschiebe Y nach Z', 'benenne X um', 'strukturiere den Vault' — nutze IMMER die passenden Signale.",
         "Beispiel: 'Lege für Müller GmbH einen Kundenordner an' → [VAULT_CREATE: Kunden/Mueller-GmbH]",
@@ -1253,6 +1265,43 @@ def vault_list(path: str = "") -> str:
     except PermissionError:
         return "Kein Zugriff"
     return "\n".join(lines)
+
+def search_emails(query: str, max_results: int = 5) -> str:
+    """Sucht in email_cache nach Mails die zum Query passen — Dateiname (Betreff) + Header (Von/Datum)."""
+    keywords = [w.lower() for w in re.split(r'[\s,;/]+', query) if len(w) >= 3]
+    if not keywords:
+        return "Kein Suchbegriff angegeben."
+
+    skip_names = {"indexed_ids.json", "deep_scan_done.flag", "downloaded_attachments.json"}
+    results = []
+    # Dateien nach Datum sortieren (neueste zuerst, Dateinamen beginnen mit DD-)
+    try:
+        all_files = sorted(
+            [f for f in EMAIL_CACHE_DIR.glob("*.md") if f.name not in skip_names and f.is_file()],
+            key=lambda f: f.stat().st_mtime, reverse=True
+        )
+    except Exception:
+        all_files = []
+
+    for f in all_files:
+        try:
+            content = f.read_text(errors="ignore")
+            # Nur den Header-Bereich durchsuchen (enthält Von:/Betreff:/Datum:) + Dateiname
+            searchable = f.stem.lower() + "\n" + content[:800].lower()
+            if any(kw in searchable for kw in keywords):
+                results.append(f"[{f.name}]\n{content[:3500]}")
+                if len(results) >= max_results:
+                    break
+        except Exception:
+            pass
+
+    if not results:
+        return (
+            f"Keine E-Mails gefunden für: '{query}'.\n"
+            f"Tipp: Versuche andere Schlüsselwörter (Absender-Nachname, Firmenname, Betreff-Wort)."
+        )
+    return "\n\n".join(results)
+
 
 def vault_inbox_save(filename: str, data: bytes, sender: str = "") -> dict:
     """Speichert eine Datei in _inbox/ mit Datum-Prefix."""
@@ -2654,8 +2703,21 @@ class Handler(BaseHTTPRequestHandler):
             # Signal: [VAULT_LIST: pfad] → Ordnerinhalt zeigen
             for vl_m in re.finditer(r'\[VAULT_LIST:\s*([^\]]*)\]', response_text):
                 path = vl_m.group(1).strip()
-                listing = vault_list(path)
-                _send_chunk(f"\n\n---\n```\n{listing}\n```")
+                # Schutz: VAULT_LIST auf email_cache ist verboten → automatisch umleiten
+                if "email_cache" in path.lower():
+                    _send_chunk(
+                        "\n\n---\n*Hinweis: VAULT_LIST auf email_cache ist deaktiviert (250+ Dateien). "
+                        "Nutze [SEARCH_EMAILS: Stichwort] für gezielte E-Mail-Suche.*"
+                    )
+                else:
+                    listing = vault_list(path)
+                    _send_chunk(f"\n\n---\n```\n{listing}\n```")
+
+            # Signal: [SEARCH_EMAILS: query] → gezielt in email_cache nach Absender/Betreff suchen
+            for se_m in re.finditer(r'\[SEARCH_EMAILS:\s*([^\]]+)\]', response_text):
+                eq = se_m.group(1).strip()
+                results = search_emails(eq)
+                _send_chunk(f"\n\n---\n**E-Mail-Suche: '{eq}'**\n\n{results}")
 
             # Signal: [VAULT_REORGANIZE: anweisungen] → KI-Plan generieren + ausführen
             reorg_m = re.search(r'\[VAULT_REORGANIZE:\s*([^\]]+)\]', response_text)
