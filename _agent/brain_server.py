@@ -875,9 +875,18 @@ def build_system():
         if OUTLOOK_OK:
             events = api_calendar()
             if events:
-                cal_lines = ["=== OUTLOOK-KALENDER (nächste 14 Tage) ==="]
-                for e in events[:12]:
-                    cal_lines.append(f"  {e.get('date','')} {e.get('time','')} — {e.get('title','')} {('('+e['location']+')') if e.get('location') else ''}")
+                cal_lines = ["=== OUTLOOK-KALENDER (nächste 21 Tage) ==="]
+                for e in events[:20]:
+                    start = e.get("start", "")
+                    if "T" in start:
+                        date_s = start[:10]
+                        time_s = start[11:16] + " Uhr"
+                    else:
+                        date_s = start
+                        time_s = "ganztägig"
+                    loc = f" ({e['location']})" if e.get("location") else ""
+                    tag = e.get("type", "meeting")
+                    cal_lines.append(f"  {date_s} {time_s} — {e.get('title','')}{loc} [{tag}]")
                 parts += ["\n".join(cal_lines), ""]
     except Exception:
         pass
@@ -1017,13 +1026,15 @@ def api_calendar():
         try:
             raw = outlook_client.get_calendar_events(days=45)
             for e in raw:
-                start_raw = e.get("start", {}).get("dateTime", "")
-                end_raw   = e.get("end",   {}).get("dateTime", "")
+                start_obj = e.get("start", {})
+                end_obj   = e.get("end",   {})
+                # Ganztagsevents haben nur "date", reguläre haben "dateTime"
+                start_raw = start_obj.get("dateTime", "") or start_obj.get("date", "")
+                end_raw   = end_obj.get("dateTime",   "") or end_obj.get("date",   "")
+                is_allday = e.get("isAllDay", False) or ("T" not in start_raw)
                 try:
-                    # Python 3.9 fromisoformat kann keine 7-stelligen Mikrosekunden
-                    # oder Timezone-Suffix → auf 19 Zeichen kürzen
                     start_dt = datetime.fromisoformat(start_raw[:19])
-                    end_dt   = datetime.fromisoformat(end_raw[:19])
+                    end_dt   = datetime.fromisoformat(end_raw[:19]) if end_raw else start_dt
                     if start_dt < datetime.now() - timedelta(hours=1):
                         continue
                     events.append({
@@ -1031,7 +1042,7 @@ def api_calendar():
                         "start":    start_dt.strftime("%Y-%m-%dT%H:%M"),
                         "end":      end_dt.strftime("%Y-%m-%dT%H:%M"),
                         "location": e.get("location", {}).get("displayName", ""),
-                        "allDay":   e.get("isAllDay", False),
+                        "allDay":   is_allday,
                         "type":     "meeting",
                     })
                 except Exception:
