@@ -18,6 +18,17 @@ class Settings(BaseSettings):
     # kaputt schreibt ($2b$12$... würde zu Teilen verschwinden). Siehe .env.example.
     users_file: Path = Path("users.json")
 
+    # ── LinkedIn / Buffer ─────────────────────────────────────────────────────
+    buffer_api_token: str = ""
+    # IDs der Buffer-Kanäle (Sebastian + Prozessia Page)
+    buffer_channel_sebastian: str = "6a25d2578f1d11f9b260c5ee"
+    buffer_channel_prozessia: str = "6a25d2578f1d11f9b260c5ef"
+
+    # ── Git-Sync ──────────────────────────────────────────────────────────────
+    # Personal Access Token für git pull/push aus dem Docker-Container heraus.
+    # Format: ghp_xxxx  → wird als HTTPS-Credential in die Remote-URL eingebettet.
+    git_pat: str = ""
+
     # ── Onboarding-Automatisierung ────────────────────────────────────────────
     google_service_account_json: str = ""
     drive_kunden_folder_id: str = ""

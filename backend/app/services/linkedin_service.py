@@ -2,11 +2,14 @@
 Liest/schreibt JSON-Output des externen Autoposter-Skripts im Vault."""
 import json
 import re
+import urllib.request
 from datetime import datetime
 
 from app.config import get_settings
 from app.services import cache
 from app.services.anthropic_client import get_client
+
+BUFFER_GRAPHQL = "https://api.buffer.com/graphql"
 
 
 def _direction_path():
@@ -232,3 +235,59 @@ Schreibe jeden Post vollständig aus. Antworte NUR mit validem JSON:
         return {"ok": True, "posts": posts}
     except Exception as e:
         return {"error": str(e)}
+
+
+def buffer_push(text: str, scheduled_at: str | None = None) -> dict:
+    """Pusht einen Post auf beide Buffer-Kanäle (Sebastian + Prozessia) via GraphQL."""
+    settings = get_settings()
+    token = settings.buffer_api_token
+    if not token:
+        return {"error": "BUFFER_API_TOKEN nicht gesetzt"}
+
+    channels = [settings.buffer_channel_sebastian, settings.buffer_channel_prozessia]
+    pushed = []
+    errors = []
+
+    for channel_id in channels:
+        # due_at: ISO-8601 mit Z oder leer → Buffer-Default (nächster freier Slot)
+        due = scheduled_at or ""
+        mutation = """
+mutation CreatePost($input: CreatePostInput!) {
+  createPost(input: $input) {
+    post { id status scheduledAt }
+    userErrors { message }
+  }
+}"""
+        variables = {
+            "input": {
+                "organizationId": "6a15c3685a233c9c16251245",
+                "channelId": channel_id,
+                "content": {"text": text},
+                **({"dueAt": due} if due else {}),
+            }
+        }
+        payload = json.dumps({"query": mutation, "variables": variables}).encode()
+        req = urllib.request.Request(
+            BUFFER_GRAPHQL,
+            data=payload,
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": f"Bearer {token}",
+            },
+            method="POST",
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                data = json.loads(resp.read())
+            errs = data.get("data", {}).get("createPost", {}).get("userErrors", [])
+            if errs:
+                errors.append({"channel": channel_id, "errors": errs})
+            else:
+                post_id = data.get("data", {}).get("createPost", {}).get("post", {}).get("id", "")
+                pushed.append({"channel": channel_id, "post_id": post_id})
+        except Exception as exc:
+            errors.append({"channel": channel_id, "error": str(exc)})
+
+    if errors and not pushed:
+        return {"error": errors}
+    return {"ok": True, "pushed": pushed, "errors": errors or None}

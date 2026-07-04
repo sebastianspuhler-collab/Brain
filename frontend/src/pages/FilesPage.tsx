@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { toast } from "sonner";
 import { api } from "@/api/client";
@@ -32,6 +32,15 @@ export function FilesPage() {
   const [filter, setFilter] = useState("");
   const [uploading, setUploading] = useState(false);
 
+  const processInbox = useMutation({
+    mutationFn: () => api.post<{ processed?: number; new_indexed?: number }>("/api/inbox_process", {}),
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ["files"] });
+      toast.success(`Inbox verarbeitet: ${data.processed ?? 0} Datei(en), ${data.new_indexed ?? 0} neu indiziert`);
+    },
+    onError: () => toast.error("Inbox-Verarbeitung fehlgeschlagen"),
+  });
+
   async function handleUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -56,6 +65,13 @@ export function FilesPage() {
         <CardTitle>Dateien</CardTitle>
         <div className="flex items-center gap-2">
           <Input placeholder="Suchen..." value={filter} onChange={(e) => setFilter(e.target.value)} className="w-56" />
+          <Button
+            variant="outline"
+            onClick={() => processInbox.mutate()}
+            disabled={processInbox.isPending}
+          >
+            {processInbox.isPending ? "..." : "Inbox verarbeiten"}
+          </Button>
           <Button
             variant="outline"
             disabled={uploading}

@@ -20,6 +20,11 @@ class GeneratePostsRequest(BaseModel):
     spec: str = ""
 
 
+class PushBufferRequest(BaseModel):
+    text: str
+    scheduled_at: str | None = None  # ISO-8601, z.B. "2026-07-08T09:30:00+02:00"
+
+
 @router.get("/ideas")
 def ideas(user: str = Depends(get_current_user)):
     return linkedin_service.get_ideas()
@@ -48,3 +53,8 @@ def generate_ideas(body: GenerateIdeasRequest, user: str = Depends(get_current_u
 @router.post("/generate-posts")
 def generate_posts(body: GeneratePostsRequest, user: str = Depends(get_current_user)):
     return linkedin_service.generate_posts(body.spec)
+
+
+@router.post("/push-buffer")
+def push_buffer(body: PushBufferRequest, user: str = Depends(get_current_user)):
+    return linkedin_service.buffer_push(body.text, body.scheduled_at)

@@ -1,6 +1,9 @@
 
 
 ## PROZESS
+- [2026-07-01 20:12] [Sebastian, here's the bottom line. | KT1] Anfrage für Terminfindung zu Gespräch über mögliche Zusammenarbeit
+- [2026-07-01 18:21] [README.md] Backend-Setup erfordert Virtual Environment, pip install aus requirements.txt, .env-Datei mit VAULT_PATH, ANTHROPIC_API_KEY und SESSION_SECRET
+- [2026-07-01 18:21] [README.md] Für lokale Entwicklung erforderlich: Python 3.11+, Node.js 20+, Anthropic API Key, lokaler Vault-Ordner
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Zusätzlich zu GraphQL-API existieren ältere COM-/Aktiv-Schnittstellen für Windows-Anwendungen
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] microtech bietet GraphQL-API für Zugriff auf ERP-Daten und externe Systemintegration
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-1.md] Vier Prozeßbeschreibungen zur Analyse vorgesehen: Kleinaufträge (Ersatzteile), ergänzender Workflow, Lohnfertigung, Wareneingang
@@ -157,6 +160,11 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-13 12:22] Lexoffice-Angebot für Schaufler vor Versand auf 280 €/Monat prüfen und ggf. anpassen
 
 ## KONTEXT
+- [2026-07-02 04:47] [📊 Your daily recap: See how today's post] 2 Posts am 02.07.2026 um 07:30 Uhr veröffentlicht zum Thema: Geschäftsführer von Betrieben ohne IT-Abteilung und KI-Einsatz
+- [2026-07-01 22:58] [What do you think of this? | ZRTRGWF ZRS] Opt-out-Möglichkeit durch Antwort mit 'opt-out' oder 'unsubscribe' vorhanden
+- [2026-07-01 22:58] [What do you think of this? | ZRTRGWF ZRS] Lauren Dobbins von Carderaz kontaktiert Sebastian Spuhler nach Treffen auf Konferenz in der Vorwoche
+- [2026-07-01 20:12] [Sebastian, here's the bottom line. | KT1] Kontaktanfrage von Sarah Mitchell (Connection Conversionize) zur Diskussion von Content-Generation-Lösungen
+- [2026-07-01 18:21] [README.md] Für VPS-Rollout ist separate DEPLOY.md-Dokumentation mit Docker-Anweisungen vorhanden
 - [2026-07-01 18:06] Beschaffungsagent-Testsystem URL: https://beschaffungsagent-test-system.prozessia.space/auftragsbestaetigung — Login: demo / demo123. Wurde an Herrn Ackermann als Demo-Zugang weitergegeben (1.7.2026).
 - [2026-07-01 18:06] [Let us be your guide. | 0496GSG ZRSMQTG] Unspezifische Kontaktaufnahme von Logan Martin ohne geschäftlichen Bezug zu Prozessia GbR
 - [2026-07-01 15:01] [Need to touch base | 9XAT619 ZRSMQTG] Follow-up auf vorherige E-Mail aus der Vorwoche

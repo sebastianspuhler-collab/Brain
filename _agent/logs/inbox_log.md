@@ -741,3 +741,17 @@
 - 2026-06-25 15:49 | ideen-2026-06-16.json → Marketing/LinkedIn | JSON-Output des claude-linkedin-auto-posters mit 10 generierten LinkedIn-Post-Id
 - 2026-06-25 16:04 | test_upload.txt → Memos | Testdokument zur Überprüfung der Upload-Funktion des Systems. Der Inhalt ist ein
 - 2026-06-25 16:05 | Besprechung Umsetzung Server Infrastruktur Schaufler.docx → Kunden/Schaufler | Besprechungstranskript vom 25. Juni 2026 zur Umsetzung der Server-Infrastruktur 
+- 2026-06-26 12:07 | jobs_icp.xlsx → Leads | Excel-Datei mit gescrapten Stellenanzeigen inkl. ICP-Score zur Lead-Qualifizieru
+- 2026-06-26 14:00 | Indeed → Memos | Datei vom Jobportal Indeed mit unbekanntem/leerem Inhalt. Vermutlich eine Stelle
+- 2026-06-27 12:50 | ideen-2026-06-27.json → Marketing/LinkedIn | JSON-Output des claude-linkedin-auto-posters vom 27.06.2026 mit 10 generierten L
+- 2026-06-27 12:51 | beitraege-2026-06-27.json → Marketing/LinkedIn | Automatisch generierte JSON-Ausgabe des Claude-LinkedIn-Auto-Posters vom 27.06.2
+- 2026-06-27 13:03 | Outsourcing Checkliste.pdf → Sales/Praesentationen | Checkliste zur Erfassung von Unternehmensinformationen und Prozessen im Finanz- 
+- 2026-06-27 13:07 | Bildschirmfoto 2026-06-27 um 13.05.52_vision.md → Leads | Outsourcing-Checkliste 'Zahlen im Takt' für die Forlin GmbH (Weikersheim, Lohnve
+- 2026-06-27 13:07 | Bildschirmfoto 2026-06-27 um 13.05.52_vision.md → Leads | Ausgefüllte Outsourcing-Checkliste der Firma Forlin GmbH (Weikersheim, Lohnvergu
+- 2026-06-27 13:08 | Bildschirmfoto 2026-06-27 um 13.07.15_vision.md → Leads | Screenshot einer Outsourcing-Checkliste (Mengengerüst-Seiten 2 und 3) eines pote
+- 2026-06-29 13:56 | AVV_Schaufler_Prozessia_ausgefuellt (2).docx → Kunden/Schaufler | Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DS-GVO zwischen einem Unternehm
+- 2026-07-01 13:33 | AVV_Schaufler_Prozessia.pdf → Kunden/Schaufler | Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DS-GVO zwischen Schaufler Tooli
+- 2026-07-03 21:17 | Potenzialanalyse Endin X Prozessia.docx → Kunden/endin/Meetings | Besprechungstranskript der Potenzialanalyse zwischen Sebastian Spuhler (Prozessi
+- 2026-07-03 21:17 | Besprechung Umsetzung Server Infrastruktur Schaufler (1).docx → Kunden/Schaufler/Meetings | Besprechungstranskript vom 25. Juni 2026 zur Umsetzung der Server-Infrastruktur 
+- 2026-07-03 21:17 | 1a4a25c9-1ad2-467c-9437-46e138f6d4b0.jpeg → Memos/Medien | Die Datei ist eine JPEG-Bilddatei, aus der kein Text extrahiert werden konnte. D
+- 2026-07-03 21:17 | 1a8c7b80-123d-46b6-a3bd-8bbbdb0a994e.jpeg → Memos/Medien | Die Datei ist eine JPEG-Bilddatei, aus der kein Text extrahiert werden konnte. I
