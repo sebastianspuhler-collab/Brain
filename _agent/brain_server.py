@@ -841,11 +841,17 @@ def build_system():
         "",
         "SCHREIBSTIL:",
         "Schreibe wie ein kluger, direkt informierter Kollege — nicht wie ein Chatbot oder eine KI.",
-        "Nutze fließenden Text wenn möglich. Tabellen und Listen nur wenn sie echten Mehrwert bieten (mindestens 3 vergleichbare Punkte, niemals für einfache Antworten).",
-        "Zeige Initiative: Wenn du beim Lesen der Dokumente etwas Relevantes siehst das Sebastian nicht explizit gefragt hat, bringe es trotzdem ein — kurz und direkt.",
-        "Verbinde Punkte: Wenn eine E-Mail zu einer Aufgabe in context.md passt oder ein Angebot zu einer Bestellung, sage das aktiv.",
-        "Sei konkret: Nenne immer exakte Zahlen, Daten, Namen aus den Dokumenten. Nie schätzen wenn die Daten vorhanden sind.",
-        "Wenn etwas fehlt, sage klar was fehlt und warum — kein Herumreden.",
+        "Nutze fließenden Text. Listen nur wenn mindestens 3 vergleichbare Punkte vorhanden sind.",
+        "Sei konkret: Nenne exakte Zahlen, Daten, Namen aus den Dokumenten. Nie schätzen wenn die Daten vorhanden sind.",
+        "Wenn etwas fehlt, sage klar was fehlt — kein Herumreden.",
+        "",
+        "ANTWORTLÄNGE (strikt einhalten):",
+        "Einfache Frage (Ja/Nein, kurze Auskunft) → 1-2 Sätze.",
+        "Normale Anfrage (Zusammenfassung, was steht drin?) → max 5 Sätze oder 5 Bullet-Points.",
+        "Nur wenn Sebastian explizit 'vollständig', 'alles', 'gib mir den ganzen Inhalt' sagt → längere Antwort erlaubt.",
+        "VERBOTEN: Lange Einleitungen ('Ich habe gesucht...', 'Basierend auf meiner Analyse...', 'Gerne helfe ich dir...').",
+        "VERBOTEN: Abschlussformeln ('Lass mich wissen wenn...', 'Wenn du weitere Fragen hast...', 'Ich hoffe das hilft...').",
+        "VERBOTEN: Wiederholungen — was einmal gesagt ist, wird nicht nochmal zusammengefasst.",
         "",
         "FAKTEN & DATEN:",
         "Wenn du Zahlen oder Fakten aus Dokumenten nennst, zitiere die Quelle (Dateiname oder 'laut Angebot AG0024').",
@@ -863,13 +869,23 @@ def build_system():
         "Wenn eine Datei bereits im Kontext steht ([DIREKT GELESEN] oder [VAULT-TREFFER]), nutze diesen Inhalt direkt.",
         "Wenn nicht im Kontext: schreibe [READ: name] statt 'kann ich nicht einsehen'.",
         "",
-        "E-MAIL-SUCHE (WICHTIG — lies das genau):",
-        "  [SEARCH_EMAILS: Stichwort]        → sucht GEZIELT in email_cache nach Absender/Betreff/Inhalt.",
-        "  Beispiele: [SEARCH_EMAILS: Müller Mittelstand]  |  [SEARCH_EMAILS: Schaufler Rechnung]  |  [SEARCH_EMAILS: Michelle]",
-        "WARNUNG: NIEMALS [VAULT_LIST: _agent/email_cache] verwenden — das listet 250+ Dateien ohne Filter und ist unbrauchbar.",
-        "IMMER [SEARCH_EMAILS: Name oder Betreff-Wort] statt VAULT_LIST wenn du nach E-Mails suchst.",
-        "E-Mail-Dateien folgen Schema: DD-ID-Betreff.md (DD = Tag des Monats). Wenn Sebastian sagt 'Anfang Juni' = Tag 01-10.",
-        "Bei mehreren Stichwörtern: Leerzeichen zwischen ihnen verwenden, z.B. [SEARCH_EMAILS: Mittelstand Digital Michelle]",
+        "SUCHE — WICHTIG, lies diese Regeln genau:",
+        "",
+        "  [SEARCH_MEETINGS: Stichwort]       → sucht in Kunden/*/Meetings/ und Kunden/*/Dokumente/ nach Transkripten und Protokollen.",
+        "  Beispiele: [SEARCH_MEETINGS: Schaufler winform]  |  [SEARCH_MEETINGS: Schaufler Jochen]  |  [SEARCH_MEETINGS: ProLeiS Schnittstelle]",
+        "  WANN: Immer wenn Sebastian von Meetings, Besprechungen, Transkripten, Protokollen oder Calls spricht.",
+        "  Optional Firma als erstes Wort: [SEARCH_MEETINGS: Schaufler winform] → sucht nur in Kunden/Schaufler/",
+        "",
+        "  [SEARCH_EMAILS: Stichwort]        → sucht NUR in email_cache (Gmail/Outlook-Mails).",
+        "  Beispiele: [SEARCH_EMAILS: Müller Mittelstand]  |  [SEARCH_EMAILS: Schaufler Rechnung]",
+        "  WANN: Nur wenn Sebastian explizit von einer E-Mail spricht (nicht von Meetings oder Dokumenten).",
+        "WARNUNG: NIEMALS [VAULT_LIST: _agent/email_cache] verwenden — das listet 250+ Dateien ohne Filter.",
+        "Bei mehreren Stichwörtern: Leerzeichen verwenden, z.B. [SEARCH_EMAILS: Mittelstand Digital Michelle]",
+        "",
+        "ROUTING-REGEL:",
+        "- 'Transkript', 'Besprechung', 'Meeting', 'Call', 'Protokoll' → [SEARCH_MEETINGS: ...]",
+        "- 'E-Mail', 'Mail', 'hat geschrieben', 'Nachricht' → [SEARCH_EMAILS: ...]",
+        "- Dateiname oder Dokument → [READ: Pfad]",
         "",
         "Wenn eine E-Mail nur 'anbei das Dokument' enthält ohne Body-Text, erkläre das klar: der Anhang war eine Datei, kein Text.",
         "Wenn Sebastian ein Datum oder eine persönliche Tatsache nennt: glaube ihm sofort, kein Widerspruch.",
@@ -1386,6 +1402,46 @@ def search_emails(query: str, max_results: int = 5) -> str:
             f"Keine E-Mails gefunden für: '{query}'.\n"
             f"Tipp: Versuche andere Schlüsselwörter (Absender-Nachname, Firmenname, Betreff-Wort)."
         )
+    return "\n\n".join(results)
+
+
+def search_meetings(query: str, firma: str = "", max_results: int = 5) -> str:
+    """Sucht in Kunden/*/Meetings/ und Kunden/*/Dokumente/ nach Transkripten und Besprechungsprotokollen."""
+    keywords = [w.lower() for w in re.split(r'[\s,;/]+', query) if len(w) >= 2]
+    if not keywords:
+        return "Kein Suchbegriff angegeben."
+
+    search_dirs = []
+    kunden_dir = VAULT / "Kunden"
+    if kunden_dir.exists():
+        for firma_dir in sorted(kunden_dir.iterdir()):
+            if not firma_dir.is_dir():
+                continue
+            if firma and firma.lower() not in firma_dir.name.lower():
+                continue
+            for sub in ("Meetings", "Dokumente"):
+                sub_dir = firma_dir / sub
+                if sub_dir.exists():
+                    search_dirs.append(sub_dir)
+
+    results = []
+    for search_dir in search_dirs:
+        for f in sorted(search_dir.glob("*.md"), key=lambda x: x.stat().st_mtime, reverse=True):
+            try:
+                content = f.read_text(errors="ignore")
+                searchable = f.stem.lower() + "\n" + content.lower()
+                if any(kw in searchable for kw in keywords):
+                    rel_path = f.relative_to(VAULT)
+                    results.append(f"[{rel_path}]\n{content[:3500]}")
+                    if len(results) >= max_results:
+                        break
+            except Exception:
+                pass
+        if len(results) >= max_results:
+            break
+
+    if not results:
+        return f"Keine Meeting-Transkripte gefunden für: '{query}'" + (f" (Firma: {firma})" if firma else "") + "."
     return "\n\n".join(results)
 
 
@@ -2730,19 +2786,28 @@ class Handler(BaseHTTPRequestHandler):
                 req_path = read_m.group(1).strip()
 
                 def _read_file(path: Path) -> str:
-                    """Liest Datei — PDFs werden per pypdf extrahiert, sonst Text."""
-                    if path.suffix.lower() == ".pdf":
+                    """Liest Datei — PDF, DOCX, PPTX werden extrahiert, sonst Text."""
+                    suf = path.suffix.lower()
+                    if suf == ".pdf":
                         try:
                             import pypdf
                             reader = pypdf.PdfReader(str(path))
                             text = "\n\n".join(p.extract_text() or "" for p in reader.pages)
                             return text[:8000] if text.strip() else "[PDF ohne extrahierbaren Text]"
                         except ImportError:
-                            return "[PDF — pypdf nicht installiert: pip3 install pypdf]"
+                            return "[PDF — pypdf nicht installiert]"
                         except Exception as e:
                             return f"[PDF-Fehler: {e}]"
-                    if path.suffix.lower() in (".png", ".jpg", ".jpeg", ".gif", ".mp4", ".zip"):
-                        return f"[Binärdatei — kein Textinhalt: {path.suffix}]"
+                    if suf == ".docx":
+                        try:
+                            from docx import Document
+                            doc = Document(str(path))
+                            text = "\n".join(p.text for p in doc.paragraphs if p.text.strip())
+                            return text[:8000] if text.strip() else "[DOCX ohne extrahierbaren Text]"
+                        except Exception as e:
+                            return f"[DOCX-Fehler: {e}]"
+                    if suf in (".png", ".jpg", ".jpeg", ".gif", ".mp4", ".zip"):
+                        return f"[Binärdatei — kein Textinhalt: {suf}]"
                     return path.read_text(errors="ignore")[:6000]
 
                 found_content = None
@@ -2763,7 +2828,7 @@ class Handler(BaseHTTPRequestHandler):
                     # 3. Keyword-Suche: Stichwort im Dateinamen (nur Text-Dateien)
                     if not found_content:
                         kw = req_path.lower().strip()
-                        for ext in ("*.md", "*.txt", "*.pdf"):
+                        for ext in ("*.md", "*.txt", "*.pdf", "*.docx"):
                             for hit in VAULT.rglob(ext):
                                 if kw in hit.stem.lower():
                                     found_content = _read_file(hit)
@@ -2903,6 +2968,20 @@ class Handler(BaseHTTPRequestHandler):
                 eq = se_m.group(1).strip()
                 results = search_emails(eq)
                 _send_chunk(f"\n\n---\n**E-Mail-Suche: '{eq}'**\n\n{results}")
+
+            # Signal: [SEARCH_MEETINGS: query] → sucht in Kunden/*/Meetings/ und Kunden/*/Dokumente/
+            for sm_m in re.finditer(r'\[SEARCH_MEETINGS:\s*([^\]]+)\]', response_text):
+                mq = sm_m.group(1).strip()
+                # Optionale Firma: "Schaufler winform" → firma=Schaufler, query=winform
+                parts_q = mq.split(None, 1)
+                firma_hint = ""
+                if len(parts_q) == 2:
+                    candidate = (VAULT / "Kunden" / parts_q[0])
+                    if candidate.exists():
+                        firma_hint = parts_q[0]
+                        mq = parts_q[1]
+                m_results = search_meetings(mq, firma=firma_hint)
+                _send_chunk(f"\n\n---\n**Meeting-Suche: '{mq}'{(' ('+firma_hint+')') if firma_hint else ''}**\n\n{m_results}")
 
             # Signal: [VAULT_REORGANIZE: anweisungen] → KI-Plan generieren + ausführen
             reorg_m = re.search(r'\[VAULT_REORGANIZE:\s*([^\]]+)\]', response_text)

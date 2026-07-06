@@ -257,11 +257,13 @@ def run():
     SKIP_NAMES = {"Thumbs.db", ".DS_Store", "package-lock.json", "package.json",
                   "tsconfig.json", "tsdoc-metadata.json", "openai"}
     SKIP_PREFIXES = ("README", "readme", "LICENSE", "license", "CHANGELOG",
-                     "HISTORY", "History", "CONTRIBUTING", "contributing")
+                     "HISTORY", "History", "CONTRIBUTING", "contributing",
+                     "~$")  # Word temp-Dateien (z.B. ~$sprechung.docx)
 
     dateien = [f for f in INBOX_PATH.rglob("*")
                if f.is_file()
                and not f.name.startswith(".")
+               and not f.name.startswith("~$")
                and f.suffix.lower() not in SKIP_EXTENSIONS
                and f.name not in SKIP_NAMES
                and not any(f.name.startswith(p) for p in SKIP_PREFIXES)
