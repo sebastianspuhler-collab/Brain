@@ -408,6 +408,52 @@ def _is_important_email(sender: str, subject: str, body: str) -> bool:
             "donotreply", "marketing@", "info@mailchimp", "notification"}
     return not any(s in combined for s in spam)
 
+# Gemeinsames Tool-Schema für alle Gedächtnis-Extraktionen (E-Mail/Datei/Chat).
+# Ersetzt die frühere "Antworte NUR mit JSON" + Regex-Extraktion aus dem Fließtext:
+# Tool Use liefert bereits geparste, schema-validierte Werte, kein re.search/json.loads nötig.
+_MEMORY_ITEMS_TOOL = {
+    "name": "save_memory_items",
+    "description": "Speichert die aus dem Text extrahierten dauerhaft wichtigen Fakten für Sebastian Spuhler.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "items": {
+                "type": "array",
+                "description": "Leeres Array, wenn nichts Speicherwertes gefunden wurde.",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "kategorie": {
+                            "type": "string",
+                            "enum": ["KONTEXT", "PROZESS", "KORREKTUR", "KUNDE", "REGEL"],
+                        },
+                        "fakt": {
+                            "type": "string",
+                            "description": "Präzise Aussage auf Deutsch, mit Datum falls vorhanden.",
+                        },
+                    },
+                    "required": ["kategorie", "fakt"],
+                },
+            },
+        },
+        "required": ["items"],
+    },
+}
+
+def _extract_memory_items(prompt: str, model: str, max_tokens: int) -> list:
+    """Ruft Claude mit erzwungenem Tool-Use auf und gibt die extrahierten Items zurück."""
+    result = ANTHROPIC.messages.create(
+        model=model,
+        max_tokens=max_tokens,
+        tools=[_MEMORY_ITEMS_TOOL],
+        tool_choice={"type": "tool", "name": "save_memory_items"},
+        messages=[{"role": "user", "content": prompt}],
+    )
+    for block in result.content:
+        if block.type == "tool_use":
+            return block.input.get("items", [])
+    return []
+
 def _auto_memory_from_email(sender: str, subject: str, body: str):
     try:
         prompt = f"""Analysiere diese E-Mail für Sebastian Spuhler (Prozessia GbR) und extrahiere wichtige Informationen.
@@ -417,26 +463,12 @@ NICHT SPEICHERN: reine Bestätigungen ohne neuen Inhalt, Kalendereinladungen ohn
 
 Von: {sender}
 Betreff: {subject}
-Inhalt: {body[:1000]}
+Inhalt: {body[:1000]}"""
 
-NUR JSON (kein Markdown):
-{{"items": [{{"kategorie": "KONTEXT", "fakt": "präzise Aussage auf Deutsch mit Datum falls vorhanden"}}]}}
-Kategorien: KONTEXT, PROZESS, KORREKTUR, KUNDE
-Wenn nichts Neues: {{"items": []}}"""
-
-        result = ANTHROPIC.messages.create(
-            model="claude-haiku-4-5-20251001",
-            max_tokens=400,
-            messages=[{"role": "user", "content": prompt}]
-        )
-        text = result.content[0].text.strip()
-        m = re.search(r'\{.*\}', text, re.DOTALL)
-        if not m:
-            return
-        data = json.loads(m.group())
+        items = _extract_memory_items(prompt, "claude-haiku-4-5-20251001", 400)
         memory_path = VAULT / "_agent" / "memory.md"
         existing = memory_path.read_text(encoding="utf-8") if memory_path.exists() else ""
-        for item in data.get("items", []):
+        for item in items:
             kat = item.get("kategorie", "KONTEXT").upper()
             fakt = item.get("fakt", "").strip()
             if fakt and len(fakt) > 10:
@@ -460,25 +492,13 @@ Datei: {rel_path}
 Inhalt (Auszug):
 {content[:1500]}
 
-NUR JSON:
-{{"items": [{{"kategorie": "KONTEXT", "fakt": "präziser Fakt auf Deutsch"}}]}}
-Kategorien: KONTEXT, KUNDE, PROZESS, KORREKTUR
-Max 5 Items. Wenn nichts Neues: {{"items": []}}"""
+Max 5 Items."""
 
-        result = ANTHROPIC.messages.create(
-            model="claude-haiku-4-5-20251001",
-            max_tokens=500,
-            messages=[{"role": "user", "content": prompt}]
-        )
-        text = result.content[0].text.strip()
-        m = re.search(r'\{.*\}', text, re.DOTALL)
-        if not m:
-            return
-        data = json.loads(m.group())
+        items = _extract_memory_items(prompt, "claude-haiku-4-5-20251001", 500)
         memory_path = VAULT / "_agent" / "memory.md"
         existing = memory_path.read_text(encoding="utf-8") if memory_path.exists() else ""
         filename = Path(rel_path).name
-        for item in data.get("items", []):
+        for item in items:
             kat = item.get("kategorie", "KONTEXT").upper()
             fakt = item.get("fakt", "").strip()
             if fakt and len(fakt) > 15:
@@ -862,30 +882,12 @@ def build_system():
         "Du hast ECHTZEIT-Zugriff auf Gmail, Outlook-Kalender, den gesamten Vault und alle indizierten E-Mails.",
         "Sage NIEMALS 'kein Zugriff' — alle Dateien stehen dir zur Verfügung.",
         "",
-        "DATEI LESEN:",
-        "  [READ: Dateiname oder Pfad]       → Datei aus Vault lesen — Server liefert Inhalt sofort nach.",
-        "  Beispiel: [READ: Sales/Geginat/Vertriebsvereinbarung.md]",
-        "  Beispiel: [READ: Geginat] — sucht automatisch nach passenden Dateien im Vault.",
-        "Wenn eine Datei bereits im Kontext steht ([DIREKT GELESEN] oder [VAULT-TREFFER]), nutze diesen Inhalt direkt.",
-        "Wenn nicht im Kontext: schreibe [READ: name] statt 'kann ich nicht einsehen'.",
-        "",
-        "SUCHE — WICHTIG, lies diese Regeln genau:",
-        "",
-        "  [SEARCH_MEETINGS: Stichwort]       → sucht in Kunden/*/Meetings/ und Kunden/*/Dokumente/ nach Transkripten und Protokollen.",
-        "  Beispiele: [SEARCH_MEETINGS: Schaufler winform]  |  [SEARCH_MEETINGS: Schaufler Jochen]  |  [SEARCH_MEETINGS: ProLeiS Schnittstelle]",
-        "  WANN: Immer wenn Sebastian von Meetings, Besprechungen, Transkripten, Protokollen oder Calls spricht.",
-        "  Optional Firma als erstes Wort: [SEARCH_MEETINGS: Schaufler winform] → sucht nur in Kunden/Schaufler/",
-        "",
-        "  [SEARCH_EMAILS: Stichwort]        → sucht NUR in email_cache (Gmail/Outlook-Mails).",
-        "  Beispiele: [SEARCH_EMAILS: Müller Mittelstand]  |  [SEARCH_EMAILS: Schaufler Rechnung]",
-        "  WANN: Nur wenn Sebastian explizit von einer E-Mail spricht (nicht von Meetings oder Dokumenten).",
-        "WARNUNG: NIEMALS [VAULT_LIST: _agent/email_cache] verwenden — das listet 250+ Dateien ohne Filter.",
-        "Bei mehreren Stichwörtern: Leerzeichen verwenden, z.B. [SEARCH_EMAILS: Mittelstand Digital Michelle]",
-        "",
-        "ROUTING-REGEL:",
-        "- 'Transkript', 'Besprechung', 'Meeting', 'Call', 'Protokoll' → [SEARCH_MEETINGS: ...]",
-        "- 'E-Mail', 'Mail', 'hat geschrieben', 'Nachricht' → [SEARCH_EMAILS: ...]",
-        "- Dateiname oder Dokument → [READ: Pfad]",
+        "TOOLS:",
+        "Du hast echte Tools (read_file, search_meetings, search_emails, vault_list, vault_create, vault_move, "
+        "vault_rename, vault_reorganize, download_attachment, task_add, task_done, task_remove, tasks_set, "
+        "push_to_buffer, generate_linkedin_ideas, generate_linkedin_posts, generate_carousel). Nutze sie proaktiv "
+        "und ohne nachzufragen — sag niemals 'kein Zugriff' oder 'kann ich nicht', sondern rufe das passende Tool auf.",
+        "Wenn eine Datei bereits im Kontext steht ([DIREKT GELESEN] oder [VAULT-TREFFER]), nutze diesen Inhalt direkt statt read_file erneut aufzurufen.",
         "",
         "Wenn eine E-Mail nur 'anbei das Dokument' enthält ohne Body-Text, erkläre das klar: der Anhang war eine Datei, kein Text.",
         "Wenn Sebastian ein Datum oder eine persönliche Tatsache nennt: glaube ihm sofort, kein Widerspruch.",
@@ -899,44 +901,16 @@ def build_system():
         "Du bist nicht nur ein Antwortgeber sondern ein aktiver Gedankenpartner. Denke mit.",
         f"Heute: {today_str}.",
         "\n".join(week_lines), "",
-        "AUFGABEN-VERWALTUNG (Task-Signale):",
-        "Du kannst Aufgaben in der Sidebar DIREKT ändern indem du diese Signale ausgibst — der Server schreibt sie sofort in context.md und die Sidebar aktualisiert sich live:",
-        "  [TASK_ADD: Text der Aufgabe]       → neue Aufgabe hinzufügen",
-        "  [TASK_DONE: Text oder Teiltext]    → Aufgabe als erledigt markieren",
-        "  [TASK_REMOVE: Text oder Teiltext]  → Aufgabe entfernen",
-        "  [TASKS_SET: Aufgabe1 | Aufgabe2 | Aufgabe3]  → gesamte offene Aufgabenliste ersetzen",
-        "Wenn Sebastian sagt 'füge Aufgabe X hinzu' oder 'hak Y ab' oder 'aktualisiere meine todos' — nutze IMMER das entsprechende Signal.",
-        "Schreibe das Signal am Ende deiner Antwort. Es wird ausgeführt und die Sidebar aktualisiert sich sofort.",
-        "",
         "AUTOMATISCHE AUFGABEN-PRÜFUNG (bei JEDER Antwort pflichtmäßig):",
         "1. ABGELAUFENE TERMINE: Wenn der Kalender zeigt dass ein Meeting bereits stattgefunden hat (Datum vergangen),",
-        "   prüfe ob es eine offene Aufgabe dafür gibt → entferne sie mit [TASK_DONE] oder update sie.",
+        "   prüfe ob es eine offene Aufgabe dafür gibt → rufe task_done dafür auf oder update sie.",
         "2. ÜBERFÄLLIGE DEADLINES: Die Sektion '=== ÜBERFÄLLIGE AUFGABEN ===' oben zeigt vorberechnete Überfälligkeiten.",
-        "   Handle diese automatisch: Wenn eindeutig erledigt → [TASK_DONE], wenn noch offen → behalte + weise darauf hin.",
+        "   Handle diese automatisch: Wenn eindeutig erledigt → task_done aufrufen, wenn noch offen → behalte + weise darauf hin.",
         "3. SEBASTIAN SAGT ETWAS IST ERLEDIGT: Wenn er sagt 'X ist passiert', 'X ist fertig', 'X weg', 'hab X gemacht'",
-        "   → SOFORT [TASK_DONE: X] oder [TASK_REMOVE: X] ausgeben, KEIN Nachfragen.",
+        "   → SOFORT task_done oder task_remove aufrufen, KEIN Nachfragen.",
         "4. NEUER TERMIN IM KALENDER: Wenn im Kalender ein Termin steht der eine offene Aufgabe erledigt (z.B. Folgetermin",
-        "   vereinbart, Angebot abgeschickt) → Aufgabe automatisch abhaken.",
+        "   vereinbart, Angebot abgeschickt) → Aufgabe automatisch mit task_done abhaken.",
         "Ziel: Die Aufgabenliste ist IMMER aktuell. Veraltete Einträge nie stehen lassen.",
-        "",
-        "GMAIL-ANHÄNGE (Agent-Aktion):",
-        "Du kannst Anhänge aus Gmail-Mails herunterladen und automatisch in den Vault aufnehmen:",
-        "  [DOWNLOAD_ATTACHMENT: message_id]  → lädt ALLE Anhänge dieser Mail herunter, speichert in _inbox/, indexiert sie sofort",
-        "  Die message_id steht im Gmail-Kontext (id-Feld). PDFs werden automatisch in Markdown transkribiert.",
-        "Wenn Sebastian sagt 'lade den Anhang runter' oder 'speichere das Dokument aus der Mail' — nutze dieses Signal.",
-        "Sage NIEMALS 'ich kann Anhänge nicht herunterladen' — du KANNST es mit [DOWNLOAD_ATTACHMENT: id].",
-        "",
-        "VAULT-OPERATIONEN (Agent-Aktionen):",
-        "Du kannst den Vault direkt umstrukturieren — Ordner anlegen, Dateien verschieben, umbenennen:",
-        "  [VAULT_CREATE: Pfad/Zum/Ordner]              → erstellt neuen Ordner (auch verschachtelt)",
-        "  [VAULT_MOVE: Quelle/datei.md → Ziel/datei.md] → verschiebt Datei oder Ordner",
-        "  [VAULT_RENAME: alter/name.md → neuer-name.md] → benennt um",
-        "  [VAULT_LIST: Pfad/Ordner]                    → zeigt Ordnerinhalt (NUR für Struktur-Übersichten — NICHT für E-Mail-Suche!)",
-        "  [VAULT_REORGANIZE: Anweisungen in natürlicher Sprache] → KI analysiert Vault + erstellt Plan + führt ihn aus",
-        "Wenn Sebastian sagt 'erstelle einen Ordner für X', 'verschiebe Y nach Z', 'benenne X um', 'strukturiere den Vault' — nutze IMMER die passenden Signale.",
-        "Beispiel: 'Lege für Müller GmbH einen Kundenordner an' → [VAULT_CREATE: Kunden/Mueller-GmbH]",
-        "Beispiel: 'Reorganisiere meine Inbox' → [VAULT_REORGANIZE: Verarbeite alle Dateien in _inbox/ und lege sie in die richtigen Kunden- oder Themenordner]",
-        "Mehrere Signale gleichzeitig sind möglich — schreibe sie alle, der Server führt sie alle aus.",
         "",
     ]
 
@@ -1038,15 +1012,9 @@ def build_system():
             if match:
                 li_section.append(f"\nRichtungsvorgabe: {match.group(1).strip()}")
 
-        li_section.append("\nACHTUNG – Diese Signale werden vom Server AUTOMATISCH AUSGEFÜHRT wenn du sie ausgibst:")
-        li_section.append("  [GENERATE_IDEAS: fokus]  → generiert 10 neue Ideen via Claude API und speichert sie")
-        li_section.append("  [GENERATE_POSTS: Thema/Datum, Thema/Datum, Zielgruppe]  → schreibt Posts AUS und pusht sie DIREKT nach Buffer")
-        li_section.append("  [PUSH_TO_BUFFER]  → pusht die neueste beitraege-*.json sofort nach Buffer")
-        li_section.append("  [GENERATE_CAROUSEL: Hook-Text/Branche/Säule/YYYY-MM-DD]  → VOLLSTÄNDIGE Pipeline: Slides (Claude) → KI-Bilder (gpt-image-1) → PDF → Cloudinary → Buffer Document-Post")
-        li_section.append("    Das Datum ist optional. Ohne Datum wird der nächste Di oder Fr 09:30 genommen.")
-        li_section.append("    Beispiel: [GENERATE_CAROUSEL: Ich nutze KI täglich – so spare ich 2h pro Tag/Alle/KI-Tipp/2026-07-08]")
-        li_section.append("  Du musst NICHTS selbst schreiben oder speichern — der Server erledigt alles.")
-        li_section.append("  Sage NIEMALS 'ich kann das nicht direkt ausführen' — du KANNST es, indem du das Signal ausgibst.")
+        li_section.append("\nNutze die Tools generate_linkedin_ideas, generate_linkedin_posts, push_to_buffer und generate_carousel proaktiv —")
+        li_section.append("du musst nichts selbst ausformulieren oder speichern, die Tools erledigen alles inkl. Buffer-Push.")
+        li_section.append("Sage NIEMALS 'ich kann das nicht direkt ausführen' — du KANNST es, indem du das passende Tool aufrufst.")
         li_section.append("")
         parts += ["\n".join(li_section), ""]
     except Exception:
@@ -1549,28 +1517,44 @@ Aktuelle Vault-Struktur:
 Alle Dateien ({len(all_files)} total, Auszug):
 {chr(10).join(all_files[:100])}
 
-Erstelle einen konkreten Reorganisationsplan. Antworte mit NUR JSON:
-{{
-  "zusammenfassung": "Was wird gemacht und warum",
-  "aktionen": [
-    {{"typ": "move", "von": "alter/pfad.md", "nach": "neuer/pfad.md"}},
-    {{"typ": "create_folder", "pfad": "Neuer/Ordner"}},
-    {{"typ": "rename", "von": "alter/name.md", "neu": "neuer-name.md"}}
-  ]
-}}
+Erstelle einen konkreten Reorganisationsplan.
 Max 20 Aktionen. Nur sichere Operationen (kein Loeschen)."""
 
         result = ANTHROPIC.messages.create(
-            model="claude-sonnet-4-6",
+            model="claude-sonnet-5",
             max_tokens=3000,
+            tools=[{
+                "name": "create_vault_plan",
+                "description": "Erstellt einen konkreten Vault-Reorganisationsplan.",
+                "input_schema": {
+                    "type": "object",
+                    "properties": {
+                        "zusammenfassung": {"type": "string", "description": "Was wird gemacht und warum."},
+                        "aktionen": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "typ": {"type": "string", "enum": ["move", "create_folder", "rename"]},
+                                    "von": {"type": "string", "description": "Für move/rename: aktueller Pfad."},
+                                    "nach": {"type": "string", "description": "Für move: Zielpfad."},
+                                    "pfad": {"type": "string", "description": "Für create_folder: neuer Ordnerpfad."},
+                                    "neu": {"type": "string", "description": "Für rename: neuer Dateiname."},
+                                },
+                                "required": ["typ"],
+                            },
+                        },
+                    },
+                    "required": ["zusammenfassung", "aktionen"],
+                },
+            }],
+            tool_choice={"type": "tool", "name": "create_vault_plan"},
             messages=[{"role": "user", "content": prompt}]
         )
-        text = result.content[0].text.strip()
-        m = re.search(r'\{.*\}', text, re.DOTALL)
-        if not m:
-            return {"ok": False, "error": "Kein JSON in Antwort", "raw": text[:300]}
-        plan = json.loads(m.group())
-        return {"ok": True, "plan": plan}
+        for block in result.content:
+            if block.type == "tool_use":
+                return {"ok": True, "plan": block.input}
+        return {"ok": False, "error": "Kein Tool-Use in Antwort"}
     except Exception as e:
         return {"ok": False, "error": str(e)}
 
@@ -1949,31 +1933,48 @@ PFLICHT für jeden Hook:
 - Ich-Perspektive ODER direkte Du-Ansprache (nicht beides)
 - Kein vollständiger Satz — eher Fragment oder Frage
 
-Antworte NUR mit validem JSON, kein Markdown:
-{{"generiert_am": "ISO-DATUM", "anzahl": 10, "ideen": [
-  {{
-    "typ": "A",
-    "titel": "max 60 Zeichen",
-    "hook": "erste Zeile, max 80 Zeichen, stoppt den Scroll",
-    "kern_botschaft": "was der Leser mitnimmt",
-    "branche": "Werkzeugbau|Maschinenbau|Lohnfertiger|Elektrotechnik|Allgemein",
-    "zielgruppe_spezifisch": "Einkaufsleiter, 45 MA, Werkzeugbau",
-    "format_empfehlung": "Text|Karussell|Liste",
-    "cta_vorschlag": "eine spezifische Frage für Kommentare — kein Engagement-Bait"
-  }}
-]}}"""
+Generiere GENAU 10 Ideen: 4× Typ A, 3× Typ B, 3× Typ C."""
+
+    idee_schema = {
+        "type": "object",
+        "properties": {
+            "typ": {"type": "string", "enum": ["A", "B", "C"]},
+            "titel": {"type": "string", "description": "Max 60 Zeichen."},
+            "hook": {"type": "string", "description": "Erste Zeile, max 80 Zeichen, stoppt den Scroll."},
+            "kern_botschaft": {"type": "string", "description": "Was der Leser mitnimmt."},
+            "branche": {"type": "string", "enum": ["Werkzeugbau", "Maschinenbau", "Lohnfertiger", "Elektrotechnik", "Allgemein"]},
+            "zielgruppe_spezifisch": {"type": "string", "description": "z.B. 'Einkaufsleiter, 45 MA, Werkzeugbau'."},
+            "format_empfehlung": {"type": "string", "enum": ["Text", "Karussell", "Liste"]},
+            "cta_vorschlag": {"type": "string", "description": "Eine spezifische Frage für Kommentare — kein Engagement-Bait."},
+        },
+        "required": ["typ", "titel", "hook", "kern_botschaft", "branche", "zielgruppe_spezifisch", "format_empfehlung", "cta_vorschlag"],
+    }
 
     try:
         result = ANTHROPIC.messages.create(
-            model="claude-sonnet-4-6",
+            model="claude-sonnet-5",
             max_tokens=4000,
+            tools=[{
+                "name": "save_linkedin_ideas",
+                "description": "Speichert die generierten LinkedIn-Post-Ideen.",
+                "input_schema": {
+                    "type": "object",
+                    "properties": {
+                        "ideen": {"type": "array", "items": idee_schema},
+                    },
+                    "required": ["ideen"],
+                },
+            }],
+            tool_choice={"type": "tool", "name": "save_linkedin_ideas"},
             messages=[{"role": "user", "content": prompt}]
         )
-        text = result.content[0].text.strip()
-        match = re.search(r'\{.*\}', text, re.DOTALL)
-        if not match:
-            return {"error": "Kein JSON in Antwort"}
-        data = json.loads(match.group())
+        data = None
+        for block in result.content:
+            if block.type == "tool_use":
+                data = block.input
+                break
+        if data is None:
+            return {"error": "Kein Tool-Use in Antwort"}
         data["generiert_am"] = datetime.now().isoformat()
         data["anzahl"] = len(data.get("ideen", []))
 
@@ -2042,53 +2043,47 @@ PFLICHT in jedem Post:
 Spezifikation:
 {spec}
 
-Datum-Felder exakt wie in der Spezifikation angegeben (YYYY-MM-DD).
-Antworte NUR mit validem JSON:
-{{
-  "generiert_am": "ISO-DATUM",
-  "posts": [
-    {{
-      "typ": "A|B|C",
-      "tag": "Dienstag",
-      "datum": "YYYY-MM-DD",
-      "thema": "Themenname",
-      "text": "Vollständiger Post-Text"
-    }}
-  ]
-}}"""
+Datum-Felder exakt wie in der Spezifikation angegeben (YYYY-MM-DD)."""
 
     try:
         result = ANTHROPIC.messages.create(
-            model="claude-sonnet-4-6",
+            model="claude-sonnet-5",
             max_tokens=6000,
+            tools=[{
+                "name": "save_linkedin_posts",
+                "description": "Speichert die ausformulierten LinkedIn-Posts.",
+                "input_schema": {
+                    "type": "object",
+                    "properties": {
+                        "posts": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "typ": {"type": "string", "enum": ["A", "B", "C"]},
+                                    "tag": {"type": "string", "enum": ["Dienstag", "Mittwoch", "Donnerstag"]},
+                                    "datum": {"type": "string", "description": "YYYY-MM-DD, exakt wie in der Spezifikation."},
+                                    "thema": {"type": "string"},
+                                    "text": {"type": "string", "description": "Vollständiger Post-Text."},
+                                },
+                                "required": ["typ", "tag", "datum", "thema", "text"],
+                            },
+                        },
+                    },
+                    "required": ["posts"],
+                },
+            }],
+            tool_choice={"type": "tool", "name": "save_linkedin_posts"},
             messages=[{"role": "user", "content": prompt}]
         )
-        raw = result.content[0].text.strip()
-
         posts = []
-        try:
-            match = re.search(r'\{.*\}', raw, re.DOTALL)
-            if match:
-                data = json.loads(match.group())
-                posts = data.get("posts", [])
-        except Exception:
-            pass
+        for block in result.content:
+            if block.type == "tool_use":
+                posts = block.input.get("posts", [])
+                break
 
         if not posts:
-            blocks = re.split(r'\n#+\s+', raw)
-            for block in blocks:
-                day_match = re.search(r'(Montag|Dienstag|Mittwoch|Donnerstag|Freitag)', block, re.IGNORECASE)
-                date_match = re.search(r'(\d{4}-\d{2}-\d{2})', block)
-                if day_match and date_match:
-                    posts.append({
-                        "tag": day_match.group(1),
-                        "datum": date_match.group(1),
-                        "thema": block.split('\n')[0].strip()[:80],
-                        "text": block.strip()[:1500],
-                    })
-
-        if not posts:
-            return {"error": "Keine Posts extrahiert", "raw": raw[:500]}
+            return {"error": "Keine Posts extrahiert"}
 
         # Speichern in Marketing/LinkedIn/ (kanonischer Pfad, von buffer_manager.py gelesen)
         out_data = {
@@ -2200,22 +2195,11 @@ Sebastian: {user_msg[:800]}
 
 Brain: {assistant_msg[:400]}
 
-JSON-Antwort (kein Markdown):
-{{"items": [{{"kategorie": "KORREKTUR", "fakt": "präzise Aussage"}}]}}
-Max 3 Items. Wenn nichts Neues: {{"items": []}}"""
+Max 3 Items."""
 
-        result = ANTHROPIC.messages.create(
-            model="claude-sonnet-4-6",
-            max_tokens=300,
-            messages=[{"role": "user", "content": prompt}]
-        )
-        text = result.content[0].text.strip()
-        match = re.search(r'\{.*\}', text, re.DOTALL)
-        if not match:
-            return
-        data = json.loads(match.group())
+        items = _extract_memory_items(prompt, "claude-sonnet-5", 300)
         saved = []
-        for item in data.get("items", []):
+        for item in items:
             kat = item.get("kategorie", "KONTEXT").upper()
             fakt = item.get("fakt", "").strip()
             if fakt and len(fakt) > 15:
@@ -2239,6 +2223,396 @@ def api_remember(text: str) -> dict:
         return {"ok": True}
     except Exception as e:
         return {"error": str(e)}
+
+# ── Tool Use API: Tool-Definitionen ──────────────────────────────────────────
+# Ersetzt das alte [SIGNAL: ...]-Textparsing durch die echte Anthropic Tool Use API:
+# Claude ruft diese Tools strukturiert auf (tool_use-Blöcke), der Server führt sie aus
+# und schickt das Ergebnis als tool_result zurück, bevor Claude seine finale Antwort schreibt.
+
+TOOLS = [
+    {
+        "name": "read_file",
+        "description": (
+            "Liest eine Datei aus dem Vault (Verträge, Angebote, Kundendokumente etc.). "
+            "Nutze dies wenn eine Datei erwähnt wird, die noch nicht im Kontext steht — "
+            "nie 'kann ich nicht einsehen' sagen, sondern dieses Tool nutzen. "
+            "Akzeptiert exakten Pfad, reinen Dateinamen oder ein Stichwort im Dateinamen; "
+            "der Server sucht automatisch im ganzen Vault danach. PDF/DOCX werden automatisch als Text extrahiert."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "path": {"type": "string", "description": "Pfad, Dateiname oder Stichwort, z.B. 'Sales/Geginat/Vertriebsvereinbarung.md' oder 'Geginat'"}
+            },
+            "required": ["path"],
+        },
+    },
+    {
+        "name": "search_meetings",
+        "description": (
+            "Durchsucht Kunden/*/Meetings/ und Kunden/*/Dokumente/ nach Transkripten und Protokollen. "
+            "Immer nutzen wenn von Meetings, Besprechungen, Transkripten, Protokollen oder Calls die Rede ist."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "query": {"type": "string", "description": "Stichwort, z.B. 'winform' oder 'Jochen'"},
+                "firma": {"type": "string", "description": "Optional: Firmenname, um die Suche auf Kunden/<Firma>/ einzugrenzen"},
+            },
+            "required": ["query"],
+        },
+    },
+    {
+        "name": "search_emails",
+        "description": (
+            "Sucht NUR im E-Mail-Cache (Gmail/Outlook) nach Absender/Betreff/Inhalt. "
+            "Nur nutzen wenn explizit von einer E-Mail die Rede ist (nicht von Meetings oder Dokumenten). "
+            "NIEMALS vault_list auf _agent/email_cache benutzen — das listet 250+ Dateien ohne Filter, dafür immer dieses Tool."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "query": {"type": "string", "description": "Stichwörter mit Leerzeichen getrennt, z.B. 'Mittelstand Digital Michelle'"}
+            },
+            "required": ["query"],
+        },
+    },
+    {
+        "name": "vault_list",
+        "description": "Zeigt den Ordnerinhalt eines Vault-Pfads — nur für Struktur-Übersichten, NICHT für E-Mail-Suche (dafür search_emails nutzen).",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "path": {"type": "string", "description": "Ordnerpfad relativ zum Vault-Root, leer = Root"}
+            },
+        },
+    },
+    {
+        "name": "vault_create",
+        "description": "Erstellt einen neuen Ordner im Vault (auch verschachtelt).",
+        "input_schema": {
+            "type": "object",
+            "properties": {"path": {"type": "string", "description": "z.B. 'Kunden/Mueller-GmbH'"}},
+            "required": ["path"],
+        },
+    },
+    {
+        "name": "vault_move",
+        "description": "Verschiebt eine Datei oder einen Ordner im Vault.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "source": {"type": "string"},
+                "destination": {"type": "string"},
+            },
+            "required": ["source", "destination"],
+        },
+    },
+    {
+        "name": "vault_rename",
+        "description": "Benennt eine Datei oder einen Ordner im Vault um.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "path": {"type": "string", "description": "aktueller Pfad"},
+                "new_name": {"type": "string", "description": "neuer Name"},
+            },
+            "required": ["path", "new_name"],
+        },
+    },
+    {
+        "name": "vault_reorganize",
+        "description": (
+            "Analysiert die Vault-Struktur mit KI, erstellt einen Reorganisationsplan (move/create_folder/rename) "
+            "und führt ihn aus. Für größere Umstrukturierungen, z.B. 'Reorganisiere meine Inbox'."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "instructions": {"type": "string", "description": "Anweisung in natürlicher Sprache"}
+            },
+            "required": ["instructions"],
+        },
+    },
+    {
+        "name": "download_attachment",
+        "description": (
+            "Lädt alle Anhänge einer Gmail-Mail herunter, speichert sie in _inbox/ und indexiert sie sofort. "
+            "Die message_id steht im Gmail-Kontext (id-Feld). Niemals 'kann ich nicht' sagen — dieses Tool nutzen."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {"message_id": {"type": "string"}},
+            "required": ["message_id"],
+        },
+    },
+    {
+        "name": "task_add",
+        "description": "Fügt eine neue offene Aufgabe in der Sidebar hinzu (context.md). Sidebar aktualisiert sich sofort.",
+        "input_schema": {
+            "type": "object",
+            "properties": {"text": {"type": "string"}},
+            "required": ["text"],
+        },
+    },
+    {
+        "name": "task_done",
+        "description": "Markiert eine Aufgabe (per Text oder Teiltext) als erledigt. Immer sofort nutzen wenn Sebastian sagt etwas sei erledigt/passiert/fertig — nicht nachfragen.",
+        "input_schema": {
+            "type": "object",
+            "properties": {"text": {"type": "string"}},
+            "required": ["text"],
+        },
+    },
+    {
+        "name": "task_remove",
+        "description": "Entfernt eine Aufgabe (per Text oder Teiltext) komplett aus der Liste.",
+        "input_schema": {
+            "type": "object",
+            "properties": {"text": {"type": "string"}},
+            "required": ["text"],
+        },
+    },
+    {
+        "name": "tasks_set",
+        "description": "Ersetzt die gesamte offene Aufgabenliste durch eine neue Liste.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "tasks": {"type": "array", "items": {"type": "string"}, "description": "Liste der neuen offenen Aufgaben"}
+            },
+            "required": ["tasks"],
+        },
+    },
+    {
+        "name": "push_to_buffer",
+        "description": "Pusht die neueste generierte beitraege-*.json (LinkedIn-Posts) sofort nach Buffer, für beide Kanäle (Sebastian + Prozessia).",
+        "input_schema": {"type": "object", "properties": {}},
+    },
+    {
+        "name": "generate_linkedin_ideas",
+        "description": "Generiert 10 neue LinkedIn-Ideen (4x Typ A Schmerz-Post, 3x Typ B Karussell, 3x Typ C Story) via Claude und speichert sie.",
+        "input_schema": {
+            "type": "object",
+            "properties": {"focus": {"type": "string", "description": "Optionaler thematischer Fokus"}},
+        },
+    },
+    {
+        "name": "generate_linkedin_posts",
+        "description": (
+            "Schreibt fertige LinkedIn-Post-Texte aus und pusht sie direkt nach Buffer (beide Kanäle). "
+            "Spec-Format: 'Thema1/Datum1, Thema2/Datum2, Zielgruppe' — Datum ist optional (YYYY-MM-DD)."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {"spec": {"type": "string"}},
+            "required": ["spec"],
+        },
+    },
+    {
+        "name": "generate_carousel",
+        "description": (
+            "Vollständige Karussell-Pipeline: Slides (Claude) → KI-Bilder (gpt-image-1) → PDF → Cloudinary → Buffer Document-Post. "
+            "Datum optional, ohne Datum wird der nächste Di oder Fr 09:30 genommen."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "hook": {"type": "string", "description": "Hook-Text für die erste Slide"},
+                "branche": {"type": "string", "description": "z.B. Werkzeugbau, Maschinenbau — Default 'Alle'"},
+                "saeule": {"type": "string", "description": "Themen-Säule, Default 'Wissen'"},
+                "due_date": {"type": "string", "description": "Optional YYYY-MM-DD"},
+            },
+            "required": ["hook"],
+        },
+    },
+]
+
+
+def _read_vault_file_content(path: Path) -> str:
+    """Liest Datei — PDF, DOCX werden extrahiert, sonst Text."""
+    suf = path.suffix.lower()
+    if suf == ".pdf":
+        try:
+            import pypdf
+            reader = pypdf.PdfReader(str(path))
+            text = "\n\n".join(p.extract_text() or "" for p in reader.pages)
+            return text[:8000] if text.strip() else "[PDF ohne extrahierbaren Text]"
+        except ImportError:
+            return "[PDF — pypdf nicht installiert]"
+        except Exception as e:
+            return f"[PDF-Fehler: {e}]"
+    if suf == ".docx":
+        try:
+            from docx import Document
+            doc = Document(str(path))
+            text = "\n".join(p.text for p in doc.paragraphs if p.text.strip())
+            return text[:8000] if text.strip() else "[DOCX ohne extrahierbaren Text]"
+        except Exception as e:
+            return f"[DOCX-Fehler: {e}]"
+    if suf in (".png", ".jpg", ".jpeg", ".gif", ".mp4", ".zip"):
+        return f"[Binärdatei — kein Textinhalt: {suf}]"
+    return path.read_text(errors="ignore")[:6000]
+
+
+def tool_read_file(req_path: str) -> str:
+    """Liest exakten Pfad, sonst Dateiname-Suche, sonst Stichwort-Suche im ganzen Vault."""
+    target = VAULT / req_path
+    if target.exists() and target.is_file():
+        return f"Datei: {req_path}\n\n{_read_vault_file_content(target)}"
+    fname = Path(req_path).name
+    for hit in VAULT.rglob(fname):
+        if hit.is_file():
+            rel = str(hit.relative_to(VAULT))
+            return f"Datei: {rel}\n\n{_read_vault_file_content(hit)}"
+    kw = req_path.lower().strip()
+    for ext in ("*.md", "*.txt", "*.pdf", "*.docx"):
+        for hit in VAULT.rglob(ext):
+            if kw in hit.stem.lower():
+                rel = str(hit.relative_to(VAULT))
+                return f"Datei: {rel}\n\n{_read_vault_file_content(hit)}"
+    return f"Datei nicht gefunden: {req_path}"
+
+
+_TASK_TOOL_NAMES = {"task_add", "task_done", "task_remove", "tasks_set"}
+
+
+def execute_tool(name: str, tool_input: dict, send_chunk=None) -> tuple:
+    """Führt ein Tool aus. Gibt (text, is_error) zurück, sodass der Aufrufer den
+    tool_result-Block korrekt mit is_error markieren kann statt Fehler nur im Text zu verstecken."""
+    try:
+        if name == "read_file":
+            text = tool_read_file(tool_input.get("path", ""))
+            return text, text.startswith("Datei nicht gefunden")
+
+        if name == "search_meetings":
+            query = tool_input.get("query", "")
+            firma = tool_input.get("firma", "") or ""
+            return search_meetings(query, firma=firma), False
+
+        if name == "search_emails":
+            return search_emails(tool_input.get("query", "")), False
+
+        if name == "vault_list":
+            path = tool_input.get("path", "") or ""
+            if "email_cache" in path.lower():
+                return "VAULT_LIST auf email_cache ist deaktiviert (250+ Dateien). Nutze stattdessen search_emails.", True
+            return vault_list(path), False
+
+        if name == "vault_create":
+            result = vault_create_folder(tool_input.get("path", ""))
+            return json.dumps(result, ensure_ascii=False), not result.get("ok")
+
+        if name == "vault_move":
+            result = vault_move(tool_input.get("source", ""), tool_input.get("destination", ""))
+            return json.dumps(result, ensure_ascii=False), not result.get("ok")
+
+        if name == "vault_rename":
+            result = vault_rename(tool_input.get("path", ""), tool_input.get("new_name", ""))
+            return json.dumps(result, ensure_ascii=False), not result.get("ok")
+
+        if name == "vault_reorganize":
+            instructions = tool_input.get("instructions", "")
+            if send_chunk:
+                send_chunk("\n\n---\n*Vault-Reorganisation: Analysiere Struktur...*")
+            plan_result = api_vault_reorganize(instructions)
+            if not plan_result.get("ok"):
+                return f"Fehler: {plan_result.get('error','?')}", True
+            plan = plan_result["plan"]
+            if send_chunk:
+                summary = plan.get("zusammenfassung", "")
+                actions = plan.get("aktionen", [])
+                send_chunk(f"\n\n**Reorganisationsplan ({len(actions)} Aktionen):**\n{summary}")
+                send_chunk("\n\n*Fuehre aus...*")
+            exec_result = execute_vault_plan(plan)
+            return (
+                f"Reorganisation abgeschlossen: {exec_result['success']}/{exec_result['executed']} "
+                f"Aktionen erfolgreich.",
+                False,
+            )
+
+        if name == "download_attachment":
+            msg_id = tool_input.get("message_id", "")
+            if send_chunk:
+                send_chunk(f"\n\n---\n*Lade Anhänge fuer Mail {msg_id[:12]}... herunter...*")
+            result = api_gmail_download_attachments(msg_id)
+            if not result.get("ok"):
+                return f"Fehler: {result.get('error','?')}", True
+            files_info = "\n".join(
+                f"  - {a['filename']} ({a['size']} Bytes) → {a['saved_as']}"
+                for a in result.get("attachments", [])
+            )
+            return (
+                f"{result['count']} Anhang/Anhaenge heruntergeladen aus: {result.get('subject','?')}\n"
+                f"{files_info}\n\nDateien liegen in _inbox/ und sind indexiert.",
+                False,
+            )
+
+        if name == "task_add":
+            ok = _task_add(tool_input.get("text", ""))
+            return ("Aufgabe hinzugefuegt." if ok else "Fehler beim Hinzufuegen."), not ok
+
+        if name == "task_done":
+            ok = _task_done(tool_input.get("text", ""))
+            return ("Aufgabe als erledigt markiert." if ok else "Aufgabe nicht gefunden."), not ok
+
+        if name == "task_remove":
+            ok = _task_remove(tool_input.get("text", ""))
+            return ("Aufgabe entfernt." if ok else "Fehler beim Entfernen."), not ok
+
+        if name == "tasks_set":
+            tasks = tool_input.get("tasks", [])
+            ok = _tasks_replace(tasks)
+            return (f"Aufgabenliste aktualisiert: {len(tasks)} offene Aufgaben." if ok else "Fehler beim Aktualisieren."), not ok
+
+        if name == "push_to_buffer":
+            result = api_buffer_push()
+            ok = result.get("ok")
+            return ("Posts in Buffer eingeplant." if ok else f"Buffer-Fehler: {result.get('error','?')}"), not ok
+
+        if name == "generate_linkedin_ideas":
+            result = api_linkedin_generate_ideas(tool_input.get("focus", "") or "")
+            ok = result.get("ok")
+            n = result.get("anzahl", 0)
+            return (f"{n} neue Ideen generiert und gespeichert." if ok else f"Fehler: {result.get('error','?')}"), not ok
+
+        if name == "generate_linkedin_posts":
+            spec = tool_input.get("spec", "")
+            result = api_linkedin_generate_posts(spec)
+            if not result.get("ok"):
+                return f"Generierung fehlgeschlagen: {result.get('error','?')}", True
+            push = api_buffer_push(result.get("path"))
+            if push.get("ok"):
+                return f"{len(result.get('posts',[]))} Posts generiert und in Buffer eingeplant.", False
+            # Posts wurden erfolgreich generiert und gespeichert, nur der Buffer-Push schlug fehl
+            return f"Posts generiert — Buffer Push: {push.get('output','?')[:200]}", False
+
+        if name == "generate_carousel":
+            hook = tool_input.get("hook", "")
+            branche = tool_input.get("branche") or "Alle"
+            saeule = tool_input.get("saeule") or "Wissen"
+            due_date = tool_input.get("due_date")
+            due_at = f"{due_date}T09:30:00+02:00" if due_date and re.match(r"\d{4}-\d{2}-\d{2}", due_date) else None
+            if send_chunk:
+                send_chunk(f"\n\n---\n*Karussell: Starte Pipeline fuer \"{hook}\"...*")
+
+            def _progress(msg):
+                if send_chunk:
+                    send_chunk(f"\n*{msg}*")
+
+            result = api_carousel_generate(hook, branche, saeule, due_at=due_at, progress_fn=_progress)
+            if result.get("ok"):
+                n = result.get("slides", 0)
+                due = (result.get("due_at") or "")[:10]
+                pushed = result.get("anzahl_gepusht", 0)
+                titles = " | ".join((result.get("slide_titles") or [])[:3])
+                return f"Karussell fertig — {n} Slides | Buffer: {pushed}x eingeplant fuer {due} | {titles}", False
+            return f"Karussell-Fehler: {result.get('error','?')}", True
+
+        return f"Unbekanntes Tool: {name}", True
+    except Exception as e:
+        return f"Tool-Fehler ({name}): {e}", True
+
 
 # ── Auth ─────────────────────────────────────────────────────────────────────
 # Passwörter für Remote-Zugriff (lokal wird automatisch durchgelassen)
@@ -2514,7 +2888,7 @@ class Handler(BaseHTTPRequestHandler):
                         b64 = base64.standard_b64encode(body).decode()
                         mt = "image/jpeg" if filename.lower().endswith((".jpg",".jpeg")) else "image/png"
                         vision_result = ANTHROPIC.messages.create(
-                            model="claude-sonnet-4-6",
+                            model="claude-sonnet-5",
                             max_tokens=2000,
                             messages=[{"role": "user", "content": [
                                 {"type": "image", "source": {"type": "base64", "media_type": mt, "data": b64}},
@@ -2663,16 +3037,16 @@ class Handler(BaseHTTPRequestHandler):
     def handle_chat(self):
         # Haiku ist für Chat nicht intelligent genug — Minimum ist Sonnet
         CHAT_MODELS = {
-            "claude-sonnet-4-6",
+            "claude-sonnet-5",
             "claude-opus-4-8",
         }
         try:
             length = int(self.headers.get("Content-Length", 0))
             body = json.loads(self.rfile.read(length))
             messages = body.get("messages", [])
-            model = body.get("model", "claude-sonnet-4-6")
+            model = body.get("model", "claude-sonnet-5")
             if model not in CHAT_MODELS:
-                model = "claude-sonnet-4-6"  # Haiku → Sonnet upgrade
+                model = "claude-sonnet-5"  # Haiku → Sonnet upgrade
             if not messages:
                 self.json_response({"error": "no messages"}, 400)
                 return
@@ -2728,285 +3102,66 @@ class Handler(BaseHTTPRequestHandler):
                           or len(last_msg) > 250 or model == "claude-opus-4-8")
             max_tok = 16000 if model == "claude-opus-4-8" else (8192 if is_complex else 4096)
 
-            full_response = []
-            with ANTHROPIC.messages.stream(
-                model=model,
-                max_tokens=max_tok,
-                system=system,
-                messages=messages,
-            ) as stream:
-                for chunk in stream.text_stream:
-                    full_response.append(chunk)
-                    payload = json.dumps({"chunk": chunk}, ensure_ascii=False)
-                    self.wfile.write(f"data: {payload}\n\n".encode("utf-8"))
-                    self.wfile.flush()
-
-            response_text = "".join(full_response)
-            threading.Thread(target=log_turn, args=("assistant", response_text), daemon=True).start()
-
             def _send_chunk(text: str):
                 payload = json.dumps({"chunk": text}, ensure_ascii=False)
                 self.wfile.write(f"data: {payload}\n\n".encode("utf-8"))
                 self.wfile.flush()
 
-            # Signal-Handler: [GENERATE_CAROUSEL: hook/branche/saeule(/datum)] → volle Pipeline
-            carousel_match = re.search(r'\[GENERATE_CAROUSEL:\s*([^\]]+)\]', response_text)
-            if carousel_match:
-                spec = carousel_match.group(1).strip()
-                parts = [p.strip() for p in spec.split("/")]
-                hook    = parts[0] if parts else spec
-                branche = parts[1] if len(parts) > 1 else "Alle"
-                saeule  = parts[2] if len(parts) > 2 else "Wissen"
-                due_at  = None
-                if len(parts) > 3 and re.match(r'\d{4}-\d{2}-\d{2}', parts[3]):
-                    due_at = f"{parts[3]}T09:30:00+02:00"
+            # ── Tool-Use-Loop ──────────────────────────────────────────────────
+            # Claude bekommt echte Tools (TOOLS-Schema) statt Text-Signalen. Solange
+            # die Antwort mit stop_reason "tool_use" endet: Tool ausführen, Ergebnis als
+            # tool_result zurückschicken, Claude erneut anfragen — bis es fertig ist.
+            current_messages = list(messages)
+            all_text_parts = []
+            tasks_changed = False
+            MAX_TOOL_ITERATIONS = 8
 
-                _send_chunk(f"\n\n---\n*Karussell: Starte Pipeline fuer \"{hook}\"...*")
+            for _iteration in range(MAX_TOOL_ITERATIONS):
+                with ANTHROPIC.messages.stream(
+                    model=model,
+                    max_tokens=max_tok,
+                    system=system,
+                    messages=current_messages,
+                    tools=TOOLS,
+                ) as stream:
+                    for chunk in stream.text_stream:
+                        all_text_parts.append(chunk)
+                        _send_chunk(chunk)
+                    final_message = stream.get_final_message()
 
-                def _carousel_progress(msg):
-                    _send_chunk(f"\n*{msg}*")
+                current_messages.append({
+                    "role": "assistant",
+                    "content": [block.model_dump() for block in final_message.content],
+                })
 
-                result = api_carousel_generate(hook, branche, saeule,
-                                               due_at=due_at, progress_fn=_carousel_progress)
-                if result.get("ok"):
-                    n      = result.get("slides", 0)
-                    due    = (result.get("due_at") or "")[:10]
-                    pushed = result.get("anzahl_gepusht", 0)
-                    titles = " | ".join((result.get("slide_titles") or [])[:3])
-                    _send_chunk(
-                        f"\n\n**Karussell fertig** -- {n} Slides | "
-                        f"Buffer: {pushed}x eingeplant fuer {due}\n"
-                        f"*{titles}...*"
-                    )
-                else:
-                    _send_chunk(f"\n\nKarussell-Fehler: {result.get('error','?')}")
+                if final_message.stop_reason != "tool_use":
+                    break
 
-            # Signal-Handler: [READ: pfad] → Datei aus Vault direkt lesen und anhängen
-            for read_m in re.finditer(r'\[READ:\s*([^\]]+)\]', response_text):
-                req_path = read_m.group(1).strip()
+                tool_result_blocks = []
+                for block in final_message.content:
+                    if block.type != "tool_use":
+                        continue
+                    if block.name in _TASK_TOOL_NAMES:
+                        tasks_changed = True
+                    result_text, is_error = execute_tool(block.name, block.input, send_chunk=_send_chunk)
+                    tool_result_blocks.append({
+                        "type": "tool_result",
+                        "tool_use_id": block.id,
+                        "content": result_text,
+                        "is_error": is_error,
+                    })
+                current_messages.append({"role": "user", "content": tool_result_blocks})
+            else:
+                _send_chunk("\n\n---\n*Hinweis: Maximale Anzahl an Tool-Aufrufen erreicht.*")
 
-                def _read_file(path: Path) -> str:
-                    """Liest Datei — PDF, DOCX, PPTX werden extrahiert, sonst Text."""
-                    suf = path.suffix.lower()
-                    if suf == ".pdf":
-                        try:
-                            import pypdf
-                            reader = pypdf.PdfReader(str(path))
-                            text = "\n\n".join(p.extract_text() or "" for p in reader.pages)
-                            return text[:8000] if text.strip() else "[PDF ohne extrahierbaren Text]"
-                        except ImportError:
-                            return "[PDF — pypdf nicht installiert]"
-                        except Exception as e:
-                            return f"[PDF-Fehler: {e}]"
-                    if suf == ".docx":
-                        try:
-                            from docx import Document
-                            doc = Document(str(path))
-                            text = "\n".join(p.text for p in doc.paragraphs if p.text.strip())
-                            return text[:8000] if text.strip() else "[DOCX ohne extrahierbaren Text]"
-                        except Exception as e:
-                            return f"[DOCX-Fehler: {e}]"
-                    if suf in (".png", ".jpg", ".jpeg", ".gif", ".mp4", ".zip"):
-                        return f"[Binärdatei — kein Textinhalt: {suf}]"
-                    return path.read_text(errors="ignore")[:6000]
-
-                found_content = None
-                found_path = None
-                # 1. Exakter Pfad
-                target = VAULT / req_path
-                if target.exists() and target.is_file():
-                    found_content = _read_file(target)
-                    found_path = req_path
-                else:
-                    # 2. Dateiname-Suche im ganzen Vault (exakter Dateiname)
-                    fname = Path(req_path).name
-                    for hit in VAULT.rglob(fname):
-                        if hit.is_file():
-                            found_content = _read_file(hit)
-                            found_path = str(hit.relative_to(VAULT))
-                            break
-                    # 3. Keyword-Suche: Stichwort im Dateinamen (nur Text-Dateien)
-                    if not found_content:
-                        kw = req_path.lower().strip()
-                        for ext in ("*.md", "*.txt", "*.pdf", "*.docx"):
-                            for hit in VAULT.rglob(ext):
-                                if kw in hit.stem.lower():
-                                    found_content = _read_file(hit)
-                                    found_path = str(hit.relative_to(VAULT))
-                                    break
-                            if found_content:
-                                break
-                if found_content:
-                    _send_chunk(f"\n\n---\n**Datei: {found_path}**\n\n{found_content}")
-                else:
-                    _send_chunk(f"\n\n---\n*Datei nicht gefunden: {req_path}*")
-
-            # Signal-Handler: [PUSH_TO_BUFFER] → sofort synchron pushen (vor [DONE])
-            if "[PUSH_TO_BUFFER]" in response_text:
-                result = api_buffer_push()
-                status = "✓ Posts in Buffer eingeplant." if result.get("ok") else f"✗ Buffer-Fehler: {result.get('error','?')}"
-                _send_chunk(f"\n\n---\n*Buffer: {status}*")
-
-            # Signal-Handler: [GENERATE_IDEAS: ...] → synchron, Ergebnis vor [DONE]
-            ideas_match = re.search(r'\[GENERATE_IDEAS:\s*([^\]]*)\]', response_text)
-            if ideas_match:
-                focus = ideas_match.group(1).strip()
-                result = api_linkedin_generate_ideas(focus)
-                n = result.get("anzahl", 0)
-                status = f"✓ {n} neue Ideen generiert und gespeichert." if result.get("ok") else f"✗ Fehler: {result.get('error','?')}"
-                _send_chunk(f"\n\n---\n*Ideen: {status}*")
-
-            # Signal-Handler: [GENERATE_POSTS: ...] → synchron generieren + pushen vor [DONE]
-            posts_match = re.search(r'\[GENERATE_POSTS:\s*([^\]]+)\]', response_text)
-            if posts_match:
-                spec = posts_match.group(1).strip()
-                result = api_linkedin_generate_posts(spec)
-                if result.get("ok"):
-                    push = api_buffer_push(result.get("path"))
-                    if push.get("ok"):
-                        status = f"✓ {len(result.get('posts',[]))} Posts generiert und in Buffer eingeplant."
-                    else:
-                        status = f"✓ Posts generiert — Buffer Push: {push.get('output','?')[:100]}"
-                else:
-                    status = f"✗ Generierung fehlgeschlagen: {result.get('error','?')}"
-                _send_chunk(f"\n\n---\n*Posts: {status}*")
-
-            # ── Task-Signal-Handler ──────────────────────────────────────────────
-            _tasks_changed = False
-
-            # [TASK_ADD: Aufgabe text]
-            for m in re.finditer(r'\[TASK_ADD:\s*([^\]]+)\]', response_text):
-                if _task_add(m.group(1).strip()):
-                    _tasks_changed = True
-                    _send_chunk(f"\n\n---\n*Aufgabe hinzugefuegt: {m.group(1).strip()}*")
-
-            # [TASK_DONE: Aufgabe text]
-            for m in re.finditer(r'\[TASK_DONE:\s*([^\]]+)\]', response_text):
-                if _task_done(m.group(1).strip()):
-                    _tasks_changed = True
-                    _send_chunk(f"\n\n---\n*Aufgabe erledigt: {m.group(1).strip()} ✓*")
-
-            # [TASK_REMOVE: Aufgabe text]
-            for m in re.finditer(r'\[TASK_REMOVE:\s*([^\]]+)\]', response_text):
-                if _task_remove(m.group(1).strip()):
-                    _tasks_changed = True
-                    _send_chunk(f"\n\n---\n*Aufgabe entfernt: {m.group(1).strip()}*")
-
-            # [TASKS_SET: aufgabe1 | aufgabe2 | aufgabe3]
-            tasks_set_m = re.search(r'\[TASKS_SET:\s*([^\]]+)\]', response_text, re.DOTALL)
-            if tasks_set_m:
-                new_tasks = [t.strip() for t in tasks_set_m.group(1).split("|") if t.strip()]
-                if _tasks_replace(new_tasks):
-                    _tasks_changed = True
-                    _send_chunk(f"\n\n---\n*Aufgabenliste aktualisiert: {len(new_tasks)} offene Aufgaben gespeichert.*")
+            response_text = "".join(all_text_parts)
+            threading.Thread(target=log_turn, args=("assistant", response_text), daemon=True).start()
 
             # Nach Task-Änderung: Frontend-Refresh-Event senden
-            if _tasks_changed:
+            if tasks_changed:
                 payload = json.dumps({"tasks_updated": True})
                 self.wfile.write(f"data: {payload}\n\n".encode("utf-8"))
                 self.wfile.flush()
-
-            # Signal: [DOWNLOAD_ATTACHMENT: message_id] → Anhänge herunterladen + in _inbox/ speichern
-            for dl_m in re.finditer(r'\[DOWNLOAD_ATTACHMENT:\s*([^\]]+)\]', response_text):
-                msg_id = dl_m.group(1).strip()
-                _send_chunk(f"\n\n---\n*Lade Anhänge fuer Mail {msg_id[:12]}... herunter...*")
-                result = api_gmail_download_attachments(msg_id)
-                if result.get("ok"):
-                    files_info = "\n".join(
-                        f"  - {a['filename']} ({a['size']} Bytes) → {a['saved_as']}"
-                        for a in result.get("attachments", [])
-                    )
-                    _send_chunk(
-                        f"\n\n**{result['count']} Anhang/Anhaenge heruntergeladen** aus: {result.get('subject','?')}\n"
-                        f"{files_info}\n\nDateien liegen in `_inbox/` und sind indexiert."
-                    )
-                else:
-                    _send_chunk(f"\n\nAnhang-Fehler: {result.get('error','?')}")
-
-            # Signal: [VAULT_CREATE: pfad/zum/ordner] → Ordner anlegen
-            for vc_m in re.finditer(r'\[VAULT_CREATE:\s*([^\]]+)\]', response_text):
-                path = vc_m.group(1).strip()
-                result = vault_create_folder(path)
-                if result.get("ok"):
-                    _send_chunk(f"\n\n---\n*Ordner erstellt: {result['path']}*")
-                else:
-                    _send_chunk(f"\n\n---\n*Ordner-Fehler: {result.get('error','?')}*")
-
-            # Signal: [VAULT_MOVE: quelle → ziel]
-            for vm_m in re.finditer(r'\[VAULT_MOVE:\s*([^\]]+?)\s*[→>]\s*([^\]]+)\]', response_text):
-                src, dst = vm_m.group(1).strip(), vm_m.group(2).strip()
-                result = vault_move(src, dst)
-                if result.get("ok"):
-                    _send_chunk(f"\n\n---\n*Verschoben: {result['from']} → {result['to']}*")
-                else:
-                    _send_chunk(f"\n\n---\n*Move-Fehler: {result.get('error','?')}*")
-
-            # Signal: [VAULT_RENAME: alter-name.md → neuer-name.md]
-            for vr_m in re.finditer(r'\[VAULT_RENAME:\s*([^\]]+?)\s*[→>]\s*([^\]]+)\]', response_text):
-                old_p, new_n = vr_m.group(1).strip(), vr_m.group(2).strip()
-                result = vault_rename(old_p, new_n)
-                if result.get("ok"):
-                    _send_chunk(f"\n\n---\n*Umbenannt: {result['from']} → {result['to']}*")
-                else:
-                    _send_chunk(f"\n\n---\n*Rename-Fehler: {result.get('error','?')}*")
-
-            # Signal: [VAULT_LIST: pfad] → Ordnerinhalt zeigen
-            for vl_m in re.finditer(r'\[VAULT_LIST:\s*([^\]]*)\]', response_text):
-                path = vl_m.group(1).strip()
-                # Schutz: VAULT_LIST auf email_cache ist verboten → automatisch umleiten
-                if "email_cache" in path.lower():
-                    _send_chunk(
-                        "\n\n---\n*Hinweis: VAULT_LIST auf email_cache ist deaktiviert (250+ Dateien). "
-                        "Nutze [SEARCH_EMAILS: Stichwort] für gezielte E-Mail-Suche.*"
-                    )
-                else:
-                    listing = vault_list(path)
-                    _send_chunk(f"\n\n---\n```\n{listing}\n```")
-
-            # Signal: [SEARCH_EMAILS: query] → gezielt in email_cache nach Absender/Betreff suchen
-            for se_m in re.finditer(r'\[SEARCH_EMAILS:\s*([^\]]+)\]', response_text):
-                eq = se_m.group(1).strip()
-                results = search_emails(eq)
-                _send_chunk(f"\n\n---\n**E-Mail-Suche: '{eq}'**\n\n{results}")
-
-            # Signal: [SEARCH_MEETINGS: query] → sucht in Kunden/*/Meetings/ und Kunden/*/Dokumente/
-            for sm_m in re.finditer(r'\[SEARCH_MEETINGS:\s*([^\]]+)\]', response_text):
-                mq = sm_m.group(1).strip()
-                # Optionale Firma: "Schaufler winform" → firma=Schaufler, query=winform
-                parts_q = mq.split(None, 1)
-                firma_hint = ""
-                if len(parts_q) == 2:
-                    candidate = (VAULT / "Kunden" / parts_q[0])
-                    if candidate.exists():
-                        firma_hint = parts_q[0]
-                        mq = parts_q[1]
-                m_results = search_meetings(mq, firma=firma_hint)
-                _send_chunk(f"\n\n---\n**Meeting-Suche: '{mq}'{(' ('+firma_hint+')') if firma_hint else ''}**\n\n{m_results}")
-
-            # Signal: [VAULT_REORGANIZE: anweisungen] → KI-Plan generieren + ausführen
-            reorg_m = re.search(r'\[VAULT_REORGANIZE:\s*([^\]]+)\]', response_text)
-            if reorg_m:
-                instructions = reorg_m.group(1).strip()
-                _send_chunk(f"\n\n---\n*Vault-Reorganisation: Analysiere Struktur...*")
-                plan_result = api_vault_reorganize(instructions)
-                if plan_result.get("ok"):
-                    plan = plan_result["plan"]
-                    summary = plan.get("zusammenfassung", "")
-                    actions = plan.get("aktionen", [])
-                    _send_chunk(f"\n\n**Reorganisationsplan ({len(actions)} Aktionen):**\n{summary}")
-                    action_lines = "\n".join(
-                        f"  - {a.get('typ','?')}: {a.get('von', a.get('pfad','?'))}"
-                        + (f" → {a.get('nach', a.get('neu','?'))}" if a.get('nach') or a.get('neu') else "")
-                        for a in actions[:20]
-                    )
-                    _send_chunk(f"\n{action_lines}")
-                    _send_chunk(f"\n\n*Fuehre aus...*")
-                    exec_result = execute_vault_plan(plan)
-                    _send_chunk(
-                        f"\n\n**Abgeschlossen:** {exec_result['success']}/{exec_result['executed']} Aktionen erfolgreich."
-                    )
-                else:
-                    _send_chunk(f"\n\nReorganisations-Fehler: {plan_result.get('error','?')}")
 
             # Korrekturen im Hintergrund (nur Logging, kein User-Feedback nötig)
             threading.Thread(target=auto_remember, args=(last_msg, response_text), daemon=True).start()
