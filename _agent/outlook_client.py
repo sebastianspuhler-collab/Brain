@@ -1,9 +1,11 @@
 """
 Microsoft Graph API – Outlook Email & Kalender
 Auth einmalig einrichten: python3 _agent/ms_login.py
+Supports credentials aus .env (MS_CLIENT_ID, MS_TENANT_ID) oder ms_config.json
 """
 
 import json
+import os
 from datetime import datetime, timedelta
 from pathlib import Path
 import requests
@@ -22,10 +24,36 @@ SCOPES = [
 ]
 
 
+def _get_config() -> dict | None:
+    """Versucht Microsoft Credentials zu laden von ENV oder Datei."""
+    # 1. Prüfe ENV-Variablen
+    client_id = os.getenv("MS_CLIENT_ID", "").strip()
+    tenant_id = os.getenv("MS_TENANT_ID", "").strip()
+    
+    if client_id and tenant_id:
+        return {"client_id": client_id, "tenant_id": tenant_id}
+    
+    # 2. Prüfe Datei
+    if CONFIG_PATH.exists():
+        try:
+            return json.loads(CONFIG_PATH.read_text())
+        except json.JSONDecodeError:
+            print(f"WARNUNG: {CONFIG_PATH} ist kein gültiges JSON")
+    
+    return None
+
+
 def _load_config():
-    if not CONFIG_PATH.exists():
-        raise FileNotFoundError("ms_config.json fehlt – siehe _agent/ms_setup.md")
-    return json.loads(CONFIG_PATH.read_text())
+    cfg = _get_config()
+    if not cfg:
+        raise FileNotFoundError(
+            "Microsoft Credentials nicht gefunden.\n"
+            "Optionen:\n"
+            "  1. ENV-Variablen setzen: MS_CLIENT_ID, MS_TENANT_ID in .env\n"
+            "  2. Datei erstellen: _agent/ms_config.json\n"
+            "Siehe: _agent/ms_setup.md"
+        )
+    return cfg
 
 
 def _get_app():

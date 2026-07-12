@@ -1,7 +1,7 @@
 """
 Gmail API Client – Email lesen, senden, antworten
 Auth einmalig: python3 _agent/gmail_setup.py
-Nutzt dieselbe drive_credentials.json (selbes Google Cloud Projekt)
+Supports credentials aus .env (GOOGLE_CREDENTIALS_JSON) oder aus drive_credentials.json
 """
 
 import base64
@@ -30,21 +30,42 @@ SCOPES = [
 
 def get_service():
     """Returns Gmail service or None if credentials are missing (e.g. on VPS)."""
-    if not TOKEN_PATH.exists() and not CREDS_PATH.exists():
+    creds_json = _get_google_credentials_json()
+    
+    if not creds_json and not TOKEN_PATH.exists():
         return None
+    
     creds = None
     if TOKEN_PATH.exists():
-        creds = Credentials.from_authorized_user_file(str(TOKEN_PATH), SCOPES)
+        try:
+            creds = Credentials.from_authorized_user_file(str(TOKEN_PATH), SCOPES)
+        except Exception:
+            pass
+    
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
-        elif CREDS_PATH.exists():
-            flow = InstalledAppFlow.from_client_secrets_file(str(CREDS_PATH), SCOPES)
-            creds = flow.run_local_server(port=0)
+        elif creds_json:
+            # Speichere Credentials temporär in Datei für OAuth Flow
+            temp_creds_path = VAULT / "_agent" / ".drive_credentials_temp.json"
+            temp_creds_path.write_text(json.dumps(creds_json))
+            try:
+                flow = InstalledAppFlow.from_client_secrets_file(str(temp_creds_path), SCOPES)
+                creds = flow.run_local_server(port=0)
+            finally:
+                # Cleanup temp file
+                if temp_creds_path.exists():
+                    temp_creds_path.unlink()
         else:
             return None
-        TOKEN_PATH.write_text(creds.to_json())
-    return build("gmail", "v1", credentials=creds)
+        
+        # Speichere Token
+        if creds:
+            TOKEN_PATH.write_text(creds.to_json())
+    
+    if creds:
+        return build("gmail", "v1", credentials=creds)
+    return None
 
 
 def is_authenticated() -> bool:
