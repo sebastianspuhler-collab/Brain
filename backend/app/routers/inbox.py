@@ -59,7 +59,7 @@ async def upload(file: UploadFile, user: str = Depends(get_current_user)):
             b64 = base64.standard_b64encode(body).decode()
             mt = "image/jpeg" if suffix in (".jpg", ".jpeg") else "image/png"
             vision_result = get_client().messages.create(
-                model="claude-sonnet-4-6", max_tokens=2000,
+                model="claude-sonnet-5", max_tokens=2000,
                 messages=[{"role": "user", "content": [
                     {"type": "image", "source": {"type": "base64", "media_type": mt, "data": b64}},
                     {"type": "text", "text": "Extrahiere ALLEN Text und ALLE Zahlen/Daten aus diesem Bild. Formatiere als sauberen Markdown-Text. Nichts weglassen."},

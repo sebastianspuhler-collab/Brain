@@ -78,7 +78,7 @@ Max 3 Items. Wenn nichts Neues: {{"items": []}}"""
 
     try:
         result = get_client().messages.create(
-            model="claude-sonnet-4-6", max_tokens=300,
+            model="claude-sonnet-5", max_tokens=300,
             messages=[{"role": "user", "content": prompt}],
         )
         items = _extract_json_items(result.content[0].text.strip())

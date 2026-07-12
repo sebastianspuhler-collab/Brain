@@ -160,7 +160,7 @@ Antworte NUR als JSON, keine Erklärung."""
 
     try:
         resp = get_client().messages.create(
-            model="claude-sonnet-4-6", max_tokens=400,
+            model="claude-sonnet-5", max_tokens=400,
             messages=[{"role": "user", "content": prompt}],
         )
         raw = resp.content[0].text.strip().replace("```json", "").replace("```", "").strip()

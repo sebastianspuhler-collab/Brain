@@ -53,7 +53,7 @@ def analyze_new_project(beschreibung: str, files: list[tuple[str, bytes]]) -> di
     user_content = f"Projektbeschreibung:\n{beschreibung}\n\nHochgeladene Dokumente:\n{files_text or '(keine)'}"
 
     result = get_client().messages.create(
-        model="claude-sonnet-4-6",
+        model="claude-sonnet-5",
         max_tokens=4000,
         system=_SYSTEM_PROMPT,
         messages=[{"role": "user", "content": user_content}],

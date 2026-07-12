@@ -172,7 +172,7 @@ Antworte NUR mit validem JSON, kein Markdown:
 
     try:
         result = get_client().messages.create(
-            model="claude-sonnet-4-6", max_tokens=4000,
+            model="claude-sonnet-5", max_tokens=4000,
             messages=[{"role": "user", "content": prompt}],
         )
         text = result.content[0].text.strip()
@@ -251,7 +251,7 @@ Schreibe jeden Post vollständig aus. Antworte NUR mit validem JSON:
 
     try:
         result = get_client().messages.create(
-            model="claude-sonnet-4-6", max_tokens=6000,
+            model="claude-sonnet-5", max_tokens=6000,
             messages=[{"role": "user", "content": prompt}],
         )
         raw = result.content[0].text.strip()

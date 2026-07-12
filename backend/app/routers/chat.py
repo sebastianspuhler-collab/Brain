@@ -14,7 +14,7 @@ from app.services.anthropic_client import get_client
 
 router = APIRouter(prefix="/api", tags=["chat"])
 
-CHAT_MODELS = {"claude-sonnet-4-6", "claude-opus-4-8"}
+CHAT_MODELS = {"claude-sonnet-5", "claude-opus-4-8"}
 COMPLEX_KEYWORDS = {
     "analysiere", "analyse", "erkläre", "strategie", "warum",
     "plane", "vergleich", "bewerte", "empfehlung", "überblick",
@@ -29,7 +29,7 @@ class ChatMessage(BaseModel):
 
 class ChatRequest(BaseModel):
     messages: list[ChatMessage]
-    model: str = "claude-sonnet-4-6"
+    model: str = "claude-sonnet-5"
 
 
 def _sse(payload: dict) -> str:
@@ -38,7 +38,7 @@ def _sse(payload: dict) -> str:
 
 def _stream_chat(messages: list[dict], model: str):
     if model not in CHAT_MODELS:
-        model = "claude-sonnet-4-6"
+        model = "claude-sonnet-5"
     last_msg = messages[-1].get("content", "") if messages else ""
     threading.Thread(target=conversations.log_turn, args=("user", last_msg), daemon=True).start()
 
