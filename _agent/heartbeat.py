@@ -32,18 +32,18 @@ def load_cache():
 def save_cache(cache):
     CACHE_PATH.write_text(json.dumps(list(cache)))
 
-def extract_text(filepath):
+def extract_text(filepath, max_chars=3000):
     suffix = filepath.suffix.lower()
     try:
         if suffix == ".pdf":
             import PyPDF2
             with open(filepath, "rb") as f:
                 reader = PyPDF2.PdfReader(f)
-                return " ".join(page.extract_text() or "" for page in reader.pages)[:3000]
+                return " ".join(page.extract_text() or "" for page in reader.pages)[:max_chars]
         elif suffix == ".docx":
             from docx import Document
             doc = Document(filepath)
-            return " ".join(p.text for p in doc.paragraphs)[:3000]
+            return " ".join(p.text for p in doc.paragraphs)[:max_chars]
         elif suffix in [".xlsx", ".xls"]:
             import openpyxl
             wb = openpyxl.load_workbook(filepath, read_only=True)
@@ -51,7 +51,7 @@ def extract_text(filepath):
             for ws in wb.worksheets:
                 for row in ws.iter_rows(values_only=True):
                     text.append(" ".join(str(c) for c in row if c))
-            return " ".join(text)[:3000]
+            return " ".join(text)[:max_chars]
         elif suffix in [".pptx", ".ppt"]:
             from pptx import Presentation
             prs = Presentation(filepath)
@@ -60,7 +60,7 @@ def extract_text(filepath):
                 for shape in slide.shapes:
                     if hasattr(shape, "text"):
                         text.append(shape.text)
-            return " ".join(text)[:3000]
+            return " ".join(text)[:max_chars]
         elif suffix == ".html":
             from html.parser import HTMLParser
             class TextExtractor(HTMLParser):
@@ -71,12 +71,12 @@ def extract_text(filepath):
                     self.parts.append(data)
             p = TextExtractor()
             p.feed(filepath.read_text(errors="ignore"))
-            return " ".join(p.parts)[:3000]
+            return " ".join(p.parts)[:max_chars]
         elif suffix == ".json":
-            raw = filepath.read_text(errors="ignore")[:3000]
+            raw = filepath.read_text(errors="ignore")[:max_chars]
             return f"[JSON-Datei] {raw}"
         elif suffix in [".txt", ".md", ".markdown", ".csv"]:
-            return filepath.read_text(errors="ignore")[:3000]
+            return filepath.read_text(errors="ignore")[:max_chars]
         elif suffix in [".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp"]:
             return f"[Bilddatei, kein Text extrahierbar]"
         elif suffix in [".mp4", ".mov", ".avi", ".mkv", ".mp3"]:
@@ -172,7 +172,7 @@ Antworte NUR als JSON, keine Erklärung."""
 
     try:
         resp = client.messages.create(
-            model="claude-sonnet-4-6",
+            model="claude-sonnet-5",
             max_tokens=500,
             messages=[{"role": "user", "content": prompt}]
         )
@@ -188,6 +188,44 @@ Antworte NUR als JSON, keine Erklärung."""
         return result
     except Exception:
         return None
+
+
+def extract_meeting_structure(filepath):
+    """Extrahiert Teilnehmer/Kernpunkte/Zusagen/Nächste Schritte aus einem
+    Meeting-Transkript. Liest die Datei mit größerem max_chars erneut ein,
+    damit auch spät im Gespräch genannte Zusagen/nächste Schritte erfasst
+    werden (die reguläre Klassifizierung kappt bei 3000 Zeichen)."""
+    content = extract_text(filepath, max_chars=20000)
+    if not content:
+        return None
+
+    client = anthropic.Anthropic(api_key=API_KEY)
+    prompt = f"""Das ist das Transkript eines Kundengesprächs für Prozessia GbR.
+
+Transkript:
+{content}
+
+Extrahiere:
+1. teilnehmer: Namen der Gesprächsteilnehmer als JSON-Array (kurz, ohne Rollen/Firmen falls nicht eindeutig erkennbar)
+2. kernpunkte: die wichtigsten besprochenen Punkte als JSON-Array kurzer deutscher Sätze (max 6)
+3. zusagen: konkrete Zusagen, die im Gespräch gemacht wurden (von wem, was), als JSON-Array (leeres Array wenn keine)
+4. naechste_schritte: offene Punkte / vereinbarte nächste Schritte als JSON-Array (leeres Array wenn keine)
+
+Antworte NUR als JSON, keine Erklärung. Format:
+{{"teilnehmer": [...], "kernpunkte": [...], "zusagen": [...], "naechste_schritte": [...]}}"""
+
+    try:
+        resp = client.messages.create(
+            model="claude-sonnet-5",
+            max_tokens=800,
+            messages=[{"role": "user", "content": prompt}]
+        )
+        raw = resp.content[0].text.strip()
+        raw = raw.replace("```json", "").replace("```", "").strip()
+        return json.loads(raw)
+    except Exception:
+        return None
+
 
 def process_file(filepath):
     if filepath.suffix.lower() in SKIP_EXTENSIONS:
@@ -213,6 +251,27 @@ def process_file(filepath):
         tags = result.get("tags", [])
         tags_str = "\n".join(f"  - {t}" for t in tags)
         volltext = content[:6000] if content else ""
+
+        meeting_sections = ""
+        if "/Meetings" in result.get("zielordner", ""):
+            meeting_data = extract_meeting_structure(filepath)
+            if meeting_data:
+                def _liste(items):
+                    return "\n".join(f"- {i}" for i in items) if items else "- (keine)"
+                meeting_sections = f"""
+## Teilnehmer
+{_liste(meeting_data.get("teilnehmer", []))}
+
+## Kernpunkte
+{_liste(meeting_data.get("kernpunkte", []))}
+
+## Zusagen
+{_liste(meeting_data.get("zusagen", []))}
+
+## Nächste Schritte
+{_liste(meeting_data.get("naechste_schritte", []))}
+"""
+
         notiz_inhalt = f"""---
 tags:
 {tags_str}
@@ -225,7 +284,7 @@ kategorie: {result.get("kategorie", "")}
 
 ## Zusammenfassung
 {result.get("zusammenfassung", "")}
-
+{meeting_sections}
 ## Vollständiger Inhalt
 {volltext}
 """

@@ -43,7 +43,7 @@ def _save_cache(cache: set) -> None:
     _cache_path().write_text(json.dumps(list(cache)), encoding="utf-8")
 
 
-def extract_text(filepath: Path) -> str | None:
+def extract_text(filepath: Path, max_chars: int = 3000) -> str | None:
     suffix = filepath.suffix.lower()
     try:
         if suffix == ".pdf":
@@ -51,12 +51,12 @@ def extract_text(filepath: Path) -> str | None:
 
             with open(filepath, "rb") as f:
                 reader = PyPDF2.PdfReader(f)
-                return " ".join(page.extract_text() or "" for page in reader.pages)[:3000]
+                return " ".join(page.extract_text() or "" for page in reader.pages)[:max_chars]
         if suffix == ".docx":
             from docx import Document
 
             doc = Document(filepath)
-            return " ".join(p.text for p in doc.paragraphs)[:3000]
+            return " ".join(p.text for p in doc.paragraphs)[:max_chars]
         if suffix in (".xlsx", ".xls"):
             import openpyxl
 
@@ -65,7 +65,7 @@ def extract_text(filepath: Path) -> str | None:
             for ws in wb.worksheets:
                 for row in ws.iter_rows(values_only=True):
                     text.append(" ".join(str(c) for c in row if c))
-            return " ".join(text)[:3000]
+            return " ".join(text)[:max_chars]
         if suffix in (".pptx", ".ppt"):
             from pptx import Presentation
 
@@ -75,7 +75,7 @@ def extract_text(filepath: Path) -> str | None:
                 for shape in slide.shapes:
                     if hasattr(shape, "text"):
                         text.append(shape.text)
-            return " ".join(text)[:3000]
+            return " ".join(text)[:max_chars]
         if suffix == ".html":
             from html.parser import HTMLParser
 
@@ -89,12 +89,12 @@ def extract_text(filepath: Path) -> str | None:
 
             p = TextExtractor()
             p.feed(filepath.read_text(encoding="utf-8", errors="ignore"))
-            return " ".join(p.parts)[:3000]
+            return " ".join(p.parts)[:max_chars]
         if suffix == ".json":
-            raw = filepath.read_text(encoding="utf-8", errors="ignore")[:3000]
+            raw = filepath.read_text(encoding="utf-8", errors="ignore")[:max_chars]
             return f"[JSON-Datei] {raw}"
         if suffix in (".txt", ".md", ".markdown", ".csv"):
-            return filepath.read_text(encoding="utf-8", errors="ignore")[:3000]
+            return filepath.read_text(encoding="utf-8", errors="ignore")[:max_chars]
         if suffix in (".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp"):
             return "[Bilddatei, kein Text extrahierbar]"
         if suffix in (".mp4", ".mov", ".avi", ".mkv", ".mp3"):
@@ -104,6 +104,31 @@ def extract_text(filepath: Path) -> str | None:
         return f"[Unbekanntes Format: {suffix}]"
     except Exception:
         return None
+
+
+def _scan_vault_folders() -> str:
+    """Liest die aktuelle Ordnerstruktur des Vault dynamisch aus (Port aus
+    _agent/heartbeat.py), statt einer hartcodierten Zielordner-Liste — damit
+    neue Kunden und Unterordner (z.B. Meetings/Dokumente) automatisch bekannt sind."""
+    settings = get_settings()
+    lines = []
+    for top in sorted(settings.vault_path.iterdir()):
+        if top.name.startswith(".") or top.name.startswith("_") or not top.is_dir():
+            continue
+        if top.name in ("backend", "frontend", "Uni"):
+            continue
+        subs = sorted(p.name for p in top.iterdir() if p.is_dir() and not p.name.startswith("."))
+        if subs:
+            for sub in subs:
+                subsubs = sorted(p.name for p in (top / sub).iterdir() if p.is_dir() and not p.name.startswith("."))
+                if subsubs:
+                    for ss in subsubs:
+                        lines.append(f"- {top.name}/{sub}/{ss}")
+                else:
+                    lines.append(f"- {top.name}/{sub}")
+        else:
+            lines.append(f"- {top.name}")
+    return "\n".join(lines)
 
 
 def _load_memory_rules() -> str:
@@ -127,40 +152,85 @@ def classify(filepath: Path, content: str) -> dict | None:
     relative = filepath.relative_to(settings.inbox_dir)
     ordner_kontext = str(relative.parent) if str(relative.parent) != "." else ""
     memory_rules = _load_memory_rules()
+    vault_struktur = _scan_vault_folders()
 
-    prompt = f"""Klassifiziere dieses Dokument für Prozessia GbR (KI-Agentur, Saarbrücken).
+    prompt = f"""Du sortierst Dokumente für Prozessia GbR (KI-Agentur, Saarbrücken) ein.
+
 Dateiname: {filepath.name}
-Unterordner in Inbox: {ordner_kontext or "keiner"}
-Inhalt: {content}
+Inbox-Unterordner: {ordner_kontext or "keiner"}
+Inhalt (Auszug): {content}
 
-Bekannte Kunden: Schaufler, Mundinger, Jochem/nanoSaar, Voigt Salus, Fonio
-Bekannte Produkte: Beschaffungsagent, Stücklistenagent, KI-Schulung
-Vertrieb: Handelsvertreter, Gegina, Segschneider
-{f"Gelernte Ablageregeln:{chr(10)}{memory_rules}" if memory_rules else ""}
+{f"Gelernte Ablageregeln:{chr(10)}{memory_rules}{chr(10)}" if memory_rules else ""}
+Aktuelle Vault-Struktur (alle existierenden Ordner):
+{vault_struktur}
 
-Mögliche Zielordner:
-- Kunden/Schaufler, Kunden/Mundinger, Kunden/Jochem_nanoSaar, Kunden/[NeuerKunde]
-- Leads
-- Produkte/Beschaffungsagent, Produkte/Stuecklistenagent
-- Vertraege
-- Marketing/Flyer, Marketing/LinkedIn, Marketing/Webinar, Marketing/Branding, Marketing/Social-Media
-- Sales/Cold_Call, Sales/Praesentationen, Sales/Handelsvertreter
-- Finanzen/Rechnungen, Finanzen/Angebote
-- Uni
-- Memos
-- Memos/Medien (für Bilder/Videos ohne klare Kategorie)
+REGELN:
+- Kundendokumente → Kunden/[Kundenname]/[Unterordner]
+  Unterordner-Logik:
+  · Vertraege/   → NDA, AVV, SLA, Bestellungen, Rechnungen, Auftragsbestätigungen
+  · Angebote/    → Angebote, Kostenkalkulationen, Wartungsmodelle, Preislisten
+  · Meetings/    → Besprechungen, Protokolle, Mitschriften, Meet-Aufzeichnungen
+  · Praesentationen/ → Präsentationen, Pitches, Slides
+  · Dokumente/   → alles andere (Specs, Fachkonzepte, Anleitungen, Projektpläne)
+- Neuer Kunde erkannt → zielordner: "Kunden/[Firmenname]/Dokumente" (Ordner wird automatisch erstellt)
+- Verträge die keinen Kunden zugeordnet werden können → Vertraege/
+- Leads → Leads/
+- Finanzen → Finanzen/Rechnungen oder Finanzen/Angebote
+- Marketing → Marketing/[passender Unterordner]
+- Sales → Sales/[passender Unterordner]
 
 Bestimme:
-1. kategorie: Kunde/Lead/Produkt/Vertrag/Marketing/Sales/Finanzen/Uni/Memo
+1. kategorie: Kunde/Lead/Produkt/Vertrag/Marketing/Sales/Finanzen/Memo
 2. zusammenfassung: 2-3 Sätze was das Dokument enthält (bei Medien: kurze Beschreibung)
 3. tags: 3-5 relevante Tags als JSON-Array
-4. zielordner: exakter relativer Pfad aus den Möglichen Zielordnern oben
+4. zielordner: exakter relativer Pfad (darf neu sein, wird erstellt)
+5. neuer_kunde: true/false (ob ein bisher unbekannter Kunde erkannt wurde)
 
 Antworte NUR als JSON, keine Erklärung."""
 
     try:
         resp = get_client().messages.create(
-            model="claude-sonnet-5", max_tokens=400,
+            model="claude-sonnet-5", max_tokens=500,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        raw = resp.content[0].text.strip().replace("```json", "").replace("```", "").strip()
+        result = json.loads(raw)
+        if result.get("neuer_kunde"):
+            ziel = settings.vault_path / result.get("zielordner", "Memos")
+            kunde_root = ziel.parent if ziel.name in ("Vertraege", "Angebote", "Dokumente", "Meetings", "Praesentationen") else ziel
+            for sub in ("Vertraege", "Angebote", "Dokumente", "Meetings"):
+                (kunde_root / sub).mkdir(parents=True, exist_ok=True)
+        return result
+    except Exception:
+        return None
+
+
+def extract_meeting_structure(filepath: Path) -> dict | None:
+    """Extrahiert Teilnehmer/Kernpunkte/Zusagen/Nächste Schritte aus einem
+    Meeting-Transkript. Liest die Datei mit größerem max_chars erneut ein,
+    damit auch spät im Gespräch genannte Zusagen/nächste Schritte erfasst
+    werden (die reguläre Klassifizierung kappt bei 3000 Zeichen)."""
+    content = extract_text(filepath, max_chars=20000)
+    if not content:
+        return None
+
+    prompt = f"""Das ist das Transkript eines Kundengesprächs für Prozessia GbR.
+
+Transkript:
+{content}
+
+Extrahiere:
+1. teilnehmer: Namen der Gesprächsteilnehmer als JSON-Array (kurz, ohne Rollen/Firmen falls nicht eindeutig erkennbar)
+2. kernpunkte: die wichtigsten besprochenen Punkte als JSON-Array kurzer deutscher Sätze (max 6)
+3. zusagen: konkrete Zusagen, die im Gespräch gemacht wurden (von wem, was), als JSON-Array (leeres Array wenn keine)
+4. naechste_schritte: offene Punkte / vereinbarte nächste Schritte als JSON-Array (leeres Array wenn keine)
+
+Antworte NUR als JSON, keine Erklärung. Format:
+{{"teilnehmer": [...], "kernpunkte": [...], "zusagen": [...], "naechste_schritte": [...]}}"""
+
+    try:
+        resp = get_client().messages.create(
+            model="claude-sonnet-5", max_tokens=800,
             messages=[{"role": "user", "content": prompt}],
         )
         raw = resp.content[0].text.strip().replace("```json", "").replace("```", "").strip()
@@ -190,6 +260,27 @@ def process_file(filepath: Path) -> tuple[bool, str]:
         tags = result.get("tags", [])
         tags_str = "\n".join(f"  - {t}" for t in tags)
         notiz_path = zielordner / f"{datum}-{filepath.stem}.md"
+
+        meeting_sections = ""
+        if "/Meetings" in result.get("zielordner", ""):
+            meeting_data = extract_meeting_structure(filepath)
+            if meeting_data:
+                def _liste(items):
+                    return "\n".join(f"- {i}" for i in items) if items else "- (keine)"
+                meeting_sections = f"""
+## Teilnehmer
+{_liste(meeting_data.get("teilnehmer", []))}
+
+## Kernpunkte
+{_liste(meeting_data.get("kernpunkte", []))}
+
+## Zusagen
+{_liste(meeting_data.get("zusagen", []))}
+
+## Nächste Schritte
+{_liste(meeting_data.get("naechste_schritte", []))}
+"""
+
         notiz_path.write_text(
             f"""---
 tags:
@@ -203,7 +294,7 @@ kategorie: {result.get("kategorie", "")}
 
 ## Zusammenfassung
 {result.get("zusammenfassung", "")}
-
+{meeting_sections}
 ## Vollständiger Inhalt
 {content[:6000]}
 """,
