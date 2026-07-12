@@ -161,6 +161,63 @@ def send_email(to, subject, body, cc=None):
     return f"Mail gesendet an {to_str}"
 
 
+def update_draft(draft_id, to, subject, body, cc=None):
+    """Ersetzt Inhalt eines bestehenden Entwurfs (z.B. um nur den Betreff zu ändern)."""
+    svc = get_service()
+    msg = MIMEMultipart()
+    msg["To"]      = to if isinstance(to, str) else ", ".join(to)
+    msg["Subject"] = subject
+    if cc:
+        msg["Cc"] = cc if isinstance(cc, str) else ", ".join(cc)
+    msg.attach(MIMEText(body, "plain", "utf-8"))
+
+    raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
+    svc.users().drafts().update(
+        userId="me", id=draft_id, body={"message": {"raw": raw}}
+    ).execute()
+    return {"ok": True, "draft_id": draft_id}
+
+
+def create_draft(to, subject, body, cc=None):
+    """Legt einen Entwurf an, ohne ihn zu versenden."""
+    svc = get_service()
+    msg = MIMEMultipart()
+    msg["To"]      = to if isinstance(to, str) else ", ".join(to)
+    msg["Subject"] = subject
+    if cc:
+        msg["Cc"] = cc if isinstance(cc, str) else ", ".join(cc)
+    msg.attach(MIMEText(body, "plain", "utf-8"))
+
+    raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
+    draft = svc.users().drafts().create(
+        userId="me", body={"message": {"raw": raw}}
+    ).execute()
+    to_str = to if isinstance(to, str) else ", ".join(to)
+    return {"ok": True, "draft_id": draft.get("id"), "to": to_str}
+
+
+def search_emails_raw(query: str, max_results: int = 10) -> list:
+    """Gmail-Suche mit nativer Query-Syntax (from:, to: etc.), gibt rohe Message-Metadaten zurück."""
+    svc = get_service()
+    resp = svc.users().messages().list(userId="me", q=query, maxResults=max_results).execute()
+    results = []
+    for m in resp.get("messages", []):
+        msg = svc.users().messages().get(
+            userId="me", id=m["id"], format="metadata",
+            metadataHeaders=["From", "To", "Subject", "Date"]
+        ).execute()
+        headers = {h["name"]: h["value"] for h in msg.get("payload", {}).get("headers", [])}
+        results.append({
+            "id": m["id"],
+            "from": headers.get("From", ""),
+            "to": headers.get("To", ""),
+            "subject": headers.get("Subject", ""),
+            "date": headers.get("Date", ""),
+            "snippet": msg.get("snippet", ""),
+        })
+    return results
+
+
 def reply_email(message_id, thread_id, to, orig_subject, orig_message_id,
                 orig_references, body):
     svc = get_service()

@@ -381,6 +381,22 @@ def _inbox_watcher_loop():
 
 threading.Thread(target=_inbox_watcher_loop, daemon=True).start()
 
+
+def _hourly_inbox_loop():
+    """Erzwingt einmal pro Stunde einen vollständigen Inbox-Durchlauf,
+    unabhängig vom reaktiven 30s-Watcher (Sicherheitsnetz z.B. nach Neustarts
+    oder falls der Watcher eine Datei verpasst hat)."""
+    import time
+    while True:
+        time.sleep(3600)
+        try:
+            print("  Stündlicher Inbox-Check: verarbeite...")
+            run_inbox_and_reindex()
+        except Exception as ex:
+            print(f"Stündlicher Inbox-Check Fehler: {ex}")
+
+threading.Thread(target=_hourly_inbox_loop, daemon=True).start()
+
 # ── E-Mail Indexer ────────────────────────────────────────────────────────────
 
 EMAIL_CACHE_DIR = VAULT / "_agent" / "email_cache"
