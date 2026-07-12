@@ -18,6 +18,16 @@ class Settings(BaseSettings):
     # kaputt schreibt ($2b$12$... würde zu Teilen verschwinden). Siehe .env.example.
     users_file: Path = Path("users.json")
 
+    # ── Google Workspace Integration ────────────────────────────────────────
+    google_service_account_json: str = ""
+    google_credentials_json: str = ""  # OAuth für Gmail, Drive, etc.
+    drive_kunden_folder_id: str = ""
+    
+    # ── Microsoft 365 Integration ──────────────────────────────────────────
+    ms_client_id: str = ""
+    ms_tenant_id: str = ""
+    ms_client_secret: str = ""
+
     # ── LinkedIn / Buffer ─────────────────────────────────────────────────────
     buffer_api_token: str = ""
     # IDs der Buffer-Kanäle (Sebastian + Prozessia Page)

@@ -14,6 +14,11 @@ COPY app ./app
 COPY scripts ./scripts
 COPY templates ./templates
 
-EXPOSE 8000
+# Headless Mode für VPS/Docker (nicht interaktiv)
+# Lokal (dev): setze HEADLESS_MODE=false für Browser-Dialog
+ENV HEADLESS_MODE=true
+ENV PYTHONUNBUFFERED=1
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]
+EXPOSE 9000
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "9000", "--workers", "1"]
