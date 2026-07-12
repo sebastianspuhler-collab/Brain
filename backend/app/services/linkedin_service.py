@@ -302,6 +302,36 @@ Schreibe jeden Post vollständig aus. Antworte NUR mit validem JSON:
         return {"error": str(e)}
 
 
+def push_latest_to_buffer() -> dict:
+    """Pusht alle Posts aus dem neuesten beitraege-*.json nach Buffer (beide Kanäle).
+    Migriert aus brain_server.py:api_buffer_push() — dort per Subprocess auf
+    buffer_manager.py, hier direkt über buffer_push()."""
+    path = _latest_file("beitraege")
+    if not path:
+        return {"error": "Keine generierten Posts gefunden — erst generate_posts aufrufen."}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return {"error": f"beitraege-Datei nicht lesbar: {e}"}
+
+    pushed = []
+    errors = []
+    for key in ("montag", "dienstag", "mittwoch", "donnerstag", "freitag"):
+        p = data.get(key)
+        if not p or not p.get("text"):
+            continue
+        result = buffer_push(p["text"], scheduled_at=p.get("termin"))
+        if result.get("ok"):
+            pushed.append(key)
+        else:
+            errors.append({"tag": key, "error": result.get("error")})
+
+    cache.invalidate("buffer_status")
+    if not pushed:
+        return {"error": errors or "Keine Posts zum Pushen gefunden"}
+    return {"ok": True, "gepusht": pushed, "errors": errors or None}
+
+
 def buffer_push(text: str, scheduled_at: str | None = None) -> dict:
     """Pusht einen Post auf beide Buffer-Kanäle (Sebastian + Prozessia) via GraphQL."""
     settings = get_settings()

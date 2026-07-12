@@ -11,6 +11,9 @@ from app.deps import get_current_user
 from app.services import context as context_service
 from app.services import conversations, memory, rag
 from app.services.anthropic_client import get_client
+from app.services.tools import TOOLS, _TASK_TOOL_NAMES, execute_tool
+
+MAX_TOOL_ITERATIONS = 8
 
 router = APIRouter(prefix="/api", tags=["chat"])
 
@@ -73,16 +76,55 @@ def _stream_chat(messages: list[dict], model: str):
         )
         max_tok = 16000 if model == "claude-opus-4-8" else (8192 if is_complex else 4096)
 
-        full_response = []
-        with get_client().messages.stream(
-            model=model, max_tokens=max_tok, system=system, messages=messages,
-        ) as stream:
-            for chunk in stream.text_stream:
-                full_response.append(chunk)
-                yield _sse({"chunk": chunk})
+        # ── Tool-Use-Loop ────────────────────────────────────────────────────
+        # Claude bekommt echte Tools (TOOLS-Schema). Solange die Antwort mit
+        # stop_reason "tool_use" endet: Tool ausführen, Ergebnis als tool_result
+        # zurückschicken, Claude erneut anfragen — bis es fertig ist oder das
+        # Iterations-Limit erreicht ist. Migriert aus brain_server.py:handle_chat().
+        current_messages = list(messages)
+        all_text_parts = []
+        tasks_changed = False
 
-        response_text = "".join(full_response)
+        for _iteration in range(MAX_TOOL_ITERATIONS):
+            with get_client().messages.stream(
+                model=model, max_tokens=max_tok, system=system,
+                messages=current_messages, tools=TOOLS,
+            ) as stream:
+                for chunk in stream.text_stream:
+                    all_text_parts.append(chunk)
+                    yield _sse({"chunk": chunk})
+                final_message = stream.get_final_message()
+
+            current_messages.append({
+                "role": "assistant",
+                "content": [block.model_dump() for block in final_message.content],
+            })
+
+            if final_message.stop_reason != "tool_use":
+                break
+
+            tool_result_blocks = []
+            for block in final_message.content:
+                if block.type != "tool_use":
+                    continue
+                if block.name in _TASK_TOOL_NAMES:
+                    tasks_changed = True
+                result_text, is_error = execute_tool(block.name, block.input)
+                tool_result_blocks.append({
+                    "type": "tool_result",
+                    "tool_use_id": block.id,
+                    "content": result_text,
+                    "is_error": is_error,
+                })
+            current_messages.append({"role": "user", "content": tool_result_blocks})
+        else:
+            yield _sse({"chunk": "\n\n---\n*Hinweis: Maximale Anzahl an Tool-Aufrufen erreicht.*"})
+
+        response_text = "".join(all_text_parts)
         threading.Thread(target=conversations.log_turn, args=("assistant", response_text), daemon=True).start()
+
+        if tasks_changed:
+            yield _sse({"tasks_updated": True})
 
         saved = memory.auto_remember(last_msg, response_text)
         if saved:

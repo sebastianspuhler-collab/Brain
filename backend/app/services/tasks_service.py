@@ -190,6 +190,33 @@ def set_task_due(text: str, due: str | None) -> dict:
     )
 
 
+def set_tasks(tasks: list[str]) -> dict:
+    """Ersetzt alle offenen (nicht erledigten) Aufgaben durch eine neue Liste.
+    Erledigte Aufgaben (- [x]) bleiben unangetastet. Migriert aus
+    brain_server.py:_tasks_replace()."""
+    settings = get_settings()
+    path = settings.context_path
+    content = path.read_text(encoding="utf-8") if path.exists() else ""
+    lines = content.splitlines()
+
+    kept = [l for l in lines if parse_task_line(l) is None or "- [x]" in l or "- [X]" in l]
+    new_lines = [_format_task_line("[ ]", t.strip(), DEFAULT_ASSIGNEE, None) for t in tasks if t.strip()]
+
+    header = "## Offene Aufgaben"
+    idx = next((i for i, l in enumerate(kept) if l.strip() == header), -1)
+    if idx >= 0:
+        kept[idx + 1 : idx + 1] = new_lines
+    else:
+        kept.append(header)
+        kept.extend(new_lines)
+
+    new_content = "\n".join(kept)
+    today = datetime.now().strftime("%Y-%m-%d")
+    new_content = re.sub(r"^updated: .+$", f"updated: {today}", new_content, flags=re.MULTILINE)
+    path.write_text(new_content + "\n", encoding="utf-8")
+    return {"ok": True, "count": len(new_lines)}
+
+
 def delete_task(text: str) -> dict:
     target = text.strip()
     settings = get_settings()

@@ -156,3 +156,53 @@ def reply_email(message_id, thread_id, to, orig_subject, orig_message_id, orig_r
     raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
     svc.users().messages().send(userId="me", body={"raw": raw, "threadId": thread_id}).execute()
     return "Antwort gesendet."
+
+
+def get_attachments(message_id: str) -> list:
+    """Gibt alle Anhänge einer Mail zurück (ohne Inhalt, nur Metadaten)."""
+    svc = get_service()
+    msg = svc.users().messages().get(userId="me", id=message_id, format="full").execute()
+
+    attachments = []
+
+    def _scan_parts(parts):
+        for part in parts:
+            filename = part.get("filename", "")
+            body = part.get("body", {})
+            attachment_id = body.get("attachmentId")
+            size = body.get("size", 0)
+            mime = part.get("mimeType", "application/octet-stream")
+            if filename and attachment_id:
+                attachments.append({
+                    "attachmentId": attachment_id,
+                    "filename": filename,
+                    "mimeType": mime,
+                    "size": size,
+                })
+            sub = part.get("parts", [])
+            if sub:
+                _scan_parts(sub)
+
+    payload = msg.get("payload", {})
+    _scan_parts(payload.get("parts", []))
+    if not attachments and payload.get("body", {}).get("attachmentId"):
+        attachments.append({
+            "attachmentId": payload["body"]["attachmentId"],
+            "filename": payload.get("filename", "anhang"),
+            "mimeType": payload.get("mimeType", "application/octet-stream"),
+            "size": payload["body"].get("size", 0),
+        })
+    return attachments
+
+
+def download_attachment(message_id: str, attachment_id: str) -> bytes:
+    """Lädt einen Anhang herunter und gibt die Rohdaten zurück."""
+    svc = get_service()
+    result = svc.users().messages().attachments().get(
+        userId="me", messageId=message_id, id=attachment_id
+    ).execute()
+    data = result.get("data", "")
+    if not data:
+        return b""
+    padded = data + "=" * (4 - len(data) % 4)
+    return base64.urlsafe_b64decode(padded)

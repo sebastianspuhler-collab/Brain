@@ -31,7 +31,7 @@ def append_to_memory(kategorie: str, fakt: str) -> None:
     settings = get_settings()
     ts = datetime.now().strftime("%Y-%m-%d %H:%M")
     entry = f"\n- [{ts}] {fakt.strip()}"
-    content = settings.memory_path.read_text(encoding="utf-8") if settings.memory_path.exists() else ""
+    content = settings.memory_path.read_text(encoding="utf-8", errors="ignore") if settings.memory_path.exists() else ""
     header = f"## {kategorie}"
     if header in content:
         content = content.replace(header, f"{header}{entry}", 1)
@@ -86,7 +86,7 @@ Max 3 Items. Wenn nichts Neues: {{"items": []}}"""
         return []
 
     saved = []
-    existing = settings.memory_path.read_text(encoding="utf-8") if settings.memory_path.exists() else ""
+    existing = settings.memory_path.read_text(encoding="utf-8", errors="ignore") if settings.memory_path.exists() else ""
     for item in items:
         kat = item.get("kategorie", "KONTEXT").upper()
         fakt = item.get("fakt", "").strip()
@@ -110,7 +110,7 @@ def learn_from_text(source_label: str, prompt_body: str, min_len: int = 15) -> l
         return []
 
     saved = []
-    existing = settings.memory_path.read_text(encoding="utf-8") if settings.memory_path.exists() else ""
+    existing = settings.memory_path.read_text(encoding="utf-8", errors="ignore") if settings.memory_path.exists() else ""
     for item in items[:5]:
         kat = item.get("kategorie", "KONTEXT").upper()
         fakt = item.get("fakt", "").strip()
