@@ -9,6 +9,8 @@ import json
 import re
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+from email import encoders
 from pathlib import Path
 
 from google.auth.transport.requests import Request
@@ -159,6 +161,29 @@ def send_email(to, subject, body, cc=None):
     svc.users().messages().send(userId="me", body={"raw": raw}).execute()
     to_str = to if isinstance(to, str) else ", ".join(to)
     return f"Mail gesendet an {to_str}"
+
+
+def send_email_with_attachment(to, subject, body, attachment_path, cc=None):
+    """Sendet eine Mail mit Datei-Anhang (z.B. Credential-Pakete)."""
+    svc = get_service()
+    msg = MIMEMultipart()
+    msg["To"]      = to if isinstance(to, str) else ", ".join(to)
+    msg["Subject"] = subject
+    if cc:
+        msg["Cc"] = cc if isinstance(cc, str) else ", ".join(cc)
+    msg.attach(MIMEText(body, "plain", "utf-8"))
+
+    path = Path(attachment_path)
+    part = MIMEBase("application", "octet-stream")
+    part.set_payload(path.read_bytes())
+    encoders.encode_base64(part)
+    part.add_header("Content-Disposition", f'attachment; filename="{path.name}"')
+    msg.attach(part)
+
+    raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
+    svc.users().messages().send(userId="me", body={"raw": raw}).execute()
+    to_str = to if isinstance(to, str) else ", ".join(to)
+    return f"Mail mit Anhang {path.name} gesendet an {to_str}"
 
 
 def update_draft(draft_id, to, subject, body, cc=None):
