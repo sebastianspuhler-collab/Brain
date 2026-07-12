@@ -496,6 +496,112 @@ Inhalt: {body[:1000]}"""
     except Exception:
         pass
 
+_AUTO_REPLY_SENDER = "amin.douioui@prozessia.de"
+_AUTO_REPLY_CC = "sebastian.spuhler@prozessia.de"
+_AUTO_REPLIED_IDS_PATH = EMAIL_CACHE_DIR / "auto_replied_ids.json"
+
+_AUTO_REPLY_TOOL = {
+    "name": "decide_auto_reply",
+    "description": "Entscheidet, ob eine Mail von Amin rein technische Deploy-/Server-Koordination ist, und formuliert ggf. die Antwort.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "ist_technische_koordination": {
+                "type": "boolean",
+                "description": (
+                    "true wenn das THEMA der Mail Deploy-Status, Zugangsdaten, Code-Änderungen oder Server-Fragen ist — "
+                    "auch wenn du die exakte Antwort nicht mit Sicherheit weißt (dann beantworte ehrlich mit dem was du weißt "
+                    "und was noch fehlt/offen ist, das zählt trotzdem als true). "
+                    "false NUR wenn das Thema klar etwas anderes ist: Geld/Rechnungen/Verträge, Kundenthemen, Persönliches, "
+                    "oder wenn du wirklich nicht erkennen kannst worum es überhaupt geht."
+                )
+            },
+            "antwort": {
+                "type": "string",
+                "description": "Fertige, kurze Antwort auf Deutsch. Ehrlich bleiben, was du weißt vs. nicht weißt. Leerer String wenn ist_technische_koordination false ist."
+            }
+        },
+        "required": ["ist_technische_koordination", "antwort"]
+    }
+}
+
+
+def _load_auto_replied_ids() -> set:
+    if _AUTO_REPLIED_IDS_PATH.exists():
+        try:
+            return set(json.loads(_AUTO_REPLIED_IDS_PATH.read_text()))
+        except Exception:
+            return set()
+    return set()
+
+
+def _save_auto_replied_id(eid: str, existing: set):
+    existing.add(eid)
+    _AUTO_REPLIED_IDS_PATH.write_text(json.dumps(list(existing)), encoding="utf-8")
+
+
+def _maybe_auto_reply_to_amin(e: dict):
+    """Beantwortet Mails von Amin automatisch, aber NUR bei rein technischer
+    Deploy-/Server-Koordination — sonst bleibt die Mail für Sebastian liegen.
+    Immer CC an Sebastian, damit er jede Auto-Antwort mitbekommt."""
+    sender = e.get("from", "")
+    if _AUTO_REPLY_SENDER not in sender.lower():
+        return
+
+    eid = e.get("id", "")
+    replied = _load_auto_replied_ids()
+    if not eid or eid in replied:
+        return
+
+    try:
+        subject = e.get("subject", "kein Betreff")
+        body = _strip_html(e.get("body", "") or e.get("snippet", ""))[:3000]
+
+        kontext = rag_search(f"{subject} {body[:500]}") or ""
+
+        prompt = f"""Du bist Sebastians Second Brain (Prozessia GbR) und beantwortest hier automatisch eine Mail von Amin (Entwickler, deployt gerade das Prozessia-Brain-Backend auf einen VPS).
+
+WICHTIG: Antworte NUR bei rein technischer Deploy-/Server-Koordination (Deploy-Status, Zugangsdaten, Code-Änderungen, Server-Fragen). Bei allem anderen (Geld, Verträge, Kundenthemen) oder bei Unklarheit: ist_technische_koordination = false, damit Sebastian selbst antwortet.
+
+Von: {sender}
+Betreff: {subject}
+Inhalt: {body}
+
+Bekannter Kontext zum Deploy-Stand:
+{kontext[:2000] if kontext else "(kein zusätzlicher Kontext gefunden)"}"""
+
+        result = ANTHROPIC.messages.create(
+            model="claude-sonnet-5",
+            max_tokens=1000,
+            tools=[_AUTO_REPLY_TOOL],
+            tool_choice={"type": "tool", "name": "decide_auto_reply"},
+            messages=[{"role": "user", "content": prompt}],
+        )
+        decision = {}
+        for block in result.content:
+            if block.type == "tool_use":
+                decision = block.input
+                break
+
+        if not decision.get("ist_technische_koordination") or not decision.get("antwort", "").strip():
+            return
+
+        gmail_client.reply_email(
+            message_id=eid,
+            thread_id=e.get("threadId", ""),
+            to=sender,
+            orig_subject=subject,
+            orig_message_id=e.get("message_id", ""),
+            orig_references=e.get("references", ""),
+            body=decision["antwort"].strip(),
+            cc=_AUTO_REPLY_CC,
+        )
+        _save_auto_replied_id(eid, replied)
+        print(f"  Auto-Antwort an Amin gesendet: {subject[:50]}")
+    except Exception as ex:
+        print(f"Auto-Reply Fehler: {ex}")
+
+
 def _auto_memory_from_file(rel_path: str, content: str):
     """Lernt aus neu verarbeiteten Vault-Dateien."""
     try:
@@ -724,6 +830,13 @@ def index_new_emails(deep=False):
                     args=(sender, subject, body),
                     daemon=True
                 ).start()
+
+            # Automatische Antwort bei technischer Deploy-Koordination mit Amin
+            threading.Thread(
+                target=_maybe_auto_reply_to_amin,
+                args=(e,),
+                daemon=True
+            ).start()
 
             # Anhänge automatisch herunterladen + einsortieren (im Hintergrund)
             attachments = e.get("attachments", [])

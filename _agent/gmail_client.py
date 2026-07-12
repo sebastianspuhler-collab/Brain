@@ -244,13 +244,15 @@ def search_emails_raw(query: str, max_results: int = 10) -> list:
 
 
 def reply_email(message_id, thread_id, to, orig_subject, orig_message_id,
-                orig_references, body):
+                orig_references, body, cc=None):
     svc = get_service()
     msg = MIMEMultipart()
     msg["To"]         = to
     msg["Subject"]    = orig_subject if orig_subject.startswith("Re:") else f"Re: {orig_subject}"
     msg["In-Reply-To"] = orig_message_id
     msg["References"] = f"{orig_references} {orig_message_id}".strip()
+    if cc:
+        msg["Cc"] = cc if isinstance(cc, str) else ", ".join(cc)
     msg.attach(MIMEText(body, "plain", "utf-8"))
 
     raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
