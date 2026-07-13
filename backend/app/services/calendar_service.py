@@ -1,11 +1,16 @@
 """Kalender-Übersicht: Outlook-Termine + Deadlines aus context.md.
 Migriert aus brain_server.py:api_calendar()."""
+import logging
 import re
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 
 from app.config import get_settings
 from app.services import cache, tasks_service
 from app.services import outlook_client
+
+logger = logging.getLogger("brain.calendar")
+BERLIN = ZoneInfo("Europe/Berlin")
 
 
 def is_connected() -> bool:
@@ -27,9 +32,12 @@ def get_calendar_events() -> list[dict]:
                 start_raw = e.get("start", {}).get("dateTime", "")
                 end_raw = e.get("end", {}).get("dateTime", "")
                 try:
-                    start_dt = datetime.fromisoformat(start_raw[:19])
-                    end_dt = datetime.fromisoformat(end_raw[:19])
-                    if start_dt < datetime.now() - timedelta(hours=1):
+                    # Graph liefert Zeiten laut Prefer-Header in Europe/Berlin (naiv,
+                    # ohne Offset) - gegen die Berlin-Zeit vergleichen, nicht gegen
+                    # datetime.now() (im Container meist UTC, sonst 1-2h Versatz).
+                    start_dt = datetime.fromisoformat(start_raw[:19]).replace(tzinfo=BERLIN)
+                    end_dt = datetime.fromisoformat(end_raw[:19]).replace(tzinfo=BERLIN)
+                    if start_dt < datetime.now(BERLIN) - timedelta(hours=1):
                         continue
                     events.append({
                         "title": e.get("subject", ""),
@@ -40,9 +48,9 @@ def get_calendar_events() -> list[dict]:
                         "type": "meeting",
                     })
                 except Exception:
-                    pass
+                    logger.exception("Kalender-Event konnte nicht geparst werden")
         except Exception:
-            pass
+            logger.exception("Outlook-Kalenderabruf fehlgeschlagen")
 
     try:
         ctx = settings.context_path.read_text(encoding="utf-8")

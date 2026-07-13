@@ -3,6 +3,7 @@ Migriert aus _agent/outlook_client.py, unverändert bis auf den VAULT-Pfad.
 Auth einmalig einrichten: siehe _agent/ms_login.py / ms_login_device.py.
 """
 import json
+import logging
 import time
 from datetime import datetime, timedelta
 
@@ -10,6 +11,8 @@ import msal
 import requests
 
 from app.config import get_settings
+
+logger = logging.getLogger("brain.outlook")
 
 GRAPH = "https://graph.microsoft.com/v1.0"
 
@@ -51,14 +54,21 @@ def _get_app():
 
 
 def get_token():
+    """Gibt einen gültigen Access-Token zurück, erneuert ihn wenn nötig.
+
+    Die Frische wird über ein `obtained_at`-Feld IM Token-JSON selbst geprüft,
+    nicht über die Datei-mtime — die mtime ändert sich beim Kopieren/Deployen
+    der Datei (z.B. auf einen neuen Server), was einen tatsächlich abgelaufenen
+    Token fälschlich als frisch erscheinen ließe. Fehlt `obtained_at` (ältere
+    Datei, oder frisch reinkopiert), gilt der Token als abgelaufen und wird
+    sofort per refresh_token erneuert."""
     token_cache_path = _token_cache_path()
     if token_cache_path.exists():
         try:
             data = json.loads(token_cache_path.read_text())
             if "access_token" in data:
-                expires_in = data.get("expires_in", 3600)
-                cached_at = token_cache_path.stat().st_mtime
-                if time.time() - cached_at < expires_in - 60:
+                expires_at = data.get("obtained_at", 0) + data.get("expires_in", 3600)
+                if time.time() < expires_at - 60:
                     return data["access_token"]
                 if "refresh_token" in data:
                     cfg = _load_config()
@@ -72,10 +82,12 @@ def get_token():
                     )
                     result = r.json()
                     if "access_token" in result:
+                        result["obtained_at"] = time.time()
                         token_cache_path.write_text(json.dumps(result))
                         return result["access_token"]
+                    logger.error("Outlook Token-Refresh fehlgeschlagen: %s", result.get("error_description", result))
         except Exception:
-            pass
+            logger.exception("Outlook get_token() Fehler beim Lesen/Erneuern des Token-Cache")
     try:
         app, cache, _ = _get_app()
         accounts = app.get_accounts()
@@ -84,7 +96,7 @@ def get_token():
             if result and "access_token" in result:
                 return result["access_token"]
     except Exception:
-        pass
+        logger.exception("Outlook MSAL-Fallback fehlgeschlagen")
     raise PermissionError("Nicht eingeloggt - bitte 'python3 _agent/ms_login_device.py' ausführen.")
 
 

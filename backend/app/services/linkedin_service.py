@@ -1,6 +1,7 @@
 """LinkedIn-Autoposter-Bridge. Migriert aus brain_server.py (api_linkedin_*).
 Liest/schreibt JSON-Output des externen Autoposter-Skripts im Vault."""
 import json
+import logging
 import re
 import urllib.request
 from datetime import datetime, timedelta
@@ -8,6 +9,8 @@ from datetime import datetime, timedelta
 from app.config import get_settings
 from app.services import cache
 from app.services.anthropic_client import get_client
+
+logger = logging.getLogger("brain.linkedin")
 
 BUFFER_GRAPHQL = "https://api.buffer.com/graphql"
 
@@ -40,7 +43,7 @@ def get_ideas() -> dict:
                     "typ": i.get("typ", ""),
                     "titel": i.get("titel", ""),
                     "hook": i.get("hook", ""),
-                    "kategorie": i.get("kategorie", ""),
+                    "kategorie": i.get("branche", ""),
                     "format": i.get("format_empfehlung", ""),
                     "cta": i.get("cta_vorschlag", ""),
                 }
@@ -190,11 +193,12 @@ Antworte NUR mit validem JSON, kein Markdown:
 
         return {"ok": True, "anzahl": data["anzahl"], "ideen": [
             {"titel": i.get("titel", ""), "hook": i.get("hook", ""),
-             "kategorie": i.get("kategorie", ""), "format": i.get("format_empfehlung", ""),
+             "kategorie": i.get("branche", ""), "format": i.get("format_empfehlung", ""),
              "cta": i.get("cta_vorschlag", "")}
             for i in data.get("ideen", [])
         ]}
     except Exception as e:
+        logger.exception("generate_ideas() fehlgeschlagen")
         return {"error": str(e)}
 
 
@@ -299,6 +303,7 @@ Schreibe jeden Post vollständig aus. Antworte NUR mit validem JSON:
         cache.invalidate("li_posts")
         return {"ok": True, "posts": posts}
     except Exception as e:
+        logger.exception("generate_posts() fehlgeschlagen")
         return {"error": str(e)}
 
 
