@@ -5,7 +5,7 @@
 	# flush_interval -1 sorgt dafür, dass Caddy SSE-Chunks sofort durchreicht
 	# statt sie zu puffern (sonst würde der Chat nicht live streamen).
 	handle /api/* {
-		reverse_proxy backend:8000 {
+		reverse_proxy backend:9000 {
 			flush_interval -1
 		}
 	}

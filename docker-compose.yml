@@ -13,7 +13,7 @@ services:
       - default
 
   # Frontend + Caddy als reiner Static-File-Server + interner Reverse-Proxy zu
-  # backend:8000 - KEIN eigenes TLS mehr (das übernimmt das bestehende Traefik
+  # backend:9000 - KEIN eigenes TLS mehr (das übernimmt das bestehende Traefik
   # vor diesem Container). Caddy hört nur noch auf Port 80 im internen Netz.
   web:
     build: ./frontend
