@@ -8,7 +8,7 @@ from pathlib import Path
 
 from app.config import get_settings
 from app.services import classify, gmail_client, linkedin_service, memory, rag
-from app.services import search_service, tasks_service, vault_service
+from app.services import search_service, tasks_service, vault_service, youtube_service
 
 TOOLS = [
     {
@@ -176,6 +176,35 @@ TOOLS = [
             "required": ["spec"],
         },
     },
+    {
+        "name": "list_youtube_videos",
+        "description": "Zeigt hochgeladene NotebookLM-Videos in der YouTube-Pipeline mit Status (Titel gesetzt? schon in Buffer gepusht?). Videos werden über die Brain-UI hochgeladen, nicht über den Chat.",
+        "input_schema": {"type": "object", "properties": {}},
+    },
+    {
+        "name": "generate_youtube_metadata",
+        "description": "Schreibt Titel + Beschreibung für ein hochgeladenes YouTube-Video via Claude, auf Basis von Stichpunkten zum Videoinhalt (Claude sieht das Video selbst nicht).",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "filename": {"type": "string", "description": "Dateiname des Videos, siehe list_youtube_videos"},
+                "topic": {"type": "string", "description": "Stichpunkte/Thema zum Videoinhalt"},
+            },
+            "required": ["filename", "topic"],
+        },
+    },
+    {
+        "name": "push_youtube_to_buffer",
+        "description": "Pusht ein hochgeladenes YouTube-Video (mit gesetztem Titel) nach Buffer zur Veröffentlichung.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "filename": {"type": "string", "description": "Dateiname des Videos, siehe list_youtube_videos"},
+                "scheduled_at": {"type": "string", "description": "Optional: ISO-8601 Zeitpunkt, leer = nächster freier Slot in Buffer"},
+            },
+            "required": ["filename"],
+        },
+    },
 ]
 
 _TASK_TOOL_NAMES = {"task_add", "task_done", "task_remove", "tasks_set"}
@@ -335,6 +364,28 @@ def execute_tool(name: str, tool_input: dict) -> tuple[str, bool]:
             if push.get("ok"):
                 return f"{len(result.get('posts', []))} Posts generiert und in Buffer eingeplant.", False
             return f"Posts generiert — Buffer Push: {push.get('error', '?')}", False
+
+        if name == "list_youtube_videos":
+            result = youtube_service.list_videos()
+            videos = result.get("videos", [])
+            if not videos:
+                return "Keine Videos in der YouTube-Pipeline.", False
+            lines = [
+                f"- {v['filename']}: {v['title'] or '(kein Titel)'} "
+                f"({'gepusht' if v['pushed'] else 'offen'})"
+                for v in videos
+            ]
+            return "\n".join(lines), False
+
+        if name == "generate_youtube_metadata":
+            result = youtube_service.generate_metadata(tool_input.get("filename", ""), tool_input.get("topic", ""))
+            ok = result.get("ok")
+            return (f"Titel: {result.get('title')}\nBeschreibung: {result.get('description')}" if ok else f"Fehler: {result.get('error', '?')}"), not ok
+
+        if name == "push_youtube_to_buffer":
+            result = youtube_service.push_to_buffer(tool_input.get("filename", ""), tool_input.get("scheduled_at") or None)
+            ok = result.get("ok")
+            return ("Video in Buffer eingeplant." if ok else f"Buffer-Fehler: {result.get('error', '?')}"), not ok
 
         return f"Unbekanntes Tool: {name}", True
     except Exception as e:

@@ -9,6 +9,7 @@ import { LinkedInPage } from "@/pages/LinkedInPage";
 import { MailPage } from "@/pages/MailPage";
 import { OnboardingPage } from "@/pages/Onboarding";
 import { TasksPage } from "@/pages/TasksPage";
+import { YouTubePage } from "@/pages/YouTubePage";
 
 function App() {
   const { user, loading } = useAuth();
@@ -27,6 +28,7 @@ function App() {
         <Route path="mail" element={<MailPage />} />
         <Route path="dateien" element={<FilesPage />} />
         <Route path="linkedin" element={<LinkedInPage />} />
+        <Route path="youtube" element={<YouTubePage />} />
         <Route path="onboarding" element={<OnboardingPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>

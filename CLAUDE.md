@@ -44,3 +44,14 @@ Kanäle: Sebastian (6a25d2578f1d11f9b260c5ee) | Prozessia (6a25d2578f1d11f9b260c
 - Posting-Rhythmus: Dienstag + Freitag, 09:30 Uhr Berlin
 - Immer beide Kanäle bespielen (Sebastian + Prozessia)
 - KEIN [SCHEDULE_BUFFER] Signal mehr verwenden — immer direkt python3 _agent/buffer_manager.py push aufrufen
+
+## YouTube (in der deployten Brain-App, nicht per CLI)
+Videos werden mit NotebookLM erstellt und über die YouTube-Sektion der deployten
+Web-App (Sidebar → YouTube, backend/app/routers/youtube.py + services/youtube_service.py)
+hochgeladen, mit Claude-generiertem Titel/Beschreibung versehen und nach Buffer gepusht
+(Kanal-ID in BUFFER_CHANNEL_YOUTUBE, siehe backend/.env.example). Videos liegen lokal
+in _agent/youtube_media/ auf dem VPS (bewusst NICHT git-getrackt, *.mp4 in .gitignore) —
+Buffer holt sie über eine öffentliche, unauthentifizierte Media-URL selbst ab, da Buffer
+keine Datei-Uploads akzeptiert. Diese Sektion läuft nur im Web-App-Chat (Tools
+list_youtube_videos / generate_youtube_metadata / push_youtube_to_buffer), nicht über
+buffer_manager.py — der Video-Upload selbst geht nur über die Brain-UI, nicht per Chat.

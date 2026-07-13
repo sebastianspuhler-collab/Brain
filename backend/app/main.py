@@ -9,7 +9,7 @@ from slowapi.errors import RateLimitExceeded
 
 from app.background.jobs import email_indexer_loop, git_sync_loop, inbox_watcher_loop, load_rag_blocking
 from app.config import get_settings
-from app.routers import auth, chat, dashboard, files, inbox, linkedin, onboarding
+from app.routers import auth, chat, dashboard, files, inbox, linkedin, onboarding, youtube
 from app.routers.auth import limiter
 
 logging.basicConfig(level=logging.INFO)
@@ -48,6 +48,7 @@ def create_app() -> FastAPI:
     app.include_router(dashboard.router)
     app.include_router(files.router)
     app.include_router(linkedin.router)
+    app.include_router(youtube.router)
     app.include_router(inbox.router)
     app.include_router(onboarding.router)
 
