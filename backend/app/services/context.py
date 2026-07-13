@@ -7,7 +7,7 @@ from pathlib import Path
 
 from app.config import get_settings
 from app.services import calendar_service, linkedin_service, mail_service
-from app.services.anthropic_client import get_client
+from app.services.anthropic_client import get_client, get_response_text
 
 _SKIP_TREE = {".git", ".obsidian", "__pycache__", ".DS_Store", "node_modules"}
 
@@ -100,7 +100,7 @@ Sei konkret und nenne Dateinamen/Absender/Daten. Kein Intro, nur Bullet Points.
 DATEN:
 {raw_context[:3500]}"""}],
         )
-        return result.content[0].text.strip()
+        return get_response_text(result).strip()
     except Exception:
         return ""
 

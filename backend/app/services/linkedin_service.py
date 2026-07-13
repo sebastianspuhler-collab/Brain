@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 
 from app.config import get_settings
 from app.services import cache
-from app.services.anthropic_client import get_client
+from app.services.anthropic_client import get_client, get_response_text
 
 logger = logging.getLogger("brain.linkedin")
 
@@ -178,7 +178,7 @@ Antworte NUR mit validem JSON, kein Markdown:
             model="claude-sonnet-5", max_tokens=4000,
             messages=[{"role": "user", "content": prompt}],
         )
-        text = result.content[0].text.strip()
+        text = get_response_text(result).strip()
         match = re.search(r"\{.*\}", text, re.DOTALL)
         if not match:
             return {"error": "Kein JSON in Antwort"}
@@ -258,7 +258,7 @@ Schreibe jeden Post vollständig aus. Antworte NUR mit validem JSON:
             model="claude-sonnet-5", max_tokens=6000,
             messages=[{"role": "user", "content": prompt}],
         )
-        raw = result.content[0].text.strip()
+        raw = get_response_text(result).strip()
 
         posts = []
         try:

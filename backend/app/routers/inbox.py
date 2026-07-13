@@ -10,7 +10,7 @@ from pydantic import BaseModel
 from app.config import get_settings
 from app.deps import get_current_user
 from app.services import classify, memory, rag
-from app.services.anthropic_client import get_client
+from app.services.anthropic_client import get_client, get_response_text
 
 router = APIRouter(prefix="/api", tags=["inbox"])
 
@@ -65,7 +65,7 @@ async def upload(file: UploadFile, user: str = Depends(get_current_user)):
                     {"type": "text", "text": "Extrahiere ALLEN Text und ALLE Zahlen/Daten aus diesem Bild. Formatiere als sauberen Markdown-Text. Nichts weglassen."},
                 ]}],
             )
-            transcription = vision_result.content[0].text
+            transcription = get_response_text(vision_result)
             md_path = settings.inbox_dir / (Path(filename).stem + "_vision.md")
             md_path.write_text(f"# {Path(filename).stem}\n\n{transcription}", encoding="utf-8")
             inbox_path.unlink(missing_ok=True)

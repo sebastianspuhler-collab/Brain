@@ -7,7 +7,7 @@ import tempfile
 from pathlib import Path
 
 from app.services import classify
-from app.services.anthropic_client import get_client
+from app.services.anthropic_client import get_client, get_response_text
 
 _SYSTEM_PROMPT = """Du bist ein technischer Projektanalyst bei Prozessia, einer AI Process Automation Agentur für deutschen Mittelstand (Fertigung/Industrie).
 Analysiere die bereitgestellten Dokumente und Beschreibung und extrahiere folgende Informationen als JSON:
@@ -58,7 +58,7 @@ def analyze_new_project(beschreibung: str, files: list[tuple[str, bytes]]) -> di
         system=_SYSTEM_PROMPT,
         messages=[{"role": "user", "content": user_content}],
     )
-    text = result.content[0].text.strip()
+    text = get_response_text(result).strip()
     match = re.search(r"\{.*\}", text, re.DOTALL)
     if not match:
         raise ValueError("KI-Antwort enthielt kein JSON")

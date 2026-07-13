@@ -25,6 +25,17 @@ AUTOPOSTER = VAULT / "_inbox" / "Branding" / "claude-linkedin-auto-poster"
 import anthropic
 ANTHROPIC = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
+
+def _response_text(response) -> str:
+    """Extrahiert den Text aus einer Claude-Antwort. content[0] ist NICHT
+    zuverlässig der Text-Block - bei aktiviertem Thinking steht davor ein
+    ThinkingBlock ohne .text-Attribut, was content[0].text crashen lässt."""
+    for block in response.content:
+        if block.type == "text":
+            return block.text
+    return ""
+
+
 # Load existing clients
 try:
     import gmail_client
@@ -260,7 +271,7 @@ Sei konkret und nenne Dateinamen/Absender/Daten. Kein Intro, nur Bullet Points.
 DATEN:
 {raw_context[:3500]}"""}]
         )
-        return result.content[0].text.strip()
+        return _response_text(result).strip()
     except Exception:
         return ""
 
@@ -676,7 +687,7 @@ Antworte mit genau einem Pfad:"""
             max_tokens=100,
             messages=[{"role": "user", "content": prompt}]
         )
-        path = result.content[0].text.strip().strip('"').strip("'")
+        path = _response_text(result).strip().strip('"').strip("'")
         # Sicherheitsprüfung: kein path traversal, kein _agent
         if ".." in path or path.startswith("/") or "_agent" in path:
             return f"_inbox/{filename}"
@@ -3024,7 +3035,7 @@ class Handler(BaseHTTPRequestHandler):
                                 {"type": "text", "text": "Extrahiere ALLEN Text und ALLE Zahlen/Daten aus diesem Bild. Formatiere als sauberen Markdown-Text. Nichts weglassen."}
                             ]}]
                         )
-                        transcription = vision_result.content[0].text
+                        transcription = _response_text(vision_result)
                         # Als .md speichern
                         md_path = VAULT / "_inbox" / (Path(filename).stem + "_vision.md")
                         md_path.write_text(f"# {Path(filename).stem}\n\n{transcription}", encoding="utf-8")

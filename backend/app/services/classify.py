@@ -9,7 +9,7 @@ from datetime import datetime
 from pathlib import Path
 
 from app.config import get_settings
-from app.services.anthropic_client import get_client
+from app.services.anthropic_client import get_client, get_response_text
 
 SKIP_EXTENSIONS = {
     ".js", ".ts", ".map", ".mjs", ".jsx", ".tsx", ".css",
@@ -193,7 +193,7 @@ Antworte NUR als JSON, keine Erklärung."""
             model="claude-sonnet-5", max_tokens=500,
             messages=[{"role": "user", "content": prompt}],
         )
-        raw = resp.content[0].text.strip().replace("```json", "").replace("```", "").strip()
+        raw = get_response_text(resp).strip().replace("```json", "").replace("```", "").strip()
         result = json.loads(raw)
         if result.get("neuer_kunde"):
             ziel = settings.vault_path / result.get("zielordner", "Memos")
@@ -233,7 +233,7 @@ Antworte NUR als JSON, keine Erklärung. Format:
             model="claude-sonnet-5", max_tokens=800,
             messages=[{"role": "user", "content": prompt}],
         )
-        raw = resp.content[0].text.strip().replace("```json", "").replace("```", "").strip()
+        raw = get_response_text(resp).strip().replace("```json", "").replace("```", "").strip()
         return json.loads(raw)
     except Exception:
         return None

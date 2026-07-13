@@ -12,6 +12,16 @@ LOGS_PATH = VAULT_PATH / "_agent" / "logs"
 DAILY_PATH = VAULT_PATH / "_agent" / "daily"
 API_KEY = os.environ.get("ANTHROPIC_API_KEY")
 
+
+def _response_text(response) -> str:
+    """Extrahiert den Text aus einer Claude-Antwort. content[0] ist NICHT
+    zuverlässig der Text-Block - bei aktiviertem Thinking steht davor ein
+    ThinkingBlock ohne .text-Attribut, was content[0].text crashen lässt."""
+    for block in response.content:
+        if block.type == "text":
+            return block.text
+    return ""
+
 SKIP_EXTENSIONS = {".js", ".ts", ".map", ".mjs", ".jsx", ".tsx", ".css",
                    ".yml", ".yaml", ".eslintrc", ".nycrc", ".npmignore",
                    ".enc", ".lock", ".editorconfig", ".orig"}
@@ -176,7 +186,7 @@ Antworte NUR als JSON, keine Erklärung."""
             max_tokens=500,
             messages=[{"role": "user", "content": prompt}]
         )
-        raw = resp.content[0].text.strip()
+        raw = _response_text(resp).strip()
         raw = raw.replace("```json", "").replace("```", "").strip()
         result = json.loads(raw)
         # Wenn neuer Kunde: Standard-Unterordner anlegen
@@ -220,7 +230,7 @@ Antworte NUR als JSON, keine Erklärung. Format:
             max_tokens=800,
             messages=[{"role": "user", "content": prompt}]
         )
-        raw = resp.content[0].text.strip()
+        raw = _response_text(resp).strip()
         raw = raw.replace("```json", "").replace("```", "").strip()
         return json.loads(raw)
     except Exception:

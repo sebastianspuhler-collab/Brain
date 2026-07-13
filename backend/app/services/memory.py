@@ -8,7 +8,7 @@ import re
 from datetime import datetime
 
 from app.config import get_settings
-from app.services.anthropic_client import get_client
+from app.services.anthropic_client import get_client, get_response_text
 
 _CORRECTION_SIGNALS = {
     "nein", "falsch", "stimmt nicht", "das ist nicht", "eigentlich",
@@ -81,7 +81,7 @@ Max 3 Items. Wenn nichts Neues: {{"items": []}}"""
             model="claude-sonnet-5", max_tokens=300,
             messages=[{"role": "user", "content": prompt}],
         )
-        items = _extract_json_items(result.content[0].text.strip())
+        items = _extract_json_items(get_response_text(result).strip())
     except Exception:
         return []
 
@@ -105,7 +105,7 @@ def learn_from_text(source_label: str, prompt_body: str, min_len: int = 15) -> l
             model="claude-haiku-4-5-20251001", max_tokens=500,
             messages=[{"role": "user", "content": prompt_body}],
         )
-        items = _extract_json_items(result.content[0].text.strip())
+        items = _extract_json_items(get_response_text(result).strip())
     except Exception:
         return []
 
