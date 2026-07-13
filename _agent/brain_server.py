@@ -20,7 +20,8 @@ from datetime import datetime, timedelta
 VAULT = Path(__file__).parent.parent
 sys.path.insert(0, str(VAULT / "_agent"))
 PORT = 3001
-AUTOPOSTER = VAULT / "_inbox" / "Branding" / "claude-linkedin-auto-poster"
+# Git-getrackt statt _inbox/ (gitignored) - überlebt Deploys, siehe LINKEDIN_PATH
+AUTOPOSTER = VAULT / "Marketing" / "LinkedIn"
 
 import anthropic
 ANTHROPIC = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
@@ -1936,7 +1937,7 @@ def api_task_delete(text: str) -> dict:
 # ── LinkedIn Autoposter Bridge ────────────────────────────────────────────────
 
 def _latest_autoposter_file(prefix: str):
-    out = AUTOPOSTER / "output"
+    out = AUTOPOSTER
     if not out.exists():
         return None
     files = sorted(out.glob(f"{prefix}-*.json"), reverse=True)
@@ -1979,7 +1980,7 @@ def api_linkedin_posts() -> dict:
     # Erst Marketing/LinkedIn/ suchen (kanonisch), dann AUTOPOSTER/output als Fallback
     candidates = sorted(LINKEDIN_PATH.glob("beitraege-*.json"), reverse=True) if LINKEDIN_PATH.exists() else []
     if not candidates:
-        out = AUTOPOSTER / "output"
+        out = AUTOPOSTER
         candidates = sorted(out.glob("beitraege-*.json"), reverse=True) if out.exists() else []
     if not candidates:
         return {"posts": [], "datum": None}
@@ -2051,6 +2052,7 @@ def api_linkedin_generate_ideas(focus: str = "") -> dict:
 
 Zielgruppe: Einkaufsleiter und Geschäftsführer in produzierenden Betrieben, 20–80 MA, DACH.
 Prozessia automatisiert Beschaffungsprozesse und Stücklistenprüfung — keine Beratung, konkrete Agenten die Arbeit abnehmen.
+Themen insgesamt: KI-Beschaffung, Automatisierung, EU AI Act & KI-Compliance, Produktivität im Mittelstand, allgemeine KI-Tipps für Entscheider — nicht nur das Kernprodukt, sondern die ganze Bandbreite dessen was die Zielgruppe zu KI im Betrieb wissen muss.
 
 {f"Richtungsvorgabe: {current_direction}" if current_direction else ""}
 {f"Zusätzlicher Fokus: {focus}" if focus else ""}
@@ -2060,13 +2062,21 @@ Jede Idee bekommt EINEN dieser drei Post-Typen:
 - Typ B – Carousel/Dokument-Post: Framework, Checkliste oder Schritt-für-Schritt (3–7 Punkte)
 - Typ C – Story-Post: anonymes Vorher/Nachher eines Kunden mit konkreten Zahlen (Zeit, Geld, Aufwand)
 
+Jede Idee bekommt außerdem GENAU EINE Kategorie (Themen-Säule), für Mischung sorgen — NICHT alle 10 aus derselben Kategorie:
+- Einkauf: konkrete Beschaffungs-/Stücklisten-Schmerzpunkte (Prozessias Kernprodukt)
+- Industrie: allgemeinere Produktions-/Mittelstandsthemen, nicht zwingend Beschaffung
+- Compliance: EU AI Act, Datenschutz, Haftung bei KI-Einsatz — sachlich, keine Panikmache
+- KI-Tipp: praktische, sofort umsetzbare KI-Tipps für Entscheider (Prompts, Tools, Workflows)
+- Kundenstory: anonymisiertes Vorher/Nachher
+
+Ziel-Verteilung über die 10 Ideen: mindestens 2× Einkauf, mindestens 2× Compliance, mindestens 2× KI-Tipp, Rest frei gemischt aus Industrie/Kundenstory/Einkauf.
+
 Generiere GENAU 10 Ideen: 4× Typ A, 3× Typ B, 3× Typ C.
 
 VERBOTEN für jeden Hook und Post:
 - Statistik oder Prozentzahl als erster Satz
 - Wörter: innovativ, nachhaltig, ganzheitlich, Lösungen, Transformation
 - Engagement-Bait ("Teile diesen Post", "Tag jemanden")
-- Compliance-Sprache
 
 PFLICHT für jeden Hook:
 - Stoppt den Scroll innerhalb von 3 Sekunden
@@ -2079,6 +2089,7 @@ Generiere GENAU 10 Ideen: 4× Typ A, 3× Typ B, 3× Typ C."""
         "type": "object",
         "properties": {
             "typ": {"type": "string", "enum": ["A", "B", "C"]},
+            "kategorie": {"type": "string", "enum": ["Einkauf", "Industrie", "Compliance", "KI-Tipp", "Kundenstory"]},
             "titel": {"type": "string", "description": "Max 60 Zeichen."},
             "hook": {"type": "string", "description": "Erste Zeile, max 80 Zeichen, stoppt den Scroll."},
             "kern_botschaft": {"type": "string", "description": "Was der Leser mitnimmt."},
@@ -2087,7 +2098,7 @@ Generiere GENAU 10 Ideen: 4× Typ A, 3× Typ B, 3× Typ C."""
             "format_empfehlung": {"type": "string", "enum": ["Text", "Karussell", "Liste"]},
             "cta_vorschlag": {"type": "string", "description": "Eine spezifische Frage für Kommentare — kein Engagement-Bait."},
         },
-        "required": ["typ", "titel", "hook", "kern_botschaft", "branche", "zielgruppe_spezifisch", "format_empfehlung", "cta_vorschlag"],
+        "required": ["typ", "kategorie", "titel", "hook", "kern_botschaft", "branche", "zielgruppe_spezifisch", "format_empfehlung", "cta_vorschlag"],
     }
 
     try:
@@ -2118,7 +2129,7 @@ Generiere GENAU 10 Ideen: 4× Typ A, 3× Typ B, 3× Typ C."""
         data["generiert_am"] = datetime.now().isoformat()
         data["anzahl"] = len(data.get("ideen", []))
 
-        out_path = AUTOPOSTER / "output" / f"ideen-{datetime.now().strftime('%Y-%m-%d')}.json"
+        out_path = AUTOPOSTER / f"ideen-{datetime.now().strftime('%Y-%m-%d')}.json"
         out_path.parent.mkdir(exist_ok=True)
         out_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -2148,6 +2159,7 @@ def api_linkedin_generate_posts(spec: str) -> dict:
 
     prompt = f"""Du bist LinkedIn-Texter für Prozessia.
 Zielgruppe: Einkaufsleiter und GFs in produzierenden Betrieben, 20–80 MA, DACH.
+Themen insgesamt breiter als nur das Produkt: KI-Beschaffung, EU AI Act & KI-Compliance, allgemeine KI-Tipps für Entscheider, Produktivität im Mittelstand — Mischung, nicht nur Beschaffungsagent-Werbung.
 
 POST-TYP-REGELN (immer einhalten):
 Typ A – Schmerz-Post:
@@ -2168,7 +2180,7 @@ FORMAT-REGELN (keine Ausnahmen):
 - Kein Emoji außer höchstens 1 ganz am Ende
 - Maximal 3 Hashtags am Ende
 - KEINE Hashtags über 1 Mio Follower: #KI, #Digitalisierung, #Innovation, #Automatisierung sind verboten
-- Erlaubte Hashtags: #Werkzeugbau, #Einkauf, #Beschaffung, #Mittelstand, #Prozessia, #Maschinenbau, #KIEinkauf
+- Erlaubte Hashtags: #Werkzeugbau, #Einkauf, #Beschaffung, #Mittelstand, #Prozessia, #Maschinenbau, #KIEinkauf, #EUAIAct, #KICompliance
 - Keine externen URLs im Post-Text — wenn Link nötig: "(Link in den Kommentaren)" an das Ende
 - Keine Firmen- oder Personennamen — auch keine erkennbaren Details
 - VERBOTENE WÖRTER: innovativ, nachhaltig, ganzheitlich, Lösungen, Transformation, in der heutigen Zeit

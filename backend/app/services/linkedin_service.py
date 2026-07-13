@@ -20,7 +20,7 @@ def _direction_path():
 
 
 def _latest_file(prefix: str):
-    out = get_settings().autoposter_dir / "output"
+    out = get_settings().autoposter_dir
     if not out.exists():
         return None
     files = sorted(out.glob(f"{prefix}-*.json"), reverse=True)
@@ -43,7 +43,8 @@ def get_ideas() -> dict:
                     "typ": i.get("typ", ""),
                     "titel": i.get("titel", ""),
                     "hook": i.get("hook", ""),
-                    "kategorie": i.get("branche", ""),
+                    "kategorie": i.get("kategorie", ""),
+                    "branche": i.get("branche", ""),
                     "format": i.get("format_empfehlung", ""),
                     "cta": i.get("cta_vorschlag", ""),
                 }
@@ -137,6 +138,7 @@ def generate_ideas(focus: str = "") -> dict:
 
 Zielgruppe: Einkaufsleiter und Geschäftsführer in produzierenden Betrieben, 20–80 MA, DACH.
 Prozessia automatisiert Beschaffungsprozesse und Stücklistenprüfung — keine Beratung, konkrete Agenten die Arbeit abnehmen.
+Themen insgesamt: KI-Beschaffung, Automatisierung, EU AI Act & KI-Compliance, Produktivität im Mittelstand, allgemeine KI-Tipps für Entscheider — nicht nur das Kernprodukt, sondern die ganze Bandbreite dessen was die Zielgruppe zu KI im Betrieb wissen muss.
 
 {f"Richtungsvorgabe: {current_direction}" if current_direction else ""}
 {f"Zusätzlicher Fokus: {focus}" if focus else ""}
@@ -146,13 +148,21 @@ Jede Idee bekommt EINEN dieser drei Post-Typen:
 - Typ B – Carousel/Dokument-Post: Framework, Checkliste oder Schritt-für-Schritt (3–7 Punkte)
 - Typ C – Story-Post: anonymes Vorher/Nachher eines Kunden mit konkreten Zahlen (Zeit, Geld, Aufwand)
 
+Jede Idee bekommt außerdem GENAU EINE Kategorie (Themen-Säule), für Mischung sorgen — NICHT alle 10 aus derselben Kategorie:
+- Einkauf: konkrete Beschaffungs-/Stücklisten-Schmerzpunkte (Prozessias Kernprodukt)
+- Industrie: allgemeinere Produktions-/Mittelstandsthemen, nicht zwingend Beschaffung
+- Compliance: EU AI Act, Datenschutz, Haftung bei KI-Einsatz — sachlich, keine Panikmache
+- KI-Tipp: praktische, sofort umsetzbare KI-Tipps für Entscheider (Prompts, Tools, Workflows)
+- Kundenstory: anonymisiertes Vorher/Nachher
+
+Ziel-Verteilung über die 10 Ideen: mindestens 2× Einkauf, mindestens 2× Compliance, mindestens 2× KI-Tipp, Rest frei gemischt aus Industrie/Kundenstory/Einkauf.
+
 Generiere GENAU 10 Ideen: 4× Typ A, 3× Typ B, 3× Typ C.
 
 VERBOTEN für jeden Hook und Post:
 - Statistik oder Prozentzahl als erster Satz
 - Wörter: innovativ, nachhaltig, ganzheitlich, Lösungen, Transformation
 - Engagement-Bait ("Teile diesen Post", "Tag jemanden")
-- Compliance-Sprache
 
 PFLICHT für jeden Hook:
 - Stoppt den Scroll innerhalb von 3 Sekunden
@@ -163,6 +173,7 @@ Antworte NUR mit validem JSON, kein Markdown:
 {{"generiert_am": "ISO-DATUM", "anzahl": 10, "ideen": [
   {{
     "typ": "A",
+    "kategorie": "Einkauf|Industrie|Compliance|KI-Tipp|Kundenstory",
     "titel": "max 60 Zeichen",
     "hook": "erste Zeile, max 80 Zeichen, stoppt den Scroll",
     "kern_botschaft": "was der Leser mitnimmt",
@@ -175,7 +186,7 @@ Antworte NUR mit validem JSON, kein Markdown:
 
     try:
         result = get_client().messages.create(
-            model="claude-sonnet-5", max_tokens=4000,
+            model="claude-sonnet-5", max_tokens=8000,
             messages=[{"role": "user", "content": prompt}],
         )
         text = get_response_text(result).strip()
@@ -186,15 +197,15 @@ Antworte NUR mit validem JSON, kein Markdown:
         data["generiert_am"] = datetime.now().isoformat()
         data["anzahl"] = len(data.get("ideen", []))
 
-        out_path = get_settings().autoposter_dir / "output" / f"ideen-{datetime.now().strftime('%Y-%m-%d')}.json"
+        out_path = get_settings().autoposter_dir / f"ideen-{datetime.now().strftime('%Y-%m-%d')}.json"
         out_path.parent.mkdir(parents=True, exist_ok=True)
         out_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
         cache.invalidate("li_ideas")
 
         return {"ok": True, "anzahl": data["anzahl"], "ideen": [
             {"titel": i.get("titel", ""), "hook": i.get("hook", ""),
-             "kategorie": i.get("branche", ""), "format": i.get("format_empfehlung", ""),
-             "cta": i.get("cta_vorschlag", "")}
+             "kategorie": i.get("kategorie", ""), "branche": i.get("branche", ""),
+             "format": i.get("format_empfehlung", ""), "cta": i.get("cta_vorschlag", "")}
             for i in data.get("ideen", [])
         ]}
     except Exception as e:
@@ -208,6 +219,7 @@ def generate_posts(spec: str) -> dict:
 
 Zielgruppe: Einkaufsleiter und Geschäftsführer in produzierenden Betrieben, 20–80 MA, DACH.
 Prozessia automatisiert Beschaffungsprozesse und Stücklistenprüfung — konkrete Agenten, keine Beratung.
+Themen insgesamt breiter als nur das Produkt: KI-Beschaffung, EU AI Act & KI-Compliance, allgemeine KI-Tipps für Entscheider, Produktivität im Mittelstand — Mischung, nicht nur Beschaffungsagent-Werbung.
 
 {f"Richtungsvorgabe: {current_direction}" if current_direction else ""}
 
@@ -221,7 +233,7 @@ FORMAT-REGELN (ausnahmslos):
 - Leerzeile nach jeder 2. Zeile (nicht nach jeder Zeile)
 - Max. 3 Hashtags, immer am Ende
 - VERBOTENE Hashtags: #KI, #AI, #Innovation, #Digitalisierung, #Mittelstand, #Automation (zu groß, zu allgemein)
-- Erlaubte Hashtags: #Einkauf, #Beschaffung, #Produktion, #Werkzeugbau, #Lohnfertigung, #ERP
+- Erlaubte Hashtags: #Einkauf, #Beschaffung, #Produktion, #Werkzeugbau, #Lohnfertigung, #ERP, #EUAIAct, #KICompliance
 - 0 Emojis, außer maximal 1 in der letzten Zeile (optional)
 - Links NIEMALS im Post-Text — nur als separater Kommentar
 
@@ -297,7 +309,7 @@ Schreibe jeden Post vollständig aus. Antworte NUR mit validem JSON:
                 "text": p.get("text", ""),
                 "typ": p.get("typ", ""),
             }
-        out_path = get_settings().autoposter_dir / "output" / f"beitraege-{datetime.now().strftime('%Y-%m-%d')}.json"
+        out_path = get_settings().autoposter_dir / f"beitraege-{datetime.now().strftime('%Y-%m-%d')}.json"
         out_path.parent.mkdir(parents=True, exist_ok=True)
         out_path.write_text(json.dumps(out_data, ensure_ascii=False, indent=2), encoding="utf-8")
         cache.invalidate("li_posts")

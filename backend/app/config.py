@@ -34,6 +34,18 @@ class Settings(BaseSettings):
     buffer_channel_sebastian: str = "6a25d2578f1d11f9b260c5ee"
     buffer_channel_prozessia: str = "6a25d2578f1d11f9b260c5ef"
 
+    # ── YouTube / Buffer ──────────────────────────────────────────────────────
+    # Kanal-ID des mit Buffer verbundenen YouTube-Kanals (Buffer-Dashboard →
+    # Kanal-Einstellungen, ID steht in der URL). Ohne diese ID läuft kein Push.
+    buffer_channel_youtube: str = ""
+    # Öffentliche Basis-URL, unter der dieses Backend erreichbar ist (z.B.
+    # https://brain.prozessia.space) - Buffer lädt das Video selbst von dort
+    # herunter, braucht also eine stabile, öffentlich erreichbare, nicht
+    # ablaufende URL. Fällt auf cors_origin zurück, wenn nicht gesetzt.
+    public_base_url: str = ""
+    # YouTube-Standardkategorie: 28 = Wissenschaft & Technik (passt zu KI-Content)
+    youtube_default_category_id: str = "28"
+
     # ── Git-Sync ──────────────────────────────────────────────────────────────
     # Personal Access Token für git pull/push aus dem Docker-Container heraus.
     # Format: ghp_xxxx  → wird als HTTPS-Credential in die Remote-URL eingebettet.
@@ -92,7 +104,21 @@ class Settings(BaseSettings):
 
     @property
     def autoposter_dir(self) -> Path:
-        return self.inbox_dir / "Branding" / "claude-linkedin-auto-poster"
+        # Git-getrackt (Marketing/LinkedIn/) statt _inbox/ (gitignored) - sonst
+        # geht z.B. die gesetzte Richtung (brain-direction.md) bei jedem
+        # frischen Deploy verloren, weil _inbox/ nie committed wird.
+        return self.vault_path / "Marketing" / "LinkedIn"
+
+    @property
+    def youtube_media_dir(self) -> Path:
+        # Bewusst NICHT git-getrackt (*.mp4 steht in .gitignore) - die Dateien
+        # müssen nur so lange auf dem VPS liegen, bis Buffer sie abgeholt hat,
+        # und sind fürs Second-Brain-Gedächtnis irrelevant.
+        return self.vault_path / "_agent" / "youtube_media"
+
+    @property
+    def public_media_base_url(self) -> str:
+        return (self.public_base_url or self.cors_origin).rstrip("/")
 
 
 @lru_cache
