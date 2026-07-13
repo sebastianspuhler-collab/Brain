@@ -3,6 +3,7 @@ Microsoft Graph API – Outlook Email & Kalender
 Auth einmalig einrichten: python3 _agent/ms_login.py
 Supports credentials aus .env (MS_CLIENT_ID, MS_TENANT_ID) oder ms_config.json
 """
+from __future__ import annotations
 
 import json
 import os

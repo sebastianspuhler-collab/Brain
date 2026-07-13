@@ -6,6 +6,7 @@ Supports credentials aus .env (GOOGLE_CREDENTIALS_JSON) oder aus drive_credentia
 
 import base64
 import json
+import os
 import re
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -26,6 +27,23 @@ SCOPES = [
     "https://www.googleapis.com/auth/gmail.modify",
     "https://www.googleapis.com/auth/gmail.compose",
 ]
+
+
+def _get_google_credentials_json():
+    """Liest GOOGLE_CREDENTIALS_JSON aus der Umgebung (Headless-/VPS-Betrieb ohne
+    Datei), sonst aus drive_credentials.json. None wenn keins von beidem existiert."""
+    raw = os.environ.get("GOOGLE_CREDENTIALS_JSON", "").strip()
+    if raw:
+        try:
+            return json.loads(raw)
+        except json.JSONDecodeError:
+            pass
+    if CREDS_PATH.exists():
+        try:
+            return json.loads(CREDS_PATH.read_text())
+        except Exception:
+            pass
+    return None
 
 
 def get_service():
