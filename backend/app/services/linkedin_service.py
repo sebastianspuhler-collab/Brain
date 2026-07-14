@@ -6,10 +6,13 @@ import re
 import urllib.request
 import uuid
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 
 from app.config import get_settings
-from app.services import cache
+from app.services import cache, carousel_service
 from app.services.anthropic_client import get_client, get_response_text
+
+BERLIN = ZoneInfo("Europe/Berlin")
 
 logger = logging.getLogger("brain.linkedin")
 
@@ -103,6 +106,7 @@ def get_posts() -> dict:
                 "termin": p.get("termin", ""),
                 "idee": p.get("idee", ""),
                 "text_preview": p.get("text", "")[:200],
+                "pushed": bool(p.get("pushed")),
             }
             for p in _normalize_posts(data)
         ]
@@ -129,9 +133,10 @@ def get_post(post_id: str) -> dict | None:
     return None
 
 
-def update_post_text(post_id: str, new_text: str) -> dict:
-    """Überschreibt den Text eines einzelnen Posts über seine id, ohne die
-    anderen Posts in derselben Datei anzufassen."""
+def _save_post_fields(post_id: str, **fields) -> dict:
+    """Aktualisiert beliebige Felder eines einzelnen Posts über seine id, ohne
+    die anderen Posts in derselben Datei anzufassen. Gemeinsame Basis für
+    Text-Edits, Termin-Änderungen und Push-Status."""
     path = _latest_file("beitraege")
     if not path:
         return {"error": "Keine beitraege-Datei gefunden"}
@@ -141,7 +146,7 @@ def update_post_text(post_id: str, new_text: str) -> dict:
         found = False
         for p in posts:
             if p.get("id") == post_id:
-                p["text"] = new_text
+                p.update(fields)
                 found = True
                 break
         if not found:
@@ -153,70 +158,236 @@ def update_post_text(post_id: str, new_text: str) -> dict:
         cache.invalidate("li_posts")
         return {"ok": True}
     except Exception as e:
-        logger.exception("update_post_text() fehlgeschlagen")
+        logger.exception("_save_post_fields() fehlgeschlagen")
         return {"error": str(e)}
+
+
+def update_post_text(post_id: str, new_text: str) -> dict:
+    return _save_post_fields(post_id, text=new_text)
+
+
+def _to_iso_berlin(datum: str, uhrzeit: str) -> str:
+    """Wandelt Datum (YYYY-MM-DD) + Uhrzeit (HH:MM) in Berliner Zeit in ISO-8601
+    mit korrektem Offset um (+01:00/+02:00 je nach Sommer-/Winterzeit)."""
+    dt = datetime.strptime(f"{datum} {uhrzeit}", "%Y-%m-%d %H:%M").replace(tzinfo=BERLIN)
+    return dt.isoformat()
+
+
+def push_post_to_buffer(post_id: str, scheduled_at: str | None = None) -> dict:
+    """Pusht einen einzelnen gespeicherten Post nach Buffer (beide Kanäle) und
+    merkt Termin + Status direkt am Post, damit Detailansicht/Chat wissen,
+    dass er schon raus ist."""
+    post = get_post(post_id)
+    if not post:
+        return {"error": f"Post {post_id} nicht gefunden"}
+    if not post.get("text", "").strip():
+        return {"error": "Post hat keinen Text"}
+    due = scheduled_at or post.get("termin") or None
+    result = buffer_push(post["text"], scheduled_at=due)
+    if result.get("ok"):
+        _save_post_fields(
+            post_id,
+            termin=due or post.get("termin", ""),
+            pushed=True,
+            buffer_post_ids=[p["post_id"] for p in result.get("pushed", [])],
+        )
+        cache.invalidate("buffer_status")
+    return result
+
+
+def make_carousel_from_post(post_id: str, branche: str = "Alle", saeule: str = "Wissen",
+                             due_at: str | None = None) -> dict:
+    """Erstellt aus einem bestehenden Text-Post ein eigenständiges Karussell
+    (Slides -> Bilder -> PDF -> Cloudinary -> Buffer) - läuft unabhängig vom
+    Text-Post als eigener Buffer-Beitrag, der Text-Post bleibt unverändert."""
+    post = get_post(post_id)
+    if not post:
+        return {"ok": False, "error": f"Post {post_id} nicht gefunden"}
+    hook = (post.get("idee") or "").strip()
+    if not hook and post.get("text"):
+        hook = post["text"].strip().split("\n")[0].strip()
+    if not hook:
+        return {"ok": False, "error": "Kein Thema/Hook für das Karussell gefunden"}
+    return carousel_service.generate_carousel(
+        hook=hook, branche=branche or "Alle", saeule=saeule,
+        due_at=due_at or post.get("termin"),
+    )
 
 
 _REVISE_POST_TOOL = {
     "name": "revise_post",
-    "description": "Gibt den überarbeiteten LinkedIn-Post-Text zurück, plus eine kurze Antwort an Sebastian was geändert wurde.",
+    "description": "Überarbeitet den LinkedIn-Post-Text gemäß Sebastians Wunsch und speichert ihn.",
     "input_schema": {
         "type": "object",
         "properties": {
-            "antwort": {"type": "string", "description": "Kurze Antwort an Sebastian (1-2 Sätze), was am Post geändert wurde oder warum nicht."},
-            "neuer_text": {"type": "string", "description": "Der komplette überarbeitete Post-Text, fertig zum Posten - unverändert wenn Sebastian nur eine Frage gestellt hat statt eine Änderung zu verlangen."},
+            "neuer_text": {"type": "string", "description": "Der komplette überarbeitete Post-Text, fertig zum Posten."},
         },
-        "required": ["antwort", "neuer_text"],
+        "required": ["neuer_text"],
     },
 }
 
+_SCHEDULE_POST_TOOL = {
+    "name": "schedule_post",
+    "description": "Plant diesen Post zu einem bestimmten Datum/Uhrzeit in Buffer ein (beide Kanäle: Sebastian + Prozessia). Nutzen, sobald Sebastian einen Zeitpunkt nennt oder 'planen'/'pushen'/'posten' sagt.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "datum": {"type": "string", "description": "YYYY-MM-DD - aus relativen Angaben wie 'morgen' oder 'nächsten Freitag' anhand des heutigen Datums berechnen."},
+            "uhrzeit": {"type": "string", "description": "HH:MM, 24h, Berliner Zeit."},
+        },
+        "required": ["datum", "uhrzeit"],
+    },
+}
+
+_MAKE_CAROUSEL_TOOL = {
+    "name": "make_carousel",
+    "description": "Erstellt aus diesem Post zusätzlich ein Bild-Karussell (mehrere Slides als PDF) und plant es eigenständig in Buffer ein - läuft komplett automatisch (KI-Bilder, PDF, Upload, Buffer-Push) und kann 1-2 Minuten dauern. Der ursprüngliche Text-Post bleibt davon unberührt.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "branche": {"type": "string", "enum": ["Werkzeugbau", "Maschinenbau", "Lohnfertiger", "Elektrotechnik", "Allgemein"], "description": "Branchen-Fokus für die Slides, falls aus dem Post erkennbar - sonst 'Allgemein'."},
+            "datum": {"type": "string", "description": "YYYY-MM-DD, optional - leer lassen um den bestehenden Post-Termin bzw. den nächsten freien Karussell-Slot zu nutzen."},
+            "uhrzeit": {"type": "string", "description": "HH:MM, optional, nur zusammen mit datum angeben."},
+        },
+        "required": [],
+    },
+}
+
+_POST_CHAT_TOOLS = [_REVISE_POST_TOOL, _SCHEDULE_POST_TOOL, _MAKE_CAROUSEL_TOOL]
+MAX_POST_CHAT_ITERATIONS = 4
+
 
 def chat_about_post(post_id: str, messages: list[dict]) -> dict:
-    """Ein Chat-Turn über einen bestehenden Post: Claude sieht den aktuellen
-    Text + die Konversation, antwortet UND liefert den überarbeiteten Text in
-    einem Aufruf (Tool Use statt Freitext-Parsing, für zuverlässige Antworten).
-    Speichert das Ergebnis direkt unter derselben post_id."""
+    """Agentischer Chat-Turn über einen bestehenden Post: Claude kann frei
+    zwischen Text-Überarbeitung, Einplanen/Pushen nach Buffer und
+    Karussell-Erstellung wählen (tool_choice=auto, Mehrfach-Turns), oder
+    einfach nur antworten, wenn keine Aktion verlangt ist."""
     post = get_post(post_id)
     if not post:
         return {"error": f"Post {post_id} nicht gefunden"}
 
-    system = f"""Du hilfst Sebastian (Prozessia GbR), einen bereits generierten LinkedIn-Post zu verfeinern.
+    now = datetime.now(BERLIN)
+    weekday_de = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"][now.weekday()]
+
+    system = f"""Du hilfst Sebastian (Prozessia GbR) im Chat, einen bereits generierten LinkedIn-Post zu
+verfeinern, einzuplanen oder als Karussell zu erstellen. Heute ist {weekday_de}, {now.strftime('%Y-%m-%d')},
+{now.strftime('%H:%M')} Uhr (Berliner Zeit).
 
 Aktueller Post-Text:
 ---
 {post.get('text', '')}
 ---
+Aktuell geplanter Termin: {post.get('termin') or 'noch nicht eingeplant'}
+Bereits nach Buffer gepusht: {'ja' if post.get('pushed') else 'nein'}
 
-Regeln für den überarbeiteten Text (falls Sebastian eine Änderung will):
+Dir stehen drei Aktionen zur Verfügung, die du bei Bedarf aufrufst:
+- revise_post: Textänderungen umsetzen
+- schedule_post: den Post zu einem konkreten Zeitpunkt in Buffer einplanen (rechne relative Angaben wie "morgen" oder "nächsten Freitag" anhand des heutigen Datums oben in ein echtes Datum um)
+- make_carousel: zusätzlich ein Bild-Karussell aus diesem Post erstellen
+
+Regeln für überarbeiteten Text (nur falls revise_post genutzt wird):
 - Max. 15 Wörter pro Satz, Leerzeile nach jeder 2. Zeile
 - Max. 3 Hashtags am Ende
 - 0 Emojis außer max. 1 ganz am Ende
 - Keine Wörter: innovativ, nachhaltig, ganzheitlich, Lösung, Transformation
 
-Wenn Sebastian nur eine Frage stellt (keine Änderung verlangt), lass neuer_text unverändert (identisch zum aktuellen Text)."""
+Wenn Sebastian nur eine Frage stellt oder Smalltalk macht, antworte direkt in Text ohne Tool-Aufruf.
+Nach jedem Tool-Aufruf kurz in 1-2 Sätzen bestätigen, was passiert ist (z.B. "Für morgen 12 Uhr eingeplant.")."""
 
     try:
-        result = get_client().messages.create(
-            model="claude-sonnet-5", max_tokens=2000,
-            system=system,
-            tools=[_REVISE_POST_TOOL],
-            tool_choice={"type": "tool", "name": "revise_post"},
-            messages=messages,
-        )
-        data = None
-        for block in result.content:
-            if block.type == "tool_use":
-                data = block.input
+        current_messages = list(messages)
+        text_parts: list[str] = []
+        text_changed = False
+        schedule_changed = False
+        updated_text = post.get("text", "")
+        current_termin = post.get("termin", "")
+        current_pushed = bool(post.get("pushed"))
+
+        for _ in range(MAX_POST_CHAT_ITERATIONS):
+            result = get_client().messages.create(
+                model="claude-sonnet-5", max_tokens=2000,
+                system=system,
+                tools=_POST_CHAT_TOOLS,
+                tool_choice={"type": "auto"},
+                messages=current_messages,
+            )
+            current_messages.append({
+                "role": "assistant",
+                "content": [block.model_dump() for block in result.content],
+            })
+            for block in result.content:
+                if block.type == "text" and block.text.strip():
+                    text_parts.append(block.text.strip())
+
+            if result.stop_reason != "tool_use":
                 break
-        if data is None:
-            return {"error": "Keine Antwort erhalten"}
 
-        neuer_text = data.get("neuer_text", "").strip()
-        changed = bool(neuer_text) and neuer_text != post.get("text", "")
-        if changed:
-            update_post_text(post_id, neuer_text)
+            tool_result_blocks = []
+            for block in result.content:
+                if block.type != "tool_use":
+                    continue
 
-        return {"ok": True, "antwort": data.get("antwort", ""), "text": neuer_text or post.get("text", ""), "changed": changed}
+                if block.name == "revise_post":
+                    neuer_text = (block.input.get("neuer_text") or "").strip()
+                    if neuer_text and neuer_text != updated_text:
+                        update_post_text(post_id, neuer_text)
+                        updated_text = neuer_text
+                        text_changed = True
+                        content = "Text gespeichert."
+                    else:
+                        content = "Kein neuer Text übergeben, nichts geändert."
+                    tool_result_blocks.append({"type": "tool_result", "tool_use_id": block.id, "content": content})
+
+                elif block.name == "schedule_post":
+                    try:
+                        scheduled_at = _to_iso_berlin(block.input.get("datum", ""), block.input.get("uhrzeit", ""))
+                    except Exception:
+                        tool_result_blocks.append({
+                            "type": "tool_result", "tool_use_id": block.id,
+                            "content": "Ungültiges Datum/Uhrzeit-Format, bitte YYYY-MM-DD und HH:MM verwenden.",
+                            "is_error": True,
+                        })
+                        continue
+                    r = push_post_to_buffer(post_id, scheduled_at)
+                    if r.get("ok"):
+                        current_termin = scheduled_at
+                        current_pushed = True
+                        schedule_changed = True
+                    tool_result_blocks.append({
+                        "type": "tool_result", "tool_use_id": block.id,
+                        "content": json.dumps(r, ensure_ascii=False),
+                        "is_error": not r.get("ok"),
+                    })
+
+                elif block.name == "make_carousel":
+                    due_at = None
+                    datum = (block.input.get("datum") or "").strip()
+                    uhrzeit = (block.input.get("uhrzeit") or "").strip()
+                    if datum and uhrzeit:
+                        try:
+                            due_at = _to_iso_berlin(datum, uhrzeit)
+                        except Exception:
+                            due_at = None
+                    r = make_carousel_from_post(post_id, branche=block.input.get("branche") or "Alle", due_at=due_at)
+                    tool_result_blocks.append({
+                        "type": "tool_result", "tool_use_id": block.id,
+                        "content": json.dumps({k: v for k, v in r.items() if k != "buffer"}, ensure_ascii=False),
+                        "is_error": not r.get("ok"),
+                    })
+
+            current_messages.append({"role": "user", "content": tool_result_blocks})
+        else:
+            text_parts.append("(Maximale Anzahl an Aktionen in diesem Turn erreicht.)")
+
+        return {
+            "ok": True,
+            "antwort": "\n\n".join(text_parts),
+            "text": updated_text,
+            "changed": text_changed,
+            "schedule_updated": schedule_changed,
+            "termin": current_termin,
+            "pushed": current_pushed,
+        }
     except Exception as e:
         logger.exception("chat_about_post() fehlgeschlagen")
         return {"error": str(e)}

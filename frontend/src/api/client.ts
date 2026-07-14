@@ -98,6 +98,9 @@ export interface PostChatEvent {
   chunk?: string;
   post_updated?: boolean;
   text?: string;
+  schedule_updated?: boolean;
+  termin?: string;
+  pushed?: boolean;
   error?: string;
 }
 

@@ -23,6 +23,7 @@ interface Post {
   termin: string;
   idee: string;
   text_preview: string;
+  pushed?: boolean;
 }
 
 interface PostDetailData {
@@ -32,6 +33,7 @@ interface PostDetailData {
   idee: string;
   typ: string;
   text: string;
+  pushed?: boolean;
 }
 
 function IdeaCard({ idea, onWrite }: { idea: Idea; onWrite: (idea: Idea) => void }) {
@@ -64,6 +66,8 @@ function IdeaCard({ idea, onWrite }: { idea: Idea; onWrite: (idea: Idea) => void
 function PostDetail({ postId, onClose }: { postId: string; onClose: () => void }) {
   const queryClient = useQueryClient();
   const [text, setText] = useState("");
+  const [termin, setTermin] = useState("");
+  const [pushed, setPushed] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [streaming, setStreaming] = useState(false);
@@ -77,7 +81,9 @@ function PostDetail({ postId, onClose }: { postId: string; onClose: () => void }
 
   useEffect(() => {
     if (detailQuery.data?.text !== undefined) setText(detailQuery.data.text);
-  }, [detailQuery.data?.text]);
+    if (detailQuery.data?.termin !== undefined) setTermin(detailQuery.data.termin);
+    if (detailQuery.data?.pushed !== undefined) setPushed(detailQuery.data.pushed);
+  }, [detailQuery.data]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -114,6 +120,12 @@ function PostDetail({ postId, onClose }: { postId: string; onClose: () => void }
           setText(event.text);
           queryClient.invalidateQueries({ queryKey: ["li-posts"] });
         }
+        if (event.schedule_updated) {
+          if (event.termin !== undefined) setTermin(event.termin);
+          if (event.pushed !== undefined) setPushed(event.pushed);
+          toast.success("Termin aktualisiert");
+          queryClient.invalidateQueries({ queryKey: ["li-posts"] });
+        }
       });
     } catch {
       setError("Verbindung unterbrochen. Bitte erneut versuchen.");
@@ -132,10 +144,18 @@ function PostDetail({ postId, onClose }: { postId: string; onClose: () => void }
   return (
     <Card className="lg:col-span-2">
       <CardHeader className="flex-row items-center justify-between gap-2 space-y-0">
-        <CardTitle>
-          {detailQuery.data?.tag ? `${detailQuery.data.tag}: ` : ""}
-          {detailQuery.data?.idee || "Post bearbeiten"}
-        </CardTitle>
+        <div className="flex flex-col gap-1">
+          <CardTitle>
+            {detailQuery.data?.tag ? `${detailQuery.data.tag}: ` : ""}
+            {detailQuery.data?.idee || "Post bearbeiten"}
+          </CardTitle>
+          <div className="flex items-center gap-1.5">
+            <Badge variant={pushed ? "default" : "outline"} className="text-xs">
+              {pushed ? "In Buffer geplant" : "Noch nicht geplant"}
+            </Badge>
+            {termin && <span className="text-xs text-muted-foreground">{termin.slice(0, 16).replace("T", " ")}</span>}
+          </div>
+        </div>
         <Button size="sm" variant="ghost" onClick={onClose}>
           Schließen
         </Button>
@@ -165,7 +185,7 @@ function PostDetail({ postId, onClose }: { postId: string; onClose: () => void }
           <div className="flex-1 max-h-64 overflow-y-auto flex flex-col gap-2.5 pr-1">
             {messages.length === 0 && (
               <p className="text-xs text-muted-foreground">
-                z.B. "Mach den Hook kürzer" oder "Formuliere Absatz 2 um"
+                z.B. "Mach den Hook kürzer", "Plane für morgen 12 Uhr" oder "Mach daraus ein Karussell"
               </p>
             )}
             {messages.map((m, i) =>
@@ -289,6 +309,7 @@ export function LinkedInPage() {
                   <div className="flex items-center gap-2">
                     <Badge variant="outline" className="text-xs">{p.tag}</Badge>
                     <span className="text-xs text-muted-foreground">{p.termin.slice(0, 10)}</span>
+                    {p.pushed && <Badge variant="default" className="text-xs">geplant</Badge>}
                   </div>
                   <p className="text-sm font-medium">{p.idee}</p>
                   {p.text_preview && (

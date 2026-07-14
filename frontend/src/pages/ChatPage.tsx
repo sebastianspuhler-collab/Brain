@@ -1,15 +1,24 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowUp, BrainCircuit } from "lucide-react";
+import { ArrowUp, BrainCircuit, Paperclip } from "lucide-react";
 import ReactMarkdown from "react-markdown";
-import { streamChat, type ChatMessage } from "@/api/client";
+import { toast } from "sonner";
+import { api, streamChat, type ChatMessage } from "@/api/client";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 
 const MODELS = [
-  { id: "claude-sonnet-4-6", label: "Sonnet" },
+  { id: "claude-sonnet-5", label: "Sonnet" },
   { id: "claude-opus-4-8", label: "Opus" },
 ];
+
+interface UploadResult {
+  filename: string;
+  processed: number;
+  errors: number;
+  output: string;
+  new_indexed: number;
+}
 
 const SUGGESTIONS = [
   { title: "Offene Aufgaben", prompt: "Was steht diese Woche an?" },
@@ -24,8 +33,10 @@ export function ChatPage() {
   const [model, setModel] = useState(MODELS[0].id);
   const [streaming, setStreaming] = useState(false);
   const [error, setError] = useState("");
+  const [uploading, setUploading] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -71,6 +82,21 @@ export function ChatPage() {
     }
   }
 
+  async function handleFileSelect(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file || uploading) return;
+    setUploading(true);
+    try {
+      const result = await api.upload<UploadResult>("/api/upload", file);
+      toast.success(`„${result.filename}" verarbeitet und im Wissen abgelegt`);
+    } catch {
+      toast.error("Datei-Upload fehlgeschlagen");
+    } finally {
+      setUploading(false);
+    }
+  }
+
   const modelSelect = (
     <Select value={model} onValueChange={(value) => value && setModel(value)} disabled={streaming}>
       <SelectTrigger
@@ -101,7 +127,27 @@ export function ChatPage() {
         className="min-h-[48px] max-h-52 resize-none border-0 bg-transparent px-4 py-3.5 text-sm shadow-none focus-visible:ring-0"
       />
       <div className="flex items-center justify-between px-2 pb-2">
-        {modelSelect}
+        <div className="flex items-center gap-1">
+          {modelSelect}
+          <input
+            ref={fileInputRef}
+            type="file"
+            className="hidden"
+            onChange={handleFileSelect}
+            disabled={uploading}
+          />
+          <Button
+            size="icon"
+            variant="ghost"
+            className="size-7 rounded-full text-muted-foreground hover:text-foreground"
+            onClick={() => fileInputRef.current?.click()}
+            disabled={uploading}
+            title="Datei anhängen (wird im Wissen abgelegt)"
+          >
+            <Paperclip className="size-4" />
+          </Button>
+          {uploading && <span className="text-xs text-muted-foreground">Wird verarbeitet…</span>}
+        </div>
         <Button
           size="icon"
           className="size-8 rounded-full"

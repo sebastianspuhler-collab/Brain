@@ -79,6 +79,12 @@ def post_chat(post_id: str, body: PostChatRequest, user: str = Depends(get_curre
             yield _sse({"chunk": result.get("antwort", "")})
             if result.get("changed"):
                 yield _sse({"post_updated": True, "text": result.get("text", "")})
+            if result.get("schedule_updated"):
+                yield _sse({
+                    "schedule_updated": True,
+                    "termin": result.get("termin", ""),
+                    "pushed": result.get("pushed", False),
+                })
         yield "data: [DONE]\n\n"
 
     return StreamingResponse(
