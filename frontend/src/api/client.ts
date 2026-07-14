@@ -94,26 +94,21 @@ export async function streamChat(
   }
 }
 
-export interface PostChatEvent {
+export interface LinkedInChatEvent {
   chunk?: string;
-  post_updated?: boolean;
-  text?: string;
-  schedule_updated?: boolean;
-  termin?: string;
-  pushed?: boolean;
+  state_changed?: boolean;
   error?: string;
 }
 
-/** Streamt eine Chat-Antwort zu einem einzelnen LinkedIn-Post (Bearbeiten per
- * Konversation). onEvent bekommt sowohl die Textantwort (chunk) als auch,
- * falls der Post dabei überarbeitet wurde, den neuen Text (post_updated). */
-export async function streamPostChat(
-  postId: string,
+/** Streamt eine Chat-Antwort für die gesamte LinkedIn-Sektion (Ideen, Posts,
+ * Karusselle, Richtung - alles über Tool Use steuerbar). state_changed zeigt
+ * an, dass sich Ideen/Posts/Karusselle geändert haben und neu geladen werden sollten. */
+export async function streamLinkedInChat(
   messages: ChatMessage[],
-  onEvent: (event: PostChatEvent) => void,
+  onEvent: (event: LinkedInChatEvent) => void,
   signal?: AbortSignal
 ): Promise<void> {
-  const res = await fetch(`${API_BASE}/api/linkedin/posts/${postId}/chat`, {
+  const res = await fetch(`${API_BASE}/api/linkedin/chat`, {
     method: "POST",
     credentials: "include",
     headers: { "Content-Type": "application/json" },
@@ -122,7 +117,7 @@ export async function streamPostChat(
   });
   if (!res.ok || !res.body) {
     const body = await res.json().catch(() => ({}));
-    throw new ApiError(res.status, body.detail ?? "Post-Chat-Anfrage fehlgeschlagen");
+    throw new ApiError(res.status, body.detail ?? "LinkedIn-Chat-Anfrage fehlgeschlagen");
   }
 
   const reader = res.body.getReader();

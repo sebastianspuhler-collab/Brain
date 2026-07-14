@@ -32,13 +32,13 @@ class PushBufferRequest(BaseModel):
     scheduled_at: str | None = None  # ISO-8601, z.B. "2026-07-08T09:30:00+02:00"
 
 
-class PostChatMessage(BaseModel):
+class ChatMessage(BaseModel):
     role: str
     content: str
 
 
-class PostChatRequest(BaseModel):
-    messages: list[PostChatMessage]
+class ChatRequest(BaseModel):
+    messages: list[ChatMessage]
 
 
 class UpdatePostRequest(BaseModel):
@@ -68,23 +68,19 @@ def update_post(post_id: str, body: UpdatePostRequest, user: str = Depends(get_c
     return linkedin_service.update_post_text(post_id, body.text)
 
 
-@router.post("/posts/{post_id}/chat")
-def post_chat(post_id: str, body: PostChatRequest, user: str = Depends(get_current_user)):
+@router.post("/chat")
+def linkedin_chat(body: ChatRequest, user: str = Depends(get_current_user)):
+    """Agentischer Chat für die gesamte LinkedIn-Sektion (Ideen, Posts,
+    Karusselle, Richtung) - siehe linkedin_service.chat_linkedin()."""
     def stream():
         messages = [m.model_dump() for m in body.messages]
-        result = linkedin_service.chat_about_post(post_id, messages)
+        result = linkedin_service.chat_linkedin(messages)
         if result.get("error"):
             yield _sse({"error": result["error"]})
         else:
             yield _sse({"chunk": result.get("antwort", "")})
-            if result.get("changed"):
-                yield _sse({"post_updated": True, "text": result.get("text", "")})
-            if result.get("schedule_updated"):
-                yield _sse({
-                    "schedule_updated": True,
-                    "termin": result.get("termin", ""),
-                    "pushed": result.get("pushed", False),
-                })
+            if result.get("state_changed"):
+                yield _sse({"state_changed": True})
         yield "data: [DONE]\n\n"
 
     return StreamingResponse(
@@ -92,6 +88,11 @@ def post_chat(post_id: str, body: PostChatRequest, user: str = Depends(get_curre
         media_type="text/event-stream",
         headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
     )
+
+
+@router.get("/carousels")
+def carousels(user: str = Depends(get_current_user)):
+    return linkedin_service.get_carousels()
 
 
 @router.get("/direction")

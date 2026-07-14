@@ -195,11 +195,61 @@ def push_post_to_buffer(post_id: str, scheduled_at: str | None = None) -> dict:
     return result
 
 
+def _karusselle_path():
+    return get_settings().autoposter_dir / "karusselle.json"
+
+
+def _load_karusselle() -> list[dict]:
+    path = _karusselle_path()
+    if not path.exists():
+        return []
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+
+
+def get_carousels() -> dict:
+    return {"karusselle": _load_karusselle()}
+
+
+def _save_carousel_record(hook: str, branche: str, result: dict, source_post_id: str | None = None) -> None:
+    """Merkt ein erzeugtes Karussell dauerhaft (Thumbnail + PDF-Link), damit es
+    im Dashboard sichtbar bleibt statt nur einmalig im Chat aufzutauchen -
+    analog zum youtube_service-Metadaten-Sidecar-Muster, hier als eine
+    gemeinsame Liste statt einer Datei pro Eintrag."""
+    items = _load_karusselle()
+    items.insert(0, {
+        "id": uuid.uuid4().hex[:8],
+        "source_post_id": source_post_id,
+        "hook": hook,
+        "branche": branche,
+        "slide_titles": result.get("slide_titles", []),
+        "thumb_url": result.get("thumb_url"),
+        "pdf_url": result.get("pdf_url"),
+        "due_at": result.get("due_at"),
+        "anzahl_gepusht": result.get("anzahl_gepusht", 0),
+        "created_at": datetime.now().isoformat(),
+    })
+    _karusselle_path().parent.mkdir(parents=True, exist_ok=True)
+    _karusselle_path().write_text(json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def make_carousel(hook: str, branche: str = "Alle", saeule: str = "Wissen",
+                   due_at: str | None = None, source_post_id: str | None = None) -> dict:
+    """Erstellt ein eigenständiges Karussell (Slides -> Bilder -> PDF ->
+    Cloudinary -> Buffer) aus einem Hook/Thema und merkt das Ergebnis dauerhaft."""
+    result = carousel_service.generate_carousel(hook=hook, branche=branche or "Alle", saeule=saeule, due_at=due_at)
+    if result.get("ok"):
+        _save_carousel_record(hook, branche or "Alle", result, source_post_id=source_post_id)
+    return result
+
+
 def make_carousel_from_post(post_id: str, branche: str = "Alle", saeule: str = "Wissen",
                              due_at: str | None = None) -> dict:
-    """Erstellt aus einem bestehenden Text-Post ein eigenständiges Karussell
-    (Slides -> Bilder -> PDF -> Cloudinary -> Buffer) - läuft unabhängig vom
-    Text-Post als eigener Buffer-Beitrag, der Text-Post bleibt unverändert."""
+    """Erstellt aus einem bestehenden Text-Post ein eigenständiges Karussell -
+    läuft unabhängig vom Text-Post als eigener Buffer-Beitrag, der Text-Post
+    bleibt unverändert."""
     post = get_post(post_id)
     if not post:
         return {"ok": False, "error": f"Post {post_id} nicht gefunden"}
@@ -208,106 +258,232 @@ def make_carousel_from_post(post_id: str, branche: str = "Alle", saeule: str = "
         hook = post["text"].strip().split("\n")[0].strip()
     if not hook:
         return {"ok": False, "error": "Kein Thema/Hook für das Karussell gefunden"}
-    return carousel_service.generate_carousel(
-        hook=hook, branche=branche or "Alle", saeule=saeule,
-        due_at=due_at or post.get("termin"),
+    return make_carousel(hook, branche=branche, saeule=saeule, due_at=due_at or post.get("termin"), source_post_id=post_id)
+
+
+def _format_ideas_for_chat() -> str:
+    ideen = get_ideas().get("ideen", [])
+    if not ideen:
+        return "(keine Ideen vorhanden)"
+    return "\n".join(f"- [{i['kategorie']}] {i['titel']} — {i['hook']}" for i in ideen)
+
+
+def _format_posts_for_chat() -> str:
+    posts = get_posts().get("posts", [])
+    if not posts:
+        return "(keine gespeicherten Posts)"
+    return "\n".join(
+        f"- id={p['id']} | {p['tag']} {p['termin'][:16].replace('T', ' ')} | "
+        f"{'gepusht' if p['pushed'] else 'offen'} | {p['idee']}"
+        for p in posts
     )
 
 
-_REVISE_POST_TOOL = {
-    "name": "revise_post",
-    "description": "Überarbeitet den LinkedIn-Post-Text gemäß Sebastians Wunsch und speichert ihn.",
-    "input_schema": {
-        "type": "object",
-        "properties": {
-            "neuer_text": {"type": "string", "description": "Der komplette überarbeitete Post-Text, fertig zum Posten."},
-        },
-        "required": ["neuer_text"],
+_LINKEDIN_CHAT_TOOLS = [
+    {
+        "name": "list_ideas",
+        "description": "Zeigt die aktuell gespeicherten LinkedIn-Ideen (Titel, Hook, Kategorie, Branche, Format).",
+        "input_schema": {"type": "object", "properties": {}},
     },
-}
-
-_SCHEDULE_POST_TOOL = {
-    "name": "schedule_post",
-    "description": "Plant diesen Post zu einem bestimmten Datum/Uhrzeit in Buffer ein (beide Kanäle: Sebastian + Prozessia). Nutzen, sobald Sebastian einen Zeitpunkt nennt oder 'planen'/'pushen'/'posten' sagt.",
-    "input_schema": {
-        "type": "object",
-        "properties": {
-            "datum": {"type": "string", "description": "YYYY-MM-DD - aus relativen Angaben wie 'morgen' oder 'nächsten Freitag' anhand des heutigen Datums berechnen."},
-            "uhrzeit": {"type": "string", "description": "HH:MM, 24h, Berliner Zeit."},
+    {
+        "name": "generate_ideas",
+        "description": "Generiert 10 neue LinkedIn-Ideen (4x Typ A, 3x Typ B, 3x Typ C) und speichert sie - ersetzt die alten Ideen.",
+        "input_schema": {
+            "type": "object",
+            "properties": {"focus": {"type": "string", "description": "Optionaler thematischer Fokus"}},
         },
-        "required": ["datum", "uhrzeit"],
     },
-}
-
-_MAKE_CAROUSEL_TOOL = {
-    "name": "make_carousel",
-    "description": "Erstellt aus diesem Post zusätzlich ein Bild-Karussell (mehrere Slides als PDF) und plant es eigenständig in Buffer ein - läuft komplett automatisch (KI-Bilder, PDF, Upload, Buffer-Push) und kann 1-2 Minuten dauern. Der ursprüngliche Text-Post bleibt davon unberührt.",
-    "input_schema": {
-        "type": "object",
-        "properties": {
-            "branche": {"type": "string", "enum": ["Werkzeugbau", "Maschinenbau", "Lohnfertiger", "Elektrotechnik", "Allgemein"], "description": "Branchen-Fokus für die Slides, falls aus dem Post erkennbar - sonst 'Allgemein'."},
-            "datum": {"type": "string", "description": "YYYY-MM-DD, optional - leer lassen um den bestehenden Post-Termin bzw. den nächsten freien Karussell-Slot zu nutzen."},
-            "uhrzeit": {"type": "string", "description": "HH:MM, optional, nur zusammen mit datum angeben."},
+    {
+        "name": "list_posts",
+        "description": "Zeigt die aktuell gespeicherten/geplanten Posts (id, Tag, Termin, ob schon gepusht, Thema).",
+        "input_schema": {"type": "object", "properties": {}},
+    },
+    {
+        "name": "write_post",
+        "description": "Schreibt einen vollständigen LinkedIn-Post-Text aus (aus einer Idee oder freiem Thema) und speichert ihn als Entwurf - pusht NICHT automatisch nach Buffer, das braucht einen expliziten schedule_post-Aufruf.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "spec": {"type": "string", "description": "Thema, Hook, Format, Zielgruppe, gewünschter Tag/Zeitraum - alles was für den Text gebraucht wird."},
+            },
+            "required": ["spec"],
         },
-        "required": [],
     },
-}
+    {
+        "name": "revise_post",
+        "description": "Überarbeitet den Text eines bestehenden, gespeicherten Posts (per id, siehe list_posts) gemäß Sebastians Wunsch.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "post_id": {"type": "string"},
+                "neuer_text": {"type": "string", "description": "Der komplette überarbeitete Post-Text."},
+            },
+            "required": ["post_id", "neuer_text"],
+        },
+    },
+    {
+        "name": "schedule_post",
+        "description": "Plant einen bestehenden, gespeicherten Post (per id) zu einem Datum/Uhrzeit in Buffer ein (beide Kanäle: Sebastian + Prozessia).",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "post_id": {"type": "string"},
+                "datum": {"type": "string", "description": "YYYY-MM-DD - relative Angaben wie 'morgen' anhand des heutigen Datums umrechnen."},
+                "uhrzeit": {"type": "string", "description": "HH:MM, 24h, Berliner Zeit."},
+            },
+            "required": ["post_id", "datum", "uhrzeit"],
+        },
+    },
+    {
+        "name": "make_carousel",
+        "description": "Erstellt ein Bild-Karussell (mehrere Slides als PDF) und plant es eigenständig in Buffer ein - läuft komplett automatisch (KI-Bilder, PDF, Upload, Buffer-Push), kann 1-2 Minuten dauern. Entweder post_id (Karussell aus einem bestehenden Post ableiten) oder hook (freies Thema) angeben.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "post_id": {"type": "string", "description": "Optional: bestehenden Post als Grundlage nehmen."},
+                "hook": {"type": "string", "description": "Optional: freier Hook/Thema, falls kein post_id angegeben."},
+                "branche": {"type": "string", "enum": ["Werkzeugbau", "Maschinenbau", "Lohnfertiger", "Elektrotechnik", "Allgemein"]},
+                "datum": {"type": "string", "description": "YYYY-MM-DD, optional."},
+                "uhrzeit": {"type": "string", "description": "HH:MM, optional, nur zusammen mit datum."},
+            },
+            "required": [],
+        },
+    },
+    {
+        "name": "set_direction",
+        "description": "Setzt die Richtungsvorgabe, die künftige Ideen-/Post-Generierung beeinflusst.",
+        "input_schema": {
+            "type": "object",
+            "properties": {"prompt": {"type": "string"}},
+            "required": ["prompt"],
+        },
+    },
+]
 
-_POST_CHAT_TOOLS = [_REVISE_POST_TOOL, _SCHEDULE_POST_TOOL, _MAKE_CAROUSEL_TOOL]
-MAX_POST_CHAT_ITERATIONS = 4
+MAX_LINKEDIN_CHAT_ITERATIONS = 6
+_LINKEDIN_STATE_CHANGING_TOOLS = {"generate_ideas", "write_post", "revise_post", "schedule_post", "make_carousel", "set_direction"}
 
 
-def chat_about_post(post_id: str, messages: list[dict]) -> dict:
-    """Agentischer Chat-Turn über einen bestehenden Post: Claude kann frei
-    zwischen Text-Überarbeitung, Einplanen/Pushen nach Buffer und
-    Karussell-Erstellung wählen (tool_choice=auto, Mehrfach-Turns), oder
-    einfach nur antworten, wenn keine Aktion verlangt ist."""
-    post = get_post(post_id)
-    if not post:
-        return {"error": f"Post {post_id} nicht gefunden"}
+def _execute_linkedin_chat_tool(name: str, inp: dict) -> tuple[str, bool]:
+    """Dispatcher für die Tools des LinkedIn-Chats. Gibt (content, is_error) zurück."""
+    try:
+        if name == "list_ideas":
+            return _format_ideas_for_chat(), False
 
+        if name == "list_posts":
+            return _format_posts_for_chat(), False
+
+        if name == "generate_ideas":
+            r = generate_ideas(inp.get("focus", "") or "")
+            if not r.get("ok"):
+                return f"Fehler: {r.get('error', '?')}", True
+            return f"{r.get('anzahl', 0)} neue Ideen generiert.", False
+
+        if name == "write_post":
+            r = generate_posts(inp.get("spec", ""))
+            if not r.get("ok"):
+                return f"Fehler: {r.get('error', '?')}", True
+            posts = r.get("posts", [])
+            lines = [f"- id={p.get('id')}: {p.get('text', '')[:80]}…" for p in posts]
+            return f"{len(posts)} Post(s) geschrieben und als Entwurf gespeichert:\n" + "\n".join(lines), False
+
+        if name == "revise_post":
+            post_id = inp.get("post_id", "")
+            neuer_text = (inp.get("neuer_text") or "").strip()
+            if not neuer_text:
+                return "Kein Text übergeben.", True
+            r = update_post_text(post_id, neuer_text)
+            return ("Text gespeichert." if r.get("ok") else f"Fehler: {r.get('error', '?')}"), not r.get("ok")
+
+        if name == "schedule_post":
+            post_id = inp.get("post_id", "")
+            try:
+                scheduled_at = _to_iso_berlin(inp.get("datum", ""), inp.get("uhrzeit", ""))
+            except Exception:
+                return "Ungültiges Datum/Uhrzeit-Format, bitte YYYY-MM-DD und HH:MM verwenden.", True
+            r = push_post_to_buffer(post_id, scheduled_at)
+            return (f"Post {post_id} eingeplant für {scheduled_at}." if r.get("ok") else f"Buffer-Fehler: {r.get('error', '?')}"), not r.get("ok")
+
+        if name == "make_carousel":
+            due_at = None
+            datum = (inp.get("datum") or "").strip()
+            uhrzeit = (inp.get("uhrzeit") or "").strip()
+            if datum and uhrzeit:
+                try:
+                    due_at = _to_iso_berlin(datum, uhrzeit)
+                except Exception:
+                    due_at = None
+            post_id = inp.get("post_id")
+            branche = inp.get("branche") or "Alle"
+            if post_id:
+                r = make_carousel_from_post(post_id, branche=branche, due_at=due_at)
+            elif inp.get("hook"):
+                r = make_carousel(inp["hook"], branche=branche, due_at=due_at)
+            else:
+                return "Weder post_id noch hook angegeben.", True
+            if r.get("ok"):
+                titles = " | ".join((r.get("slide_titles") or [])[:3])
+                return f"Karussell fertig — {r.get('slides', 0)} Slides, {r.get('anzahl_gepusht', 0)}x eingeplant. {titles}", False
+            return f"Karussell-Fehler: {r.get('error', '?')}", True
+
+        if name == "set_direction":
+            r = set_direction(inp.get("prompt", ""))
+            return ("Richtung gesetzt." if r.get("ok") else f"Fehler: {r.get('error', '?')}"), not r.get("ok")
+
+        return f"Unbekanntes Tool: {name}", True
+    except Exception as e:
+        return f"Tool-Fehler ({name}): {e}", True
+
+
+def chat_linkedin(messages: list[dict]) -> dict:
+    """Agentischer Chat für die gesamte LinkedIn-Sektion: Ideen generieren,
+    Posts schreiben/überarbeiten/einplanen, Karusselle erstellen, Richtung
+    setzen - alles über Tool Use (tool_choice=auto, Mehrfach-Turns). Ersetzt
+    das frühere chat_about_post(), das auf einen einzelnen Post beschränkt war."""
     now = datetime.now(BERLIN)
     weekday_de = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"][now.weekday()]
 
-    system = f"""Du hilfst Sebastian (Prozessia GbR) im Chat, einen bereits generierten LinkedIn-Post zu
-verfeinern, einzuplanen oder als Karussell zu erstellen. Heute ist {weekday_de}, {now.strftime('%Y-%m-%d')},
-{now.strftime('%H:%M')} Uhr (Berliner Zeit).
+    system = f"""Du steuerst für Sebastian (Prozessia GbR) die komplette LinkedIn-Content-Pipeline im Chat:
+Ideen generieren, Posts schreiben/überarbeiten/einplanen, Karusselle erstellen, Richtung setzen.
+Heute ist {weekday_de}, {now.strftime('%Y-%m-%d')}, {now.strftime('%H:%M')} Uhr (Berliner Zeit).
 
-Aktueller Post-Text:
----
-{post.get('text', '')}
----
-Aktuell geplanter Termin: {post.get('termin') or 'noch nicht eingeplant'}
-Bereits nach Buffer gepusht: {'ja' if post.get('pushed') else 'nein'}
+Aktuelle Richtungsvorgabe: {_current_direction() or '(keine gesetzt)'}
 
-Dir stehen drei Aktionen zur Verfügung, die du bei Bedarf aufrufst:
-- revise_post: Textänderungen umsetzen
-- schedule_post: den Post zu einem konkreten Zeitpunkt in Buffer einplanen (rechne relative Angaben wie "morgen" oder "nächsten Freitag" anhand des heutigen Datums oben in ein echtes Datum um)
-- make_carousel: zusätzlich ein Bild-Karussell aus diesem Post erstellen
+Aktuelle Ideen:
+{_format_ideas_for_chat()}
 
-Regeln für überarbeiteten Text (nur falls revise_post genutzt wird):
+Aktuelle gespeicherte Posts:
+{_format_posts_for_chat()}
+
+Verfügbare Aktionen (bei Bedarf aufrufen, sonst direkt in Text antworten):
+- list_ideas / list_posts: aktuellen Stand nachladen, falls sich seit obiger Übersicht etwas geändert hat
+- generate_ideas: neue Ideen generieren (ersetzt die alten)
+- write_post: Post-Text aus einer Idee/einem Thema schreiben und als Entwurf speichern - pusht NICHT automatisch
+- revise_post: Text eines bestehenden Posts (per id) überarbeiten
+- schedule_post: bestehenden Post (per id) zu einem Zeitpunkt in Buffer einplanen (rechne relative Angaben wie "morgen" anhand des heutigen Datums oben um)
+- make_carousel: Bild-Karussell erstellen (aus post_id oder freiem hook) und automatisch in Buffer einplanen
+- set_direction: Richtungsvorgabe für künftige Generierung setzen
+
+Regeln für Post-Texte (bei write_post/revise_post):
 - Max. 15 Wörter pro Satz, Leerzeile nach jeder 2. Zeile
 - Max. 3 Hashtags am Ende
 - 0 Emojis außer max. 1 ganz am Ende
 - Keine Wörter: innovativ, nachhaltig, ganzheitlich, Lösung, Transformation
 
-Wenn Sebastian nur eine Frage stellt oder Smalltalk macht, antworte direkt in Text ohne Tool-Aufruf.
-Nach jedem Tool-Aufruf kurz in 1-2 Sätzen bestätigen, was passiert ist (z.B. "Für morgen 12 Uhr eingeplant.")."""
+Sei proaktiv: wenn Sebastian z.B. "schreib mir einen Post über X" sagt, ruf direkt write_post auf statt nachzufragen.
+Frag nur nach, wenn eine Aktion sonst mehrdeutig wäre (z.B. welcher Post gemeint ist).
+Nach jedem Tool-Aufruf kurz bestätigen, was passiert ist."""
 
     try:
         current_messages = list(messages)
         text_parts: list[str] = []
-        text_changed = False
-        schedule_changed = False
-        updated_text = post.get("text", "")
-        current_termin = post.get("termin", "")
-        current_pushed = bool(post.get("pushed"))
+        state_changed = False
 
-        for _ in range(MAX_POST_CHAT_ITERATIONS):
+        for _ in range(MAX_LINKEDIN_CHAT_ITERATIONS):
             result = get_client().messages.create(
-                model="claude-sonnet-5", max_tokens=2000,
+                model="claude-sonnet-5", max_tokens=3000,
                 system=system,
-                tools=_POST_CHAT_TOOLS,
+                tools=_LINKEDIN_CHAT_TOOLS,
                 tool_choice={"type": "auto"},
                 messages=current_messages,
             )
@@ -326,70 +502,20 @@ Nach jedem Tool-Aufruf kurz in 1-2 Sätzen bestätigen, was passiert ist (z.B. "
             for block in result.content:
                 if block.type != "tool_use":
                     continue
-
-                if block.name == "revise_post":
-                    neuer_text = (block.input.get("neuer_text") or "").strip()
-                    if neuer_text and neuer_text != updated_text:
-                        update_post_text(post_id, neuer_text)
-                        updated_text = neuer_text
-                        text_changed = True
-                        content = "Text gespeichert."
-                    else:
-                        content = "Kein neuer Text übergeben, nichts geändert."
-                    tool_result_blocks.append({"type": "tool_result", "tool_use_id": block.id, "content": content})
-
-                elif block.name == "schedule_post":
-                    try:
-                        scheduled_at = _to_iso_berlin(block.input.get("datum", ""), block.input.get("uhrzeit", ""))
-                    except Exception:
-                        tool_result_blocks.append({
-                            "type": "tool_result", "tool_use_id": block.id,
-                            "content": "Ungültiges Datum/Uhrzeit-Format, bitte YYYY-MM-DD und HH:MM verwenden.",
-                            "is_error": True,
-                        })
-                        continue
-                    r = push_post_to_buffer(post_id, scheduled_at)
-                    if r.get("ok"):
-                        current_termin = scheduled_at
-                        current_pushed = True
-                        schedule_changed = True
-                    tool_result_blocks.append({
-                        "type": "tool_result", "tool_use_id": block.id,
-                        "content": json.dumps(r, ensure_ascii=False),
-                        "is_error": not r.get("ok"),
-                    })
-
-                elif block.name == "make_carousel":
-                    due_at = None
-                    datum = (block.input.get("datum") or "").strip()
-                    uhrzeit = (block.input.get("uhrzeit") or "").strip()
-                    if datum and uhrzeit:
-                        try:
-                            due_at = _to_iso_berlin(datum, uhrzeit)
-                        except Exception:
-                            due_at = None
-                    r = make_carousel_from_post(post_id, branche=block.input.get("branche") or "Alle", due_at=due_at)
-                    tool_result_blocks.append({
-                        "type": "tool_result", "tool_use_id": block.id,
-                        "content": json.dumps({k: v for k, v in r.items() if k != "buffer"}, ensure_ascii=False),
-                        "is_error": not r.get("ok"),
-                    })
-
+                content, is_error = _execute_linkedin_chat_tool(block.name, block.input)
+                if not is_error and block.name in _LINKEDIN_STATE_CHANGING_TOOLS:
+                    state_changed = True
+                tool_result_blocks.append({
+                    "type": "tool_result", "tool_use_id": block.id,
+                    "content": content, "is_error": is_error,
+                })
             current_messages.append({"role": "user", "content": tool_result_blocks})
         else:
             text_parts.append("(Maximale Anzahl an Aktionen in diesem Turn erreicht.)")
 
-        return {
-            "ok": True,
-            "antwort": "\n\n".join(text_parts),
-            "text": updated_text,
-            "changed": text_changed,
-            "schedule_updated": schedule_changed,
-            "termin": current_termin,
-            "pushed": current_pushed,
-        }
+        return {"ok": True, "antwort": "\n\n".join(text_parts).strip() or "Erledigt.", "state_changed": state_changed}
     except Exception as e:
-        logger.exception("chat_about_post() fehlgeschlagen")
+        logger.exception("chat_linkedin() fehlgeschlagen")
         return {"error": str(e)}
 
 
