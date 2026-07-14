@@ -41,7 +41,7 @@ def videos(user: str = Depends(get_current_user)):
 async def upload(file: UploadFile, user: str = Depends(get_current_user)):
     body = await file.read()
     result = youtube_service.save_upload(file.filename or "video.mp4", body)
-    if "error" in result:
+    if result.get("error"):
         raise HTTPException(status_code=400, detail=result["error"])
     return result
 
