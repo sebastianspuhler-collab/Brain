@@ -270,6 +270,39 @@ def _next_posting_slot(after: datetime | None = None) -> str:
     return (now + timedelta(days=2)).strftime("%Y-%m-%dT07:00:00+02:00")
 
 
+_GENERATE_IDEAS_TOOL = {
+    "name": "save_linkedin_ideas",
+    "description": "Speichert die generierten LinkedIn-Post-Ideen.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "ideen": {
+                "type": "array",
+                "description": "Genau 10 Ideen: 4x Typ A, 3x Typ B, 3x Typ C.",
+                "minItems": 10,
+                "maxItems": 10,
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "typ": {"type": "string", "enum": ["A", "B", "C"]},
+                        "kategorie": {"type": "string", "enum": ["Einkauf", "Industrie", "Compliance", "KI-Tipp", "Kundenstory"]},
+                        "titel": {"type": "string", "description": "Max 60 Zeichen."},
+                        "hook": {"type": "string", "description": "Erste Zeile, max 80 Zeichen, stoppt den Scroll."},
+                        "kern_botschaft": {"type": "string", "description": "Was der Leser mitnimmt."},
+                        "branche": {"type": "string", "enum": ["Werkzeugbau", "Maschinenbau", "Lohnfertiger", "Elektrotechnik", "Allgemein"]},
+                        "zielgruppe_spezifisch": {"type": "string", "description": "z.B. 'Einkaufsleiter, 45 MA, Werkzeugbau'."},
+                        "format_empfehlung": {"type": "string", "enum": ["Text", "Karussell", "Liste"]},
+                        "cta_vorschlag": {"type": "string", "description": "Eine spezifische Frage für Kommentare - kein Engagement-Bait."},
+                    },
+                    "required": ["typ", "kategorie", "titel", "hook", "kern_botschaft", "branche", "zielgruppe_spezifisch", "format_empfehlung", "cta_vorschlag"],
+                },
+            },
+        },
+        "required": ["ideen"],
+    },
+}
+
+
 def generate_ideas(focus: str = "") -> dict:
     current_direction = _current_direction()
     prompt = f"""Du bist LinkedIn-Content-Stratege für Prozessia.
@@ -305,33 +338,22 @@ VERBOTEN für jeden Hook und Post:
 PFLICHT für jeden Hook:
 - Stoppt den Scroll innerhalb von 3 Sekunden
 - Ich-Perspektive ODER direkte Du-Ansprache
-- Kein vollständiger Satz — eher Fragment oder Frage
-
-Antworte NUR mit validem JSON, kein Markdown:
-{{"generiert_am": "ISO-DATUM", "anzahl": 10, "ideen": [
-  {{
-    "typ": "A",
-    "kategorie": "Einkauf|Industrie|Compliance|KI-Tipp|Kundenstory",
-    "titel": "max 60 Zeichen",
-    "hook": "erste Zeile, max 80 Zeichen, stoppt den Scroll",
-    "kern_botschaft": "was der Leser mitnimmt",
-    "branche": "Werkzeugbau|Maschinenbau|Lohnfertiger|Elektrotechnik|Allgemein",
-    "zielgruppe_spezifisch": "Einkaufsleiter, 45 MA, Werkzeugbau",
-    "format_empfehlung": "Text|Karussell|Liste",
-    "cta_vorschlag": "eine spezifische Frage für Kommentare — kein Engagement-Bait"
-  }}
-]}}"""
+- Kein vollständiger Satz — eher Fragment oder Frage"""
 
     try:
         result = get_client().messages.create(
             model="claude-sonnet-5", max_tokens=8000,
+            tools=[_GENERATE_IDEAS_TOOL],
+            tool_choice={"type": "tool", "name": "save_linkedin_ideas"},
             messages=[{"role": "user", "content": prompt}],
         )
-        text = get_response_text(result).strip()
-        match = re.search(r"\{.*\}", text, re.DOTALL)
-        if not match:
-            return {"error": "Kein JSON in Antwort"}
-        data = json.loads(match.group())
+        data = None
+        for block in result.content:
+            if block.type == "tool_use":
+                data = block.input
+                break
+        if data is None:
+            return {"error": "Keine Antwort erhalten"}
         data["generiert_am"] = datetime.now().isoformat()
         data["anzahl"] = len(data.get("ideen", []))
 
@@ -349,6 +371,35 @@ Antworte NUR mit validem JSON, kein Markdown:
     except Exception as e:
         logger.exception("generate_ideas() fehlgeschlagen")
         return {"error": str(e)}
+
+
+_GENERATE_POSTS_TOOL = {
+    "name": "save_linkedin_posts",
+    "description": "Speichert die ausgeschriebenen LinkedIn-Post-Texte.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "posts": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "tag": {"type": "string", "description": "z.B. 'Dienstag'"},
+                        "datum": {"type": "string", "description": "YYYY-MM-DD"},
+                        "typ": {"type": "string", "enum": ["A", "B", "C"]},
+                        "thema": {"type": "string"},
+                        "text": {"type": "string", "description": "Vollständiger Post-Text, fertig zum Posten."},
+                        "hashtags": {"type": "array", "items": {"type": "string"}},
+                        "erster_kommentar": {"type": "string", "description": "Link/weiterführende Info - wird als Kommentar gepostet, nicht im Post."},
+                    },
+                    "required": ["tag", "datum", "typ", "thema", "text"],
+                },
+            },
+        },
+        "required": ["posts"],
+    },
+}
 
 
 def generate_posts(spec: str) -> dict:
@@ -387,56 +438,23 @@ ERSTE ZEILE (Hook):
 Spezifikation für die Posts:
 {spec}
 
-Schreibe jeden Post vollständig aus. Antworte NUR mit validem JSON:
-{{
-  "generiert_am": "ISO-DATUM",
-  "posts": [
-    {{
-      "tag": "Dienstag",
-      "datum": "YYYY-MM-DD",
-      "typ": "A",
-      "thema": "Themenname",
-      "text": "Vollständiger Post-Text fertig zum Kopieren",
-      "hashtags": ["#Einkauf", "#Beschaffung"],
-      "erster_kommentar": "Link oder weiterführende Info — wird als Kommentar gepostet, nicht im Post"
-    }}
-  ]
-}}"""
+Schreibe jeden Post vollständig aus."""
 
     try:
         result = get_client().messages.create(
             model="claude-sonnet-5", max_tokens=8000,
+            tools=[_GENERATE_POSTS_TOOL],
+            tool_choice={"type": "tool", "name": "save_linkedin_posts"},
             messages=[{"role": "user", "content": prompt}],
         )
-        raw = get_response_text(result).strip()
-        raw_clean = raw.replace("```json", "").replace("```", "").strip()
-
         posts = []
-        try:
-            posts = json.loads(raw_clean).get("posts", [])
-        except Exception:
-            match = re.search(r"\{.*\}", raw_clean, re.DOTALL)
-            if match:
-                try:
-                    posts = json.loads(match.group()).get("posts", [])
-                except Exception:
-                    pass
+        for block in result.content:
+            if block.type == "tool_use":
+                posts = block.input.get("posts", [])
+                break
 
         if not posts:
-            blocks = re.split(r"\n#+\s+", raw)
-            for block in blocks:
-                day_match = re.search(r"(Montag|Dienstag|Mittwoch|Donnerstag|Freitag)", block, re.IGNORECASE)
-                date_match = re.search(r"(\d{4}-\d{2}-\d{2})", block)
-                if day_match and date_match:
-                    posts.append({
-                        "tag": day_match.group(1),
-                        "datum": date_match.group(1),
-                        "thema": block.split("\n")[0].strip()[:80],
-                        "text": block.strip()[:1500],
-                    })
-
-        if not posts:
-            return {"error": "Keine Posts extrahiert", "raw": raw[:500]}
+            return {"error": "Keine Posts erhalten"}
 
         # Stabile id pro Post statt Wochentag-Key als Speicherschlüssel - sonst
         # überschreiben sich zwei Posts am selben Wochentag gegenseitig.

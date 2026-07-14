@@ -152,10 +152,15 @@ Antworte NUR mit validem JSON: {{"title": "...", "description": "..."}}"""
             messages=[{"role": "user", "content": prompt}],
         )
         text = get_response_text(result).strip()
-        match = re.search(r"\{.*\}", text, re.DOTALL)
-        if not match:
-            return {"error": "Kein JSON in Antwort"}
-        data = json.loads(match.group())
+        text_clean = text.replace("```json", "").replace("```", "").strip()
+        try:
+            data = json.loads(text_clean)
+        except Exception:
+            match = re.search(r"\{.*\}", text_clean, re.DOTALL)
+            if not match:
+                logger.error("generate_metadata(): kein JSON in Antwort, erste 500 Zeichen: %s", text[:500])
+                return {"error": "Kein JSON in Antwort"}
+            data = json.loads(match.group())
         meta["title"] = data.get("title", meta.get("title", ""))
         meta["description"] = data.get("description", meta.get("description", ""))
         meta["topic"] = topic
