@@ -12,6 +12,16 @@ services:
     networks:
       - default
 
+  # LinkedIn-Karussell: generiert nur die Slide-Texte via Claude (Bilder/PDF/
+  # Cloudinary-Upload/Buffer-Push laufen im backend-Service). Rein intern,
+  # kein Traefik-Label - nur von backend über den Docker-DNS-Namen erreichbar.
+  content-engine:
+    build: ./services/content-engine
+    env_file: ./backend/.env
+    restart: unless-stopped
+    networks:
+      - default
+
   # Frontend + Caddy als reiner Static-File-Server + interner Reverse-Proxy zu
   # backend:9000 - KEIN eigenes TLS mehr (das übernimmt das bestehende Traefik
   # vor diesem Container). Caddy hört nur noch auf Port 80 im internen Netz.

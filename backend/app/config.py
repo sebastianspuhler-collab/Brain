@@ -34,6 +34,15 @@ class Settings(BaseSettings):
     buffer_channel_sebastian: str = "6a25d2578f1d11f9b260c5ee"
     buffer_channel_prozessia: str = "6a25d2578f1d11f9b260c5ef"
 
+    # ── LinkedIn Karussell (Content-Engine + Bildgenerierung + Hosting) ───────
+    # Interne Docker-Netzwerk-URL des content-engine-Service (siehe
+    # docker-compose.yml) - liefert die Slide-Texte via Claude.
+    content_engine_url: str = "http://content-engine:3002"
+    openai_api_key: str = ""
+    cloudinary_cloud_name: str = ""
+    cloudinary_api_key: str = ""
+    cloudinary_api_secret: str = ""
+
     # ── YouTube / Buffer ──────────────────────────────────────────────────────
     # Kanal-ID des mit Buffer verbundenen YouTube-Kanals (Buffer-Dashboard →
     # Kanal-Einstellungen, ID steht in der URL). Ohne diese ID läuft kein Push.

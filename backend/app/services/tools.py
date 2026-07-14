@@ -1,13 +1,15 @@
 """Claude Tool Use: Tool-Schemas + Dispatcher für den Chat-Agentic-Loop.
 Migriert aus brain_server.py (TOOLS, execute_tool, tool_read_file). Portiert
-15 der 17 Legacy-Tools — vault_reorganize und generate_carousel bewusst
-zurückgestellt (siehe Umbau-Plan: höheres Risiko bzw. Mac-only Abhängigkeiten).
+16 der 17 Legacy-Tools — nur vault_reorganize bewusst zurückgestellt (siehe
+Umbau-Plan: höheres Risiko bei KI-geplanter Massen-Reorganisation). generate_carousel
+läuft jetzt über den content-engine-Docker-Service statt Mac-lokalem Subprocess.
 """
 import json
+import re
 from pathlib import Path
 
 from app.config import get_settings
-from app.services import classify, gmail_client, linkedin_service, memory, rag
+from app.services import carousel_service, classify, gmail_client, linkedin_service, memory, rag
 from app.services import search_service, tasks_service, vault_service, youtube_service
 
 TOOLS = [
@@ -174,6 +176,23 @@ TOOLS = [
             "type": "object",
             "properties": {"spec": {"type": "string"}},
             "required": ["spec"],
+        },
+    },
+    {
+        "name": "generate_carousel",
+        "description": (
+            "Vollständige Karussell-Pipeline: Slides (Claude) → KI-Bilder (gpt-image-1) → PDF → Cloudinary → Buffer Document-Post. "
+            "Datum optional, ohne Datum wird der nächste Di oder Fr 09:30 genommen."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "hook": {"type": "string", "description": "Hook-Text für die erste Slide"},
+                "branche": {"type": "string", "description": "z.B. Werkzeugbau, Maschinenbau — Default 'Alle'"},
+                "saeule": {"type": "string", "description": "Themen-Säule, Default 'Wissen'"},
+                "due_date": {"type": "string", "description": "Optional YYYY-MM-DD"},
+            },
+            "required": ["hook"],
         },
     },
     {
@@ -364,6 +383,21 @@ def execute_tool(name: str, tool_input: dict) -> tuple[str, bool]:
             if push.get("ok"):
                 return f"{len(result.get('posts', []))} Posts generiert und in Buffer eingeplant.", False
             return f"Posts generiert — Buffer Push: {push.get('error', '?')}", False
+
+        if name == "generate_carousel":
+            hook = tool_input.get("hook", "")
+            branche = tool_input.get("branche") or "Alle"
+            saeule = tool_input.get("saeule") or "Wissen"
+            due_date = tool_input.get("due_date")
+            due_at = f"{due_date}T09:30:00+02:00" if due_date and re.match(r"\d{4}-\d{2}-\d{2}", due_date) else None
+            result = carousel_service.generate_carousel(hook, branche, saeule, due_at=due_at)
+            if result.get("ok"):
+                n = result.get("slides", 0)
+                due = (result.get("due_at") or "")[:10]
+                pushed = result.get("anzahl_gepusht", 0)
+                titles = " | ".join((result.get("slide_titles") or [])[:3])
+                return f"Karussell fertig — {n} Slides | Buffer: {pushed}x eingeplant für {due} | {titles}", False
+            return f"Karussell-Fehler: {result.get('error', '?')}", True
 
         if name == "list_youtube_videos":
             result = youtube_service.list_videos()
