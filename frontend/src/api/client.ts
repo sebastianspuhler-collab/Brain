@@ -94,6 +94,58 @@ export async function streamChat(
   }
 }
 
+export interface PostChatEvent {
+  chunk?: string;
+  post_updated?: boolean;
+  text?: string;
+  error?: string;
+}
+
+/** Streamt eine Chat-Antwort zu einem einzelnen LinkedIn-Post (Bearbeiten per
+ * Konversation). onEvent bekommt sowohl die Textantwort (chunk) als auch,
+ * falls der Post dabei überarbeitet wurde, den neuen Text (post_updated). */
+export async function streamPostChat(
+  postId: string,
+  messages: ChatMessage[],
+  onEvent: (event: PostChatEvent) => void,
+  signal?: AbortSignal
+): Promise<void> {
+  const res = await fetch(`${API_BASE}/api/linkedin/posts/${postId}/chat`, {
+    method: "POST",
+    credentials: "include",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ messages }),
+    signal,
+  });
+  if (!res.ok || !res.body) {
+    const body = await res.json().catch(() => ({}));
+    throw new ApiError(res.status, body.detail ?? "Post-Chat-Anfrage fehlgeschlagen");
+  }
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+
+    const lines = buffer.split("\n\n");
+    buffer = lines.pop() ?? "";
+    for (const line of lines) {
+      if (!line.startsWith("data: ")) continue;
+      const payload = line.slice(6);
+      if (payload === "[DONE]") return;
+      try {
+        onEvent(JSON.parse(payload));
+      } catch {
+        continue;
+      }
+    }
+  }
+}
+
 export interface OnboardingEvent {
   step: string;
   status: "running" | "done" | "error" | "warning";

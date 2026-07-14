@@ -1,7 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
-import { api } from "@/api/client";
+import { ArrowUp } from "lucide-react";
+import { api, streamPostChat, type ChatMessage } from "@/api/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -17,10 +18,20 @@ interface Idea {
 }
 
 interface Post {
+  id: string;
   tag: string;
   termin: string;
   idee: string;
   text_preview: string;
+}
+
+interface PostDetailData {
+  id: string;
+  tag: string;
+  termin: string;
+  idee: string;
+  typ: string;
+  text: string;
 }
 
 function IdeaCard({ idea, onWrite }: { idea: Idea; onWrite: (idea: Idea) => void }) {
@@ -47,12 +58,162 @@ function IdeaCard({ idea, onWrite }: { idea: Idea; onWrite: (idea: Idea) => void
   );
 }
 
+/** Detail-/Bearbeitungsansicht für einen einzelnen geplanten Post: voller
+ * Text (direkt editierbar + speicherbar) und ein Chat, um Claude bitten zu
+ * können den Post zu überarbeiten ("mach den Hook kürzer" etc.). */
+function PostDetail({ postId, onClose }: { postId: string; onClose: () => void }) {
+  const queryClient = useQueryClient();
+  const [text, setText] = useState("");
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [input, setInput] = useState("");
+  const [streaming, setStreaming] = useState(false);
+  const [error, setError] = useState("");
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  const detailQuery = useQuery({
+    queryKey: ["li-post", postId],
+    queryFn: () => api.get<PostDetailData>(`/api/linkedin/posts/${postId}`),
+  });
+
+  useEffect(() => {
+    if (detailQuery.data?.text !== undefined) setText(detailQuery.data.text);
+  }, [detailQuery.data?.text]);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  const saveDirect = useMutation({
+    mutationFn: () => api.post(`/api/linkedin/posts/${postId}`, { text }),
+    onSuccess: () => {
+      toast.success("Post gespeichert");
+      queryClient.invalidateQueries({ queryKey: ["li-posts"] });
+      queryClient.invalidateQueries({ queryKey: ["li-post", postId] });
+    },
+    onError: () => toast.error("Speichern fehlgeschlagen"),
+  });
+
+  async function sendChat() {
+    const msg = input.trim();
+    if (!msg || streaming) return;
+    const nextMessages: ChatMessage[] = [...messages, { role: "user", content: msg }];
+    setMessages([...nextMessages, { role: "assistant", content: "" }]);
+    setInput("");
+    setStreaming(true);
+    setError("");
+
+    let assistantText = "";
+    try {
+      await streamPostChat(postId, nextMessages, (event) => {
+        if (event.error) throw new Error(event.error);
+        if (event.chunk) {
+          assistantText += event.chunk;
+          setMessages([...nextMessages, { role: "assistant", content: assistantText }]);
+        }
+        if (event.post_updated && event.text !== undefined) {
+          setText(event.text);
+          queryClient.invalidateQueries({ queryKey: ["li-posts"] });
+        }
+      });
+    } catch {
+      setError("Verbindung unterbrochen. Bitte erneut versuchen.");
+    } finally {
+      setStreaming(false);
+    }
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendChat();
+    }
+  }
+
+  return (
+    <Card className="lg:col-span-2">
+      <CardHeader className="flex-row items-center justify-between gap-2 space-y-0">
+        <CardTitle>
+          {detailQuery.data?.tag ? `${detailQuery.data.tag}: ` : ""}
+          {detailQuery.data?.idee || "Post bearbeiten"}
+        </CardTitle>
+        <Button size="sm" variant="ghost" onClick={onClose}>
+          Schließen
+        </Button>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-4 lg:flex-row">
+        <div className="flex-1 min-w-0">
+          <Textarea
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            className="min-h-56 font-mono text-sm"
+          />
+          <div className="flex items-center justify-between mt-1.5">
+            <p className="text-xs text-muted-foreground">{text.length} Zeichen</p>
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={() => saveDirect.mutate()}
+              disabled={saveDirect.isPending || text === detailQuery.data?.text}
+            >
+              {saveDirect.isPending ? "Speichere…" : "Speichern"}
+            </Button>
+          </div>
+        </div>
+
+        {/* Chat zur Überarbeitung */}
+        <div className="flex flex-col w-full lg:w-80 shrink-0 border-t lg:border-t-0 lg:border-l border-border pt-3 lg:pt-0 lg:pl-4">
+          <div className="flex-1 max-h-64 overflow-y-auto flex flex-col gap-2.5 pr-1">
+            {messages.length === 0 && (
+              <p className="text-xs text-muted-foreground">
+                z.B. "Mach den Hook kürzer" oder "Formuliere Absatz 2 um"
+              </p>
+            )}
+            {messages.map((m, i) =>
+              m.role === "user" ? (
+                <div key={i} className="self-end max-w-[85%] rounded-2xl bg-muted px-3 py-1.5 text-xs">
+                  {m.content}
+                </div>
+              ) : (
+                <div key={i} className="text-xs text-foreground">
+                  {m.content || (streaming && i === messages.length - 1 ? "…" : "")}
+                </div>
+              )
+            )}
+            {error && <p className="text-xs text-destructive">{error}</p>}
+            <div ref={bottomRef} />
+          </div>
+          <div className="flex items-end gap-1.5 mt-2 rounded-xl border border-border bg-card/60 px-2 py-1.5">
+            <Textarea
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Änderung vorschlagen…"
+              rows={1}
+              disabled={streaming}
+              className="min-h-8 max-h-32 resize-none border-0 bg-transparent px-1 py-1 text-xs shadow-none focus-visible:ring-0"
+            />
+            <Button
+              size="icon"
+              className="size-7 shrink-0 rounded-full"
+              onClick={sendChat}
+              disabled={streaming || !input.trim()}
+            >
+              <ArrowUp className="size-3.5" />
+            </Button>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
 export function LinkedInPage() {
   const queryClient = useQueryClient();
   const [focus, setFocus] = useState("");
   const [draftText, setDraftText] = useState("");
   const [draftIdea, setDraftIdea] = useState<Idea | null>(null);
   const [scheduledAt, setScheduledAt] = useState("");
+  const [selectedPostId, setSelectedPostId] = useState<string | null>(null);
 
   const ideasQuery = useQuery({
     queryKey: ["li-ideas"],
@@ -83,6 +244,7 @@ export function LinkedInPage() {
       setDraftText(text);
       setDraftIdea(idea);
       if (!text) toast.error("Kein Text generiert");
+      queryClient.invalidateQueries({ queryKey: ["li-posts"] });
     },
     onError: () => toast.error("Post-Generierung fehlgeschlagen"),
   });
@@ -118,8 +280,12 @@ export function LinkedInPage() {
             <p className="text-sm text-muted-foreground">Keine Beiträge in der Pipeline.</p>
           ) : (
             <div className="flex flex-col gap-3">
-              {postsQuery.data.posts.map((p, i) => (
-                <div key={i} className="flex flex-col gap-1 border-b border-border pb-3 last:border-0">
+              {postsQuery.data.posts.map((p) => (
+                <button
+                  key={p.id}
+                  onClick={() => setSelectedPostId(p.id)}
+                  className="flex flex-col gap-1 border-b border-border pb-3 last:border-0 text-left transition hover:opacity-80"
+                >
                   <div className="flex items-center gap-2">
                     <Badge variant="outline" className="text-xs">{p.tag}</Badge>
                     <span className="text-xs text-muted-foreground">{p.termin.slice(0, 10)}</span>
@@ -128,7 +294,7 @@ export function LinkedInPage() {
                   {p.text_preview && (
                     <p className="text-xs text-muted-foreground line-clamp-2">{p.text_preview}</p>
                   )}
-                </div>
+                </button>
               ))}
             </div>
           )}
@@ -171,7 +337,12 @@ export function LinkedInPage() {
         </CardContent>
       </Card>
 
-      {/* Entwurf + Buffer-Push */}
+      {/* Post-Detail: Bearbeiten + Chat (Klick auf einen geplanten Beitrag) */}
+      {selectedPostId && (
+        <PostDetail postId={selectedPostId} onClose={() => setSelectedPostId(null)} />
+      )}
+
+      {/* Entwurf + Buffer-Push (frisch aus einer Idee geschrieben) */}
       {(draftText || draftIdea) && (
         <Card className="lg:col-span-2">
           <CardHeader className="flex-row items-center justify-between gap-2 space-y-0">

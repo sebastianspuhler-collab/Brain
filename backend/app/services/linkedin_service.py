@@ -4,6 +4,7 @@ import json
 import logging
 import re
 import urllib.request
+import uuid
 from datetime import datetime, timedelta
 
 from app.config import get_settings
@@ -57,6 +58,35 @@ def get_ideas() -> dict:
         return {"ideen": [], "datum": None, "error": str(e)}
 
 
+_WEEKDAY_KEYS = ("montag", "dienstag", "mittwoch", "donnerstag", "freitag")
+
+
+def _normalize_posts(data: dict) -> list[dict]:
+    """Liest Posts aus einer beitraege-*.json, egal ob altes Format
+    (Wochentag als Key, ein Post pro Tag - kollidiert bei mehreren Posts am
+    selben Tag) oder neues Format (Liste mit stabiler id pro Post)."""
+    if isinstance(data.get("posts"), list):
+        return data["posts"]
+
+    # Altes Format: aus den Wochentag-Keys eine Liste mit abgeleiteter id bauen.
+    posts = []
+    datum = data.get("generiert_am", "")[:10]
+    for key in _WEEKDAY_KEYS:
+        p = data.get(key)
+        if not p:
+            continue
+        posts.append({
+            "id": f"{datum}-{key}",
+            "tag": key.capitalize(),
+            "datum": datum,
+            "termin": p.get("termin", ""),
+            "idee": p.get("idee", ""),
+            "typ": p.get("typ", ""),
+            "text": p.get("text", ""),
+        })
+    return posts
+
+
 def get_posts() -> dict:
     cached = cache.get("li_posts")
     if cached is not None:
@@ -66,22 +96,130 @@ def get_posts() -> dict:
         return {"posts": [], "datum": None}
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
-        posts = []
-        for key in ("donnerstag", "freitag", "montag", "dienstag", "mittwoch"):
-            p = data.get(key)
-            if not p:
-                continue
-            posts.append({
-                "tag": key.capitalize(),
+        posts = [
+            {
+                "id": p.get("id", ""),
+                "tag": p.get("tag", ""),
                 "termin": p.get("termin", ""),
                 "idee": p.get("idee", ""),
                 "text_preview": p.get("text", "")[:200],
-            })
+            }
+            for p in _normalize_posts(data)
+        ]
         result = {"datum": path.stem.replace("beitraege-", ""), "posts": posts}
         cache.set("li_posts", result)
         return result
     except Exception as e:
         return {"posts": [], "datum": None, "error": str(e)}
+
+
+def get_post(post_id: str) -> dict | None:
+    """Findet einen einzelnen Post (voller Text) über seine id, für die
+    Detail-/Bearbeitungsansicht im Dashboard."""
+    path = _latest_file("beitraege")
+    if not path:
+        return None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        for p in _normalize_posts(data):
+            if p.get("id") == post_id:
+                return p
+    except Exception:
+        logger.exception("get_post() fehlgeschlagen")
+    return None
+
+
+def update_post_text(post_id: str, new_text: str) -> dict:
+    """Überschreibt den Text eines einzelnen Posts über seine id, ohne die
+    anderen Posts in derselben Datei anzufassen."""
+    path = _latest_file("beitraege")
+    if not path:
+        return {"error": "Keine beitraege-Datei gefunden"}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        posts = _normalize_posts(data)
+        found = False
+        for p in posts:
+            if p.get("id") == post_id:
+                p["text"] = new_text
+                found = True
+                break
+        if not found:
+            return {"error": f"Post {post_id} nicht gefunden"}
+        data["posts"] = posts
+        for key in _WEEKDAY_KEYS:
+            data.pop(key, None)
+        path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+        cache.invalidate("li_posts")
+        return {"ok": True}
+    except Exception as e:
+        logger.exception("update_post_text() fehlgeschlagen")
+        return {"error": str(e)}
+
+
+_REVISE_POST_TOOL = {
+    "name": "revise_post",
+    "description": "Gibt den überarbeiteten LinkedIn-Post-Text zurück, plus eine kurze Antwort an Sebastian was geändert wurde.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "antwort": {"type": "string", "description": "Kurze Antwort an Sebastian (1-2 Sätze), was am Post geändert wurde oder warum nicht."},
+            "neuer_text": {"type": "string", "description": "Der komplette überarbeitete Post-Text, fertig zum Posten - unverändert wenn Sebastian nur eine Frage gestellt hat statt eine Änderung zu verlangen."},
+        },
+        "required": ["antwort", "neuer_text"],
+    },
+}
+
+
+def chat_about_post(post_id: str, messages: list[dict]) -> dict:
+    """Ein Chat-Turn über einen bestehenden Post: Claude sieht den aktuellen
+    Text + die Konversation, antwortet UND liefert den überarbeiteten Text in
+    einem Aufruf (Tool Use statt Freitext-Parsing, für zuverlässige Antworten).
+    Speichert das Ergebnis direkt unter derselben post_id."""
+    post = get_post(post_id)
+    if not post:
+        return {"error": f"Post {post_id} nicht gefunden"}
+
+    system = f"""Du hilfst Sebastian (Prozessia GbR), einen bereits generierten LinkedIn-Post zu verfeinern.
+
+Aktueller Post-Text:
+---
+{post.get('text', '')}
+---
+
+Regeln für den überarbeiteten Text (falls Sebastian eine Änderung will):
+- Max. 15 Wörter pro Satz, Leerzeile nach jeder 2. Zeile
+- Max. 3 Hashtags am Ende
+- 0 Emojis außer max. 1 ganz am Ende
+- Keine Wörter: innovativ, nachhaltig, ganzheitlich, Lösung, Transformation
+
+Wenn Sebastian nur eine Frage stellt (keine Änderung verlangt), lass neuer_text unverändert (identisch zum aktuellen Text)."""
+
+    try:
+        result = get_client().messages.create(
+            model="claude-sonnet-5", max_tokens=2000,
+            system=system,
+            tools=[_REVISE_POST_TOOL],
+            tool_choice={"type": "tool", "name": "revise_post"},
+            messages=messages,
+        )
+        data = None
+        for block in result.content:
+            if block.type == "tool_use":
+                data = block.input
+                break
+        if data is None:
+            return {"error": "Keine Antwort erhalten"}
+
+        neuer_text = data.get("neuer_text", "").strip()
+        changed = bool(neuer_text) and neuer_text != post.get("text", "")
+        if changed:
+            update_post_text(post_id, neuer_text)
+
+        return {"ok": True, "antwort": data.get("antwort", ""), "text": neuer_text or post.get("text", ""), "changed": changed}
+    except Exception as e:
+        logger.exception("chat_about_post() fehlgeschlagen")
+        return {"error": str(e)}
 
 
 def _current_direction() -> str:
@@ -267,19 +405,22 @@ Schreibe jeden Post vollständig aus. Antworte NUR mit validem JSON:
 
     try:
         result = get_client().messages.create(
-            model="claude-sonnet-5", max_tokens=6000,
+            model="claude-sonnet-5", max_tokens=8000,
             messages=[{"role": "user", "content": prompt}],
         )
         raw = get_response_text(result).strip()
+        raw_clean = raw.replace("```json", "").replace("```", "").strip()
 
         posts = []
         try:
-            match = re.search(r"\{.*\}", raw, re.DOTALL)
-            if match:
-                data = json.loads(match.group())
-                posts = data.get("posts", [])
+            posts = json.loads(raw_clean).get("posts", [])
         except Exception:
-            pass
+            match = re.search(r"\{.*\}", raw_clean, re.DOTALL)
+            if match:
+                try:
+                    posts = json.loads(match.group()).get("posts", [])
+                except Exception:
+                    pass
 
         if not posts:
             blocks = re.split(r"\n#+\s+", raw)
@@ -297,19 +438,27 @@ Schreibe jeden Post vollständig aus. Antworte NUR mit validem JSON:
         if not posts:
             return {"error": "Keine Posts extrahiert", "raw": raw[:500]}
 
-        out_data = {"generiert_am": datetime.now().isoformat(), "kanaele": [], "planungen": []}
+        # Stabile id pro Post statt Wochentag-Key als Speicherschlüssel - sonst
+        # überschreiben sich zwei Posts am selben Wochentag gegenseitig.
+        today = datetime.now().strftime('%Y-%m-%d')
+        stored_posts = []
         last_slot = None
         for p in posts:
-            key = p.get("tag", "").lower()
             slot = _next_posting_slot(after=last_slot)
             last_slot = datetime.fromisoformat(slot.replace("+02:00", "")) + timedelta(hours=1)
-            out_data[key] = {
+            post_id = uuid.uuid4().hex[:8]
+            p["id"] = post_id
+            stored_posts.append({
+                "id": post_id,
+                "tag": p.get("tag", ""),
+                "datum": p.get("datum", today),
                 "termin": slot,
                 "idee": p.get("thema", ""),
                 "text": p.get("text", ""),
                 "typ": p.get("typ", ""),
-            }
-        out_path = get_settings().autoposter_dir / f"beitraege-{datetime.now().strftime('%Y-%m-%d')}.json"
+            })
+        out_data = {"generiert_am": datetime.now().isoformat(), "kanaele": [], "planungen": [], "posts": stored_posts}
+        out_path = get_settings().autoposter_dir / f"beitraege-{today}.json"
         out_path.parent.mkdir(parents=True, exist_ok=True)
         out_path.write_text(json.dumps(out_data, ensure_ascii=False, indent=2), encoding="utf-8")
         cache.invalidate("li_posts")
@@ -333,15 +482,15 @@ def push_latest_to_buffer() -> dict:
 
     pushed = []
     errors = []
-    for key in ("montag", "dienstag", "mittwoch", "donnerstag", "freitag"):
-        p = data.get(key)
-        if not p or not p.get("text"):
+    for p in _normalize_posts(data):
+        if not p.get("text"):
             continue
+        label = p.get("id") or p.get("tag", "")
         result = buffer_push(p["text"], scheduled_at=p.get("termin"))
         if result.get("ok"):
-            pushed.append(key)
+            pushed.append(label)
         else:
-            errors.append({"tag": key, "error": result.get("error")})
+            errors.append({"tag": label, "error": result.get("error")})
 
     cache.invalidate("buffer_status")
     if not pushed:

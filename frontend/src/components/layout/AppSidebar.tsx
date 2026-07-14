@@ -1,4 +1,4 @@
-import { CalendarDays, CheckSquare, FileText, LogOut, Mail, MessageSquare, Share2, UserPlus, Youtube } from "lucide-react";
+import { CalendarDays, CheckSquare, FileText, LogOut, Mail, MessageSquare, Share2, SquarePlay, UserPlus } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import {
   Sidebar,
@@ -23,7 +23,7 @@ const NAV_ITEMS = [
   { to: "/mail", label: "Mail", icon: Mail },
   { to: "/dateien", label: "Dateien", icon: FileText },
   { to: "/linkedin", label: "LinkedIn", icon: Share2 },
-  { to: "/youtube", label: "YouTube", icon: Youtube },
+  { to: "/youtube", label: "YouTube", icon: SquarePlay },
   { to: "/onboarding", label: "Onboarding", icon: UserPlus },
 ];
 
