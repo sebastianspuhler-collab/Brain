@@ -185,18 +185,19 @@ def push_to_buffer(filename: str, scheduled_at: str | None = None) -> dict:
 
     video_url = f"{settings.public_media_base_url}/api/youtube/media/{filename}"
 
+    # Gleiche Mutation-Form wie linkedin_service.buffer_push()/carousel_service -
+    # erprobt und funktionierend, im Gegensatz zur älteren Union-Type-Variante
+    # ("... on PostActionSuccess"), die hier nie live getestet wurde.
     mutation = """
 mutation CreatePost($input: CreatePostInput!) {
   createPost(input: $input) {
-    ... on PostActionSuccess { post { id status dueAt } }
-    ... on InvalidInputError { message }
-    ... on UnauthorizedError { message }
-    ... on UnexpectedError { message }
-    ... on LimitReachedError { message }
+    post { id status scheduledAt }
+    userErrors { message }
   }
 }"""
     variables = {
         "input": {
+            "organizationId": "6a15c3685a233c9c16251245",
             "channelId": channel_id,
             "text": meta.get("description", ""),
             "schedulingType": "automatic",
@@ -228,14 +229,16 @@ mutation CreatePost($input: CreatePostInput!) {
             _save_meta(filename, meta)
             return {"error": err}
         r = data.get("data", {}).get("createPost", {})
-        if "post" in r:
+        errs = r.get("userErrors") or []
+        post = r.get("post")
+        if post:
             meta["pushed"] = True
-            meta["post_id"] = r["post"]["id"]
-            meta["scheduled_at"] = r["post"].get("dueAt")
+            meta["post_id"] = post["id"]
+            meta["scheduled_at"] = post.get("scheduledAt")
             meta["error"] = None
             _save_meta(filename, meta)
-            return {"ok": True, "post_id": r["post"]["id"], "status": r["post"].get("status")}
-        err = r.get("message", "Unbekannter Buffer-Fehler")
+            return {"ok": True, "post_id": post["id"], "status": post.get("status")}
+        err = errs[0]["message"] if errs else "Unbekannter Buffer-Fehler"
         meta["error"] = err
         _save_meta(filename, meta)
         return {"error": err}
