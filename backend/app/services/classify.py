@@ -145,6 +145,18 @@ def extract_text(filepath: Path, max_chars: int = 3000) -> str | None:
         return None
 
 
+def list_customer_names() -> list[str]:
+    """Ordnernamen unter Kunden/ (ohne Platzhalter/Vorlage) - Basis für die
+    automatische Zuordnung von E-Mails zu bestehenden Kunden."""
+    kunden_dir = get_settings().vault_path / "Kunden"
+    if not kunden_dir.exists():
+        return []
+    return [
+        p.name for p in sorted(kunden_dir.iterdir())
+        if p.is_dir() and not p.name.startswith((".", "[", "_"))
+    ]
+
+
 def _scan_vault_folders() -> str:
     """Liest die aktuelle Ordnerstruktur des Vault dynamisch aus (Port aus
     _agent/heartbeat.py), statt einer hartcodierten Zielordner-Liste — damit
