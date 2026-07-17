@@ -3,9 +3,24 @@ Migriert aus brain_server.py (index_new_emails, _email_indexer_loop)."""
 import json
 import re
 import threading
+from email.utils import parsedate_to_datetime
 
 from app.config import get_settings
 from app.services import classify, gmail_client, memory, rag
+
+
+def _date_slug(date: str) -> str:
+    """YYYYMMDD aus dem Gmail-Date-Header. Der Header kommt im RFC822-Format
+    ("Tue, 07 Jul 2026 17:13:42 +0000"), ein naives date[:10] liefert daher
+    Datumsmüll statt eines echten Datums (z.B. nur "07") - das fiel bisher nicht
+    auf, weil niemand die email_cache-Dateinamen nach Datum auswertet, ist aber
+    fatal für die Kunden-Korrespondenz-Notizen, deren Datumspräfix vom
+    Dashboard für die Aktivitäts-Ampel gelesen wird."""
+    try:
+        return parsedate_to_datetime(date).strftime("%Y%m%d")
+    except Exception:
+        digits = re.sub(r"[^\d]", "", date[:10])
+        return digits if len(digits) == 8 else "00000000"
 
 
 def _normalize(text: str) -> str:
@@ -44,7 +59,7 @@ def _write_customer_correspondence(
     settings = get_settings()
     dok_dir = settings.vault_path / "Kunden" / customer / "Dokumente"
     dok_dir.mkdir(parents=True, exist_ok=True)
-    date_slug = re.sub(r"[^\d]", "", date[:10]) or "00000000"
+    date_slug = _date_slug(date)
     safe_sub = re.sub(r"[^\w\s-]", "", subject)[:40].strip().replace(" ", "-") or "kein-betreff"
     filename = f"{date_slug[:4]}-{date_slug[4:6]}-{date_slug[6:8]}-Email-{eid[:8]}-{safe_sub}.md"
     path = dok_dir / filename
@@ -110,7 +125,7 @@ def index_new_emails(deep: bool = False) -> int:
         date = e.get("date", "")
         body = _strip_html(e.get("body", "") or e.get("snippet", ""))[:3000]
 
-        date_slug = re.sub(r"[^\d]", "", date[:10]) or "00000000"
+        date_slug = _date_slug(date)
         safe_sub = re.sub(r"[^\w\s-]", "", subject)[:40].strip().replace(" ", "-")
         filename = f"{date_slug}-{eid[:8]}-{safe_sub}.md"
         rel_path = f"_agent/email_cache/{filename}"

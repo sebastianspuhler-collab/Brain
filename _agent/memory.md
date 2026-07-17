@@ -1,4 +1,29 @@
 ## KONTEXT
+- [2026-07-17 21:47] [2026-07-11-Email-19f51b7b-Funding-Application-for-Paula--Berkman-Z.md] Berkman Financial hat kürzlich $200.000 für gebrauchtes Autohändler-Unternehmen gesichert (vorher 3x abgelehnt)
+- [2026-07-17 21:46] [2026-06-30-Email-19f17f30-Zugesagt-Angebotsdurchsprache-Endin-X-Pr.md] Bestätigung erfolgt am 30.06.2026
+- [2026-07-17 21:46] [2026-06-26-Email-19f0350e-Sebastian---are-you-attending-the-confer.md] Email-ID: 48E2G6D ZRSMQTG vom 26.06.2026
+- [2026-07-17 21:46] [2026-06-26-Email-19f0350e-Sebastian---are-you-attending-the-confer.md] Anfrage zur Konferenzteilnahme im Juli 2026 an Sebastian Spuhler von McKinley Blg
+- [2026-07-17 21:46] [2026-07-07-Email-19f3d924-Action-required-security-vulnerabilities.md] Meldungsdatum: 07.07.2026, Erkennungsdatum der Vulnerabilities: 06.07.2026
+- [2026-07-17 21:46] [2026-06-23-Email-19ef570c-Action-required-security-vulnerabilities.md] Nachricht vom: 23. Juni 2026, 17:04 Uhr UTC - Sicherheitsprobleme erkannt am 22. Juni 2026
+- [2026-07-17 21:46] [2026-07-15-Email-19f6689d-Abgelehnt-Bedarfsanalyse-TPG-X-Prozessia.md] TPG-Standort: Gerberstr. 50, 51789 Lindlar, Germany
+- [2026-07-17 21:46] [2026-07-16-Email-19f69bbe-Messberichte.md] Risiko der Postfachüberauslastung erfordert Speicherverwaltungsstrategie
+- [2026-07-17 21:46] [2026-07-15-Email-19f65c24-AW-Messberichte.md] Termin: Jonas Rösch konnte Besprechung für 'morgen früh' (ab 16.07.2026) zusagen
+- [2026-07-17 21:46] [2026-07-15-Email-19f65c24-AW-Messberichte.md] Umfang: Messberichte sind temporäre Lösung - dauerhafte Lösung unklar
+- [2026-07-17 21:46] [2026-07-15-Email-19f65521-Zugesagt-Einführung-Beschaffungsagent.md] Zusage erfolgte am 15. Juli 2026 von Benjamin Schmohl (benjamin.schmohl@schaufler.de)
+- [2026-07-17 21:45] [2026-07-10-Email-19f4b6ce-Zugesagt-Update-Azure-OpenAI.md] Status: Zugesagt (confirmed)
+- [2026-07-17 21:45] [2026-07-08-Email-19f40a0d-WG-AVV-Vertrag--SLA.md] Beteiligte Kontaktpersonen: Florian Knoblauch, Andreas Thunich, Siegfried Heinrich, Benjamin Schmohl
+- [2026-07-17 21:45] [2026-07-13-Email-19f5bf98-AW-Statusabfrage--AI-Agent-Beschaffung.md] Verfügbarkeiten für Go-Live Meeting: Benjamin Schmohl ab Dienstag 11:00 Uhr, Mittwoch ganztägig oder Donnerstag bis 12:00 Uhr
+- [2026-07-17 21:44] [2026-07-09-Email-19f47913-AW-Infos-zur-WinForm-Sicht.md] Ansprechpartner Hettmer-Seite: Jochen Hettmer; weitere Beteiligten: Jonas Rösch, Benjamin Schmohl (CC)
+- [2026-07-17 21:44] [2026-07-09-Email-19f472fd-Infos-zur-WinForm-Sicht.md] Test-Datenbank bereitgestellt mit Login-Daten (Benutzer: Prozessia, Passwort: Prozessia#66123#-A11!)
+- [2026-07-17 21:44] [2026-07-08-Email-19f419a4-AW-Offene-Punkte-Beschaffungsagent.md] VPN-Tunnel zum Server (Poleis) mit Lese- und Schreibrechten ist relevant für Datenzugriff
+- [2026-07-17 21:44] [2026-06-15-Email-19ecd0bb-KI-erfolgreich-im-Unternehmen-etablieren.md] Fokus: Nachhaltige KI-Implementierung, Mitarbeiterakzeptanz, Umgang mit Widerständen bei Veränderungsprojekten
+- [2026-07-17 21:44] [2026-06-15-Email-19ecd0bb-KI-erfolgreich-im-Unternehmen-etablieren.md] Veranstaltungsreihe im Q3 2026 zu Themen: Change-Management, KI-Agenten, KI programmieren
+- [2026-07-17 21:42] [30---Email-19f17f30-Zugesagt-Angebotsdurchsprache-Endin-X-Pr.md] Bestätigung erhalten am 30. Juni 2026, 11:53 Uhr
+- [2026-07-17 21:42] [26---Email-19f0350e-Sebastian---are-you-attending-the-confer.md] Referenznummer: 48E2G6D ZRSMQTG
+- [2026-07-17 21:42] [26---Email-19f0350e-Sebastian---are-you-attending-the-confer.md] Konferenz findet nächsten Monat statt (nach Juni 2026)
+- [2026-07-17 21:42] [11---Email-19f51b7b-Funding-Application-for-Paula--Berkman-Z.md] Kontakt: Lana Barrett (lana@berkmanlending.com), Corporate VP Berkman Financial
+- [2026-07-17 21:42] [30---Email-19f1978f-Action-required-security-vulnerabilities.md] Supabase-Sicherheitsadvisor identifizierte Schwachstellen; Dashboard-Link für Behebung verfügbar
+- [2026-07-17 21:42] [14---Email-19f618fd-Action-required-security-vulnerabilities.md] Meldungsdatum: 14. Juli 2026, Erkannt am: 12. Juli 2026 - sofortiges Handeln erforderlich
 - [2026-07-17 21:42] [07---Email-19f3d924-Action-required-security-vulnerabilities.md] Mitteilung von Supabase vom 07 Jul 2026 - Unbefugte Datenmanipulation möglich
 - [2026-07-17 21:42] [15---Email-19eccb53-Carlos--saidspentplanextra-ZRSMQTG.md] Kontaktperson: Nick Todd (n.todd@mintonsentinel.info), Datum der Anfrage: 15. Juni 2026
 - [2026-07-17 21:42] [11---Email-19f50f37-Getting-the-most-from-Google-Tag-Manager.md] Implementierungsdatum: 11. Juli 2026
@@ -355,6 +380,26 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-17 21:46] [2026-06-30-Email-19f18718-AW-Potenzialanalyse-Endin-X-Prozessia.md] Kontakt Cyril Dietz (Geschäftsführer ENDIN): cyril.dietz@endin-email.eu, Tel. +49(0)7934/99544-102
+- [2026-07-17 21:46] [2026-06-30-Email-19f17dfc-AW-Potenzialanalyse-Endin-X-Prozessia.md] Ansprechpartner: Cyril Dietz (Geschäftsführer), cyril.dietz@endin-email.eu, Tel. +49(0)7934/99544-102
+- [2026-07-17 21:46] [2026-07-14-Email-19f618fd-Action-required-security-vulnerabilities.md] Kunde: Voigt_Salus
+- [2026-07-17 21:46] [2026-07-07-Email-19f3d924-Action-required-security-vulnerabilities.md] Kunde: Voigt_Salus
+- [2026-07-17 21:46] [2026-06-30-Email-19f1978f-Action-required-security-vulnerabilities.md] Kunde: Voigt_Salus
+- [2026-07-17 21:46] [2026-06-23-Email-19ef570c-Action-required-security-vulnerabilities.md] Kunde: Voigt_Salus
+- [2026-07-17 21:46] [2026-07-15-Email-19f65e8e-Zugesagt-Einführung-Beschaffungsagent.md] Kunde: Schaufler
+- [2026-07-17 21:46] [2026-07-15-Email-19f65c24-AW-Messberichte.md] Ansprechpartner bei Schaufler: Jonas Rösch (IT-Administration), jonas.roesch@schaufler.de
+- [2026-07-17 21:46] [2026-07-13-Email-19f5ce88-Zugesagt-Meeting-Go-Live-Beschaffungsage.md] Kunde: Schaufler
+- [2026-07-17 21:45] [2026-07-13-Email-19f5a966-Statusabfrage--AI-Agent-Beschaffung.md] Kunde: Schaufler
+- [2026-07-17 21:45] [2026-07-10-Email-19f4b6ce-Zugesagt-Update-Azure-OpenAI.md] Kunde: Schaufler
+- [2026-07-17 21:45] [2026-07-09-Email-19f4611a-Zugesagt-Umstzung-Microsoft-Anbindung-Sc.md] Kunde: Schaufler
+- [2026-07-17 21:45] [2026-07-08-Email-19f40a0d-WG-AVV-Vertrag--SLA.md] Kunde Schaufler hat AVV-Vertrag und SLA unterzeichnet
+- [2026-07-17 21:45] [2026-07-07-Email-19f3b787-Vorgeschlagene-Zeit-Update-Projekt-Mundi.md] Kunde: Mundinger (Kontakt: Gert Mundinger, gert@mundinger.de)
+- [2026-07-17 21:44] [2026-06-15-Email-19ecd0bb-KI-erfolgreich-im-Unternehmen-etablieren.md] Kunde Bender erhielt am 15.06.2026 Informationen zu KI-Veranstaltungen vom Mittelstand-Digital Zentrum Saarbrücken
+- [2026-07-17 21:42] [30---Email-19f17f30-Zugesagt-Angebotsdurchsprache-Endin-X-Pr.md] Kunde: endin, Kontaktperson: Cyril Dietz (cyril.dietz@endin-email.eu)
+- [2026-07-17 21:42] [11---Email-19f51b7b-Funding-Application-for-Paula--Berkman-Z.md] Sterling Flooring Solutions – Frau mit Geschäftsanteil, potenzielle Finanzierungskandidatin
+- [2026-07-17 21:42] [30---Email-19f1978f-Action-required-security-vulnerabilities.md] Kunde: Voigt_Salus
+- [2026-07-17 21:42] [23---Email-19ef570c-Action-required-security-vulnerabilities.md] Kunde: Voigt_Salus
+- [2026-07-17 21:42] [14---Email-19f618fd-Action-required-security-vulnerabilities.md] Kunde: Voigt_Salus
 - [2026-07-17 21:42] [07---Email-19f3d924-Action-required-security-vulnerabilities.md] Kunde: Voigt_Salus
 - [2026-07-17 21:42] [11---Email-19f50f37-Getting-the-most-from-Google-Tag-Manager.md] TPG hat Google Tag Manager implementiert
 - [2026-07-17 21:42] [9---Email-19f4611a-Zugesagt-Umstzung-Microsoft-Anbindung-Sc.md] Kunde: Schaufler
@@ -439,6 +484,36 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-17 21:47] [2026-07-07-Email-19f3d0eb-AW-Potenzialanalyse-Endin-X-Prozessia.md] ENDIN fordert 1-2 Referenzen an, um direkt mit bestehenden Kunden über Umsetzungserfahrung und erreichte Einsparungen zu sprechen
+- [2026-07-17 21:46] [2026-06-30-Email-19f17dfc-AW-Potenzialanalyse-Endin-X-Prozessia.md] Zur Analyse vorgesehene Prozesse: (1) Abwicklung Kleinaufträge/Ersatzteile, (2) ergänzender Workflow Kleinaufträge, (3) Lohnfertigungsaufträge, (4) Wareneingang-Workflow
+- [2026-07-17 21:46] [2026-07-14-Email-19f618fd-Action-required-security-vulnerabilities.md] Sofortmaßnahmen erforderlich - Sicherheitslücken müssen vor Datenkompromittierung behoben werden
+- [2026-07-17 21:46] [2026-06-30-Email-19f1978f-Action-required-security-vulnerabilities.md] Deadline: Vor Datenkompromittierung - Row-Level Security aktivieren und API-Zugriff einschränken
+- [2026-07-17 21:46] [2026-06-30-Email-19f1978f-Action-required-security-vulnerabilities.md] Handlungsbedarf: Sicherheitsvulnerabilitäten müssen sofort behoben werden - Meldungsdatum 30.06.2026
+- [2026-07-17 21:46] [2026-07-11-Email-19f50f37-Getting-the-most-from-Google-Tag-Manager.md] Bestehende Website-Tags müssen aus dem Site-Code entfernt und in Google Tag Manager-Interface hinzugefügt werden
+- [2026-07-17 21:46] [2026-06-15-Email-19eccb53-Carlos--saidspentplanextra-ZRSMQTG.md] Preisrange: 200.000 - 350.000
+- [2026-07-17 21:46] [2026-06-15-Email-19eccb53-Carlos--saidspentplanextra-ZRSMQTG.md] Produkt/Service: Apunto
+- [2026-07-17 21:46] [2026-07-15-Email-19f65c24-AW-Messberichte.md] Offene Frage: Datenübertragung der Messberichte auf Zielort (z.B. FTP-Server) - Klärung erforderlich, welche Mitarbeiter zuständig sind
+- [2026-07-17 21:46] [2026-07-15-Email-19f65c24-AW-Messberichte.md] Watchfolder-Aufbau für Messberichte geplant, abhängig von jährlichem Volumen (Benjamin hat erste Infos bereitgestellt)
+- [2026-07-17 21:46] [2026-07-13-Email-19f5a998-AW-Statusabfrage--AI-Agent-Beschaffung.md] Ausstehend: Messprotokolle (nächster Termin)
+- [2026-07-17 21:45] [2026-07-13-Email-19f5a966-Statusabfrage--AI-Agent-Beschaffung.md] Testphase: Intensive Tests in der Woche vom 13.07.2026 geplant
+- [2026-07-17 21:45] [2026-07-09-Email-19f4611a-Zugesagt-Umstzung-Microsoft-Anbindung-Sc.md] Status: Umsetzung zugesagt
+- [2026-07-17 21:45] [2026-07-08-Email-19f40a0d-WG-AVV-Vertrag--SLA.md] Unterschriftenabfolge: Sebastian Spuhler (01.07.2026) → Andreas Thunich (07.07.2026) → Florian Knoblauch bestätigt (08.07.2026)
+- [2026-07-17 21:45] [2026-07-07-Email-19f3c174-Abstimmung-VPN-Tunnel.md] Microsoft Teams-Besprechung geplant - Besprechungs-ID: 332 189 589 163 009
+- [2026-07-17 21:45] [2026-07-06-Email-19f38afa-AW-Offene-Punkte-Beschaffungsagent.md] Beschaffungsagent-Projekt: 4 offene Punkte identifiziert - (1) Watchfolder für Messberichte in Microsoft Sharepoint mit Graph API, (2) Testview für Winform Datenbankanbindung, (3) Elo-Schnittstelle für automatische Dokumentablage, (4) Website-Integration für Vessel Tracking
+- [2026-07-17 21:45] [2026-06-15-Email-19ecb6e4-Bestellung-127412.md] Anforderung: Auftragsbestätigung muss original Bestellung 127412 mit Datum, Signatur und Firmenstempel sein
+- [2026-07-17 21:45] [2026-07-07-Email-19f3b787-Vorgeschlagene-Zeit-Update-Projekt-Mundi.md] Projektname: Projekt Mundinger
+- [2026-07-17 21:45] [2026-07-17-Email-19f6f491-AW-Go-Live-Beschaffungsagent.md] Offene Anforderung: Definition des fixen Textes für Feld 'Terminüberwachung_Bemerkung' erforderlich
+- [2026-07-17 21:45] [2026-07-13-Email-19f5cb7c-AW-Statusabfrage--AI-Agent-Beschaffung.md] Geplanter Go-Live für Freitag, 15. Juli 2026
+- [2026-07-17 21:45] [2026-07-13-Email-19f5b5b9-AW-Statusabfrage--AI-Agent-Beschaffung.md] Offene Aufgabe: Messprotokolle stehen in nächstem Termin noch an (IT-Seite)
+- [2026-07-17 21:44] [2026-07-09-Email-19f47a4c-AW-Infos-zur-WinForm-Sicht.md] Alter User aus eingespieltem Backup konnte nicht wieder eingerichtet werden
+- [2026-07-17 21:44] [2026-07-09-Email-19f47986-AW-Infos-zur-WinForm-Sicht.md] Login für Benutzer 'Prozessia' funktioniert auf der Instanz
+- [2026-07-17 21:44] [2026-07-08-Email-19f419a4-AW-Offene-Punkte-Beschaffungsagent.md] Bestelldeckblatt soll die Email-Adresse order@schaufler.de enthalten
+- [2026-07-17 21:44] [2026-07-08-Email-19f419a4-AW-Offene-Punkte-Beschaffungsagent.md] Lieferanten wurden angewiesen, Bestellbestätigungen (ABs) zukünftig an order@schaufler.de zu senden; Großteil hat bereits umgestellt
+- [2026-07-17 21:42] [30---Email-19f17f30-Zugesagt-Angebotsdurchsprache-Endin-X-Pr.md] Angebotsdurchsprache für 'Endin X Prozessia' zugesagt
+- [2026-07-17 21:42] [30---Email-19f17dfc-AW-Potenzialanalyse-Endin-X-Prozessia.md] Zu analysierende Prozesse: (1) Abwicklung Kleinaufträge/Ersatzteile, (2) ergänzender Workflow, (3) Lohnfertigungsauftrag, (4) Wareneingang
+- [2026-07-17 21:42] [11---Email-19f51b7b-Funding-Application-for-Paula--Berkman-Z.md] Finanzierungsangebot von Berkman Financial: Kreditlinien, Darlehen, MCAs für Frauenunternehmen ohne umfangreiche Kredithistorie
+- [2026-07-17 21:42] [30---Email-19f1978f-Action-required-security-vulnerabilities.md] Handlungsfrist: Sofortige Behebung erforderlich, um unbefugten Datenzugriff zu verhindern (Meldungsdatum: 30.06.2026)
+- [2026-07-17 21:42] [14---Email-19f618fd-Action-required-security-vulnerabilities.md] Kritische Sicherheitslücke: Sensitive Daten (Passwörter, persönliche Identifikatoren) ohne Zugriffsbeschränkung über API exponiert
 - [2026-07-17 21:42] [07---Email-19f3d924-Action-required-security-vulnerabilities.md] Kritische Sicherheitslücke: Tabelle öffentlich zugänglich (Row-Level Security deaktiviert) - Projekt stggglgcvisnvcertpau
 - [2026-07-17 21:42] [15---Email-19eccb53-Carlos--saidspentplanextra-ZRSMQTG.md] Konditionen: Monatliche Raten, keine Personengarantien, keine Gebühren im Voraus, kein Druck zum sofortigen Abschluss
 - [2026-07-17 21:42] [15---Email-19eccb53-Carlos--saidspentplanextra-ZRSMQTG.md] Produkt/Service: Apunto-Finanzierung
@@ -798,12 +873,14 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-13 19:09] [Bestätigungslink Herr Spuhler Business P] Nach Bestätigung des Links kann die Fachabteilung American Express mit der Prüfung des Antrags fortfahren
 
 ## DEADLINE
+- [2026-07-17 21:45] [2026-07-06-Email-19f381c7-AW-Offene-Punkte-Beschaffungsagent.md] Alle 4 Punkte sollten im Laufe dieser Woche (ab 6. Juli 2026) abgearbeitet werden
 - [2026-07-17 18:27] [Kompletten Salesfunnel mit KI erstellen] Termine freihalten: 29.07 und 30.07 (Jahr nicht angegeben, vermutlich kommend)
 - [2026-07-16 06:04] [Kompletten Salesfunnel mit KI erstellen] Veranstaltungstermine: 29.07 und 30.07 (Jahr nicht angegeben, vermutlich 2024/2025)
 - [2026-07-13 22:08] [Statusabfrage – AI-Agent Beschaffung] Go-live AI-Agent Beschaffung: Freitag (diese Woche)
 - [2026-06-27 12:47] [2026-06-27.md] Webinar am 05.07.2026 (in 8 Tagen) – LinkedIn-Ankündigungspost fehlt komplett
 
 ## KONTAKT
+- [2026-07-17 21:45] [2026-07-06-Email-19f381c7-AW-Offene-Punkte-Beschaffungsagent.md] Ansprechpartner Schaufler: Florian Knoblauch (florian.knoblauch@schaufler.de); Projektkommunikation auch mit Benjamin Schmohl
 - [2026-07-17 18:27] [RE: Bestätigungslink Herr Spuhler Busine] Moritz Vitting (Ansprechpartner) im Urlaub vom 5. August, bei Problemen Fachabteilungen kontaktieren
 - [2026-07-17 18:27] [AW: Go Live Beschaffungsagent] Jochen Hettmer (jochen@hettmer-edv.de) ist Ansprechpartner für technische Umsetzung
 - [2026-07-13 22:08] [2026-07-13-image001.png] Kontaktperson: Moritz Vitting, E-Mail: Moritz.Vitting@aexp.com (American Express)
@@ -811,6 +888,9 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-07-17 21:45] [2026-06-15-Email-19ecbd13-WG-Messberichte.md] Alle Dateien enden mit einer '0' am Ende - müssen so abgelegt werden
+- [2026-07-17 21:45] [2026-06-29-Email-19f127e3-Re-Unser-Termin.md] Termin muss neu vereinbart werden
+- [2026-07-17 21:42] [14---Email-19f618fd-Action-required-security-vulnerabilities.md] Maßnahmen nötig: Row-Level Security aktivieren und API-Zugriff auf sensitive Daten einschränken
 - [2026-07-17 21:42] [07---Email-19f3d924-Action-required-security-vulnerabilities.md] Deadline: Sofortige Behebung erforderlich - Issues dokumentiert ab 06 Jul 2026
 - [2026-07-17 21:41] [15---Email-19ecbd13-WG-Messberichte.md] Kritisch: Alle eingehenden Dateien haben eine '0' am Ende - müssen so abgelegt werden
 - [2026-07-17 21:22] [2026-07-17-Fragenkatalog_beantwortet.md] Risikoeinstufung nach EU-KI-Act: minimal; Richtlinie-Ziel: Compliance mit EU-KI-Act
