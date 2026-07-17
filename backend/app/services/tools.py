@@ -347,6 +347,10 @@ def execute_tool(name: str, tool_input: dict) -> tuple[str, bool]:
             result = vault_service.vault_rename(tool_input.get("path", ""), tool_input.get("new_name", ""))
             return json.dumps(result, ensure_ascii=False), not result.get("ok")
 
+        if name == "vault_delete":
+            result = vault_service.vault_delete(tool_input.get("path", ""))
+            return json.dumps(result, ensure_ascii=False), not result.get("ok")
+
         if name == "download_attachment":
             result = _download_attachment(tool_input.get("message_id", ""))
             if not result.get("ok"):
