@@ -489,7 +489,9 @@ Nach jedem Tool-Aufruf kurz bestätigen, was passiert ist."""
             )
             current_messages.append({
                 "role": "assistant",
-                "content": [block.model_dump() for block in result.content],
+                # exclude_none: siehe chat.py - vermeidet den "parsed_output"-
+                # Extra-Feld-400-Fehler beim Zurücksenden von Content-Blöcken.
+                "content": [block.model_dump(exclude_none=True) for block in result.content],
             })
             for block in result.content:
                 if block.type == "text" and block.text.strip():

@@ -132,7 +132,15 @@ def _stream_chat(
 
             current_messages.append({
                 "role": "assistant",
-                "content": [block.model_dump() for block in final_message.content],
+                # exclude_none: die SDK liefert Content-Blöcke teils als
+                # ParsedTextBlock mit einem internen "parsed_output"-Feld
+                # (None, SDK-intern für strukturierte Outputs gedacht - siehe
+                # ParsedTextBlock.__api_exclude__ in anthropic/types/parsed_message.py),
+                # das model_dump() aber trotzdem mitschickt. Die API lehnt dieses
+                # unbekannte Feld beim erneuten Einreichen mit 400 ab ("Extra
+                # inputs are not permitted") - live beobachtet als "Verbindung
+                # unterbrochen" mitten im Tool-Use-Loop.
+                "content": [block.model_dump(exclude_none=True) for block in final_message.content],
             })
 
             if final_message.stop_reason != "tool_use":
