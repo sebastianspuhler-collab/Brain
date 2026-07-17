@@ -7,7 +7,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 
-from app.background.jobs import email_indexer_loop, git_sync_loop, inbox_watcher_loop, load_rag_blocking
+from app.background.jobs import (
+    calendar_lead_loop,
+    email_indexer_loop,
+    git_sync_loop,
+    inbox_watcher_loop,
+    load_rag_blocking,
+)
 from app.config import get_settings
 from app.routers import auth, chat, dashboard, files, inbox, linkedin, onboarding, youtube
 from app.routers.auth import limiter
@@ -22,6 +28,7 @@ async def lifespan(app: FastAPI):
         asyncio.create_task(inbox_watcher_loop()),
         asyncio.create_task(email_indexer_loop()),
         asyncio.create_task(git_sync_loop()),
+        asyncio.create_task(calendar_lead_loop()),
     ]
     yield
     for task in tasks:

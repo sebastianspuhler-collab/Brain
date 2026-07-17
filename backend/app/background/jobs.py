@@ -11,13 +11,14 @@ import os
 import subprocess
 
 from app.config import get_settings
-from app.services import classify, email_indexer, memory, rag
+from app.services import calendar_lead_service, classify, email_indexer, memory, rag
 
 logger = logging.getLogger("brain.background")
 
 INBOX_POLL_SECONDS = 30
 EMAIL_POLL_SECONDS = 300
 GIT_SYNC_SECONDS   = 600  # alle 10 Minuten git pull
+CALENDAR_LEAD_POLL_SECONDS = 1800  # alle 30 Minuten - Kalender ändert sich seltener als Mails
 _SKIP_EXT = {".js", ".ts", ".map", ".css", ".lock", ".yml", ".yaml"}
 _SKIP_NAMES = {".DS_Store", "Thumbs.db"}
 
@@ -179,3 +180,22 @@ async def email_indexer_loop() -> None:
         except Exception:
             logger.exception("Email-Indexer Fehler")
         await asyncio.sleep(EMAIL_POLL_SECONDS)
+
+
+async def calendar_lead_loop() -> None:
+    """Prüft periodisch den Kalender auf Erstgespräche mit neuen potenziellen
+    Kunden (Sebastian: "man sollte allgemein erkennen, wann ein Erstgespräch
+    per Teams stattfindet") und legt dafür automatisch Lead-Notizen in Leads/
+    an, statt nur auf feste Namensmuster zu warten."""
+    await asyncio.sleep(45)
+    while True:
+        try:
+            found = await asyncio.to_thread(calendar_lead_service.scan_for_new_leads)
+            if found:
+                logger.info("Kalender-Lead-Scan: neue Erstgespräche erkannt: %s", ", ".join(found))
+                new_files = await asyncio.to_thread(rag.reindex_new_files)
+                for rel, content in new_files:
+                    await asyncio.to_thread(memory.learn_from_file, rel, content)
+        except Exception:
+            logger.exception("Kalender-Lead-Scan Fehler")
+        await asyncio.sleep(CALENDAR_LEAD_POLL_SECONDS)
