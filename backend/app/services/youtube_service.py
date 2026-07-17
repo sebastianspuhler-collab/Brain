@@ -149,6 +149,7 @@ Antworte NUR mit validem JSON: {{"title": "...", "description": "..."}}"""
     try:
         result = get_client().messages.create(
             model="claude-sonnet-5", max_tokens=1000,
+            thinking={"type": "disabled"},
             messages=[{"role": "user", "content": prompt}],
         )
         text = get_response_text(result).strip()

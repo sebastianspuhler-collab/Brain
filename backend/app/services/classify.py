@@ -228,8 +228,15 @@ Bestimme:
 Antworte NUR als JSON, keine Erklärung."""
 
     try:
+        # thinking explizit deaktiviert (Bug 2026-07-17): ohne das kann das Modell
+        # einen Teil des knappen max_tokens-Budgets fürs Nachdenken verbrauchen und
+        # die eigentliche JSON-Antwort abschneiden (stop_reason "max_tokens" mit
+        # leerem/kaputtem Text-Block) - genau das ließ z.B. das TPG-Transkript als
+        # "API-Klassifizierung fehlgeschlagen" durchfallen, obwohl der Aufruf an
+        # sich funktioniert hätte.
         resp = get_client().messages.create(
             model="claude-sonnet-5", max_tokens=500,
+            thinking={"type": "disabled"},
             messages=[{"role": "user", "content": prompt}],
         )
         raw = get_response_text(resp).strip().replace("```json", "").replace("```", "").strip()
@@ -271,6 +278,7 @@ Antworte NUR als JSON, keine Erklärung. Format:
     try:
         resp = get_client().messages.create(
             model="claude-sonnet-5", max_tokens=800,
+            thinking={"type": "disabled"},  # siehe Kommentar bei classify() oben
             messages=[{"role": "user", "content": prompt}],
         )
         raw = get_response_text(resp).strip().replace("```json", "").replace("```", "").strip()

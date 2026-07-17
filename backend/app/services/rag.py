@@ -49,7 +49,14 @@ MODEL_NAME = "paraphrase-multilingual-MiniLM-L12-v2"
 # zum bereits mehrsprachigen Embedding-Modell oben.
 RERANK_MODEL = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
 RERANK_CANDIDATES = 30  # wie viele RRF-Top-Kandidaten werden neu bewertet
-SKIP_DIRS = {"_inbox", ".git", ".obsidian", "_fehler", "node_modules"}
+SKIP_DIRS = {
+    "_inbox", ".git", ".obsidian", "_fehler", "node_modules",
+    # App-Code/interne Verzeichnisse - kein Vault-Inhalt. Fehlten hier bisher
+    # (im Gegensatz zu _SKIP_TREE in context.py und _SKIP in files.py), wodurch
+    # z.B. Lizenzdateien aus backend/.venv versehentlich mitindiziert wurden
+    # (gefunden 2026-07-17 beim Reindexieren nach dem TPG-Fund).
+    "backend", "frontend", "services", "mcp-vnc", ".claude", ".venv",
+}
 CHUNK_SIZE = 800
 CHUNK_OVERLAP = 100
 RRF_K = 60  # Standardkonstante für Reciprocal Rank Fusion (üblicher Literaturwert)

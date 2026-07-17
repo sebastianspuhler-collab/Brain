@@ -77,8 +77,14 @@ JSON-Antwort (kein Markdown):
 Max 3 Items. Wenn nichts Neues: {{"items": []}}"""
 
     try:
+        # thinking deaktiviert: sonst kann das knappe max_tokens-Budget fürs
+        # Nachdenken draufgehen und die JSON-Antwort abgeschnitten zurückkommen
+        # (dieselbe Ursache wie der classify()-Bug 2026-07-17) - hier besonders
+        # tückisch, weil das lautlos bei JEDER Chat-Nachricht passiert und einfach
+        # nichts gespeichert wird, ohne dass irgendwas auffällt.
         result = get_client().messages.create(
             model="claude-sonnet-5", max_tokens=300,
+            thinking={"type": "disabled"},
             messages=[{"role": "user", "content": prompt}],
         )
         items = _extract_json_items(get_response_text(result).strip())
@@ -103,6 +109,7 @@ def learn_from_text(source_label: str, prompt_body: str, min_len: int = 15) -> l
     try:
         result = get_client().messages.create(
             model="claude-haiku-4-5-20251001", max_tokens=500,
+            thinking={"type": "disabled"},
             messages=[{"role": "user", "content": prompt_body}],
         )
         items = _extract_json_items(get_response_text(result).strip())

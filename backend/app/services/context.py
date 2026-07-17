@@ -98,6 +98,7 @@ def synthesize_context(query: str, raw_context: str) -> str:
     try:
         result = get_client().messages.create(
             model="claude-haiku-4-5-20251001", max_tokens=600,
+            thinking={"type": "disabled"},
             messages=[{"role": "user", "content": f"""Du bist ein Kontext-Analyst. Sebastians Frage: "{query[:250]}"
 
 Analysiere die unten stehenden Daten-Fragmente und erkläre in 4-6 präzisen Bullet Points:
