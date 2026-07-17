@@ -1,6 +1,7 @@
 
 
 ## KONTEXT
+- [2026-07-17 18:27] [Frage] Alexander Heeg hat eine KI Akquise Schablone für Claude erstellt und fragt, ob Sebastian Spuhler diese erhalten hat
 - [2026-07-14 19:40] [AW: Statusabfrage – AI-Agent Beschaffung] E-Mail-Diskussion endet abrupt mit 'Der einzige offene Punkt ist daher' - Satz unvollständig, offener Punkt nicht benannt
 - [2026-07-14 19:40] [AW: Go Live Beschaffungsagent] Status zum Zeitpunkt 14. Juli 2026 17:16 Uhr: Jochen Hettmer war in Terminen und wird später daran weiterarbeiten
 - [2026-07-14 16:41] [Women First Funding Portal - A Quick Pat] Berkman Financial bewirbt 'Women First Funding Portal' für Unternehmensfinanzierung ohne Auswirkungen auf FICO-Score
@@ -87,6 +88,8 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-07-04 13:05] [2026-06-09-Rechnung_vapi.md] Martin Veser Unternehmergesellschaft, Turbinenstrasse 7, 70499 Stuttgart, Kundennr. 10005
 
 ## PROZESS
+- [2026-07-17 18:27] [Zugesagt: Einführung Beschaffungsagent] Zusage für Einführung Beschaffungsagent
+- [2026-07-17 18:27] [Zugesagt: Einführung Beschaffungsagent] Einführung Beschaffungsagent zugesagt
 - [2026-07-14 19:40] [AW: Statusabfrage – AI-Agent Beschaffung] Lieferanten-E-Mail-Adressen werden direkt aus den E-Mails der Abteilungsbeschaffung (AB) ausgelesen, separate Speicherung in Bestelldatei nicht erforderlich
 - [2026-07-14 19:40] [AW: Statusabfrage – AI-Agent Beschaffung] Lesezugriff auf Bestelldaten ist vorhanden, keine weiteren Handlungen von Hettmer/Knoblauch/Schmohl nötig
 - [2026-07-14 19:40] [AW: Statusabfrage – AI-Agent Beschaffung] Felder Bestelldatum, Preis und Menge sind implementiert und funktionsfähig
