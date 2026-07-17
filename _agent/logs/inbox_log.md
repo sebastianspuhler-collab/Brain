@@ -766,3 +766,12 @@
 - 2026-07-17 17:52 | Kai Winterscheid and Sebastian Spuhler (1).docx → Leads | Erstgespräch zwischen Kai Winterscheid (Einkaufsleiter T.P.G. Gruppe mit Marken 
 - 2026-07-17 17:52 | TEST_AB_MENGE_449181.pdf → Kunden/Schaufler/Vertraege | Auftragsbestätigung der Muster Verbindungstechnik GmbH an Schaufler Tooling GmbH
 - 2026-07-17 18:27 | image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Screenshot oder Grafik ohne Konte
+- 2026-07-17 21:21 | AVV_Schaufler_Prozessia (2).pdf → Kunden/Schaufler/Vertraege | Vertrag zur Auftragsverarbeitung gemäß Art. 28 DS-GVO zwischen Schaufler Tooling
+- 2026-07-17 21:21 | SLA_Schaufler  (2).pdf → Kunden/Schaufler/Vertraege | Service Level Agreement zwischen Prozessia GbR und Schaufler Tooling GmbH & Co. 
+- 2026-07-17 21:21 | SLA_Schaufler  (3).pdf → Kunden/Schaufler/Vertraege | Service Level Agreement zwischen Prozessia GbR und Schaufler Tooling GmbH & Co. 
+- 2026-07-17 21:21 | Gewerbeanmeldung Mohamed Douioui.pdf → Vertraege | Amtliche Gewerbeanmeldung (GewA 1) für die Sebastian Spuhler, Mohamed Douioui Gb
+- 2026-07-17 21:21 | Gesellschaftsvertrag der Webwokr Gbr.pdf → Vertraege | Gesellschaftsvertrag der WebWokr GbR mit Sitz in Saarbrücken, gegründet von Seba
+- 2026-07-17 21:22 | Azure_OpenAI_Anleitung (2).docx → Produkte/KI-Schulung | Technische Anleitung zur Einrichtung von Azure OpenAI, von der Ressourcenerstell
+- 2026-07-17 21:22 | SLA_Schaufler  (1).pdf → Kunden/Schaufler/Vertraege | Service Level Agreement zwischen Prozessia GbR und Schaufler Tooling GmbH & Co. 
+- 2026-07-17 21:22 | 2026-07-12-image001.png → Kunden/Schaufler/Dokumente | Bilddatei ohne extrahierbaren Text, eingegangen am 12.07.2026. Basierend auf dem
+- 2026-07-17 21:22 | INV-057.pdf → Finanzen/Rechnungen | Eingangsrechnung INV-057 von World Class Marketing LLC (Wyoming, USA) an Sebasti
