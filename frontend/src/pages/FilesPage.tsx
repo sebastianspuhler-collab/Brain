@@ -1,4 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { ChevronDown, ChevronRight, File, Folder } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { api } from "@/api/client";
@@ -15,7 +16,20 @@ interface VaultFile {
   url: string;
 }
 
+interface TreeNode {
+  name: string;
+  path: string;
+  type: "folder" | "file";
+  size?: number;
+  url?: string;
+  children?: TreeNode[];
+}
+
 const API_BASE = import.meta.env.VITE_API_BASE ?? "";
+// Root-Ebene (Kunden, Finanzen, Leads, ...) direkt aufgeklappt zeigen, wie auf
+// dem Mac - alles darunter erst auf Klick, sonst ist der erste Eindruck wieder
+// eine unübersichtliche Wand aus Ordnern.
+const DEFAULT_OPEN_DEPTH = 1;
 
 function formatSize(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`;
@@ -23,19 +37,86 @@ function formatSize(bytes: number): string {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
 
+function FolderTree({
+  node,
+  depth,
+  overridden,
+  onToggle,
+}: {
+  node: TreeNode;
+  depth: number;
+  overridden: Set<string>;
+  onToggle: (path: string) => void;
+}) {
+  if (node.type === "file") {
+    return (
+      <a
+        href={`${API_BASE}${node.url}`}
+        target="_blank"
+        rel="noreferrer"
+        className="flex items-center gap-2 rounded px-2 py-1 text-sm hover:bg-muted hover:underline"
+        style={{ paddingLeft: `${depth * 1.25 + 0.5}rem` }}
+      >
+        <File className="size-3.5 shrink-0 text-muted-foreground" />
+        <span className="flex-1 truncate">{node.name}</span>
+        <span className="shrink-0 text-xs text-muted-foreground">{formatSize(node.size ?? 0)}</span>
+      </a>
+    );
+  }
+
+  // Default: Root-Ebene offen, Rest zu. Ein Klick kehrt genau diesen einen
+  // Knoten um (egal ob er per Default offen oder zu war).
+  const defaultOpen = depth < DEFAULT_OPEN_DEPTH;
+  const isOpen = overridden.has(node.path) ? !defaultOpen : defaultOpen;
+  const children = node.children ?? [];
+
+  return (
+    <div>
+      <button
+        type="button"
+        onClick={() => onToggle(node.path)}
+        className="flex w-full items-center gap-1.5 rounded px-2 py-1 text-sm font-medium hover:bg-muted"
+        style={{ paddingLeft: `${depth * 1.25}rem` }}
+      >
+        {isOpen ? (
+          <ChevronDown className="size-3.5 shrink-0 text-muted-foreground" />
+        ) : (
+          <ChevronRight className="size-3.5 shrink-0 text-muted-foreground" />
+        )}
+        <Folder className="size-3.5 shrink-0 text-amber-500" />
+        <span className="truncate">{node.name}</span>
+        <span className="text-xs font-normal text-muted-foreground">({children.length})</span>
+      </button>
+      {isOpen && (
+        <div>
+          {children.map((child) => (
+            <FolderTree key={child.path} node={child} depth={depth + 1} overridden={overridden} onToggle={onToggle} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function FilesPage() {
-  const { data, isLoading } = useQuery({
+  const treeQuery = useQuery({
+    queryKey: ["files-tree"],
+    queryFn: () => api.get<TreeNode>("/api/files/tree"),
+  });
+  const flatQuery = useQuery({
     queryKey: ["files"],
     queryFn: () => api.get<{ files: VaultFile[] }>("/api/files"),
   });
   const queryClient = useQueryClient();
   const [filter, setFilter] = useState("");
   const [uploading, setUploading] = useState(false);
+  const [overridden, setOverridden] = useState<Set<string>>(new Set());
 
   const processInbox = useMutation({
     mutationFn: () => api.post<{ processed?: number; new_indexed?: number }>("/api/inbox_process", {}),
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["files"] });
+      queryClient.invalidateQueries({ queryKey: ["files-tree"] });
       toast.success(`Inbox verarbeitet: ${data.processed ?? 0} Datei(en), ${data.new_indexed ?? 0} neu indiziert`);
     },
     onError: () => toast.error("Inbox-Verarbeitung fehlgeschlagen"),
@@ -48,6 +129,7 @@ export function FilesPage() {
     try {
       await api.upload("/api/upload", file);
       await queryClient.invalidateQueries({ queryKey: ["files"] });
+      await queryClient.invalidateQueries({ queryKey: ["files-tree"] });
       toast.success(`${file.name} hochgeladen und verarbeitet`);
     } catch {
       toast.error("Upload fehlgeschlagen");
@@ -57,7 +139,20 @@ export function FilesPage() {
     }
   }
 
-  const files = data?.files.filter((f) => f.path.toLowerCase().includes(filter.toLowerCase())) ?? [];
+  function toggle(path: string) {
+    setOverridden((prev) => {
+      const next = new Set(prev);
+      if (next.has(path)) {
+        next.delete(path);
+      } else {
+        next.add(path);
+      }
+      return next;
+    });
+  }
+
+  const isSearching = filter.trim().length > 0;
+  const filteredFlat = flatQuery.data?.files.filter((f) => f.path.toLowerCase().includes(filter.toLowerCase())) ?? [];
 
   return (
     <Card>
@@ -85,32 +180,46 @@ export function FilesPage() {
         </div>
       </CardHeader>
       <CardContent>
-        {isLoading ? (
+        {isSearching ? (
+          flatQuery.isLoading ? (
+            <div className="space-y-2">
+              <Skeleton className="h-8 w-full" />
+              <Skeleton className="h-8 w-full" />
+            </div>
+          ) : (
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Pfad</TableHead>
+                  <TableHead className="w-24">Größe</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {filteredFlat.slice(0, 300).map((f) => (
+                  <TableRow key={f.path}>
+                    <TableCell>
+                      <a href={`${API_BASE}${f.url}`} target="_blank" rel="noreferrer" className="hover:underline">
+                        {f.path}
+                      </a>
+                    </TableCell>
+                    <TableCell className="text-muted-foreground">{formatSize(f.size)}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          )
+        ) : treeQuery.isLoading ? (
           <div className="space-y-2">
+            <Skeleton className="h-8 w-full" />
             <Skeleton className="h-8 w-full" />
             <Skeleton className="h-8 w-full" />
           </div>
         ) : (
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Pfad</TableHead>
-                <TableHead className="w-24">Größe</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {files.slice(0, 300).map((f) => (
-                <TableRow key={f.path}>
-                  <TableCell>
-                    <a href={`${API_BASE}${f.url}`} target="_blank" rel="noreferrer" className="hover:underline">
-                      {f.path}
-                    </a>
-                  </TableCell>
-                  <TableCell className="text-muted-foreground">{formatSize(f.size)}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+          <div className="space-y-0.5">
+            {(treeQuery.data?.children ?? []).map((child) => (
+              <FolderTree key={child.path} node={child} depth={0} overridden={overridden} onToggle={toggle} />
+            ))}
+          </div>
         )}
       </CardContent>
     </Card>

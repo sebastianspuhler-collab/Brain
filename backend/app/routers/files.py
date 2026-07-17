@@ -43,6 +43,44 @@ def list_files(user: str = Depends(get_current_user)):
     return {"files": files}
 
 
+def _build_tree_node(dir_path: Path, rel_parts: tuple) -> dict:
+    children = []
+    try:
+        entries = sorted(dir_path.iterdir(), key=lambda p: (p.is_file(), p.name.lower()))
+    except PermissionError:
+        entries = []
+    for e in entries:
+        if e.name in _SKIP or e.name.startswith("."):
+            continue
+        if e.is_dir():
+            children.append(_build_tree_node(e, rel_parts + (e.name,)))
+        else:
+            if e.suffix.lower() in _SKIP_EXT:
+                continue
+            rel = "/".join(rel_parts + (e.name,))
+            children.append({
+                "name": e.name,
+                "path": rel,
+                "type": "file",
+                "size": e.stat().st_size,
+                "url": f"/api/files/download/{rel}",
+            })
+    return {
+        "name": dir_path.name,
+        "path": "/".join(rel_parts),
+        "type": "folder",
+        "children": children,
+    }
+
+
+@router.get("/files/tree")
+def files_tree(user: str = Depends(get_current_user)):
+    """Ordnerbaum-Ansicht des Vaults (Kunden/Finanzen/Leads/... verschachtelt,
+    wie auf dem Mac), Ergänzung zur bisherigen flachen Liste oben."""
+    settings = get_settings()
+    return _build_tree_node(settings.vault_path, ())
+
+
 def _parse_meeting_meta(path: Path) -> dict:
     """Liest Datum aus dem Frontmatter und den Anfang der Zusammenfassung aus
     einer Meeting-.md-Datei - keine Klassifizierung, nur einfaches Parsen von
