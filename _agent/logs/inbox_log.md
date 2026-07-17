@@ -775,3 +775,4 @@
 - 2026-07-17 21:22 | SLA_Schaufler  (1).pdf → Kunden/Schaufler/Vertraege | Service Level Agreement zwischen Prozessia GbR und Schaufler Tooling GmbH & Co. 
 - 2026-07-17 21:22 | 2026-07-12-image001.png → Kunden/Schaufler/Dokumente | Bilddatei ohne extrahierbaren Text, eingegangen am 12.07.2026. Basierend auf dem
 - 2026-07-17 21:22 | INV-057.pdf → Finanzen/Rechnungen | Eingangsrechnung INV-057 von World Class Marketing LLC (Wyoming, USA) an Sebasti
+- 2026-07-17 21:22 | Fragenkatalog_beantwortet.xlsx → Kunden/Schaufler/Dokumente | Ausgefüllter Fragenkatalog zur Erstellung einer KI-Nutzungsrichtlinie nach dem E

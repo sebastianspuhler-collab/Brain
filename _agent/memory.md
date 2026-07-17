@@ -1,4 +1,18 @@
 ## KONTEXT
+- [2026-07-17 21:22] [2026-07-17-Gewerbeanmeldung Mohamed Douioui.md] Gemeindekennzahl: 10041100
+- [2026-07-17 21:22] [2026-07-17-Gewerbeanmeldung Mohamed Douioui.md] Gewerbeanmeldung (GewA 1) eingereicht bei Landeshauptstadt Saarbrücken am 2026-07-17
+- [2026-07-17 21:22] [2026-07-17-Gesellschaftsvertrag der Webwokr Gbr.md] Mitgesellschafter: Mohamed Douioui
+- [2026-07-17 21:22] [2026-07-17-Gesellschaftsvertrag der Webwokr Gbr.md] Gesellschaftsvertrag wurde am 17.07.2026 aufgenommen
+- [2026-07-17 21:22] [2026-07-17-Gesellschaftsvertrag der Webwokr Gbr.md] WebWokr GbR hat ihren Sitz in Saarbrücken
+- [2026-07-17 21:22] [2026-07-17-SLA_Schaufler  (3).md] SLA-Datum: 17.07.2026, Parteienvertreter: Sebastian Spuhler und Mohamed-Amin Douioui (Prozessia GbR)
+- [2026-07-17 21:22] [2026-07-17-SLA_Schaufler  (2).md] Infrastruktur: Hetzner-Server (Kostenübernahme durch Auftraggeber)
+- [2026-07-17 21:22] [2026-07-17-SLA_Schaufler  (1).md] Referenzen: Angebot AG0024 vom 27.05.2026, Bestellung BEST-PROZESSIA-127412 vom 15.06.2026
+- [2026-07-17 21:22] [2026-07-17-SLA_Schaufler  (1).md] Infrastruktur: Hetzner-Server; Haftungsausschluss für Infrastrukturausfälle
+- [2026-07-17 21:22] [2026-07-17-SLA_Schaufler  (1).md] SLA für Betrieb des Beschaffungsagenten, Laufzeit 12 Monate mit Verlängerungsoption
+- [2026-07-17 21:22] [2026-07-17-AVV_Schaufler_Prozessia (2).md] Bestellung BEST-PROZESSIA-127412, Vertragsdatum 2026-07-17
+- [2026-07-17 21:22] [2026-07-17-Fragenkatalog_beantwortet.md] Cloud-Infrastruktur auf zwei Komponenten: Hetzner und Azure OpenAI (beide EU)
+- [2026-07-17 21:22] [2026-07-17-Fragenkatalog_beantwortet.md] Prozessia GbR (Anbieter): Campus Starterzentrum Gebäude A1 1, 66123 Saarbrücken - verantwortlich für Entwicklung, Wartung, Support
+- [2026-07-17 21:22] [2026-07-17-INV-057.md] Reverse-Charge-Verfahren anwendbar, keine Umsatzsteuer ausgewiesen
 - [2026-07-17 18:27] [Frage] Alexander Heeg hat eine KI Akquise Schablone für Claude erstellt und fragt, ob Sebastian Spuhler diese erhalten hat
 - [2026-07-17 18:27] [FW: Erklärung unserer Instrumente] Martin Veser dokumentiert vier Planungs- und Kontrollsinstrumente für Prozessia GbR
 - [2026-07-17 18:27] [TCPA Deep Dive Webinar: What Voice AI Te] Thema: TCPA-Compliance bei ausgehenden KI-Voice-Anrufen im Skalierungsprozess
@@ -314,6 +328,8 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-17 21:22] [2026-07-17-Gewerbeanmeldung Mohamed Douioui.md] Mohamed Douioui ist geschäftsführender Gesellschafter der Sebastian Spuhler, Mohamed Douioui GbR
+- [2026-07-17 21:22] [2026-07-17-INV-057.md] World Class Marketing LLC, Wyoming, USA - Rechnungssteller
 - [2026-07-17 18:27] [Kompletten Salesfunnel mit KI erstellen] Robert Heineke von Leaders Media (consultants@leadersmedia.de) kontaktiert Sebastian Spuhler
 - [2026-07-17 18:27] [RE: Bestätigungslink Herr Spuhler Busine] Sebastian Spuhler, Prozessia GbR, Partner: Mohamed Douioui
 - [2026-07-17 18:27] [A special tour with some of our coolest ] The Peach Truck - Unternehmen mit Fokus auf Pfirsichverkauf und Merchandising
@@ -385,6 +401,14 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-17 21:22] [2026-07-17-Gesellschaftsvertrag der Webwokr Gbr.md] Geschäftszweck: Webdesign, Suchmaschinenoptimierung (SEO), Website-Konzeption und -Entwicklung, Kundenberatung im Online-Marketing
+- [2026-07-17 21:22] [2026-07-17-SLA_Schaufler  (3).md] Verfügbarkeitsgarantie: 99%, Infrastruktur auf Hetzner-Servern, Haftungsausschluss für Infrastrukturausfälle
+- [2026-07-17 21:22] [2026-07-17-SLA_Schaufler  (3).md] Service Level Agreement für Betrieb des Beschaffungsagenten basierend auf Angebot AG0024 vom 27.05.2026
+- [2026-07-17 21:22] [2026-07-17-SLA_Schaufler  (1).md] Verfügbarkeitsgarantie: 99%
+- [2026-07-17 21:22] [2026-07-17-AVV_Schaufler_Prozessia (2).md] Dokumentenerkennung/-extraktion und Abgleich mit ERP-System des Auftraggebers inkl. Betriebs- und Wartungsleistung
+- [2026-07-17 21:22] [2026-07-17-Fragenkatalog_beantwortet.md] Beschaffungsagent von Prozessia im Einsatz - maßgeschneiderte KI-gestützte Softwarelösung
+- [2026-07-17 21:22] [2026-07-17-INV-057.md] Zahlungsfällig: 9. Juni 2026
+- [2026-07-17 21:22] [2026-07-17-INV-057.md] Vermittlungsprovision 500 EUR, Rechnung INV-057 vom 2. Juni 2026
 - [2026-07-17 18:27] [Zugesagt: Einführung Beschaffungsagent] Zusage für Einführung Beschaffungsagent
 - [2026-07-17 18:27] [Zugesagt: Einführung Beschaffungsagent] Einführung Beschaffungsagent zugesagt
 - [2026-07-17 18:27] [FW: Erklärung unserer Instrumente] QP (Qualifizierungsprozess): Mitarbeitermitarbeiterqualifizierung mit IST-Stand-Prüfung, Fokus auf Fachlichkeitsentwicklung mit Nachweislichkeit für Berufsfeld-Vorschriften
@@ -713,6 +737,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-07-17 21:22] [2026-07-17-Fragenkatalog_beantwortet.md] Risikoeinstufung nach EU-KI-Act: minimal; Richtlinie-Ziel: Compliance mit EU-KI-Act
 - [2026-07-17 18:27] [RE: Bestätigungslink Herr Spuhler Busine] Einmalpasswörter waren ungültig und wurden erneuert (14.07.2026)
 - [2026-07-17 18:27] [RE: Bestätigungslink Herr Spuhler Busine] Identifizierung von Sebastian Spuhler (zweiter Zeichnungsberechtigter) muss wiederholt werden aus Compliance-Gründen
 - [2026-07-17 18:27] [Abgelehnt: Bedarfsanalyse TPG X Prozessi] Absage des geplanten Termins mit Verzögerungsmitteilung
