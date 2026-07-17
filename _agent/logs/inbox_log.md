@@ -765,3 +765,4 @@
 - 2026-07-17 17:52 | Einführung Beschaffungsagent.docx → Kunden/Schaufler/Meetings | Besprechungstranskript zur Einführung/Weiterentwicklung des Beschaffungsagenten 
 - 2026-07-17 17:52 | Kai Winterscheid and Sebastian Spuhler (1).docx → Leads | Erstgespräch zwischen Kai Winterscheid (Einkaufsleiter T.P.G. Gruppe mit Marken 
 - 2026-07-17 17:52 | TEST_AB_MENGE_449181.pdf → Kunden/Schaufler/Vertraege | Auftragsbestätigung der Muster Verbindungstechnik GmbH an Schaufler Tooling GmbH
+- 2026-07-17 18:27 | image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Screenshot oder Grafik ohne Konte
