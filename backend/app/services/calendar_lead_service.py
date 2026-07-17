@@ -59,16 +59,32 @@ def _external_attendees(event: dict) -> list[dict]:
     return result
 
 
+def _normalize(text: str) -> str:
+    return re.sub(r"[^a-z0-9]", "", text.lower())
+
+
 def _known_names() -> set[str]:
     """Bereits bekannte Kunden (Kunden/-Ordner) + Leads (Dateinamen in Leads/),
     normalisiert - damit ein Termin nicht doppelt als 'neuer' Lead angelegt wird."""
     settings = get_settings()
-    names = {n.lower().replace("_", " ") for n in classify.list_customer_names()}
+    names = {_normalize(n) for n in classify.list_customer_names()}
     leads_dir = settings.vault_path / "Leads"
     if leads_dir.exists():
         for f in leads_dir.glob("*.md"):
-            names.add(re.sub(r"^\d{4}-\d{2}-\d{2}-", "", f.stem).lower().replace("-", " "))
+            names.add(_normalize(re.sub(r"^\d{4}-\d{2}-\d{2}-", "", f.stem)))
     return names
+
+
+def _is_known(firma: str, known: set[str]) -> bool:
+    """Substring-Abgleich statt exakter Gleichheit - Claude extrahiert oft den
+    vollen Firmennamen ("TPG Packaging"), während der Ordner nur die Kurzform
+    ("TPG") trägt. Ohne das legt der Scan sonst Duplikate für längst bekannte
+    Kunden an (live beobachtet: "TPG Packaging" wurde fälschlich als neuer
+    Lead erkannt, obwohl Kunden/TPG/ bereits existiert)."""
+    needle = _normalize(firma)
+    if not needle:
+        return False
+    return any(k and (k in needle or needle in k) for k in known)
 
 
 def _classify_event(event: dict, external: list[dict]) -> dict | None:
@@ -175,7 +191,7 @@ def scan_for_new_leads() -> list[str]:
         if not result:
             continue
         firma = result.get("firma", "").strip()
-        if not firma or firma.lower() in known:
+        if not firma or _is_known(firma, known):
             continue
 
         _write_lead_stub(firma, event, external)
@@ -185,7 +201,7 @@ def scan_for_new_leads() -> list[str]:
             f"am {_event_date(event)} mit "
             f"{', '.join(a['name'] or a['address'] for a in external)}",
         )
-        known.add(firma.lower())
+        known.add(_normalize(firma))
         found.append(firma)
 
     _save_cache(cache)

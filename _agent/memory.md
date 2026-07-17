@@ -380,6 +380,12 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-17 22:13] [Kalender-Erstgespräch] Schauenberg - Termin 'Prozessia X Schauenberg' am 2026-08-13 mit Sascha-haller@sb-it.com
+- [2026-07-17 22:13] [Kalender-Erstgespräch] Juchem - Termin 'Thorsten Maas and Sebastian Spuhler' am 2026-07-29 mit Thorsten Maas
+- [2026-07-17 22:13] [Kalender-Erstgespräch] Seifert GmbH - Termin 'Stefan Seifert and Sebastian Spuhler' am 2026-07-23 mit Stefan Seifert
+- [2026-07-17 22:13] [Kalender-Erstgespräch] Zillmer Elektrotechnik - Termin 'Update Zillmer X Prozessia' am 2026-07-21 mit dierk.biendarra@zillmer-elektrotechnik.de
+- [2026-07-17 22:13] [Kalender-Erstgespräch] Schmidt-Hänsch - Termin 'Prozessia X Schmidt-Hänsch' am 2026-07-21 mit s.bhawar@schmidt-haensch.de
+- [2026-07-17 22:13] [Kalender-Erstgespräch] Sundh Schaltanlagen - Termin 'Boris Tetzlaff and Sebastian Spuhler' am 2026-07-20 mit Boris Tetzlaff
 - [2026-07-17 21:46] [2026-06-30-Email-19f18718-AW-Potenzialanalyse-Endin-X-Prozessia.md] Kontakt Cyril Dietz (Geschäftsführer ENDIN): cyril.dietz@endin-email.eu, Tel. +49(0)7934/99544-102
 - [2026-07-17 21:46] [2026-06-30-Email-19f17dfc-AW-Potenzialanalyse-Endin-X-Prozessia.md] Ansprechpartner: Cyril Dietz (Geschäftsführer), cyril.dietz@endin-email.eu, Tel. +49(0)7934/99544-102
 - [2026-07-17 21:46] [2026-07-14-Email-19f618fd-Action-required-security-vulnerabilities.md] Kunde: Voigt_Salus

@@ -70,6 +70,28 @@ def vault_move(source: str, destination: str) -> dict:
         return {"ok": False, "error": str(e)}
 
 
+def vault_delete(path: str) -> dict:
+    """Löscht eine Datei oder einen Ordner (rekursiv) im Vault. Vor allem für
+    automatisch angelegte Inhalte gedacht, die sich als falsch/unnötig
+    herausstellen (z.B. ein fälschlich erkannter Kalender-Lead) - Sebastian
+    muss solche Fälle selbständig korrigieren können, ohne dass jemand anders
+    manuell im Dateisystem eingreifen muss."""
+    settings = get_settings()
+    target = (settings.vault_path / path.strip()).resolve()
+    if not _within_vault(target):
+        return {"ok": False, "error": "Pfad ausserhalb des Vault"}
+    if not target.exists():
+        return {"ok": False, "error": f"Nicht gefunden: {path}"}
+    try:
+        if target.is_dir():
+            shutil.rmtree(target)
+        else:
+            target.unlink()
+        return {"ok": True, "deleted": path}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+
 def vault_rename(path: str, new_name: str) -> dict:
     """Benennt eine Datei oder einen Ordner im Vault um."""
     settings = get_settings()

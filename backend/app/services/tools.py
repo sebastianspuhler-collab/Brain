@@ -104,6 +104,21 @@ TOOLS = [
         },
     },
     {
+        "name": "vault_delete",
+        "description": (
+            "Löscht eine Datei oder einen Ordner (rekursiv) im Vault, endgültig. "
+            "Vor allem für automatisch angelegte Inhalte, die sich als falsch "
+            "erweisen (z.B. ein fälschlich erkannter Kalender-Lead in Leads/). "
+            "Bei Ordnern oder mehrdeutigen Anfragen vorher kurz den genauen Pfad "
+            "bestätigen lassen, bei eindeutigen Einzeldateien direkt ausführen."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {"path": {"type": "string", "description": "Pfad relativ zum Vault-Root"}},
+            "required": ["path"],
+        },
+    },
+    {
         "name": "download_attachment",
         "description": (
             "Lädt alle Anhänge einer Gmail-Mail herunter, speichert sie in _inbox/ und indexiert sie sofort. "
