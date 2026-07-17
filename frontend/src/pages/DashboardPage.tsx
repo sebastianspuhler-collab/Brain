@@ -27,14 +27,15 @@ const AMPEL_COLOR: Record<KundeStatus["ampel"], string> = {
   grau: "bg-muted-foreground/40",
 };
 
-// Zeigt nur die Zeit seit dem letzten erfassten Meeting - keine Bewertung der
-// Kundenbeziehung. Ein "rot" kann genauso gut ein stabiles, ruhig laufendes
-// Projekt ohne Gesprächsbedarf bedeuten wie tatsächlichen Nachfassbedarf.
+// Zeigt nur die Zeit seit der letzten erfassten Aktivität (Meeting, Dokument,
+// Vertrag, E-Mail-Korrespondenz) - keine Bewertung der Kundenbeziehung. Ein
+// "rot" kann genauso gut ein stabiles, ruhig laufendes Projekt ohne
+// Gesprächsbedarf bedeuten wie tatsächlichen Nachfassbedarf.
 const AMPEL_LABEL: Record<KundeStatus["ampel"], string> = {
-  gruen: "Letztes Meeting < 30 Tage her",
-  gelb: "Letztes Meeting 30-90 Tage her",
-  rot: "Letztes Meeting > 90 Tage her",
-  grau: "Kein Meeting erfasst",
+  gruen: "Letzte Aktivität < 30 Tage her",
+  gelb: "Letzte Aktivität 30-90 Tage her",
+  rot: "Letzte Aktivität > 90 Tage her",
+  grau: "Keine Aktivität erfasst",
 };
 
 function formatDatum(datum: string | null): string {
@@ -101,9 +102,10 @@ export function DashboardPage() {
         </CardHeader>
         <CardContent>
           <p className="mb-3 text-sm text-muted-foreground">
-            Zeigt nur die Zeit seit dem letzten erfassten Meeting, keine Bewertung der
-            Kundenbeziehung — ein stabiles Projekt ohne Gesprächsbedarf sieht hier genauso aus wie
-            eines, bei dem tatsächlich nachgefasst werden sollte.
+            Zeigt nur die Zeit seit der letzten erfassten Aktivität (Meeting, Dokument, Vertrag
+            oder E-Mail-Korrespondenz), keine Bewertung der Kundenbeziehung — ein stabiles Projekt
+            ohne Gesprächsbedarf sieht hier genauso aus wie eines, bei dem tatsächlich
+            nachgefasst werden sollte.
           </p>
           {kundenLoading ? (
             <div className="space-y-2">
@@ -118,7 +120,7 @@ export function DashboardPage() {
                 <TableRow>
                   <TableHead className="w-8"></TableHead>
                   <TableHead>Kunde</TableHead>
-                  <TableHead>Letztes Meeting</TableHead>
+                  <TableHead>Letzte Aktivität</TableHead>
                   <TableHead className="w-32">Offene Aufgaben</TableHead>
                 </TableRow>
               </TableHeader>

@@ -1,4 +1,31 @@
 ## KONTEXT
+- [2026-07-17 21:42] [07---Email-19f3d924-Action-required-security-vulnerabilities.md] Mitteilung von Supabase vom 07 Jul 2026 - Unbefugte Datenmanipulation möglich
+- [2026-07-17 21:42] [15---Email-19eccb53-Carlos--saidspentplanextra-ZRSMQTG.md] Kontaktperson: Nick Todd (n.todd@mintonsentinel.info), Datum der Anfrage: 15. Juni 2026
+- [2026-07-17 21:42] [11---Email-19f50f37-Getting-the-most-from-Google-Tag-Manager.md] Implementierungsdatum: 11. Juli 2026
+- [2026-07-17 21:42] [9---Email-19f4611a-Zugesagt-Umstzung-Microsoft-Anbindung-Sc.md] Status: Zugesagt (Umsetzung bestätigt)
+- [2026-07-17 21:42] [7---Email-19f3c174-Abstimmung-VPN-Tunnel.md] Abstimmungsbesprechung anberaumt - MS Teams Meeting Link vorhanden (ID: 332 189 589 163 009)
+- [2026-07-17 21:41] [16---Email-19f6c96f-AW-Zugangsdaten-Beschaffungsagent.md] Amin ist Kontaktperson für Schaufler, Telefonnummer: +491732154932
+- [2026-07-17 21:41] [16---Email-19f69bbe-Messberichte.md] Speicherplatz-Management für Postfächer notwendig, um Volllaufen zu verhindern
+- [2026-07-17 21:41] [15---Email-19f65c24-AW-Messberichte.md] Zeitnahe Umsetzung möglich; Jonas Rösch kann morgen früh (16. Juli 2026) starten
+- [2026-07-17 21:41] [15---Email-19f65c24-AW-Messberichte.md] Messberichte-Lösung wird als temporär betrachtet; pragmatischste Lösung für Schaufler wird angestrebt
+- [2026-07-17 21:41] [15---Email-19f65521-Zugesagt-Einführung-Beschaffungsagent.md] Email-Datum: 15. Juli 2026
+- [2026-07-17 21:41] [14---Email-19f5ff1a-Bestell-Dokumente-für-den-KI-Agend.md] Tracking-Tool für Vessel/Schiffe: www.vesselfinder.com
+- [2026-07-17 21:41] [14---Email-19f5ff1a-Bestell-Dokumente-für-den-KI-Agend.md] Lieferant China: Sarah.peng@schaufler.com.cn (Schaufler China)
+- [2026-07-17 21:41] [14---Email-19f5f54b-Zugesagt-Meeting-Go-Live-Beschaffungsage.md] Bestätigung vom 14.07.2026 eingegangen
+- [2026-07-17 21:41] [13---Email-19f5a966-Statusabfrage--AI-Agent-Beschaffung.md] Kritische Anforderung: Frühe Identifikation von Risiken für pünktlichen Go-live am Freitag
+- [2026-07-17 21:41] [10---Email-19f4b6ce-Zugesagt-Update-Azure-OpenAI.md] Status: Zugesagt (bestätigt am 10.07.2026)
+- [2026-07-17 21:41] [9---Email-19f47c0d-AW-Infos-zur-WinForm-Sicht.md] Anpassungen an WinForm-Sicht durchgeführt und getestet
+- [2026-07-17 21:41] [9---Email-19f47986-AW-Infos-zur-WinForm-Sicht.md] WinForm-Sicht-Integration bei Kunde Hettmer in Arbeit, Testing folgt nach Behebung des Datenbankzugriffs
+- [2026-07-17 21:41] [9---Email-19f472fd-Infos-zur-WinForm-Sicht.md] VPN-Zugang wurde von Jonas bereitgestellt; Datum der Anfrage: 9. Juli 2026
+- [2026-07-17 21:41] [8---Email-19f419a4-AW-Offene-Punkte-Beschaffungsagent.md] Prozessia benötigt Zugriffsdetails auf order@schaufler.de-Postfach; VPN-Tunnel zu Poleis-Server und Daten-Zugriff (Lese-/Schreibrechte) werden überprüft
+- [2026-07-17 21:40] [17---Email-19f6f491-AW-Go-Live-Beschaffungsagent.md] Sebastian Spuhler Kontakt: 015159473260
+- [2026-07-17 21:40] [16---Email-19f69ece-AW-Go-Live-Beschaffungsagent.md] Produktivsystem-Zugangsdaten bereitgestellt (Login-Name und Passwort)
+- [2026-07-17 21:40] [13---Email-19f5c567-Zugesagt-Meeting-Go-Live-Beschaffungsage.md] Email vom 13.07.2026 bestätigt Zusage für Go-Live Meeting
+- [2026-07-17 21:40] [13---Email-19f5bfda-AW-Statusabfrage--AI-Agent-Beschaffung.md] Ziel: Go Live beschleunigen durch Klärung des schrittweisen Plans und Reibungspunkte
+- [2026-07-17 21:40] [13---Email-19f5bf98-AW-Statusabfrage--AI-Agent-Beschaffung.md] Benjamin Schmohl verfügbar: Dienstag ab 11 Uhr, Mittwoch ganztägig, Donnerstag bis 12 Uhr
+- [2026-07-17 21:40] [13---Email-19f5bf67-AW-Statusabfrage--AI-Agent-Beschaffung.md] Projektteam: Sebastian Spuhler, Florian Knoblauch, Benjamin Schmohl, Jochen Hettmer
+- [2026-07-17 21:40] [15---Email-19ecd0bb-KI-erfolgreich-im-Unternehmen-etablieren.md] Thematische Schwerpunkte: Umgang mit Widerständen, Erfolgsfaktoren für nachhaltigen KI-Einsatz, Anwendungsbeispiele, verantwortungsvoller KI-Umgang
+- [2026-07-17 21:40] [15---Email-19ecd0bb-KI-erfolgreich-im-Unternehmen-etablieren.md] Veranstaltungen starten im dritten Quartal 2026 (ab Juli 2026) mit Fokus auf Change-Management, KI-Agenten und KI-Programmierung
 - [2026-07-17 21:22] [2026-07-17-Gewerbeanmeldung Mohamed Douioui.md] Gemeindekennzahl: 10041100
 - [2026-07-17 21:22] [2026-07-17-Gewerbeanmeldung Mohamed Douioui.md] Gewerbeanmeldung (GewA 1) eingereicht bei Landeshauptstadt Saarbrücken am 2026-07-17
 - [2026-07-17 21:22] [2026-07-17-Gesellschaftsvertrag der Webwokr Gbr.md] Mitgesellschafter: Mohamed Douioui
@@ -328,6 +355,17 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-17 21:42] [07---Email-19f3d924-Action-required-security-vulnerabilities.md] Kunde: Voigt_Salus
+- [2026-07-17 21:42] [11---Email-19f50f37-Getting-the-most-from-Google-Tag-Manager.md] TPG hat Google Tag Manager implementiert
+- [2026-07-17 21:42] [9---Email-19f4611a-Zugesagt-Umstzung-Microsoft-Anbindung-Sc.md] Kunde: Schaufler
+- [2026-07-17 21:41] [15---Email-19f65521-Zugesagt-Einführung-Beschaffungsagent.md] Kunde: Schaufler
+- [2026-07-17 21:41] [15---Email-19ecac00-Transkript.md] Kontakt: Benjamin Schmohl, Teamleitung Beschaffung, benjamin.schmohl@schaufler.de, +49 151 72080431
+- [2026-07-17 21:41] [14---Email-19f5ff1a-Bestell-Dokumente-für-den-KI-Agend.md] Kontaktperson: Benjamin Schmohl, Teamleiter Beschaffung bei Schaufler, benjamin.schmohl@schaufler.de, +49 7333 9608-640
+- [2026-07-17 21:41] [10---Email-19f4b6ce-Zugesagt-Update-Azure-OpenAI.md] Kunde: Schaufler
+- [2026-07-17 21:41] [29---Email-19f127e3-Re-Unser-Termin.md] Ansprechpartner: Gert Mundinger (gert@mundinger.de) bei Kunde Mundinger
+- [2026-07-17 21:40] [13---Email-19f5c567-Zugesagt-Meeting-Go-Live-Beschaffungsage.md] Kunde: Hettmer (Kontakt: Jochen Hettmer, jochen@hettmer-edv.de)
+- [2026-07-17 21:40] [13---Email-19f5bf67-AW-Statusabfrage--AI-Agent-Beschaffung.md] Hettmer (Jochen Hettmer) verfügbar: Dienstag und Donnerstag
+- [2026-07-17 21:40] [15---Email-19ecd0bb-KI-erfolgreich-im-Unternehmen-etablieren.md] Bender erhielt Einladung zu KI-Veranstaltungen vom Mittelstand-Digital Zentrum Saarbrücken
 - [2026-07-17 21:22] [2026-07-17-Gewerbeanmeldung Mohamed Douioui.md] Mohamed Douioui ist geschäftsführender Gesellschafter der Sebastian Spuhler, Mohamed Douioui GbR
 - [2026-07-17 21:22] [2026-07-17-INV-057.md] World Class Marketing LLC, Wyoming, USA - Rechnungssteller
 - [2026-07-17 18:27] [Kompletten Salesfunnel mit KI erstellen] Robert Heineke von Leaders Media (consultants@leadersmedia.de) kontaktiert Sebastian Spuhler
@@ -401,6 +439,40 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-17 21:42] [07---Email-19f3d924-Action-required-security-vulnerabilities.md] Kritische Sicherheitslücke: Tabelle öffentlich zugänglich (Row-Level Security deaktiviert) - Projekt stggglgcvisnvcertpau
+- [2026-07-17 21:42] [15---Email-19eccb53-Carlos--saidspentplanextra-ZRSMQTG.md] Konditionen: Monatliche Raten, keine Personengarantien, keine Gebühren im Voraus, kein Druck zum sofortigen Abschluss
+- [2026-07-17 21:42] [15---Email-19eccb53-Carlos--saidspentplanextra-ZRSMQTG.md] Produkt/Service: Apunto-Finanzierung
+- [2026-07-17 21:42] [11---Email-19f50f37-Getting-the-most-from-Google-Tag-Manager.md] Migration bestehender Site-Tags in GTM-Interface geplant
+- [2026-07-17 21:42] [11---Email-19f50f37-Getting-the-most-from-Google-Tag-Manager.md] GTM-Installation auf TPG-Website erfolgt
+- [2026-07-17 21:42] [9---Email-19f4611a-Zugesagt-Umstzung-Microsoft-Anbindung-Sc.md] Projekt: Microsoft Anbindung Schaufler X Prozessia
+- [2026-07-17 21:42] [8---Email-19f40a0d-WG-AVV-Vertrag--SLA.md] Freigabe für nächsten Schritt: AI-Agent-Implementierung kann fortgesetzt werden
+- [2026-07-17 21:42] [8---Email-19f40a0d-WG-AVV-Vertrag--SLA.md] Vertragliche Grundlagen für Server-Beschaffung und -Verwaltung im Rahmen einer Server-Kooperation abgeschlossen
+- [2026-07-17 21:42] [7---Email-19f3d2c1-AW-Fragenkatalog.md] Fragenkatalog zu KI-Richtlinie wurde von Sebastian Spuhler ausgefüllt und an Florian Knoblauch und Benjamin Schmohl versendet
+- [2026-07-17 21:42] [7---Email-19f3c174-Abstimmung-VPN-Tunnel.md] VPN Tunnel Abstimmung mit Kunde Schaufler erforderlich - technische Validierung aller Themen notwendig
+- [2026-07-17 21:42] [6---Email-19f381c7-AW-Offene-Punkte-Beschaffungsagent.md] Priorität: Punkte 1 und 2 (Watchfolder und Testview) haben erhebliche Relevanz und sollen bis Ende dieser Woche abgearbeitet werden
+- [2026-07-17 21:42] [6---Email-19f381c7-AW-Offene-Punkte-Beschaffungsagent.md] Beschaffungsagent-Projekt erfordert 4 offene Punkte: (1) Watchfolder für Messberichte in Microsoft Sharepoint mit Graph API, (2) Testview für Winform Datenbankanbindung, (3) Elo-Schnittstelle für automatische Dokumentablage, (4) Website für Vessel Tracking
+- [2026-07-17 21:41] [16---Email-19f6caf8-AW-Zugangsdaten-Beschaffungsagent.md] Benutzer können über die Benutzer-Funktion in der linken Leiste angelegt werden
+- [2026-07-17 21:41] [16---Email-19f69bbe-Messberichte.md] Shared Mailboxes haben Speicherlimit von 50GB
+- [2026-07-17 21:41] [15---Email-19f65c24-AW-Messberichte.md] Watchfolder für Messberichte soll gebaut werden; Benjamin hat Informationen zum jährlichen Volumen bereitgestellt
+- [2026-07-17 21:41] [15---Email-19ecbd13-WG-Messberichte.md] Systemlimitation: ProLeis kann Daten aus ZIP-Dateien nicht speichern
+- [2026-07-17 21:41] [13---Email-19f5a998-AW-Statusabfrage--AI-Agent-Beschaffung.md] IT-seitige Umsetzung abgeschlossen, aufgetretene Probleme behoben. Ausstehend: Messprotokolle in nächstem Termin
+- [2026-07-17 21:41] [13---Email-19f5a998-AW-Statusabfrage--AI-Agent-Beschaffung.md] Geplanter Live-Gang: Freitag (18.07.2026), sofern Tests planmäßig verlaufen
+- [2026-07-17 21:41] [13---Email-19f5a998-AW-Statusabfrage--AI-Agent-Beschaffung.md] Projekt: AI-Agent Beschaffung. Testphase sollte letzte Woche (vor 13.07.2026) starten, intensive Tests diese Woche geplant
+- [2026-07-17 21:41] [13---Email-19f5a966-Statusabfrage--AI-Agent-Beschaffung.md] Deadline Go-live: Freitag, 17. Juli 2026
+- [2026-07-17 21:41] [7---Email-19f3b787-Vorgeschlagene-Zeit-Update-Projekt-Mundi.md] Projekt Mundinger - Update angefordert
+- [2026-07-17 21:41] [9---Email-19f47a4c-AW-Infos-zur-WinForm-Sicht.md] WinForm-Sicht Konfiguration in Bearbeitung - Abwarten auf Einrichtungsbestätigung vor Weitertests
+- [2026-07-17 21:41] [9---Email-19f47913-AW-Infos-zur-WinForm-Sicht.md] Lesezugriff auf komplette Tabelle 'Bestelldatei' wurde gewährt, Details zur Nutzung erforderlich
+- [2026-07-17 21:41] [9---Email-19f47913-AW-Infos-zur-WinForm-Sicht.md] Datenbank Winform2000_TEST.72SQL liegt auf SQL2022EX02, aber Login 'Prozessia' wird dort abgelehnt (Fehler 18456)
+- [2026-07-17 21:41] [9---Email-19f472fd-Infos-zur-WinForm-Sicht.md] WinForm-Sicht 'Bestelldatei' (VIEW_fuer_Prozessia) mit Feldern: BestellNr, Liefertermin, Liefertermin_bestätigt, Liefertermin_erwartet, Terminüberwachung_Bemerkung
+- [2026-07-17 21:41] [9---Email-19f472fd-Infos-zur-WinForm-Sicht.md] Test-Datenbank verfügbar mit Login 'Prozessia' / Passwort 'Prozessia#66123#-A11!'
+- [2026-07-17 21:41] [8---Email-19f419a4-AW-Offene-Punkte-Beschaffungsagent.md] Anforderung: Alle Einkäufer erhalten Zugriff auf order@schaufler.de-Postfach zur selbstständigen AB-Entnahme
+- [2026-07-17 21:41] [8---Email-19f419a4-AW-Offene-Punkte-Beschaffungsagent.md] Order@schaufler.de-Adresse soll auf Bestelldeckblatt angegeben werden
+- [2026-07-17 21:41] [8---Email-19f419a4-AW-Offene-Punkte-Beschaffungsagent.md] Lieferanten-Bestellabsätze (ABs) werden zukünftig an order@schaufler.de gesendet; Großteil der Top 100 Lieferanten hat Umstellung bereits umgesetzt
+- [2026-07-17 21:40] [16---Email-19f69ece-AW-Go-Live-Beschaffungsagent.md] Go-Live Beschaffungsagent für Hettmer geplant: Produktivsystem-Zugriff ermöglicht Live-Schaltung am Folgetag (ab 16.07.2026)
+- [2026-07-17 21:40] [14---Email-19f6188f-AW-Statusabfrage--AI-Agent-Beschaffung.md] Offener Punkt: Feld für zuständigen Einkäufer muss noch definiert werden (Anforderung vom Mai-Besuch)
+- [2026-07-17 21:40] [13---Email-19f5bfda-AW-Statusabfrage--AI-Agent-Beschaffung.md] Nächster Schritt: Go-Live-Planning-Meeting (1 Stunde) erforderlich vor Go Live
+- [2026-07-17 21:40] [13---Email-19f5bf67-AW-Statusabfrage--AI-Agent-Beschaffung.md] Vor Go Live: detaillierter schrittweiser Plan und Klärung potenzieller Reibungspunkte mit Team erforderlich
+- [2026-07-17 21:40] [13---Email-19f5b5b9-AW-Statusabfrage--AI-Agent-Beschaffung.md] Messprotokolle für Projekt noch ausstehend (nächster Termin erforderlich)
 - [2026-07-17 21:22] [2026-07-17-Gesellschaftsvertrag der Webwokr Gbr.md] Geschäftszweck: Webdesign, Suchmaschinenoptimierung (SEO), Website-Konzeption und -Entwicklung, Kundenberatung im Online-Marketing
 - [2026-07-17 21:22] [2026-07-17-SLA_Schaufler  (3).md] Verfügbarkeitsgarantie: 99%, Infrastruktur auf Hetzner-Servern, Haftungsausschluss für Infrastrukturausfälle
 - [2026-07-17 21:22] [2026-07-17-SLA_Schaufler  (3).md] Service Level Agreement für Betrieb des Beschaffungsagenten basierend auf Angebot AG0024 vom 27.05.2026
@@ -696,6 +768,8 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-07-17 21:41] [9---Email-19f472fd-Infos-zur-WinForm-Sicht.md] Terminüberwachung_Bemerkung (nvarchar(300)): Textfeld soll bei jeder Terminaktualisierung mit kurzer Info ergänzt werden
+- [2026-07-17 21:40] [13---Email-19f5bf67-AW-Statusabfrage--AI-Agent-Beschaffung.md] Liste mit E-Mails aller ausgewählten Lieferanten wird für Integration von Anfang an benötigt
 - [2026-07-12 18:52] [CREDENTIALS.md] Microsoft 365 Integration erforderlich für: Outlook Email-Synchronisierung, Kalender-Event-Verwaltung
 - [2026-07-12 18:52] [CREDENTIALS.md] Google Workspace Credentials erforderlich für: Gmail-Emails auslesen, Google Drive Dateiablage, Sheets-Datenverarbeitung
 
@@ -737,6 +811,8 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-07-17 21:42] [07---Email-19f3d924-Action-required-security-vulnerabilities.md] Deadline: Sofortige Behebung erforderlich - Issues dokumentiert ab 06 Jul 2026
+- [2026-07-17 21:41] [15---Email-19ecbd13-WG-Messberichte.md] Kritisch: Alle eingehenden Dateien haben eine '0' am Ende - müssen so abgelegt werden
 - [2026-07-17 21:22] [2026-07-17-Fragenkatalog_beantwortet.md] Risikoeinstufung nach EU-KI-Act: minimal; Richtlinie-Ziel: Compliance mit EU-KI-Act
 - [2026-07-17 18:27] [RE: Bestätigungslink Herr Spuhler Busine] Einmalpasswörter waren ungültig und wurden erneuert (14.07.2026)
 - [2026-07-17 18:27] [RE: Bestätigungslink Herr Spuhler Busine] Identifizierung von Sebastian Spuhler (zweiter Zeichnungsberechtigter) muss wiederholt werden aus Compliance-Gründen
@@ -788,3 +864,6 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 
 ## LEISTUNG
 - [2026-07-13 19:09] [Personalkosten erstattet bekommen] Schulung des Teams in kundengewinnung und Tools (Clay, Claude, Close) finanziert über Fördergelder § 82 SGB III
+
+## ENTSCHEIDUNG
+- [2026-07-17 21:42] [6---Email-19f38afa-AW-Offene-Punkte-Beschaffungsagent.md] Bestelldokument muss angepasst werden, damit Lieferanten wissen, dass bestellbezogene Daten an order@schaufler.de gehen (Verantwortung: Benjamin Schmohl)

@@ -115,13 +115,15 @@ def kunden_status(user: str = Depends(get_current_user)):
         if not kunde_path.is_dir() or kunde_path.name.startswith((".", "[", "_")):
             continue
         name = kunde_path.name
-        meetings_dir = kunde_path / "Meetings"
+        # Nicht nur Meetings/ - sonst zeigt die Ampel "grau" (keine Daten) für
+        # Kunden, bei denen zwar laufend Dokumente/Verträge/Korrespondenz
+        # reinkommen, aber zufällig kein Meeting protokolliert wurde. Letzte
+        # Aktivität = jüngstes datierten Datei irgendwo im Kundenordner.
         dates = []
-        if meetings_dir.exists():
-            for f in meetings_dir.glob("*.md"):
-                m = re.match(r"^(\d{4}-\d{2}-\d{2})", f.name)
-                if m:
-                    dates.append(m.group(1))
+        for f in kunde_path.rglob("*.md"):
+            m = re.match(r"^(\d{4}-\d{2}-\d{2})", f.name)
+            if m:
+                dates.append(m.group(1))
         letztes_meeting = max(dates) if dates else None
 
         tage_seit_meeting = None

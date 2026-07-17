@@ -5,7 +5,58 @@ import re
 import threading
 
 from app.config import get_settings
-from app.services import gmail_client, memory, rag
+from app.services import classify, gmail_client, memory, rag
+
+
+def _normalize(text: str) -> str:
+    return re.sub(r"[^a-z0-9]", "", text.lower())
+
+
+def _match_customer(sender: str, subject: str, body: str) -> str | None:
+    """Ordnet eine E-Mail einem bestehenden Kunden/<Name>-Ordner zu, wenn der
+    Kundenname (unabhängig von Groß-/Kleinschreibung und Trennzeichen) im
+    Absender, Betreff oder Anfang des Inhalts auftaucht. Rein deterministisch
+    (kein API-Call) - läuft für jede einzelne E-Mail, muss also kostenlos sein.
+
+    Warum das nötig ist: bisher landeten E-Mails nur im generischen
+    _agent/email_cache/, ohne Bezug zu Kunden/<Name>/ - dadurch tauchten sie
+    weder im Datei-Browser des Kunden noch in kundenspezifischer RAG-Suche
+    (path_prefixes) auf, obwohl die Beziehung (Absenderdomain, Betreff) längst
+    erkennbar war."""
+    names = classify.list_customer_names()
+    if not names:
+        return None
+    haystack = _normalize(f"{sender} {subject} {body[:500]}")
+    for name in names:
+        needle = _normalize(name.replace("_", " "))
+        if len(needle) >= 3 and needle in haystack:
+            return name
+    return None
+
+
+def _write_customer_correspondence(
+    customer: str, eid: str, sender: str, subject: str, date: str, body: str
+) -> bool:
+    """Schreibt eine kurze Korrespondenz-Notiz in Kunden/<Name>/Dokumente/ - selbe
+    Zielordner-Konvention wie bei Dokumenten-Klassifizierung (classify.py),
+    damit Datei-Browser, Spaces-Vollständigkeitsscore und RAG-path_prefixes sie
+    genauso behandeln wie jede andere Kundendatei."""
+    settings = get_settings()
+    dok_dir = settings.vault_path / "Kunden" / customer / "Dokumente"
+    dok_dir.mkdir(parents=True, exist_ok=True)
+    date_slug = re.sub(r"[^\d]", "", date[:10]) or "00000000"
+    safe_sub = re.sub(r"[^\w\s-]", "", subject)[:40].strip().replace(" ", "-") or "kein-betreff"
+    filename = f"{date_slug[:4]}-{date_slug[4:6]}-{date_slug[6:8]}-Email-{eid[:8]}-{safe_sub}.md"
+    path = dok_dir / filename
+    if path.exists():
+        return False
+    path.write_text(
+        f"---\ntype: email-korrespondenz\nkunde: {customer}\nvon: {sender}\n"
+        f"betreff: {subject}\ndatum: {date}\n---\n\n# {subject}\n\n"
+        f"**Von:** {sender}\n**Datum:** {date}\n\n{body}",
+        encoding="utf-8",
+    )
+    return True
 
 
 def _strip_html(text: str) -> str:
@@ -70,6 +121,10 @@ def index_new_emails(deep: bool = False) -> int:
         )
         (settings.email_cache_dir / filename).write_text(md_content, encoding="utf-8")
         new_docs.append((rel_path, md_content))
+
+        customer = _match_customer(sender, subject, body)
+        if customer:
+            _write_customer_correspondence(customer, eid, sender, subject, date, body)
 
         if memory.is_important_email(sender, subject, body):
             threading.Thread(
