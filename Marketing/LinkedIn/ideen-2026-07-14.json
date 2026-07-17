@@ -1,0 +1,116 @@
+{
+  "ideen": [
+    {
+      "typ": "A",
+      "kategorie": "Einkauf",
+      "titel": "Der Freitagnachmittag-Krisenanruf wegen fehlender Teile",
+      "hook": "Freitag, 16:30 Uhr. Produktionsleiter ruft an: Teil X fehlt.",
+      "kern_botschaft": "Manuelle Stücklistenprüfung findet Fehler oft erst, wenn die Produktion schon steht – nicht vorher.",
+      "branche": "Werkzeugbau",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 30 MA, Werkzeugbau",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wann hat dich zuletzt ein fehlendes Teil kurz vor Feierabend erwischt?"
+    },
+    {
+      "typ": "A",
+      "kategorie": "Industrie",
+      "titel": "Zwischen Excel-Listen und ERP-System gefangen",
+      "hook": "Ich habe drei Bildschirme offen und trotzdem keine Übersicht.",
+      "kern_botschaft": "Viele Mittelständler jonglieren zwischen mehreren Systemen, ohne dass Daten wirklich zusammenlaufen – das kostet stille Stunden jede Woche.",
+      "branche": "Maschinenbau",
+      "zielgruppe_spezifisch": "Geschäftsführer, 50 MA, Maschinenbau",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie viele Systeme prüfst du täglich, bevor du eine Bestellung freigibst?"
+    },
+    {
+      "typ": "A",
+      "kategorie": "Einkauf",
+      "titel": "Der Preisvergleich, der nie fertig wird",
+      "hook": "Drei Lieferantenangebote liegen seit Montag auf meinem Tisch.",
+      "kern_botschaft": "Manueller Angebotsvergleich zieht sich über Tage – Zeit, die für strategische Einkaufsentscheidungen fehlt.",
+      "branche": "Lohnfertiger",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 25 MA, Lohnfertiger",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie lange dauert bei euch ein Angebotsvergleich im Schnitt?"
+    },
+    {
+      "typ": "A",
+      "kategorie": "Compliance",
+      "titel": "Die Unsicherheit vor dem ersten KI-Tool im Betrieb",
+      "hook": "Ich wollte ein KI-Tool einführen und wusste plötzlich nicht mehr, ob ich das überhaupt darf.",
+      "kern_botschaft": "Viele Entscheider zögern bei KI-Einsatz aus Unsicherheit über rechtliche Anforderungen, nicht aus technischer Skepsis.",
+      "branche": "Elektrotechnik",
+      "zielgruppe_spezifisch": "Geschäftsführer, 40 MA, Elektrotechnik",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Was hält euch aktuell davon ab, ein KI-Tool produktiv einzusetzen?"
+    },
+    {
+      "typ": "B",
+      "kategorie": "Compliance",
+      "titel": "5 Fragen, die dein Betrieb vor KI-Einsatz klären sollte",
+      "hook": "Bevor du ein KI-Tool einführst, beantworte diese 5 Fragen.",
+      "kern_botschaft": "Eine einfache Checkliste hilft, KI-Risikoeinstufung und Verantwortlichkeiten nach EU AI Act sachlich einzuordnen, ohne Panik.",
+      "branche": "Allgemein",
+      "zielgruppe_spezifisch": "Geschäftsführer, 20-80 MA, produzierendes Gewerbe",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Welche dieser Fragen habt ihr in eurem Betrieb schon beantwortet?"
+    },
+    {
+      "typ": "B",
+      "kategorie": "Einkauf",
+      "titel": "Der 6-Schritte-Check für fehlerfreie Stücklisten",
+      "hook": "So findest du Stücklistenfehler, bevor die Produktion sie findet.",
+      "kern_botschaft": "Ein strukturierter Prüfprozess in 6 Schritten reduziert Nacharbeit und Produktionsstopps durch fehlerhafte Stücklisten deutlich.",
+      "branche": "Werkzeugbau",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 20-50 MA, Werkzeugbau",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Welcher dieser Schritte fehlt bei euch aktuell im Prozess?"
+    },
+    {
+      "typ": "B",
+      "kategorie": "KI-Tipp",
+      "titel": "4 Prompts, die Einkaufsleitern täglich Zeit sparen",
+      "hook": "Diese 4 Prompts nutze ich jede Woche im Einkauf.",
+      "kern_botschaft": "Konkrete, sofort einsetzbare Prompts helfen, Lieferantenkommunikation und Angebotsvergleiche schneller vorzubereiten.",
+      "branche": "Allgemein",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 20-80 MA, produzierendes Gewerbe",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Welchen Prompt testest du diese Woche in deinem Einkauf?"
+    },
+    {
+      "typ": "C",
+      "kategorie": "Kundenstory",
+      "titel": "Von 3 Tagen Stücklistenprüfung auf 40 Minuten",
+      "hook": "Ein Werkzeugbauer prüfte Stücklisten drei Tage lang von Hand.",
+      "kern_botschaft": "Automatisierte Stücklistenprüfung reduzierte die Prüfzeit von 3 Tagen auf 40 Minuten und senkte Fehlerquote spürbar.",
+      "branche": "Werkzeugbau",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 35 MA, Werkzeugbau",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie viel Zeit verbringt euer Team aktuell mit Stücklistenprüfung pro Woche?"
+    },
+    {
+      "typ": "C",
+      "kategorie": "Kundenstory",
+      "titel": "17.000 Euro weniger Fehlbestellungen im Quartal",
+      "hook": "Ein Lohnfertiger bestellte quartalsweise falsche Mengen – bis ein Agent die Prüfung übernahm.",
+      "kern_botschaft": "Automatisierte Bestellprüfung verhinderte Fehlbestellungen im Wert von 17.000 Euro pro Quartal bei einem mittelständischen Lohnfertiger.",
+      "branche": "Lohnfertiger",
+      "zielgruppe_spezifisch": "Geschäftsführer, 45 MA, Lohnfertiger",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wisst ihr genau, wie viel euch Fehlbestellungen im letzten Quartal gekostet haben?"
+    },
+    {
+      "typ": "C",
+      "kategorie": "Industrie",
+      "titel": "Wie ein Elektrotechnik-Betrieb 12 Stunden pro Woche zurückgewann",
+      "hook": "Ein Betriebsleiter rechnete vor, wie viele Stunden manuelle Datenpflege wirklich kostet.",
+      "kern_botschaft": "Durch Automatisierung wiederkehrender Prüf- und Dateneingabeprozesse gewann ein Betrieb 12 Stunden Teamzeit pro Woche zurück.",
+      "branche": "Elektrotechnik",
+      "zielgruppe_spezifisch": "Geschäftsführer, 30 MA, Elektrotechnik",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie viele Stunden gehen bei euch pro Woche für manuelle Dateneingabe drauf?"
+    }
+  ],
+  "generiert_am": "2026-07-14T15:23:23.418829",
+  "anzahl": 10
+}

@@ -755,3 +755,13 @@
 - 2026-07-03 21:17 | Besprechung Umsetzung Server Infrastruktur Schaufler (1).docx → Kunden/Schaufler/Meetings | Besprechungstranskript vom 25. Juni 2026 zur Umsetzung der Server-Infrastruktur 
 - 2026-07-03 21:17 | 1a4a25c9-1ad2-467c-9437-46e138f6d4b0.jpeg → Memos/Medien | Die Datei ist eine JPEG-Bilddatei, aus der kein Text extrahiert werden konnte. D
 - 2026-07-03 21:17 | 1a8c7b80-123d-46b6-a3bd-8bbbdb0a994e.jpeg → Memos/Medien | Die Datei ist eine JPEG-Bilddatei, aus der kein Text extrahiert werden konnte. I
+- 2026-07-04 13:04 | image003.png → Memos/Medien | Die Datei 'image003.png' ist eine Bilddatei ohne extrahierbaren Text. Inhalt und
+- 2026-07-04 13:04 | image001.png → Memos/Medien | Die Datei image001.png ist eine Bilddatei ohne extrahierbaren Textinhalt. Da kei
+- 2026-07-04 13:04 | image004.png → Memos/Medien | Bei der Datei handelt es sich um eine Bilddatei (image004.png) ohne extrahierbar
+- 2026-07-04 13:04 | image005.png → Memos/Medien | Bei der Datei handelt es sich um eine Bilddatei (image005.png) ohne extrahierbar
+- 2026-07-17 15:42 | Schaufler_Azure_Anleitung.pdf → Kunden/Schaufler/Dokumente | Kurzanleitung für die Schaufler Tooling GmbH & Co. KG zur Nutzung des Azure Port
+- 2026-07-17 15:42 | Zugangsdaten Beschaffungsagent.docx → Kunden/Schaufler/Dokumente | Zugangsdaten (Admin-Login) für den bei Schaufler eingesetzten Beschaffungsagente
+- 2026-07-17 17:52 | Herr Biebl + Herr Lenbner and Sebastian Spuhler.docx → Kunden/Lendner/Meetings | Besprechungstranskript eines Erstgesprächs zwischen Sebastian Spuhler (Prozessia
+- 2026-07-17 17:52 | Einführung Beschaffungsagent.docx → Kunden/Schaufler/Meetings | Besprechungstranskript zur Einführung/Weiterentwicklung des Beschaffungsagenten 
+- 2026-07-17 17:52 | Kai Winterscheid and Sebastian Spuhler (1).docx → Leads | Erstgespräch zwischen Kai Winterscheid (Einkaufsleiter T.P.G. Gruppe mit Marken 
+- 2026-07-17 17:52 | TEST_AB_MENGE_449181.pdf → Kunden/Schaufler/Vertraege | Auftragsbestätigung der Muster Verbindungstechnik GmbH an Schaufler Tooling GmbH

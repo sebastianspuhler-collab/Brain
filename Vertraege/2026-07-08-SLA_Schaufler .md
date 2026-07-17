@@ -1,0 +1,5 @@
+# SLA_Schaufler .pdf
+*Von: Florian Knoblauch <florian.knoblauch@schaufler.de>*
+*Betreff: WG: AVV Vertrag + SLA*
+
+Service Level Agreement Betrieb des Beschaffungsagenten  Parteien Dieses Service Level Agreement (nachfolgend „SLA“) wird geschlossen zwischen:  Sebastian Spuhler, Mohamed Douioui GbR, Campus Starterzentrum Gebäude A1 1, 66123 Saarbrücken, vertreten durch Sebastian Spuhler und Mohamed-Amin Douioui (nachfolgend „Prozessia“),  und  Schaufler Tooling GmbH & Co. KG, Goethestraße 72, 89150 Laichingen (nachfolgend „Auftraggeber“).  Prozessia und der Auftraggeber werden nachfolgend gemeinsam als „die Parteien“ bezeichnet. § 1 Gegenstand Gegenstand dieses SLA ist der Betrieb des Beschaffungsagenten durch Prozessia zugunsten des Auftraggebers gemäß Angebot AG0024 vom 27.05.2026 und Bestellung BEST-PROZESSIA-127412 vom 15.06.2026. Der Umfang der zu erbringenden Leistungen ergibt sich abschließend un

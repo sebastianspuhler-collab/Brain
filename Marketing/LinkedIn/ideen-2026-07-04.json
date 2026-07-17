@@ -1,0 +1,106 @@
+{
+  "generiert_am": "2026-07-04T17:18:46.249022",
+  "anzahl": 10,
+  "ideen": [
+    {
+      "typ": "A",
+      "titel": "Wenn Stücklisten freitags um 16 Uhr ankommen",
+      "hook": "Freitag, 16:10 Uhr. Neue Stückliste. 340 Positionen.",
+      "kern_botschaft": "Einkaufsleiter verlieren regelmäßig Abende und Wochenenden damit, kurzfristige Stücklisten manuell zu prüfen — das fühlt sich unvermeidbar an, ist es aber nicht.",
+      "branche": "Werkzeugbau",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 30–60 MA, Werkzeugbau",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie lange sitzt du im Schnitt an einer neuen Stückliste, bevor der erste Lieferant kontaktiert wird?"
+    },
+    {
+      "typ": "A",
+      "titel": "Drei Lieferanten angefragt — keiner antwortet",
+      "hook": "Angefragt Montag. Gemahnt Mittwoch. Heute ist Freitag.",
+      "kern_botschaft": "Das manuelle Nachfassen bei Lieferanten frisst Stunden, die kein Einkäufer hat. Die Frustration sitzt tief — weil es sich täglich wiederholt.",
+      "branche": "Maschinenbau",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 40–80 MA, Maschinenbau",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie viele offene Anfragen hast du gerade, auf die du seit mehr als 48 Stunden wartest?"
+    },
+    {
+      "typ": "A",
+      "titel": "Das stille Chaos hinter jeder Bestellung",
+      "hook": "Excel. Mail. Telefon. Excel. Mail. Telefon.",
+      "kern_botschaft": "Beschaffung in kleinen produzierenden Betrieben läuft oft über dieselbe manuelle Schleife — der Einkaufsleiter weiß genau wie ineffizient es ist, hat aber keine Zeit es zu ändern.",
+      "branche": "Lohnfertiger",
+      "zielgruppe_spezifisch": "Einkaufsleiter und Geschäftsführer, 20–50 MA, Lohnfertiger",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "An welchem Schritt in deinem Beschaffungsprozess verlierst du aktuell am meisten Zeit?"
+    },
+    {
+      "typ": "A",
+      "titel": "Wenn der Konstrukteur Teile ändert — wieder",
+      "hook": "Stückliste Version 1. Version 2. Version 3. Alle manuell.",
+      "kern_botschaft": "Jede Revision einer Stückliste bedeutet für den Einkauf: von vorn. Positionen abgleichen, Preise prüfen, Lieferanten informieren. Das kostet nicht nur Zeit — es kostet Nerven.",
+      "branche": "Elektrotechnik",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 25–60 MA, Elektrotechnik und Gerätebau",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie oft ändert sich bei euch eine Stückliste, bevor der Auftrag tatsächlich rausgeht?"
+    },
+    {
+      "typ": "B",
+      "titel": "5 Schritte: Stückliste in 30 Min. beschaffungsfertig",
+      "hook": "So prüfst du 200 Positionen, bevor der Kaffee kalt wird.",
+      "kern_botschaft": "Ein strukturierter Ablauf für die Stücklistenprüfung, der zeigt wo Zeit verloren geht und wie ein Einkaufsleiter mit klaren Schritten (und dem richtigen Werkzeug) drastisch schneller wird.",
+      "branche": "Allgemein",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 20–80 MA, produzierende Betriebe DACH",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Welchen dieser Schritte macht ihr bei euch noch komplett manuell?"
+    },
+    {
+      "typ": "B",
+      "titel": "Checkliste: Lieferantenstatus in unter 10 Minuten",
+      "hook": "7 Fragen — und du weißt sofort, wo dein Engpass steckt.",
+      "kern_botschaft": "Eine konkrete Checkliste, mit der Einkaufsleiter den aktuellen Status aller offenen Lieferantenanfragen strukturiert bewerten können — ohne endloses Mailpostfach-Durchsuchen.",
+      "branche": "Maschinenbau",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 40–80 MA, Maschinenbau und Anlagenbau",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Welche dieser Punkte deckt dein aktuelles System gar nicht ab?"
+    },
+    {
+      "typ": "B",
+      "titel": "3 Warnsignale: Dein Beschaffungsprozess bremst dich",
+      "hook": "Wenn das hier bekannt klingt — kostet dich das Geld.",
+      "kern_botschaft": "Drei konkrete Symptome, die zeigen dass ein Beschaffungsprozess bereits geschäftskritisch ineffizient ist — formuliert als Selbstcheck für Geschäftsführer und Einkaufsleiter.",
+      "branche": "Allgemein",
+      "zielgruppe_spezifisch": "Geschäftsführer und Einkaufsleiter, 20–60 MA, Allgemein",
+      "format_empfehlung": "Liste",
+      "cta_vorschlag": "Wie viele dieser drei Punkte treffen bei euch aktuell zu?"
+    },
+    {
+      "typ": "C",
+      "titel": "Von 4 Stunden auf 22 Minuten: Stücklistenprüfung",
+      "hook": "240 Positionen. Früher ein halber Tag. Heute: 22 Minuten.",
+      "kern_botschaft": "Ein Lohnfertiger mit 35 Mitarbeitern hat die manuelle Stücklistenprüfung durch einen Agenten ersetzt. Ergebnis: Der Einkaufsleiter gewinnt täglich fast 4 Stunden zurück — und Angebote gehen schneller raus.",
+      "branche": "Lohnfertiger",
+      "zielgruppe_spezifisch": "Einkaufsleiter und Geschäftsführer, 25–50 MA, Lohnfertiger",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Was würdest du mit 4 zusätzlichen Stunden pro Tag im Einkauf konkret anders machen?"
+    },
+    {
+      "typ": "C",
+      "titel": "Kein Mahnwesen mehr: Lieferantenanfragen auf Autopilot",
+      "hook": "Er hat aufgehört, Lieferanten manuell zu mahnen. Komplett.",
+      "kern_botschaft": "Ein Werkzeugbauer mit 48 Mitarbeitern hat das Nachfassen bei Lieferanten automatisiert. Ergebnis: Antwortzeit sank um 2 Tage, der Einkäufer spart 6 Stunden pro Woche — ohne neues Personal.",
+      "branche": "Werkzeugbau",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 35–65 MA, Werkzeugbau",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie viele Stunden pro Woche verbringt dein Einkauf aktuell mit reinem Nachfassen?"
+    },
+    {
+      "typ": "C",
+      "titel": "Erstteilbeschaffung: Von 3 Tagen auf 6 Stunden",
+      "hook": "Neues Projekt. Früher 3 Tage bis zum ersten Angebot.",
+      "kern_botschaft": "Ein Elektrotechnikhersteller mit 60 Mitarbeitern hat die Erstbeschaffung für neue Bauteile automatisiert. Lieferantenrecherche, Anfrage und Vorauswahl laufen jetzt ohne manuellen Aufwand — Durchlaufzeit mehr als halbiert.",
+      "branche": "Elektrotechnik",
+      "zielgruppe_spezifisch": "Einkaufsleiter und Geschäftsführer, 45–75 MA, Elektrotechnik",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie lange dauert bei euch aktuell die erste Anfragewelle bei einem komplett neuen Bauteil?"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "generiert_am": "2026-07-12T17:00:00.000000",
+  "anzahl": 3,
+  "quelle": "Second Brain Analyse: YouTube-Video zu übersehenen KI-Use-Cases (y0u4-ol8T1I)",
+  "ideen": [
+    {
+      "typ": "A",
+      "titel": "Nach jedem Kundengespräch: 4 Minuten Nacharbeit, die keiner mag",
+      "hook": "Gespräch beendet. Jetzt: CRM aufmachen. Zusammenfassen. Nächste Schritte notieren.",
+      "kern_botschaft": "Vertriebler kennen das — nach dem eigentlichen Gespräch beginnt die eigentliche Arbeit: alles ins CRM tippen. Bei 20 Gesprächen die Woche sind das Stunden, die niemand einplant.",
+      "branche": "Allgemein",
+      "zielgruppe_spezifisch": "Geschäftsführer und Vertriebsleiter, 20–80 MA, produzierende/dienstleistende Betriebe DACH",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie lange sitzt du im Schnitt an der Nacharbeit nach einem Kundengespräch?"
+    },
+    {
+      "typ": "B",
+      "titel": "3 Anzeichen: Euer CRM lebt von Zufall, nicht von System",
+      "hook": "Wenn diese 3 Dinge bekannt vorkommen, verliert ihr laufend Informationen.",
+      "kern_botschaft": "Checkliste für Geschäftsführer, ob wichtige Gesprächsinhalte zuverlässig im CRM landen oder im Kopf des Vertrieblers verschwinden — als Selbstcheck formuliert.",
+      "branche": "Allgemein",
+      "zielgruppe_spezifisch": "Geschäftsführer, 20–80 MA, Allgemein",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Wie viele dieser drei Punkte treffen bei euch aktuell zu?"
+    },
+    {
+      "typ": "C",
+      "titel": "25 Stunden pro Monat — nur durch CRM-Nacharbeit",
+      "hook": "500 Gespräche im Monat. 25 bis 40 Stunden reine Nacharbeit.",
+      "kern_botschaft": "Beispielrechnung, was reine CRM-Nachpflege ein Team mit hohem Gesprächsaufkommen tatsächlich kostet, wenn jedes Gespräch 3-5 Minuten manuelle Zusammenfassung braucht — sichtbar gemacht in Stunden statt abstrakt in Minuten.",
+      "branche": "Allgemein",
+      "zielgruppe_spezifisch": "Geschäftsführer und Vertriebsleiter, 30–100 MA, Allgemein",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie viele Kundengespräche laufen bei euch pro Monat zusammen?"
+    }
+  ]
+}

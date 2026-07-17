@@ -1,0 +1,116 @@
+{
+  "generiert_am": "2026-07-13T22:43:00.090346",
+  "anzahl": 10,
+  "ideen": [
+    {
+      "typ": "A",
+      "kategorie": "Einkauf",
+      "titel": "Freitagabend im Einkauf: Stücklisten statt Feierabend",
+      "hook": "Freitag, 17 Uhr. Noch vierzig Stücklisten zu prüfen.",
+      "kern_botschaft": "Manuelle Stücklistenprüfung frisst Wochenenden und verzögert Produktionsstarts, ohne dass jemand die Fehlerquote wirklich kennt.",
+      "branche": "Maschinenbau",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 60 MA, Maschinenbau",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie viele Stunden geht bei euch pro Woche für Stücklistenprüfung drauf?"
+    },
+    {
+      "typ": "A",
+      "kategorie": "Compliance",
+      "titel": "Wenn der Justiziar nach eurer KI-Nutzung fragt",
+      "hook": "Mein Justiziar fragt: Welche KI setzt ihr eigentlich ein?",
+      "kern_botschaft": "Viele Betriebe nutzen längst KI-Tools im Alltag, ohne eine Übersicht oder Risikoeinstufung zu haben — genau das verlangt der EU AI Act.",
+      "branche": "Allgemein",
+      "zielgruppe_spezifisch": "Geschäftsführer, 35 MA, Elektrotechnik",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Habt ihr schon eine interne Liste eurer eingesetzten KI-Tools?"
+    },
+    {
+      "typ": "A",
+      "kategorie": "KI-Tipp",
+      "titel": "ChatGPT kannte unseren Liefervertrag nicht",
+      "hook": "ChatGPT nach unserem Liefervertrag gefragt. Antwort: komplett falsch.",
+      "kern_botschaft": "Generische KI-Tools ohne Firmenkontext erfinden Antworten. Wer sie im Einkauf nutzt, muss Daten und Prompts gezielt einspeisen.",
+      "branche": "Elektrotechnik",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 50 MA, Elektrotechnik",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Nutzt ihr KI-Tools schon mit euren eigenen Firmendaten?"
+    },
+    {
+      "typ": "A",
+      "kategorie": "Industrie",
+      "titel": "Die fehlende Schraube, die die Linie stoppt",
+      "hook": "Produktion steht. Wieder eine fehlende Schraube.",
+      "kern_botschaft": "Kleine Materiallücken durch schlechte Bedarfsplanung legen ganze Fertigungslinien lahm und kosten mehr als der Preis der Schraube.",
+      "branche": "Lohnfertiger",
+      "zielgruppe_spezifisch": "Geschäftsführer, 45 MA, Lohnfertiger",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Was war euer teuerster Produktionsstopp wegen fehlendem Material?"
+    },
+    {
+      "typ": "B",
+      "kategorie": "Einkauf",
+      "titel": "Fünf Signale, dass eure Stücklistenprüfung zu viel Zeit frisst",
+      "hook": "Stücklistenprüfung, die euch die Wochenenden kostet",
+      "kern_botschaft": "Doppelte Dateneingabe, Wochenendarbeit, hohe Fehlerquote, verzögerte Bestellungen und fehlende Nachvollziehbarkeit sind klare Warnsignale für ineffiziente manuelle Prüfung.",
+      "branche": "Werkzeugbau",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 40 MA, Werkzeugbau",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Welches dieser Signale trifft bei euch am ehesten zu?"
+    },
+    {
+      "typ": "B",
+      "kategorie": "Compliance",
+      "titel": "EU AI Act im Mittelstand: vier Schritte statt Panik",
+      "hook": "Bevor der EU AI Act euch überrascht: vier Schritte",
+      "kern_botschaft": "Tool-Inventar erstellen, Risikoklasse einordnen, Dokumentation aufbauen, Mitarbeitende schulen — strukturiert statt hektisch.",
+      "branche": "Allgemein",
+      "zielgruppe_spezifisch": "Geschäftsführer, 55 MA, Maschinenbau",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Wo steht ihr bei der Risikoeinstufung eurer KI-Tools?"
+    },
+    {
+      "typ": "B",
+      "kategorie": "KI-Tipp",
+      "titel": "Prompts, die euren nächsten Lieferantenvergleich retten",
+      "hook": "Prompts für den nächsten Lieferantenvergleich",
+      "kern_botschaft": "Drei konkrete Prompt-Vorlagen für Preisanalyse, Verhandlungsvorbereitung und Lieferantenbewertung, die Einkaufsleiter sofort nutzen können.",
+      "branche": "Allgemein",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 30 MA, Elektrotechnik",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Welchen der drei Prompts testet ihr zuerst?"
+    },
+    {
+      "typ": "C",
+      "kategorie": "Kundenstory",
+      "titel": "Von drei Tagen auf zwanzig Minuten: ein Werkzeugbauer erzählt",
+      "hook": "Drei Tage Stücklistenprüfung — bis sich das änderte",
+      "kern_botschaft": "Ein Werkzeugbau-Betrieb reduzierte die Prüfzeit pro Stückliste von drei Tagen auf zwanzig Minuten und senkte die Fehlerquote deutlich.",
+      "branche": "Werkzeugbau",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 38 MA, Werkzeugbau",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Was würdet ihr mit drei gesparten Arbeitstagen pro Woche machen?"
+    },
+    {
+      "typ": "C",
+      "kategorie": "Kundenstory",
+      "titel": "Fehlbestellungen, die jahrelang niemand bemerkte",
+      "hook": "Ein Elektrotechnik-Betrieb bestellte jahrelang falsch. Unbemerkt.",
+      "kern_botschaft": "Ein automatisierter Abgleich deckte systematische Fehlbestellungen auf, die zuvor niemand im Team erkannt hatte, und sparte fünfstellige Beträge im Jahr.",
+      "branche": "Elektrotechnik",
+      "zielgruppe_spezifisch": "Geschäftsführer, 42 MA, Elektrotechnik",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie prüft ihr aktuell auf Fehlbestellungen in euren Stücklisten?"
+    },
+    {
+      "typ": "C",
+      "kategorie": "Einkauf",
+      "titel": "Sechs Wochen Rückstand, ein neuer Bestellprozess",
+      "hook": "Sechs Wochen Rückstand. Ein Anruf. Neue Prozesse.",
+      "kern_botschaft": "Durch automatisierte Bestellfreigaben holte ein Maschinenbauer einen sechswöchigen Rückstand auf und verkürzte die Freigabezeit pro Bestellung erheblich.",
+      "branche": "Maschinenbau",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 65 MA, Maschinenbau",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie lange dauert bei euch eine durchschnittliche Bestellfreigabe?"
+    }
+  ]
+}

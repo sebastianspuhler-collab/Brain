@@ -367,23 +367,31 @@ lückenhaften Text (die wiederholt aufgetretenen abgeschnittenen
 `.md`-Sidecars bei Systemhandbuch/Lastenheft in diesem Chat waren genau
 dieses Problem).
 
-**Status: ⚠️ Code umgesetzt, aber ungetestet ohne echten API-Key.**
-`classify._extract_pdf_via_mistral_ocr()` ruft `POST /v1/ocr` bei Mistral auf
-(Base64-PDF, Modell `mistral-ocr-latest`), `extract_text()` nutzt das nur,
-wenn `MISTRAL_API_KEY` gesetzt ist, und fällt bei jedem Fehler (kein Key,
-Netzwerkfehler, unerwartete Antwortstruktur) automatisch auf den bestehenden
-PyPDF2-Pfad zurück. **Verifiziert:** ohne Key verhält sich `extract_text()`
-nachweislich exakt wie vorher (Regressionstest mit echter PDF aus dem Vault
-bestanden) — reine Ergänzung, kein bestehendes Verhalten geändert. **Nicht
-verifiziert:** der eigentliche Mistral-OCR-Aufruf selbst, da kein Mistral-
-API-Key vorliegt und ich kein neues kostenpflichtiges Konto ohne Rücksprache
-anlege. Sebastian müsste `MISTRAL_API_KEY` in `.env`/den Deploy-Secrets
-setzen, danach sollte an einem bekannt problematischen PDF (z.B. Systemhandbuch
-oder Lastenheft aus diesem Chat) gegengetestet werden, ob die Extraktion
-jetzt vollständig ist.
+**Status: ✅ Vollständig umgesetzt und mit echtem API-Key verifiziert
+(2026-07-17).** `classify._extract_pdf_via_mistral_ocr()` ruft `POST /v1/ocr`
+bei Mistral auf (Base64-PDF, Modell `mistral-ocr-latest`), `extract_text()`
+nutzt das nur, wenn `MISTRAL_API_KEY` gesetzt ist, und fällt bei jedem Fehler
+(kein Key, Netzwerkfehler, unerwartete Antwortstruktur) automatisch auf den
+bestehenden PyPDF2-Pfad zurück. Sebastian hat einen Mistral-Key ("Brain")
+bereitgestellt, lokal in `backend/.env` eingetragen (gitignored, nicht im
+Commit).
 
-**Aufwand:** M (neuer API-Key/laufende Kosten, Umbau `extract_text` - erledigt)
-**Priorität:** Mittel — Code fertig, Aktivierung braucht Sebastians Mistral-Key
+**Verifiziert:** Ohne Key verhält sich `extract_text()` nachweislich exakt
+wie vorher (Regressionstest bestanden). Mit echtem Key gegen
+`Systemhandbuch_Beschaffungsagent (2).pdf` getestet (das Dokument, an dem in
+diesem Chat wiederholt lückenhafte Extraktion auffiel): PyPDF2 lieferte
+15.499 Zeichen aus 13 Seiten, Mistral OCR 16.898 Zeichen — mehr Inhalt und
+sauber strukturiertes Markdown (Überschriften erhalten) statt PyPDF2s
+Rohtext-Aneinanderreihung. Der komplette `extract_text()`-Wrapper wurde
+end-to-end gegengetestet (nutzt jetzt tatsächlich den OCR-Pfad zuerst).
+
+**Wichtig für den Deploy:** der Key liegt bisher nur lokal in Sebastians
+`backend/.env` (Mac) — muss zusätzlich in `backend/.env` **auf dem VPS**
+eingetragen werden (dort hat Claude keinen Zugriff), sonst bleibt die
+OCR-Vorstufe dort inaktiv (kein Fehler, einfach weiterhin PyPDF2-Fallback).
+
+**Aufwand:** M (neuer API-Key/laufende Kosten, Umbau `extract_text`) — erledigt
+**Priorität:** Mittel — vollständig erledigt und verifiziert
 
 ### C2. Hybrid Search (semantisch + BM25)
 

@@ -1,18 +1,16 @@
 ---
-updated: 2026-06-12
+updated: 2026-07-04
 ---
 
 # Aktueller Kontext
 
 ## Offene Aufgaben
-- [ ] Webinar 5. Juli 2026 vorbereiten (DEADLINE: 5.7.) @Beide !due(2026-07-02)
-- [ ] Folgetermin Mundinger 29.6. 10:30 Uhr bestätigen und Agenda senden
-- [ ] Schaufler Lexoffice-Angebot fertigstellen
 - [ ] Instillo / nanoSaar Vor-Ort-Termin vereinbaren
 - [ ] LinkedIn Insight Tag installieren (Amin zuständig)
+- [ ] Mittelstand Digital antworten (Mail vom 15.06.2026 — KI-Veranstaltungen Q3 2026)
 
-- [ ] Bender/Spamer Kundenprofil anlegen und Demo-Termin für ISOMETER iso175 Chatbot vereinbaren
-- [ ] Endin Potenzialanalyse abschließen und Angebot erstellen
+- [ ] Amex Karte besorgen (nächste Woche)
+- [ ] Endin erneurtes Angebot erstellen (auf Basis Potenzialanalyse 30.06.)
 ## Laufende Projekte
 - Schaufler Tooling: Beschaffungsagent live (220€/Mon). Nächster Schritt: Lexoffice-Angebot
 - Mundinger: KI-Schulung EU AI Act — Termin 29.6.

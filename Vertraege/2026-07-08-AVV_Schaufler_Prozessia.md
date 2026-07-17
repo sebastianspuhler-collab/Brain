@@ -1,0 +1,5 @@
+# AVV_Schaufler_Prozessia.pdf
+*Von: Florian Knoblauch <florian.knoblauch@schaufler.de>*
+*Betreff: WG: AVV Vertrag + SLA*
+
+Vertrag zur Auftragsverarbeitung gemäß Art. 28 DS-GVO Zwischen dem/der Schaufler Tooling GmbH & Co. KG, Goethestraße 72, 89150 Laichingen, vertreten durch die Geschäftsführung – Verantwortlicher – nachstehend Auftraggeber genannt –  und dem/der Prozessia GbR, Campus Starterzentrum Gebäude A1 1, 66123 Saarbrücken, vertreten durch Mohamed-Amin Douioui und Sebastian Spuhler – Auftragsverarbeiter – nachstehend Auftragnehmer genannt –  1. Gegenstand und Dauer des Vertrags (1) Gegenstand Gegenstand des Vertrags zum Datenumgang ist die Durchführung folgender Aufgaben durch den Auftragnehmer: Entwicklung, Bereitstellung und Betrieb eines softwarebasierten „Beschaffungsagenten“ zur (teil-)automatisierten Verarbeitung von Beschaffungsdokumenten (u. a. Auftragsbestätigungen, Lieferscheine, Versanddok
