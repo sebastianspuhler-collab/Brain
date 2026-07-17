@@ -45,6 +45,10 @@ def index_new_emails(deep: bool = False) -> int:
         return 0
 
     new_count = 0
+    # Gesammelt statt einzeln über rag.add_document() - bei einem Deep-Scan mit
+    # bis zu 500 Mails wäre das 500 einzelne BM25-Rebuilds im RAG-Worker-Thread
+    # (auf dem auch jede Chat-Suche läuft) gewesen, siehe rag.add_documents_batch().
+    new_docs: list[tuple[str, str]] = []
     for e in raw_mails:
         eid = e.get("id", "")
         if not eid or eid in indexed:
@@ -65,7 +69,7 @@ def index_new_emails(deep: bool = False) -> int:
             f"# {subject}\n\n**Von:** {sender}\n**Datum:** {date}\n\n{body}"
         )
         (settings.email_cache_dir / filename).write_text(md_content, encoding="utf-8")
-        rag.add_document(rel_path, md_content)
+        new_docs.append((rel_path, md_content))
 
         if memory.is_important_email(sender, subject, body):
             threading.Thread(
@@ -74,6 +78,8 @@ def index_new_emails(deep: bool = False) -> int:
 
         indexed.add(eid)
         new_count += 1
+
+    rag.add_documents_batch(new_docs)
 
     if new_count > 0:
         ids_path.write_text(json.dumps(list(indexed)), encoding="utf-8")

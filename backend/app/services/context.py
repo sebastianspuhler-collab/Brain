@@ -9,10 +9,21 @@ from app.config import get_settings
 from app.services import calendar_service, linkedin_service, mail_service
 from app.services.anthropic_client import get_client, get_response_text
 
-_SKIP_TREE = {".git", ".obsidian", "__pycache__", ".DS_Store", "node_modules"}
+_SKIP_TREE = {
+    ".git", ".obsidian", "__pycache__", ".DS_Store", "node_modules",
+    # App-Code/interne Verzeichnisse - kein Vault-Inhalt, gehören nicht in die
+    # Struktur-Übersicht, die bei jeder Chat-Anfrage mitgeschickt wird (siehe
+    # Token-Analyse 2026-07-17: die ungefilterte Tiefe-3-Baumdarstellung kostete
+    # ~10.400 von ~15.100 Tokens des Basis-System-Prompts, u.a. weil sie
+    # Dateinamen aus _agent/ wie drive_token.json/gmail_token.json/
+    # ms_token_cache.bin mit auflistete). Deckt sich mit dem _SKIP-Set in
+    # files.py (Datei-Browser) und SKIP_DIRS in classify.py/rag.py.
+    "_agent", "_inbox", "_fehler", "backend", "frontend", "services",
+    "mcp-vnc", ".claude", ".venv",
+}
 
 
-def vault_tree(max_depth: int = 3) -> str:
+def vault_tree(max_depth: int = 2) -> str:
     settings = get_settings()
     lines = ["Prozessia-Brain/"]
 

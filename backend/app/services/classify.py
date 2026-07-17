@@ -43,10 +43,49 @@ def _save_cache(cache: set) -> None:
     _cache_path().write_text(json.dumps(list(cache)), encoding="utf-8")
 
 
+def _extract_pdf_via_mistral_ocr(filepath: Path, max_chars: int) -> str | None:
+    """OCR-Vorstufe für PDFs (Umsetzungsplan-Memo 2026-07-16, Punkt C1): Mistral
+    liest gescannte/mehrspaltige PDFs zuverlässiger als die reine PyPDF2-
+    Textextraktion aus - genau das Problem, das in diesem Projekt wiederholt zu
+    abgeschnittenen/lückenhaften .md-Extrakten geführt hat. Gibt None zurück,
+    wenn irgendetwas schiefgeht (kein Key, Netzwerkfehler, unerwartete Antwort) -
+    der Aufrufer fällt dann automatisch auf PyPDF2 zurück, siehe extract_text()."""
+    settings = get_settings()
+    if not settings.mistral_api_key:
+        return None
+    try:
+        import base64
+        import requests
+
+        b64 = base64.b64encode(filepath.read_bytes()).decode("ascii")
+        resp = requests.post(
+            "https://api.mistral.ai/v1/ocr",
+            headers={"Authorization": f"Bearer {settings.mistral_api_key}"},
+            json={
+                "model": "mistral-ocr-latest",
+                "document": {
+                    "type": "document_url",
+                    "document_url": f"data:application/pdf;base64,{b64}",
+                },
+            },
+            timeout=60,
+        )
+        resp.raise_for_status()
+        pages = resp.json().get("pages", [])
+        text = "\n\n".join(p.get("markdown", "") for p in pages).strip()
+        return text[:max_chars] if text else None
+    except Exception:
+        return None
+
+
 def extract_text(filepath: Path, max_chars: int = 3000) -> str | None:
     suffix = filepath.suffix.lower()
     try:
         if suffix == ".pdf":
+            ocr_text = _extract_pdf_via_mistral_ocr(filepath, max_chars)
+            if ocr_text:
+                return ocr_text
+
             import PyPDF2
 
             with open(filepath, "rb") as f:
@@ -224,9 +263,10 @@ Extrahiere:
 2. kernpunkte: die wichtigsten besprochenen Punkte als JSON-Array kurzer deutscher Sätze (max 6)
 3. zusagen: konkrete Zusagen, die im Gespräch gemacht wurden (von wem, was), als JSON-Array (leeres Array wenn keine)
 4. naechste_schritte: offene Punkte / vereinbarte nächste Schritte als JSON-Array (leeres Array wenn keine)
+5. entscheidungen: konkret getroffene Entscheidungen im Gespräch (z.B. "wir machen X statt Y", eine Richtung/ein Vorgehen wurde festgelegt) als JSON-Array kurzer deutscher Sätze - NUR echte Entscheidungen, keine offenen Fragen oder bloßen Diskussionspunkte (leeres Array wenn keine)
 
 Antworte NUR als JSON, keine Erklärung. Format:
-{{"teilnehmer": [...], "kernpunkte": [...], "zusagen": [...], "naechste_schritte": [...]}}"""
+{{"teilnehmer": [...], "kernpunkte": [...], "zusagen": [...], "naechste_schritte": [...], "entscheidungen": [...]}}"""
 
     try:
         resp = get_client().messages.create(
@@ -237,6 +277,24 @@ Antworte NUR als JSON, keine Erklärung. Format:
         return json.loads(raw)
     except Exception:
         return None
+
+
+def _append_decisions_log(entscheidungen: list, quelle: str, datum: str) -> None:
+    """Zentrales, vault-weites Entscheidungsprotokoll (Umsetzungsplan-Memo
+    2026-07-16, Punkt B1 - "Decision Log" aus dem Everlast-AI-Company-Brain-
+    Konzept). Ergänzung zu extract_meeting_structure(): jede dort erkannte
+    Entscheidung landet zusätzlich hier gesammelt, damit sie nicht nur im
+    einzelnen Meeting-Dokument, sondern durchsuchbar an einem Ort steht."""
+    if not entscheidungen:
+        return
+    settings = get_settings()
+    log_path = settings.agent_dir / "decisions.md"
+    if not log_path.exists():
+        log_path.parent.mkdir(parents=True, exist_ok=True)
+        log_path.write_text("# Entscheidungsprotokoll\n\n", encoding="utf-8")
+    with open(log_path, "a", encoding="utf-8") as f:
+        for entscheidung in entscheidungen:
+            f.write(f"- {datum} | {quelle} | {entscheidung}\n")
 
 
 def process_file(filepath: Path) -> tuple[bool, str]:
@@ -279,7 +337,11 @@ def process_file(filepath: Path) -> tuple[bool, str]:
 
 ## Nächste Schritte
 {_liste(meeting_data.get("naechste_schritte", []))}
+
+## Entscheidungen
+{_liste(meeting_data.get("entscheidungen", []))}
 """
+                _append_decisions_log(meeting_data.get("entscheidungen", []), filepath.name, datum)
 
         notiz_path.write_text(
             f"""---

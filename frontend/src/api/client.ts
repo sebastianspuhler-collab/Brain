@@ -35,6 +35,9 @@ export const api = {
   get: <T>(path: string) => request<T>(path),
   post: <T>(path: string, body?: unknown) =>
     request<T>(path, { method: "POST", body: body ? JSON.stringify(body) : undefined }),
+  put: <T>(path: string, body?: unknown) =>
+    request<T>(path, { method: "PUT", body: body ? JSON.stringify(body) : undefined }),
+  del: <T>(path: string) => request<T>(path, { method: "DELETE" }),
   upload: <T>(path: string, file: File) => {
     const form = new FormData();
     form.append("file", file);
@@ -48,18 +51,66 @@ export interface ChatMessage {
   content: string;
 }
 
-/** Streamt Chat-Antworten per SSE. onChunk wird für jedes Text-Fragment aufgerufen. */
+export interface ChatSessionSummary {
+  id: string;
+  title: string;
+  updated_at: string;
+  model: string;
+}
+
+export interface ChatSessionData {
+  id: string;
+  title: string;
+  model: string;
+  messages: ChatMessage[];
+}
+
+/** Chat-Verlauf: Sessions bleiben nach Reload/Neustart erhalten (Ergänzung, kein
+ * Ersatz für /api/chat - ohne session_id verhält sich der Chat wie zuvor). */
+export const chatSessions = {
+  list: () => api.get<ChatSessionSummary[]>("/api/chat/sessions"),
+  get: (id: string) => api.get<ChatSessionData>(`/api/chat/sessions/${id}`),
+  remove: (id: string) => request<{ ok: boolean }>(`/api/chat/sessions/${id}`, { method: "DELETE" }),
+};
+
+export interface Agent {
+  id: string;
+  name: string;
+  system_prompt_zusatz: string;
+  ordner_filter: string[];
+  model: string | null;
+}
+
+/** Eigene benannte Chat-Agenten (Umsetzungsplan-Memo 2026-07-16, Punkt D2) -
+ * Ergänzung zum Hauptchat, der ohne agent_id unverändert bleibt. */
+export const agents = {
+  list: () => api.get<Agent[]>("/api/agents"),
+  create: (data: Omit<Agent, "id">) => api.post<Agent>("/api/agents", data),
+  update: (id: string, data: Omit<Agent, "id">) => api.put<Agent>(`/api/agents/${id}`, data),
+  remove: (id: string) => api.del<{ ok: boolean }>(`/api/agents/${id}`),
+};
+
+export interface ChatSource {
+  path: string;
+  score: number;
+}
+
+/** Streamt Chat-Antworten per SSE. onChunk wird für jedes Text-Fragment aufgerufen,
+ * onSources (optional) einmalig, sobald die RAG-Suche für diese Antwort feststeht. */
 export async function streamChat(
   messages: ChatMessage[],
   model: string,
   onChunk: (text: string) => void,
-  signal?: AbortSignal
+  signal?: AbortSignal,
+  sessionId?: string,
+  onSources?: (sources: ChatSource[]) => void,
+  agentId?: string
 ): Promise<void> {
   const res = await fetch(`${API_BASE}/api/chat`, {
     method: "POST",
     credentials: "include",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ messages, model }),
+    body: JSON.stringify({ messages, model, session_id: sessionId, agent_id: agentId }),
     signal,
   });
   if (!res.ok || !res.body) {
@@ -82,13 +133,14 @@ export async function streamChat(
       if (!line.startsWith("data: ")) continue;
       const payload = line.slice(6);
       if (payload === "[DONE]") return;
-      let data: { chunk?: string; error?: string };
+      let data: { chunk?: string; error?: string; sources?: ChatSource[] };
       try {
         data = JSON.parse(payload);
       } catch {
         continue; // unvollständiges JSON-Fragment, wird im nächsten Chunk komplettiert
       }
       if (data.error) throw new Error(data.error);
+      if (data.sources) onSources?.(data.sources);
       if (data.chunk) onChunk(data.chunk);
     }
   }

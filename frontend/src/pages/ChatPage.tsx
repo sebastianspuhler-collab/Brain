@@ -1,11 +1,17 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowUp, BrainCircuit, Paperclip } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
+import { ArrowUp, Bot, BrainCircuit, FileText, Paperclip } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { toast } from "sonner";
-import { api, streamChat, type ChatMessage } from "@/api/client";
+import { agents as agentsApi, api, chatSessions, streamChat, type Agent, type ChatMessage, type ChatSource } from "@/api/client";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+
+// UI-seitige Erweiterung von ChatMessage um Quellenangaben (Umsetzungsplan-Memo
+// 2026-07-16, Punkt D1) - rein für die Anzeige, wird nicht ans Backend gesendet
+// (extra Felder werden dort ignoriert, aber wir senden ohnehin nur role/content).
+type UiMessage = ChatMessage & { sources?: ChatSource[] };
 
 const MODELS = [
   { id: "claude-sonnet-5", label: "Sonnet" },
@@ -28,12 +34,18 @@ const SUGGESTIONS = [
 ];
 
 export function ChatPage() {
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const sessionId = searchParams.get("session");
+
+  const [messages, setMessages] = useState<UiMessage[]>([]);
   const [input, setInput] = useState("");
   const [model, setModel] = useState(MODELS[0].id);
   const [streaming, setStreaming] = useState(false);
   const [error, setError] = useState("");
   const [uploading, setUploading] = useState(false);
+  const [loadingSession, setLoadingSession] = useState(false);
+  const [agentsList, setAgentsList] = useState<Agent[]>([]);
+  const [agentId, setAgentId] = useState<string>("");
   const abortRef = useRef<AbortController | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -42,9 +54,55 @@ export function ChatPage() {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  // Eigene benannte Agenten (Umsetzungsplan-Memo 2026-07-16, Punkt D2) - rein
+  // optional wählbar, "Standard" (kein Agent) verhält sich exakt wie bisher.
+  useEffect(() => {
+    agentsApi.list().then(setAgentsList).catch(() => {});
+  }, []);
+
+  const activeAgent = agentsList.find((a) => a.id === agentId) ?? null;
+  useEffect(() => {
+    if (activeAgent?.model) setModel(activeAgent.model);
+  }, [activeAgent]);
+
+  // Chat-Historie laden, sobald eine Session in der URL steht (?session=<id>) -
+  // z.B. nach Klick in der Verlauf-Liste in der Sidebar oder nach einem Reload.
+  useEffect(() => {
+    if (!sessionId) {
+      setMessages([]);
+      return;
+    }
+    let cancelled = false;
+    setLoadingSession(true);
+    chatSessions
+      .get(sessionId)
+      .then((data) => {
+        if (cancelled) return;
+        setMessages(data.messages ?? []);
+        if (data.model) setModel(data.model);
+      })
+      .catch(() => {
+        if (!cancelled) toast.error("Chat konnte nicht geladen werden");
+      })
+      .finally(() => {
+        if (!cancelled) setLoadingSession(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [sessionId]);
+
   async function send(overrideText?: string) {
     const text = (overrideText ?? input).trim();
     if (!text || streaming) return;
+
+    // Erste Nachricht eines neuen Chats -> Session-ID erzeugen und in der URL
+    // hinterlegen, damit ein Reload denselben Chat wieder findet.
+    let activeSessionId = sessionId;
+    if (!activeSessionId) {
+      activeSessionId = crypto.randomUUID();
+      setSearchParams({ session: activeSessionId }, { replace: true });
+    }
 
     const nextMessages: ChatMessage[] = [...messages, { role: "user", content: text }];
     setMessages([...nextMessages, { role: "assistant", content: "" }]);
@@ -56,15 +114,22 @@ export function ChatPage() {
     abortRef.current = controller;
 
     let assistantText = "";
+    let assistantSources: ChatSource[] = [];
     try {
       await streamChat(
         nextMessages,
         model,
         (chunk) => {
           assistantText += chunk;
-          setMessages([...nextMessages, { role: "assistant", content: assistantText }]);
+          setMessages([...nextMessages, { role: "assistant", content: assistantText, sources: assistantSources }]);
         },
-        controller.signal
+        controller.signal,
+        activeSessionId,
+        (sources) => {
+          assistantSources = sources;
+          setMessages([...nextMessages, { role: "assistant", content: assistantText, sources: assistantSources }]);
+        },
+        agentId || undefined
       );
     } catch (err) {
       if (!(err instanceof DOMException && err.name === "AbortError")) {
@@ -72,6 +137,9 @@ export function ChatPage() {
       }
     } finally {
       setStreaming(false);
+      // Sidebar-Verlauf über den neuen/aktualisierten Chat informieren (die Session
+      // wird serverseitig asynchron gespeichert, siehe chat.py:_stream_chat).
+      window.dispatchEvent(new CustomEvent("brain:sessions-changed"));
     }
   }
 
@@ -98,17 +166,47 @@ export function ChatPage() {
   }
 
   const modelSelect = (
-    <Select value={model} onValueChange={(value) => value && setModel(value)} disabled={streaming}>
+    <Select value={model} onValueChange={(value) => value && setModel(value)} disabled={streaming || !!activeAgent?.model}>
       <SelectTrigger
         size="sm"
         className="h-7 w-auto gap-1 border-none bg-transparent px-2 text-xs text-muted-foreground shadow-none hover:bg-muted hover:text-foreground"
       >
-        <SelectValue>{(value: string) => MODELS.find((m) => m.id === value)?.label ?? value}</SelectValue>
+        <SelectValue>
+          {(value: string) =>
+            MODELS.find((m) => m.id === value)?.label ??
+            // Einfache Anfragen werden serverseitig automatisch an Haiku umgeleitet
+            // (siehe chat.py HAIKU_MODEL) - hier nur hübsch anzeigen, kein eigener
+            // Menüpunkt, weil die Weiterleitung automatisch passiert.
+            (value === "claude-haiku-4-5-20251001" ? "Haiku (automatisch)" : value)
+          }
+        </SelectValue>
       </SelectTrigger>
       <SelectContent>
         {MODELS.map((m) => (
           <SelectItem key={m.id} value={m.id}>
             {m.label}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  );
+
+  const agentSelect = agentsList.length > 0 && (
+    <Select value={agentId || "standard"} onValueChange={(v) => v && setAgentId(v === "standard" ? "" : v)} disabled={streaming}>
+      <SelectTrigger
+        size="sm"
+        className="h-7 w-auto gap-1 border-none bg-transparent px-2 text-xs text-muted-foreground shadow-none hover:bg-muted hover:text-foreground"
+      >
+        <Bot className="size-3.5" />
+        <SelectValue>
+          {(v: string) => (v === "standard" ? "Standard" : (agentsList.find((a) => a.id === v)?.name ?? v))}
+        </SelectValue>
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="standard">Standard</SelectItem>
+        {agentsList.map((a) => (
+          <SelectItem key={a.id} value={a.id}>
+            {a.name}
           </SelectItem>
         ))}
       </SelectContent>
@@ -129,6 +227,7 @@ export function ChatPage() {
       <div className="flex items-center justify-between px-2 pb-2">
         <div className="flex items-center gap-1">
           {modelSelect}
+          {agentSelect}
           <input
             ref={fileInputRef}
             type="file"
@@ -159,6 +258,14 @@ export function ChatPage() {
       </div>
     </div>
   );
+
+  if (loadingSession) {
+    return (
+      <div className="flex h-[calc(100vh-6.5rem)] w-full items-center justify-center text-sm text-muted-foreground">
+        Chat wird geladen…
+      </div>
+    );
+  }
 
   if (messages.length === 0) {
     return (
@@ -210,6 +317,20 @@ export function ChatPage() {
                       {m.content || (streaming && i === messages.length - 1 ? "…" : "")}
                     </ReactMarkdown>
                   </div>
+                  {!!m.sources?.length && (
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {m.sources.map((s) => (
+                        <span
+                          key={s.path}
+                          title={s.path}
+                          className="inline-flex max-w-56 items-center gap-1 truncate rounded-full border border-border bg-muted/60 px-2 py-0.5 text-[11px] text-muted-foreground"
+                        >
+                          <FileText className="size-3 shrink-0" />
+                          <span className="truncate">{s.path.split("/").pop()}</span>
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             )

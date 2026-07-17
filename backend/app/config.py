@@ -39,6 +39,11 @@ class Settings(BaseSettings):
     # docker-compose.yml) - liefert die Slide-Texte via Claude.
     content_engine_url: str = "http://content-engine:3002"
     openai_api_key: str = ""
+    # ── OCR-Vorstufe für PDFs (Umsetzungsplan-Memo 2026-07-16, Punkt C1) ──────
+    # Optional: ohne Key läuft die PDF-Extraktion wie bisher über PyPDF2 weiter
+    # (automatischer Fallback in classify.extract_text()), kein Verhalten
+    # ändert sich ohne diesen Key.
+    mistral_api_key: str = ""
     cloudinary_cloud_name: str = ""
     cloudinary_api_key: str = ""
     cloudinary_api_secret: str = ""
