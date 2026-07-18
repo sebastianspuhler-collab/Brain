@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-07-18 10:24] [Re: Prozessia ICP] Kontakt Lars Segschneider: +34632764208
 - [2026-07-17 21:47] [2026-07-11-Email-19f51b7b-Funding-Application-for-Paula--Berkman-Z.md] Berkman Financial hat kürzlich $200.000 für gebrauchtes Autohändler-Unternehmen gesichert (vorher 3x abgelehnt)
 - [2026-07-17 21:46] [2026-06-30-Email-19f17f30-Zugesagt-Angebotsdurchsprache-Endin-X-Pr.md] Bestätigung erfolgt am 30.06.2026
 - [2026-07-17 21:46] [2026-06-26-Email-19f0350e-Sebastian---are-you-attending-the-confer.md] Email-ID: 48E2G6D ZRSMQTG vom 26.06.2026
@@ -380,6 +381,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-18 10:24] [Re: Prozessia ICP] Lars Segschneider möchte Informationen über den ICP von Prozessia erhalten
 - [2026-07-17 22:13] [Kalender-Erstgespräch] Schauenberg - Termin 'Prozessia X Schauenberg' am 2026-08-13 mit Sascha-haller@sb-it.com
 - [2026-07-17 22:13] [Kalender-Erstgespräch] Juchem - Termin 'Thorsten Maas and Sebastian Spuhler' am 2026-07-29 mit Thorsten Maas
 - [2026-07-17 22:13] [Kalender-Erstgespräch] Seifert GmbH - Termin 'Stefan Seifert and Sebastian Spuhler' am 2026-07-23 mit Stefan Seifert
