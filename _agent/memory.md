@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-07-18 22:09] [Re: Prozessia ICP] Erfolg: Beschaffungsagent konnte gewonnen werden
 - [2026-07-18 10:24] [Re: Prozessia ICP] Kontakt Lars Segschneider: +34632764208
 - [2026-07-17 21:47] [2026-07-11-Email-19f51b7b-Funding-Application-for-Paula--Berkman-Z.md] Berkman Financial hat kürzlich $200.000 für gebrauchtes Autohändler-Unternehmen gesichert (vorher 3x abgelehnt)
 - [2026-07-17 21:46] [2026-06-30-Email-19f17f30-Zugesagt-Angebotsdurchsprache-Endin-X-Pr.md] Bestätigung erfolgt am 30.06.2026
@@ -492,6 +493,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-18 22:09] [Re: Prozessia ICP] Zielgruppe: KMUs aus Werkzeug- und Maschinenbau, kleiner als Schaufler, für schnelleren Zugang zu Entscheidern
 - [2026-07-17 21:47] [2026-07-07-Email-19f3d0eb-AW-Potenzialanalyse-Endin-X-Prozessia.md] ENDIN fordert 1-2 Referenzen an, um direkt mit bestehenden Kunden über Umsetzungserfahrung und erreichte Einsparungen zu sprechen
 - [2026-07-17 21:46] [2026-06-30-Email-19f17dfc-AW-Potenzialanalyse-Endin-X-Prozessia.md] Zur Analyse vorgesehene Prozesse: (1) Abwicklung Kleinaufträge/Ersatzteile, (2) ergänzender Workflow Kleinaufträge, (3) Lohnfertigungsaufträge, (4) Wareneingang-Workflow
 - [2026-07-17 21:46] [2026-07-14-Email-19f618fd-Action-required-security-vulnerabilities.md] Sofortmaßnahmen erforderlich - Sicherheitslücken müssen vor Datenkompromittierung behoben werden
