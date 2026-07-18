@@ -896,6 +896,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-07-18 16:57] [Davenport Gifts Services and the America] Nennt 'Liberty Legal P.C.' als Beispielkunde, nicht Prozessia GbR
 - [2026-07-17 21:45] [2026-06-15-Email-19ecbd13-WG-Messberichte.md] Alle Dateien enden mit einer '0' am Ende - müssen so abgelegt werden
 - [2026-07-17 21:45] [2026-06-29-Email-19f127e3-Re-Unser-Termin.md] Termin muss neu vereinbart werden
 - [2026-07-17 21:42] [14---Email-19f618fd-Action-required-security-vulnerabilities.md] Maßnahmen nötig: Row-Level Security aktivieren und API-Zugriff auf sensitive Daten einschränken
