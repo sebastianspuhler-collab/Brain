@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 from app.config import get_settings
+from app.constants import Models
 from app.services import calendar_service, linkedin_service, mail_service
 from app.services.anthropic_client import get_client, get_response_text
 
@@ -97,7 +98,7 @@ def synthesize_context(query: str, raw_context: str) -> str:
         return ""
     try:
         result = get_client().messages.create(
-            model="claude-haiku-4-5-20251001", max_tokens=600,
+            model=Models.HAIKU, max_tokens=600,
             thinking={"type": "disabled"},
             messages=[{"role": "user", "content": f"""Du bist ein Kontext-Analyst. Sebastians Frage: "{query[:250]}"
 
