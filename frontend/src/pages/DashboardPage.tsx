@@ -260,7 +260,7 @@ export function DashboardPage() {
                             </div>
                             <div className="flex w-full flex-col gap-1.5 sm:w-44">
                               <span className="text-xs text-muted-foreground">Ampel-Override</span>
-                              <Select value={ampelDraft} onValueChange={setAmpelDraft}>
+                              <Select value={ampelDraft} onValueChange={(v) => setAmpelDraft(v ?? "")}>
                                 <SelectTrigger>
                                   <SelectValue>
                                     {(v: string) =>
