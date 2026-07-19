@@ -6,7 +6,7 @@ tags:
   - kaufmännische Abwicklung
   - Endin
 quelle: Potenzialanalyse Endin X Prozessia.docx
-datum: 2026-07-03
+datum: 2026-06-30
 kategorie: Kunde
 ---
 

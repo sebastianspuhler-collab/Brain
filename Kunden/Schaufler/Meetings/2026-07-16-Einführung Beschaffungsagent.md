@@ -6,7 +6,7 @@ tags:
   - ERP
   - Schaufler
 quelle: Einführung Beschaffungsagent.docx
-datum: 2026-07-17
+datum: 2026-07-16
 kategorie: Produkt
 ---
 

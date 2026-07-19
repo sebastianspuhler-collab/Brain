@@ -6,7 +6,7 @@ tags:
   - Lieferantenverfolgung
   - Angebotsphase
 quelle: Mitschrift.docx
-datum: 2026-06-09
+datum: 2026-02-06
 kategorie: Kunde
 ---
 

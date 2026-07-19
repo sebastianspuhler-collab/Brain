@@ -6,7 +6,7 @@ tags:
   - Auftragsbestätigung
   - Neukunde
 quelle: Kai Winterscheid and Sebastian Spuhler (1).docx
-datum: 2026-07-17
+datum: 2026-06-18
 kategorie: Kunde
 ---
 

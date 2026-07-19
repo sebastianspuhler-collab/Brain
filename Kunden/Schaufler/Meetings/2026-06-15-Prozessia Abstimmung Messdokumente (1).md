@@ -6,7 +6,7 @@ tags:
   - Abstimmung
   - Besprechungstranskript
 quelle: Prozessia Abstimmung Messdokumente (1).docx
-datum: 2026-06-25
+datum: 2026-06-15
 kategorie: Kunde
 ---
 

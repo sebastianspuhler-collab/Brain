@@ -6,7 +6,7 @@ tags:
   - Besprechungstranskript
   - Neukunde
 quelle: Herr Biebl + Herr Lenbner and Sebastian Spuhler.docx
-datum: 2026-07-17
+datum: 2026-07-16
 kategorie: Kunde
 ---
 

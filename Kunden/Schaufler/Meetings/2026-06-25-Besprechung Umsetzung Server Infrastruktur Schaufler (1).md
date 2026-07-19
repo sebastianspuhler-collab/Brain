@@ -6,7 +6,7 @@ tags:
   - Deployment
   - Schaufler
 quelle: Besprechung Umsetzung Server Infrastruktur Schaufler (1).docx
-datum: 2026-07-03
+datum: 2026-06-25
 kategorie: Kunde
 ---
 

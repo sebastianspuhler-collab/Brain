@@ -1,8 +1,13 @@
-"""Manuell gepflegte Zusatzdaten pro Kunde fürs Dashboard (Sebastian, 2026-07-18):
+"""Manuell gepflegte Zusatzdaten pro Kunde/Interessent fürs Dashboard
+(Sebastian, 2026-07-18, Status-Pipeline statt Ampel seit 2026-07-19):
 Archivieren (ausblenden, ohne Vault-Dateien anzutasten), Notiz-Text und eine
-Ampel-Übersteuerung für Fälle, in denen die automatisch berechnete Ampel nicht
-zur Realität passt. Liegt bewusst als eigene JSON-Datei in _agent/, nicht als
-Datei im Kundenordner selbst - Metadaten fürs UI, kein Vault-Inhalt.
+Status-Übersteuerung für Fälle, in denen der automatisch abgeleitete
+Pipeline-Status nicht zur Realität passt (v.a. "fulfillment"/"abgeschlossen" -
+das lässt sich aus Ordnerinhalten allein nicht verlässlich erkennen, siehe
+dashboard.py:_status_automatisch). Liegt bewusst als eigene JSON-Datei in
+_agent/, nicht als Datei im Kundenordner selbst - Metadaten fürs UI, kein
+Vault-Inhalt. Gilt einheitlich für Kunden/-Ordner UND Leads/-Einträge (Key ist
+einfach der Anzeigename, unabhängig von der Herkunft).
 
 Selbes Muster wie agents_service.py: komplette Datei bei jedem Schreibvorgang
 neu geschrieben, kein Lock - unkritisch bei seltenen UI-Edits."""
@@ -10,6 +15,8 @@ import json
 from pathlib import Path
 
 from app.config import get_settings
+
+_DEFAULT = {"archiviert": False, "status_override": None, "notiz": ""}
 
 
 def _kunden_meta_path() -> Path:
@@ -33,21 +40,21 @@ def _save_all(data: dict) -> None:
 
 
 def get_meta(kunde: str) -> dict:
-    return _load_all().get(kunde, {"archiviert": False, "ampel_override": None, "notiz": ""})
+    return _load_all().get(kunde, dict(_DEFAULT))
 
 
 def upsert_meta(
     kunde: str,
     archiviert: bool | None = None,
-    ampel_override: str | None = None,
+    status_override: str | None = None,
     notiz: str | None = None,
 ) -> dict:
     data = _load_all()
-    eintrag = data.get(kunde, {"archiviert": False, "ampel_override": None, "notiz": ""})
+    eintrag = data.get(kunde, dict(_DEFAULT))
     if archiviert is not None:
         eintrag["archiviert"] = archiviert
-    if ampel_override is not None:
-        eintrag["ampel_override"] = ampel_override or None
+    if status_override is not None:
+        eintrag["status_override"] = status_override or None
     if notiz is not None:
         eintrag["notiz"] = notiz
     data[kunde] = eintrag
