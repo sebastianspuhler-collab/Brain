@@ -8,7 +8,14 @@ from pydantic import BaseModel
 
 from app.config import get_settings
 from app.deps import get_current_user
-from app.services import calendar_service, linkedin_service, mail_service, rag, tasks_service
+from app.services import (
+    calendar_service,
+    kunden_meta_service,
+    linkedin_service,
+    mail_service,
+    rag,
+    tasks_service,
+)
 
 router = APIRouter(prefix="/api", tags=["dashboard"])
 
@@ -36,6 +43,12 @@ class SetTaskAssigneeRequest(BaseModel):
 class SetTaskDueRequest(BaseModel):
     text: str
     due: str | None = None
+
+
+class KundenMetaRequest(BaseModel):
+    archiviert: bool | None = None
+    ampel_override: str | None = None
+    notiz: str | None = None
 
 
 @router.get("/status")
@@ -98,9 +111,25 @@ def set_task_due(body: SetTaskDueRequest, user: str = Depends(get_current_user))
 # erfundene Zahlen wären.
 _AMPEL_RANK = {"rot": 0, "gelb": 1, "grau": 2, "gruen": 3}
 
+# Aus files.py (Umsetzungsplan-Memo 2026-07-16, Punkt D3) hierher übernommen:
+# die Vollständigkeits-Ansicht war ein eigener Menüpunkt "Spaces", ist auf
+# Sebastians Wunsch (2026-07-18) jetzt Teil der Kunden-Karte im Dashboard -
+# ein Ort für alles zu einem Kunden statt zwei getrennter Seiten. Gleiche
+# vier Standard-Unterordner wie classify.classify() sie für neue Kunden anlegt.
+_STANDARD_ORDNER = ("Vertraege", "Angebote", "Meetings", "Dokumente")
+
+
+def _vollstaendigkeit(kunde_path) -> int:
+    vorhanden = 0
+    for sub in _STANDARD_ORDNER:
+        sub_path = kunde_path / sub
+        if sub_path.exists() and any(f.is_file() for f in sub_path.glob("*")):
+            vorhanden += 1
+    return round(vorhanden / len(_STANDARD_ORDNER) * 100)
+
 
 @router.get("/dashboard/kunden-status")
-def kunden_status(user: str = Depends(get_current_user)):
+def kunden_status(zeige_archivierte: bool = False, user: str = Depends(get_current_user)):
     settings = get_settings()
     kunden_dir = settings.vault_path / "Kunden"
     if not kunden_dir.exists():
@@ -115,6 +144,10 @@ def kunden_status(user: str = Depends(get_current_user)):
         if not kunde_path.is_dir() or kunde_path.name.startswith((".", "[", "_")):
             continue
         name = kunde_path.name
+        meta = kunden_meta_service.get_meta(name)
+        if meta.get("archiviert") and not zeige_archivierte:
+            continue
+
         # Nicht nur Meetings/ - sonst zeigt die Ampel "grau" (keine Daten) für
         # Kunden, bei denen zwar laufend Dokumente/Verträge/Korrespondenz
         # reinkommen, aber zufällig kein Meeting protokolliert wurde. Letzte
@@ -127,17 +160,17 @@ def kunden_status(user: str = Depends(get_current_user)):
         letztes_meeting = max(dates) if dates else None
 
         tage_seit_meeting = None
-        ampel = "grau"
+        ampel_automatisch = "grau"
         if letztes_meeting:
             try:
                 d = datetime.strptime(letztes_meeting, "%Y-%m-%d").date()
                 tage_seit_meeting = (today - d).days
                 if tage_seit_meeting <= 30:
-                    ampel = "gruen"
+                    ampel_automatisch = "gruen"
                 elif tage_seit_meeting <= 90:
-                    ampel = "gelb"
+                    ampel_automatisch = "gelb"
                 else:
-                    ampel = "rot"
+                    ampel_automatisch = "rot"
             except ValueError:
                 pass
 
@@ -145,16 +178,31 @@ def kunden_status(user: str = Depends(get_current_user)):
             1 for t in tasks if not t.get("done") and name.lower() in t["text"].lower()
         )
 
+        ampel_override = meta.get("ampel_override")
         result.append({
             "kunde": name,
             "letztes_meeting": letztes_meeting,
             "tage_seit_meeting": tage_seit_meeting,
-            "ampel": ampel,
+            "ampel": ampel_override or ampel_automatisch,
+            "ampel_automatisch": ampel_automatisch,
             "offene_aufgaben": offene_aufgaben,
+            "vollstaendigkeit": _vollstaendigkeit(kunde_path),
+            "archiviert": bool(meta.get("archiviert")),
+            "notiz": meta.get("notiz", ""),
         })
 
     result.sort(key=lambda k: (_AMPEL_RANK.get(k["ampel"], 9), k["kunde"]))
     return {"kunden": result}
+
+
+@router.post("/dashboard/kunden/{kunde}/meta")
+def set_kunden_meta(kunde: str, body: KundenMetaRequest, user: str = Depends(get_current_user)):
+    return kunden_meta_service.upsert_meta(
+        kunde,
+        archiviert=body.archiviert,
+        ampel_override=body.ampel_override,
+        notiz=body.notiz,
+    )
 
 
 @router.get("/dashboard/linkedin-status")

@@ -131,49 +131,6 @@ def list_meetings(user: str = Depends(get_current_user)):
     return {"meetings": meetings}
 
 
-_STANDARD_ORDNER = ("Vertraege", "Angebote", "Meetings", "Dokumente")
-
-
-@router.get("/spaces")
-def list_spaces(user: str = Depends(get_current_user)):
-    """Spaces mit Vollständigkeits-Score (Umsetzungsplan-Memo 2026-07-16, Punkt
-    D3): pro Kunde, welche der vier Standard-Unterordner (dieselben, die
-    classify.classify() für jeden neuen Kunden automatisch anlegt) tatsächlich
-    Dateien enthalten. Bewusst rein faktenbasiert (Dateianzahl pro Ordner) statt
-    einer KI-Einschätzung "was fehlt" - eine LLM-Vermutung wäre hier nicht durch
-    echte Daten gedeckt und würde gegen die Projektregel verstoßen, niemals
-    Zahlen/Einschätzungen zu erfinden, wo echte Daten fehlen."""
-    settings = get_settings()
-    kunden_dir = settings.vault_path / "Kunden"
-    if not kunden_dir.exists():
-        return {"spaces": []}
-
-    result = []
-    for kunde_path in sorted(kunden_dir.iterdir()):
-        # ".": versteckte Ordner; "[": Platzhalter-/Vorlagenordner wie das
-        # gefundene "[NeuerKunde]"; "_": Vorlagenordner wie das gefundene
-        # "_Vorlage" (passend zur Vault-Konvention, dass "_"-Ordner intern/
-        # kein Kunde sind, siehe _agent/_inbox auf oberster Ebene)
-        if not kunde_path.is_dir() or kunde_path.name.startswith((".", "[", "_")):
-            continue
-        ordner_status = {}
-        for sub in _STANDARD_ORDNER:
-            sub_path = kunde_path / sub
-            ordner_status[sub] = len([f for f in sub_path.glob("*") if f.is_file()]) if sub_path.exists() else 0
-
-        vorhanden = sum(1 for c in ordner_status.values() if c > 0)
-        fehlend = [o for o, c in ordner_status.items() if c == 0]
-        result.append({
-            "kunde": kunde_path.name,
-            "score": round(vorhanden / len(_STANDARD_ORDNER) * 100),
-            "ordner": ordner_status,
-            "fehlend": fehlend,
-        })
-
-    result.sort(key=lambda s: s["score"])
-    return {"spaces": result}
-
-
 @router.get("/files/download/{rel_path:path}")
 def download_file(rel_path: str, user: str = Depends(get_current_user)):
     settings = get_settings()
