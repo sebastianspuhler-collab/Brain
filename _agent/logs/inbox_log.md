@@ -828,3 +828,9 @@
 - 2026-07-19 16:56 | SLA_Schaufler .pdf → Kunden/Schaufler/Vertraege | Service Level Agreement zwischen Prozessia und Schaufler Tooling GmbH & Co. KG f
 - 2026-07-19 16:56 | Receipt-2713-3487.pdf → Finanzen/Rechnungen | Zahlungsbeleg von Lovable Labs Incorporated über 25,00 € für ein Pro-Abonnement 
 - 2026-07-19 16:56 | Angebot_AG0026_30.06.2026.pdf → Kunden/endin/Angebote | Angebot AG0026 von Prozessia an die endin GmbH über einen Agenten für die kaufmä
+- 2026-07-19 16:56 | 5615032135.pdf → Finanzen/Rechnungen | Google Cloud EMEA Invoice für Prozessia GbR über Google Workspace Business Start
+- 2026-07-19 16:56 | BEST-KIND STAHL-127653.pdf → Kunden/Schaufler/Vertraege | Bestellung Nr. 127653 der Schaufler Tooling GmbH & Co. KG bei Kind & Co. Edelsta
+- 2026-07-19 16:56 | Receipt-2715-8726-9308.pdf → Finanzen/Rechnungen | Zahlungsbeleg (Receipt) von Anthropic, PBC über einen einmaligen Credit-Kauf von
+- 2026-07-19 16:56 | Rechnung_RE260014_09.07.2026.pdf → Finanzen/Rechnungen | Rechnung RE260014 von Prozessia an World Class Marketing LLC (Wyoming, USA) über
+- 2026-07-19 16:57 | schufa_logo.png → Memos/Medien | Bilddatei mit dem Logo der SCHUFA Holding AG. Kein extrahierbarer Text vorhanden
+- 2026-07-19 16:57 | invoice_sipgatede_B4602762.pdf → Finanzen/Rechnungen | Rechnung der sipgate GmbH an Prozessia GbR über Telefonieguthaben (sipgate.de) v
