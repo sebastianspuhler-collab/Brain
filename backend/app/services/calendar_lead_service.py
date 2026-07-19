@@ -60,7 +60,7 @@ def _external_attendees(event: dict) -> list[dict]:
     return result
 
 
-def _normalize(text: str) -> str:
+def normalize_name(text: str) -> str:
     return re.sub(r"[^a-z0-9]", "", text.lower())
 
 
@@ -68,11 +68,11 @@ def _known_names() -> set[str]:
     """Bereits bekannte Kunden (Kunden/-Ordner) + Leads (Dateinamen in Leads/),
     normalisiert - damit ein Termin nicht doppelt als 'neuer' Lead angelegt wird."""
     settings = get_settings()
-    names = {_normalize(n) for n in classify.list_customer_names()}
+    names = {normalize_name(n) for n in classify.list_customer_names()}
     leads_dir = settings.vault_path / "Leads"
     if leads_dir.exists():
         for f in leads_dir.glob("*.md"):
-            names.add(_normalize(re.sub(r"^\d{4}-\d{2}-\d{2}-", "", f.stem)))
+            names.add(normalize_name(re.sub(r"^\d{4}-\d{2}-\d{2}-", "", f.stem)))
     return names
 
 
@@ -82,7 +82,7 @@ def _is_known(firma: str, known: set[str]) -> bool:
     ("TPG") trägt. Ohne das legt der Scan sonst Duplikate für längst bekannte
     Kunden an (live beobachtet: "TPG Packaging" wurde fälschlich als neuer
     Lead erkannt, obwohl Kunden/TPG/ bereits existiert)."""
-    needle = _normalize(firma)
+    needle = normalize_name(firma)
     if not needle:
         return False
     return any(k and (k in needle or needle in k) for k in known)
@@ -202,7 +202,7 @@ def scan_for_new_leads() -> list[str]:
             f"am {_event_date(event)} mit "
             f"{', '.join(a['name'] or a['address'] for a in external)}",
         )
-        known.add(_normalize(firma))
+        known.add(normalize_name(firma))
         found.append(firma)
 
     _save_cache(cache)

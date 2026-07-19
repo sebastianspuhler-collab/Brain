@@ -9,6 +9,7 @@ from pydantic import BaseModel
 from app.config import get_settings
 from app.deps import get_current_user
 from app.services import (
+    calendar_lead_service,
     calendar_service,
     kunden_meta_service,
     linkedin_service,
@@ -47,7 +48,7 @@ class SetTaskDueRequest(BaseModel):
 
 class KundenMetaRequest(BaseModel):
     archiviert: bool | None = None
-    ampel_override: str | None = None
+    status_override: str | None = None
     notiz: str | None = None
 
 
@@ -103,95 +104,185 @@ def set_task_due(body: SetTaskDueRequest, user: str = Depends(get_current_user))
     return tasks_service.set_task_due(body.text, body.due)
 
 
-# ── Management-Dashboard-Erweiterung (Umsetzungsplan-Memo 2026-07-16, Punkt B3) ──
-# Ergänzung zu den bestehenden Widgets oben, keins davon wird verändert. Bewusst
-# NUR auf Basis tatsächlich vorhandener Daten (Meeting-Termine, Aufgabentexte,
-# Buffer-Planungsstatus) - keine "offene Rechnungen"-Kachel, weil im Vault
-# nirgends ein Bezahlt/Offen-Status zu Rechnungen gepflegt wird und das sonst
-# erfundene Zahlen wären.
-_AMPEL_RANK = {"rot": 0, "gelb": 1, "grau": 2, "gruen": 3}
+# ── Management-Dashboard-Erweiterung (Umsetzungsplan-Memo 2026-07-16, Punkt B3;
+# Status-Pipeline + Leads-Integration 2026-07-19) ──────────────────────────
+# Bewusst NUR auf Basis tatsächlich vorhandener Daten (Ordnerinhalte, Meeting-
+# Extraktion, Kalender) - keine "offene Rechnungen"-Kachel und keine erfundene
+# Bewertung, wo echte Daten fehlen.
+_STATUS_RANK = {
+    "neuer_kontakt": 0, "erstgespraech": 1, "angebotsphase": 2,
+    "auftrag": 3, "fulfillment": 4, "abgeschlossen": 5,
+}
 
-# Aus files.py (Umsetzungsplan-Memo 2026-07-16, Punkt D3) hierher übernommen:
-# die Vollständigkeits-Ansicht war ein eigener Menüpunkt "Spaces", ist auf
-# Sebastians Wunsch (2026-07-18) jetzt Teil der Kunden-Karte im Dashboard -
-# ein Ort für alles zu einem Kunden statt zwei getrennter Seiten. Gleiche
+# Die Vollständigkeits-Ansicht war der eigene Menüpunkt "Spaces", ist auf
+# Sebastians Wunsch (2026-07-18) Teil der Kunden-Karte im Dashboard - dieselben
 # vier Standard-Unterordner wie classify.classify() sie für neue Kunden anlegt.
 _STANDARD_ORDNER = ("Vertraege", "Angebote", "Meetings", "Dokumente")
 
+# Begleitdateitypen einer Obsidian-Notiz zu einem Massen-Import (Excel/CSV
+# Kaltakquise-Listen) - eine echte Einzel-Lead-Notiz hat nie eine gleichnamige
+# Datei dieser Art im selben Ordner (Sebastian, 2026-07-19: "Leads/" mischt
+# Massenlisten mit echten Einzel-Interessenten, nur letztere gehören ins Dashboard).
+_LEADS_BEGLEIT_EXTS = (".xlsx", ".csv", ".docx", ".pdf", ".zip")
+
+
+def _hat_dateien(ordner) -> bool:
+    return ordner.exists() and any(f.is_file() for f in ordner.glob("*"))
+
 
 def _vollstaendigkeit(kunde_path) -> int:
-    vorhanden = 0
-    for sub in _STANDARD_ORDNER:
-        sub_path = kunde_path / sub
-        if sub_path.exists() and any(f.is_file() for f in sub_path.glob("*")):
-            vorhanden += 1
+    vorhanden = sum(1 for sub in _STANDARD_ORDNER if _hat_dateien(kunde_path / sub))
     return round(vorhanden / len(_STANDARD_ORDNER) * 100)
+
+
+def _status_automatisch_kunde(kunde_path) -> str:
+    """Deterministisch aus real vorhandenen Ordnerinhalten - "fulfillment" und
+    "abgeschlossen" lassen sich daraus NICHT verlässlich ableiten (ein
+    Vertrags-Ordner sagt nichts über den operativen Stand aus), deshalb nur
+    über den manuellen status_override erreichbar."""
+    if _hat_dateien(kunde_path / "Vertraege"):
+        return "auftrag"
+    if _hat_dateien(kunde_path / "Angebote"):
+        return "angebotsphase"
+    if _hat_dateien(kunde_path / "Meetings"):
+        return "erstgespraech"
+    return "neuer_kontakt"
+
+
+def _letzte_aktivitaet(ordner) -> str | None:
+    dates = [
+        m.group(1) for f in ordner.rglob("*.md")
+        if (m := re.match(r"^(\d{4}-\d{2}-\d{2})", f.name))
+    ]
+    return max(dates) if dates else None
+
+
+def _aktueller_stand(meetings_dir) -> str:
+    """Erster Punkt aus "Nächste Schritte" der jüngsten Meeting-Datei - kein
+    neuer LLM-Call, reine Textextraktion aus bereits vorhandenem Inhalt
+    (extract_meeting_structure() schreibt diesen Abschnitt in classify.py)."""
+    if not meetings_dir.exists():
+        return ""
+    dateien = sorted(meetings_dir.glob("*.md"), reverse=True)
+    if not dateien:
+        return ""
+    text = dateien[0].read_text(encoding="utf-8")
+    m = re.search(r"## Nächste Schritte\n(.*?)(?:\n##|\Z)", text, re.S)
+    if not m:
+        return ""
+    zeilen = [z.lstrip("- ").strip() for z in m.group(1).strip().splitlines() if z.strip()]
+    zeilen = [z for z in zeilen if z and z != "(keine)"]
+    return zeilen[0] if zeilen else ""
+
+
+def _naechster_termin(name: str, termine: list[dict]) -> dict | None:
+    """Sucht den frühesten kommenden Kalendertermin, dessen Titel zum Namen
+    passt - wiederverwendet dasselbe erprobte Substring-Matching wie
+    calendar_lead_service._is_known(), statt neu zu erfinden."""
+    needle = calendar_lead_service.normalize_name(name)
+    if not needle:
+        return None
+    treffer = [
+        t for t in termine
+        if (h := calendar_lead_service.normalize_name(t.get("title", "")))
+        and (h in needle or needle in h)
+    ]
+    if not treffer:
+        return None
+    treffer.sort(key=lambda t: t["start"])
+    return {"titel": treffer[0]["title"], "start": treffer[0]["start"]}
+
+
+def _eintrag(
+    name: str, status_automatisch: str, letzte_aktivitaet: str | None,
+    vollstaendigkeit: int | None, aktueller_stand: str, termine: list[dict],
+    tasks: list[dict], typ: str, zeige_archivierte: bool,
+) -> dict | None:
+    meta = kunden_meta_service.get_meta(name)
+    if meta.get("archiviert") and not zeige_archivierte:
+        return None
+    tage_seit_aktivitaet = None
+    if letzte_aktivitaet:
+        try:
+            tage_seit_aktivitaet = (
+                datetime.now().date() - datetime.strptime(letzte_aktivitaet, "%Y-%m-%d").date()
+            ).days
+        except ValueError:
+            pass
+    status_override = meta.get("status_override")
+    return {
+        "kunde": name,
+        "typ": typ,
+        "letztes_meeting": letzte_aktivitaet,
+        "tage_seit_meeting": tage_seit_aktivitaet,
+        "status": status_override or status_automatisch,
+        "status_automatisch": status_automatisch,
+        "offene_aufgaben": sum(
+            1 for t in tasks if not t.get("done") and name.lower() in t["text"].lower()
+        ),
+        "vollstaendigkeit": vollstaendigkeit,
+        "aktueller_stand": aktueller_stand,
+        "naechster_termin": _naechster_termin(name, termine),
+        "archiviert": bool(meta.get("archiviert")),
+        "notiz": meta.get("notiz", ""),
+    }
+
+
+def _ist_einzel_lead(md_path) -> bool:
+    if md_path.stat().st_size == 0:
+        return False
+    stem = md_path.stem
+    return not any((md_path.parent / f"{stem}{ext}").exists() for ext in _LEADS_BEGLEIT_EXTS)
 
 
 @router.get("/dashboard/kunden-status")
 def kunden_status(zeige_archivierte: bool = False, user: str = Depends(get_current_user)):
     settings = get_settings()
-    kunden_dir = settings.vault_path / "Kunden"
-    if not kunden_dir.exists():
-        return {"kunden": []}
-
     tasks = tasks_service.get_tasks()
-    today = datetime.now().date()
+    termine = calendar_service.get_calendar_events()
+
     result = []
-    for kunde_path in sorted(kunden_dir.iterdir()):
-        # "." / "[" / "_": versteckte bzw. Platzhalter-/Vorlagenordner (z.B.
-        # "[NeuerKunde]", "_Vorlage") ausschließen, keine echten Kunden
-        if not kunde_path.is_dir() or kunde_path.name.startswith((".", "[", "_")):
-            continue
-        name = kunde_path.name
-        meta = kunden_meta_service.get_meta(name)
-        if meta.get("archiviert") and not zeige_archivierte:
-            continue
+    kunden_dir = settings.vault_path / "Kunden"
+    if kunden_dir.exists():
+        for kunde_path in sorted(kunden_dir.iterdir()):
+            # "." / "[" / "_": versteckte bzw. Platzhalter-/Vorlagenordner
+            # (z.B. "[NeuerKunde]", "_Vorlage") ausschließen, keine echten Kunden
+            if not kunde_path.is_dir() or kunde_path.name.startswith((".", "[", "_")):
+                continue
+            eintrag = _eintrag(
+                kunde_path.name,
+                _status_automatisch_kunde(kunde_path),
+                _letzte_aktivitaet(kunde_path),
+                _vollstaendigkeit(kunde_path),
+                _aktueller_stand(kunde_path / "Meetings"),
+                termine, tasks, "kunde", zeige_archivierte,
+            )
+            if eintrag:
+                result.append(eintrag)
 
-        # Nicht nur Meetings/ - sonst zeigt die Ampel "grau" (keine Daten) für
-        # Kunden, bei denen zwar laufend Dokumente/Verträge/Korrespondenz
-        # reinkommen, aber zufällig kein Meeting protokolliert wurde. Letzte
-        # Aktivität = jüngstes datierten Datei irgendwo im Kundenordner.
-        dates = []
-        for f in kunde_path.rglob("*.md"):
-            m = re.match(r"^(\d{4}-\d{2}-\d{2})", f.name)
+    leads_dir = settings.vault_path / "Leads"
+    if leads_dir.exists():
+        for md_path in sorted(leads_dir.glob("*.md")):
+            if not _ist_einzel_lead(md_path):
+                continue
+            name = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", md_path.stem)
+            frontmatter_datum = None
+            m = re.search(r"^datum:\s*(\d{4}-\d{2}-\d{2})", md_path.read_text(encoding="utf-8"), re.M)
             if m:
-                dates.append(m.group(1))
-        letztes_meeting = max(dates) if dates else None
+                frontmatter_datum = m.group(1)
+            # Reiner Kalender-Stub (nur Termin/Teilnehmer, siehe
+            # calendar_lead_service._write_lead_stub) vs. echte Notiz mit
+            # Transkript-/Gesprächsinhalt - Größenschwelle statt Raten, der
+            # Stub-Text selbst ist konstant kurz (~500 Zeichen).
+            status = "erstgespraech" if md_path.stat().st_size > 800 else "neuer_kontakt"
+            eintrag = _eintrag(
+                name, status, frontmatter_datum, None, "",
+                termine, tasks, "lead", zeige_archivierte,
+            )
+            if eintrag:
+                result.append(eintrag)
 
-        tage_seit_meeting = None
-        ampel_automatisch = "grau"
-        if letztes_meeting:
-            try:
-                d = datetime.strptime(letztes_meeting, "%Y-%m-%d").date()
-                tage_seit_meeting = (today - d).days
-                if tage_seit_meeting <= 30:
-                    ampel_automatisch = "gruen"
-                elif tage_seit_meeting <= 90:
-                    ampel_automatisch = "gelb"
-                else:
-                    ampel_automatisch = "rot"
-            except ValueError:
-                pass
-
-        offene_aufgaben = sum(
-            1 for t in tasks if not t.get("done") and name.lower() in t["text"].lower()
-        )
-
-        ampel_override = meta.get("ampel_override")
-        result.append({
-            "kunde": name,
-            "letztes_meeting": letztes_meeting,
-            "tage_seit_meeting": tage_seit_meeting,
-            "ampel": ampel_override or ampel_automatisch,
-            "ampel_automatisch": ampel_automatisch,
-            "offene_aufgaben": offene_aufgaben,
-            "vollstaendigkeit": _vollstaendigkeit(kunde_path),
-            "archiviert": bool(meta.get("archiviert")),
-            "notiz": meta.get("notiz", ""),
-        })
-
-    result.sort(key=lambda k: (_AMPEL_RANK.get(k["ampel"], 9), k["kunde"]))
+    result.sort(key=lambda k: (_STATUS_RANK.get(k["status"], 9), k["kunde"]))
     return {"kunden": result}
 
 
@@ -200,7 +291,7 @@ def set_kunden_meta(kunde: str, body: KundenMetaRequest, user: str = Depends(get
     return kunden_meta_service.upsert_meta(
         kunde,
         archiviert=body.archiviert,
-        ampel_override=body.ampel_override,
+        status_override=body.status_override,
         notiz=body.notiz,
     )
 
