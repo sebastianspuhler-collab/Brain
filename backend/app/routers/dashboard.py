@@ -2,6 +2,7 @@
 (api_status wörtlich nicht vorhanden, aber /api/status; api_calendar; api_gmail; api_tasks)."""
 import re
 from datetime import datetime
+from pathlib import Path
 
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel
@@ -119,11 +120,15 @@ _STATUS_RANK = {
 # vier Standard-Unterordner wie classify.classify() sie für neue Kunden anlegt.
 _STANDARD_ORDNER = ("Vertraege", "Angebote", "Meetings", "Dokumente")
 
-# Begleitdateitypen einer Obsidian-Notiz zu einem Massen-Import (Excel/CSV
-# Kaltakquise-Listen) - eine echte Einzel-Lead-Notiz hat nie eine gleichnamige
-# Datei dieser Art im selben Ordner (Sebastian, 2026-07-19: "Leads/" mischt
-# Massenlisten mit echten Einzel-Interessenten, nur letztere gehören ins Dashboard).
-_LEADS_BEGLEIT_EXTS = (".xlsx", ".csv", ".docx", ".pdf", ".zip")
+# Massenlisten-Quelltypen (Excel/CSV-Kaltakquise-Importe) vs. echte Einzel-
+# Interessenten (Sebastian, 2026-07-19: "Leads/" mischt beides, nur echte
+# Einzel-Interessenten gehören ins Dashboard). Sowohl Massenlisten als auch
+# echte Leads durchlaufen dieselbe classify()-Pipeline und tragen beide
+# "kategorie: Lead" - der zuverlässige Unterschied ist die Quelldatei-Endung
+# im Frontmatter-Feld "quelle:" (Tabelle vs. Dokument/Kalender), nicht der
+# Dateiname selbst. Verifiziert gegen den kompletten Leads/-Bestand: 31 von 47
+# Dateien sind xlsx/csv-Massenlisten.
+_LEADS_MASSENLISTE_EXTS = (".xlsx", ".csv")
 
 
 def _hat_dateien(ordner) -> bool:
@@ -231,8 +236,10 @@ def _eintrag(
 def _ist_einzel_lead(md_path) -> bool:
     if md_path.stat().st_size == 0:
         return False
-    stem = md_path.stem
-    return not any((md_path.parent / f"{stem}{ext}").exists() for ext in _LEADS_BEGLEIT_EXTS)
+    m = re.search(r"^quelle:\s*(.+)$", md_path.read_text(encoding="utf-8"), re.M)
+    if not m:
+        return False
+    return Path(m.group(1).strip()).suffix.lower() not in _LEADS_MASSENLISTE_EXTS
 
 
 @router.get("/dashboard/kunden-status")
