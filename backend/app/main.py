@@ -8,6 +8,7 @@ from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 
 from app.background.jobs import (
+    attachment_backfill_loop,
     calendar_lead_loop,
     email_indexer_loop,
     git_sync_loop,
@@ -29,6 +30,7 @@ async def lifespan(app: FastAPI):
         asyncio.create_task(email_indexer_loop()),
         asyncio.create_task(git_sync_loop()),
         asyncio.create_task(calendar_lead_loop()),
+        asyncio.create_task(attachment_backfill_loop()),
     ]
     yield
     for task in tasks:

@@ -6,12 +6,13 @@ lösten dieselbe Verarbeitung aus. Hier: nur noch der Polling-Ansatz, weil er oh
 zusätzliche Prozesse/Dienste auskommt und in Docker unkomplizierter ist.
 """
 import asyncio
+import json
 import logging
 import os
 import subprocess
 
 from app.config import get_settings
-from app.services import calendar_lead_service, classify, email_indexer, memory, rag
+from app.services import calendar_lead_service, classify, email_indexer, gmail_client, memory, rag
 
 logger = logging.getLogger("brain.background")
 
@@ -19,6 +20,7 @@ INBOX_POLL_SECONDS = 30
 EMAIL_POLL_SECONDS = 300
 GIT_SYNC_SECONDS   = 600  # alle 10 Minuten git pull
 CALENDAR_LEAD_POLL_SECONDS = 1800  # alle 30 Minuten - Kalender ändert sich seltener als Mails
+ATTACHMENT_POLL_SECONDS = 900  # alle 15 Minuten - Anhänge sind seltener als neue Mails
 _SKIP_EXT = {".js", ".ts", ".map", ".css", ".lock", ".yml", ".yaml"}
 _SKIP_NAMES = {".DS_Store", "Thumbs.db"}
 
@@ -199,3 +201,66 @@ async def calendar_lead_loop() -> None:
         except Exception:
             logger.exception("Kalender-Lead-Scan Fehler")
         await asyncio.sleep(CALENDAR_LEAD_POLL_SECONDS)
+
+
+def _downloaded_attachments_path():
+    return get_settings().agent_dir / "downloaded_attachments.json"
+
+
+def _load_downloaded_attachments() -> set[str]:
+    path = _downloaded_attachments_path()
+    if not path.exists():
+        return set()
+    try:
+        return set(json.loads(path.read_text(encoding="utf-8")))
+    except Exception:
+        return set()
+
+
+def _save_downloaded_attachments(ids: set[str]) -> None:
+    path = _downloaded_attachments_path()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(sorted(ids), ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+async def attachment_backfill_loop() -> None:
+    """Schließt eine echte Lücke (Sebastian, 2026-07-19): E-Mail-Text wird
+    automatisch indexiert (email_indexer_loop), aber Anhänge landeten bisher
+    NUR im Vault, wenn im Chat explizit das download_attachment-Tool
+    aufgerufen wurde (tools.py:_download_attachment) - nie automatisch. Eine
+    konkrete Bestellung war deshalb im Vault nicht auffindbar, obwohl sie
+    vermutlich nur als Mail-Anhang existierte. Speichert neue Anhänge nur nach
+    _inbox/ - die bereits laufende inbox_watcher_loop() übernimmt Klassifizierung,
+    Datums-Erkennung und Ablage, keine doppelte Verarbeitungslogik hier."""
+    settings = get_settings()
+    await asyncio.sleep(60)
+    while True:
+        try:
+            if gmail_client.is_authenticated():
+                bekannt = await asyncio.to_thread(_load_downloaded_attachments)
+                raw_mails = await asyncio.to_thread(gmail_client.get_emails, top=500)
+                neu = 0
+                for mail in raw_mails:
+                    message_id = mail.get("id", "")
+                    if not message_id:
+                        continue
+                    attachments = await asyncio.to_thread(gmail_client.get_attachments, message_id)
+                    for att in attachments:
+                        key = f"{message_id}:{att['attachmentId']}"
+                        if key in bekannt:
+                            continue
+                        data = await asyncio.to_thread(
+                            gmail_client.download_attachment, message_id, att["attachmentId"]
+                        )
+                        bekannt.add(key)  # auch bei leerem Ergebnis merken - kein Endlos-Retry
+                        if not data:
+                            continue
+                        settings.inbox_dir.mkdir(parents=True, exist_ok=True)
+                        (settings.inbox_dir / att["filename"]).write_bytes(data)
+                        neu += 1
+                await asyncio.to_thread(_save_downloaded_attachments, bekannt)
+                if neu:
+                    logger.info("Attachment-Backfill: %d neue Anhang/Anhänge nach _inbox/ gespeichert", neu)
+        except Exception:
+            logger.exception("Attachment-Backfill Fehler")
+        await asyncio.sleep(ATTACHMENT_POLL_SECONDS)

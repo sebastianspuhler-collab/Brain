@@ -776,3 +776,13 @@
 - 2026-07-17 21:22 | 2026-07-12-image001.png → Kunden/Schaufler/Dokumente | Bilddatei ohne extrahierbaren Text, eingegangen am 12.07.2026. Basierend auf dem
 - 2026-07-17 21:22 | INV-057.pdf → Finanzen/Rechnungen | Eingangsrechnung INV-057 von World Class Marketing LLC (Wyoming, USA) an Sebasti
 - 2026-07-17 21:22 | Fragenkatalog_beantwortet.xlsx → Kunden/Schaufler/Dokumente | Ausgefüllter Fragenkatalog zur Erstellung einer KI-Nutzungsrichtlinie nach dem E
+- 2026-07-19 16:50 | Rechnung_RE260015_20.07.2026.pdf → Kunden/Schaufler/Vertraege | Rechnung RE260015 von Prozessia an SCHAUFLER Tooling GmbH & Co. KG über 1.190,00
+- 2026-07-19 16:50 | Receipt-2233-8816-5318.pdf → Finanzen/Rechnungen | Zahlungsbeleg (Receipt) von Anthropic, PBC über 23,80 USD für einen einmaligen C
+- 2026-07-19 16:50 | Rechnung_RE260016_20.07.2026.pdf → Kunden/Schaufler/Vertraege | Rechnung RE260016 von Prozessia an Schaufler Tooling GmbH & Co. KG über 5.950,00
+- 2026-07-19 16:50 | Invoice-GGYF9D9L-0020.pdf → Finanzen/Rechnungen | Rechnung von Anthropic, PBC an Sebastian's Individual Org (Prozessia) über einen
+- 2026-07-19 16:51 | Rechnung_2026-07-16_310100082556.pdf → Finanzen/Rechnungen | IONOS-Sammelrechnung für WebWokr (Sebastian Spuhler) über zwei MyWebsite Now Plu
+- 2026-07-19 16:51 | image002.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, aus dem Kontext vermutlich ein Screenshot im
+- 2026-07-19 16:51 | image003.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Screenshot oder Grafik im Kontext
+- 2026-07-19 16:51 | image004.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Screenshot oder eingebettete Graf
+- 2026-07-19 16:51 | image006.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Screenshot oder eingebettete Graf
+- 2026-07-19 16:51 | invite.ics → Kunden/Schaufler/Meetings | Kalendereinladung (.ics-Datei) für einen Termin. Ohne Zugriff auf den tatsächlic
