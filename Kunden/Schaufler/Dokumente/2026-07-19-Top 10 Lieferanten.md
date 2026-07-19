@@ -1,0 +1,19 @@
+---
+tags:
+  - Lieferanten
+  - Beschaffung
+  - Kontaktdaten
+  - Werkzeugbau
+  - Schaufler
+quelle: Top 10 Lieferanten.xlsx
+datum: 2026-07-19
+kategorie: Kunde
+---
+
+# Top 10 Lieferanten
+
+## Zusammenfassung
+Liste der Top 10 Lieferanten für E- und K1-Teile mit Kontaktdaten (Adresse, Telefon, E-Mail) für Werkzeug- und Formenbau-Unternehmen. Enthält Firmen aus Deutschland, Ungarn, Portugal und Italien wie MJM, KWS, Manthei und ABAS.
+
+## Vollständiger Inhalt
+Top 10 Lieferanten für E- und K1 Teile  Kurzbezeichnung Bezeichnung Straße  PLZ Ort Tel Email Land Spinto Spinto Tool Design & Manufacturing 3516 Miskolc Galamb József utca 5. 3516  Miskolc, Pf. 422. 0036/0706994803 tamas.rigo@spinto-tdm.com Ungarn MJM MJM  Metallverarbeitung Mangner GmbH Schwarzackerstraße 26 35232  Dautphetal 06466 8992-199 Christoph.Lenz@mjm-metallverarbeitung.de Deutschland R&R R&R Formentechnik GmbH Weißenpferd 34 58553 Halver 02353/ 667 667 0 m.iserhardt@rr-formentechnik.de Deutschland Planfuro Planfuro Global S.A. Zona Industrial de Vieira de Leiria, Lot 6, 2430-600 Vieira de Leiria 00351/ 244698020 artur.coroa@planfuroglobal.pt Portugal KWS KWS Zerspanungstechnik GmbH Industriepark 3b 57539 Etzbach 02682/ 96 41 690 s.schmidt@kws-zt.de Deutschland Schmitt GBR Sven & Gerhard Schmitt GbR Willingshainer Str. 45 36275 Kirchheim 06628/ 9999001 s.schmitt@maschinenbau-schmitt.com Deutschland MDT Form MDTForm - Global Mold Making Rua Dâmaso Luis dos Santos, Lote 4 2430-835 Vieira de Leiria 00351/ 244838905 sjorge@mdtform.pt Portugal GARI SRL Gari S.r.l. Via Enrico Mattei, 7 10040 La Loggia TO 0039/ 0119629967 garitech@garisrl.com Italien Manthei Manthei Zerspanungstechnik GmbH Industriestraße 9 35232 Dautphetal-Dautphe 06466/ 92680 c.weber@manthei-zerspanungstechnik.de Deutschland ABAS ABAS Werkzeug und Formenbau GmbH Dieselstraße 10 36041 Fulda 0661/ 9444-301 alex.basistow@abas-werkzeugbau.de Deutschland STAB2 B.M.E. STAMPI SRL  Via Gargna, 31 25078 Vestone 0039/ 036581711 commerciale@stabsrl.com Italien

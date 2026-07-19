@@ -1,4 +1,12 @@
 ## KONTEXT
+- [2026-07-19 16:52] [2026-07-16-Einführung Beschaffungsagent.md] Besprechung vom 16.07.2026 mit Benjamin Schmohl, Amin Douioui und Sebastian Spuhler zur Einführung/Weiterentwicklung Beschaffungsagent
+- [2026-07-19 16:52] [2026-06-25-Besprechung Umsetzung Server Infrastruktur Schaufler (1).md] Offene Abhängigkeit: Testview-Status bei Jochen - erforderlich vor WinForm-Anbindung
+- [2026-07-19 16:51] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler.md] Treffen am 2026-07-16 war Erstgespräch zwischen Prozessia und Lendner; nächste Schritte noch offen
+- [2026-07-19 16:51] [2026-07-19-Rechnung_2026-07-16_310100082556.md] IONOS Kundennummer: 314248816, Support täglich rund um die Uhr erreichbar (0721 170 5522)
+- [2026-07-19 16:51] [2026-07-19-Rechnung_2026-07-16_310100082556.md] Leistungsperiode: 16.07.2026 - 15.08.2026, Tarif MyWebsite Now Plus mit Grundgebühr und Rabatt pro Vertrag
+- [2026-07-19 16:51] [2026-07-19-Rechnung_2026-07-16_310100082556.md] IONOS-Sammelrechnung 310100082556 vom 16.07.2026 für zwei MyWebsite Now Plus Verträge (111670906, 111670937)
+- [2026-07-19 16:51] [2026-07-19-Receipt-2233-8816-5318.md] Rechnungsnummer GGYF9D9L-0020, Belegnummer 2233-8816-5318
+- [2026-07-19 16:51] [2026-07-19-Invoice-GGYF9D9L-0020.md] Rechnungsnummer: GGYF9D9L-0020, Ausstellungsdatum: 15.07.2026
 - [2026-07-18 22:09] [Re: Prozessia ICP] Erfolg: Beschaffungsagent konnte gewonnen werden
 - [2026-07-18 19:36] [Re: Prozessia ICP] Beschaffungsagent-Erfolg für Prozessia erwähnt (Datum: 16.07.2026)
 - [2026-07-18 19:36] [Re: Prozessia ICP] Lars Segschneider (larssegschneider.ls@gmail.com, +34632764208) arbeitet mit Prozessia zusammen, Information zur Einbindung folgt
@@ -385,6 +393,16 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-19 16:52] [2026-06-30-Potenzialanalyse Endin X Prozessia.md] Kunde: Endin (Ansprechpartner: Cyril Dietz)
+- [2026-07-19 16:52] [2026-06-18-Kai Winterscheid and Sebastian Spuhler.md] T.P.G. Gruppe hat Einkaufsvolumen von ca. 55 Millionen Euro und Jahresumsatz von 120 Millionen Euro
+- [2026-07-19 16:52] [2026-06-18-Kai Winterscheid and Sebastian Spuhler.md] Kai Winterscheid ist Einkaufsleiter der T.P.G. Gruppe mit drei Marken: Fawema, HDG und Wolf
+- [2026-07-19 16:52] [2026-07-16-Einführung Beschaffungsagent.md] Kunde: Schaufler
+- [2026-07-19 16:52] [2026-06-15-Prozessia Abstimmung Messdokumente (1).md] Kunde: Schaufler; Ansprechpartner: Sebastian Spuhler und Michael Maier
+- [2026-07-19 16:51] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler.md] Lendner verantwortlich für: Angebote, Kalkulation, Einkauf, Arbeitsleitung, Schweißerei
+- [2026-07-19 16:51] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler.md] Lendner: Kleine Firma mit 15 Mitarbeitern, tätig in Metallverarbeitung/Schweißerei
+- [2026-07-19 16:51] [2026-07-19-Rechnung_2026-07-16_310100082556.md] Sebastian Spuhler, WebWokr, Campus D 1, 66123 Saarbrücken, Deutschland
+- [2026-07-19 16:51] [2026-07-19-Receipt-2233-8816-5318.md] Sebastian Spuhler, Prozessia, 66123 Saarbrücken, Germany, sebastian.spuhler@prozessia.de
+- [2026-07-19 16:51] [2026-07-19-Invoice-GGYF9D9L-0020.md] Rechnungsempfänger: Sebastian's Individual Org, 66123 Saarbrücken, Germany
 - [2026-07-18 10:24] [Re: Prozessia ICP] Lars Segschneider möchte Informationen über den ICP von Prozessia erhalten
 - [2026-07-18 05:25] [Re: Prozessia ICP] Lars Segschneider möchte Informationen über den ICP von Prozessia erhalten
 - [2026-07-17 22:13] [Kalender-Erstgespräch] Schauenberg - Termin 'Prozessia X Schauenberg' am 2026-08-13 mit Sascha-haller@sb-it.com
@@ -497,6 +515,27 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-19 16:52] [2026-06-30-Potenzialanalyse Endin X Prozessia.md] Automatisierung des kaufmännischen Abwicklungsprozesses bei Endin geplant: Angebotserstellung, Freigabe-Workflow, Bestellungseingang
+- [2026-07-19 16:52] [2026-06-18-Kai Winterscheid and Sebastian Spuhler.md] Hauptprobleme: Terminverfolgung und Auftragsbestätigungen im Einkauf
+- [2026-07-19 16:52] [2026-07-19-Rechnung_RE260016_20.07.2026.md] Leistung umfasst: Technische Basis & Infrastruktur, Schnittstelleneinrichtung zu Tools/Systemen/APIs, Betrieb auf unternehmenseigenem Server mit Skalierbarkeit für 100+ Aufträge
+- [2026-07-19 16:52] [2026-07-19-Rechnung_RE260016_20.07.2026.md] 50% Abschlagszahlung bei Fertigstellung eines Prototypen (Lieferdatum: 17.07.2026)
+- [2026-07-19 16:52] [2026-07-19-Rechnung_RE260016_20.07.2026.md] Rechnung RE260016 vom 20.07.2026: 5.950,00 € brutto (5.000,00 € netto + 19% USt.) für Implementierung eines Beschaffungsagenten
+- [2026-07-19 16:52] [2026-07-19-Rechnung_RE260015_20.07.2026.md] Einrichtung Schnittstellen Agent X Winform: Integration, Testen, Validierung und spätere Umstellung auf Proleis
+- [2026-07-19 16:52] [2026-07-16-Einführung Beschaffungsagent.md] Drei Eskalationsfälle identifiziert: fehlende Auftragsbestätigung, Mengenabweichung, Auftragsbestätigung ohne Bestellung
+- [2026-07-19 16:52] [2026-07-16-Einführung Beschaffungsagent.md] Beschaffungsagent: Problem mit fehlender Zuordnung von Auftragsbestätigungen zu Bestellungen
+- [2026-07-19 16:52] [2026-06-25-Besprechung Umsetzung Server Infrastruktur Schaufler (1).md] Hetzner Cloud-Server Bestellung ist abgeschlossen
+- [2026-07-19 16:52] [2026-06-15-Prozessia Abstimmung Messdokumente (1).md] Unterschiedliche Lieferantenformate und Ordnerstrukturen der Messdokumente müssen berücksichtigt werden
+- [2026-07-19 16:51] [2026-02-06-Mitschrift.md] ELO-Dokumentenmanagement: Bestellung, Auftragsbestätigung (A/B), Rechnung und Lieferschein müssen ins ELO; Rechnungsfreigabe erst nach vollständiger ELO-Dokumentation
+- [2026-07-19 16:51] [2026-02-06-Mitschrift.md] Packlisten-Anforderungen: Spalten S/N, Pos, Name, Package, Order QTY, Shipped QTY, Bestellnummer erforderlich; reklamieren wenn Nummer fehlt; gelbe Spalten trennen Bestellungen; Packliste kommt NICHT ins ELO
+- [2026-07-19 16:51] [2026-02-06-Mitschrift.md] Lieferantenbefragung: Rohmaterial-Kaufstatus abfragen; bei langen Lieferzeiten alle 2 Wochen, bei kurzen alle 1 Woche nachfragen
+- [2026-07-19 16:51] [2026-02-06-Mitschrift.md] Auftragsbestätigungs-Tracking: Ab 5 Tagen fehlend markieren, ab Tag 8 zweiter Einkäufer in CC, ab Tag 10 Einkäufer verbindlich kontaktieren mit Erinnerung zu Maßnahmen
+- [2026-07-19 16:51] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler.md] Potenzielle KI-Anwendungsfälle: KI-Beschaffungsagent (Angebotsvergleich, Auftragsbestätigung, Lieferantenscore, Rechnungsprüfung), automatisierte Arbeitsplanerstellung, Kapazitätsplanung
+- [2026-07-19 16:51] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler.md] Aktueller Prozess: Manuelle Materialanfragen bei Stahllieferanten mit Vergleich von Preis und Lieferzeit
+- [2026-07-19 16:51] [2026-07-19-Rechnung_2026-07-16_310100082556.md] Rechnungsbetrag: 2,00 EUR (Sammelrechnung), automatische Kreditkartenabbuchung innerhalb von 7 Tagen
+- [2026-07-19 16:51] [2026-07-19-Receipt-2233-8816-5318.md] Zahlung erfolgt am 15.07.2026 per Link-Zahlungsmethode
+- [2026-07-19 16:51] [2026-07-19-Receipt-2233-8816-5318.md] One-time Credit-Kauf bei Anthropic, PBC: $20.00 + 19% deutsche MwSt. = $23.80 Gesamtbetrag
+- [2026-07-19 16:51] [2026-07-19-Invoice-GGYF9D9L-0020.md] Gesamtbetrag inklusive 19% deutsche MwSt.: $23.80 USD fällig am 15.07.2026
+- [2026-07-19 16:51] [2026-07-19-Invoice-GGYF9D9L-0020.md] Einmalige API-Credit-Gutschrift von Anthropic: $20.00 USD
 - [2026-07-18 22:09] [Re: Prozessia ICP] Zielgruppe: KMUs aus Werkzeug- und Maschinenbau, kleiner als Schaufler, für schnelleren Zugang zu Entscheidern
 - [2026-07-18 19:36] [Re: Prozessia ICP] Nächste Woche (ab ~25.07.2026): Anpassung der Leads und Herangehensweise geplant
 - [2026-07-18 19:36] [Re: Prozessia ICP] Zielgruppe: KMUs aus Werkzeug- und Maschinenbau, kleiner als Schaufler, für besseren Zugang zu Entscheidungsträgern
@@ -859,6 +898,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-07-19 16:52] [2026-06-15-Prozessia Abstimmung Messdokumente (1).md] KI-Assistent soll Messberichte automatisch verarbeiten und Vollständigkeitsprüfung durchführen
 - [2026-07-17 21:41] [9---Email-19f472fd-Infos-zur-WinForm-Sicht.md] Terminüberwachung_Bemerkung (nvarchar(300)): Textfeld soll bei jeder Terminaktualisierung mit kurzer Info ergänzt werden
 - [2026-07-17 21:40] [13---Email-19f5bf67-AW-Statusabfrage--AI-Agent-Beschaffung.md] Liste mit E-Mails aller ausgewählten Lieferanten wird für Integration von Anfang an benötigt
 - [2026-07-12 18:52] [CREDENTIALS.md] Microsoft 365 Integration erforderlich für: Outlook Email-Synchronisierung, Kalender-Event-Verwaltung
@@ -904,6 +944,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-07-19 16:52] [2026-07-16-Einführung Beschaffungsagent.md] Umrechnungsprobleme zwischen Einheiten müssen gelöst werden (z.B. Fass vs. Liter)
 - [2026-07-18 16:57] [Davenport Gifts Services and the America] Nennt 'Liberty Legal P.C.' als Beispielkunde, nicht Prozessia GbR
 - [2026-07-17 21:45] [2026-06-15-Email-19ecbd13-WG-Messberichte.md] Alle Dateien enden mit einer '0' am Ende - müssen so abgelegt werden
 - [2026-07-17 21:45] [2026-06-29-Email-19f127e3-Re-Unser-Termin.md] Termin muss neu vereinbart werden

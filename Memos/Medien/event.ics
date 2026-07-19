@@ -1,0 +1,33 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:calcom/ics
+METHOD:REQUEST
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:040000008200E00074C5B7101A82E00800000000C84D2C82A20BDD01000000000000000010000000C70D9780F82A7042A48E97B4640BC882
+SUMMARY:Erstgespräch (Website) - Konver.ai zwischen Enver Yilmaz und Sebast
+	ian Spuhler
+DTSTAMP:20260704T103000Z
+DTSTART:20260708T113000Z
+DTEND:20260708T120000Z
+DESCRIPTION:What:\nErstgespräch (Website) - Konver.ai zwischen Enver Yilmaz
+	 und Sebastian Spuhler\n\nInvitee timezone:\nEurope/Berlin\n\nWho:\nEnver 
+	Yilmaz - Organizer\nenver.yilmaz@demtek.de\nSebastian Spuhler\nsebastian.s
+	puhler@prozessia.de\n\nWhere:\nOffice365_video\n\nDescription\nIch freue m
+	ich\, dich kennenzulernen!\n\nIn unserem Kennenlerngespräch sprechen wir ü
+	ber:\n\n*   Deinen aktuellen Outreach-Ansatz\n*   Deine Zielgruppe und Ide
+	al Customer Profile\n*   Erreichbarkeiten deiner Kontakte\n*   Aktuelle Me
+	eting-Buchungsraten\n*   Potenzielle Hebel zur Optimierung mit Konver\n*  
+	 Nächste Schritte und individuelles Vorgehen\n\nNach dem Kennenlernen baue
+	n wir mit deinen individuellen Infos eine individuelle Demopräsentation.\n
+	\nBis bald! 😊\n\nRufnummer:\n+4915159473260\n  \n\nNeed to reschedule or 
+	cancel? https://cal.com/booking/d38szzzbWaP9eP6CTnHvDK?changes=true
+LOCATION:integrations:office365_video
+STATUS:CONFIRMED
+ORGANIZER;CN=Enver Yilmaz:mailto:enver.yilmaz@demtek.de
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+ATTENDEE;RSVP=TRUE;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;CN=Sebastian Spuh
+	ler:mailto:sebastian.spuhler@prozessia.de
+END:VEVENT
+END:VCALENDAR

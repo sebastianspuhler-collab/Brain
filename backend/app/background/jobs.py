@@ -249,6 +249,13 @@ async def attachment_backfill_loop() -> None:
                         key = f"{message_id}:{att['attachmentId']}"
                         if key in bekannt:
                             continue
+                        # .ics: reine Kalender-Termindaten, kein Dokument mit
+                        # eigenem Inhalt (Termine laufen schon über calendar_
+                        # lead_service) - würde nur Kunden-Ordner mit Leernotizen
+                        # zumüllen, ohne jemals gesucht/gefunden zu werden.
+                        if att["filename"].lower().endswith(".ics"):
+                            bekannt.add(key)
+                            continue
                         data = await asyncio.to_thread(
                             gmail_client.download_attachment, message_id, att["attachmentId"]
                         )
@@ -256,7 +263,15 @@ async def attachment_backfill_loop() -> None:
                         if not data:
                             continue
                         settings.inbox_dir.mkdir(parents=True, exist_ok=True)
-                        (settings.inbox_dir / att["filename"]).write_bytes(data)
+                        # Präfix mit Kurz-Message-ID: viele Anhänge heißen
+                        # generisch identisch (z.B. "image001.png", mehrfach in
+                        # verschiedenen Mails) - ohne das würden spätere
+                        # Downloads frühere in _inbox/ überschreiben, BEVOR
+                        # classify() sie verarbeitet hat (live beobachtet:
+                        # 135 heruntergeladene Anhänge wurden so auf 53 Dateien
+                        # reduziert, stiller Datenverlust).
+                        dest_name = f"{message_id[:10]}-{att['filename']}"
+                        (settings.inbox_dir / dest_name).write_bytes(data)
                         neu += 1
                 await asyncio.to_thread(_save_downloaded_attachments, bekannt)
                 if neu:

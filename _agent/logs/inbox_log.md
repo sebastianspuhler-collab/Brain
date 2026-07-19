@@ -786,3 +786,45 @@
 - 2026-07-19 16:51 | image004.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Screenshot oder eingebettete Graf
 - 2026-07-19 16:51 | image006.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Screenshot oder eingebettete Graf
 - 2026-07-19 16:51 | invite.ics → Kunden/Schaufler/Meetings | Kalendereinladung (.ics-Datei) für einen Termin. Ohne Zugriff auf den tatsächlic
+- 2026-07-19 16:52 | Hetzner_2026-07-04_083000997759.pdf → Finanzen/Rechnungen | Hetzner-Rechnung 083000997759 vom 04.07.2026 über 0,77 € brutto für Cloud-Server
+- 2026-07-19 16:53 | Receipt-2882-7964-4886.pdf → Finanzen/Rechnungen | Zahlungsbeleg (Receipt) von Anthropic PBC für Claude Pro Abo, Zeitraum 25. Juni 
+- 2026-07-19 16:53 | smime.p7s → Memos/Medien | Die Datei smime.p7s ist eine S/MIME-Signaturdatei (kryptografische Signatur eine
+- 2026-07-19 16:53 | icon.png → Memos/Medien | Eine Bilddatei (icon.png) ohne extrahierbaren Textinhalt, vermutlich ein generis
+- 2026-07-19 16:53 | Prozess Kleinauftrag 2022.07.15.pdf → Kunden/endin/Dokumente | Prozessbeschreibung 'Prozeß Kleinauftrag' vom 11.7.2022, die den Ablauf der Abwi
+- 2026-07-19 16:53 | calendar.ics → Memos | Kalenderdatei im .ics-Format, deren Inhalt nicht extrahiert werden konnte. Ohne 
+- 2026-07-19 16:53 | Wareneingang 2025.08.08.pdf → Kunden/endin/Dokumente | Prozessbeschreibung des Wareneingang-Workflows bei Endin vom 08.08.2025, mit Leg
+- 2026-07-19 16:53 | Fragenkatalog_KI-Richtlinie_EU-KI-Act.xlsx → Kunden/Schaufler/Dokumente | Fragenkatalog zur Erstellung einer KI-Nutzungsrichtlinie nach EU-KI-Act für die 
+- 2026-07-19 16:53 | Invoice-SP7D4PI7-0018.pdf → Finanzen/Rechnungen | Rechnung von Anthropic, PBC über 18,00 € für ein Claude Pro Abonnement (Zeitraum
+- 2026-07-19 16:53 | AVV_Schaufler_Prozessia.pdf → Kunden/Schaufler/Vertraege | Vertrag zur Auftragsverarbeitung (AVV) gemäß Art. 28 DS-GVO zwischen Schaufler T
+- 2026-07-19 16:53 | BEST-RAFFSPED.-126744.pdf → Kunden/Schaufler/Vertraege | Bestellung Nr. 126744 von Schaufler Tooling GmbH & Co. KG an Spedition Karl Raff
+- 2026-07-19 16:53 | BEST-KIND WBH-127668.pdf → Kunden/Schaufler/Vertraege | Bestellung und Lieferschein von Schaufler Tooling GmbH & Co. KG an Kind & Co. Ed
+- 2026-07-19 16:54 | Mitgliedschaftsbedingungen.pdf → Finanzen/Rechnungen | Mitgliedschaftsbedingungen und Preis-/Leistungsübersicht der American Express Bu
+- 2026-07-19 16:54 | BEST-SCHMITT GBR-127096.pdf → Kunden/Schaufler/Vertraege | Bestellbeleg Nr. 127096 von Schaufler Tooling GmbH & Co. KG an Sven & Gerhard Sc
+- 2026-07-19 16:54 | Outlook-cid_image0.png → Memos/Medien | Bilddatei aus einer Outlook-E-Mail (eingebettetes Bild, cid_image0.png), kein Te
+- 2026-07-19 16:54 | warning_triangle.png → Memos/Medien | Bilddatei eines Warndreieck-Symbols ohne extrahierbaren Text. Kein inhaltlicher 
+- 2026-07-19 16:54 | image008.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, eingebettet in E-Mail-Kommunikation im Konte
+- 2026-07-19 16:54 | image009.png → Kunden/Schaufler/Dokumente | Bilddatei (image009.png) ohne extrahierbaren Text, vermutlich ein Screenshot ode
+- 2026-07-19 16:54 | Invoice-GGYF9D9L-0019.pdf → Finanzen/Rechnungen | Rechnung von Anthropic, PBC über $23.80 USD für einen einmaligen API-Credit-Kauf
+- 2026-07-19 16:54 | Leistungsübersicht der Business Platinum Card.pdf → Finanzen/Angebote | Leistungsübersicht/Produktinformation zur American Express Business Platinum Car
+- 2026-07-19 16:54 | Invitation.ics → Memos/Medien | Kalendereinladung im .ics-Format ohne extrahierbaren Textinhalt. Da das Dateifor
+- 2026-07-19 16:54 | image002.jpg → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich ein Screenshot oder eine Grafik i
+- 2026-07-19 16:54 | Angebot_AG0027_01.07.2026.pdf → Kunden/endin/Angebote | Angebot AG0027 von Prozessia an endin GmbH vom 01.07.2026 für einen KI-Agenten z
+- 2026-07-19 16:55 | Präsentation-Esterer Giesserei-V20_Deutsch.pdf → Leads | Firmenpräsentation der Esterer Gießerei GmbH (Altötting) mit Unternehmenshistori
+- 2026-07-19 16:55 | Outlook-cid_image0 → Memos/Medien | Eingebettetes Outlook-Bild (cid_image0) ohne erkennbaren Textinhalt. Format konn
+- 2026-07-19 16:55 | event.ics → Memos/Medien | ICS-Kalenderdatei mit unbekanntem/nicht lesbarem Inhalt. Da das Format nicht aus
+- 2026-07-19 16:55 | image003.jpg → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich ein Screenshot oder eine Abbildun
+- 2026-07-19 16:55 | image001.jpg → Kunden/Schaufler/Dokumente | Bilddatei ohne extrahierbaren Text, vermutlich im Zusammenhang mit dem Projekt A
+- 2026-07-19 16:55 | G170032929.pdf → Finanzen/Rechnungen | Microsoft Rechnungszusammenfassung (G170032929) für Azure-Nutzungsgebühren von S
+- 2026-07-19 16:55 | image004.jpg → Memos/Medien | Bilddatei ohne extrahierbaren Text (image004.jpg), vermutlich ein Screenshot ode
+- 2026-07-19 16:55 | image005.png → Kunden/Schaufler/Dokumente | Bilddatei (image005.png) ohne extrahierbaren Text, vermutlich Screenshot oder Gr
+- 2026-07-19 16:55 | image005.jpg → Memos/Medien | Bilddatei (image005.jpg) ohne extrahierbaren Text. Aufgrund fehlenden Kontexts u
+- 2026-07-19 16:55 | G170104086.pdf → Finanzen/Rechnungen | Microsoft-Rechnung (Billing Summary + Tax Invoice) für Sebastian Spuhler über 33
+- 2026-07-19 16:55 | BEST-PFITZER-127655.pdf → Kunden/Schaufler/Vertraege | Bestellung Nr. 127655 der Schaufler Tooling GmbH & Co. KG bei PFITZER Verbindung
+- 2026-07-19 16:55 | image007.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image007.png). Ohne OCR-Inhalt oder Kontext 
+- 2026-07-19 16:56 | Prozess Lohnverguß 2022.07.20.pdf → Kunden/[NeuerKunde] | Prozessbeschreibung/Screenshot zum Ablauf 'Lohnverguß-Aufzug' vom 20.07.2022, ve
+- 2026-07-19 16:56 | Workflow Ersatzteile.pdf → Kunden/endin/Dokumente | Workflow-Diagramm zum Ablauf 'Ersatzteile', das die Prozessschritte zwischen den
+- 2026-07-19 16:56 | Invoice-XC0AID8J-0007.pdf → Finanzen/Rechnungen | Rechnung von Lovable Labs Incorporated über 25,00 € für ein monatliches 'Pro'-Ab
+- 2026-07-19 16:56 | Top 10 Lieferanten.xlsx → Kunden/Schaufler/Dokumente | Liste der Top 10 Lieferanten für E- und K1-Teile mit Kontaktdaten (Adresse, Tele
+- 2026-07-19 16:56 | SLA_Schaufler .pdf → Kunden/Schaufler/Vertraege | Service Level Agreement zwischen Prozessia und Schaufler Tooling GmbH & Co. KG f
+- 2026-07-19 16:56 | Receipt-2713-3487.pdf → Finanzen/Rechnungen | Zahlungsbeleg von Lovable Labs Incorporated über 25,00 € für ein Pro-Abonnement 
+- 2026-07-19 16:56 | Angebot_AG0026_30.06.2026.pdf → Kunden/endin/Angebote | Angebot AG0026 von Prozessia an die endin GmbH über einen Agenten für die kaufmä
