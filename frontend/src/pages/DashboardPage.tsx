@@ -12,16 +12,19 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
-type Ampel = "gruen" | "gelb" | "rot" | "grau";
+type Status = "neuer_kontakt" | "erstgespraech" | "angebotsphase" | "auftrag" | "fulfillment" | "abgeschlossen";
 
-interface KundeStatus {
+interface Eintrag {
   kunde: string;
+  typ: "kunde" | "lead";
   letztes_meeting: string | null;
   tage_seit_meeting: number | null;
-  ampel: Ampel;
-  ampel_automatisch: Ampel;
+  status: Status;
+  status_automatisch: Status;
   offene_aufgaben: number;
-  vollstaendigkeit: number;
+  vollstaendigkeit: number | null;
+  aktueller_stand: string;
+  naechster_termin: { titel: string; start: string } | null;
   archiviert: boolean;
   notiz: string;
 }
@@ -33,29 +36,34 @@ interface LinkedInStatus {
   naechster_post: { termin: string; idee: string } | null;
 }
 
-const AMPEL_COLOR: Record<Ampel, string> = {
-  gruen: "bg-emerald-500",
-  gelb: "bg-amber-500",
-  rot: "bg-red-500",
-  grau: "bg-muted-foreground/40",
+// Vertriebs-Pipeline statt Aktivitäts-Ampel (Sebastian, 2026-07-19: eine Ampel
+// nach Aktivitäts-Recency sagt nichts über den echten Vertriebsstand). Nur die
+// ersten vier Stufen werden automatisch aus Ordnerinhalten abgeleitet (siehe
+// dashboard.py:_status_automatisch_kunde) - "fulfillment"/"abgeschlossen"
+// lassen sich aus Dateipräsenz allein nicht verlässlich erkennen und sind nur
+// über den manuellen Override erreichbar.
+const STATUS_ORDER: Status[] = [
+  "neuer_kontakt", "erstgespraech", "angebotsphase", "auftrag", "fulfillment", "abgeschlossen",
+];
+const STATUS_LABEL: Record<Status, string> = {
+  neuer_kontakt: "Neuer Kontakt",
+  erstgespraech: "Erstgespräch",
+  angebotsphase: "Angebotsphase",
+  auftrag: "Auftrag",
+  fulfillment: "Fulfillment",
+  abgeschlossen: "Abgeschlossen",
 };
-
-// Zeigt nur die Zeit seit der letzten erfassten Aktivität (Meeting, Dokument,
-// Vertrag, E-Mail-Korrespondenz) - keine Bewertung der Kundenbeziehung. Ein
-// "rot" kann genauso gut ein stabiles, ruhig laufendes Projekt ohne
-// Gesprächsbedarf bedeuten wie tatsächlichen Nachfassbedarf.
-const AMPEL_LABEL: Record<Ampel, string> = {
-  gruen: "Letzte Aktivität < 30 Tage her",
-  gelb: "Letzte Aktivität 30-90 Tage her",
-  rot: "Letzte Aktivität > 90 Tage her",
-  grau: "Keine Aktivität erfasst",
+const STATUS_COLOR: Record<Status, string> = {
+  neuer_kontakt: "bg-muted text-muted-foreground",
+  erstgespraech: "bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-300",
+  angebotsphase: "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300",
+  auftrag: "bg-violet-100 text-violet-800 dark:bg-violet-950 dark:text-violet-300",
+  fulfillment: "bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300",
+  abgeschlossen: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300",
 };
-
-const AMPEL_OVERRIDE_OPTIONS: { value: string; label: string }[] = [
+const STATUS_OVERRIDE_OPTIONS: { value: string; label: string }[] = [
   { value: "", label: "Automatisch" },
-  { value: "gruen", label: "Grün" },
-  { value: "gelb", label: "Gelb" },
-  { value: "rot", label: "Rot" },
+  ...STATUS_ORDER.map((s) => ({ value: s, label: STATUS_LABEL[s] })),
 ];
 
 function formatDatum(datum: string | null): string {
@@ -79,12 +87,25 @@ function StatTile({ label, value }: { label: string; value: number | string }) {
   );
 }
 
+function StatusBadge({ eintrag }: { eintrag: Eintrag }) {
+  const manuell = eintrag.status !== eintrag.status_automatisch;
+  return (
+    <span
+      className={cn("inline-block rounded-full px-2 py-0.5 text-xs font-medium", STATUS_COLOR[eintrag.status])}
+      title={manuell ? `Manuell gesetzt (automatisch: ${STATUS_LABEL[eintrag.status_automatisch]})` : undefined}
+    >
+      {STATUS_LABEL[eintrag.status]}
+      {manuell && " *"}
+    </span>
+  );
+}
+
 function useKundenMeta() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (vars: {
       kunde: string;
-      body: { archiviert?: boolean; ampel_override?: string; notiz?: string };
+      body: { archiviert?: boolean; status_override?: string; notiz?: string };
     }) => api.post(`/api/dashboard/kunden/${encodeURIComponent(vars.kunde)}/meta`, vars.body),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["dashboard-kunden-status"] }),
     onError: () => toast.error("Speichern fehlgeschlagen"),
@@ -95,12 +116,12 @@ export function DashboardPage() {
   const [zeigeArchivierte, setZeigeArchivierte] = useState(false);
   const [editing, setEditing] = useState<string | null>(null);
   const [notizDraft, setNotizDraft] = useState("");
-  const [ampelDraft, setAmpelDraft] = useState("");
+  const [statusDraft, setStatusDraft] = useState("");
 
   const { data: kundenData, isLoading: kundenLoading } = useQuery({
     queryKey: ["dashboard-kunden-status", zeigeArchivierte],
     queryFn: () =>
-      api.get<{ kunden: KundeStatus[] }>(
+      api.get<{ kunden: Eintrag[] }>(
         `/api/dashboard/kunden-status?zeige_archivierte=${zeigeArchivierte}`,
       ),
   });
@@ -111,26 +132,26 @@ export function DashboardPage() {
 
   const meta = useKundenMeta();
 
-  function startEdit(k: KundeStatus) {
-    setEditing(k.kunde);
-    setNotizDraft(k.notiz);
-    setAmpelDraft(k.ampel !== k.ampel_automatisch ? k.ampel : "");
+  function startEdit(e: Eintrag) {
+    setEditing(e.kunde);
+    setNotizDraft(e.notiz);
+    setStatusDraft(e.status !== e.status_automatisch ? e.status : "");
   }
 
   function saveEdit(kunde: string) {
     meta.mutate(
-      { kunde, body: { notiz: notizDraft, ampel_override: ampelDraft } },
+      { kunde, body: { notiz: notizDraft, status_override: statusDraft } },
       { onSuccess: () => setEditing(null) },
     );
   }
 
-  function toggleArchiv(k: KundeStatus) {
+  function toggleArchiv(e: Eintrag) {
     meta.mutate(
-      { kunde: k.kunde, body: { archiviert: !k.archiviert } },
+      { kunde: e.kunde, body: { archiviert: !e.archiviert } },
       {
         onSuccess: () => {
-          toast.success(k.archiviert ? `${k.kunde} wieder sichtbar` : `${k.kunde} archiviert`);
-          if (editing === k.kunde) setEditing(null);
+          toast.success(e.archiviert ? `${e.kunde} wieder sichtbar` : `${e.kunde} archiviert`);
+          if (editing === e.kunde) setEditing(null);
         },
       },
     );
@@ -165,7 +186,7 @@ export function DashboardPage() {
 
       <Card>
         <CardHeader className="flex-row items-center justify-between gap-2 space-y-0">
-          <CardTitle>Kunden-Status</CardTitle>
+          <CardTitle>Kunden &amp; Interessenten</CardTitle>
           <div className="flex items-center gap-2">
             <span className="text-xs text-muted-foreground">Archivierte anzeigen</span>
             <Switch checked={zeigeArchivierte} onCheckedChange={(c) => setZeigeArchivierte(c === true)} />
@@ -173,9 +194,9 @@ export function DashboardPage() {
         </CardHeader>
         <CardContent>
           <p className="mb-3 text-sm text-muted-foreground">
-            Zeigt die Situation pro Kunde: Aktivität, Vollständigkeit der Standard-Unterordner
-            (Verträge/Angebote/Meetings/Dokumente) und offene Aufgaben. Notiz und Ampel lassen sich
-            manuell überschreiben, wenn die automatische Einschätzung nicht zur Realität passt.
+            Kunden (Kunden/) und echte Einzel-Interessenten (Leads/, ohne Massen-Kontaktlisten) in
+            einer Ansicht. Status, Notiz und nächster Termin lassen sich manuell überschreiben, wenn
+            die automatische Einschätzung nicht zur Realität passt (mit * markiert).
           </p>
           {kundenLoading ? (
             <div className="space-y-2">
@@ -183,93 +204,106 @@ export function DashboardPage() {
               <Skeleton className="h-8 w-full" />
             </div>
           ) : !kundenData?.kunden.length ? (
-            <p className="text-sm text-muted-foreground">Keine Kunden gefunden.</p>
+            <p className="text-sm text-muted-foreground">Keine Kunden/Interessenten gefunden.</p>
           ) : (
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead className="w-8"></TableHead>
-                  <TableHead>Kunde</TableHead>
+                  <TableHead>Status</TableHead>
+                  <TableHead>Name</TableHead>
                   <TableHead>Letzte Aktivität</TableHead>
-                  <TableHead className="w-28">Vollständigkeit</TableHead>
-                  <TableHead className="w-32">Offene Aufgaben</TableHead>
+                  <TableHead>Nächster Termin</TableHead>
+                  <TableHead>Aktueller Stand</TableHead>
+                  <TableHead className="w-24">Vollständig</TableHead>
+                  <TableHead className="w-16">Aufgaben</TableHead>
                   <TableHead className="w-20"></TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {kundenData.kunden.map((k) => (
-                  <Fragment key={k.kunde}>
-                    <TableRow className={cn(k.archiviert && "opacity-60")}>
+                {kundenData.kunden.map((e) => (
+                  <Fragment key={e.kunde}>
+                    <TableRow className={cn(e.archiviert && "opacity-60")}>
                       <TableCell>
-                        <span
-                          className={cn("inline-block size-2.5 rounded-full", AMPEL_COLOR[k.ampel])}
-                          title={
-                            k.ampel !== k.ampel_automatisch
-                              ? `Manuell gesetzt (automatisch: ${AMPEL_LABEL[k.ampel_automatisch]})`
-                              : AMPEL_LABEL[k.ampel]
-                          }
-                        />
+                        <StatusBadge eintrag={e} />
                       </TableCell>
                       <TableCell className="font-medium text-foreground">
-                        {k.kunde}
-                        {k.notiz && (
-                          <p className="line-clamp-1 text-xs font-normal text-muted-foreground">{k.notiz}</p>
+                        {e.kunde}
+                        <span className="ml-1.5 text-xs font-normal text-muted-foreground">
+                          {e.typ === "lead" ? "· Interessent" : ""}
+                        </span>
+                        {e.notiz && (
+                          <p className="line-clamp-1 text-xs font-normal text-muted-foreground">{e.notiz}</p>
                         )}
                       </TableCell>
                       <TableCell className="text-muted-foreground">
-                        {formatDatum(k.letztes_meeting)}
-                        {k.tage_seit_meeting !== null && (
-                          <span className="ml-1.5 text-xs">({k.tage_seit_meeting} Tage)</span>
+                        {formatDatum(e.letztes_meeting)}
+                        {e.tage_seit_meeting !== null && (
+                          <span className="ml-1.5 text-xs">({e.tage_seit_meeting} Tage)</span>
                         )}
                       </TableCell>
-                      <TableCell className="tabular-nums">{k.vollstaendigkeit}%</TableCell>
-                      <TableCell className="tabular-nums">{k.offene_aufgaben || "–"}</TableCell>
+                      <TableCell className="text-muted-foreground">
+                        {e.naechster_termin ? (
+                          <>
+                            {formatTermin(e.naechster_termin.start)}
+                            <p className="line-clamp-1 text-xs">{e.naechster_termin.titel}</p>
+                          </>
+                        ) : (
+                          "–"
+                        )}
+                      </TableCell>
+                      <TableCell className="max-w-52 truncate text-muted-foreground" title={e.aktueller_stand}>
+                        {e.aktueller_stand || "–"}
+                      </TableCell>
+                      <TableCell className="tabular-nums">
+                        {e.vollstaendigkeit === null ? "–" : `${e.vollstaendigkeit}%`}
+                      </TableCell>
+                      <TableCell className="tabular-nums">{e.offene_aufgaben || "–"}</TableCell>
                       <TableCell>
                         <div className="flex items-center gap-1">
                           <Button
                             variant="ghost"
                             size="icon-sm"
-                            onClick={() => (editing === k.kunde ? setEditing(null) : startEdit(k))}
-                            title="Notiz / Ampel bearbeiten"
+                            onClick={() => (editing === e.kunde ? setEditing(null) : startEdit(e))}
+                            title="Notiz / Status bearbeiten"
                           >
                             <Pencil className="size-4" />
                           </Button>
                           <Button
                             variant="ghost"
                             size="icon-sm"
-                            onClick={() => toggleArchiv(k)}
-                            title={k.archiviert ? "Wieder sichtbar machen" : "Archivieren"}
+                            onClick={() => toggleArchiv(e)}
+                            title={e.archiviert ? "Wieder sichtbar machen" : "Archivieren"}
                           >
-                            {k.archiviert ? <ArchiveRestore className="size-4" /> : <Archive className="size-4" />}
+                            {e.archiviert ? <ArchiveRestore className="size-4" /> : <Archive className="size-4" />}
                           </Button>
                         </div>
                       </TableCell>
                     </TableRow>
-                    {editing === k.kunde && (
+                    {editing === e.kunde && (
                       <TableRow>
-                        <TableCell colSpan={6} className="bg-muted/30">
+                        <TableCell colSpan={8} className="bg-muted/30">
                           <div className="flex flex-col gap-3 py-2 sm:flex-row sm:items-end">
                             <div className="flex flex-1 flex-col gap-1.5">
                               <span className="text-xs text-muted-foreground">Notiz</span>
                               <Textarea
                                 value={notizDraft}
-                                onChange={(e) => setNotizDraft(e.target.value)}
+                                onChange={(ev) => setNotizDraft(ev.target.value)}
                                 placeholder="z.B. 'pausiert bis August'"
                                 className="min-h-16"
                               />
                             </div>
-                            <div className="flex w-full flex-col gap-1.5 sm:w-44">
-                              <span className="text-xs text-muted-foreground">Ampel-Override</span>
-                              <Select value={ampelDraft} onValueChange={(v) => setAmpelDraft(v ?? "")}>
+                            <div className="flex w-full flex-col gap-1.5 sm:w-48">
+                              <span className="text-xs text-muted-foreground">Status-Override</span>
+                              <Select value={statusDraft} onValueChange={(v) => setStatusDraft(v ?? "")}>
                                 <SelectTrigger>
                                   <SelectValue>
                                     {(v: string) =>
-                                      AMPEL_OVERRIDE_OPTIONS.find((o) => o.value === v)?.label ?? "Automatisch"
+                                      STATUS_OVERRIDE_OPTIONS.find((o) => o.value === v)?.label ?? "Automatisch"
                                     }
                                   </SelectValue>
                                 </SelectTrigger>
                                 <SelectContent>
-                                  {AMPEL_OVERRIDE_OPTIONS.map((o) => (
+                                  {STATUS_OVERRIDE_OPTIONS.map((o) => (
                                     <SelectItem key={o.value} value={o.value}>
                                       {o.label}
                                     </SelectItem>
@@ -277,7 +311,7 @@ export function DashboardPage() {
                                 </SelectContent>
                               </Select>
                             </div>
-                            <Button onClick={() => saveEdit(k.kunde)} disabled={meta.isPending}>
+                            <Button onClick={() => saveEdit(e.kunde)} disabled={meta.isPending}>
                               {meta.isPending ? "Speichere…" : "Speichern"}
                             </Button>
                           </div>
