@@ -9,6 +9,7 @@ from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
 from app.config import get_settings
+from app.constants import Models
 from app.services import cache, carousel_service
 from app.services.anthropic_client import get_client, get_response_text
 
@@ -481,7 +482,7 @@ Nach jedem Tool-Aufruf kurz bestätigen, was passiert ist."""
 
         for _ in range(MAX_LINKEDIN_CHAT_ITERATIONS):
             result = get_client().messages.create(
-                model="claude-sonnet-5", max_tokens=3000,
+                model=Models.SONNET, max_tokens=3000,
                 system=system,
                 tools=_LINKEDIN_CHAT_TOOLS,
                 tool_choice={"type": "auto"},
@@ -641,7 +642,7 @@ PFLICHT für jeden Hook:
 
     try:
         result = get_client().messages.create(
-            model="claude-sonnet-5", max_tokens=8000,
+            model=Models.SONNET, max_tokens=8000,
             tools=[_GENERATE_IDEAS_TOOL],
             tool_choice={"type": "tool", "name": "save_linkedin_ideas"},
             messages=[{"role": "user", "content": prompt}],
@@ -741,7 +742,7 @@ Schreibe jeden Post vollständig aus."""
 
     try:
         result = get_client().messages.create(
-            model="claude-sonnet-5", max_tokens=8000,
+            model=Models.SONNET, max_tokens=8000,
             tools=[_GENERATE_POSTS_TOOL],
             tool_choice={"type": "tool", "name": "save_linkedin_posts"},
             messages=[{"role": "user", "content": prompt}],

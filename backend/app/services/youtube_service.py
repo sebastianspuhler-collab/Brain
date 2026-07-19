@@ -12,6 +12,7 @@ from datetime import datetime
 from pathlib import Path
 
 from app.config import get_settings
+from app.constants import Models
 from app.services.anthropic_client import get_client, get_response_text
 
 logger = logging.getLogger("brain.youtube")
@@ -148,7 +149,7 @@ Antworte NUR mit validem JSON: {{"title": "...", "description": "..."}}"""
 
     try:
         result = get_client().messages.create(
-            model="claude-sonnet-5", max_tokens=1000,
+            model=Models.SONNET, max_tokens=1000,
             thinking={"type": "disabled"},
             messages=[{"role": "user", "content": prompt}],
         )

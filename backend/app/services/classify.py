@@ -5,10 +5,11 @@ neuen Python-Prozess zu starten.
 """
 import json
 import shutil
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 
 from app.config import get_settings
+from app.constants import Models
 from app.services.anthropic_client import get_client, get_response_text
 
 SKIP_EXTENSIONS = {
@@ -247,7 +248,7 @@ Antworte NUR als JSON, keine Erklärung."""
         # "API-Klassifizierung fehlgeschlagen" durchfallen, obwohl der Aufruf an
         # sich funktioniert hätte.
         resp = get_client().messages.create(
-            model="claude-sonnet-5", max_tokens=500,
+            model=Models.SONNET, max_tokens=500,
             thinking={"type": "disabled"},
             messages=[{"role": "user", "content": prompt}],
         )
@@ -283,13 +284,14 @@ Extrahiere:
 3. zusagen: konkrete Zusagen, die im Gespräch gemacht wurden (von wem, was), als JSON-Array (leeres Array wenn keine)
 4. naechste_schritte: offene Punkte / vereinbarte nächste Schritte als JSON-Array (leeres Array wenn keine)
 5. entscheidungen: konkret getroffene Entscheidungen im Gespräch (z.B. "wir machen X statt Y", eine Richtung/ein Vorgehen wurde festgelegt) als JSON-Array kurzer deutscher Sätze - NUR echte Entscheidungen, keine offenen Fragen oder bloßen Diskussionspunkte (leeres Array wenn keine)
+6. datum: falls im Transkript ein konkretes Datum des Gesprächs genannt wird (z.B. "heute ist der...", ein Datum im Header, eine Terminangabe für dieses Gespräch), im Format YYYY-MM-DD - sonst null
 
 Antworte NUR als JSON, keine Erklärung. Format:
-{{"teilnehmer": [...], "kernpunkte": [...], "zusagen": [...], "naechste_schritte": [...], "entscheidungen": [...]}}"""
+{{"teilnehmer": [...], "kernpunkte": [...], "zusagen": [...], "naechste_schritte": [...], "entscheidungen": [...], "datum": "YYYY-MM-DD" oder null}}"""
 
     try:
         resp = get_client().messages.create(
-            model="claude-sonnet-5", max_tokens=800,
+            model=Models.SONNET, max_tokens=800,
             thinking={"type": "disabled"},  # siehe Kommentar bei classify() oben
             messages=[{"role": "user", "content": prompt}],
         )
@@ -297,6 +299,28 @@ Antworte NUR als JSON, keine Erklärung. Format:
         return json.loads(raw)
     except Exception:
         return None
+
+
+def _resolve_datum(meeting_data: dict | None, filepath: Path) -> str:
+    """Bestimmt das Ablage-Datum: bevorzugt ein im Transkript genanntes Datum,
+    sonst die mtime der Original-Inbox-Datei (näher am echten Gesprächs-
+    zeitpunkt als der Verarbeitungsmoment bei verzögertem Import), sonst
+    'jetzt' als letzter Fallback. Behebt den Bug, dass verspätet verarbeitete
+    Transkripte fälschlich das Verarbeitungsdatum statt des echten Meeting-
+    Datums bekamen (Sebastian, 2026-07-18)."""
+    heute = datetime.now().date()
+    llm_datum = (meeting_data or {}).get("datum")
+    if llm_datum:
+        try:
+            geparst = datetime.strptime(llm_datum, "%Y-%m-%d").date()
+            if date(2020, 1, 1) <= geparst <= heute:
+                return geparst.strftime("%Y-%m-%d")
+        except (ValueError, TypeError):
+            pass
+    try:
+        return datetime.fromtimestamp(filepath.stat().st_mtime).strftime("%Y-%m-%d")
+    except OSError:
+        return heute.strftime("%Y-%m-%d")
 
 
 def _append_decisions_log(entscheidungen: list, quelle: str, datum: str) -> None:
@@ -332,7 +356,11 @@ def process_file(filepath: Path) -> tuple[bool, str]:
 
     zielordner = settings.vault_path / result.get("zielordner", "Memos")
     zielordner.mkdir(parents=True, exist_ok=True)
-    datum = datetime.now().strftime("%Y-%m-%d")
+
+    meeting_data = None
+    if "/Meetings" in result.get("zielordner", ""):
+        meeting_data = extract_meeting_structure(filepath)
+    datum = _resolve_datum(meeting_data, filepath)
 
     if filepath.suffix.lower() not in IMAGE_EXTS | {".zip"}:
         tags = result.get("tags", [])
@@ -341,7 +369,6 @@ def process_file(filepath: Path) -> tuple[bool, str]:
 
         meeting_sections = ""
         if "/Meetings" in result.get("zielordner", ""):
-            meeting_data = extract_meeting_structure(filepath)
             if meeting_data:
                 def _liste(items):
                     return "\n".join(f"- {i}" for i in items) if items else "- (keine)"

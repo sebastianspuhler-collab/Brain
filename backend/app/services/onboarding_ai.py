@@ -6,6 +6,7 @@ import re
 import tempfile
 from pathlib import Path
 
+from app.constants import Models
 from app.services import classify
 from app.services.anthropic_client import get_client, get_response_text
 
@@ -53,7 +54,7 @@ def analyze_new_project(beschreibung: str, files: list[tuple[str, bytes]]) -> di
     user_content = f"Projektbeschreibung:\n{beschreibung}\n\nHochgeladene Dokumente:\n{files_text or '(keine)'}"
 
     result = get_client().messages.create(
-        model="claude-sonnet-5",
+        model=Models.SONNET,
         max_tokens=4000,
         system=_SYSTEM_PROMPT,
         messages=[{"role": "user", "content": user_content}],

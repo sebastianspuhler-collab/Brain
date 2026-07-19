@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-07-18 22:09] [Re: Prozessia ICP] Erfolg: Beschaffungsagent konnte gewonnen werden
 - [2026-07-18 19:36] [Re: Prozessia ICP] Beschaffungsagent-Erfolg für Prozessia erwähnt (Datum: 16.07.2026)
 - [2026-07-18 19:36] [Re: Prozessia ICP] Lars Segschneider (larssegschneider.ls@gmail.com, +34632764208) arbeitet mit Prozessia zusammen, Information zur Einbindung folgt
 - [2026-07-18 10:24] [Re: Prozessia ICP] Kontakt Lars Segschneider: +34632764208
@@ -496,6 +497,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-18 22:09] [Re: Prozessia ICP] Zielgruppe: KMUs aus Werkzeug- und Maschinenbau, kleiner als Schaufler, für schnelleren Zugang zu Entscheidern
 - [2026-07-18 19:36] [Re: Prozessia ICP] Nächste Woche (ab ~25.07.2026): Anpassung der Leads und Herangehensweise geplant
 - [2026-07-18 19:36] [Re: Prozessia ICP] Zielgruppe: KMUs aus Werkzeug- und Maschinenbau, kleiner als Schaufler, für besseren Zugang zu Entscheidungsträgern
 - [2026-07-17 21:47] [2026-07-07-Email-19f3d0eb-AW-Potenzialanalyse-Endin-X-Prozessia.md] ENDIN fordert 1-2 Referenzen an, um direkt mit bestehenden Kunden über Umsetzungserfahrung und erreichte Einsparungen zu sprechen
@@ -902,6 +904,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-07-18 16:57] [Davenport Gifts Services and the America] Nennt 'Liberty Legal P.C.' als Beispielkunde, nicht Prozessia GbR
 - [2026-07-17 21:45] [2026-06-15-Email-19ecbd13-WG-Messberichte.md] Alle Dateien enden mit einer '0' am Ende - müssen so abgelegt werden
 - [2026-07-17 21:45] [2026-06-29-Email-19f127e3-Re-Unser-Termin.md] Termin muss neu vereinbart werden
 - [2026-07-17 21:42] [14---Email-19f618fd-Action-required-security-vulnerabilities.md] Maßnahmen nötig: Row-Level Security aktivieren und API-Zugriff auf sensitive Daten einschränken

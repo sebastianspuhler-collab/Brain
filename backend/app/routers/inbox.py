@@ -8,6 +8,7 @@ from fastapi import APIRouter, Depends, UploadFile
 from pydantic import BaseModel
 
 from app.config import get_settings
+from app.constants import Models
 from app.deps import get_current_user
 from app.services import classify, memory, rag
 from app.services.anthropic_client import get_client, get_response_text
@@ -59,7 +60,7 @@ async def upload(file: UploadFile, user: str = Depends(get_current_user)):
             b64 = base64.standard_b64encode(body).decode()
             mt = "image/jpeg" if suffix in (".jpg", ".jpeg") else "image/png"
             vision_result = get_client().messages.create(
-                model="claude-sonnet-5", max_tokens=2000,
+                model=Models.SONNET, max_tokens=2000,
                 thinking={"type": "disabled"},
                 messages=[{"role": "user", "content": [
                     {"type": "image", "source": {"type": "base64", "media_type": mt, "data": b64}},

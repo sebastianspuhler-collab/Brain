@@ -11,7 +11,6 @@ import { LinkedInPage } from "@/pages/LinkedInPage";
 import { MailPage } from "@/pages/MailPage";
 import { MeetingsPage } from "@/pages/MeetingsPage";
 import { OnboardingPage } from "@/pages/Onboarding";
-import { SpacesPage } from "@/pages/SpacesPage";
 import { TasksPage } from "@/pages/TasksPage";
 import { YouTubePage } from "@/pages/YouTubePage";
 
@@ -34,7 +33,6 @@ function App() {
         <Route path="dateien" element={<FilesPage />} />
         <Route path="meetings" element={<MeetingsPage />} />
         <Route path="agenten" element={<AgentsPage />} />
-        <Route path="spaces" element={<SpacesPage />} />
         <Route path="linkedin" element={<LinkedInPage />} />
         <Route path="youtube" element={<YouTubePage />} />
         <Route path="onboarding" element={<OnboardingPage />} />
