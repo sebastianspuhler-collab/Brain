@@ -8,6 +8,7 @@ import re
 from datetime import datetime
 
 from app.config import get_settings
+from app.constants import Models
 from app.services.anthropic_client import get_client, get_response_text
 
 _CORRECTION_SIGNALS = {
@@ -83,7 +84,7 @@ Max 3 Items. Wenn nichts Neues: {{"items": []}}"""
         # tückisch, weil das lautlos bei JEDER Chat-Nachricht passiert und einfach
         # nichts gespeichert wird, ohne dass irgendwas auffällt.
         result = get_client().messages.create(
-            model="claude-sonnet-5", max_tokens=300,
+            model=Models.SONNET, max_tokens=300,
             thinking={"type": "disabled"},
             messages=[{"role": "user", "content": prompt}],
         )
@@ -108,7 +109,7 @@ def learn_from_text(source_label: str, prompt_body: str, min_len: int = 15) -> l
     settings = get_settings()
     try:
         result = get_client().messages.create(
-            model="claude-haiku-4-5-20251001", max_tokens=500,
+            model=Models.HAIKU, max_tokens=500,
             thinking={"type": "disabled"},
             messages=[{"role": "user", "content": prompt_body}],
         )

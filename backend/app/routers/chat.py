@@ -1,5 +1,6 @@
 """Chat-Endpoint mit SSE-Streaming. Migriert aus brain_server.py:handle_chat()."""
 import json
+import logging
 import threading
 from concurrent.futures import ThreadPoolExecutor
 
@@ -7,6 +8,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
+from app.config import get_settings
+from app.constants import ALL_MODELS, Models
 from app.deps import get_current_user
 from app.services import context as context_service
 from app.services import agents_service, chat_sessions, conversations, memory, rag
@@ -16,8 +19,9 @@ from app.services.tools import TOOLS, _TASK_TOOL_NAMES, execute_tool
 MAX_TOOL_ITERATIONS = 8
 
 router = APIRouter(prefix="/api", tags=["chat"])
+_usage_logger = logging.getLogger("model_usage")
 
-CHAT_MODELS = {"claude-sonnet-5", "claude-opus-4-8"}
+CHAT_MODELS = {Models.SONNET, Models.OPUS}
 COMPLEX_KEYWORDS = {
     "analysiere", "analyse", "erkläre", "strategie", "warum",
     "plane", "vergleich", "bewerte", "empfehlung", "überblick",
@@ -30,8 +34,22 @@ COMPLEX_KEYWORDS = {
 # wenn die Nachricht kurz UND nicht als komplex erkannt ist, UND weder Nutzer
 # noch Agent explizit ein teureres Modell gewählt haben (beide Signale werden
 # als bewusste Entscheidung respektiert, nie stillschweigend überschrieben).
-HAIKU_MODEL = "claude-haiku-4-5-20251001"
+HAIKU_MODEL = Models.HAIKU
 SIMPLE_MAX_CHARS = 80
+
+
+def _setup_usage_logger() -> None:
+    """Modellauswahl-Überarbeitung (Sebastian, 2026-07-18): pro Chat-Anfrage
+    Modell + Tokenverbrauch in einer eigenen Log-Datei festhalten, damit
+    Kosten nachvollziehbar sind, statt sie nur zu schätzen."""
+    if _usage_logger.handlers:
+        return
+    log_path = get_settings().agent_dir / "model_usage.log"
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    handler = logging.FileHandler(log_path, encoding="utf-8")
+    handler.setFormatter(logging.Formatter("%(asctime)s %(message)s"))
+    _usage_logger.addHandler(handler)
+    _usage_logger.setLevel(logging.INFO)
 
 
 class ChatMessage(BaseModel):
@@ -41,7 +59,7 @@ class ChatMessage(BaseModel):
 
 class ChatRequest(BaseModel):
     messages: list[ChatMessage]
-    model: str = "claude-sonnet-5"
+    model: str = Models.SONNET
     session_id: str | None = None
     agent_id: str | None = None
 
@@ -54,8 +72,8 @@ def _stream_chat(
     messages: list[dict], model: str, session_id: str | None = None, agent_id: str | None = None
 ):
     if model not in CHAT_MODELS:
-        model = "claude-sonnet-5"
-    user_picked_opus = model == "claude-opus-4-8"
+        model = Models.SONNET
+    user_picked_opus = model == Models.OPUS
     last_msg = messages[-1].get("content", "") if messages else ""
     threading.Thread(target=conversations.log_turn, args=("user", last_msg), daemon=True).start()
 
@@ -102,14 +120,21 @@ def _stream_chat(
         is_complex = (
             any(kw in last_msg.lower() for kw in COMPLEX_KEYWORDS)
             or len(last_msg) > 250
-            or model == "claude-opus-4-8"
+            or model == Models.OPUS
         )
 
         is_simple = not is_complex and len(last_msg.strip()) < SIMPLE_MAX_CHARS
         if is_simple and not agent_forced_model and not user_picked_opus:
             model = HAIKU_MODEL
 
-        max_tok = 16000 if model == "claude-opus-4-8" else (8192 if is_complex else 4096)
+        # Technische Absicherung (Sebastian, 2026-07-18): letzte Prüfung direkt
+        # vor dem API-Call, statt einen ungeprüften Modellstring durchzureichen
+        # (z.B. falls ein korrupter Agent-Datensatz einmal an CHAT_MODELS
+        # vorbeigerutscht wäre). Fällt im Zweifel auf Sonnet zurück.
+        if model not in ALL_MODELS:
+            model = Models.SONNET
+
+        max_tok = 16000 if model == Models.OPUS else (8192 if is_complex else 4096)
 
         # ── Tool-Use-Loop ────────────────────────────────────────────────────
         # Claude bekommt echte Tools (TOOLS-Schema). Solange die Antwort mit
@@ -119,6 +144,7 @@ def _stream_chat(
         current_messages = list(messages)
         all_text_parts = []
         tasks_changed = False
+        usage_totals = {"input_tokens": 0, "output_tokens": 0, "cache_read_input_tokens": 0}
 
         for _iteration in range(MAX_TOOL_ITERATIONS):
             with get_client().messages.stream(
@@ -129,6 +155,10 @@ def _stream_chat(
                     all_text_parts.append(chunk)
                     yield _sse({"chunk": chunk})
                 final_message = stream.get_final_message()
+                usage = final_message.usage
+                usage_totals["input_tokens"] += usage.input_tokens or 0
+                usage_totals["output_tokens"] += usage.output_tokens or 0
+                usage_totals["cache_read_input_tokens"] += getattr(usage, "cache_read_input_tokens", 0) or 0
 
             current_messages.append({
                 "role": "assistant",
@@ -165,6 +195,14 @@ def _stream_chat(
 
         response_text = "".join(all_text_parts)
         threading.Thread(target=conversations.log_turn, args=("assistant", response_text), daemon=True).start()
+        _setup_usage_logger()
+        _usage_logger.info(
+            "model=%s input_tokens=%d output_tokens=%d cache_read_input_tokens=%d",
+            model,
+            usage_totals["input_tokens"],
+            usage_totals["output_tokens"],
+            usage_totals["cache_read_input_tokens"],
+        )
 
         if session_id:
             to_save = messages + [{"role": "assistant", "content": response_text}]
@@ -202,7 +240,7 @@ def chat(body: ChatRequest, user: str = Depends(get_current_user)):
 
 class SaveSessionRequest(BaseModel):
     messages: list[ChatMessage]
-    model: str = "claude-sonnet-5"
+    model: str = Models.SONNET
 
 
 @router.get("/chat/sessions")
@@ -214,7 +252,7 @@ def list_chat_sessions(user: str = Depends(get_current_user)):
 def get_chat_session(session_id: str, user: str = Depends(get_current_user)):
     data = chat_sessions.load_session(session_id)
     if data is None:
-        return {"id": session_id, "title": "Neuer Chat", "model": "claude-sonnet-5", "messages": []}
+        return {"id": session_id, "title": "Neuer Chat", "model": Models.SONNET, "messages": []}
     return data
 
 

@@ -9,6 +9,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 from app.config import get_settings
+from app.constants import Models
 from app.services.anthropic_client import get_client, get_response_text
 
 SKIP_EXTENSIONS = {
@@ -247,7 +248,7 @@ Antworte NUR als JSON, keine Erklärung."""
         # "API-Klassifizierung fehlgeschlagen" durchfallen, obwohl der Aufruf an
         # sich funktioniert hätte.
         resp = get_client().messages.create(
-            model="claude-sonnet-5", max_tokens=500,
+            model=Models.SONNET, max_tokens=500,
             thinking={"type": "disabled"},
             messages=[{"role": "user", "content": prompt}],
         )
@@ -290,7 +291,7 @@ Antworte NUR als JSON, keine Erklärung. Format:
 
     try:
         resp = get_client().messages.create(
-            model="claude-sonnet-5", max_tokens=800,
+            model=Models.SONNET, max_tokens=800,
             thinking={"type": "disabled"},  # siehe Kommentar bei classify() oben
             messages=[{"role": "user", "content": prompt}],
         )
