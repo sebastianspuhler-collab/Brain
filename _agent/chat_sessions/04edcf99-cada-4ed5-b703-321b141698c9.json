@@ -1,0 +1,17 @@
+{
+  "id": "04edcf99-cada-4ed5-b703-321b141698c9",
+  "title": "test",
+  "model": "claude-haiku-4-5-20251001",
+  "created_at": "2026-07-17T21:09:25.944364+00:00",
+  "updated_at": "2026-07-17T21:09:25.944364+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "test"
+    },
+    {
+      "role": "assistant",
+      "content": "Hallo Sebastian! 👋\n\nIch bin bereit und höre dich. Was brauchst du?"
+    }
+  ]
+}

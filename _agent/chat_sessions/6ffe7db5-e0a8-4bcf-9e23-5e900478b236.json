@@ -1,0 +1,33 @@
+{
+  "id": "6ffe7db5-e0a8-4bcf-9e23-5e900478b236",
+  "title": "test",
+  "model": "claude-haiku-4-5-20251001",
+  "created_at": "2026-07-17T20:30:18.080881+00:00",
+  "updated_at": "2026-07-17T21:16:10.484785+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "test"
+    },
+    {
+      "role": "assistant",
+      "content": "Hallo Sebastian! 👋\n\nIch bin bereit und höre dich. Was brauchst du?"
+    },
+    {
+      "role": "user",
+      "content": "test"
+    },
+    {
+      "role": "assistant",
+      "content": "Ich bin da und höre dich. Was kann ich für dich tun?"
+    },
+    {
+      "role": "user",
+      "content": "fass mir die letzten 5 schaufler meetings zusammen!"
+    },
+    {
+      "role": "assistant",
+      "content": "Lass mich die Schaufler-Meetings aus dem Vault suchen.Jetzt lass mich auch das Go-Live Meeting vom 16. Juli suchen, das ist das jüngste:Perfekt! Hier sind die **5 letzten Schaufler-Meetings** chronologisch:\n\n---\n\n### 1. **Anforderungsaufnahme Beschaffungsagent** (Februar 2026, laut deiner Korrektur)\nErstes Fachgespräch zu den AB-Anforderungen: Eskalationsstaffel **5/8/10 Tage** (fehlende AB), Zollabwicklung, Packlisten-Verarbeitung, ELO-Ablage-Logik. Tracking von Sendungsverfolgung (5 Tage Deutschland, 10 Tage Europa) und wöchentliches Feedback an Lieferanten. Das Dokument ist eher eine Mitschrift als ein Transkript, aber es war das erste enge Konzeptgespräch.\n\n### 2. **Besprechung Server-Infrastruktur Schaufler** (27. April 2026, ~31 Min)\nSebastian präsentiert die Cloud-Strategie: Hetzner-Server, Hosting & Management durch Prozessia. Teilnehmer: Jürgen Mahler, Jörg Schwindling, Benjamin Schmohl. Offenes Thema: Rückmeldung von Lars Rojahn zur Schnittstellenanbindung stand noch aus.\n\n### 3. **Besprechung Umsetzung Server-Infrastruktur** (25. Juni 2026, ~27 Min)\nKonkretisierung des Deployments: Hetzner CCX-Server, WireGuard-Tunnel für WinForm-Zugriff, Docker-Setup. Teilnehmer: Benjamin Schmohl, Jonas Rösch, Florian Knoblauch, Amin. Blockierende Punkte: Status der Testview bei Jochen Hettmer und genaue Zeitplanung.\n\n### 4. **Abstimmung Messdokumente** (15. Juni 2026, ~28 Min)\nMit Michael Maier über technische Anforderungen zu Messberichten: verschiedene Lieferantenformate (OneDrive, WeTransfer, ZIP), Ordnerstrukturen, was der KI-Assistent automatisch verarbeiten kann. Eher ein paralleles Projekt, aber Teil des Gesamtkontexts.\n\n### 5. **Einführung Beschaffungsagent** (16. Juli 2026, ~29 Min)\nFeinschliff einen Tag vor Go-Live mit Benjamin Schmohl und Amin: Umgang mit AB ohne zuordenbare Bestellung (Hinweis, keine Eskalation), die drei Eskalationsfälle konkretisiert, Einheiten-Problem geklärt (z.B. \"1 Fass 200 Liter\" vs. \"1 Stück\" im ERP – Umrechnung fehlt noch).\n\n---\n\n**Die wichtigsten Erkenntnisse:**\n- Der Agent ist **heute Morgen (17.07. 9:00 Uhr) live gegangen** — die Logik von 5/8/10 Tagen für AB-Eskalation läuft also produktiv.\n- **Noch offen:** Jochen Hettmer hat heute Morgen nachgefragt, welchen fixen Text ihr ins Feld „Terminüberwachung_Bemerkung\" schreibt – das ist noch unbeantwortet und könnte die produktive Doku blockieren.\n- Die **Einheiten-Umrechnung** (Fass/Liter/Stück) wurde im Meeting erwähnt, aber nicht final gelöst – das kann zu False Positives bei der Mengenabweichungs-Eskalation führen.\n\nSoll ich das als Aufgabe eintragen?"
+    }
+  ]
+}

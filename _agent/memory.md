@@ -1,5 +1,8 @@
 ## KONTEXT
+- [2026-07-18 19:36] [Re: Prozessia ICP] Beschaffungsagent-Erfolg für Prozessia erwähnt (Datum: 16.07.2026)
+- [2026-07-18 19:36] [Re: Prozessia ICP] Lars Segschneider (larssegschneider.ls@gmail.com, +34632764208) arbeitet mit Prozessia zusammen, Information zur Einbindung folgt
 - [2026-07-18 10:24] [Re: Prozessia ICP] Kontakt Lars Segschneider: +34632764208
+- [2026-07-18 05:25] [Re: Prozessia ICP] Kontaktdaten Lars Segschneider: larssegschneider.ls@gmail.com, +34632764208
 - [2026-07-17 21:47] [2026-07-11-Email-19f51b7b-Funding-Application-for-Paula--Berkman-Z.md] Berkman Financial hat kürzlich $200.000 für gebrauchtes Autohändler-Unternehmen gesichert (vorher 3x abgelehnt)
 - [2026-07-17 21:46] [2026-06-30-Email-19f17f30-Zugesagt-Angebotsdurchsprache-Endin-X-Pr.md] Bestätigung erfolgt am 30.06.2026
 - [2026-07-17 21:46] [2026-06-26-Email-19f0350e-Sebastian---are-you-attending-the-confer.md] Email-ID: 48E2G6D ZRSMQTG vom 26.06.2026
@@ -382,6 +385,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
 - [2026-07-18 10:24] [Re: Prozessia ICP] Lars Segschneider möchte Informationen über den ICP von Prozessia erhalten
+- [2026-07-18 05:25] [Re: Prozessia ICP] Lars Segschneider möchte Informationen über den ICP von Prozessia erhalten
 - [2026-07-17 22:13] [Kalender-Erstgespräch] Schauenberg - Termin 'Prozessia X Schauenberg' am 2026-08-13 mit Sascha-haller@sb-it.com
 - [2026-07-17 22:13] [Kalender-Erstgespräch] Juchem - Termin 'Thorsten Maas and Sebastian Spuhler' am 2026-07-29 mit Thorsten Maas
 - [2026-07-17 22:13] [Kalender-Erstgespräch] Seifert GmbH - Termin 'Stefan Seifert and Sebastian Spuhler' am 2026-07-23 mit Stefan Seifert
@@ -492,6 +496,8 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-18 19:36] [Re: Prozessia ICP] Nächste Woche (ab ~25.07.2026): Anpassung der Leads und Herangehensweise geplant
+- [2026-07-18 19:36] [Re: Prozessia ICP] Zielgruppe: KMUs aus Werkzeug- und Maschinenbau, kleiner als Schaufler, für besseren Zugang zu Entscheidungsträgern
 - [2026-07-17 21:47] [2026-07-07-Email-19f3d0eb-AW-Potenzialanalyse-Endin-X-Prozessia.md] ENDIN fordert 1-2 Referenzen an, um direkt mit bestehenden Kunden über Umsetzungserfahrung und erreichte Einsparungen zu sprechen
 - [2026-07-17 21:46] [2026-06-30-Email-19f17dfc-AW-Potenzialanalyse-Endin-X-Prozessia.md] Zur Analyse vorgesehene Prozesse: (1) Abwicklung Kleinaufträge/Ersatzteile, (2) ergänzender Workflow Kleinaufträge, (3) Lohnfertigungsaufträge, (4) Wareneingang-Workflow
 - [2026-07-17 21:46] [2026-07-14-Email-19f618fd-Action-required-security-vulnerabilities.md] Sofortmaßnahmen erforderlich - Sicherheitslücken müssen vor Datenkompromittierung behoben werden
