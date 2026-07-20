@@ -10,8 +10,25 @@
 		}
 	}
 
+	# index.html darf nie gecacht werden (Sebastian, 2026-07-20: "ich merke
+	# nichts" nach einem Deploy - der Browser hatte die alte index.html im
+	# Cache und lud dadurch nie die neue, inhaltsgehashte JS-Datei). Die
+	# gehashten Dateien unter /assets/ ändern bei jedem Build ihren Namen,
+	# die dürfen dagegen aggressiv/dauerhaft gecacht werden.
+	handle /index.html {
+		header Cache-Control "no-cache, must-revalidate"
+		root * /srv
+		file_server
+	}
+	handle /assets/* {
+		header Cache-Control "public, max-age=31536000, immutable"
+		root * /srv
+		file_server
+	}
+
 	# React-Router: alle unbekannten Pfade auf index.html zurückfallen lassen.
 	handle {
+		header Cache-Control "no-cache, must-revalidate"
 		root * /srv
 		try_files {path} /index.html
 		file_server
