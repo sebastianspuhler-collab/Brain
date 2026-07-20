@@ -834,3 +834,6 @@
 - 2026-07-19 16:56 | Rechnung_RE260014_09.07.2026.pdf → Finanzen/Rechnungen | Rechnung RE260014 von Prozessia an World Class Marketing LLC (Wyoming, USA) über
 - 2026-07-19 16:57 | schufa_logo.png → Memos/Medien | Bilddatei mit dem Logo der SCHUFA Holding AG. Kein extrahierbarer Text vorhanden
 - 2026-07-19 16:57 | invoice_sipgatede_B4602762.pdf → Finanzen/Rechnungen | Rechnung der sipgate GmbH an Prozessia GbR über Telefonieguthaben (sipgate.de) v
+- 2026-07-19 13:09 | anbei eine Kurzzusammenfassung unserer Instrumente wie soeben besprochen.docx → Memos | Kurzzusammenfassung der internen Prozessia-Instrumente (QP, QZ, OT, PZ) - ein in
+- 2026-07-19 13:09 | beitraege-2026-07-13.json → Marketing/LinkedIn | Automatisch generierter LinkedIn-Beitragsplan für Freitag, 14.07.2026, 07:00 Uhr
+- 2026-07-19 13:09 | ideen-2026-07-13.json → Marketing/LinkedIn | JSON-Output des Claude-LinkedIn-Auto-Posters mit 10 generierten Post-Ideen für P

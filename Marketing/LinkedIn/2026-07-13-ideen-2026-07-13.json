@@ -1,0 +1,106 @@
+{
+  "generiert_am": "2026-07-13T20:14:30.134180",
+  "anzahl": 10,
+  "ideen": [
+    {
+      "typ": "A",
+      "titel": "Freitagnachmittag, falsche Stückliste vom Lieferanten",
+      "hook": "Freitag, 16 Uhr. Stückliste kommt rein – wieder falsch.",
+      "kern_botschaft": "Manuelle Prüfung führt zu Zeitdruck und Fehlern kurz vor Feierabend, die Wochenende und Produktion belasten",
+      "branche": "Werkzeugbau",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 35 MA, Werkzeugbau",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie oft prüft ihr Stücklisten manuell nach – und wer bleibt dafür länger?"
+    },
+    {
+      "typ": "A",
+      "titel": "Drei Excel-Tabellen, ein Bestellfehler",
+      "hook": "Drei Excel-Tabellen offen. Ein Klick zu spät bestellt.",
+      "kern_botschaft": "Fragmentierte Tools ohne Verknüpfung erzeugen vermeidbare Bestellfehler, die niemand sofort bemerkt",
+      "branche": "Maschinenbau",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 50 MA, Maschinenbau",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Welches Tool nutzt ihr aktuell parallel zum ERP für Bestellungen?"
+    },
+    {
+      "typ": "A",
+      "titel": "Material fehlt, Maschine steht, Kunde wartet",
+      "hook": "Material fehlt. Maschine steht. Kunde ruft an.",
+      "kern_botschaft": "Fehlende Transparenz in der Beschaffung führt zu Produktionsstillstand und Kundendruck",
+      "branche": "Lohnfertiger",
+      "zielgruppe_spezifisch": "Geschäftsführer, 60 MA, Lohnfertiger",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie früh seht ihr aktuell, dass ein Material knapp wird?"
+    },
+    {
+      "typ": "A",
+      "titel": "Rechnung geprüft, unterschrieben, trotzdem falsch",
+      "hook": "Rechnung geprüft. Unterschrieben. Trotzdem falsch.",
+      "kern_botschaft": "Manuelle Rechnungsprüfung übersieht Abweichungen, die später teuer werden",
+      "branche": "Elektrotechnik",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 40 MA, Elektrotechnik",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wer prüft bei euch Rechnungen gegen Bestellung – und wie viel Zeit kostet das?"
+    },
+    {
+      "typ": "B",
+      "titel": "5 Anzeichen für teure Stücklistenprüfung",
+      "hook": "Fünf Zeichen, dass eure Stücklistenprüfung Geld frisst.",
+      "kern_botschaft": "Konkrete Warnsignale helfen Einkaufsleitern, ineffiziente manuelle Prüfprozesse frühzeitig zu erkennen",
+      "branche": "Allgemein",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 30-70 MA, produzierendes Gewerbe",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Welches dieser Anzeichen erkennt ihr bei euch wieder?"
+    },
+    {
+      "typ": "B",
+      "titel": "Beschaffungsprozess-Audit in vier Schritten",
+      "hook": "So findest du in vier Schritten, wo dein Einkauf blutet.",
+      "kern_botschaft": "Eine strukturierte Vorgehensweise zeigt konkrete Schwachstellen im Beschaffungsprozess auf",
+      "branche": "Allgemein",
+      "zielgruppe_spezifisch": "Geschäftsführer, 20-80 MA, produzierender Mittelstand",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Bei welchem Schritt hakt es bei euch am meisten?"
+    },
+    {
+      "typ": "B",
+      "titel": "Checkliste: Ineffizienten Einkauf erkennen",
+      "hook": "Woran du ineffizienten Einkauf erkennst, bevor er teuer wird.",
+      "kern_botschaft": "Konkrete Prüfpunkte zeigen, ob der Einkaufsprozess bereits Geld und Zeit kostet",
+      "branche": "Allgemein",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 20-80 MA, produzierender Betrieb",
+      "format_empfehlung": "Liste",
+      "cta_vorschlag": "Wie viele dieser Punkte treffen aktuell bei euch zu?"
+    },
+    {
+      "typ": "C",
+      "titel": "Sechs Stunden Stücklistenprüfung – dann kam der Agent",
+      "hook": "Sechs Stunden Stücklistenprüfung. Jede Woche. Bis vor Kurzem.",
+      "kern_botschaft": "Automatisierte Stücklistenprüfung reduziert manuellen Zeitaufwand drastisch, ohne zusätzliches Personal",
+      "branche": "Werkzeugbau",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 45 MA, Werkzeugbau",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie viele Stunden verbringt euer Team pro Woche mit Stücklistenprüfung?"
+    },
+    {
+      "typ": "C",
+      "titel": "Der Einkaufsleiter zählte die Fehler nicht mehr",
+      "hook": "Der Einkaufsleiter zählte die Bestellfehler nicht mehr. Zu viele.",
+      "kern_botschaft": "Ein automatisierter Prüfprozess senkt Bestellfehler messbar und schafft wieder Überblick",
+      "branche": "Maschinenbau",
+      "zielgruppe_spezifisch": "Einkaufsleiter, 55 MA, Maschinenbau",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wisst ihr aktuell, wie viele Bestellfehler pro Monat bei euch passieren?"
+    },
+    {
+      "typ": "C",
+      "titel": "Selbe Mannschaft, halbe Durchlaufzeit",
+      "hook": "Selbe Mannschaft, halbe Durchlaufzeit. Kein Scherz.",
+      "kern_botschaft": "Automatisierte Beschaffungsprozesse verkürzen Durchlaufzeiten ohne zusätzliche Personalkosten",
+      "branche": "Elektrotechnik",
+      "zielgruppe_spezifisch": "Geschäftsführer, 38 MA, Elektrotechnik",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie lange dauert bei euch aktuell eine Bestellung von Anfrage bis Freigabe?"
+    }
+  ]
+}
