@@ -10,13 +10,17 @@
     }
   },
   "Hettmer": {
-    "input_hash": "710859d7fbb3979d",
+    "input_hash": "ba6172e0c050d04a",
     "ergebnis": {
       "status": "neuer_kontakt",
       "sicherheit": "niedrig",
       "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
       "quellen": [],
-      "warnsignal": null
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Hettmer",
+      "aktueller_stand": ""
     }
   },
   "Issel": {
@@ -50,13 +54,17 @@
     }
   },
   "Mundinger": {
-    "input_hash": "56b9f4cb6123071d",
+    "input_hash": "74fb452319c3d7ed",
     "ergebnis": {
       "status": "erstgespraech",
       "sicherheit": "niedrig",
       "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
       "quellen": [],
-      "warnsignal": null
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Mundinger",
+      "aktueller_stand": ""
     }
   },
   "Reiffen": {
@@ -70,43 +78,353 @@
     }
   },
   "Schaufler": {
-    "input_hash": "094007018e722a65",
+    "input_hash": "0266cdb51a1984a7",
     "ergebnis": {
       "status": "auftrag",
       "sicherheit": "niedrig",
       "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
       "quellen": [],
-      "warnsignal": null
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Schaufler",
+      "aktueller_stand": ""
     }
   },
   "TPG": {
-    "input_hash": "0842156d6f959d36",
+    "input_hash": "942df039b48e57d6",
     "ergebnis": {
       "status": "erstgespraech",
       "sicherheit": "niedrig",
       "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
       "quellen": [],
-      "warnsignal": null
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "TPG",
+      "aktueller_stand": ""
     }
   },
   "Voigt_Salus": {
-    "input_hash": "7a1f05f3cf7da09e",
+    "input_hash": "b20aed96172e47ea",
     "ergebnis": {
       "status": "auftrag",
       "sicherheit": "niedrig",
       "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
       "quellen": [],
-      "warnsignal": null
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Voigt_Salus",
+      "aktueller_stand": ""
     }
   },
   "endin": {
-    "input_hash": "37fbd713b74bbe8e",
+    "input_hash": "d7cb0f37c0a6f3d2",
     "ergebnis": {
       "status": "angebotsphase",
       "sicherheit": "niedrig",
       "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
       "quellen": [],
-      "warnsignal": null
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "endin",
+      "aktueller_stand": ""
+    }
+  },
+  "Copy of undefined": {
+    "input_hash": "cfc49034df4feb40",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Copy of undefined",
+      "aktueller_stand": ""
+    }
+  },
+  "Prozessia_Lieferantenbewerbung_Windhoff": {
+    "input_hash": "e8c8e3e40aad33bb",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Prozessia_Lieferantenbewerbung_Windhoff",
+      "aktueller_stand": ""
+    }
+  },
+  "Report Immobilienmarkler": {
+    "input_hash": "5e2ad21cc334787d",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Report Immobilienmarkler",
+      "aktueller_stand": ""
+    }
+  },
+  "Report Recruiting": {
+    "input_hash": "49320181725b2c3b",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Report Recruiting",
+      "aktueller_stand": ""
+    }
+  },
+  "Susanne Riedt (Huissel GmbH) X Prozessia": {
+    "input_hash": "655dee451785ab52",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Susanne Riedt (Huissel GmbH) X Prozessia",
+      "aktueller_stand": ""
+    }
+  },
+  "Untitled document": {
+    "input_hash": "f50acc81f3df311c",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Untitled document",
+      "aktueller_stand": ""
+    }
+  },
+  "📞 Effiziente Telefonbetreuung mit dem Prozessia Voice Agent für AM Autoservice 🚗 – Prozessia": {
+    "input_hash": "a041878bf58d58cb",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "📞 Effiziente Telefonbetreuung mit dem Prozessia Voice Agent für AM Autoservice 🚗 – Prozessia",
+      "aktueller_stand": ""
+    }
+  },
+  "🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia": {
+    "input_hash": "28d1dfa4e6f606a9",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia",
+      "aktueller_stand": ""
+    }
+  },
+  "🚗 Mehr Servicequalität für Automobile Görres mit KI-Telefonagent 🤖 – Prozessia": {
+    "input_hash": "5da711ea67a0db00",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "🚗 Mehr Servicequalität für Automobile Görres mit KI-Telefonagent 🤖 – Prozessia",
+      "aktueller_stand": ""
+    }
+  },
+  "Bildschirmfoto 2026-06-27 um 13.05.52_vision": {
+    "input_hash": "548b26a336810c30",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Bildschirmfoto 2026-06-27 um 13.05.52_vision",
+      "aktueller_stand": ""
+    }
+  },
+  "Bildschirmfoto 2026-06-27 um 13.07.15_vision": {
+    "input_hash": "710a4249baba91b6",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Bildschirmfoto 2026-06-27 um 13.07.15_vision",
+      "aktueller_stand": ""
+    }
+  },
+  "M.Reuss X Prozessia": {
+    "input_hash": "5b9c4294b7196647",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "M.Reuss X Prozessia",
+      "aktueller_stand": ""
+    }
+  },
+  "Prozessia X Morali": {
+    "input_hash": "72c6464210f5c836",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Prozessia X Morali",
+      "aktueller_stand": ""
+    }
+  },
+  "Präsentation-Esterer Giesserei-V20_Deutsch": {
+    "input_hash": "bbf14cee4bb44085",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Präsentation-Esterer Giesserei-V20_Deutsch",
+      "aktueller_stand": ""
+    }
+  },
+  "Präsentation-Giesserei Wurzen-V3_Deutsch": {
+    "input_hash": "b8d68798c9f947e6",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Präsentation-Giesserei Wurzen-V3_Deutsch",
+      "aktueller_stand": ""
+    }
+  },
+  "Sundh-Schaltanlagen": {
+    "input_hash": "59b859477d77f648",
+    "ergebnis": {
+      "status": "neuer_kontakt",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Sundh-Schaltanlagen",
+      "aktueller_stand": ""
+    }
+  },
+  "Schmidt-Hänsch": {
+    "input_hash": "a588f2ded60aba30",
+    "ergebnis": {
+      "status": "neuer_kontakt",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Schmidt-Hänsch",
+      "aktueller_stand": ""
+    }
+  },
+  "Zillmer-Elektrotechnik": {
+    "input_hash": "9a4b8ba35e8ab12e",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Zillmer-Elektrotechnik",
+      "aktueller_stand": ""
+    }
+  },
+  "Seifert-GmbH": {
+    "input_hash": "4f5053de5687cafb",
+    "ergebnis": {
+      "status": "neuer_kontakt",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Seifert-GmbH",
+      "aktueller_stand": ""
+    }
+  },
+  "Juchem": {
+    "input_hash": "983b856882efb8df",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Juchem",
+      "aktueller_stand": ""
+    }
+  },
+  "Schauenberg": {
+    "input_hash": "76ce9324a6575310",
+    "ergebnis": {
+      "status": "neuer_kontakt",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Schauenberg",
+      "aktueller_stand": ""
     }
   }
 }
