@@ -13,6 +13,7 @@ from app.services import (
     calendar_lead_service,
     calendar_service,
     kunden_meta_service,
+    kunden_status_service,
     linkedin_service,
     mail_service,
     rag,
@@ -106,14 +107,11 @@ def set_task_due(body: SetTaskDueRequest, user: str = Depends(get_current_user))
 
 
 # ── Management-Dashboard-Erweiterung (Umsetzungsplan-Memo 2026-07-16, Punkt B3;
-# Status-Pipeline + Leads-Integration 2026-07-19) ──────────────────────────
-# Bewusst NUR auf Basis tatsächlich vorhandener Daten (Ordnerinhalte, Meeting-
-# Extraktion, Kalender) - keine "offene Rechnungen"-Kachel und keine erfundene
-# Bewertung, wo echte Daten fehlen.
-_STATUS_RANK = {
-    "neuer_kontakt": 0, "erstgespraech": 1, "angebotsphase": 2,
-    "auftrag": 3, "fulfillment": 4, "abgeschlossen": 5,
-}
+# Status-Pipeline + Leads-Integration 2026-07-19; LLM-Status-Synthese 2026-07-20)
+# Der Status selbst kommt jetzt aus kunden_status_service (liest E-Mails,
+# Meeting-Extrakte und Termine, nicht nur Ordner-Anwesenheit) - siehe dort für
+# die Begründung. _STATUS_RANK bleibt hier nur fürs Sortieren der Liste.
+_STATUS_RANK = kunden_status_service.STATUS_RANK
 
 # Die Vollständigkeits-Ansicht war der eigene Menüpunkt "Spaces", ist auf
 # Sebastians Wunsch (2026-07-18) Teil der Kunden-Karte im Dashboard - dieselben
@@ -138,20 +136,6 @@ def _hat_dateien(ordner) -> bool:
 def _vollstaendigkeit(kunde_path) -> int:
     vorhanden = sum(1 for sub in _STANDARD_ORDNER if _hat_dateien(kunde_path / sub))
     return round(vorhanden / len(_STANDARD_ORDNER) * 100)
-
-
-def _status_automatisch_kunde(kunde_path) -> str:
-    """Deterministisch aus real vorhandenen Ordnerinhalten - "fulfillment" und
-    "abgeschlossen" lassen sich daraus NICHT verlässlich ableiten (ein
-    Vertrags-Ordner sagt nichts über den operativen Stand aus), deshalb nur
-    über den manuellen status_override erreichbar."""
-    if _hat_dateien(kunde_path / "Vertraege"):
-        return "auftrag"
-    if _hat_dateien(kunde_path / "Angebote"):
-        return "angebotsphase"
-    if _hat_dateien(kunde_path / "Meetings"):
-        return "erstgespraech"
-    return "neuer_kontakt"
 
 
 def _letzte_aktivitaet(ordner) -> str | None:
@@ -199,11 +183,10 @@ def _naechster_termin(name: str, termine: list[dict]) -> dict | None:
 
 
 def _eintrag(
-    name: str, status_automatisch: str, letzte_aktivitaet: str | None,
-    vollstaendigkeit: int | None, aktueller_stand: str, termine: list[dict],
-    tasks: list[dict], typ: str, zeige_archivierte: bool,
+    name: str, status_info: dict, letzte_aktivitaet: str | None,
+    vollstaendigkeit: int | None, aktueller_stand: str, naechster_termin: dict | None,
+    tasks: list[dict], typ: str, zeige_archivierte: bool, meta: dict,
 ) -> dict | None:
-    meta = kunden_meta_service.get_meta(name)
     if meta.get("archiviert") and not zeige_archivierte:
         return None
     tage_seit_aktivitaet = None
@@ -220,14 +203,18 @@ def _eintrag(
         "typ": typ,
         "letztes_meeting": letzte_aktivitaet,
         "tage_seit_meeting": tage_seit_aktivitaet,
-        "status": status_override or status_automatisch,
-        "status_automatisch": status_automatisch,
+        "status": status_override or status_info["status"],
+        "status_automatisch": status_info["status"],
+        "sicherheit": status_info["sicherheit"],
+        "begruendung": status_info["begruendung"],
+        "quellen": status_info["quellen"],
+        "warnsignal": status_info["warnsignal"],
         "offene_aufgaben": sum(
             1 for t in tasks if not t.get("done") and name.lower() in t["text"].lower()
         ),
         "vollstaendigkeit": vollstaendigkeit,
         "aktueller_stand": aktueller_stand,
-        "naechster_termin": _naechster_termin(name, termine),
+        "naechster_termin": naechster_termin,
         "archiviert": bool(meta.get("archiviert")),
         "notiz": meta.get("notiz", ""),
     }
@@ -256,13 +243,18 @@ def kunden_status(zeige_archivierte: bool = False, user: str = Depends(get_curre
             # (z.B. "[NeuerKunde]", "_Vorlage") ausschließen, keine echten Kunden
             if not kunde_path.is_dir() or kunde_path.name.startswith((".", "[", "_")):
                 continue
+            meta = kunden_meta_service.get_meta(kunde_path.name)
+            naechster_termin = _naechster_termin(kunde_path.name, termine)
+            status_info = kunden_status_service.get_status(
+                kunde_path.name, kunde_path,
+                notiz=meta.get("notiz", ""), naechster_termin=naechster_termin,
+            )
             eintrag = _eintrag(
-                kunde_path.name,
-                _status_automatisch_kunde(kunde_path),
+                kunde_path.name, status_info,
                 _letzte_aktivitaet(kunde_path),
                 _vollstaendigkeit(kunde_path),
                 _aktueller_stand(kunde_path / "Meetings"),
-                termine, tasks, "kunde", zeige_archivierte,
+                naechster_termin, tasks, "kunde", zeige_archivierte, meta,
             )
             if eintrag:
                 result.append(eintrag)
@@ -280,11 +272,22 @@ def kunden_status(zeige_archivierte: bool = False, user: str = Depends(get_curre
             # Reiner Kalender-Stub (nur Termin/Teilnehmer, siehe
             # calendar_lead_service._write_lead_stub) vs. echte Notiz mit
             # Transkript-/Gesprächsinhalt - Größenschwelle statt Raten, der
-            # Stub-Text selbst ist konstant kurz (~500 Zeichen).
+            # Stub-Text selbst ist konstant kurz (~500 Zeichen). Leads haben
+            # keine Kunden-Ordnerstruktur (Vertraege/Angebote/Meetings) für die
+            # LLM-Synthese in kunden_status_service - bleibt bewusst diese
+            # einfachere Heuristik, dafür ehrlich als "niedrig" markiert statt
+            # eine Sicherheit vorzutäuschen, die nicht besteht.
             status = "erstgespraech" if md_path.stat().st_size > 800 else "neuer_kontakt"
+            status_info = {
+                "status": status, "sicherheit": "niedrig",
+                "begruendung": "Aus Dateigröße geschätzt (Lead ohne strukturierte Unterlagen).",
+                "quellen": [], "warnsignal": None,
+            }
+            meta = kunden_meta_service.get_meta(name)
+            naechster_termin = _naechster_termin(name, termine)
             eintrag = _eintrag(
-                name, status, frontmatter_datum, None, "",
-                termine, tasks, "lead", zeige_archivierte,
+                name, status_info, frontmatter_datum, None, "",
+                naechster_termin, tasks, "lead", zeige_archivierte, meta,
             )
             if eintrag:
                 result.append(eintrag)
@@ -300,6 +303,23 @@ def set_kunden_meta(kunde: str, body: KundenMetaRequest, user: str = Depends(get
         archiviert=body.archiviert,
         status_override=body.status_override,
         notiz=body.notiz,
+    )
+
+
+@router.post("/dashboard/kunden/{kunde}/neu-bewerten")
+def kunden_neu_bewerten(kunde: str, user: str = Depends(get_current_user)):
+    """Erzwingt eine sofortige Neubewertung statt auf die nächste Dateiänderung
+    zu warten - Sebastians Steuerungshebel z.B. nach einem Telefonat, das (noch)
+    nicht als Dokument im Vault liegt, oder nach einer neuen Notiz."""
+    settings = get_settings()
+    kunde_path = settings.vault_path / "Kunden" / kunde
+    if not kunde_path.exists():
+        return {"error": "Kunde nicht gefunden"}
+    meta = kunden_meta_service.get_meta(kunde)
+    naechster_termin = _naechster_termin(kunde, calendar_service.get_calendar_events())
+    return kunden_status_service.get_status(
+        kunde, kunde_path, notiz=meta.get("notiz", ""),
+        naechster_termin=naechster_termin, force=True,
     )
 
 
