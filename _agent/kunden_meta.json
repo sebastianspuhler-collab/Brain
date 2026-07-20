@@ -50,5 +50,11 @@
     "overrides": {
       "anzeige_name": "Forlin GmbH"
     }
+  },
+  "Reiffen": {
+    "archiviert": false,
+    "status_override": null,
+    "notiz": "",
+    "overrides": {}
   }
 }

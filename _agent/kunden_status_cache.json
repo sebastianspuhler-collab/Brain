@@ -68,13 +68,17 @@
     }
   },
   "Reiffen": {
-    "input_hash": "f3e175e49b3914f6",
+    "input_hash": "1b3628e0af8bcd24",
     "ergebnis": {
       "status": "neuer_kontakt",
       "sicherheit": "niedrig",
       "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
       "quellen": [],
-      "warnsignal": null
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Reiffen",
+      "aktueller_stand": ""
     }
   },
   "Schaufler": {
