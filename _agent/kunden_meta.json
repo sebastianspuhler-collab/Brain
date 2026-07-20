@@ -1,12 +1,54 @@
 {
   "Hettmer": {
-    "archiviert": true,
-    "ampel_override": null,
-    "notiz": ""
+    "archiviert": false,
+    "status_override": null,
+    "notiz": "",
+    "overrides": {},
+    "ampel_override": null
   },
   "Voigt_Salus": {
+    "archiviert": false,
+    "status_override": null,
+    "notiz": "",
+    "overrides": {},
+    "ampel_override": null
+  },
+  "Copy of undefined": {
     "archiviert": true,
-    "ampel_override": null,
-    "notiz": ""
+    "status_override": null,
+    "notiz": "",
+    "overrides": {}
+  },
+  "Untitled document": {
+    "archiviert": true,
+    "status_override": null,
+    "notiz": "",
+    "overrides": {}
+  },
+  "📞 Effiziente Telefonbetreuung mit dem Prozessia Voice Agent für AM Autoservice 🚗 – Prozessia": {
+    "archiviert": true,
+    "status_override": null,
+    "notiz": "",
+    "overrides": {}
+  },
+  "🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia": {
+    "archiviert": true,
+    "status_override": null,
+    "notiz": "",
+    "overrides": {}
+  },
+  "🚗 Mehr Servicequalität für Automobile Görres mit KI-Telefonagent 🤖 – Prozessia": {
+    "archiviert": true,
+    "status_override": null,
+    "notiz": "",
+    "overrides": {}
+  },
+  "Bildschirmfoto 2026-06-27 um 13.05.52_vision": {
+    "archiviert": false,
+    "status_override": null,
+    "notiz": "",
+    "overrides": {
+      "anzeige_name": "Forlin GmbH"
+    }
   }
 }

@@ -215,12 +215,23 @@ def _eintrag(
 
 
 def _ist_einzel_lead(md_path) -> bool:
+    """Bewusst zwei getrennte Prüfungen (Sebastian, 2026-07-20: "Report
+    Immobilienmarkler" und "Report Recruiting" tauchten als Lead im Dashboard
+    auf, obwohl sie selbst kategorie: Marketing tragen):
+    1. Massenlisten-Ausschluss über die Quelldatei-Endung (wie bisher).
+    2. classify() hat selbst schon "kategorie" bestimmt - wenn das nicht
+       "Lead" ist, gehört das Dokument nicht in die Lead-Ansicht, unabhängig
+       vom Ordner, in dem es zufällig liegt."""
     if md_path.stat().st_size == 0:
         return False
-    m = re.search(r"^quelle:\s*(.+)$", md_path.read_text(encoding="utf-8"), re.M)
-    if not m:
+    text = md_path.read_text(encoding="utf-8")
+    m_kat = re.search(r"^kategorie:\s*(.+)$", text, re.M)
+    if m_kat and m_kat.group(1).strip() != "Lead":
         return False
-    return Path(m.group(1).strip()).suffix.lower() not in _LEADS_MASSENLISTE_EXTS
+    m_quelle = re.search(r"^quelle:\s*(.+)$", text, re.M)
+    if not m_quelle:
+        return False
+    return Path(m_quelle.group(1).strip()).suffix.lower() not in _LEADS_MASSENLISTE_EXTS
 
 
 @router.get("/dashboard/kunden-status")
