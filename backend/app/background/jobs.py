@@ -84,7 +84,7 @@ def git_push_vault(message: str = "brain: auto-sync") -> bool:
     settings = get_settings()
     vault = settings.vault_path
     pat = settings.git_pat
-    if not vault.exists() or not pat:
+    if not vault.exists():
         return False
     env = os.environ.copy()
     env["GIT_TERMINAL_PROMPT"] = "0"
@@ -108,12 +108,13 @@ def git_push_vault(message: str = "brain: auto-sync") -> bool:
             ["git", "commit", "-m", message],
             cwd=vault, capture_output=True, timeout=15, env=env,
         )
-        remote_url = _git_remote_with_pat(vault, pat)
-        if remote_url:
-            subprocess.run(
-                ["git", "remote", "set-url", "origin", remote_url],
-                cwd=vault, capture_output=True, timeout=10, env=env,
-            )
+        if pat:
+            remote_url = _git_remote_with_pat(vault, pat)
+            if remote_url:
+                subprocess.run(
+                    ["git", "remote", "set-url", "origin", remote_url],
+                    cwd=vault, capture_output=True, timeout=10, env=env,
+                )
         result = subprocess.run(
             ["git", "push", "origin", "HEAD"],
             cwd=vault, capture_output=True, text=True, timeout=60, env=env,
