@@ -51,6 +51,12 @@
       "anzeige_name": "Forlin GmbH"
     }
   },
+  "Sundh-Schaltanlagen": {
+    "archiviert": true,
+    "status_override": null,
+    "notiz": "",
+    "overrides": {}
+  },
   "Reiffen": {
     "archiviert": false,
     "status_override": null,
