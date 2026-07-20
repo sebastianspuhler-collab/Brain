@@ -5,6 +5,7 @@ import { Archive, ArchiveRestore, Pencil, RefreshCw, TriangleAlert } from "lucid
 import { api } from "@/api/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Switch } from "@/components/ui/switch";
@@ -17,6 +18,7 @@ type Sicherheit = "hoch" | "mittel" | "niedrig";
 
 interface Eintrag {
   kunde: string;
+  anzeige_name: string;
   typ: "kunde" | "lead";
   letztes_meeting: string | null;
   tage_seit_meeting: number | null;
@@ -26,6 +28,8 @@ interface Eintrag {
   begruendung: string;
   quellen: string[];
   warnsignal: string | null;
+  ist_relevant: boolean;
+  relevanz_begruendung: string;
   offene_aufgaben: number;
   vollstaendigkeit: number | null;
   aktueller_stand: string;
@@ -143,7 +147,12 @@ function useKundenMeta() {
   return useMutation({
     mutationFn: (vars: {
       kunde: string;
-      body: { archiviert?: boolean; status_override?: string; notiz?: string };
+      body: {
+        archiviert?: boolean;
+        status_override?: string;
+        notiz?: string;
+        overrides?: Record<string, string>;
+      };
     }) => api.post(`/api/dashboard/kunden/${encodeURIComponent(vars.kunde)}/meta`, vars.body),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["dashboard-kunden-status"] }),
     onError: () => toast.error("Speichern fehlgeschlagen"),
@@ -164,15 +173,18 @@ function useKundenNeuBewerten() {
 
 export function DashboardPage() {
   const [zeigeArchivierte, setZeigeArchivierte] = useState(false);
+  const [zeigeIrrelevante, setZeigeIrrelevante] = useState(false);
   const [editing, setEditing] = useState<string | null>(null);
   const [notizDraft, setNotizDraft] = useState("");
   const [statusDraft, setStatusDraft] = useState("");
+  const [nameDraft, setNameDraft] = useState("");
+  const [standDraft, setStandDraft] = useState("");
 
   const { data: kundenData, isLoading: kundenLoading } = useQuery({
-    queryKey: ["dashboard-kunden-status", zeigeArchivierte],
+    queryKey: ["dashboard-kunden-status", zeigeArchivierte, zeigeIrrelevante],
     queryFn: () =>
       api.get<{ kunden: Eintrag[] }>(
-        `/api/dashboard/kunden-status?zeige_archivierte=${zeigeArchivierte}`,
+        `/api/dashboard/kunden-status?zeige_archivierte=${zeigeArchivierte}&zeige_irrelevante=${zeigeIrrelevante}`,
       ),
   });
   const { data: li, isLoading: liLoading } = useQuery({
@@ -187,11 +199,20 @@ export function DashboardPage() {
     setEditing(e.kunde);
     setNotizDraft(e.notiz);
     setStatusDraft(e.status !== e.status_automatisch ? e.status : "");
+    setNameDraft(e.anzeige_name !== e.kunde ? e.anzeige_name : "");
+    setStandDraft(e.aktueller_stand);
   }
 
   function saveEdit(kunde: string) {
     meta.mutate(
-      { kunde, body: { notiz: notizDraft, status_override: statusDraft } },
+      {
+        kunde,
+        body: {
+          notiz: notizDraft,
+          status_override: statusDraft,
+          overrides: { anzeige_name: nameDraft, aktueller_stand: standDraft },
+        },
+      },
       { onSuccess: () => setEditing(null) },
     );
   }
@@ -238,9 +259,15 @@ export function DashboardPage() {
       <Card>
         <CardHeader className="flex-row items-center justify-between gap-2 space-y-0">
           <CardTitle>Kunden &amp; Interessenten</CardTitle>
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-muted-foreground">Archivierte anzeigen</span>
-            <Switch checked={zeigeArchivierte} onCheckedChange={(c) => setZeigeArchivierte(c === true)} />
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-muted-foreground">Archivierte anzeigen</span>
+              <Switch checked={zeigeArchivierte} onCheckedChange={(c) => setZeigeArchivierte(c === true)} />
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-muted-foreground">Irrelevante anzeigen</span>
+              <Switch checked={zeigeIrrelevante} onCheckedChange={(c) => setZeigeIrrelevante(c === true)} />
+            </div>
           </div>
         </CardHeader>
         <CardContent>
@@ -249,9 +276,12 @@ export function DashboardPage() {
             einer Ansicht. Der Status wird automatisch aus allen Unterlagen (E-Mails, Dokumenten,
             Meeting-Mitschriften) hergeleitet, nicht nur aus Ordner-Anwesenheit - der Punkt neben dem
             Status zeigt die Sicherheit dieser Einschätzung (grün/gelb/rot), ein ⚠ ein erkanntes
-            Warnsignal. Die Notiz fließt zusätzlich als Hinweis in die Bewertung ein. Status und Notiz
-            lassen sich jederzeit manuell überschreiben (mit * markiert), und mit dem Neu-bewerten-Button
-            lässt sich die Einschätzung sofort aktualisieren, statt auf die nächste Dateiänderung zu warten.
+            Warnsignal. Einträge, bei denen die KI keine echte Kunden-/Interessenten-Beziehung erkennt
+            (z.B. ein Lieferant oder eine private Notiz im falschen Ordner), werden automatisch
+            ausgeblendet - über "Irrelevante anzeigen" sichtbar machen. Die Notiz fließt zusätzlich als
+            Hinweis in die Bewertung ein. Status, Anzeigename, Aktueller Stand und Notiz lassen sich
+            jederzeit manuell überschreiben (mit * markiert), und mit dem Neu-bewerten-Button lässt sich
+            die Einschätzung sofort aktualisieren, statt auf die nächste Dateiänderung zu warten.
           </p>
           {kundenLoading ? (
             <div className="space-y-2">
@@ -277,15 +307,30 @@ export function DashboardPage() {
               <TableBody>
                 {kundenData.kunden.map((e) => (
                   <Fragment key={e.kunde}>
-                    <TableRow className={cn(e.archiviert && "opacity-60")}>
+                    <TableRow
+                      className={cn(
+                        (e.archiviert || !e.ist_relevant) && "opacity-60",
+                        !e.ist_relevant && "border-l-2 border-dashed border-destructive/40",
+                      )}
+                    >
                       <TableCell>
                         <StatusBadge eintrag={e} />
                       </TableCell>
                       <TableCell className="font-medium text-foreground">
-                        {e.kunde}
+                        <span title={e.anzeige_name !== e.kunde ? `Ordner/Datei: ${e.kunde}` : undefined}>
+                          {e.anzeige_name}
+                        </span>
                         <span className="ml-1.5 text-xs font-normal text-muted-foreground">
                           {e.typ === "lead" ? "· Interessent" : ""}
                         </span>
+                        {!e.ist_relevant && (
+                          <p
+                            className="line-clamp-1 text-xs font-normal text-destructive"
+                            title={e.relevanz_begruendung}
+                          >
+                            ⚠ wahrscheinlich kein echter Kunde{e.relevanz_begruendung ? `: ${e.relevanz_begruendung}` : ""}
+                          </p>
+                        )}
                         {e.notiz && (
                           <p className="line-clamp-1 text-xs font-normal text-muted-foreground">{e.notiz}</p>
                         )}
@@ -315,17 +360,15 @@ export function DashboardPage() {
                       <TableCell className="tabular-nums">{e.offene_aufgaben || "–"}</TableCell>
                       <TableCell>
                         <div className="flex items-center gap-1">
-                          {e.typ === "kunde" && (
-                            <Button
-                              variant="ghost"
-                              size="icon-sm"
-                              onClick={() => neuBewerten.mutate(e.kunde)}
-                              disabled={neuBewerten.isPending}
-                              title="Status jetzt neu bewerten (z.B. nach einem Telefonat)"
-                            >
-                              <RefreshCw className={cn("size-4", neuBewerten.isPending && "animate-spin")} />
-                            </Button>
-                          )}
+                          <Button
+                            variant="ghost"
+                            size="icon-sm"
+                            onClick={() => neuBewerten.mutate(e.kunde)}
+                            disabled={neuBewerten.isPending}
+                            title="Status jetzt neu bewerten (z.B. nach einem Telefonat)"
+                          >
+                            <RefreshCw className={cn("size-4", neuBewerten.isPending && "animate-spin")} />
+                          </Button>
                           <Button
                             variant="ghost"
                             size="icon-sm"
@@ -348,7 +391,23 @@ export function DashboardPage() {
                     {editing === e.kunde && (
                       <TableRow>
                         <TableCell colSpan={8} className="bg-muted/30">
-                          <div className="flex flex-col gap-3 py-2 sm:flex-row sm:items-end">
+                          <div className="flex flex-col gap-3 py-2 sm:flex-row sm:items-end sm:flex-wrap">
+                            <div className="flex w-full flex-col gap-1.5 sm:w-44">
+                              <span className="text-xs text-muted-foreground">Anzeigename</span>
+                              <Input
+                                value={nameDraft}
+                                onChange={(ev) => setNameDraft(ev.target.value)}
+                                placeholder={e.kunde}
+                              />
+                            </div>
+                            <div className="flex w-full flex-col gap-1.5 sm:w-56">
+                              <span className="text-xs text-muted-foreground">Aktueller Stand</span>
+                              <Input
+                                value={standDraft}
+                                onChange={(ev) => setStandDraft(ev.target.value)}
+                                placeholder="z.B. 'wartet auf Feedback zum Angebot'"
+                              />
+                            </div>
                             <div className="flex flex-1 flex-col gap-1.5">
                               <span className="text-xs text-muted-foreground">Notiz</span>
                               <Textarea

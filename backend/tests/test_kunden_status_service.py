@@ -86,6 +86,78 @@ def test_bewerte_kunde_downgrades_confidence_on_hallucinated_source(tmp_path, mo
     assert ergebnis["quellen"] == ["kickoff.md"]
 
 
+def test_floor_status_for_lead_file_uses_byte_size_heuristic(tmp_path):
+    kurz = tmp_path / "kurz.md"
+    kurz.write_text("x" * 100, encoding="utf-8")
+    lang = tmp_path / "lang.md"
+    lang.write_text("x" * 900, encoding="utf-8")
+    assert svc._floor_status(kurz) == "neuer_kontakt"
+    assert svc._floor_status(lang) == "erstgespraech"
+
+
+def test_sammle_dokumente_reads_single_lead_file(tmp_path):
+    lead = tmp_path / "lead.md"
+    lead.write_text(
+        "---\ndatum: 2026-07-02\nkategorie: Lead\n---\n\n## Zusammenfassung\nErstgespräch mit Interessent.\n",
+        encoding="utf-8",
+    )
+    dokumente = svc._sammle_dokumente(lead)
+    assert len(dokumente) == 1
+    assert dokumente[0]["datei"] == "lead.md"
+    assert dokumente[0]["ordner"] == "Leads"
+    assert dokumente[0]["zusammenfassung"] == "Erstgespräch mit Interessent."
+
+
+def test_bewerte_kunde_propagates_ist_relevant_false(tmp_path, monkeypatch):
+    kunde = _make_kunde(tmp_path, meetings=True)
+    fake_client = SimpleNamespace(
+        messages=SimpleNamespace(
+            create=lambda **kwargs: _fake_response(
+                {"status": "erstgespraech", "sicherheit": "hoch", "begruendung": "x",
+                 "quellen": ["kickoff.md"], "warnsignal": None,
+                 "ist_relevant": False, "relevanz_begruendung": "Externer Dienstleister, kein Kunde.",
+                 "anzeige_name": "TestKunde", "aktueller_stand": ""}
+            )
+        )
+    )
+    monkeypatch.setattr(svc, "get_client", lambda: fake_client)
+
+    ergebnis = svc.bewerte_kunde(kunde, kunde_name="TestKunde")
+    assert ergebnis["ist_relevant"] is False
+    assert ergebnis["relevanz_begruendung"] == "Externer Dienstleister, kein Kunde."
+
+
+def test_bewerte_kunde_falls_back_to_kunde_name_when_llm_omits_anzeige_name(tmp_path, monkeypatch):
+    kunde = _make_kunde(tmp_path, meetings=True)
+    fake_client = SimpleNamespace(
+        messages=SimpleNamespace(
+            create=lambda **kwargs: _fake_response(
+                {"status": "erstgespraech", "sicherheit": "hoch", "begruendung": "x",
+                 "quellen": ["kickoff.md"], "warnsignal": None}
+            )
+        )
+    )
+    monkeypatch.setattr(svc, "get_client", lambda: fake_client)
+
+    ergebnis = svc.bewerte_kunde(kunde, kunde_name="TestKunde")
+    assert ergebnis["anzeige_name"] == "TestKunde"
+    assert ergebnis["ist_relevant"] is True  # Default true, damit nichts faelschlich verschwindet
+
+
+def test_bewerte_kunde_fallback_on_api_error_defaults_ist_relevant_true(tmp_path, monkeypatch):
+    kunde = _make_kunde(tmp_path, meetings=True)
+
+    def boom(**kwargs):
+        raise RuntimeError("API down")
+
+    fake_client = SimpleNamespace(messages=SimpleNamespace(create=boom))
+    monkeypatch.setattr(svc, "get_client", lambda: fake_client)
+
+    ergebnis = svc.bewerte_kunde(kunde, kunde_name="TestKunde")
+    assert ergebnis["ist_relevant"] is True
+    assert ergebnis["anzeige_name"] == "TestKunde"
+
+
 def test_get_status_uses_cache_when_input_unchanged(tmp_path, monkeypatch):
     kunde = _make_kunde(tmp_path, meetings=True)
     calls = []
