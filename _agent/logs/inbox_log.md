@@ -837,3 +837,15 @@
 - 2026-07-19 13:09 | anbei eine Kurzzusammenfassung unserer Instrumente wie soeben besprochen.docx → Memos | Kurzzusammenfassung der internen Prozessia-Instrumente (QP, QZ, OT, PZ) - ein in
 - 2026-07-19 13:09 | beitraege-2026-07-13.json → Marketing/LinkedIn | Automatisch generierter LinkedIn-Beitragsplan für Freitag, 14.07.2026, 07:00 Uhr
 - 2026-07-19 13:09 | ideen-2026-07-13.json → Marketing/LinkedIn | JSON-Output des Claude-LinkedIn-Auto-Posters mit 10 generierten Post-Ideen für P
+- 2026-07-20 21:30 | M.Reuss X Prozessia.pdf → Leads | Erstgespräch mit Werkzeugbau-Interessent M.Reuss (Moritz Klüpfel), Beschaffungsagent-Demo
+- 2026-07-20 21:30 | Prozessia X Morali (1).pdf → Leads | Erstgespräch mit B2B-Interessent Morali (Ayoub Falah, Esma Tamer), kritische Datenschutz-Rückfragen
+- 2026-07-20 21:30 | Zillmer X Prozessia (2).pdf → Leads | Erstgespräch Zillmer Elektrotechnik (Dierk Biendarra), Lead-Stub um echtes Transkript ergänzt
+- 2026-07-20 21:30 | Meeting Thorsten Maas X Prozessia (1).pdf → Leads | Erstgespräch Juchem (Thorsten Maas), Lead-Stub um echtes Transkript ergänzt
+- 2026-07-20 21:30 | Zwischenstand Angebot.pdf → Kunden/endin/Meetings | Statusgespräch Endin zu Angebots-Aufteilung in kleinere Pakete
+- 2026-07-20 21:30 | Meeting Go Live Beschaffungsagent (2).pdf → Kunden/Schaufler/Meetings | Go-Live-Vorbereitung WinForm-Testsystem
+- 2026-07-20 21:30 | Vorstellung Stücklistenagent (1).pdf → Kunden/Mundinger/Meetings | Demo Stücklistenagent für Gert Mundinger, Human-in-the-Loop
+- 2026-07-20 21:30 | Wissensmanagement_Prozessia.pdf → Marketing/Flyer | Verkaufs-Whitepaper Wissensmanagement fuer Mittelstand
+- 2026-07-20 21:30 | invoice-MSTRL-API-750302-002.pdf → Finanzen/Rechnungen | Mistral-Rechnung 13,39 Euro, 3310 OCR-Seiten
+- 2026-07-20 21:30 | receipt-MSTRL-API-750302-RCPT-000001.pdf → Finanzen/Rechnungen | Mistral-Zahlungsquittung 13,39 Euro
+- 2026-07-20 21:30 | invoice-MSTRL-API-750302-003.pdf → Finanzen/Rechnungen | Mistral-Rechnung 11,04 Euro, progressive Schwellenwert-Abrechnung
+- 2026-07-20 21:30 | receipt-MSTRL-API-750302-RCPT-000002.pdf → Finanzen/Rechnungen | Mistral-Zahlungsquittung 11,04 Euro
