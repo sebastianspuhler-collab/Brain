@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { Archive, ArchiveRestore, Pencil } from "lucide-react";
+import { Archive, ArchiveRestore, Pencil, RefreshCw, TriangleAlert } from "lucide-react";
 import { api } from "@/api/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,6 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
 type Status = "neuer_kontakt" | "erstgespraech" | "angebotsphase" | "auftrag" | "fulfillment" | "abgeschlossen";
+type Sicherheit = "hoch" | "mittel" | "niedrig";
 
 interface Eintrag {
   kunde: string;
@@ -21,6 +22,10 @@ interface Eintrag {
   tage_seit_meeting: number | null;
   status: Status;
   status_automatisch: Status;
+  sicherheit: Sicherheit;
+  begruendung: string;
+  quellen: string[];
+  warnsignal: string | null;
   offene_aufgaben: number;
   vollstaendigkeit: number | null;
   aktueller_stand: string;
@@ -66,6 +71,20 @@ const STATUS_OVERRIDE_OPTIONS: { value: string; label: string }[] = [
   ...STATUS_ORDER.map((s) => ({ value: s, label: STATUS_LABEL[s] })),
 ];
 
+// Sicherheit der automatischen Einschätzung (kunden_status_service.py) - bewusst
+// sichtbar statt versteckt, damit "niedrig" (z.B. widersprüchliche Belege oder
+// eine vom LLM zitierte, nicht existierende Quelle) auffällt statt unterzugehen.
+const SICHERHEIT_DOT: Record<Sicherheit, string> = {
+  hoch: "bg-emerald-500",
+  mittel: "bg-amber-500",
+  niedrig: "bg-red-500",
+};
+const SICHERHEIT_LABEL: Record<Sicherheit, string> = {
+  hoch: "hohe Sicherheit",
+  mittel: "mittlere Sicherheit",
+  niedrig: "niedrige Sicherheit",
+};
+
 function formatDatum(datum: string | null): string {
   if (!datum) return "–";
   const [y, m, d] = datum.split("-");
@@ -89,13 +108,32 @@ function StatTile({ label, value }: { label: string; value: number | string }) {
 
 function StatusBadge({ eintrag }: { eintrag: Eintrag }) {
   const manuell = eintrag.status !== eintrag.status_automatisch;
+  const titelTeile = [
+    manuell ? `Manuell gesetzt (automatisch: ${STATUS_LABEL[eintrag.status_automatisch]})` : null,
+    `${SICHERHEIT_LABEL[eintrag.sicherheit]}${eintrag.begruendung ? ": " + eintrag.begruendung : ""}`,
+    eintrag.quellen.length ? `Quellen: ${eintrag.quellen.join(", ")}` : null,
+  ].filter(Boolean);
   return (
-    <span
-      className={cn("inline-block rounded-full px-2 py-0.5 text-xs font-medium", STATUS_COLOR[eintrag.status])}
-      title={manuell ? `Manuell gesetzt (automatisch: ${STATUS_LABEL[eintrag.status_automatisch]})` : undefined}
-    >
-      {STATUS_LABEL[eintrag.status]}
-      {manuell && " *"}
+    <span className="inline-flex items-center gap-1.5">
+      <span
+        className={cn("inline-block rounded-full px-2 py-0.5 text-xs font-medium", STATUS_COLOR[eintrag.status])}
+        title={titelTeile.join("\n")}
+      >
+        {STATUS_LABEL[eintrag.status]}
+        {manuell && " *"}
+      </span>
+      <span
+        className={cn("size-1.5 rounded-full", SICHERHEIT_DOT[eintrag.sicherheit])}
+        title={SICHERHEIT_LABEL[eintrag.sicherheit]}
+      />
+      {eintrag.warnsignal && (
+        <span title={eintrag.warnsignal}>
+          <TriangleAlert
+            className="size-3.5 shrink-0 text-amber-600 dark:text-amber-400"
+            aria-label={eintrag.warnsignal}
+          />
+        </span>
+      )}
     </span>
   );
 }
@@ -109,6 +147,18 @@ function useKundenMeta() {
     }) => api.post(`/api/dashboard/kunden/${encodeURIComponent(vars.kunde)}/meta`, vars.body),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["dashboard-kunden-status"] }),
     onError: () => toast.error("Speichern fehlgeschlagen"),
+  });
+}
+
+function useKundenNeuBewerten() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (kunde: string) => api.post(`/api/dashboard/kunden/${encodeURIComponent(kunde)}/neu-bewerten`, {}),
+    onSuccess: (_data, kunde) => {
+      queryClient.invalidateQueries({ queryKey: ["dashboard-kunden-status"] });
+      toast.success(`${kunde} neu bewertet`);
+    },
+    onError: () => toast.error("Neubewertung fehlgeschlagen"),
   });
 }
 
@@ -131,6 +181,7 @@ export function DashboardPage() {
   });
 
   const meta = useKundenMeta();
+  const neuBewerten = useKundenNeuBewerten();
 
   function startEdit(e: Eintrag) {
     setEditing(e.kunde);
@@ -195,8 +246,12 @@ export function DashboardPage() {
         <CardContent>
           <p className="mb-3 text-sm text-muted-foreground">
             Kunden (Kunden/) und echte Einzel-Interessenten (Leads/, ohne Massen-Kontaktlisten) in
-            einer Ansicht. Status, Notiz und nächster Termin lassen sich manuell überschreiben, wenn
-            die automatische Einschätzung nicht zur Realität passt (mit * markiert).
+            einer Ansicht. Der Status wird automatisch aus allen Unterlagen (E-Mails, Dokumenten,
+            Meeting-Mitschriften) hergeleitet, nicht nur aus Ordner-Anwesenheit - der Punkt neben dem
+            Status zeigt die Sicherheit dieser Einschätzung (grün/gelb/rot), ein ⚠ ein erkanntes
+            Warnsignal. Die Notiz fließt zusätzlich als Hinweis in die Bewertung ein. Status und Notiz
+            lassen sich jederzeit manuell überschreiben (mit * markiert), und mit dem Neu-bewerten-Button
+            lässt sich die Einschätzung sofort aktualisieren, statt auf die nächste Dateiänderung zu warten.
           </p>
           {kundenLoading ? (
             <div className="space-y-2">
@@ -260,6 +315,17 @@ export function DashboardPage() {
                       <TableCell className="tabular-nums">{e.offene_aufgaben || "–"}</TableCell>
                       <TableCell>
                         <div className="flex items-center gap-1">
+                          {e.typ === "kunde" && (
+                            <Button
+                              variant="ghost"
+                              size="icon-sm"
+                              onClick={() => neuBewerten.mutate(e.kunde)}
+                              disabled={neuBewerten.isPending}
+                              title="Status jetzt neu bewerten (z.B. nach einem Telefonat)"
+                            >
+                              <RefreshCw className={cn("size-4", neuBewerten.isPending && "animate-spin")} />
+                            </Button>
+                          )}
                           <Button
                             variant="ghost"
                             size="icon-sm"
