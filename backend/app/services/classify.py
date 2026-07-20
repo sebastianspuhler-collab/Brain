@@ -225,6 +225,15 @@ REGELN:
   · Praesentationen/ → Präsentationen, Pitches, Slides
   · Dokumente/   → alles andere (Specs, Fachkonzepte, Anleitungen, Projektpläne)
 - Neuer Kunde erkannt → zielordner: "Kunden/[Firmenname]/Dokumente" (Ordner wird automatisch erstellt)
+  ACHTUNG neuer_kunde=true nur bei einer ECHTEN neuen Kunden-/Interessenten-Beziehung
+  für Prozessia selbst. KEIN neuer Kunde ist z.B.: ein externer Lieferant/
+  Subunternehmer/IT-Dienstleister, der nur im Rahmen eines BESTEHENDEN
+  Kundenprojekts erwähnt wird (der gehört zu diesem bestehenden Kunden, nicht
+  in einen eigenen Ordner); eine private oder thematisch fremde Person/Inhalt
+  ohne Geschäftsbezug zu Prozessia; ein Newsletter, eine Werbe-Mail oder
+  generische Massenkommunikation, in der zufällig ein Name auftaucht. Im
+  Zweifel eher zu Memos/ oder zum bereits bestehenden Kunden einordnen als
+  einen neuen Kundenordner zu erfinden.
 - Verträge die keinen Kunden zugeordnet werden können → Vertraege/
 - Leads → Leads/
 - Finanzen → Finanzen/Rechnungen oder Finanzen/Angebote

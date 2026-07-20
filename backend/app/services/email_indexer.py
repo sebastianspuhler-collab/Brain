@@ -37,14 +37,23 @@ def _match_customer(sender: str, subject: str, body: str) -> str | None:
     _agent/email_cache/, ohne Bezug zu Kunden/<Name>/ - dadurch tauchten sie
     weder im Datei-Browser des Kunden noch in kundenspezifischer RAG-Suche
     (path_prefixes) auf, obwohl die Beziehung (Absenderdomain, Betreff) längst
-    erkennbar war."""
+    erkennbar war.
+
+    Mindestlänge 6 statt 3 (Sebastian, 2026-07-20): _normalize() entfernt
+    JEDE Trennung (Leerzeichen, Punkte), der Haystack ist also ein einziger
+    durchgehender String - Wortgrenzen lassen sich darin nicht mehr sinnvoll
+    prüfen. Eine Spam-Mail mit "tpg" irgendwo im Fließtext landete deshalb im
+    echten Kunden-Ordner "TPG" (3 Zeichen). Kurze Namen/Abkürzungen matchen
+    über diese Funktion jetzt bewusst gar nicht mehr - lieber eine
+    Korrespondenz landet nur im generischen Cache, als dass sie einen
+    falschen Kunden verschmutzt."""
     names = classify.list_customer_names()
     if not names:
         return None
     haystack = _normalize(f"{sender} {subject} {body[:500]}")
     for name in names:
         needle = _normalize(name.replace("_", " "))
-        if len(needle) >= 3 and needle in haystack:
+        if len(needle) >= 6 and needle in haystack:
             return name
     return None
 

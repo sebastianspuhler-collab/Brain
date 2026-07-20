@@ -167,10 +167,12 @@ def _naechster_termin(name: str, termine: list[dict]) -> dict | None:
 
 def _eintrag(
     name: str, status_info: dict, letzte_aktivitaet: str | None,
-    vollstaendigkeit: int | None, aktueller_stand: str, naechster_termin: dict | None,
-    tasks: list[dict], typ: str, zeige_archivierte: bool, meta: dict,
+    vollstaendigkeit: int | None, naechster_termin: dict | None,
+    tasks: list[dict], typ: str, zeige_archivierte: bool, zeige_irrelevante: bool, meta: dict,
 ) -> dict | None:
     if meta.get("archiviert") and not zeige_archivierte:
+        return None
+    if not status_info.get("ist_relevant", True) and not zeige_irrelevante:
         return None
     tage_seit_aktivitaet = None
     if letzte_aktivitaet:
@@ -181,8 +183,15 @@ def _eintrag(
         except ValueError:
             pass
     status_override = meta.get("status_override")
+    # Nur die interpretativen Felder sind übersteuerbar (Sebastian, 2026-07-20:
+    # Fakten wie Vollständigkeit/Termin/Aufgaben bleiben rein automatisch, ein
+    # Override dort könnte der echten Dateilage widersprechen).
+    overrides = meta.get("overrides") or {}
+    anzeige_name = overrides.get("anzeige_name") or status_info.get("anzeige_name") or name
+    aktueller_stand = overrides.get("aktueller_stand") or status_info.get("aktueller_stand") or ""
     return {
         "kunde": name,
+        "anzeige_name": anzeige_name,
         "typ": typ,
         "letztes_meeting": letzte_aktivitaet,
         "tage_seit_meeting": tage_seit_aktivitaet,
@@ -192,6 +201,8 @@ def _eintrag(
         "begruendung": status_info["begruendung"],
         "quellen": status_info["quellen"],
         "warnsignal": status_info["warnsignal"],
+        "ist_relevant": status_info.get("ist_relevant", True),
+        "relevanz_begruendung": status_info.get("relevanz_begruendung") or "",
         "offene_aufgaben": sum(
             1 for t in tasks if not t.get("done") and name.lower() in t["text"].lower()
         ),
@@ -213,7 +224,10 @@ def _ist_einzel_lead(md_path) -> bool:
 
 
 @router.get("/dashboard/kunden-status")
-def kunden_status(zeige_archivierte: bool = False, user: str = Depends(get_current_user)):
+def kunden_status(
+    zeige_archivierte: bool = False, zeige_irrelevante: bool = False,
+    user: str = Depends(get_current_user),
+):
     settings = get_settings()
     tasks = tasks_service.get_tasks()
     termine = calendar_service.get_calendar_events()
@@ -236,8 +250,7 @@ def kunden_status(zeige_archivierte: bool = False, user: str = Depends(get_curre
                 kunde_path.name, status_info,
                 _letzte_aktivitaet(kunde_path),
                 _vollstaendigkeit(kunde_path),
-                _aktueller_stand(kunde_path / "Meetings"),
-                naechster_termin, tasks, "kunde", zeige_archivierte, meta,
+                naechster_termin, tasks, "kunde", zeige_archivierte, zeige_irrelevante, meta,
             )
             if eintrag:
                 result.append(eintrag)
@@ -252,25 +265,19 @@ def kunden_status(zeige_archivierte: bool = False, user: str = Depends(get_curre
             m = re.search(r"^datum:\s*(\d{4}-\d{2}-\d{2})", md_path.read_text(encoding="utf-8"), re.M)
             if m:
                 frontmatter_datum = m.group(1)
-            # Reiner Kalender-Stub (nur Termin/Teilnehmer, siehe
-            # calendar_lead_service._write_lead_stub) vs. echte Notiz mit
-            # Transkript-/Gesprächsinhalt - Größenschwelle statt Raten, der
-            # Stub-Text selbst ist konstant kurz (~500 Zeichen). Leads haben
-            # keine Kunden-Ordnerstruktur (Vertraege/Angebote/Meetings) für die
-            # LLM-Synthese in kunden_status_service - bleibt bewusst diese
-            # einfachere Heuristik, dafür ehrlich als "niedrig" markiert statt
-            # eine Sicherheit vorzutäuschen, die nicht besteht.
-            status = "erstgespraech" if md_path.stat().st_size > 800 else "neuer_kontakt"
-            status_info = {
-                "status": status, "sicherheit": "niedrig",
-                "begruendung": "Aus Dateigröße geschätzt (Lead ohne strukturierte Unterlagen).",
-                "quellen": [], "warnsignal": None,
-            }
             meta = kunden_meta_service.get_meta(name)
             naechster_termin = _naechster_termin(name, termine)
+            # Leads laufen seit 2026-07-20 durch dieselbe LLM-Synthese wie
+            # Kunden (kunden_status_service unterstützt seitdem eine einzelne
+            # Datei statt eines Kundenordners) - vorher gab es hier nur eine
+            # Byte-Größen-Heuristik ohne "aktueller_stand" und ohne
+            # Relevanz-Prüfung.
+            status_info = kunden_status_service.get_status(
+                name, md_path, notiz=meta.get("notiz", ""), naechster_termin=naechster_termin,
+            )
             eintrag = _eintrag(
-                name, status_info, frontmatter_datum, None, "",
-                naechster_termin, tasks, "lead", zeige_archivierte, meta,
+                name, status_info, frontmatter_datum, None,
+                naechster_termin, tasks, "lead", zeige_archivierte, zeige_irrelevante, meta,
             )
             if eintrag:
                 result.append(eintrag)
@@ -286,6 +293,7 @@ def set_kunden_meta(kunde: str, body: KundenMetaRequest, user: str = Depends(get
         archiviert=body.archiviert,
         status_override=body.status_override,
         notiz=body.notiz,
+        overrides=body.overrides,
     )
 
 
@@ -293,11 +301,21 @@ def set_kunden_meta(kunde: str, body: KundenMetaRequest, user: str = Depends(get
 def kunden_neu_bewerten(kunde: str, user: str = Depends(get_current_user)):
     """Erzwingt eine sofortige Neubewertung statt auf die nächste Dateiänderung
     zu warten - Sebastians Steuerungshebel z.B. nach einem Telefonat, das (noch)
-    nicht als Dokument im Vault liegt, oder nach einer neuen Notiz."""
+    nicht als Dokument im Vault liegt, oder nach einer neuen Notiz. Funktioniert
+    seit der Lead-LLM-Synthese (2026-07-20) für Kunden UND Leads."""
     settings = get_settings()
     kunde_path = settings.vault_path / "Kunden" / kunde
     if not kunde_path.exists():
-        return {"error": "Kunde nicht gefunden"}
+        leads_dir = settings.vault_path / "Leads"
+        kunde_path = next(
+            (
+                p for p in leads_dir.glob("*.md")
+                if re.sub(r"^\d{4}-\d{2}-\d{2}-", "", p.stem) == kunde
+            ),
+            None,
+        ) if leads_dir.exists() else None
+    if not kunde_path or not kunde_path.exists():
+        return {"error": "Kunde/Lead nicht gefunden"}
     meta = kunden_meta_service.get_meta(kunde)
     naechster_termin = _naechster_termin(kunde, calendar_service.get_calendar_events())
     return kunden_status_service.get_status(
