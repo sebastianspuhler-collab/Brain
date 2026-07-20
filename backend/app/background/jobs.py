@@ -75,7 +75,12 @@ def git_pull_vault() -> bool:
 
 
 def git_push_vault(message: str = "brain: auto-sync") -> bool:
-    """Committed und pushed lokale Änderungen (memory.md, context.md, etc.)."""
+    """Committed und pushed ALLE lokalen Änderungen - nicht mehr nur die vier
+    _agent/*.md-Dateien (Sebastian, 2026-07-20: nur noch der VPS führt das
+    Backend aus, das Laptop-Dateisystem muss dafür aber vollständig synchron
+    bleiben, sonst fehlen dort neu einsortierte Kundendokumente/Anhänge -
+    diese Funktion wurde bis dahin nirgends aufgerufen, der VPS hat seine
+    eigenen classify()-Ablagen nie automatisch gepusht)."""
     settings = get_settings()
     vault = settings.vault_path
     pat = settings.git_pat
@@ -88,11 +93,9 @@ def git_push_vault(message: str = "brain: auto-sync") -> bool:
     env["GIT_COMMITTER_NAME"] = "Prozessia Brain"
     env["GIT_COMMITTER_EMAIL"] = "brain@prozessia.de"
     try:
-        # Nur _agent/*.md committen (memory, context, logs) - keine Binärdateien
         subprocess.run(
-            ["git", "add", "_agent/memory.md", "_agent/context.md",
-             "_agent/prozessia.md", "_agent/logs/inbox_log.md"],
-            cwd=vault, capture_output=True, timeout=10, env=env,
+            ["git", "add", "-A"],
+            cwd=vault, capture_output=True, timeout=30, env=env,
         )
         status = subprocess.run(
             ["git", "diff", "--cached", "--quiet"],
@@ -126,11 +129,14 @@ def git_push_vault(message: str = "brain: auto-sync") -> bool:
 
 
 async def git_sync_loop() -> None:
-    """Zieht alle 10 Min den neuesten Stand vom Remote-Repo (Mac → VPS-Sync)."""
+    """Alle 10 Min: zuerst pullen (Mac → VPS), danach eigene Änderungen pushen
+    (VPS → Mac) - bidirektional, damit das Laptop-Dateisystem sieht, was der
+    VPS selbst einsortiert hat (siehe git_push_vault())."""
     await asyncio.sleep(30)  # Warten bis der Rest gestartet ist
     while True:
         try:
             await asyncio.to_thread(git_pull_vault)
+            await asyncio.to_thread(git_push_vault)
         except Exception:
             logger.exception("Git-Sync Fehler")
         await asyncio.sleep(GIT_SYNC_SECONDS)
