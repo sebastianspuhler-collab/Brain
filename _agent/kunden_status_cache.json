@@ -10,7 +10,7 @@
     }
   },
   "Hettmer": {
-    "input_hash": "ba6172e0c050d04a",
+    "input_hash": "710859d7fbb3979d",
     "ergebnis": {
       "status": "neuer_kontakt",
       "sicherheit": "niedrig",
@@ -54,7 +54,7 @@
     }
   },
   "Mundinger": {
-    "input_hash": "74fb452319c3d7ed",
+    "input_hash": "56b9f4cb6123071d",
     "ergebnis": {
       "status": "erstgespraech",
       "sicherheit": "niedrig",
@@ -78,7 +78,7 @@
     }
   },
   "Schaufler": {
-    "input_hash": "0266cdb51a1984a7",
+    "input_hash": "094007018e722a65",
     "ergebnis": {
       "status": "auftrag",
       "sicherheit": "niedrig",
@@ -92,7 +92,7 @@
     }
   },
   "TPG": {
-    "input_hash": "942df039b48e57d6",
+    "input_hash": "0842156d6f959d36",
     "ergebnis": {
       "status": "erstgespraech",
       "sicherheit": "niedrig",
@@ -106,7 +106,7 @@
     }
   },
   "Voigt_Salus": {
-    "input_hash": "b20aed96172e47ea",
+    "input_hash": "7a1f05f3cf7da09e",
     "ergebnis": {
       "status": "auftrag",
       "sicherheit": "niedrig",
@@ -120,7 +120,7 @@
     }
   },
   "endin": {
-    "input_hash": "d7cb0f37c0a6f3d2",
+    "input_hash": "37fbd713b74bbe8e",
     "ergebnis": {
       "status": "angebotsphase",
       "sicherheit": "niedrig",
