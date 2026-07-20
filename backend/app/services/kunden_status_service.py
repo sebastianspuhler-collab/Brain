@@ -42,6 +42,10 @@ _FALLBACK = {
     "status": "neuer_kontakt", "sicherheit": "niedrig",
     "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
     "quellen": [], "warnsignal": None,
+    # ist_relevant=True im Zweifel - lieber fälschlich anzeigen als fälschlich
+    # verstecken, wenn die Bewertung selbst schon fehlgeschlagen ist.
+    "ist_relevant": True, "relevanz_begruendung": "",
+    "anzeige_name": "", "aktueller_stand": "",
 }
 
 
