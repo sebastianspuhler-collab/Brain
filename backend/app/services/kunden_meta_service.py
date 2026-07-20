@@ -16,7 +16,7 @@ from pathlib import Path
 
 from app.config import get_settings
 
-_DEFAULT = {"archiviert": False, "status_override": None, "notiz": ""}
+_DEFAULT = {"archiviert": False, "status_override": None, "notiz": "", "overrides": {}}
 
 
 def _kunden_meta_path() -> Path:
@@ -40,7 +40,11 @@ def _save_all(data: dict) -> None:
 
 
 def get_meta(kunde: str) -> dict:
-    return _load_all().get(kunde, dict(_DEFAULT))
+    # "overrides" per dict.get statt direktem Zugriff, damit vor dieser
+    # Erweiterung gespeicherte Einträge (ohne das Feld) nicht crashen.
+    eintrag = {**_DEFAULT, **_load_all().get(kunde, {})}
+    eintrag["overrides"] = eintrag.get("overrides") or {}
+    return eintrag
 
 
 def upsert_meta(
@@ -48,15 +52,26 @@ def upsert_meta(
     archiviert: bool | None = None,
     status_override: str | None = None,
     notiz: str | None = None,
+    overrides: dict[str, str] | None = None,
 ) -> dict:
     data = _load_all()
-    eintrag = data.get(kunde, dict(_DEFAULT))
+    eintrag = {**_DEFAULT, **data.get(kunde, {})}
+    eintrag["overrides"] = eintrag.get("overrides") or {}
     if archiviert is not None:
         eintrag["archiviert"] = archiviert
     if status_override is not None:
         eintrag["status_override"] = status_override or None
     if notiz is not None:
         eintrag["notiz"] = notiz
+    if overrides is not None:
+        # Merge statt Ersetzen, damit z.B. nur "anzeige_name" gesetzt werden
+        # kann, ohne einen bereits gesetzten "aktueller_stand"-Override zu
+        # verlieren. Leerer String löscht das einzelne Override-Feld wieder.
+        for feld, wert in overrides.items():
+            if wert:
+                eintrag["overrides"][feld] = wert
+            else:
+                eintrag["overrides"].pop(feld, None)
     data[kunde] = eintrag
     _save_all(data)
     return eintrag

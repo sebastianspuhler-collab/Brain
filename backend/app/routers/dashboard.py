@@ -52,6 +52,7 @@ class KundenMetaRequest(BaseModel):
     archiviert: bool | None = None
     status_override: str | None = None
     notiz: str | None = None
+    overrides: dict[str, str] | None = None
 
 
 @router.get("/status")
@@ -144,24 +145,6 @@ def _letzte_aktivitaet(ordner) -> str | None:
         if (m := re.match(r"^(\d{4}-\d{2}-\d{2})", f.name))
     ]
     return max(dates) if dates else None
-
-
-def _aktueller_stand(meetings_dir) -> str:
-    """Erster Punkt aus "Nächste Schritte" der jüngsten Meeting-Datei - kein
-    neuer LLM-Call, reine Textextraktion aus bereits vorhandenem Inhalt
-    (extract_meeting_structure() schreibt diesen Abschnitt in classify.py)."""
-    if not meetings_dir.exists():
-        return ""
-    dateien = sorted(meetings_dir.glob("*.md"), reverse=True)
-    if not dateien:
-        return ""
-    text = dateien[0].read_text(encoding="utf-8")
-    m = re.search(r"## Nächste Schritte\n(.*?)(?:\n##|\Z)", text, re.S)
-    if not m:
-        return ""
-    zeilen = [z.lstrip("- ").strip() for z in m.group(1).strip().splitlines() if z.strip()]
-    zeilen = [z for z in zeilen if z and z != "(keine)"]
-    return zeilen[0] if zeilen else ""
 
 
 def _naechster_termin(name: str, termine: list[dict]) -> dict | None:

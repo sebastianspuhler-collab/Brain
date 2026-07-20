@@ -75,7 +75,14 @@ def _hat_dateien(ordner: Path) -> bool:
 
 def _floor_status(kunde_path: Path) -> str:
     """Deterministisch aus Ordner-Anwesenheit - siehe Moduldoc. Wird vom LLM
-    nie unterschritten, unabhängig davon wie unklar der Inhalt wirkt."""
+    nie unterschritten, unabhängig davon wie unklar der Inhalt wirkt.
+
+    Leads sind eine einzelne .md-Datei statt eines Kundenordners (keine
+    Vertraege/Angebote/Meetings-Unterordner) - Floor dafür reicht die alte
+    Byte-Größen-Heuristik aus dashboard.py: eine reine Kalender-Stub-Notiz
+    (siehe calendar_lead_service._write_lead_stub) ist konstant kurz."""
+    if kunde_path.is_file():
+        return "erstgespraech" if kunde_path.stat().st_size > 800 else "neuer_kontakt"
     if _hat_dateien(kunde_path / "Vertraege"):
         return "auftrag"
     if _hat_dateien(kunde_path / "Angebote"):
@@ -94,37 +101,50 @@ def _abschnitt(text: str, titel: str) -> str:
     return "; ".join(zeilen)
 
 
+def _lies_dokument(f: Path, ordner: str) -> dict | None:
+    try:
+        text = f.read_text(encoding="utf-8")
+    except Exception:
+        return None
+    m_datum = re.search(r"^datum:\s*(\d{4}-\d{2}-\d{2})", text, re.M)
+    m_kat = re.search(r"^kategorie:\s*(.+)$", text, re.M)
+    m_zus = re.search(r"## Zusammenfassung\n(.*?)(?:\n##|\Z)", text, re.S)
+    eintrag = {
+        "datei": f.name,
+        "ordner": ordner,
+        "datum": m_datum.group(1) if m_datum else "",
+        "kategorie": m_kat.group(1).strip() if m_kat else "",
+        "zusammenfassung": m_zus.group(1).strip() if m_zus else "",
+    }
+    if ordner == "Meetings":
+        for feld, titel in _MEETING_FELDER:
+            wert = _abschnitt(text, titel)
+            if wert:
+                eintrag[feld] = wert
+    return eintrag
+
+
 def _sammle_dokumente(kunde_path: Path) -> list[dict]:
     """Liest Frontmatter + Zusammenfassung/Meeting-Abschnitte aller bereits
     abgelegten .md-Dateien - reine Wiederverwendung dessen, was classify.py /
     extract_meeting_structure() beim Einsortieren bereits per LLM
-    herausgezogen und in die Datei geschrieben hat, keine neue Extraktion."""
+    herausgezogen und in die Datei geschrieben hat, keine neue Extraktion.
+
+    Leads sind eine einzelne .md-Datei in Leads/ statt eines Kundenordners
+    mit Unterordnern - dafür wird nur diese eine Datei gelesen."""
+    if kunde_path.is_file():
+        eintrag = _lies_dokument(kunde_path, "Leads")
+        return [eintrag] if eintrag else []
+
     dokumente = []
     for sub in _DOKUMENT_ORDNER:
         ordner = kunde_path / sub
         if not ordner.exists():
             continue
         for f in ordner.glob("*.md"):
-            try:
-                text = f.read_text(encoding="utf-8")
-            except Exception:
-                continue
-            m_datum = re.search(r"^datum:\s*(\d{4}-\d{2}-\d{2})", text, re.M)
-            m_kat = re.search(r"^kategorie:\s*(.+)$", text, re.M)
-            m_zus = re.search(r"## Zusammenfassung\n(.*?)(?:\n##|\Z)", text, re.S)
-            eintrag = {
-                "datei": f.name,
-                "ordner": sub,
-                "datum": m_datum.group(1) if m_datum else "",
-                "kategorie": m_kat.group(1).strip() if m_kat else "",
-                "zusammenfassung": m_zus.group(1).strip() if m_zus else "",
-            }
-            if sub == "Meetings":
-                for feld, titel in _MEETING_FELDER:
-                    wert = _abschnitt(text, titel)
-                    if wert:
-                        eintrag[feld] = wert
-            dokumente.append(eintrag)
+            eintrag = _lies_dokument(f, sub)
+            if eintrag:
+                dokumente.append(eintrag)
     dokumente.sort(key=lambda d: d["datum"], reverse=True)
     return dokumente[:_MAX_DOKUMENTE]
 
@@ -154,7 +174,9 @@ def _digest(dokumente: list[dict]) -> str:
     return "\n\n".join(bloecke)
 
 
-def bewerte_kunde(kunde_path: Path, notiz: str = "", naechster_termin: dict | None = None) -> dict:
+def bewerte_kunde(
+    kunde_path: Path, notiz: str = "", naechster_termin: dict | None = None, kunde_name: str = "",
+) -> dict:
     dokumente = _sammle_dokumente(kunde_path)
     floor = _floor_status(kunde_path)
     dateinamen = {d["datei"] for d in dokumente}
@@ -165,6 +187,8 @@ def bewerte_kunde(kunde_path: Path, notiz: str = "", naechster_termin: dict | No
             "sicherheit": "hoch" if floor == "neuer_kontakt" else "mittel",
             "begruendung": "Keine inhaltlichen Unterlagen vorhanden, Einschätzung rein aus Ordnerstruktur.",
             "quellen": [], "warnsignal": None,
+            "ist_relevant": True, "relevanz_begruendung": "",
+            "anzeige_name": kunde_name, "aktueller_stand": "",
         }
 
     termin_text = (
@@ -175,6 +199,8 @@ def bewerte_kunde(kunde_path: Path, notiz: str = "", naechster_termin: dict | No
 
     prompt = f"""Du bewertest den Vertriebs-/Betreuungsstatus eines Kunden für Prozessia GbR
 anhand ALLER vorliegenden Unterlagen (E-Mails, Dokumente, Meeting-Mitschriften).
+
+Ordner-/Dateiname im Vault: "{kunde_name}"
 
 Chronologie (neueste zuerst):
 {_digest(dokumente)}
@@ -194,20 +220,24 @@ Bestimme:
 3. begruendung: 1-2 deutsche Sätze, MUSS sich auf konkrete Dateien aus der Chronologie oben beziehen (Dateiname nennen)
 4. quellen: JSON-Array der Dateinamen (exakt wie oben, nur der Dateiname nach dem "/"), auf die sich die Begründung stützt
 5. warnsignal: kurzer deutscher Satz, falls ein Alarmzeichen erkennbar ist (z.B. lange Funkstille nach Angebot, abgesagter Termin, erkennbare Unzufriedenheit, überfälliges Follow-up) - sonst null
+6. ist_relevant: true/false - handelt es sich hier wirklich um eine Kunden- oder Interessenten-Beziehung für Prozessia? false bei: externen Lieferanten/Subunternehmern/IT-Dienstleistern, die nur im Rahmen eines ANDEREN Kundenprojekts auftauchen; privaten oder themenfremden Inhalten ohne Geschäftsbezug; Newslettern, Spam oder generischen Massenmails, die nur zufällig hier abgelegt wurden
+7. relevanz_begruendung: 1 kurzer deutscher Satz, warum (nur ausfüllen wenn ist_relevant=false, sonst leer lassen)
+8. anzeige_name: der echte Firmen- oder Personenname aus dem Inhalt (z.B. "Forlin GmbH"), falls klar erkennbar - sonst einfach "{kunde_name}" übernehmen. NIEMALS einen Namen erfinden, der nirgends in der Chronologie steht.
+9. aktueller_stand: 1 kurzer deutscher Satz, was gerade der Stand ist bzw. der nächste Schritt - aus der GESAMTEN Chronologie, nicht nur dem neuesten Dokument. Leer lassen wenn nicht erkennbar.
 
 Antworte NUR als JSON, keine Erklärung. Format:
-{{"status": "...", "sicherheit": "...", "begruendung": "...", "quellen": [...], "warnsignal": "..." oder null}}"""
+{{"status": "...", "sicherheit": "...", "begruendung": "...", "quellen": [...], "warnsignal": "..." oder null, "ist_relevant": true/false, "relevanz_begruendung": "...", "anzeige_name": "...", "aktueller_stand": "..."}}"""
 
     try:
         resp = get_client().messages.create(
-            model=Models.SONNET, max_tokens=600,
+            model=Models.SONNET, max_tokens=700,
             thinking={"type": "disabled"},  # siehe classify.py - sonst Gefahr von abgeschnittenem JSON
             messages=[{"role": "user", "content": prompt}],
         )
         raw = get_response_text(resp).strip().replace("```json", "").replace("```", "").strip()
         result = json.loads(raw)
     except Exception:
-        return {**_FALLBACK, "status": floor}
+        return {**_FALLBACK, "status": floor, "anzeige_name": kunde_name}
 
     status = result.get("status")
     if status not in STATUS_RANK:
@@ -229,12 +259,20 @@ Antworte NUR als JSON, keine Erklärung. Format:
         status = floor
         sicherheit = "niedrig"
 
+    anzeige_name = result.get("anzeige_name")
+    if not isinstance(anzeige_name, str) or not anzeige_name.strip():
+        anzeige_name = kunde_name
+
     return {
         "status": status,
         "sicherheit": sicherheit,
         "begruendung": result.get("begruendung", ""),
         "quellen": quellen_valide,
         "warnsignal": result.get("warnsignal") or None,
+        "ist_relevant": bool(result.get("ist_relevant", True)),
+        "relevanz_begruendung": result.get("relevanz_begruendung") or "",
+        "anzeige_name": anzeige_name.strip(),
+        "aktueller_stand": (result.get("aktueller_stand") or "").strip(),
     }
 
 
@@ -250,7 +288,7 @@ def get_status(
     if not force and cached and cached.get("input_hash") == input_hash:
         return cached["ergebnis"]
 
-    ergebnis = bewerte_kunde(kunde_path, notiz, naechster_termin)
+    ergebnis = bewerte_kunde(kunde_path, notiz, naechster_termin, kunde_name)
     cache[kunde_name] = {"input_hash": input_hash, "ergebnis": ergebnis}
     _save_cache(cache)
     return ergebnis
