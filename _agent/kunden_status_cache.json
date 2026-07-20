@@ -1,0 +1,112 @@
+{
+  "Bender": {
+    "input_hash": "bb009b5b14b84f59",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null
+    }
+  },
+  "Hettmer": {
+    "input_hash": "710859d7fbb3979d",
+    "ergebnis": {
+      "status": "neuer_kontakt",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null
+    }
+  },
+  "Issel": {
+    "input_hash": "a1009974c00874b2",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null
+    }
+  },
+  "Jochem_nanoSaar": {
+    "input_hash": "65196383a5d7c591",
+    "ergebnis": {
+      "status": "neuer_kontakt",
+      "sicherheit": "hoch",
+      "begruendung": "Keine inhaltlichen Unterlagen vorhanden, Einschätzung rein aus Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null
+    }
+  },
+  "Lendner": {
+    "input_hash": "f31970a27281727d",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null
+    }
+  },
+  "Mundinger": {
+    "input_hash": "56b9f4cb6123071d",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null
+    }
+  },
+  "Reiffen": {
+    "input_hash": "f3e175e49b3914f6",
+    "ergebnis": {
+      "status": "neuer_kontakt",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null
+    }
+  },
+  "Schaufler": {
+    "input_hash": "094007018e722a65",
+    "ergebnis": {
+      "status": "auftrag",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null
+    }
+  },
+  "TPG": {
+    "input_hash": "0842156d6f959d36",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null
+    }
+  },
+  "Voigt_Salus": {
+    "input_hash": "7a1f05f3cf7da09e",
+    "ergebnis": {
+      "status": "auftrag",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null
+    }
+  },
+  "endin": {
+    "input_hash": "37fbd713b74bbe8e",
+    "ergebnis": {
+      "status": "angebotsphase",
+      "sicherheit": "niedrig",
+      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null
+    }
+  }
+}
