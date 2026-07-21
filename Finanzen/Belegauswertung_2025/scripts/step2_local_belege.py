@@ -14,6 +14,10 @@ SELF_ISSUED_PHRASE = "unsere lieferungen/leistungen stellen wir ihnen"
 MONTHS = {
     "januar":1,"februar":2,"märz":3,"maerz":3,"april":4,"mai":5,"juni":6,"juli":7,
     "august":8,"september":9,"oktober":10,"november":11,"dezember":12,
+    "january":1,"february":2,"march":3,"june":6,"july":7,
+    "october":10,"december":12,
+    "jan":1,"feb":2,"mär":3,"mrz":3,"mar":3,"apr":4,"jun":6,"jul":7,"aug":8,
+    "sep":9,"sept":9,"okt":10,"oct":10,"nov":11,"dez":12,"dec":12,"may":5,
 }
 
 def find_first(patterns, text, flags=re.IGNORECASE):
@@ -35,7 +39,7 @@ def parse_de_amount(s):
 
 # --- Robuste Betrags-Extraktion (Fallback fuer heterogene Vendor-Layouts) ---
 AMOUNT_LINE_RE = re.compile(
-    r'^[+\-]?\s*(?:€|\$)?\s*(\d{1,3}(?:[.,]\d{3})*[.,]\d{2})\s*(€|\$|EUR|USD)?\s*$'
+    r'^[+\-–—]?\s*(?:€|\$|EUR|USD)?\s*(\d{1,3}(?:[.,]\d{3})*[.,]\d{2})\s*(€|\$|EUR|USD)?\s*(?:\((?:EUR|USD)\))?\s*$'
 )
 
 def parse_amount_token(num_str):
@@ -52,9 +56,13 @@ def amount_currency(cur):
 
 GROSS_LABELS = [
     r'Zu zahlender Betrag',
+    r'Rechnungsbetrag',
     r'Bezahlter Betrag',
     r'F[aä]lliger Betrag',
-    r'Gesamtbetrag',
+    r'Services after tax',
+    r'Total in EUR',
+    r'ZAHLUNGSBELEG',
+    r'Gesamtbetrag(?:\s*(?:EUR|USD))?',
     r'Gesamtsumme',
     r'Invoice Amount',
     r'(?<!Zwischen)(?<!zwischen)\bInsgesamt\b',
@@ -63,6 +71,7 @@ GROSS_LABELS = [
     r'Total\s*\(?incl',
     r'\bTotal\b(?!\s*excl)',
     r'Amount [Dd]ue(?!\s*\(EUR\)\s*\n?\s*[€$]?0)',
+    r'\bBezahlt\b',
 ]
 NET_LABEL_WORDS = re.compile(r'zwischensumme|subtotal|nettopreis|\bnetto\b|excl\.?\s*vat|excluding tax|before tax', re.IGNORECASE)
 
@@ -70,7 +79,8 @@ def amounts_forward_window(text, start, max_lines=6):
     rest = text[start:start + 400]
     lines = rest.split('\n')
     amounts = []
-    for line in lines[:max_lines]:
+    skips = 0
+    for line in lines[:max_lines + 2]:
         line_s = line.strip()
         if not line_s:
             continue
@@ -79,6 +89,9 @@ def amounts_forward_window(text, start, max_lines=6):
             val = parse_amount_token(m.group(1))
             if val is not None:
                 amounts.append((val, amount_currency(m.group(2))))
+        elif not amounts and skips < 2:
+            skips += 1
+            continue
         else:
             break
     return amounts
@@ -129,13 +142,68 @@ def parse_de_date(s):
     if m:
         d, mo, y = m.groups()
         return f"{y}-{int(mo):02d}-{int(d):02d}"
-    m = re.match(r'^(\d{1,2})\.\s*([A-Za-zäöüÄÖÜ]+)\s*(\d{4})$', s)
+    m = re.match(r'^(\d{1,2})\.\s*([A-Za-zäöüÄÖÜ]+)\.?\s*(\d{4})$', s)
     if m:
         d, monat_name, y = m.groups()
-        mo = MONTHS.get(monat_name.lower().replace('ä','ae').replace('ü','ue').replace('ö','oe'))
+        mo = MONTHS.get(monat_name.lower())
         if mo:
             return f"{y}-{mo:02d}-{int(d):02d}"
+    m = re.match(r'^([A-Za-z]+)\s+(\d{1,2}),?\s*(\d{4})$', s)
+    if m:
+        monat_name, d, y = m.groups()
+        mo = MONTHS.get(monat_name.lower())
+        if mo:
+            return f"{y}-{mo:02d}-{int(d):02d}"
+    m = re.match(r'^(\d{1,2})\.(\d{1,2})\.(\d{2})$', s)
+    if m:
+        d, mo, y = m.groups()
+        return f"20{y}-{int(mo):02d}-{int(d):02d}"
+    m = re.match(r'^(\d{1,2})/(\d{1,2})/(\d{4})$', s)
+    if m:
+        d, mo, y = m.groups()  # DE-Kontext: DD/MM/YYYY
+        return f"{y}-{int(mo):02d}-{int(d):02d}"
     return None
+
+HEADER_LABELS = {
+    "rechnungsnr.:": "nummer", "angebotsnr.:": "nummer", "rechnungsnummer:": "nummer",
+    "bestellnr.:": "ignore", "kundennr.:": "ignore",
+    "datum:": "datum", "lieferdatum:": "ignore", "gültig bis:": "ignore",
+    "ausstellungsdatum:": "datum", "belegdatum": "datum",
+}
+
+def extract_header_block(text):
+    """Fallback fuer 'erst alle Labels, dann alle Werte'-Layouts (Prozessia-Vorlage,
+    Angebote): 'Rechnungsnr.:\\nKundennr.:\\nDatum:\\nLieferdatum:\\n \\n \\nRE250007\\n10005\\n19.11.2025\\n19.11.2025'."""
+    lines = [l.strip() for l in text.splitlines()]
+    for i in range(len(lines)):
+        block = []
+        j = i
+        while j < len(lines) and lines[j].lower() in HEADER_LABELS:
+            block.append(lines[j].lower())
+            j += 1
+        if len(block) < 2:
+            continue
+        # Leerzeilen ueberspringen
+        k = j
+        while k < len(lines) and not lines[k].strip():
+            k += 1
+        values = []
+        m = k
+        while m < len(lines) and len(values) < len(block) and lines[m].strip():
+            values.append(lines[m].strip())
+            m += 1
+        if len(values) != len(block):
+            continue
+        nummer, datum = None, None
+        for lbl, val in zip(block, values):
+            kind = HEADER_LABELS[lbl]
+            if kind == "nummer" and nummer is None:
+                nummer = val
+            elif kind == "datum" and datum is None:
+                datum = parse_de_date(val)
+        if nummer or datum:
+            return nummer, datum
+    return None, None
 
 def extract_rechnungsnummer(text):
     val = find_first([
@@ -145,16 +213,39 @@ def extract_rechnungsnummer(text):
         r'Invoice\s*(?:No\.?|Number)?[:#]?\s*([A-Za-z0-9\-_./]+)',
         r'Bestellnr\.?:?\s*\n?\s*([A-Za-z0-9\-_./]+)',
     ], text)
-    return val
+    if val:
+        return val
+    block_nummer, _ = extract_header_block(text)
+    return block_nummer
+
+DATE_TOKEN = r'(\d{1,2}\.\d{1,2}\.\d{2,4}|\d{1,2}\/\d{1,2}\/\d{4}|\d{1,2}\.\s*[A-Za-zäöüÄÖÜ]+\.?\s*\d{4}|[A-Za-z]+\.?\s+\d{1,2},?\s*\d{4})'
 
 def extract_rechnungsdatum(text):
     raw = find_first([
-        r'Rechnungsdatum:?\s*\n?\s*(\d{1,2}\.\d{1,2}\.\d{4})',
-        r'Rechnungsdatum:?\s*\n?\s*(\d{1,2}\.\s*[A-Za-zäöüÄÖÜ]+\s*\d{4})',
-        r'Datum:?\s*\n?\s*(\d{1,2}\.\d{1,2}\.\d{4})',
-        r'invoice date[:\s]*\n?\s*(\d{1,2}\.\d{1,2}\.\d{4})',
+        rf'Rechnungsdatum:?\s*\n?\s*{DATE_TOKEN}',
+        rf'Ausstellungsdatum:?\s*\n?\s*{DATE_TOKEN}',
+        rf'Belegdatum:?\s*\n?\s*{DATE_TOKEN}',
+        rf'Ausgabedatum:?\s*\n?\s*{DATE_TOKEN}',
+        rf'Date of issue:?\s*\n?\s*{DATE_TOKEN}',
+        rf'Date paid:?\s*\n?\s*{DATE_TOKEN}',
+        rf'Datum des Inkrafttretens:?\s*\n?\s*{DATE_TOKEN}',
+        rf'Invoice Issued\s*#?\s*{DATE_TOKEN}',
+        rf'Date:?\s*\n?\s*{DATE_TOKEN}',
+        rf'Datum:?\s*\n?\s*{DATE_TOKEN}',
+        rf'Bezahlt am\s*\n?\s*{DATE_TOKEN}',
+        rf'invoice date[:\s]*\n?\s*{DATE_TOKEN}',
     ], text)
-    return parse_de_date(raw)
+    parsed = parse_de_date(raw)
+    if parsed:
+        return parsed
+    _, block_datum = extract_header_block(text)
+    if block_datum:
+        return block_datum
+    # Wix-Vorlage: "Rechnung #<Nr>\n<Datum>\nBezahlt" - Datum ohne Label
+    m = re.search(r'Rechnung #\d+\s*\n\s*' + DATE_TOKEN + r'\s*\n\s*Bezahlt', text)
+    if m:
+        return parse_de_date(m.group(1))
+    return None
 
 def extract_betrag_brutto(text):
     val, cur = extract_betrag_brutto_robust(text)
@@ -232,6 +323,23 @@ def main():
             text = ''
 
         beleg_id = str(uuid.uuid5(uuid.NAMESPACE_URL, path))
+
+        if 'KONTOAUSZUG' in text and 'Finom' in path:
+            # Teilexport des Hauptkontoauszugs (Finom) - kein Einzelbeleg, bereits ueber
+            # den vollstaendigen Kontoauszug (Schritt 1) erfasst.
+            out.append({
+                "id": beleg_id, "quelle": ["ordner"], "quellref": path,
+                "richtung": None, "rechnungsdatum": None, "rechnungsnummer": None,
+                "partner": None, "beschreibung": "Kontoauszug-Teilexport (Finom), keine Einzeltransaktion",
+                "betrag_netto": None, "ust_satz": None, "ust_satz_unterstellt": False,
+                "ust_betrag": None, "betrag_brutto": None, "waehrung": "EUR",
+                "ist_abo": False, "abo_intervall": None, "tx_id": None, "zahlungsdatum": None,
+                "zahlungsweg": "UNBEKANNT", "status": "PRUEFFALL",
+                "pruefgrund": "Kontoauszug-Teilexport (mehrere Transaktionen), kein Einzelbeleg - Inhalt bereits ueber den vollstaendigen Finom-Kontoauszug (Schritt 1, Transaktionsliste) erfasst. Nur zur Doku behalten, nicht separat zuordnen.",
+                "_text_len": len(text), "_text_preview": text[:300],
+            })
+            continue
+
         rechnungsnummer = extract_rechnungsnummer(text)
         rechnungsdatum = extract_rechnungsdatum(text)
         betrag_brutto, brutto_waehrung = extract_betrag_brutto(text)
