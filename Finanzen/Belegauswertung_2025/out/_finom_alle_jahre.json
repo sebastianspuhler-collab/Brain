@@ -1,0 +1,3937 @@
+[
+  {
+    "tx_id": "FINOM-ec04c21f140cd78d",
+    "zahlungsdatum": "2026-07-21",
+    "betrag_brutto": 5.22,
+    "richtung": "EINGANG",
+    "gegenpartei": "OPENAI",
+    "verwendungszweck": "OPENAI",
+    "guthaben_nach_buchung": 7663.54,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1398 USD",
+      "fx_amount_lines": [
+        "- 5,95 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-df45c85009655874",
+    "zahlungsdatum": "2026-07-21",
+    "betrag_brutto": 11.04,
+    "richtung": "EINGANG",
+    "gegenpartei": "MISTRAL.AI",
+    "verwendungszweck": "MISTRAL.AI",
+    "guthaben_nach_buchung": 7668.76,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-e6fb28b80045b853",
+    "zahlungsdatum": "2026-07-21",
+    "betrag_brutto": 13.39,
+    "richtung": "EINGANG",
+    "gegenpartei": "MISTRAL.AI",
+    "verwendungszweck": "MISTRAL.AI",
+    "guthaben_nach_buchung": 7679.8,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-d8e8dbc3b43d3a31",
+    "zahlungsdatum": "2026-07-19",
+    "betrag_brutto": 2.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "IONOS SE",
+    "verwendungszweck": "IONOS SE",
+    "guthaben_nach_buchung": 7693.19,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-7d14d59700cabd35",
+    "zahlungsdatum": "2026-07-16",
+    "betrag_brutto": 20.92,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 7695.19,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1376 USD",
+      "fx_amount_lines": [
+        "- 23,80 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-783629e571ada82b",
+    "zahlungsdatum": "2026-07-12",
+    "betrag_brutto": 11.69,
+    "richtung": "EINGANG",
+    "gegenpartei": "NOTTA",
+    "verwendungszweck": "NOTTA",
+    "guthaben_nach_buchung": 7716.11,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-7ab57f9d87c29926",
+    "zahlungsdatum": "2026-07-10",
+    "betrag_brutto": 4.47,
+    "richtung": "EINGANG",
+    "gegenpartei": "MICROSOFT#G170032929",
+    "verwendungszweck": "MICROSOFT#G170032929",
+    "guthaben_nach_buchung": 7727.8,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-83c86ed923b9fbc2",
+    "zahlungsdatum": "2026-07-10",
+    "betrag_brutto": 33.31,
+    "richtung": "EINGANG",
+    "gegenpartei": "Microsoft-G170104086",
+    "verwendungszweck": "Microsoft-G170104086",
+    "guthaben_nach_buchung": 7732.27,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-05699a91bfcff119",
+    "zahlungsdatum": "2026-07-07",
+    "betrag_brutto": 0.77,
+    "richtung": "EINGANG",
+    "gegenpartei": "HETZNER ONLINE GMBH",
+    "verwendungszweck": "HETZNER ONLINE GMBH",
+    "guthaben_nach_buchung": 7765.58,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-c687ad7b54618b23",
+    "zahlungsdatum": "2026-07-05",
+    "betrag_brutto": 81.3,
+    "richtung": "EINGANG",
+    "gegenpartei": "Yoake Restaurant",
+    "verwendungszweck": "Yoake Restaurant",
+    "guthaben_nach_buchung": 7766.35,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-b711ef037164cb6a",
+    "zahlungsdatum": "2026-07-02",
+    "betrag_brutto": 105.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "SIPGATE",
+    "verwendungszweck": "SIPGATE",
+    "guthaben_nach_buchung": 7847.65,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-b6304680b73e421e",
+    "zahlungsdatum": "2026-07-02",
+    "betrag_brutto": 28.1,
+    "richtung": "EINGANG",
+    "gegenpartei": "Google Workspace_prozessi",
+    "verwendungszweck": "Google Workspace_prozessi",
+    "guthaben_nach_buchung": 7952.65,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-1758cf8212793273",
+    "zahlungsdatum": "2026-07-01",
+    "betrag_brutto": 20.92,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 7980.75,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1376 USD",
+      "fx_amount_lines": [
+        "- 23,80 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-2bdf9011fd68b644",
+    "zahlungsdatum": "2026-07-01",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 8001.67,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-4905a0f7707e18d4",
+    "zahlungsdatum": "2026-07-01",
+    "betrag_brutto": 39.15,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH via Mollie",
+    "verwendungszweck": "lx2026060406594 KHYY-YNLG Lexware | Office XL 6a3fd830e94582244d106f39 | IBAN: DE39120700700037268718 | BIC: DEUTDEFFXXX",
+    "guthaben_nach_buchung": 7926.67,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-ad167c9aca299a5b",
+    "zahlungsdatum": "2026-06-29",
+    "betrag_brutto": 40.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 7965.82,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-e49c655ead5c493a",
+    "zahlungsdatum": "2026-06-29",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 7925.82,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-c8f2bfbf1c5b9549",
+    "zahlungsdatum": "2026-06-28",
+    "betrag_brutto": 25.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "LOVABLE",
+    "verwendungszweck": "LOVABLE",
+    "guthaben_nach_buchung": 7850.82,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-c7a342aa763f50ec",
+    "zahlungsdatum": "2026-06-26",
+    "betrag_brutto": 18.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC* CLAUDE SUB",
+    "verwendungszweck": "ANTHROPIC* CLAUDE SUB",
+    "guthaben_nach_buchung": 7875.82,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-593a669941bb912b",
+    "zahlungsdatum": "2026-06-25",
+    "betrag_brutto": 25.78,
+    "richtung": "EINGANG",
+    "gegenpartei": "MSFT * E0600ZNXH1",
+    "verwendungszweck": "MSFT * E0600ZNXH1",
+    "guthaben_nach_buchung": 7893.82,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-31bf3d4b90e80d47",
+    "zahlungsdatum": "2026-06-24",
+    "betrag_brutto": 29.75,
+    "richtung": "EINGANG",
+    "gegenpartei": "TRIATHLON TRANSFER GMBH",
+    "verwendungszweck": "Miete Postfach | IBAN: DE38590501010067163204 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 7919.6,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-90489ab01c5489e0",
+    "zahlungsdatum": "2026-06-23",
+    "betrag_brutto": 8.99,
+    "richtung": "EINGANG",
+    "gegenpartei": "GOOGLE*WORKSPACE",
+    "verwendungszweck": "GOOGLE*WORKSPACE",
+    "guthaben_nach_buchung": 7949.35,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-f6171d9fc5f1007c",
+    "zahlungsdatum": "2026-06-23",
+    "betrag_brutto": 2.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "IONOS SE",
+    "verwendungszweck": "IONOS SE",
+    "guthaben_nach_buchung": 7958.34,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-280c050c878af51d",
+    "zahlungsdatum": "2026-06-18",
+    "betrag_brutto": 21.41,
+    "richtung": "EINGANG",
+    "gegenpartei": "hostinger.com",
+    "verwendungszweck": "hostinger.com",
+    "guthaben_nach_buchung": 7960.34,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-d176ab1560c40412",
+    "zahlungsdatum": "2026-06-16",
+    "betrag_brutto": 8.65,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 7981.75,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,156 USD",
+      "fx_amount_lines": [
+        "- 10,00 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-3cda6a496db70bcf",
+    "zahlungsdatum": "2026-06-15",
+    "betrag_brutto": 75.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "SIPGATE",
+    "verwendungszweck": "SIPGATE",
+    "guthaben_nach_buchung": 7990.4,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-1deddc0721fb8a12",
+    "zahlungsdatum": "2026-06-12",
+    "betrag_brutto": 11.69,
+    "richtung": "EINGANG",
+    "gegenpartei": "NOTTA",
+    "verwendungszweck": "NOTTA",
+    "guthaben_nach_buchung": 8065.4,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-3d7b9f03c6466355",
+    "zahlungsdatum": "2026-06-11",
+    "betrag_brutto": 30.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "Stuttgart Messe",
+    "verwendungszweck": "Stuttgart Messe",
+    "guthaben_nach_buchung": 8077.09,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-97920ecad68ecaa0",
+    "zahlungsdatum": "2026-06-11",
+    "betrag_brutto": 16.9,
+    "richtung": "EINGANG",
+    "gegenpartei": "Backhaus Zoller GmbH &",
+    "verwendungszweck": "Backhaus Zoller GmbH &",
+    "guthaben_nach_buchung": 8107.09,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-85dbbb8601a03681",
+    "zahlungsdatum": "2026-06-10",
+    "betrag_brutto": 20.7,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 8123.99,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1497 USD",
+      "fx_amount_lines": [
+        "- 23,80 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-995f4243d5cc5c4d",
+    "zahlungsdatum": "2026-06-10",
+    "betrag_brutto": 13.1,
+    "richtung": "EINGANG",
+    "gegenpartei": "SPC*KALA",
+    "verwendungszweck": "SPC*KALA",
+    "guthaben_nach_buchung": 8144.69,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-1b4028cc6e849709",
+    "zahlungsdatum": "2026-06-10",
+    "betrag_brutto": 55.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "CEVABDZINICA ZIKI",
+    "verwendungszweck": "CEVABDZINICA ZIKI",
+    "guthaben_nach_buchung": 8157.79,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-66d22cc06cb2128b",
+    "zahlungsdatum": "2026-06-10",
+    "betrag_brutto": 165.81,
+    "richtung": "EINGANG",
+    "gegenpartei": "Microsoft-G164083662",
+    "verwendungszweck": "Microsoft-G164083662",
+    "guthaben_nach_buchung": 8212.79,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-56bfce6df82ef53a",
+    "zahlungsdatum": "2026-06-09",
+    "betrag_brutto": 5.17,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 8378.6,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1508 USD",
+      "fx_amount_lines": [
+        "- 5,95 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-93745da761f51bc1",
+    "zahlungsdatum": "2026-06-09",
+    "betrag_brutto": 5.25,
+    "richtung": "EINGANG",
+    "gegenpartei": "Microsoft-G163424870",
+    "verwendungszweck": "Microsoft-G163424870",
+    "guthaben_nach_buchung": 8383.77,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-08468ab3e619e637",
+    "zahlungsdatum": "2026-06-09",
+    "betrag_brutto": 42.35,
+    "richtung": "EINGANG",
+    "gegenpartei": "www.saxoprint.de",
+    "verwendungszweck": "www.saxoprint.de",
+    "guthaben_nach_buchung": 8389.02,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-c0aaa80e8a4f5ddb",
+    "zahlungsdatum": "2026-06-08",
+    "betrag_brutto": 595.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "Mourad Douioui",
+    "verwendungszweck": "Vermittlungs Provision | IBAN: LT713250025852178152 | BIC: REVOLT21XXX",
+    "guthaben_nach_buchung": 8431.37,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-788a2815633cb50e",
+    "zahlungsdatum": "2026-06-07",
+    "betrag_brutto": 97.5,
+    "richtung": "EINGANG",
+    "gegenpartei": "Das Kartoffelhaus",
+    "verwendungszweck": "Das Kartoffelhaus",
+    "guthaben_nach_buchung": 9026.37,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-e7d88cb8eba29b4b",
+    "zahlungsdatum": "2026-06-07",
+    "betrag_brutto": 360.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "BKG*Hotel at Booking.c",
+    "verwendungszweck": "BKG*Hotel at Booking.c",
+    "guthaben_nach_buchung": 9123.87,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-18619f159eb1609e",
+    "zahlungsdatum": "2026-06-05",
+    "betrag_brutto": 41.98,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 9483.87,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-a58a89d1d25df7f6",
+    "zahlungsdatum": "2026-06-05",
+    "betrag_brutto": 5.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "PNL Fintech B.V.",
+    "verwendungszweck": "Fee for international payment of 500 EUR | made on 05.06.2026.  Inv.3OJ3-0006",
+    "guthaben_nach_buchung": 9525.85,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-1b7b3107dfb4ecbc",
+    "zahlungsdatum": "2026-06-05",
+    "betrag_brutto": 500.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "World Class Marketing LLC",
+    "verwendungszweck": "Vermittlungsprovision | IBAN: BE14967493732083 | BIC: TRWIBEB1XXX",
+    "guthaben_nach_buchung": 9530.85,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-b121cb506193ea74",
+    "zahlungsdatum": "2026-06-04",
+    "betrag_brutto": 29.77,
+    "richtung": "EINGANG",
+    "gegenpartei": "APIFY* INV#20260604042",
+    "verwendungszweck": "APIFY* INV#20260604042",
+    "guthaben_nach_buchung": 10030.85,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1592 USD",
+      "fx_amount_lines": [
+        "- 34,51 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-e3614c99858bd811",
+    "zahlungsdatum": "2026-06-04",
+    "betrag_brutto": 29.42,
+    "richtung": "EINGANG",
+    "gegenpartei": "www.saxoprint.de",
+    "verwendungszweck": "www.saxoprint.de",
+    "guthaben_nach_buchung": 10060.62,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-02c5bba33fe9c226",
+    "zahlungsdatum": "2026-06-02",
+    "betrag_brutto": 75.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "SIPGATE",
+    "verwendungszweck": "SIPGATE",
+    "guthaben_nach_buchung": 10090.04,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-8ac594749bf31ec6",
+    "zahlungsdatum": "2026-06-02",
+    "betrag_brutto": 8.55,
+    "richtung": "EINGANG",
+    "gegenpartei": "Google Workspace_prozessi",
+    "verwendungszweck": "Google Workspace_prozessi",
+    "guthaben_nach_buchung": 10165.04,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-43af17c3cc55d0f2",
+    "zahlungsdatum": "2026-06-01",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 10173.59,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-8f842c6a8caa14a8",
+    "zahlungsdatum": "2026-05-30",
+    "betrag_brutto": 39.15,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH via Mollie",
+    "verwendungszweck": "lx2026050404473 KHYY-YNLG Lexware | Office XL 6a16f8f80726a8be43a8f9d6 | IBAN: DE39120700700037268718 | BIC: DEUTDEFFXXX",
+    "guthaben_nach_buchung": 10098.59,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-f6d1a094f695fc78",
+    "zahlungsdatum": "2026-05-29",
+    "betrag_brutto": 40.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 10137.74,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-fabbcc81bfaa2e42",
+    "zahlungsdatum": "2026-05-29",
+    "betrag_brutto": 21.41,
+    "richtung": "EINGANG",
+    "gegenpartei": "hostinger.com",
+    "verwendungszweck": "hostinger.com",
+    "guthaben_nach_buchung": 10097.74,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-ec2b6ff4e62aac58",
+    "zahlungsdatum": "2026-05-29",
+    "betrag_brutto": 440.01,
+    "richtung": "EINGANG",
+    "gegenpartei": "HISCOX SA HISCOX SA",
+    "verwendungszweck": "Versicherungsscheinnummer : PL- | PSC700375663 | IBAN: FR7630056005020502000962265 | BIC: CCFRFRPPXXX",
+    "guthaben_nach_buchung": 10119.15,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-09b54bff9ecc09be",
+    "zahlungsdatum": "2026-05-28",
+    "betrag_brutto": 25.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "LOVABLE",
+    "verwendungszweck": "LOVABLE",
+    "guthaben_nach_buchung": 10559.16,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-bbc7ee3a9f9d0249",
+    "zahlungsdatum": "2026-05-27",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 10584.16,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-51d28d416f538e63",
+    "zahlungsdatum": "2026-05-27",
+    "betrag_brutto": 4.07,
+    "richtung": "EINGANG",
+    "gegenpartei": "LS COMAME",
+    "verwendungszweck": "LS COMAME",
+    "guthaben_nach_buchung": 10509.16,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-ae1a5f3dfe34f70f",
+    "zahlungsdatum": "2026-05-27",
+    "betrag_brutto": 29.75,
+    "richtung": "EINGANG",
+    "gegenpartei": "TRIATHLON TRANSFER GMBH",
+    "verwendungszweck": "Miete Postfach | IBAN: DE38590501010067163204 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 10513.23,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-a3299f163e3716d0",
+    "zahlungsdatum": "2026-05-26",
+    "betrag_brutto": 18.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "CLAUDE.AI SUBSCRIPTION",
+    "verwendungszweck": "CLAUDE.AI SUBSCRIPTION",
+    "guthaben_nach_buchung": 10542.98,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-5c314e0c2aa58a48",
+    "zahlungsdatum": "2026-05-25",
+    "betrag_brutto": 5950.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "LEANCAP GMBH",
+    "verwendungszweck": "RE260013 | IBAN: DE03370501981935793859 | BIC: COLSDE33XXX",
+    "guthaben_nach_buchung": 10560.98,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-3645ba3ae6916866",
+    "zahlungsdatum": "2026-05-24",
+    "betrag_brutto": 25.78,
+    "richtung": "EINGANG",
+    "gegenpartei": "MSFT * E0600ZFQCG",
+    "verwendungszweck": "MSFT * E0600ZFQCG",
+    "guthaben_nach_buchung": 4610.98,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-0f1db6805b7dc161",
+    "zahlungsdatum": "2026-05-23",
+    "betrag_brutto": 2.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "IONOS SE",
+    "verwendungszweck": "IONOS SE",
+    "guthaben_nach_buchung": 4636.76,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-cb4d4e88929a0872",
+    "zahlungsdatum": "2026-05-23",
+    "betrag_brutto": 8.99,
+    "richtung": "EINGANG",
+    "gegenpartei": "GOOGLE *WORKSPACE",
+    "verwendungszweck": "GOOGLE *WORKSPACE",
+    "guthaben_nach_buchung": 4638.76,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-abaafa3dd1d861ec",
+    "zahlungsdatum": "2026-05-21",
+    "betrag_brutto": 60.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "Asia Palast Laichingen",
+    "verwendungszweck": "Asia Palast Laichingen",
+    "guthaben_nach_buchung": 4647.75,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-3110f52dad2fdb95",
+    "zahlungsdatum": "2026-05-21",
+    "betrag_brutto": 30.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "Hotel Laichingen",
+    "verwendungszweck": "Hotel Laichingen",
+    "guthaben_nach_buchung": 4707.75,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-0ae8650d29988a84",
+    "zahlungsdatum": "2026-05-19",
+    "betrag_brutto": 10.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "GOOGLE*CLOUD WFZM7D",
+    "verwendungszweck": "GOOGLE*CLOUD WFZM7D",
+    "guthaben_nach_buchung": 4737.75,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-8532f4657f12ff80",
+    "zahlungsdatum": "2026-05-19",
+    "betrag_brutto": 99.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "WAALAXY",
+    "verwendungszweck": "WAALAXY",
+    "guthaben_nach_buchung": 4747.75,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-ff2b7b37c7725790",
+    "zahlungsdatum": "2026-05-14",
+    "betrag_brutto": 79.65,
+    "richtung": "EINGANG",
+    "gegenpartei": "Partners on Booking BV",
+    "verwendungszweck": "Partners on Booking BV",
+    "guthaben_nach_buchung": 4846.75,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-cac63decbdce7cfe",
+    "zahlungsdatum": "2026-05-13",
+    "betrag_brutto": 44.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "Nauwies - Cafe Bistro",
+    "verwendungszweck": "Nauwies - Cafe Bistro",
+    "guthaben_nach_buchung": 4926.4,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-33d887dfafb3acd3",
+    "zahlungsdatum": "2026-05-12",
+    "betrag_brutto": 11.69,
+    "richtung": "EINGANG",
+    "gegenpartei": "NOTTA",
+    "verwendungszweck": "NOTTA",
+    "guthaben_nach_buchung": 4970.4,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-f7d9717c1c967e48",
+    "zahlungsdatum": "2026-05-12",
+    "betrag_brutto": 122.49,
+    "richtung": "EINGANG",
+    "gegenpartei": "LinkedIn P3015863342",
+    "verwendungszweck": "LinkedIn P3015863342",
+    "guthaben_nach_buchung": 4982.09,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-226efbea5b85699a",
+    "zahlungsdatum": "2026-05-10",
+    "betrag_brutto": 17.33,
+    "richtung": "EINGANG",
+    "gegenpartei": "MICROSOFT#G157777303",
+    "verwendungszweck": "MICROSOFT#G157777303",
+    "guthaben_nach_buchung": 5104.58,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-0a0e90a216c65d42",
+    "zahlungsdatum": "2026-05-10",
+    "betrag_brutto": 53.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "Mol*Messe Ticket Shop",
+    "verwendungszweck": "Mol*Messe Ticket Shop",
+    "guthaben_nach_buchung": 5121.91,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-9ab58ded38c8bbf0",
+    "zahlungsdatum": "2026-05-07",
+    "betrag_brutto": 10.19,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 5174.91,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1678 USD",
+      "fx_amount_lines": [
+        "- 11,90 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-bc08ed582918cea2",
+    "zahlungsdatum": "2026-05-07",
+    "betrag_brutto": 8.15,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 5185.1,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,168 USD",
+      "fx_amount_lines": [
+        "- 9,52 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-65e06f0062f31c1a",
+    "zahlungsdatum": "2026-05-07",
+    "betrag_brutto": 6.12,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 5193.25,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1666 USD",
+      "fx_amount_lines": [
+        "- 7,14 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-35234f7f41bdf855",
+    "zahlungsdatum": "2026-05-07",
+    "betrag_brutto": 10.19,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 5199.37,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1678 USD",
+      "fx_amount_lines": [
+        "- 11,90 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-905637b58164d9f5",
+    "zahlungsdatum": "2026-05-06",
+    "betrag_brutto": 45.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "SIPGATE",
+    "verwendungszweck": "SIPGATE",
+    "guthaben_nach_buchung": 5209.56,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-6bd13dad8aa85b15",
+    "zahlungsdatum": "2026-05-06",
+    "betrag_brutto": 15.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "SIPGATE",
+    "verwendungszweck": "SIPGATE",
+    "guthaben_nach_buchung": 5254.56,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-8eceaf0ac96ec00b",
+    "zahlungsdatum": "2026-05-05",
+    "betrag_brutto": 22.21,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 5269.56,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-cc0058d47ab0ee77",
+    "zahlungsdatum": "2026-05-05",
+    "betrag_brutto": 41.76,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 5291.77,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-c53f7a85b2dcc396",
+    "zahlungsdatum": "2026-05-05",
+    "betrag_brutto": 29.46,
+    "richtung": "EINGANG",
+    "gegenpartei": "APIFY* SUBSCRIPTION",
+    "verwendungszweck": "APIFY* SUBSCRIPTION",
+    "guthaben_nach_buchung": 5333.53,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1714 USD",
+      "fx_amount_lines": [
+        "- 34,51 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-e548a92212424ebb",
+    "zahlungsdatum": "2026-05-04",
+    "betrag_brutto": 595.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "HSS security industrie Service",
+    "verwendungszweck": "Zahlung fur Rechnung Pr-002 30.04.2026 | IBAN: DE83590920001166620003 | BIC: GENODE51SB2",
+    "guthaben_nach_buchung": 5362.99,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-e7ae0ddcf1503d13",
+    "zahlungsdatum": "2026-05-04",
+    "betrag_brutto": 6.1,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 5957.99,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1704 USD",
+      "fx_amount_lines": [
+        "- 7,14 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-e350a102e9f93593",
+    "zahlungsdatum": "2026-05-04",
+    "betrag_brutto": 6.1,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 5964.09,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1704 USD",
+      "fx_amount_lines": [
+        "- 7,14 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-49cd544b74defe6a",
+    "zahlungsdatum": "2026-05-04",
+    "betrag_brutto": 10.16,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 5970.19,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1712 USD",
+      "fx_amount_lines": [
+        "- 11,90 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-97a8559d09251a86",
+    "zahlungsdatum": "2026-05-04",
+    "betrag_brutto": 10.16,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 5980.35,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1712 USD",
+      "fx_amount_lines": [
+        "- 11,90 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-7807ee8084e7de56",
+    "zahlungsdatum": "2026-05-04",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 5990.51,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-781ab0f11a076d15",
+    "zahlungsdatum": "2026-05-03",
+    "betrag_brutto": 44.6,
+    "richtung": "EINGANG",
+    "gegenpartei": "Gotti Pizza",
+    "verwendungszweck": "Gotti Pizza",
+    "guthaben_nach_buchung": 5915.51,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-c03258711d37d6dc",
+    "zahlungsdatum": "2026-04-30",
+    "betrag_brutto": 15.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 5960.11,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-dfc7d398a936152a",
+    "zahlungsdatum": "2026-04-30",
+    "betrag_brutto": 39.15,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH via Mollie",
+    "verwendungszweck": "lx2026040397230 KHYY-YNLG Lexware | Office XL 69ef6dfd4a0605382b1c55df | IBAN: DE39120700700037268718 | BIC: DEUTDEFFXXX",
+    "guthaben_nach_buchung": 5945.11,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-a8146ab478f29212",
+    "zahlungsdatum": "2026-04-29",
+    "betrag_brutto": 5.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 5984.26,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-021c2790b01700e2",
+    "zahlungsdatum": "2026-04-29",
+    "betrag_brutto": 5.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 5989.26,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-6609aa715f23cd3d",
+    "zahlungsdatum": "2026-04-29",
+    "betrag_brutto": 5.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 5994.26,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-f361dfd1bf25adcf",
+    "zahlungsdatum": "2026-04-29",
+    "betrag_brutto": 21.41,
+    "richtung": "EINGANG",
+    "gegenpartei": "hostinger.com",
+    "verwendungszweck": "hostinger.com",
+    "guthaben_nach_buchung": 5999.26,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-80f37277db3d8ce0",
+    "zahlungsdatum": "2026-04-28",
+    "betrag_brutto": 25.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "LOVABLE",
+    "verwendungszweck": "LOVABLE",
+    "guthaben_nach_buchung": 6020.67,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-fe926bbaf1255393",
+    "zahlungsdatum": "2026-04-28",
+    "betrag_brutto": 29.75,
+    "richtung": "EINGANG",
+    "gegenpartei": "TRIATHLON TRANSFER GMBH",
+    "verwendungszweck": "Miete Postfach | IBAN: DE38590501010067163204 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 6045.67,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-619f8c2c7bbc2928",
+    "zahlungsdatum": "2026-04-27",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 6075.42,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-6e5efdecb01c92e9",
+    "zahlungsdatum": "2026-04-26",
+    "betrag_brutto": 18.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "CLAUDE.AI SUBSCRIPTION",
+    "verwendungszweck": "CLAUDE.AI SUBSCRIPTION",
+    "guthaben_nach_buchung": 6000.42,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-8e1712c6c004a12a",
+    "zahlungsdatum": "2026-04-24",
+    "betrag_brutto": 25.7,
+    "richtung": "EINGANG",
+    "gegenpartei": "MSFT * E0600Z71PH",
+    "verwendungszweck": "MSFT * E0600Z71PH",
+    "guthaben_nach_buchung": 6018.42,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-4814d9fd02592bf2",
+    "zahlungsdatum": "2026-04-23",
+    "betrag_brutto": 8.99,
+    "richtung": "EINGANG",
+    "gegenpartei": "GOOGLE*WORKSPACE",
+    "verwendungszweck": "GOOGLE*WORKSPACE",
+    "guthaben_nach_buchung": 6044.12,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-12659d2396a6f481",
+    "zahlungsdatum": "2026-04-23",
+    "betrag_brutto": 2.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "IONOS SE",
+    "verwendungszweck": "IONOS SE",
+    "guthaben_nach_buchung": 6053.11,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-670465296b63f80f",
+    "zahlungsdatum": "2026-04-19",
+    "betrag_brutto": 99.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "WAALAXY",
+    "verwendungszweck": "WAALAXY",
+    "guthaben_nach_buchung": 6055.11,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-58d71aa8fcf6df65",
+    "zahlungsdatum": "2026-04-18",
+    "betrag_brutto": 60.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "PAYPAL *AOFISCHER",
+    "verwendungszweck": "PAYPAL *AOFISCHER",
+    "guthaben_nach_buchung": 6154.11,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-c21f609fde37ee73",
+    "zahlungsdatum": "2026-04-17",
+    "betrag_brutto": 5950.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "SCHAUFLER TOOLING GMBH & CO.KG",
+    "verwendungszweck": "Prozessia RE260012 | IBAN: DE23512106004223917016 | BIC: BNPADEFF",
+    "guthaben_nach_buchung": 6214.11,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-11ad453903ebe823",
+    "zahlungsdatum": "2026-04-15",
+    "betrag_brutto": 100.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Umschichtung | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 264.11,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-1eda74d6ac161b86",
+    "zahlungsdatum": "2026-04-12",
+    "betrag_brutto": 11.69,
+    "richtung": "EINGANG",
+    "gegenpartei": "NOTTA",
+    "verwendungszweck": "NOTTA",
+    "guthaben_nach_buchung": 164.11,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-44c820a0f5671271",
+    "zahlungsdatum": "2026-04-12",
+    "betrag_brutto": 122.49,
+    "richtung": "EINGANG",
+    "gegenpartei": "LinkedIn P3003376127",
+    "verwendungszweck": "LinkedIn P3003376127",
+    "guthaben_nach_buchung": 175.8,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-6f7eb087e0b843b1",
+    "zahlungsdatum": "2026-04-10",
+    "betrag_brutto": 56.01,
+    "richtung": "EINGANG",
+    "gegenpartei": "MICROSOFT#G151775299",
+    "verwendungszweck": "MICROSOFT#G151775299",
+    "guthaben_nach_buchung": 298.29,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-eafe2343418e6f9d",
+    "zahlungsdatum": "2026-04-06",
+    "betrag_brutto": 10.34,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 354.3,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1508 USD",
+      "fx_amount_lines": [
+        "- 11,90 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-218c0b4deaab10bc",
+    "zahlungsdatum": "2026-04-06",
+    "betrag_brutto": 35.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "PAYPAL *AOFISCHER",
+    "verwendungszweck": "PAYPAL *AOFISCHER",
+    "guthaben_nach_buchung": 364.64,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-a88327896fc59b42",
+    "zahlungsdatum": "2026-04-05",
+    "betrag_brutto": 121.9,
+    "richtung": "EINGANG",
+    "gegenpartei": "Mangal Mezze Grill",
+    "verwendungszweck": "Mangal Mezze Grill",
+    "guthaben_nach_buchung": 399.64,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-056c2e1abcdbd564",
+    "zahlungsdatum": "2026-04-04",
+    "betrag_brutto": 10.34,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 521.54,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1508 USD",
+      "fx_amount_lines": [
+        "- 11,90 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-3987eecc91fbd784",
+    "zahlungsdatum": "2026-04-03",
+    "betrag_brutto": 9.03,
+    "richtung": "EINGANG",
+    "gegenpartei": "HEYGEN TECHNOLOGY INC.",
+    "verwendungszweck": "HEYGEN TECHNOLOGY INC.",
+    "guthaben_nach_buchung": 531.88,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-0d6e56d5eeb1f5f5",
+    "zahlungsdatum": "2026-04-02",
+    "betrag_brutto": 20.79,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 540.91,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1447 USD",
+      "fx_amount_lines": [
+        "- 23,80 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-be3c57d04da98fe9",
+    "zahlungsdatum": "2026-04-01",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 561.7,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-d6633116ef2edbf9",
+    "zahlungsdatum": "2026-04-01",
+    "betrag_brutto": 39.15,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH via Mollie",
+    "verwendungszweck": "lx2026030411674 KHYY-YNLG Lexware | Office XL 69c6a029c43b96f2adf324c7 | IBAN: DE39120700700037268718 | BIC: DEUTDEFFXXX",
+    "guthaben_nach_buchung": 486.7,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-c59550b8bc6a9b42",
+    "zahlungsdatum": "2026-03-31",
+    "betrag_brutto": 15.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 525.85,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-5b7dc816d22f9eda",
+    "zahlungsdatum": "2026-03-31",
+    "betrag_brutto": 12.85,
+    "richtung": "EINGANG",
+    "gegenpartei": "ZOHO-WORKPLACE",
+    "verwendungszweck": "ZOHO-WORKPLACE",
+    "guthaben_nach_buchung": 510.85,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-51db5f59eb3b1d49",
+    "zahlungsdatum": "2026-03-30",
+    "betrag_brutto": 10.35,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 523.7,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1497 USD",
+      "fx_amount_lines": [
+        "- 11,90 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-f2338ec2d47ba217",
+    "zahlungsdatum": "2026-03-29",
+    "betrag_brutto": 21.41,
+    "richtung": "EINGANG",
+    "gegenpartei": "HOSTINGER* HOSTINGER.D",
+    "verwendungszweck": "HOSTINGER* HOSTINGER.D",
+    "guthaben_nach_buchung": 534.05,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-17657c13a4e29509",
+    "zahlungsdatum": "2026-03-28",
+    "betrag_brutto": 25.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "LOVABLE",
+    "verwendungszweck": "LOVABLE",
+    "guthaben_nach_buchung": 555.46,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-7e707f34b8cb1ba3",
+    "zahlungsdatum": "2026-03-27",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 580.46,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-86bec8f080bd5c55",
+    "zahlungsdatum": "2026-03-26",
+    "betrag_brutto": 18.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "CLAUDE.AI SUBSCRIPTION",
+    "verwendungszweck": "CLAUDE.AI SUBSCRIPTION",
+    "guthaben_nach_buchung": 505.46,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-677ac8aff96da935",
+    "zahlungsdatum": "2026-03-24",
+    "betrag_brutto": 36.71,
+    "richtung": "EINGANG",
+    "gegenpartei": "MSFT * E0600YY5MT",
+    "verwendungszweck": "MSFT * E0600YY5MT",
+    "guthaben_nach_buchung": 523.46,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-97645407b394724a",
+    "zahlungsdatum": "2026-03-23",
+    "betrag_brutto": 8.99,
+    "richtung": "EINGANG",
+    "gegenpartei": "GOOGLE*WORKSPACE",
+    "verwendungszweck": "GOOGLE*WORKSPACE",
+    "guthaben_nach_buchung": 560.17,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-7ee52e1da6177736",
+    "zahlungsdatum": "2026-03-20",
+    "betrag_brutto": 11.83,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 569.16,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-62d3de8467f217be",
+    "zahlungsdatum": "2026-03-20",
+    "betrag_brutto": 12.11,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 580.99,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-335c8e57b6762aa2",
+    "zahlungsdatum": "2026-03-20",
+    "betrag_brutto": 5.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 593.1,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-740110edb1cdc10c",
+    "zahlungsdatum": "2026-03-20",
+    "betrag_brutto": 5.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 598.1,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-7b3628513930f8bc",
+    "zahlungsdatum": "2026-03-20",
+    "betrag_brutto": 33.28,
+    "richtung": "EINGANG",
+    "gegenpartei": "A & O Fischer GmbH & Co.",
+    "verwendungszweck": "A & O Fischer GmbH & Co.",
+    "guthaben_nach_buchung": 603.1,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-0d7fe2c1b2b34e99",
+    "zahlungsdatum": "2026-03-19",
+    "betrag_brutto": 5.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 636.38,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-b67bcbbb55ed7370",
+    "zahlungsdatum": "2026-03-19",
+    "betrag_brutto": 10.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 641.38,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-5db197cc6cd76d68",
+    "zahlungsdatum": "2026-03-19",
+    "betrag_brutto": 10.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 651.38,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-2920abd2b4889ce9",
+    "zahlungsdatum": "2026-03-19",
+    "betrag_brutto": 5.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 661.38,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-a860006b949ac0b6",
+    "zahlungsdatum": "2026-03-19",
+    "betrag_brutto": 10.07,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 666.38,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-c66304c8a34c2e1e",
+    "zahlungsdatum": "2026-03-19",
+    "betrag_brutto": 5.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 676.45,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-5e34ca9ab5e27883",
+    "zahlungsdatum": "2026-03-19",
+    "betrag_brutto": 6.23,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 681.45,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,146 USD",
+      "fx_amount_lines": [
+        "- 7,14 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-1854a2b354b2a95c",
+    "zahlungsdatum": "2026-03-19",
+    "betrag_brutto": 99.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "WAALAXY* TRIAL OVER",
+    "verwendungszweck": "WAALAXY* TRIAL OVER",
+    "guthaben_nach_buchung": 687.68,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-e1fe5c529a655c2a",
+    "zahlungsdatum": "2026-03-19",
+    "betrag_brutto": 29.75,
+    "richtung": "EINGANG",
+    "gegenpartei": "TRIATHLON TRANSFER GMBH",
+    "verwendungszweck": "Miete Postfach | IBAN: DE38590501010067163204 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 786.68,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-6c8b6b390bc3fc4a",
+    "zahlungsdatum": "2026-03-17",
+    "betrag_brutto": 650.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Mohamed Douioui",
+    "verwendungszweck": "IBAN: DE62100110012142129335 | BIC: NTSBDEB1XXX",
+    "guthaben_nach_buchung": 816.43,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-5d8cf5c629994ac5",
+    "zahlungsdatum": "2026-03-17",
+    "betrag_brutto": 50.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 166.43,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-6b83e4c43e4945d0",
+    "zahlungsdatum": "2026-03-17",
+    "betrag_brutto": 10.43,
+    "richtung": "EINGANG",
+    "gegenpartei": "OPENAI",
+    "verwendungszweck": "OPENAI",
+    "guthaben_nach_buchung": 116.43,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1409 USD",
+      "fx_amount_lines": [
+        "- 11,90 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-5f1355f243a69798",
+    "zahlungsdatum": "2026-03-12",
+    "betrag_brutto": 11.69,
+    "richtung": "EINGANG",
+    "gegenpartei": "NOTTA",
+    "verwendungszweck": "NOTTA",
+    "guthaben_nach_buchung": 126.86,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-a0680f1a90137ab2",
+    "zahlungsdatum": "2026-03-12",
+    "betrag_brutto": 22.5,
+    "richtung": "EINGANG",
+    "gegenpartei": "LinkedIn P1168290864",
+    "verwendungszweck": "LinkedIn P1168290864",
+    "guthaben_nach_buchung": 138.55,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-2eca13f7134750d9",
+    "zahlungsdatum": "2026-03-12",
+    "betrag_brutto": 99.99,
+    "richtung": "EINGANG",
+    "gegenpartei": "LinkedIn P1168263494",
+    "verwendungszweck": "LinkedIn P1168263494",
+    "guthaben_nach_buchung": 161.05,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-3c3416646767d2e9",
+    "zahlungsdatum": "2026-03-09",
+    "betrag_brutto": 10.31,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 261.04,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1542 USD",
+      "fx_amount_lines": [
+        "- 11,90 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-d69383c8e54a2bc7",
+    "zahlungsdatum": "2026-03-05",
+    "betrag_brutto": 24.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "GAMMA.APP",
+    "verwendungszweck": "GAMMA.APP",
+    "guthaben_nach_buchung": 271.35,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-f498edf7b1197a77",
+    "zahlungsdatum": "2026-03-04",
+    "betrag_brutto": 39.15,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH via Mollie",
+    "verwendungszweck": "lx2026020387148 KHYY-YNLG Lexware | Office XL 69a1b6b7d45d33f307f0494c | IBAN: DE39120700700037268718 | BIC: DEUTDEFFXXX",
+    "guthaben_nach_buchung": 295.35,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-9769f7c593ddf242",
+    "zahlungsdatum": "2026-03-04",
+    "betrag_brutto": 29.75,
+    "richtung": "EINGANG",
+    "gegenpartei": "TRIATHLON TRANSFER GMBH",
+    "verwendungszweck": "Miete Postfach | IBAN: DE38590501010067163204 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 334.5,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-15759f1dce56594c",
+    "zahlungsdatum": "2026-03-02",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 364.25,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-27bc01ad5d481934",
+    "zahlungsdatum": "2026-03-01",
+    "betrag_brutto": 5.05,
+    "richtung": "EINGANG",
+    "gegenpartei": "ANTHROPIC",
+    "verwendungszweck": "ANTHROPIC",
+    "guthaben_nach_buchung": 289.25,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1782 USD",
+      "fx_amount_lines": [
+        "- 5,95 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-ad9b60adde010ee7",
+    "zahlungsdatum": "2026-02-27",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 294.3,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-66ebb86ee03bcca5",
+    "zahlungsdatum": "2026-02-27",
+    "betrag_brutto": 15.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 219.3,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-0a310aa57383bf2c",
+    "zahlungsdatum": "2026-02-26",
+    "betrag_brutto": 18.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "CLAUDE.AI SUBSCRIPTION",
+    "verwendungszweck": "CLAUDE.AI SUBSCRIPTION",
+    "guthaben_nach_buchung": 204.3,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-09d25f416360e82e",
+    "zahlungsdatum": "2026-02-25",
+    "betrag_brutto": 12.85,
+    "richtung": "EINGANG",
+    "gegenpartei": "MSFT * E0600YP53E",
+    "verwendungszweck": "MSFT * E0600YP53E",
+    "guthaben_nach_buchung": 222.3,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-1e36f2e13497f8cd",
+    "zahlungsdatum": "2026-02-23",
+    "betrag_brutto": 8.99,
+    "richtung": "EINGANG",
+    "gegenpartei": "GOOGLE*WORKSPACE",
+    "verwendungszweck": "GOOGLE*WORKSPACE",
+    "guthaben_nach_buchung": 235.15,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-0f9946e6e774c4f5",
+    "zahlungsdatum": "2026-02-19",
+    "betrag_brutto": 21.41,
+    "richtung": "EINGANG",
+    "gegenpartei": "HOSTINGER* HOSTINGER.D",
+    "verwendungszweck": "HOSTINGER* HOSTINGER.D",
+    "guthaben_nach_buchung": 244.14,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-6708cc449380dc5f",
+    "zahlungsdatum": "2026-02-14",
+    "betrag_brutto": 156.22,
+    "richtung": "EINGANG",
+    "gegenpartei": "Ryanair",
+    "verwendungszweck": "Ryanair",
+    "guthaben_nach_buchung": 265.55,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-d497249b786aa824",
+    "zahlungsdatum": "2026-02-13",
+    "betrag_brutto": 160.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Flug | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 421.77,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-c1d43b58c3015e60",
+    "zahlungsdatum": "2026-02-09",
+    "betrag_brutto": 2.41,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *ZCV64DVLU2",
+    "verwendungszweck": "FACEBK *ZCV64DVLU2",
+    "guthaben_nach_buchung": 261.77,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-1c9adf0cefe8cd54",
+    "zahlungsdatum": "2026-02-06",
+    "betrag_brutto": 136.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "Zum Aelblerstueble",
+    "verwendungszweck": "Zum Aelblerstueble",
+    "guthaben_nach_buchung": 264.18,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-7af1d365b243d7ac",
+    "zahlungsdatum": "2026-02-05",
+    "betrag_brutto": 24.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "GAMMA.APP",
+    "verwendungszweck": "GAMMA.APP",
+    "guthaben_nach_buchung": 400.18,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-e91b005426a6b172",
+    "zahlungsdatum": "2026-02-04",
+    "betrag_brutto": 59.5,
+    "richtung": "EINGANG",
+    "gegenpartei": "TRIATHLON TRANSFER GMBH",
+    "verwendungszweck": "Miete Postfach (zusaetzl.07/25 da RLS) | IBAN: DE38590501010067163204 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 424.18,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-b282955308f8ebfb",
+    "zahlungsdatum": "2026-02-02",
+    "betrag_brutto": 2000.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "World Class Marketing LLC",
+    "verwendungszweck": "INV-018 | IBAN: BE14967493732083 | BIC: TRWIBEB1XXX",
+    "guthaben_nach_buchung": 483.68,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-0b04064078b48a57",
+    "zahlungsdatum": "2026-02-02",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 2483.68,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-0774688942dd7776",
+    "zahlungsdatum": "2026-02-02",
+    "betrag_brutto": 0.12,
+    "richtung": "EINGANG",
+    "gegenpartei": "GOOGLE*CLOUD CF7CPJ",
+    "verwendungszweck": "GOOGLE*CLOUD CF7CPJ",
+    "guthaben_nach_buchung": 2408.68,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-0b80f1b0edba57dd",
+    "zahlungsdatum": "2026-01-30",
+    "betrag_brutto": 15.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 2408.8,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-0de2d26e95374850",
+    "zahlungsdatum": "2026-01-30",
+    "betrag_brutto": 9.78,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH via Mollie",
+    "verwendungszweck": "lx2026010380102 KHYY-YNLG Lexware | Office XL 6978d2900e78cc4a2dc9da5b | IBAN: DE39120700700037268718 | BIC: DEUTDEFFXXX",
+    "guthaben_nach_buchung": 2393.8,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-591b7d4d3e1a9cd0",
+    "zahlungsdatum": "2026-01-29",
+    "betrag_brutto": 21.41,
+    "richtung": "EINGANG",
+    "gegenpartei": "hostinger.com",
+    "verwendungszweck": "hostinger.com",
+    "guthaben_nach_buchung": 2403.58,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-0b6c96295d2e3a41",
+    "zahlungsdatum": "2026-01-27",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 2424.99,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-67f69d101781210a",
+    "zahlungsdatum": "2026-01-26",
+    "betrag_brutto": 50.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Mohamed Amin Douioui",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFFXXX",
+    "guthaben_nach_buchung": 2349.99,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-42ca7cfc863d79fe",
+    "zahlungsdatum": "2026-01-23",
+    "betrag_brutto": 400.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 2299.99,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-79674b70dc0e1c96",
+    "zahlungsdatum": "2026-01-23",
+    "betrag_brutto": 8.99,
+    "richtung": "EINGANG",
+    "gegenpartei": "GOOGLE*WORKSPACE",
+    "verwendungszweck": "GOOGLE*WORKSPACE",
+    "guthaben_nach_buchung": 1899.99,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-eced9633689f4b58",
+    "zahlungsdatum": "2026-01-20",
+    "betrag_brutto": 49.98,
+    "richtung": "EINGANG",
+    "gegenpartei": "win - Dein Wirtschaftsnetzwerk Saar e.V.",
+    "verwendungszweck": "JAV2026-MSDFU | IBAN: DE46590501010067147249 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 1908.98,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-58d8e880a0ca083b",
+    "zahlungsdatum": "2026-01-18",
+    "betrag_brutto": 26.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *7E4XXBDLU2",
+    "verwendungszweck": "FACEBK *7E4XXBDLU2",
+    "guthaben_nach_buchung": 1958.96,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-a5dc25d09f84cb63",
+    "zahlungsdatum": "2026-01-16",
+    "betrag_brutto": 21.57,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 1984.96,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,159 USD",
+      "fx_amount_lines": [
+        "- 25,00 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-d7d515dbcd332a85",
+    "zahlungsdatum": "2026-01-16",
+    "betrag_brutto": 24.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *58TPDBZLU2",
+    "verwendungszweck": "FACEBK *58TPDBZLU2",
+    "guthaben_nach_buchung": 2006.53,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-644cd8d2fd5d2c2d",
+    "zahlungsdatum": "2026-01-15",
+    "betrag_brutto": 49.98,
+    "richtung": "EINGANG",
+    "gegenpartei": "win - Dein Wirtschaftsnetzwerk Saar e.V.",
+    "verwendungszweck": "JAV2026-BYVNL | IBAN: DE46590501010067147249 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 2030.53,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-b8aed47c699d35aa",
+    "zahlungsdatum": "2026-01-15",
+    "betrag_brutto": 2000.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "World Class Marketing LLC",
+    "verwendungszweck": "Zahlung fur Rechnung INV-007 15.01.2024 | IBAN: BE14967493732083 | BIC: TRWIBEB1XXX",
+    "guthaben_nach_buchung": 2080.51,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-c3a7cbd1e573abf3",
+    "zahlungsdatum": "2026-01-15",
+    "betrag_brutto": 202.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "ROMANTIKHOTEL ROTTNER",
+    "verwendungszweck": "ROMANTIKHOTEL ROTTNER",
+    "guthaben_nach_buchung": 4080.51,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-3059cfffc3f30b55",
+    "zahlungsdatum": "2026-01-15",
+    "betrag_brutto": 22.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *ZK6ZSBRLU2",
+    "verwendungszweck": "FACEBK *ZK6ZSBRLU2",
+    "guthaben_nach_buchung": 4282.51,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-d6e668bac383b48b",
+    "zahlungsdatum": "2026-01-13",
+    "betrag_brutto": 60.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "Digitaldruck Pirrot GmbH",
+    "verwendungszweck": "AU26-0073 | IBAN: DE80590501010015960610 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 4304.51,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-199ceace10d93714",
+    "zahlungsdatum": "2026-01-11",
+    "betrag_brutto": 20.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *AJFAEBDLU2",
+    "verwendungszweck": "FACEBK *AJFAEBDLU2",
+    "guthaben_nach_buchung": 4364.51,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-af0157df79d05b0d",
+    "zahlungsdatum": "2026-01-10",
+    "betrag_brutto": 9.39,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *JTUWFAVLU2",
+    "verwendungszweck": "FACEBK *JTUWFAVLU2",
+    "guthaben_nach_buchung": 4384.51,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-439b5a0dfc0dec08",
+    "zahlungsdatum": "2026-01-09",
+    "betrag_brutto": 18.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *C5FJDAVLU2",
+    "verwendungszweck": "FACEBK *C5FJDAVLU2",
+    "guthaben_nach_buchung": 4393.9,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-93d025acad25a525",
+    "zahlungsdatum": "2026-01-08",
+    "betrag_brutto": 16.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *BAQX9BRLU2",
+    "verwendungszweck": "FACEBK *BAQX9BRLU2",
+    "guthaben_nach_buchung": 4411.9,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-5f1c865536d20255",
+    "zahlungsdatum": "2026-01-05",
+    "betrag_brutto": 31.59,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 4427.9,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1712 USD",
+      "fx_amount_lines": [
+        "- 37,00 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-c46efd5bcf390614",
+    "zahlungsdatum": "2026-01-05",
+    "betrag_brutto": 24.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "GAMMA.APP",
+    "verwendungszweck": "GAMMA.APP",
+    "guthaben_nach_buchung": 4459.49,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-861fc31f16f3a502",
+    "zahlungsdatum": "2026-01-03",
+    "betrag_brutto": 860.73,
+    "richtung": "EINGANG",
+    "gegenpartei": "FINANZAMT",
+    "verwendungszweck": "040/163/12016, USt, 4. Vierteljahr 2025 | IBAN: DE50590000000059301502 | BIC: MARKDEF1590",
+    "guthaben_nach_buchung": 4483.49,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-7b5dd1c6772bb4f3",
+    "zahlungsdatum": "2026-01-02",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 5344.22,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-ab4c797b9d8a034a",
+    "zahlungsdatum": "2025-12-31",
+    "betrag_brutto": 4760.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "Benito Ferrise",
+    "verwendungszweck": "Durchlaufender Posten | IBAN: DE66590501010067216341 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 5269.22,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-15f016a7977dc19d",
+    "zahlungsdatum": "2025-12-31",
+    "betrag_brutto": 4760.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Benito Ferrise",
+    "verwendungszweck": "Retainer Q1 2026 | IBAN: DE66590501010067216341 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 10029.22,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-39f03f595bd9227e",
+    "zahlungsdatum": "2025-12-31",
+    "betrag_brutto": 9.78,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH via Mollie",
+    "verwendungszweck": "lx2025120363416 KHYY-YNLG Lexware | Office XL 694ff4da0c16582b0d804875 | IBAN: DE39120700700037268718 | BIC: DEUTDEFFXXX",
+    "guthaben_nach_buchung": 5269.22,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-d4a21ab2ae906d23",
+    "zahlungsdatum": "2025-12-30",
+    "betrag_brutto": 15.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 5279.0,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-b1953d7282282ac1",
+    "zahlungsdatum": "2025-12-30",
+    "betrag_brutto": 4760.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Joel Wagner",
+    "verwendungszweck": "RE250009 | IBAN: DE90590501010067196121 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 5264.0,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-4d4fad047a3a7c52",
+    "zahlungsdatum": "2025-12-29",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 504.0,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-f119331e6bae481c",
+    "zahlungsdatum": "2025-12-25",
+    "betrag_brutto": 21.41,
+    "richtung": "EINGANG",
+    "gegenpartei": "HOSTINGER* HOSTINGER.D",
+    "verwendungszweck": "HOSTINGER* HOSTINGER.D",
+    "guthaben_nach_buchung": 429.0,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-30e897bc56d3efb8",
+    "zahlungsdatum": "2025-12-24",
+    "betrag_brutto": 29.75,
+    "richtung": "EINGANG",
+    "gegenpartei": "TRIATHLON TRANSFER GMBH",
+    "verwendungszweck": "Miete Postfach | IBAN: DE38590501010067163204 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 450.41,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-3e1804c85955a201",
+    "zahlungsdatum": "2025-12-23",
+    "betrag_brutto": 8.99,
+    "richtung": "EINGANG",
+    "gegenpartei": "GOOGLE*WORKSPACE",
+    "verwendungszweck": "GOOGLE*WORKSPACE",
+    "guthaben_nach_buchung": 480.16,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-c0cfd1dc5c8f6e79",
+    "zahlungsdatum": "2025-12-19",
+    "betrag_brutto": 14.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *QUFFB9ZLU2",
+    "verwendungszweck": "FACEBK *QUFFB9ZLU2",
+    "guthaben_nach_buchung": 489.15,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-e82ca75e4b3f4578",
+    "zahlungsdatum": "2025-12-18",
+    "betrag_brutto": 12.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *BNNY6A5MU2",
+    "verwendungszweck": "FACEBK *BNNY6A5MU2",
+    "guthaben_nach_buchung": 503.15,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-b28ec8e545dd43f3",
+    "zahlungsdatum": "2025-12-17",
+    "betrag_brutto": 11.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *4Q76L9RLU2",
+    "verwendungszweck": "FACEBK *4Q76L9RLU2",
+    "guthaben_nach_buchung": 515.15,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-ac0930c40ca669af",
+    "zahlungsdatum": "2025-12-16",
+    "betrag_brutto": 21.33,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 526.15,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,172 USD",
+      "fx_amount_lines": [
+        "- 25,00 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-86f39f49ff54efcc",
+    "zahlungsdatum": "2025-12-15",
+    "betrag_brutto": 10.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *C3GR9A9MU2",
+    "verwendungszweck": "FACEBK *C3GR9A9MU2",
+    "guthaben_nach_buchung": 547.48,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-71d1133d3242ef87",
+    "zahlungsdatum": "2025-12-15",
+    "betrag_brutto": 9.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *QHNPD9DLU2",
+    "verwendungszweck": "FACEBK *QHNPD9DLU2",
+    "guthaben_nach_buchung": 557.48,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-5bb24d5e7aac7dae",
+    "zahlungsdatum": "2025-12-14",
+    "betrag_brutto": 8.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *WSY378HLU2",
+    "verwendungszweck": "FACEBK *WSY378HLU2",
+    "guthaben_nach_buchung": 566.48,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-f355060b825f4014",
+    "zahlungsdatum": "2025-12-13",
+    "betrag_brutto": 7.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *BMHJC8VLU2",
+    "verwendungszweck": "FACEBK *BMHJC8VLU2",
+    "guthaben_nach_buchung": 574.48,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-df923a4f5a3743c2",
+    "zahlungsdatum": "2025-12-12",
+    "betrag_brutto": 6.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *YHJ6S8ZLU2",
+    "verwendungszweck": "FACEBK *YHJ6S8ZLU2",
+    "guthaben_nach_buchung": 581.48,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-d9984f5bceeea21f",
+    "zahlungsdatum": "2025-12-12",
+    "betrag_brutto": 5.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *XFZ769DLU2",
+    "verwendungszweck": "FACEBK *XFZ769DLU2",
+    "guthaben_nach_buchung": 587.48,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-46b66624a2376b78",
+    "zahlungsdatum": "2025-12-12",
+    "betrag_brutto": 4.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *JFQQ29DMU2",
+    "verwendungszweck": "FACEBK *JFQQ29DMU2",
+    "guthaben_nach_buchung": 592.48,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-f916f37b2a3745ba",
+    "zahlungsdatum": "2025-12-12",
+    "betrag_brutto": 3.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *HLN339MLU2",
+    "verwendungszweck": "FACEBK *HLN339MLU2",
+    "guthaben_nach_buchung": 596.48,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-6729b513d41029a4",
+    "zahlungsdatum": "2025-12-11",
+    "betrag_brutto": 2.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "FACEBK *UFNK69RLU2",
+    "verwendungszweck": "FACEBK *UFNK69RLU2",
+    "guthaben_nach_buchung": 599.48,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-d017c4ac09611a43",
+    "zahlungsdatum": "2025-12-08",
+    "betrag_brutto": 5.25,
+    "richtung": "EINGANG",
+    "gegenpartei": "GAMMA.APP",
+    "verwendungszweck": "GAMMA.APP",
+    "guthaben_nach_buchung": 601.48,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-dda344ea0a0755e4",
+    "zahlungsdatum": "2025-12-05",
+    "betrag_brutto": 18.76,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 606.73,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,162 USD",
+      "fx_amount_lines": [
+        "- 21,80 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-1d00c1c63a0e30d1",
+    "zahlungsdatum": "2025-12-05",
+    "betrag_brutto": 24.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "GAMMA.APP",
+    "verwendungszweck": "GAMMA.APP",
+    "guthaben_nach_buchung": 625.49,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-be53ba8acca41299",
+    "zahlungsdatum": "2025-12-02",
+    "betrag_brutto": 1.55,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH via Mollie",
+    "verwendungszweck": "lx2025110349962 KHYY-YNLG Lexware | Office L 692810c71c78601ef4fb4be8 | IBAN: DE39120700700037268718 | BIC: DEUTDEFFXXX",
+    "guthaben_nach_buchung": 649.49,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-6f9db2811c1b2afa",
+    "zahlungsdatum": "2025-12-01",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 651.04,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-b61df964563bd2f6",
+    "zahlungsdatum": "2025-12-01",
+    "betrag_brutto": 15.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Mohamed Amin Douioui",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFFXXX",
+    "guthaben_nach_buchung": 576.04,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-57b55e401368ddaa",
+    "zahlungsdatum": "2025-11-29",
+    "betrag_brutto": 115.67,
+    "richtung": "EINGANG",
+    "gegenpartei": "PNL Fintech B.V.",
+    "verwendungszweck": "Annual fee for Basic plan (incl. VAT). | Subscription period: 29 Nov, 2025 - 28 Nov, | 2026",
+    "guthaben_nach_buchung": 561.04,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-1a68a30ae812b483",
+    "zahlungsdatum": "2025-11-28",
+    "betrag_brutto": 15.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 676.71,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-bb9f8166155d4111",
+    "zahlungsdatum": "2025-11-28",
+    "betrag_brutto": 21.41,
+    "richtung": "EINGANG",
+    "gegenpartei": "hostinger.com",
+    "verwendungszweck": "hostinger.com",
+    "guthaben_nach_buchung": 661.71,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-517047a3d2b57a73",
+    "zahlungsdatum": "2025-11-27",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 683.12,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-3bb092b004a4fae3",
+    "zahlungsdatum": "2025-11-23",
+    "betrag_brutto": 8.99,
+    "richtung": "EINGANG",
+    "gegenpartei": "Google Workspace",
+    "verwendungszweck": "Google Workspace",
+    "guthaben_nach_buchung": 608.12,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-5497e1f39628a912",
+    "zahlungsdatum": "2025-11-21",
+    "betrag_brutto": 505.75,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Martin Veser UG (haftungsbeschr?nkt)",
+    "verwendungszweck": "Rechnung RE250007 | IBAN: DE68100101231039496522 | BIC: QNTODEB2XXX",
+    "guthaben_nach_buchung": 617.11,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-22c0361defcb2229",
+    "zahlungsdatum": "2025-11-19",
+    "betrag_brutto": 29.75,
+    "richtung": "EINGANG",
+    "gegenpartei": "TRIATHLON TRANSFER GMBH",
+    "verwendungszweck": "Miete Postfach | IBAN: DE38590501010067163204 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 111.36,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-537cc943fa0b335d",
+    "zahlungsdatum": "2025-11-15",
+    "betrag_brutto": 10.28,
+    "richtung": "EINGANG",
+    "gegenpartei": "OPENAI",
+    "verwendungszweck": "OPENAI",
+    "guthaben_nach_buchung": 141.11,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1575 USD",
+      "fx_amount_lines": [
+        "- 11,90 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-6602729573fcbfe7",
+    "zahlungsdatum": "2025-11-15",
+    "betrag_brutto": 1.38,
+    "richtung": "EINGANG",
+    "gegenpartei": "hostinger.com",
+    "verwendungszweck": "hostinger.com",
+    "guthaben_nach_buchung": 151.39,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-dd4829d473a3a85e",
+    "zahlungsdatum": "2025-11-13",
+    "betrag_brutto": 450.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "cyfire Rechtsanwaltsgesellschaft mbH",
+    "verwendungszweck": "CY-16562-MM | IBAN: DE13100180000100747895 | BIC: FNOMDEB2",
+    "guthaben_nach_buchung": 152.77,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-65f3610400f5ecf9",
+    "zahlungsdatum": "2025-11-11",
+    "betrag_brutto": 26.06,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH via Mollie",
+    "verwendungszweck": "lx2025110094793 KHYY-YNLG Lexware | Office L 690d605e5977c0f454673868 | IBAN: DE39120700700037268718 | BIC: DEUTDEFFXXX",
+    "guthaben_nach_buchung": 602.77,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-c20ea1051ef014f4",
+    "zahlungsdatum": "2025-11-05",
+    "betrag_brutto": 84.32,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 628.83,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1503 USD",
+      "fx_amount_lines": [
+        "- 97,00 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-332d1a263640f481",
+    "zahlungsdatum": "2025-11-03",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 713.15,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-626e769c50840bda",
+    "zahlungsdatum": "2025-11-01",
+    "betrag_brutto": 11.89,
+    "richtung": "EINGANG",
+    "gegenpartei": "HOSTINGER* HOSTINGER.D",
+    "verwendungszweck": "HOSTINGER* HOSTINGER.D",
+    "guthaben_nach_buchung": 638.15,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-a11e59b9599eb311",
+    "zahlungsdatum": "2025-10-31",
+    "betrag_brutto": 15.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 650.04,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-4ee321a525d55847",
+    "zahlungsdatum": "2025-10-28",
+    "betrag_brutto": 55.93,
+    "richtung": "EINGANG",
+    "gegenpartei": "UZR*digistore24.com",
+    "verwendungszweck": "UZR*digistore24.com",
+    "guthaben_nach_buchung": 635.04,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-21706ccbee102333",
+    "zahlungsdatum": "2025-10-27",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 690.97,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-5da91e2c0c0d1112",
+    "zahlungsdatum": "2025-10-24",
+    "betrag_brutto": 230.75,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Martin Veser UG (haftungsbeschr?nkt)",
+    "verwendungszweck": "Rechnung RE250006 | IBAN: DE68100101231039496522 | BIC: QNTODEB2XXX",
+    "guthaben_nach_buchung": 615.97,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-a3ba6433c48234cc",
+    "zahlungsdatum": "2025-10-23",
+    "betrag_brutto": 8.99,
+    "richtung": "EINGANG",
+    "gegenpartei": "GOOGLE*WORKSPACE",
+    "verwendungszweck": "GOOGLE*WORKSPACE",
+    "guthaben_nach_buchung": 385.22,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-d362ba2859a500aa",
+    "zahlungsdatum": "2025-10-22",
+    "betrag_brutto": 29.75,
+    "richtung": "EINGANG",
+    "gegenpartei": "TRIATHLON TRANSFER GMBH",
+    "verwendungszweck": "Miete Postfach | IBAN: DE38590501010067163204 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 394.21,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-5a8094934c2b30cd",
+    "zahlungsdatum": "2025-10-09",
+    "betrag_brutto": 155.1,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Finanzamt Saarlouis -Finanzkasse-",
+    "verwendungszweck": "ERSTATT.040/163/12016 UMS.ST 3VJ.25 | 155,10 EUR | IBAN: DE50590000000059301502 | BIC: MARKDEF1590",
+    "guthaben_nach_buchung": 423.96,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-16223eeb17f02926",
+    "zahlungsdatum": "2025-10-09",
+    "betrag_brutto": 29.75,
+    "richtung": "EINGANG",
+    "gegenpartei": "TRIATHLON TRANSFER GMBH",
+    "verwendungszweck": "Miete Postfach | IBAN: DE38590501010067163204 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 268.86,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-f9cc13704ee09b80",
+    "zahlungsdatum": "2025-10-09",
+    "betrag_brutto": 26.06,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH via Mollie",
+    "verwendungszweck": "lx2025100098014 KHYY-YNLG Lexware | Office L 68e4a6d75058ac8c6d783819 | IBAN: DE39120700700037268718 | BIC: DEUTDEFFXXX",
+    "guthaben_nach_buchung": 298.61,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-5f1a3f1c867d3072",
+    "zahlungsdatum": "2025-10-07",
+    "betrag_brutto": 275.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Martin Veser UG (haftungsbeschr?nkt)",
+    "verwendungszweck": "WebWokr Angebot AG0011 AZ | IBAN: DE68100101231039496522 | BIC: QNTODEB2XXX",
+    "guthaben_nach_buchung": 324.67,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-44b20af4e53bf673",
+    "zahlungsdatum": "2025-10-05",
+    "betrag_brutto": 82.83,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 49.67,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,171 USD",
+      "fx_amount_lines": [
+        "- 97,00 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-32434586469c0503",
+    "zahlungsdatum": "2025-10-04",
+    "betrag_brutto": 35.44,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 132.5,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-d692db5bc36d76ce",
+    "zahlungsdatum": "2025-10-01",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 167.94,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-af59dd8d6a1d5e5c",
+    "zahlungsdatum": "2025-09-29",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 92.94,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-7a94ea5ff5d239ae",
+    "zahlungsdatum": "2025-09-29",
+    "betrag_brutto": 55.93,
+    "richtung": "EINGANG",
+    "gegenpartei": "UZR*digistore24.com",
+    "verwendungszweck": "UZR*digistore24.com",
+    "guthaben_nach_buchung": 17.94,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-8e80729325a162a5",
+    "zahlungsdatum": "2025-09-24",
+    "betrag_brutto": 4.02,
+    "richtung": "EINGANG",
+    "gegenpartei": "KAFFEEROSTEREI COMAME",
+    "verwendungszweck": "KAFFEEROSTEREI COMAME",
+    "guthaben_nach_buchung": 73.87,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-c397c233e5748323",
+    "zahlungsdatum": "2025-09-23",
+    "betrag_brutto": 8.99,
+    "richtung": "EINGANG",
+    "gegenpartei": "GOOGLE*WORKSPACE",
+    "verwendungszweck": "GOOGLE*WORKSPACE",
+    "guthaben_nach_buchung": 77.89,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-ec7cc8b74bff0ca7",
+    "zahlungsdatum": "2025-09-19",
+    "betrag_brutto": 1.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "IONOS SE",
+    "verwendungszweck": "IONOS SE",
+    "guthaben_nach_buchung": 86.88,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-2be6110d96082159",
+    "zahlungsdatum": "2025-09-16",
+    "betrag_brutto": 17.07,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 87.88,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1716 USD",
+      "fx_amount_lines": [
+        "- 20,00 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-eb68e5defc7dee85",
+    "zahlungsdatum": "2025-09-13",
+    "betrag_brutto": 26.06,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH",
+    "verwendungszweck": "6213.9637.8151 Haufe Service Center | GmbH lx2025090092498 KHYY-YNLG | Lexware Office L | 68bce0d6a849936d9aa55352 | IBAN: DE11672400390191115511 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 104.95,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-b6c9180f60ec69e7",
+    "zahlungsdatum": "2025-09-11",
+    "betrag_brutto": 82.99,
+    "richtung": "EINGANG",
+    "gegenpartei": "Benito Ferrise",
+    "verwendungszweck": "Hotel Melia Frankfurt am Main | IBAN: DE66590501010067216341 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 131.01,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-bd6b0b450552e893",
+    "zahlungsdatum": "2025-09-11",
+    "betrag_brutto": 82.99,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Mohamed Amin Douioui",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFFXXX",
+    "guthaben_nach_buchung": 214.0,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-475e932a333a0a51",
+    "zahlungsdatum": "2025-09-06",
+    "betrag_brutto": 39.91,
+    "richtung": "EINGANG",
+    "gegenpartei": "APIFY* INV#20250906015",
+    "verwendungszweck": "APIFY* INV#20250906015",
+    "guthaben_nach_buchung": 131.01,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1628 USD",
+      "fx_amount_lines": [
+        "- 46,41 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-bc4ed6fd7a3b9b4b",
+    "zahlungsdatum": "2025-09-05",
+    "betrag_brutto": 83.58,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 170.92,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1605 USD",
+      "fx_amount_lines": [
+        "- 97,00 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-dd03f910c4ab1f1c",
+    "zahlungsdatum": "2025-09-04",
+    "betrag_brutto": 29.75,
+    "richtung": "EINGANG",
+    "gegenpartei": "TRIATHLON TRANSFER GMBH",
+    "verwendungszweck": "Miete Postfach | IBAN: DE38590501010067163204 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 254.5,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-4c59cd7d807423a5",
+    "zahlungsdatum": "2025-09-01",
+    "betrag_brutto": 97.58,
+    "richtung": "EINGANG",
+    "gegenpartei": "Mattha  Wimmler eGbR",
+    "verwendungszweck": "Frankfurt Event | IBAN: DE63515500350002142891 | BIC: HELADEF1WET",
+    "guthaben_nach_buchung": 284.25,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-8a072e8e4384c394",
+    "zahlungsdatum": "2025-09-01",
+    "betrag_brutto": 97.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Mohamed Amin Douioui",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFFXXX",
+    "guthaben_nach_buchung": 381.83,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-89a3dadee59790a0",
+    "zahlungsdatum": "2025-09-01",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 284.83,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-844f31d5c70f63f1",
+    "zahlungsdatum": "2025-08-28",
+    "betrag_brutto": 119.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Joel Wagner",
+    "verwendungszweck": "RE250005 | IBAN: DE90590501010067196121 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 209.83,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-63b607beb1dca136",
+    "zahlungsdatum": "2025-08-28",
+    "betrag_brutto": 5.3,
+    "richtung": "EINGANG",
+    "gegenpartei": "OPENAI",
+    "verwendungszweck": "OPENAI",
+    "guthaben_nach_buchung": 90.83,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1603 USD",
+      "fx_amount_lines": [
+        "- 6,15 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-e7f3c07e9479ad0f",
+    "zahlungsdatum": "2025-08-28",
+    "betrag_brutto": 55.93,
+    "richtung": "EINGANG",
+    "gegenpartei": "UZR*digistore24.com",
+    "verwendungszweck": "UZR*digistore24.com",
+    "guthaben_nach_buchung": 96.13,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-0683ac8fac2b9297",
+    "zahlungsdatum": "2025-08-27",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 152.06,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-48e8915d423a085b",
+    "zahlungsdatum": "2025-08-26",
+    "betrag_brutto": 5.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "test | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 77.06,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-d11656efa73e80ca",
+    "zahlungsdatum": "2025-08-22",
+    "betrag_brutto": 285.6,
+    "richtung": "EINGANG",
+    "gegenpartei": "Wix.com",
+    "verwendungszweck": "Wix.com",
+    "guthaben_nach_buchung": 72.06,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-88cc4b8a8c6557c9",
+    "zahlungsdatum": "2025-08-17",
+    "betrag_brutto": 17.18,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 357.66,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1641 USD",
+      "fx_amount_lines": [
+        "- 20,00 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-3f3d39b502dd8420",
+    "zahlungsdatum": "2025-08-15",
+    "betrag_brutto": 100.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 374.84,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-83a194d1f8df3e2e",
+    "zahlungsdatum": "2025-08-15",
+    "betrag_brutto": 26.06,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH",
+    "verwendungszweck": "6188.9190.1138 Haufe Service Center | GmbH lx2025080091462 KHYY-YNLG | Lexware Office L | 6894021e166c0474c60b1a89 | IBAN: DE11672400390191115511 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 274.84,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-3296baaa50912b3c",
+    "zahlungsdatum": "2025-08-14",
+    "betrag_brutto": 100.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Mohamed Amin Douioui",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFFXXX",
+    "guthaben_nach_buchung": 300.9,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-24bba19c4344d8c2",
+    "zahlungsdatum": "2025-08-13",
+    "betrag_brutto": 1.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "UZR*digistore24.com",
+    "verwendungszweck": "UZR*digistore24.com",
+    "guthaben_nach_buchung": 200.9,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-54bbfec6005f8aaa",
+    "zahlungsdatum": "2025-08-07",
+    "betrag_brutto": 93.27,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Finanzamt Saarlouis -Finanzkasse-",
+    "verwendungszweck": "ERSTATT.040/163/12016 UMS.ST 2024 | 93,27 EUR | IBAN: DE50590000000059301502 | BIC: MARKDEF1590",
+    "guthaben_nach_buchung": 201.9,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-7d7d463ef8cf4269",
+    "zahlungsdatum": "2025-08-07",
+    "betrag_brutto": 40.27,
+    "richtung": "EINGANG",
+    "gegenpartei": "APIFY* SUBSCRIPTION",
+    "verwendungszweck": "APIFY* SUBSCRIPTION",
+    "guthaben_nach_buchung": 108.63,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1524 USD",
+      "fx_amount_lines": [
+        "- 46,41 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-0934e4ba1f2bf7b5",
+    "zahlungsdatum": "2025-08-06",
+    "betrag_brutto": 4.32,
+    "richtung": "EINGANG",
+    "gegenpartei": "FINDYLEAD.COM",
+    "verwendungszweck": "FINDYLEAD.COM",
+    "guthaben_nach_buchung": 148.9,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,155 USD",
+      "fx_amount_lines": [
+        "- 4,99 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-c97d9fd2c65c7830",
+    "zahlungsdatum": "2025-08-05",
+    "betrag_brutto": 52.17,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 153.22,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1389 USD",
+      "fx_amount_lines": [
+        "- 59,42 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-bcf41023017b3579",
+    "zahlungsdatum": "2025-08-01",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 205.39,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-fee739b336e336b6",
+    "zahlungsdatum": "2025-07-29",
+    "betrag_brutto": 5.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "PNL Fintech B.V.",
+    "verwendungszweck": "Fee for extra services provided during 29 Jun | - 28 Jul, 2025. Inv. No. 3OJ3-0004",
+    "guthaben_nach_buchung": 130.39,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-42cabfcfc8e3a150",
+    "zahlungsdatum": "2025-07-28",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 135.39,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-407f9e23fd7686f0",
+    "zahlungsdatum": "2025-07-28",
+    "betrag_brutto": 25.59,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Finanzamt Saarlouis -Finanzkasse-",
+    "verwendungszweck": "ERSTATT.040/163/12016 UMS.ST 2VJ.25 | 25,59 EUR | IBAN: DE50590000000059301502 | BIC: MARKDEF1590",
+    "guthaben_nach_buchung": 60.39,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-9e67f0b190fc2096",
+    "zahlungsdatum": "2025-07-25",
+    "betrag_brutto": 25.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 34.8,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-39b1174bdc0eeca2",
+    "zahlungsdatum": "2025-07-16",
+    "betrag_brutto": 23.68,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH",
+    "verwendungszweck": "6160.3778.4621 Haufe Service Center | GmbH lx2025070093981 KHYY-YNLG | Lexware Office L | 686b23a691532290558dcb3a | IBAN: DE11672400390191115511 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 9.8,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-2898de69e2a68a7f",
+    "zahlungsdatum": "2025-07-11",
+    "betrag_brutto": 28.56,
+    "richtung": "EINGANG",
+    "gegenpartei": "PADDLE.NET* N8N CLOUD1",
+    "verwendungszweck": "PADDLE.NET* N8N CLOUD1",
+    "guthaben_nach_buchung": 33.48,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-8b0621350826004d",
+    "zahlungsdatum": "2025-07-08",
+    "betrag_brutto": 29.75,
+    "richtung": "EINGANG",
+    "gegenpartei": "TRIATHLON TRANSFER GMBH",
+    "verwendungszweck": "Miete Postfach | IBAN: DE38590501010067163204 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 62.04,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-0f3095143efd4c31",
+    "zahlungsdatum": "2025-07-05",
+    "betrag_brutto": 82.79,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 91.79,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1716 USD",
+      "fx_amount_lines": [
+        "- 97,00 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-ba8f3842449084ff",
+    "zahlungsdatum": "2025-07-01",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFFXXX",
+    "guthaben_nach_buchung": 174.58,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-83e5f23c68809567",
+    "zahlungsdatum": "2025-06-30",
+    "betrag_brutto": 17.12,
+    "richtung": "EINGANG",
+    "gegenpartei": "BOLT (BY STACKBLITZ)",
+    "verwendungszweck": "BOLT (BY STACKBLITZ)",
+    "guthaben_nach_buchung": 99.58,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1682 USD",
+      "fx_amount_lines": [
+        "- 20,00 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-28acdcde03faec01",
+    "zahlungsdatum": "2025-06-27",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 116.7,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-823c1e5f5d8e821b",
+    "zahlungsdatum": "2025-06-16",
+    "betrag_brutto": 17.41,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 41.7,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1487 USD",
+      "fx_amount_lines": [
+        "- 20,00 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-55ad4e74b6ea1022",
+    "zahlungsdatum": "2025-06-14",
+    "betrag_brutto": 23.68,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH",
+    "verwendungszweck": "6135.3191.8492 Haufe Service Center | GmbH lx2025060090542 KHYY-YNLG | Lexware Office L | 684396535f6f8a0df6201eeb | IBAN: DE11672400390191115511 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 59.11,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-a6c46c3b55510948",
+    "zahlungsdatum": "2025-06-05",
+    "betrag_brutto": 85.37,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 82.79,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1362 USD",
+      "fx_amount_lines": [
+        "- 97,00 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-7fb85ba9aef7e8d3",
+    "zahlungsdatum": "2025-06-02",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFFXXX",
+    "guthaben_nach_buchung": 168.16,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-780971378adb1e38",
+    "zahlungsdatum": "2025-06-02",
+    "betrag_brutto": 25.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFFXXX",
+    "guthaben_nach_buchung": 93.16,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-1d8bbc455447a6fc",
+    "zahlungsdatum": "2025-05-30",
+    "betrag_brutto": 17.73,
+    "richtung": "EINGANG",
+    "gegenpartei": "BOLT (BY STACKBLITZ)",
+    "verwendungszweck": "BOLT (BY STACKBLITZ)",
+    "guthaben_nach_buchung": 68.16,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,128 USD",
+      "fx_amount_lines": [
+        "- 20,00 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-a78c9dc8bf2894fe",
+    "zahlungsdatum": "2025-05-29",
+    "betrag_brutto": 5.0,
+    "richtung": "EINGANG",
+    "gegenpartei": "PNL Fintech B.V.",
+    "verwendungszweck": "Fee for extra services provided during 29 Apr | - 28 May, 2025. Inv. No. 3OJ3-0003",
+    "guthaben_nach_buchung": 85.89,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-573950e7ce0a8d96",
+    "zahlungsdatum": "2025-05-27",
+    "betrag_brutto": 29.75,
+    "richtung": "EINGANG",
+    "gegenpartei": "Triathlon Transfer GmbH",
+    "verwendungszweck": "lastschriftverfahren | IBAN: DE38590501010067163204 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 90.89,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-0ac5dc518074871e",
+    "zahlungsdatum": "2025-05-27",
+    "betrag_brutto": 75.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 120.64,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-d01a0988cc8b8899",
+    "zahlungsdatum": "2025-05-27",
+    "betrag_brutto": 25.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Umschichtung | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 45.64,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-7eec2b90a318fe1b",
+    "zahlungsdatum": "2025-05-19",
+    "betrag_brutto": 29.54,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 20.64,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1127 USD",
+      "fx_amount_lines": [
+        "- 32,87 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-0d1d349ec8f8ae01",
+    "zahlungsdatum": "2025-05-16",
+    "betrag_brutto": 17.91,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 50.18,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1166 USD",
+      "fx_amount_lines": [
+        "- 20,00 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-05e848da004c1ca7",
+    "zahlungsdatum": "2025-05-15",
+    "betrag_brutto": 23.68,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH",
+    "verwendungszweck": "6109.4039.0735 Haufe Service Center | GmbH lx2025050092112 KHYY-YNLG | Lexware Office L | 681ab828156bd6b3f2273faa | IBAN: DE11672400390191115511 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 68.09,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-3630d79bd96894f3",
+    "zahlungsdatum": "2025-05-05",
+    "betrag_brutto": 32.82,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 91.77,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,1273 USD",
+      "fx_amount_lines": [
+        "- 37,00 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-25c720892b90ed5b",
+    "zahlungsdatum": "2025-05-02",
+    "betrag_brutto": 25.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFFXXX",
+    "guthaben_nach_buchung": 124.59,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-fc23049c19eef787",
+    "zahlungsdatum": "2025-05-01",
+    "betrag_brutto": 29.75,
+    "richtung": "EINGANG",
+    "gegenpartei": "TRIATHLON TRANSFER GMBH",
+    "verwendungszweck": "Miete Postfach | IBAN: DE38590501010067163204 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 99.59,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-ca89e180add7d2df",
+    "zahlungsdatum": "2025-04-28",
+    "betrag_brutto": 50.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 129.34,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-dc520cdcaa83376d",
+    "zahlungsdatum": "2025-04-15",
+    "betrag_brutto": 50.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Mohamed Amin Douioui",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFFXXX",
+    "guthaben_nach_buchung": 79.34,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-ced72687b0d688d5",
+    "zahlungsdatum": "2025-04-15",
+    "betrag_brutto": 23.68,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH",
+    "verwendungszweck": "6081.7571.6196 Haufe Service Center | GmbH lx2025040088805 KHYY-YNLG | Lexware Office L | 67f32b8cb70fd8129780e042 | IBAN: DE11672400390191115511 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 29.34,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-1a2f1f13d2cc058e",
+    "zahlungsdatum": "2025-04-11",
+    "betrag_brutto": 25.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Mohamed Amin Douioui",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFFXXX",
+    "guthaben_nach_buchung": 53.02,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-0d2d2718b19a2f29",
+    "zahlungsdatum": "2025-04-11",
+    "betrag_brutto": 25.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Mohamed Amin Douioui",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFFXXX",
+    "guthaben_nach_buchung": 28.02,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-0ed2502cbb3b384f",
+    "zahlungsdatum": "2025-04-08",
+    "betrag_brutto": 33.32,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 3.02,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-141896764a770653",
+    "zahlungsdatum": "2025-04-08",
+    "betrag_brutto": 20.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "offener Betrag | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 36.34,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-6a8991382bf02dc3",
+    "zahlungsdatum": "2025-04-05",
+    "betrag_brutto": 34.13,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 16.34,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,084 USD",
+      "fx_amount_lines": [
+        "- 37,00 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-e8eb8fb27744638e",
+    "zahlungsdatum": "2025-04-01",
+    "betrag_brutto": 25.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFFXXX",
+    "guthaben_nach_buchung": 50.47,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-d0d29a90ec518cd9",
+    "zahlungsdatum": "2025-04-01",
+    "betrag_brutto": 12.85,
+    "richtung": "EINGANG",
+    "gegenpartei": "ZOHO-ZOHO CORP",
+    "verwendungszweck": "ZOHO-ZOHO CORP",
+    "guthaben_nach_buchung": 25.47,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-e5337a5b40b5ff87",
+    "zahlungsdatum": "2025-03-27",
+    "betrag_brutto": 30.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 38.32,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-7a5509a20459c553",
+    "zahlungsdatum": "2025-03-27",
+    "betrag_brutto": 29.75,
+    "richtung": "EINGANG",
+    "gegenpartei": "TRIATHLON TRANSFER GMBH",
+    "verwendungszweck": "Miete Postfach | IBAN: DE38590501010067163204 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 8.32,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-30788e3a6426970c",
+    "zahlungsdatum": "2025-03-15",
+    "betrag_brutto": 23.68,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH",
+    "verwendungszweck": "6056.7592.6183 Haufe Service Center | GmbH lx2025030096223 KHYY-YNLG | Lexware Office L | 67ca5b67347009ebdcdfd42c | IBAN: DE11672400390191115511 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 38.07,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-d45def3a20fbff9e",
+    "zahlungsdatum": "2025-03-10",
+    "betrag_brutto": 40.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Umschichtung | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 61.75,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-d3f6b2877412abff",
+    "zahlungsdatum": "2025-03-05",
+    "betrag_brutto": 35.62,
+    "richtung": "EINGANG",
+    "gegenpartei": "INSTANTLY",
+    "verwendungszweck": "INSTANTLY",
+    "guthaben_nach_buchung": 21.75,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,0387 USD",
+      "fx_amount_lines": [
+        "- 37,00 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-d018b268f8d6658f",
+    "zahlungsdatum": "2025-03-03",
+    "betrag_brutto": 25.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFFXXX",
+    "guthaben_nach_buchung": 57.37,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-107d120bc6c97c90",
+    "zahlungsdatum": "2025-02-28",
+    "betrag_brutto": 29.75,
+    "richtung": "EINGANG",
+    "gegenpartei": "TRIATHLON TRANSFER GMBH",
+    "verwendungszweck": "Miete Postfach | IBAN: DE38590501010067163204 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 32.37,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-9f1727d2053c684b",
+    "zahlungsdatum": "2025-02-27",
+    "betrag_brutto": 30.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 62.12,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-c7da7db4c6f1f9aa",
+    "zahlungsdatum": "2025-02-15",
+    "betrag_brutto": 23.68,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH",
+    "verwendungszweck": "6032.5420.7052 Haufe Service Center | GmbH lx2025020086172 KHYY-YNLG | Lexware Office L | 67a570c6ec20eeb352fa01d4 | IBAN: DE11672400390191115511 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 32.12,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-9ec1712a9962b54e",
+    "zahlungsdatum": "2025-02-03",
+    "betrag_brutto": 25.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFFXXX",
+    "guthaben_nach_buchung": 55.8,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-3ceccc883c4b167d",
+    "zahlungsdatum": "2025-01-27",
+    "betrag_brutto": 5.72,
+    "richtung": "EINGANG",
+    "gegenpartei": "OPENAI",
+    "verwendungszweck": "OPENAI",
+    "guthaben_nach_buchung": 30.8,
+    "fremdwaehrung": true,
+    "fx_hinweis": {
+      "fx_rate_line": "1 EUR = 1,0402 USD",
+      "fx_amount_lines": [
+        "- 5,95 $"
+      ]
+    }
+  },
+  {
+    "tx_id": "FINOM-4bf86c04d4fd7334",
+    "zahlungsdatum": "2025-01-27",
+    "betrag_brutto": 30.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Sparplan | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 36.52,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-06064dc6caeffc3e",
+    "zahlungsdatum": "2025-01-18",
+    "betrag_brutto": 29.75,
+    "richtung": "EINGANG",
+    "gegenpartei": "TRIATHLON TRANSFER GMBH",
+    "verwendungszweck": "Miete Postfach | IBAN: DE38590501010067163204 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 6.52,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-e68b39964e83b72a",
+    "zahlungsdatum": "2025-01-15",
+    "betrag_brutto": 11.84,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH",
+    "verwendungszweck": "6004.0359.3714 Haufe Service Center | GmbH lx2025010084916 KHYY-YNLG | Lexware Office L | 677c926e77571fd0c58914b4 | IBAN: DE11672400390191115511 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 36.27,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-fc2bb7f0591ca7d1",
+    "zahlungsdatum": "2025-01-14",
+    "betrag_brutto": 30.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFFXXX",
+    "guthaben_nach_buchung": 48.11,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-1f6bbd708062ef5c",
+    "zahlungsdatum": "2024-12-25",
+    "betrag_brutto": 29.75,
+    "richtung": "EINGANG",
+    "gegenpartei": "TRIATHLON TRANSFER GMBH",
+    "verwendungszweck": "Miete Postfach | IBAN: DE38590501010067163204 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 18.11,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-471e1ce665ba44e9",
+    "zahlungsdatum": "2024-12-17",
+    "betrag_brutto": 30.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Umschichtung | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 47.86,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-7ee00264d686860e",
+    "zahlungsdatum": "2024-12-14",
+    "betrag_brutto": 11.84,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH",
+    "verwendungszweck": "5978.1098.7460 Haufe Service Center | GmbH lx2024120081302 KHYY-YNLG | Lexware Office L | 6753b36ad90b41fa05f86256 | IBAN: DE11672400390191115511 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 17.86,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-437cd1cdf3be5186",
+    "zahlungsdatum": "2024-11-29",
+    "betrag_brutto": 99.96,
+    "richtung": "EINGANG",
+    "gegenpartei": "PNL Fintech B.V.",
+    "verwendungszweck": "Annual fee for Start plan (incl. VAT). | Subscription period: 29 Nov, 2024 - 28 Nov, | 2025",
+    "guthaben_nach_buchung": 29.7,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-f71a59e5346001fe",
+    "zahlungsdatum": "2024-11-26",
+    "betrag_brutto": 59.5,
+    "richtung": "EINGANG",
+    "gegenpartei": "TRIATHLON TRANSFER GMBH",
+    "verwendungszweck": "Miete Postfach 10/24+11/24 | IBAN: DE38590501010067163204 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 129.66,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-ea8c99cf592b740e",
+    "zahlungsdatum": "2024-11-15",
+    "betrag_brutto": 11.84,
+    "richtung": "EINGANG",
+    "gegenpartei": "Haufe Service Center GmbH",
+    "verwendungszweck": "5952.8657.2450 Haufe Service Center | GmbH Lexware Office L | 672bd1341a27de5c6e08d04e | IBAN: DE11672400390191115511 | BIC: COBADEFF",
+    "guthaben_nach_buchung": 189.16,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-638370096f5d13b2",
+    "zahlungsdatum": "2024-11-14",
+    "betrag_brutto": 100.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "MOHAMED AMIN DOUIOUI",
+    "verwendungszweck": "IBAN: DE86590400000535956702 | BIC: COBADEFFXXX",
+    "guthaben_nach_buchung": 201.0,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-f5f89e7232b10564",
+    "zahlungsdatum": "2024-11-05",
+    "betrag_brutto": 100.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "Anlage | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX",
+    "guthaben_nach_buchung": 101.0,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  },
+  {
+    "tx_id": "FINOM-0e9bcfa227f6cd88",
+    "zahlungsdatum": "2024-10-31",
+    "betrag_brutto": 1.0,
+    "richtung": "AUSGANG",
+    "gegenpartei": "Sebastian Spuhler",
+    "verwendungszweck": "test | IBAN: DE67590501010610680357 | BIC: SAKSDE55XXX | FINOM PAYMENTS B.V., eine Gesellschaft mit beschränkter Haftung, eingetragen im Handelsregister der niederländischen | Handelskammer unter der Nummer 78680751 mit der Geschäftsadresse Jachthavenweg 109H, 1081 KM, Amsterdam, Niederlande, | zugelassen als E-Geld-Institut bei der Zentralbank der Niederlande unter der Nummer R180074.",
+    "guthaben_nach_buchung": 1.0,
+    "fremdwaehrung": null,
+    "fx_hinweis": null
+  }
+]
