@@ -27,6 +27,14 @@ def _normalize(text: str) -> str:
     return re.sub(r"[^a-z0-9]", "", text.lower())
 
 
+def _date_iso(date: str) -> str:
+    """ISO-Datum (YYYY-MM-DD) aus dem RFC822-Date-Header, leer bei Parse-Fehler."""
+    try:
+        return parsedate_to_datetime(date).strftime("%Y-%m-%d")
+    except Exception:
+        return ""
+
+
 def _match_customer(sender: str, subject: str, body: str) -> str | None:
     """Ordnet eine E-Mail einem bestehenden Kunden/<Name>-Ordner zu, wenn der
     Kundenname (unabhängig von Groß-/Kleinschreibung und Trennzeichen) im
@@ -58,6 +66,59 @@ def _match_customer(sender: str, subject: str, body: str) -> str | None:
     return None
 
 
+def _match_lead(sender: str, subject: str, body: str) -> str | None:
+    """Wie _match_customer, aber gegen Leads/ statt Kunden/ - ein Interessent
+    hat noch keinen Kundenordner, soll aber genauso von einlaufender
+    Korrespondenz profitieren (Sebastian, 2026-07-21: die KI soll den
+    aktuellen Stand auch aus E-Mails ableiten, nicht nur aus dem einmaligen
+    Erstgesprächs-Protokoll). Nur versucht, wenn kein Kunde gematcht hat -
+    ein Name sollte nicht gleichzeitig Kunde und Lead sein."""
+    names = classify.list_lead_names()
+    if not names:
+        return None
+    haystack = _normalize(f"{sender} {subject} {body[:500]}")
+    for name in names:
+        needle = _normalize(name.replace("_", " ").replace("-", " "))
+        if len(needle) >= 6 and needle in haystack:
+            return name
+    return None
+
+
+_ZUSAMMENFASSUNG_MAX_CHARS = 600
+
+
+def _korrespondenz_markdown(
+    bezug_feld: str, bezug_wert: str, sender: str, subject: str, date: str, body: str
+) -> str:
+    """Gemeinsames Format für Kunden- und Lead-Korrespondenznotizen.
+
+    Vorher stand im Frontmatter das RFC822-Rohdatum ("Tue, 14 Jul 2026 ...")
+    statt ISO, und es gab keine "## Zusammenfassung"-Sektion - dadurch hat
+    kunden_status_service._lies_dokument() (Regex auf "^datum:\\s*JJJJ-MM-TT"
+    bzw. "## Zusammenfassung") beides nie gefunden: kein Datum für die
+    Chronologie-Sortierung, kein Inhalt für die LLM-Synthese. Die KI hat
+    E-Mail-Korrespondenz beim "Aktueller Stand" dadurch faktisch nie gesehen,
+    obwohl die Dateien am richtigen Ort lagen (Sebastian, 2026-07-21). Eine
+    gekürzte Klartext-Zusammenfassung statt eines eigenen LLM-Calls reicht für
+    Korrespondenznotizen dieser Länge und kostet nichts zusätzlich; der volle
+    Text bleibt darunter für Datei-Browser/RAG erhalten."""
+    zusammenfassung = body[:_ZUSAMMENFASSUNG_MAX_CHARS].strip() or "(kein Inhalt)"
+    if len(body) > _ZUSAMMENFASSUNG_MAX_CHARS:
+        zusammenfassung += "…"
+    return (
+        f"---\ntype: email-korrespondenz\n{bezug_feld}: {bezug_wert}\nvon: {sender}\n"
+        f"betreff: {subject}\ndatum: {_date_iso(date)}\ndatum_email: {date}\n---\n\n"
+        f"# {subject}\n\n**Von:** {sender}\n**Datum:** {date}\n\n"
+        f"## Zusammenfassung\n{zusammenfassung}\n\n## Volltext\n{body}"
+    )
+
+
+def _korrespondenz_filename(date: str, eid: str, subject: str) -> str:
+    date_slug = _date_slug(date)
+    safe_sub = re.sub(r"[^\w\s-]", "", subject)[:40].strip().replace(" ", "-") or "kein-betreff"
+    return f"{date_slug[:4]}-{date_slug[4:6]}-{date_slug[6:8]}-Email-{eid[:8]}-{safe_sub}.md"
+
+
 def _write_customer_correspondence(
     customer: str, eid: str, sender: str, subject: str, date: str, body: str
 ) -> bool:
@@ -68,17 +129,32 @@ def _write_customer_correspondence(
     settings = get_settings()
     dok_dir = settings.vault_path / "Kunden" / customer / "Dokumente"
     dok_dir.mkdir(parents=True, exist_ok=True)
-    date_slug = _date_slug(date)
-    safe_sub = re.sub(r"[^\w\s-]", "", subject)[:40].strip().replace(" ", "-") or "kein-betreff"
-    filename = f"{date_slug[:4]}-{date_slug[4:6]}-{date_slug[6:8]}-Email-{eid[:8]}-{safe_sub}.md"
-    path = dok_dir / filename
+    path = dok_dir / _korrespondenz_filename(date, eid, subject)
     if path.exists():
         return False
     path.write_text(
-        f"---\ntype: email-korrespondenz\nkunde: {customer}\nvon: {sender}\n"
-        f"betreff: {subject}\ndatum: {date}\n---\n\n# {subject}\n\n"
-        f"**Von:** {sender}\n**Datum:** {date}\n\n{body}",
-        encoding="utf-8",
+        _korrespondenz_markdown("kunde", customer, sender, subject, date, body), encoding="utf-8"
+    )
+    return True
+
+
+def _write_lead_correspondence(
+    lead: str, eid: str, sender: str, subject: str, date: str, body: str
+) -> bool:
+    """Wie _write_customer_correspondence, aber für Leads/<Name>-Korrespondenz/
+    statt Kunden/<Name>/Dokumente/ - Leads sind eine einzelne .md-Datei ohne
+    Unterordner, ein eigener Korrespondenz-Ordner daneben kollidiert nicht mit
+    dashboard.py's nicht-rekursivem leads_dir.glob("*.md") (taucht dort nicht
+    als eigener Lead auf) und wird von kunden_status_service._sammle_dokumente()
+    zusätzlich zur Lead-Datei gelesen."""
+    settings = get_settings()
+    korr_dir = settings.vault_path / "Leads" / f"{lead}-Korrespondenz"
+    korr_dir.mkdir(parents=True, exist_ok=True)
+    path = korr_dir / _korrespondenz_filename(date, eid, subject)
+    if path.exists():
+        return False
+    path.write_text(
+        _korrespondenz_markdown("lead", lead, sender, subject, date, body), encoding="utf-8"
     )
     return True
 
@@ -149,6 +225,10 @@ def index_new_emails(deep: bool = False) -> int:
         customer = _match_customer(sender, subject, body)
         if customer:
             _write_customer_correspondence(customer, eid, sender, subject, date, body)
+        else:
+            lead = _match_lead(sender, subject, body)
+            if lead:
+                _write_lead_correspondence(lead, eid, sender, subject, date, body)
 
         if memory.is_important_email(sender, subject, body):
             threading.Thread(

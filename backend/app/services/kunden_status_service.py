@@ -131,10 +131,25 @@ def _sammle_dokumente(kunde_path: Path) -> list[dict]:
     herausgezogen und in die Datei geschrieben hat, keine neue Extraktion.
 
     Leads sind eine einzelne .md-Datei in Leads/ statt eines Kundenordners
-    mit Unterordnern - dafür wird nur diese eine Datei gelesen."""
+    mit Unterordnern - dafür wird nur diese eine Datei plus ein optionaler
+    "<Name>-Korrespondenz/"-Ordner daneben gelesen (E-Mails, die
+    email_indexer._write_lead_correspondence() dem Lead zugeordnet hat -
+    Sebastian, 2026-07-21: der Stand soll auch aus laufender Korrespondenz
+    kommen, nicht nur aus dem einmaligen Erstgesprächs-Protokoll)."""
     if kunde_path.is_file():
+        dokumente = []
         eintrag = _lies_dokument(kunde_path, "Leads")
-        return [eintrag] if eintrag else []
+        if eintrag:
+            dokumente.append(eintrag)
+        lead_name = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", kunde_path.stem)
+        korr_dir = kunde_path.parent / f"{lead_name}-Korrespondenz"
+        if korr_dir.exists():
+            for f in korr_dir.glob("*.md"):
+                korr_eintrag = _lies_dokument(f, "Korrespondenz")
+                if korr_eintrag:
+                    dokumente.append(korr_eintrag)
+        dokumente.sort(key=lambda d: d["datum"], reverse=True)
+        return dokumente[:_MAX_DOKUMENTE]
 
     dokumente = []
     for sub in _DOKUMENT_ORDNER:

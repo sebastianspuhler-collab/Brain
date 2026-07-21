@@ -212,8 +212,9 @@ def extract_rechnungsnummer(text):
         r'Rechnung Nr\.?\s*([A-Za-z0-9\-_./]+)',
         r'Invoice\s*(?:No\.?|Number)?[:#]?\s*([A-Za-z0-9\-_./]+)',
         r'Bestellnr\.?:?\s*\n?\s*([A-Za-z0-9\-_./]+)',
+        r'Invoice #\s*([A-Za-z0-9\-_./]+)',
     ], text)
-    if val:
+    if val and any(c.isdigit() for c in val):
         return val
     block_nummer, _ = extract_header_block(text)
     return block_nummer
@@ -233,6 +234,8 @@ def extract_rechnungsdatum(text):
         rf'Date:?\s*\n?\s*{DATE_TOKEN}',
         rf'Datum:?\s*\n?\s*{DATE_TOKEN}',
         rf'Bezahlt am\s*\n?\s*{DATE_TOKEN}',
+        rf'Abgeschlossen am:?\s*\n?\s*{DATE_TOKEN}',
+        rf'Get[aä]tigt am:?\s*\n?\s*{DATE_TOKEN}',
         rf'invoice date[:\s]*\n?\s*{DATE_TOKEN}',
     ], text)
     parsed = parse_de_date(raw)
@@ -267,7 +270,7 @@ def extract_betrag_netto(text):
 
 def extract_ust(text):
     """Liefert (ust_satz, ust_betrag) NUR wenn explizit auf dem Beleg -> nie zurueckrechnen."""
-    m = re.search(r'(?:Umsatzsteuer|MwSt\.?|Mehrwertsteuer|VAT)\s*\(?\s*(\d{1,2})(?:[.,]\d)?\s*%[^\n]*\)?\s*\n?\s*(?:\(?[€$]?\s*(\d{1,3}(?:[.,]\d{3})*[.,]\d{2})\)?)?', text, re.IGNORECASE)
+    m = re.search(r'(?:Umsatzsteuer|MwSt\.?|Mehrwertsteuer|VAT|USt\.?)\b(?!-|\s*-?\s*Id)[^\n%]{0,40}?(\d{1,2})(?:[.,]\d)?\s*%[^\n]*\)?\s*\n?\s*(?:\(?[€$]?\s*(\d{1,3}(?:[.,]\d{3})*[.,]\d{2})\)?)?', text, re.IGNORECASE)
     if m and m.group(2):
         satz = int(m.group(1))
         betrag = parse_amount_token(m.group(2))
@@ -283,13 +286,17 @@ def extract_ust(text):
         return 0, 0.0
     return None, None
 
+RECIPIENT_MARKERS = ["sebastian spuhler", "mohamed douioui", "mohamed amin douioui"]
+
 def detect_richtung(text):
     low = text.lower()
     if SELF_ISSUED_PHRASE in low:
         return "AUSGANG"
-    self_issuer = any(marker in low.split('rechnung')[0][:400] for marker in EIGENE_FIRMA_MARKER) if 'rechnung' in low else False
-    # Heuristik: eigene Firma als Kunden-/Empfaengeradresse erwaehnt -> wir haben empfangen
+    # Ab hier: kein Selbstausstellungs-Satz -> wenn EIGENE_FIRMA oder einer der
+    # Gesellschafter als Empfaenger/Kunde vorkommt, wurde der Beleg empfangen (EINGANG).
     if any(marker in low for marker in EIGENE_FIRMA_MARKER):
+        return "EINGANG"
+    if any(marker in low for marker in RECIPIENT_MARKERS):
         return "EINGANG"
     return None
 

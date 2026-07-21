@@ -4,6 +4,7 @@ damit der Chat-Endpoint (/api/inbox_process) es direkt callen kann statt einen
 neuen Python-Prozess zu starten.
 """
 import json
+import re
 import shutil
 from datetime import date, datetime
 from pathlib import Path
@@ -155,6 +156,17 @@ def list_customer_names() -> list[str]:
     return [
         p.name for p in sorted(kunden_dir.iterdir())
         if p.is_dir() and not p.name.startswith((".", "[", "_"))
+    ]
+
+
+def list_lead_names() -> list[str]:
+    """Dateinamen (ohne Datumspräfix) unter Leads/ - analoge Basis für die
+    automatische Zuordnung von E-Mails zu Leads (siehe list_customer_names())."""
+    leads_dir = get_settings().vault_path / "Leads"
+    if not leads_dir.exists():
+        return []
+    return [
+        re.sub(r"^\d{4}-\d{2}-\d{2}-", "", p.stem) for p in sorted(leads_dir.glob("*.md"))
     ]
 
 
