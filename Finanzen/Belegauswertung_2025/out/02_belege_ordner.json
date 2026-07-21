@@ -3424,5 +3424,83 @@
     "status": "OHNE_ZAHLUNG",
     "pruefgrund": null,
     "_text_len": 638
+  },
+  {
+    "id": "d2278aa2-fa85-52a9-a886-f2cc33b8504b",
+    "quelle": [
+      "drive"
+    ],
+    "quellref": "Drive:876cdb25-f3f5-4c8e-87b7-9c44fbc3f49e.html (Rechnung Nr. 3OJ3-0005 PNL Fintech)",
+    "richtung": "EINGANG",
+    "rechnungsdatum": "2025-11-29",
+    "rechnungsnummer": "3OJ3-0005",
+    "partner": "PNL Fintech",
+    "beschreibung": null,
+    "betrag_netto": 97.2,
+    "netto_ist_einzelwert": false,
+    "ust_satz": 19,
+    "ust_satz_unterstellt": false,
+    "ust_betrag": 18.47,
+    "betrag_brutto": 115.67,
+    "waehrung": "EUR",
+    "ist_abo": false,
+    "abo_intervall": null,
+    "tx_id": null,
+    "zahlungsdatum": null,
+    "zahlungsweg": "UNBEKANNT",
+    "status": "OHNE_ZAHLUNG",
+    "pruefgrund": null
+  },
+  {
+    "id": "4cb6fde0-b57b-523a-befc-dd3c9fa5e175",
+    "quelle": [
+      "drive"
+    ],
+    "quellref": "Drive:05b869a0-4824-4fb2-b89f-cdb651e1dad6.html (Rechnung Nr. 3OJ3-0003 PNL Fintech)",
+    "richtung": "EINGANG",
+    "rechnungsdatum": "2025-05-29",
+    "rechnungsnummer": "3OJ3-0003",
+    "partner": "PNL Fintech",
+    "beschreibung": null,
+    "betrag_netto": 5.0,
+    "netto_ist_einzelwert": false,
+    "ust_satz": 0,
+    "ust_satz_unterstellt": false,
+    "ust_betrag": 0.0,
+    "betrag_brutto": 5.0,
+    "waehrung": "EUR",
+    "ist_abo": false,
+    "abo_intervall": null,
+    "tx_id": null,
+    "zahlungsdatum": null,
+    "zahlungsweg": "UNBEKANNT",
+    "status": "OHNE_ZAHLUNG",
+    "pruefgrund": null
+  },
+  {
+    "id": "d0367f89-2c4c-5bc2-8a0a-2f0f42be18b1",
+    "quelle": [
+      "drive"
+    ],
+    "quellref": "Drive:dabdf808-8706-4d9c-8111-ac218a331f15.html (Rechnung Nr. 3OJ3-0004 PNL Fintech)",
+    "richtung": "EINGANG",
+    "rechnungsdatum": "2025-07-29",
+    "rechnungsnummer": "3OJ3-0004",
+    "partner": "PNL Fintech",
+    "beschreibung": null,
+    "betrag_netto": 5.0,
+    "netto_ist_einzelwert": false,
+    "ust_satz": 0,
+    "ust_satz_unterstellt": false,
+    "ust_betrag": 0.0,
+    "betrag_brutto": 5.0,
+    "waehrung": "EUR",
+    "ist_abo": false,
+    "abo_intervall": null,
+    "tx_id": null,
+    "zahlungsdatum": null,
+    "zahlungsweg": "UNBEKANNT",
+    "status": "OHNE_ZAHLUNG",
+    "pruefgrund": null
   }
 ]

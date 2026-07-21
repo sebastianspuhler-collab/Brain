@@ -641,8 +641,10 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "AKZEPTIERT_BAGATELLE",
+      "beleg_ids": [
+        "4cb6fde0-b57b-523a-befc-dd3c9fa5e175"
+      ],
+      "status": "BELEGT",
       "pruefgrund": null,
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
@@ -963,8 +965,10 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "AKZEPTIERT_BAGATELLE",
+      "beleg_ids": [
+        "d0367f89-2c4c-5bc2-8a0a-2f0f42be18b1"
+      ],
+      "status": "BELEGT",
       "pruefgrund": null,
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
@@ -2052,8 +2056,10 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
+      "beleg_ids": [
+        "d2278aa2-fa85-52a9-a886-f2cc33b8504b"
+      ],
+      "status": "BELEGT",
       "pruefgrund": null,
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
@@ -5042,6 +5048,87 @@
       "pruefgrund": "Kein Rechnungsdatum extrahierbar, Zuordnung ueber Betrag+Partner",
       "_text_len": 1417,
       "_matched_tx": "FINOM-30e897bc56d3efb8"
+    },
+    {
+      "id": "d2278aa2-fa85-52a9-a886-f2cc33b8504b",
+      "quelle": [
+        "drive"
+      ],
+      "quellref": "Drive:876cdb25-f3f5-4c8e-87b7-9c44fbc3f49e.html (Rechnung Nr. 3OJ3-0005 PNL Fintech)",
+      "richtung": "EINGANG",
+      "rechnungsdatum": "2025-11-29",
+      "rechnungsnummer": "3OJ3-0005",
+      "partner": "PNL Fintech",
+      "beschreibung": null,
+      "betrag_netto": 97.2,
+      "netto_ist_einzelwert": false,
+      "ust_satz": 19,
+      "ust_satz_unterstellt": false,
+      "ust_betrag": 18.47,
+      "betrag_brutto": 115.67,
+      "waehrung": "EUR",
+      "ist_abo": false,
+      "abo_intervall": null,
+      "tx_id": "FINOM-57b55e401368ddaa",
+      "zahlungsdatum": "2025-11-29",
+      "zahlungsweg": "BANK",
+      "status": "VOLLSTAENDIG",
+      "pruefgrund": null,
+      "_matched_tx": "FINOM-57b55e401368ddaa"
+    },
+    {
+      "id": "4cb6fde0-b57b-523a-befc-dd3c9fa5e175",
+      "quelle": [
+        "drive"
+      ],
+      "quellref": "Drive:05b869a0-4824-4fb2-b89f-cdb651e1dad6.html (Rechnung Nr. 3OJ3-0003 PNL Fintech)",
+      "richtung": "EINGANG",
+      "rechnungsdatum": "2025-05-29",
+      "rechnungsnummer": "3OJ3-0003",
+      "partner": "PNL Fintech",
+      "beschreibung": null,
+      "betrag_netto": 5.0,
+      "netto_ist_einzelwert": false,
+      "ust_satz": 0,
+      "ust_satz_unterstellt": false,
+      "ust_betrag": 0.0,
+      "betrag_brutto": 5.0,
+      "waehrung": "EUR",
+      "ist_abo": false,
+      "abo_intervall": null,
+      "tx_id": "FINOM-a78c9dc8bf2894fe",
+      "zahlungsdatum": "2025-05-29",
+      "zahlungsweg": "BANK",
+      "status": "VOLLSTAENDIG",
+      "pruefgrund": null,
+      "_matched_tx": "FINOM-a78c9dc8bf2894fe"
+    },
+    {
+      "id": "d0367f89-2c4c-5bc2-8a0a-2f0f42be18b1",
+      "quelle": [
+        "drive"
+      ],
+      "quellref": "Drive:dabdf808-8706-4d9c-8111-ac218a331f15.html (Rechnung Nr. 3OJ3-0004 PNL Fintech)",
+      "richtung": "EINGANG",
+      "rechnungsdatum": "2025-07-29",
+      "rechnungsnummer": "3OJ3-0004",
+      "partner": "PNL Fintech",
+      "beschreibung": null,
+      "betrag_netto": 5.0,
+      "netto_ist_einzelwert": false,
+      "ust_satz": 0,
+      "ust_satz_unterstellt": false,
+      "ust_betrag": 0.0,
+      "betrag_brutto": 5.0,
+      "waehrung": "EUR",
+      "ist_abo": false,
+      "abo_intervall": null,
+      "tx_id": "FINOM-fee739b336e336b6",
+      "zahlungsdatum": "2025-07-29",
+      "zahlungsweg": "BANK",
+      "status": "VOLLSTAENDIG",
+      "pruefgrund": null,
+      "_matched_tx": "FINOM-fee739b336e336b6"
     }
   ]
 }
