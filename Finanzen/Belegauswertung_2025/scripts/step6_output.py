@@ -60,21 +60,22 @@ ws = wb.active
 ws.title = "Jahresuebersicht"
 jahr = auswertung['jahr']
 rows = [
-    ("HAUPTKENNZAHLEN (Brutto-Basis, verlaesslich)", ""),
-    ("Umsatz brutto", jahr['umsatz_brutto']),
-    ("Ausgaben brutto", jahr['ausgaben_brutto']),
-    ("Ergebnis brutto (Umsatz brutto - Ausgaben brutto)", jahr['ergebnis_brutto']),
-    ("Ergebnisanteil je Gesellschafter, brutto (50/50)", jahr['gewinnanteil_je_gesellschafter_brutto']),
+    ("HAUPTKENNZAHLEN (Netto-Basis, nur aus Belegen mit expliziter Netto-Angabe)", ""),
+    ("Umsatz netto", jahr['umsatz_netto']),
+    ("USt vereinnahmt", jahr['ust_vereinnahmt']),
+    ("Ausgaben netto", jahr['ausgaben_netto']),
+    ("Vorsteuer abziehbar", jahr['vorsteuer_abziehbar']),
+    ("USt-Zahllast (vereinnahmt - abziehbar)", jahr['ust_zahllast']),
+    ("Gewinn netto (Umsatz netto - Ausgaben netto)", jahr['gewinn_netto']),
+    ("Gewerbeertrag Basis (= Gewinn netto, RECHNERISCH)", jahr['gewerbeertrag_basis']),
+    ("Gewerbeertrag nach Freibetrag 24.500 EUR (RECHNERISCH)", jahr['gewerbeertrag_nach_freibetrag']),
+    ("Gewinnanteil je Gesellschafter, netto (50/50)", jahr['gewinnanteil_je_gesellschafter']),
     ("", ""),
-    ("NEBENINFO (Netto-/USt-Basis, NOCH UNVOLLSTAENDIG - nicht fuer Entscheidungen nutzen)", ""),
-    ("Umsatz netto (nur wo Beleg mit Netto-Angabe vorhanden)", jahr['umsatz_netto']),
-    ("USt vereinnahmt (aus Belegen)", jahr['ust_vereinnahmt']),
-    ("Ausgaben netto (nur wo Beleg mit Netto-Angabe vorhanden)", jahr['ausgaben_netto']),
-    ("Vorsteuer abziehbar (aus Belegen)", jahr['vorsteuer_abziehbar']),
+    ("ZUR EINORDNUNG (Brutto, vollstaendig, aber ohne Netto-/USt-Aufschluesselung)", ""),
+    ("Umsatz brutto (alle Zahlungen)", jahr['umsatz_brutto']),
+    ("Ausgaben brutto (alle Zahlungen)", jahr['ausgaben_brutto']),
+    ("Brutto ohne Netto-/USt-Aufteilung (kein/unvollstaendiger Beleg - fehlt oben im Netto-Gewinn)", jahr['brutto_ohne_aufteilung']),
     ("Vorsteuer gefaehrdet (geschaetzt, mangels Beleg nicht abziehbar)", jahr['vorsteuer_gefaehrdet']),
-    ("Brutto ohne Netto-/USt-Aufteilung (kein/unvollstaendiger Beleg)", jahr['brutto_ohne_aufteilung']),
-    ("USt-Zahllast (vereinnahmt - abziehbar, unvollstaendig)", jahr['ust_zahllast']),
-    ("Gewinn netto (unvollstaendig, NICHT verwenden)", jahr['gewinn_netto_unvollstaendig']),
     ("Anzahl Pruefaelle (Transaktionsebene)", jahr['anzahl_pruefaelle']),
 ]
 for r in rows:
@@ -91,20 +92,18 @@ autofit(ws, 2, maxw=90)
 # ---------- Tab 2: Monatsuebersicht ----------
 ws = wb.create_sheet("Monatsuebersicht")
 headers = ["Monat", "Umsatz netto", "Umsatz brutto", "Ausgaben netto", "Ausgaben brutto",
-           "Ergebnis brutto", "Umsatz netto (unvollst.)", "Ausgaben netto (unvollst.)",
-           "USt vereinnahmt", "Vorsteuer abziehbar", "Vorsteuer gefaehrdet",
+           "Gewinn netto", "USt vereinnahmt", "Vorsteuer abziehbar", "Vorsteuer gefaehrdet",
            "USt-Zahllast", "Brutto ohne Aufteilung", "Anzahl Pruefaelle"]
 ws.append(headers)
 monate = auswertung['monate']
 for m in range(1, 13):
     row = monate[str(m)]
-    ws.append([m, row['umsatz_brutto'], row['ausgaben_brutto'], row['ergebnis_brutto'],
-               row['umsatz_netto'], row['ausgaben_netto'],
-               row['ust_vereinnahmt'], row['vorsteuer_abziehbar'],
+    ws.append([m, row['umsatz_netto'], row['umsatz_brutto'], row['ausgaben_netto'], row['ausgaben_brutto'],
+               row['gewinn_netto'], row['ust_vereinnahmt'], row['vorsteuer_abziehbar'],
                row['vorsteuer_gefaehrdet'], row['ust_zahllast'], row['brutto_ohne_aufteilung'],
                row['anzahl_pruefaelle']])
-ws.append(["Jahr"] + [jahr[k] for k in ['umsatz_brutto','ausgaben_brutto','ergebnis_brutto',
-           'umsatz_netto','ausgaben_netto','ust_vereinnahmt','vorsteuer_abziehbar','vorsteuer_gefaehrdet',
+ws.append(["Jahr"] + [jahr[k] for k in ['umsatz_netto','umsatz_brutto','ausgaben_netto','ausgaben_brutto',
+           'gewinn_netto','ust_vereinnahmt','vorsteuer_abziehbar','vorsteuer_gefaehrdet',
            'ust_zahllast','brutto_ohne_aufteilung','anzahl_pruefaelle']])
 for c in range(1, len(headers) + 1):
     ws.cell(row=14, column=c).font = Font(bold=True)
@@ -360,8 +359,8 @@ print(f"  PRUEFFALL (echt): {status_counter.get('PRUEFFALL', 0)}")
 print(f"Belege ohne Zahlung (> {BAGATELLE} EUR): {len(ohne_zahlung)}")
 print()
 print("Jahreskennzahlen (RECHNERISCH, siehe Disclaimer):")
-for k in ['umsatz_brutto', 'umsatz_netto', 'ausgaben_brutto', 'ausgaben_netto',
-          'gewinn_vorlaeufig', 'ust_zahllast', 'gewerbeertrag_nach_freibetrag',
+for k in ['umsatz_netto', 'umsatz_brutto', 'ausgaben_netto', 'ausgaben_brutto',
+          'gewinn_netto', 'ust_zahllast', 'gewerbeertrag_nach_freibetrag',
           'gewinnanteil_je_gesellschafter']:
     print(f"  {k}: {jahr[k]} EUR")
 print()

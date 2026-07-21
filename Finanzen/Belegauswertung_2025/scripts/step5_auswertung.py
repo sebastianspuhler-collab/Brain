@@ -51,11 +51,11 @@ def main():
 
     for m in monate:
         row = monate[m]
-        # HAUPTKENNZAHL (angefordert): reine Brutto-Differenz, unabhaengig von der
-        # (noch unvollstaendigen) Netto-/USt-Aufschluesselung je Beleg.
+        # HAUPTKENNZAHL (angefordert): Netto-Gewinn. Nur Zahlungen mit einem Beleg, der
+        # eine explizite Netto-/USt-Angabe hat, fliessen in umsatz_netto/ausgaben_netto
+        # ein - nichts wird geschaetzt oder aus dem Bruttobetrag zurueckgerechnet.
+        row['gewinn_netto'] = round(row['umsatz_netto'] - row['ausgaben_netto'], 2)
         row['ergebnis_brutto'] = round(row['umsatz_brutto'] - row['ausgaben_brutto'], 2)
-        # Netto-basierter Gewinn NUR als Nebeninfo, solange Beleglage unvollstaendig ist.
-        row['gewinn_netto_unvollstaendig'] = round(row['umsatz_netto'] - row['ausgaben_netto'], 2)
         row['ust_zahllast'] = round(row['ust_vereinnahmt'] - row['vorsteuer_abziehbar'], 2)
         for k in row:
             if isinstance(row[k], float):
@@ -67,16 +67,19 @@ def main():
                   'ausgaben_netto', 'vorsteuer_abziehbar', 'vorsteuer_gefaehrdet',
                   'brutto_ohne_aufteilung', 'anzahl_pruefaelle']
     }
+    jahr['gewinn_netto'] = round(jahr['umsatz_netto'] - jahr['ausgaben_netto'], 2)
     jahr['ergebnis_brutto'] = round(jahr['umsatz_brutto'] - jahr['ausgaben_brutto'], 2)
-    jahr['gewinn_netto_unvollstaendig'] = round(jahr['umsatz_netto'] - jahr['ausgaben_netto'], 2)
     jahr['ust_zahllast'] = round(jahr['ust_vereinnahmt'] - jahr['vorsteuer_abziehbar'], 2)
-    jahr['gewinnanteil_je_gesellschafter_brutto'] = round(jahr['ergebnis_brutto'] / 2, 2)
-    jahr['hinweis'] = ("HAUPTKENNZAHL ist 'ergebnis_brutto' (Umsatz brutto - Ausgaben brutto), da die "
-                        "Netto-/USt-Aufschluesselung je Beleg noch unvollstaendig ist (viele Zahlungen ohne "
-                        "verknuepften Beleg mit Netto-Angabe). 'gewinn_netto_unvollstaendig' NICHT als "
-                        "verlaesslichen Gewinn verwenden, bis mehr Belege geklaert sind. Kein echter "
-                        "steuerlicher Gewinn (keine Abschreibungen/Abgrenzungen/Hinzurechnungen) -> "
-                        "Steuerberater konsultieren.")
+    jahr['gewerbeertrag_basis'] = jahr['gewinn_netto']
+    jahr['gewerbeertrag_nach_freibetrag'] = max(0.0, round(jahr['gewerbeertrag_basis'] - 24500, 2))
+    jahr['gewinnanteil_je_gesellschafter'] = round(jahr['gewinn_netto'] / 2, 2)
+    jahr['hinweis'] = ("HAUPTKENNZAHL ist 'gewinn_netto' (Umsatz netto - Ausgaben netto), NUR aus Zahlungen "
+                        "mit einem Beleg, der eine explizite Netto-/USt-Angabe traegt - kein Wert wird "
+                        "geschaetzt oder aus dem Bruttobetrag zurueckgerechnet. Zahlungen ohne diese Angabe "
+                        "fehlen in dieser Kennzahl (siehe 'brutto_ohne_aufteilung' und die Statistik-Tabs) "
+                        "und muessen erst per Beleg geklaert werden, bevor sie den Netto-Gewinn veraendern. "
+                        "'ergebnis_brutto' ist zur Einordnung danebengestellt. Kein echter steuerlicher "
+                        "Gewinn (keine Abschreibungen/Abgrenzungen/Hinzurechnungen) -> Steuerberater konsultieren.")
 
     einlagen_entnahmen = [t for t in tx_all if t['kategorie'] == 'EINLAGE_ENTNAHME']
     umbuchungen = [t for t in tx_all if t['kategorie'] == 'UMBUCHUNG']
