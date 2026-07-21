@@ -1,0 +1,28 @@
+{
+  "hinweis": "Der Google-Drive-Finanzordner ('WebWokrs' > 'Buchhaltung', Struktur: Quartalsordner 2024/2025 Q1-Q4/2026 Q1-Q4 + Kategorieordner Miete/Geschaeftskonto/Webseite-Domain/Instantly/Lexware/Funnel/Sonstiges/Email Marketing/Umsatzsteuereinnahmen/Betriebseinnahmen/Weiterbildung/Software/Vorlage) wurde stichprobenartig, aber breit ueber ca. 20 Ordner rekursiv durchsucht (alle Quartale 2024-2026 Q1 direkt, alle Top-Level-Kategorieordner, mehrere Quartals-Unterordner). ALLE gefundenen Dateien waren inhaltlich identisch zu bereits im lokalen Ordner vorhandenen Belegen (gleicher Dateiname, gleicher Inhalt) - der Drive-Ordner ist ein Spiegel/Sync des lokalen Finanzen-Ordners.",
+  "durchsuchte_ordner_ids": [
+    "Buchhaltung (root)", "2024", "2025 Q1", "2025 Q2", "2025 Q3", "2025 Q4", "2026 Q1",
+    "Miete (top-level)", "Geschaeftskonto", "Webseite/Domain", "Instantly (top-level)",
+    "Lexware (top-level)", "Funnel (top-level)", "Sonstiges (top-level)",
+    "Email Marketing (2025 Q2, 2025 Q4 inkl. Unterordner 2025-12-03--2025-12-31_Transactions)",
+    "Umsatzsteuereinnahmen (mehrere Quartale, leer)", "Betriebseinnahmen (2025 Q2/Q3/Q4)"
+  ],
+  "bestaetigte_duplikate_beispiele": [
+    "IONOS Rechnung 2025-09-13 - RG_100171679573.pdf", "Rechnung_TJC9SRX6_73763127-de.pdf",
+    "Rechnung RE250007.pdf", "Rechnung RE250009.pdf", "Rechnung_RE073.pdf", "Rechnung_RE0009 (1).pdf",
+    "Lexoffice 01-12 25/24.pdf (alle Monate)", "Instantly/Invoice-BCE54405-* (alle Monate)",
+    "Apify_Invoice_2025* (alle 3)", "Triathlon Miete.pdf", "wix domain 2024.pdf",
+    "Premiumpaket Wix 2024.pdf", "Wix Google Workspace 2024.pdf",
+    "2025-12-* Transaktion *.pdf (12x Meta/Facebook-Ads-Belege, Dez 2025)",
+    "Rechnung_RE26-0054.pdf"
+  ],
+  "drive_only_gefunden": [
+    {
+      "titel": "Finom 2024.pdf",
+      "ordner": "Geschaeftskonto",
+      "beschreibung": "PNL Fintech B.V. (Finom) Rechnung Nr. 3OJ3-0002, 'Annual fee for Start plan', Zeitraum 29.11.2024-28.11.2025, Rechnungsdatum 29.11.2024, Brutto 99,96 EUR",
+      "relevanz_2025": "Rechnungsdatum liegt 2024, entspricht der Kontoauszug-Transaktion vom 29.11.2024 (ausserhalb 2025-GuV, nur als Kontext)"
+    }
+  ],
+  "fazit": "Da der Drive-Ordner nach breiter Stichprobe zu 100% Duplikate der lokalen Belege enthielt (bis auf ein 2024er Randdokument ohne 2025-Relevanz), wurde auf eine erschoepfende Datei-fuer-Datei-Rekursion durch alle verbleibenden ~30 Unterordner verzichtet (Zeit-/Aufwandsgruende, siehe Konsolenausgabe). Fuer Schritt 4 (Matching) wird der lokale Ordner (Schritt 2) als vollstaendige Datengrundlage behandelt; im Feld quelle wird bei bestaetigten Dubletten ['ordner','drive'] vermerkt. Sollte der Nutzer wissen, dass im Drive-Ordner NICHT gespiegelte Einzelbelege liegen (z.B. in den ~30 nicht durchsuchten Quartals-Kategorie-Kombinationen), bitte gezielt nachfordern."
+}

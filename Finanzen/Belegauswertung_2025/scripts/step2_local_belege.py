@@ -300,10 +300,28 @@ def detect_richtung(text):
         return "EINGANG"
     return None
 
+NOISE_LINE_RE = re.compile(
+    r'^(page \d+ of \d+|seite \d+ von \d+|invoice|rechnung|receipt|zahlungsbeleg|angebot)$',
+    re.IGNORECASE,
+)
+
+KNOWN_VENDORS = [
+    "Apify Technologies", "Instantly", "Anthropic", "Hostinger", "Digistore24",
+    "Microsoft", "Mistral AI", "Meta Platforms", "sipgate", "Wix.com", "IONOS",
+    "Hetzner", "Google", "LinkedIn", "Haufe Service Center", "cyfire",
+    "Triathlon Transfer", "PNL Fintech", "World Class Marketing", "Martin Veser",
+    "Joel Wagner", "Matth", "Benito Ferrise", "Finanzamt",
+]
+
 def extract_partner(text, richtung):
+    for vendor in KNOWN_VENDORS:
+        if vendor.lower() in text.lower():
+            return vendor
     lines = [l.strip() for l in text.splitlines() if l.strip()]
     for l in lines[:15]:
         low = l.lower()
+        if NOISE_LINE_RE.match(low):
+            continue
         if any(m in low for m in EIGENE_FIRMA_MARKER):
             continue
         if len(l) > 3 and not re.match(r'^\d', l):

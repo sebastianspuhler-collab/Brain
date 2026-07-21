@@ -76,7 +76,12 @@ def main():
     for t in tx2025:
         kategorie, pruefgrund_kat = classify(t)
         monat = int(t['zahlungsdatum'].split('-')[1])
-        status = "PRUEFFALL" if kategorie == "UNKLAR" else "BELEG_FEHLT"
+        if kategorie == "UNKLAR":
+            status = "PRUEFFALL"
+        elif kategorie in ("EINLAGE_ENTNAHME", "UMBUCHUNG"):
+            status = "BELEGT"  # kein Rechnungsbeleg noetig, Bankbeleg genuegt
+        else:
+            status = "BELEG_FEHLT"  # vorlaeufig, wird in Schritt 4 verfeinert
         rec = {
             "tx_id": t['tx_id'],
             "zahlungsdatum": t['zahlungsdatum'],
