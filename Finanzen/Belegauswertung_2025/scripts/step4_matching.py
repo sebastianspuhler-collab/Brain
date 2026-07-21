@@ -122,7 +122,14 @@ def main():
             if nr and len(str(nr)) >= 4 and str(nr) in vzw:
                 by_nummer.append(b)
 
-        strong_matches = list({b['id']: b for b in (exact + by_nummer)}.values())
+        # Rechnungsnummer im Verwendungszweck ist das staerkste Signal - wenn es EINDEUTIG
+        # auf einen Kandidaten zeigt, entscheidet das, auch wenn 'exact' zusaetzlich einen
+        # zufaellig betragsgleichen, aber anderen Beleg enthaelt (z.B. zwei Rechnungen mit
+        # identischem Rundbetrag an denselben Kunden).
+        if len(by_nummer) == 1:
+            strong_matches = by_nummer
+        else:
+            strong_matches = list({b['id']: b for b in (exact + by_nummer)}.values())
 
         if len(strong_matches) == 1:
             b = strong_matches[0]
@@ -196,7 +203,7 @@ def main():
     for tx in transaktionen:
         if tx['kategorie'] != 'GESCHAEFTLICH' or tx['beleg_ids']:
             continue
-        if tx['status'] == 'PRUEFFALL' and tx.get('pruefgrund') and 'Duplikat' in tx['pruefgrund']:
+        if tx['status'] == 'PRUEFFALL' and tx.get('pruefgrund'):
             continue
         tx_richtung_beleg = "AUSGANG" if tx['richtung'] == 'AUSGANG' else "EINGANG"
         fx_candidates = []
@@ -230,8 +237,8 @@ def main():
             continue
         if tx['beleg_ids']:
             continue  # bereits behandelt oben
-        if tx['status'] == 'PRUEFFALL' and tx.get('pruefgrund') and 'Duplikat' in tx['pruefgrund']:
-            continue  # Duplikat-Verdacht bleibt IMMER echter Pruefall, unabhaengig von Bagatellgrenze
+        if tx['status'] == 'PRUEFFALL' and tx.get('pruefgrund'):
+            continue  # bereits mit konkretem Pruefgrund belegt (z.B. mehrdeutige Kandidaten, Duplikat-Verdacht) - nicht ueberschreiben
         if tx['betrag_brutto'] <= BAGATELLE:
             tx['status'] = 'AKZEPTIERT_BAGATELLE'
             tx['pruefgrund'] = None

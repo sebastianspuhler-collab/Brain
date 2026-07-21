@@ -260,125 +260,125 @@ Insgesamt 89 echte Pruefaelle (Bagatellfaelle <= 15.0 EUR ausgeschlossen, siehe 
 - Status: PRUEFFALL
 - Rueckfrage: Fremdwaehrungsbeleg, Bankbetrag weicht wegen Kartenumrechnung ab - manuell pruefen
 
-## 44. Instantly - 20.0 EUR (2025-05-15)
+## 44. HOSTINGER* HOSTINGER.D - 21.41 EUR (2025-12-25)
+- Typ: Transaktion
+- Quelle: Finom-Kontoauszug (FINOM-f119331e6bae481c)
+- Status: PRUEFFALL
+- Rueckfrage: Mehrere Beleg-Kandidaten mit passender Rechnungsnummer/Partner+Zeitfenster: H_33541164.pdf (Beleg 6649835b); H_34974301.pdf (Beleg aa369ac3)
+
+## 45. Instantly - 20.0 EUR (2025-05-15)
 - Typ: Beleg
 - Quelle: Instantly 051 25.pdf
 - Status: PRUEFFALL
 - Rueckfrage: Fremdwaehrung vermutet: USD
 
-## 45. Instantly - 20.0 EUR (2025-06-15)
+## 46. Instantly - 20.0 EUR (2025-06-15)
 - Typ: Beleg
 - Quelle: Instantly 061 25.pdf
 - Status: PRUEFFALL
 - Rueckfrage: Fremdwaehrungsbeleg, Bankbetrag weicht wegen Kartenumrechnung ab - manuell pruefen
 
-## 46. Instantly - 20.0 EUR (2025-08-15)
+## 47. Instantly - 20.0 EUR (2025-08-15)
 - Typ: Beleg
 - Quelle: Invoice-BCE54405-0015.pdf
 - Status: PRUEFFALL
 - Rueckfrage: Fremdwaehrungsbeleg, Bankbetrag weicht wegen Kartenumrechnung ab - manuell pruefen
 
-## 47. Instantly - 20.0 EUR (2025-09-15)
+## 48. Instantly - 20.0 EUR (2025-09-15)
 - Typ: Beleg
 - Quelle: Invoice-BCE54405-0017.pdf
 - Status: PRUEFFALL
 - Rueckfrage: Fremdwaehrungsbeleg, Bankbetrag weicht wegen Kartenumrechnung ab - manuell pruefen
 
-## 48. Rechnungsnummer LRDKYW8R-0002 - 20.0 EUR (2025-06-29)
+## 49. Rechnungsnummer LRDKYW8R-0002 - 20.0 EUR (2025-06-29)
 - Typ: Beleg
 - Quelle: Invoice-LRDKYW8R-0002.pdf
 - Status: PRUEFFALL
 - Rueckfrage: Fremdwaehrung vermutet: USD
 
-## 49. INSTANTLY - 18.76 EUR (2025-12-05)
+## 50. INSTANTLY - 18.76 EUR (2025-12-05)
 - Typ: Transaktion
 - Quelle: Finom-Kontoauszug (FINOM-dda344ea0a0755e4)
 - Status: PRUEFFALL
 - Rueckfrage: Fremdwaehrungs-Beleg gefunden (21.8 USD), Bankbuchung in EUR (18.76) nach Kartenumrechnung - Betrag NICHT automatisch umgerechnet, bitte Wechselkurs/Zuordnung manuell pruefen (Receipt-2265-8647.pdf)
 
-## 50. INSTANTLY - 17.41 EUR (2025-06-16)
+## 51. INSTANTLY - 17.41 EUR (2025-06-16)
 - Typ: Transaktion
 - Quelle: Finom-Kontoauszug (FINOM-823c1e5f5d8e821b)
 - Status: PRUEFFALL
 - Rueckfrage: Fremdwaehrungs-Beleg gefunden (20.0 USD), Bankbuchung in EUR (17.41) nach Kartenumrechnung - Betrag NICHT automatisch umgerechnet, bitte Wechselkurs/Zuordnung manuell pruefen (Instantly 061 25.pdf)
 
-## 51. INSTANTLY - 17.18 EUR (2025-08-17)
+## 52. INSTANTLY - 17.18 EUR (2025-08-17)
 - Typ: Transaktion
 - Quelle: Finom-Kontoauszug (FINOM-88cc4b8a8c6557c9)
 - Status: PRUEFFALL
 - Rueckfrage: Fremdwaehrungs-Beleg gefunden (20.0 USD), Bankbuchung in EUR (17.18) nach Kartenumrechnung - Betrag NICHT automatisch umgerechnet, bitte Wechselkurs/Zuordnung manuell pruefen (Invoice-BCE54405-0015.pdf)
 
-## 52. INSTANTLY - 17.07 EUR (2025-09-16)
+## 53. INSTANTLY - 17.07 EUR (2025-09-16)
 - Typ: Transaktion
 - Quelle: Finom-Kontoauszug (FINOM-2be6110d96082159)
 - Status: PRUEFFALL
 - Rueckfrage: Fremdwaehrungs-Beleg gefunden (20.0 USD), Bankbuchung in EUR (17.07) nach Kartenumrechnung - Betrag NICHT automatisch umgerechnet, bitte Wechselkurs/Zuordnung manuell pruefen (Invoice-BCE54405-0017.pdf)
 
-## 53. FACEBK *QUFFB9ZLU2 - 14.0 EUR (2025-12-19)
+## 54. FACEBK *QUFFB9ZLU2 - 14.0 EUR (2025-12-19)
 - Typ: Transaktion
 - Quelle: Finom-Kontoauszug (FINOM-c0cfd1dc5c8f6e79)
 - Status: PRUEFFALL
 - Rueckfrage: Zuordnung nur ueber Betrag+Zeitfenster, Partner nicht eindeutig: Transaktion 'FACEBK *QUFFB9ZLU2' vs. Beleg-Partner 'Meta Platforms' (2025-12-18T20-09 Transaktion 25556351544054971-25365991733090951.pdf)
 
-## 54. Meta Platforms - 14.0 EUR (2025-12-18)
+## 55. Meta Platforms - 14.0 EUR (2025-12-18)
 - Typ: Beleg
 - Quelle: 2025-12-18T20-09 Transaktion 25556351544054971-25365991733090951.pdf
 - Status: PRUEFFALL
 - Rueckfrage: Zuordnung nur ueber Betrag, Partner nicht eindeutig bestaetigt
 
-## 55. FACEBK *BNNY6A5MU2 - 12.0 EUR (2025-12-18)
+## 56. FACEBK *BNNY6A5MU2 - 12.0 EUR (2025-12-18)
 - Typ: Transaktion
 - Quelle: Finom-Kontoauszug (FINOM-e82ca75e4b3f4578)
 - Status: PRUEFFALL
 - Rueckfrage: Zuordnung nur ueber Betrag+Zeitfenster, Partner nicht eindeutig: Transaktion 'FACEBK *BNNY6A5MU2' vs. Beleg-Partner 'Meta Platforms' (2025-12-17T13-22 Transaktion 25323714033985385-25323714057318716.pdf)
 
-## 56. Meta Platforms - 12.0 EUR (2025-12-17)
+## 57. Meta Platforms - 12.0 EUR (2025-12-17)
 - Typ: Beleg
 - Quelle: 2025-12-17T13-22 Transaktion 25323714033985385-25323714057318716.pdf
 - Status: PRUEFFALL
 - Rueckfrage: Zuordnung nur ueber Betrag, Partner nicht eindeutig bestaetigt
 
-## 57. FACEBK *4Q76L9RLU2 - 11.0 EUR (2025-12-17)
+## 58. FACEBK *4Q76L9RLU2 - 11.0 EUR (2025-12-17)
 - Typ: Transaktion
 - Quelle: Finom-Kontoauszug (FINOM-b28ec8e545dd43f3)
 - Status: PRUEFFALL
 - Rueckfrage: Zuordnung nur ueber Betrag+Zeitfenster, Partner nicht eindeutig: Transaktion 'FACEBK *4Q76L9RLU2' vs. Beleg-Partner 'Meta Platforms' (2025-12-16T09-14 Transaktion 25533610619662397-25501444542879004.pdf)
 
-## 58. Meta Platforms - 11.0 EUR (2025-12-16)
+## 59. Meta Platforms - 11.0 EUR (2025-12-16)
 - Typ: Beleg
 - Quelle: 2025-12-16T09-14 Transaktion 25533610619662397-25501444542879004.pdf
 - Status: PRUEFFALL
 - Rueckfrage: Zuordnung nur ueber Betrag, Partner nicht eindeutig bestaetigt
 
-## 59. FACEBK *C3GR9A9MU2 - 10.0 EUR (2025-12-15)
+## 60. FACEBK *C3GR9A9MU2 - 10.0 EUR (2025-12-15)
 - Typ: Transaktion
 - Quelle: Finom-Kontoauszug (FINOM-86f39f49ff54efcc)
 - Status: PRUEFFALL
 - Rueckfrage: Zuordnung nur ueber Betrag+Zeitfenster, Partner nicht eindeutig: Transaktion 'FACEBK *C3GR9A9MU2' vs. Beleg-Partner 'Meta Platforms' (2025-12-15T00-11 Transaktion 25416472061376255-25521729800850479.pdf)
 
-## 60. Meta Platforms - 10.0 EUR (2025-12-15)
+## 61. Meta Platforms - 10.0 EUR (2025-12-15)
 - Typ: Beleg
 - Quelle: 2025-12-15T00-11 Transaktion 25416472061376255-25521729800850479.pdf
 - Status: PRUEFFALL
 - Rueckfrage: Zuordnung nur ueber Betrag, Partner nicht eindeutig bestaetigt
 
-## 61. FACEBK *QHNPD9DLU2 - 9.0 EUR (2025-12-15)
+## 62. FACEBK *QHNPD9DLU2 - 9.0 EUR (2025-12-15)
 - Typ: Transaktion
 - Quelle: Finom-Kontoauszug (FINOM-71d1133d3242ef87)
 - Status: PRUEFFALL
 - Rueckfrage: Zuordnung nur ueber Betrag+Zeitfenster, Partner nicht eindeutig: Transaktion 'FACEBK *QHNPD9DLU2' vs. Beleg-Partner 'Meta Platforms' (2025-12-14T13-11 Transaktion 25414279194928869-25297331939956928.pdf)
 
-## 62. Meta Platforms - 9.0 EUR (2025-12-14)
+## 63. Meta Platforms - 9.0 EUR (2025-12-14)
 - Typ: Beleg
 - Quelle: 2025-12-14T13-11 Transaktion 25414279194928869-25297331939956928.pdf
 - Status: PRUEFFALL
 - Rueckfrage: Zuordnung nur ueber Betrag, Partner nicht eindeutig bestaetigt
-
-## 63. GOOGLE*WORKSPACE - 8.99 EUR (2025-12-23)
-- Typ: Transaktion
-- Quelle: Finom-Kontoauszug (FINOM-3e1804c85955a201)
-- Status: PRUEFFALL
-- Rueckfrage: Zuordnung nur ueber Betrag+Zeitfenster, Partner nicht eindeutig: Transaktion 'GOOGLE*WORKSPACE' vs. Beleg-Partner 'Meta Platforms' (2025-12-14T13-11 Transaktion 25414279194928869-25297331939956928.pdf)
 
 ## 64. FACEBK *WSY378HLU2 - 8.0 EUR (2025-12-14)
 - Typ: Transaktion

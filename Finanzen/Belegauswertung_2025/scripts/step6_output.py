@@ -150,6 +150,58 @@ for m in range(1, 13):
     style_header(ws, len(headers))
     autofit(ws, len(headers))
 
+# ---------- Tab: Umsaetze_2025 (chronologisch, mit Beleg-Zuordnungsversuch) ----------
+ws = wb.create_sheet("Umsaetze_2025")
+headers = ["Zahlungsdatum", "Betrag brutto", "Gegenpartei", "Verwendungszweck",
+           "Beleg gefunden?", "Beleg-Datei", "Rechnungsnummer (Beleg)", "Status", "Pruefgrund/Hinweis"]
+ws.append(headers)
+umsaetze = [t for t in tx_all if t['kategorie'] == 'GESCHAEFTLICH' and t['richtung'] == 'AUSGANG']
+for t in sorted(umsaetze, key=lambda x: x['zahlungsdatum']):
+    if t.get('beleg_ids'):
+        b = belege_by_id.get(t['beleg_ids'][0])
+        beleg_gefunden = "JA"
+        beleg_datei = b['quellref'].split('/')[-1] if b else None
+        beleg_nr = b.get('rechnungsnummer') if b else None
+    else:
+        beleg_gefunden = "NEIN"
+        beleg_datei = None
+        beleg_nr = None
+    ws.append([t['zahlungsdatum'], t['betrag_brutto'], t['gegenpartei'], t['verwendungszweck'],
+               beleg_gefunden, beleg_datei, beleg_nr, t['status'], t.get('pruefgrund')])
+style_header(ws, len(headers))
+autofit(ws, len(headers))
+
+# ---------- Tab: Statistik_fehlende_Rechnungen ----------
+ws = wb.create_sheet("Statistik_fehlende_Rechnungen")
+headers = ["Gegenpartei (normalisiert)", "Anzahl Zahlungen gesamt", "davon ohne Beleg (BELEG_FEHLT)",
+           "Anteil ohne Beleg", "Summe ohne Beleg (EUR)", "Richtung"]
+ws.append(headers)
+geschaeftlich = [t for t in tx_all if t['kategorie'] == 'GESCHAEFTLICH']
+stat = defaultdict(lambda: {'gesamt': 0, 'fehlt': 0, 'summe_fehlt': 0.0, 'richtung': set(), 'name': None})
+for t in geschaeftlich:
+    key = normalize_partner(t['gegenpartei'])
+    if not key:
+        continue
+    s = stat[key]
+    s['gesamt'] += 1
+    s['richtung'].add(RICHTUNG_LABEL[t['richtung']])
+    s['name'] = s['name'] or t['gegenpartei']
+    if t['status'] == 'BELEG_FEHLT':
+        s['fehlt'] += 1
+        s['summe_fehlt'] += t['betrag_brutto']
+rows_stat = []
+for key, s in stat.items():
+    if s['fehlt'] == 0:
+        continue
+    anteil = round(100 * s['fehlt'] / s['gesamt'], 0)
+    rows_stat.append((s['name'], s['gesamt'], s['fehlt'], f"{anteil:.0f}%", round(s['summe_fehlt'], 2),
+                       " / ".join(sorted(s['richtung']))))
+rows_stat.sort(key=lambda r: -r[4])
+for r in rows_stat:
+    ws.append(list(r))
+style_header(ws, len(headers))
+autofit(ws, len(headers))
+
 # ---------- Tab 4: Belege_ohne_Zahlung ----------
 ws = wb.create_sheet("Belege_ohne_Zahlung")
 headers = ["Datei", "Partner", "Rechnungsdatum", "Rechnungsnummer", "Betrag brutto", "Waehrung",

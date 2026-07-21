@@ -10,6 +10,14 @@ OUT = "/Users/sesp01-user/vault/Prozessia-Brain/Finanzen/Belegauswertung_2025/ou
 
 EIGENE_FIRMA_MARKER = ["prozessia", "webwokr"]
 SELF_ISSUED_PHRASE = "unsere lieferungen/leistungen stellen wir ihnen"
+# EIGENE Steuernummern (Prozessia / WebWokr) - dienen als Bestaetigung, dass der
+# Beleg wirklich von der eigenen Firma stammt. Die SELF_ISSUED_PHRASE allein reicht
+# NICHT: es ist eine generische Lexoffice/Buchhaltungssoftware-Standardformulierung,
+# die auch fremde Rechnungssteller (z.B. Matthae & Wimmler eGbR, RE073) verwenden.
+EIGENE_STEUERNUMMERN_RE = [
+    re.compile(r'040\s*/\s*163\s*/\s*12016'),
+    re.compile(r'040\s*/\s*276\s*/\s*11732'),
+]
 
 MONTHS = {
     "januar":1,"februar":2,"märz":3,"maerz":3,"april":4,"mai":5,"juni":6,"juli":7,
@@ -290,14 +298,21 @@ RECIPIENT_MARKERS = ["sebastian spuhler", "mohamed douioui", "mohamed amin douio
 
 def detect_richtung(text):
     low = text.lower()
-    if SELF_ISSUED_PHRASE in low:
+    eigene_steuernummer_present = any(pat.search(text) for pat in EIGENE_STEUERNUMMERN_RE)
+    if SELF_ISSUED_PHRASE in low and eigene_steuernummer_present:
         return "AUSGANG"
-    # Ab hier: kein Selbstausstellungs-Satz -> wenn EIGENE_FIRMA oder einer der
-    # Gesellschafter als Empfaenger/Kunde vorkommt, wurde der Beleg empfangen (EINGANG).
+    # Ab hier: kein sicher bestaetigter Selbstausstellungs-Beleg -> wenn EIGENE_FIRMA
+    # oder einer der Gesellschafter als Empfaenger/Kunde vorkommt, wurde der Beleg
+    # empfangen (EINGANG). Das deckt auch den Fall ab, dass ein FREMDER Rechnungssteller
+    # dieselbe generische Lexoffice-Standardformulierung nutzt (z.B. RE073).
     if any(marker in low for marker in EIGENE_FIRMA_MARKER):
         return "EINGANG"
     if any(marker in low for marker in RECIPIENT_MARKERS):
         return "EINGANG"
+    if SELF_ISSUED_PHRASE in low:
+        # Phrase vorhanden, aber eigene Steuernummer NICHT gefunden und auch kein
+        # Empfaenger-Hinweis -> nicht sicher genug, lieber PRUEFFALL als raten.
+        return None
     return None
 
 NOISE_LINE_RE = re.compile(

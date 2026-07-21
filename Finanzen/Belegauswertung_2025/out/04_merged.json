@@ -28,8 +28,10 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "AKZEPTIERT_BAGATELLE",
+      "beleg_ids": [
+        "67fa4f6d-45fd-569a-9ee4-70e2058266a9"
+      ],
+      "status": "BELEGT",
       "pruefgrund": null,
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
@@ -233,8 +235,10 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
+      "beleg_ids": [
+        "910a40fd-2bb7-58f4-bb60-ebb6ccc32e65"
+      ],
+      "status": "BELEGT",
       "pruefgrund": null,
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
@@ -427,8 +431,10 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
+      "beleg_ids": [
+        "ba71a886-bdb8-5dd7-8657-18c5b59d8dd3"
+      ],
+      "status": "BELEGT",
       "pruefgrund": null,
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
@@ -519,8 +525,10 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
+      "beleg_ids": [
+        "f18934bf-923c-52d4-bf7d-02a2cf5da737"
+      ],
+      "status": "BELEGT",
       "pruefgrund": null,
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
@@ -728,8 +736,10 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
+      "beleg_ids": [
+        "7c6da5c7-1984-5451-9e37-f0df200f8d6f"
+      ],
+      "status": "BELEGT",
       "pruefgrund": null,
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
@@ -883,8 +893,10 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
+      "beleg_ids": [
+        "c774d981-c94f-5a4a-a67c-40621c660ecd"
+      ],
+      "status": "BELEGT",
       "pruefgrund": null,
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
@@ -1425,8 +1437,10 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
+      "beleg_ids": [
+        "68bb9cc5-8bb0-5155-b637-c787aad22335"
+      ],
+      "status": "BELEGT",
       "pruefgrund": null,
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
@@ -1664,8 +1678,10 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
+      "beleg_ids": [
+        "aaa38a0a-60b2-5f49-a4ab-7ce11e80bc35"
+      ],
+      "status": "BELEGT",
       "pruefgrund": null,
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
@@ -1847,8 +1863,10 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
+      "beleg_ids": [
+        "faaa3fe6-8a1b-505f-a3da-2317e4d168bd"
+      ],
+      "status": "BELEGT",
       "pruefgrund": null,
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
@@ -1943,8 +1961,10 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
+      "beleg_ids": [
+        "41e9face-336f-53a4-9423-f6e018ef5bcd"
+      ],
+      "status": "BELEGT",
       "pruefgrund": null,
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
@@ -2447,8 +2467,8 @@
       "fremdwaehrung": false,
       "fx_hinweis": null,
       "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "status": "PRUEFFALL",
+      "pruefgrund": "Mehrere Beleg-Kandidaten mit passender Rechnungsnummer/Partner+Zeitfenster: H_33541164.pdf (Beleg 6649835b); H_34974301.pdf (Beleg aa369ac3)",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -3200,13 +3220,13 @@
       "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
-      "zahlungsweg": "UNBEKANNT",
-      "status": "OHNE_ZAHLUNG",
+      "tx_id": "FINOM-f9cc13704ee09b80",
+      "zahlungsdatum": "2025-10-09",
+      "zahlungsweg": "BANK",
+      "status": "VOLLSTAENDIG",
       "pruefgrund": null,
       "_text_len": 1634,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-f9cc13704ee09b80"
     },
     {
       "id": "d7ca3b43-a63b-5869-b4d8-327c37062f75",
@@ -3389,13 +3409,13 @@
       "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
-      "zahlungsweg": "UNBEKANNT",
-      "status": "OHNE_ZAHLUNG",
+      "tx_id": "FINOM-65f3610400f5ecf9",
+      "zahlungsdatum": "2025-11-11",
+      "zahlungsweg": "BANK",
+      "status": "VOLLSTAENDIG",
       "pruefgrund": null,
       "_text_len": 1634,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-65f3610400f5ecf9"
     },
     {
       "id": "836c3c92-6c99-576c-a471-ea2c91a450e5",
@@ -4280,13 +4300,13 @@
       "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
-      "zahlungsweg": "UNBEKANNT",
-      "status": "AKZEPTIERT_BAGATELLE",
+      "tx_id": "FINOM-e68b39964e83b72a",
+      "zahlungsdatum": "2025-01-15",
+      "zahlungsweg": "BANK",
+      "status": "VOLLSTAENDIG",
       "pruefgrund": null,
       "_text_len": 1752,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-e68b39964e83b72a"
     },
     {
       "id": "54be311e-7ea0-5d1a-8737-b10c1be63632",
@@ -4334,13 +4354,13 @@
       "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
-      "zahlungsweg": "UNBEKANNT",
-      "status": "OHNE_ZAHLUNG",
+      "tx_id": "FINOM-30788e3a6426970c",
+      "zahlungsdatum": "2025-03-15",
+      "zahlungsweg": "BANK",
+      "status": "VOLLSTAENDIG",
       "pruefgrund": null,
       "_text_len": 1642,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-30788e3a6426970c"
     },
     {
       "id": "ba71a886-bdb8-5dd7-8657-18c5b59d8dd3",
@@ -4361,13 +4381,13 @@
       "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
-      "zahlungsweg": "UNBEKANNT",
-      "status": "OHNE_ZAHLUNG",
+      "tx_id": "FINOM-ced72687b0d688d5",
+      "zahlungsdatum": "2025-04-15",
+      "zahlungsweg": "BANK",
+      "status": "VOLLSTAENDIG",
       "pruefgrund": null,
       "_text_len": 1642,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-ced72687b0d688d5"
     },
     {
       "id": "f18934bf-923c-52d4-bf7d-02a2cf5da737",
@@ -4388,13 +4408,13 @@
       "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
-      "zahlungsweg": "UNBEKANNT",
-      "status": "OHNE_ZAHLUNG",
+      "tx_id": "FINOM-05e848da004c1ca7",
+      "zahlungsdatum": "2025-05-15",
+      "zahlungsweg": "BANK",
+      "status": "VOLLSTAENDIG",
       "pruefgrund": null,
       "_text_len": 1642,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-05e848da004c1ca7"
     },
     {
       "id": "7c6da5c7-1984-5451-9e37-f0df200f8d6f",
@@ -4415,13 +4435,13 @@
       "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
-      "zahlungsweg": "UNBEKANNT",
-      "status": "OHNE_ZAHLUNG",
+      "tx_id": "FINOM-55ad4e74b6ea1022",
+      "zahlungsdatum": "2025-06-14",
+      "zahlungsweg": "BANK",
+      "status": "VOLLSTAENDIG",
       "pruefgrund": null,
       "_text_len": 1642,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-55ad4e74b6ea1022"
     },
     {
       "id": "c774d981-c94f-5a4a-a67c-40621c660ecd",
@@ -4442,13 +4462,13 @@
       "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
-      "zahlungsweg": "UNBEKANNT",
-      "status": "OHNE_ZAHLUNG",
+      "tx_id": "FINOM-39b1174bdc0eeca2",
+      "zahlungsdatum": "2025-07-16",
+      "zahlungsweg": "BANK",
+      "status": "VOLLSTAENDIG",
       "pruefgrund": null,
       "_text_len": 1642,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-39b1174bdc0eeca2"
     },
     {
       "id": "f9a763c7-f314-53a6-af14-8099a5939ee1",
@@ -4496,13 +4516,13 @@
       "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
-      "zahlungsweg": "UNBEKANNT",
-      "status": "OHNE_ZAHLUNG",
+      "tx_id": "FINOM-eb68e5defc7dee85",
+      "zahlungsdatum": "2025-09-13",
+      "zahlungsweg": "BANK",
+      "status": "VOLLSTAENDIG",
       "pruefgrund": null,
       "_text_len": 1642,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-eb68e5defc7dee85"
     },
     {
       "id": "e7fe77e7-c0cd-5234-ae6d-660f04c20e89",
@@ -4712,13 +4732,13 @@
       "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
-      "zahlungsweg": "UNBEKANNT",
-      "status": "OHNE_ZAHLUNG",
+      "tx_id": "FINOM-5497e1f39628a912",
+      "zahlungsdatum": "2025-11-21",
+      "zahlungsweg": "BANK",
+      "status": "VOLLSTAENDIG",
       "pruefgrund": null,
       "_text_len": 1158,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-5497e1f39628a912"
     },
     {
       "id": "8fb0b1ea-1cc2-5b93-9359-58e0260fd99d",
