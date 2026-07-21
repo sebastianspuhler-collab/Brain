@@ -26,28 +26,33 @@ def main():
         m = t['monat']
         row = monate[m]
         beleg = belege_by_id.get(t['beleg_ids'][0]) if t.get('beleg_ids') else None
-        has_split = beleg and beleg.get('betrag_netto') is not None and beleg.get('ust_betrag') is not None
+        # Fuer den Netto-Gewinn genuegt eine Netto-Angabe auf dem Beleg (USt-Betrag ist
+        # eine separate Kennzahl und wird unabhaengig davon gezaehlt, wenn vorhanden).
+        has_netto = beleg and beleg.get('betrag_netto') is not None
+        has_ust = beleg and beleg.get('ust_betrag') is not None
 
         if t['status'] == 'PRUEFFALL':
             row['anzahl_pruefaelle'] += 1
 
         if t['richtung'] == 'AUSGANG':  # Geldeingang = Umsatz
             row['umsatz_brutto'] += t['betrag_brutto']
-            if has_split:
+            if has_netto:
                 row['umsatz_netto'] += beleg['betrag_netto']
-                row['ust_vereinnahmt'] += beleg['ust_betrag']
             else:
                 row['brutto_ohne_aufteilung'] += t['betrag_brutto']
+            if has_ust:
+                row['ust_vereinnahmt'] += beleg['ust_betrag']
         else:  # EINGANG = Geldausgang = Ausgabe
             row['ausgaben_brutto'] += t['betrag_brutto']
-            if has_split:
+            if has_netto:
                 row['ausgaben_netto'] += beleg['betrag_netto']
-                row['vorsteuer_abziehbar'] += beleg['ust_betrag']
             else:
                 row['brutto_ohne_aufteilung'] += t['betrag_brutto']
                 if t['status'] == 'BELEG_FEHLT' and t['betrag_brutto'] > BAGATELLE:
                     geschaetzte_ust = round(t['betrag_brutto'] - t['betrag_brutto'] / 1.19, 2)
                     row['vorsteuer_gefaehrdet'] += geschaetzte_ust
+            if has_ust:
+                row['vorsteuer_abziehbar'] += beleg['ust_betrag']
 
     for m in monate:
         row = monate[m]

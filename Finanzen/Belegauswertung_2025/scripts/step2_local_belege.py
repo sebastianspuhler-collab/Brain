@@ -389,6 +389,17 @@ def main():
         partner = extract_partner(text, richtung)
         waehrung = brutto_waehrung or detect_waehrung(text)
 
+        # Beleg zeigt nur EINEN Betrag, keinerlei Netto-/USt-/Steuer-Hinweis im Text
+        # (z.B. Reverse-Charge-Kleinbelege wie Facebook Ads) -> diesen einen Wert als
+        # Netto uebernehmen, aber deutlich markieren, dass es kein bestaetigter
+        # Netto-Wert ist, sondern der einzige auf dem Beleg vorhandene Betrag.
+        netto_ist_einzelwert = False
+        if (betrag_netto is None and ust_satz is None and ust_betrag is None
+                and betrag_brutto is not None
+                and not re.search(r'netto|mwst|ust\b|umsatzsteuer|steuer|vat|tax', text, re.IGNORECASE)):
+            betrag_netto = betrag_brutto
+            netto_ist_einzelwert = True
+
         pruefgruende = []
         if not text.strip():
             pruefgruende.append("Kein extrahierbarer Text (auch nach OCR-Versuch leer) - vermutlich kein lesbarer Beleg")
@@ -413,6 +424,7 @@ def main():
             "partner": partner,
             "beschreibung": None,
             "betrag_netto": betrag_netto,
+            "netto_ist_einzelwert": netto_ist_einzelwert,
             "ust_satz": ust_satz,
             "ust_satz_unterstellt": False,
             "ust_betrag": ust_betrag,
