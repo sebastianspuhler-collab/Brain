@@ -3,7 +3,8 @@ type: email-korrespondenz
 kunde: Schaufler
 von: Florian Knoblauch <florian.knoblauch@schaufler.de>
 betreff: AW: Offene Punkte Beschaffungsagent
-datum: Mon, 6 Jul 2026 18:27:39 +0000
+datum: 2026-07-06
+datum_email: Mon, 6 Jul 2026 18:27:39 +0000
 ---
 
 # AW: Offene Punkte Beschaffungsagent
@@ -11,4 +12,8 @@ datum: Mon, 6 Jul 2026 18:27:39 +0000
 **Von:** Florian Knoblauch <florian.knoblauch@schaufler.de>
 **Datum:** Mon, 6 Jul 2026 18:27:39 +0000
 
+## Zusammenfassung
+Hallo Sebastian, vielen Dank für deine Zusammenfassung. Heißt das das ihr aktuell auf die Daten von Poleis zugreifen könnt (lese und schreib Rechte) ? Der VPN-Tunnel zum Server steht? @Benjamin Schmohl : wurde das Bestelldokument verändert, das die Lieferanten wissen, dass alle Bestellbezogene Daten auch an order@schaufler.de gehen. Vielen Dank und beste Grüße Florian Von: Sebastian Spuhler Gesendet: Montag, 6. Juli 2026 13:09 An: Benjamin Schmohl Cc: Florian Knoblauch Betreff: Offene Punkte Beschaffungsagent Hallo Benjamin, Anlässlich unseres Telefonats heute morgen, fasse ich nochmal alle Pu…
+
+## Volltext
 Hallo Sebastian, vielen Dank für deine Zusammenfassung. Heißt das das ihr aktuell auf die Daten von Poleis zugreifen könnt (lese und schreib Rechte) ? Der VPN-Tunnel zum Server steht? @Benjamin Schmohl : wurde das Bestelldokument verändert, das die Lieferanten wissen, dass alle Bestellbezogene Daten auch an order@schaufler.de gehen. Vielen Dank und beste Grüße Florian Von: Sebastian Spuhler Gesendet: Montag, 6. Juli 2026 13:09 An: Benjamin Schmohl Cc: Florian Knoblauch Betreff: Offene Punkte Beschaffungsagent Hallo Benjamin, Anlässlich unseres Telefonats heute morgen, fasse ich nochmal alle Punkte zusammen, die wir brauchen, um den Beschaffungsagenten fertigzustellen: 1. Watchfolder für Messberichte (optimal im Microsoft Sharepoint, um es mit Graph API umzusetzen) 2. Testview für die Winform Datenbank zur erfolgreichen Anbindung an den Agenten. 3. Schnittstelle zu Elo zur automatischen Ablage von Dokumenten. 4. Passende Website für Vessel Tracking, um hier ebenfalls eine Verbindung herzustellen. Besonders die ersten beiden Punkte sind von erheblicher Relevanz. Es wäre gut, wenn diese Punkte im Laufe dieser Woche alle abgearbeitet werden, um die Fertigstellung und das Go Live innerhalb der nächsten Wochen zu gewährleisten. VG Sebastian Spuhler Sebastian Spuhler Prozessia
