@@ -394,9 +394,7 @@ def main():
         # Netto uebernehmen, aber deutlich markieren, dass es kein bestaetigter
         # Netto-Wert ist, sondern der einzige auf dem Beleg vorhandene Betrag.
         netto_ist_einzelwert = False
-        if (betrag_netto is None and ust_satz is None and ust_betrag is None
-                and betrag_brutto is not None
-                and not re.search(r'netto|mwst|ust\b|umsatzsteuer|steuer|vat|tax', text, re.IGNORECASE)):
+        if betrag_netto is None and ust_satz is None and ust_betrag is None and betrag_brutto is not None:
             betrag_netto = betrag_brutto
             netto_ist_einzelwert = True
 

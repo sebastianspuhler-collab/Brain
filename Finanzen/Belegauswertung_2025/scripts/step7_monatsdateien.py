@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""EINE Excel-Datei mit 12 Monatsblaettern. NUR Nettowerte (kein Brutto).
-Einlagen/Entnahmen der Gesellschafter sind KEIN Gewinn einer GbR und werden
-komplett ausgeschlossen - sie erscheinen nirgends in diesen Tabellen."""
+"""EINE Excel-Datei mit 12 Monatsblaettern. Nur Nettowerte, einfache Spalten,
+Gewinn/Verlust pro Monat. Einlagen/Entnahmen der Gesellschafter sind KEIN Gewinn
+einer GbR und werden komplett ausgeschlossen - sie erscheinen nirgends hier."""
 import json
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment
@@ -14,7 +14,7 @@ merged = json.load(open(f"{BASE}/04_merged.json", encoding='utf-8'))
 tx_all = merged['transaktionen']
 belege_by_id = {b['id']: b for b in merged['belege']}
 
-RICHTUNG_LABEL = {"AUSGANG": "UMSATZ (Geld rein)", "EINGANG": "AUSGABE (Geld raus)"}
+RICHTUNG_LABEL = {"AUSGANG": "Umsatz", "EINGANG": "Ausgabe"}
 MONATSNAMEN = ["", "01_Januar", "02_Februar", "03_Maerz", "04_April", "05_Mai", "06_Juni",
                "07_Juli", "08_August", "09_September", "10_Oktober", "11_November", "12_Dezember"]
 
@@ -36,74 +36,65 @@ def style_and_fit(ws, ncols):
                 maxlen = max(maxlen, min(60, len(str(cell.value)) + 2))
         ws.column_dimensions[col].width = maxlen
 
-# NUR geschaeftliche Zahlungen - Einlagen/Entnahmen (Gesellschafter-Privatkonto) und
-# Umbuchungen sind kein Umsatz/Gewinn einer GbR und werden hier NICHT aufgefuehrt.
+# NUR geschaeftliche Zahlungen. Einlagen/Entnahmen (Gesellschafter-Privatkonto) und
+# Umbuchungen sind kein Umsatz/Gewinn einer GbR und tauchen hier gar nicht auf.
 geschaeftlich = [t for t in tx_all if t['kategorie'] == 'GESCHAEFTLICH']
 
-headers = ["Zahlungsdatum", "Richtung", "Betrag netto", "Gegenpartei", "Verwendungszweck",
-           "Beleg-Datei", "Status", "Hinweis"]
+headers = ["Datum", "Richtung", "Netto-Betrag", "Beleg da?", "Partner", "Verwendungszweck"]
 
 wb = Workbook()
 wb.remove(wb.active)
 
-jahres_umsatz_netto = 0.0
-jahres_ausgaben_netto = 0.0
-jahres_anzahl_ohne_netto = 0
+jahr_umsatz = jahr_ausgabe = 0.0
+jahr_anzahl_kein_beleg = 0
 
 for m in range(1, 13):
     ws = wb.create_sheet(MONATSNAMEN[m])
     ws.append(headers)
 
     month_tx = [t for t in geschaeftlich if t['monat'] == m]
-    sum_netto_umsatz = sum_netto_ausgabe = 0.0
-    n_ohne_netto = 0
+    sum_umsatz = sum_ausgabe = 0.0
+    n_kein_beleg = 0
 
     for t in sorted(month_tx, key=lambda x: x['zahlungsdatum']):
         beleg = belege_by_id.get(t['beleg_ids'][0]) if t.get('beleg_ids') else None
         netto = beleg.get('betrag_netto') if beleg else None
+        beleg_da = "Ja" if beleg else "Nein"
+        if not beleg:
+            n_kein_beleg += 1
+        if beleg and beleg.get('netto_ist_einzelwert'):
+            beleg_da = "Ja (nur 1 Betrag, kein Netto/USt getrennt)"
 
-        if netto is None:
-            n_ohne_netto += 1
-            hinweis = "KEIN NETTO VERFUEGBAR - " + (
-                "kein Beleg gefunden" if not beleg else "Beleg ohne Netto-/USt-Angabe"
-            )
-        else:
-            hinweis = None
-
-        ws.append([t['zahlungsdatum'], RICHTUNG_LABEL[t['richtung']], netto, t['gegenpartei'],
-                   t['verwendungszweck'], beleg['quellref'].split('/')[-1] if beleg else None,
-                   t['status'], t.get('pruefgrund') or hinweis])
+        ws.append([t['zahlungsdatum'], RICHTUNG_LABEL[t['richtung']], netto, beleg_da,
+                   t['gegenpartei'], t['verwendungszweck']])
 
         if netto is not None:
             if t['richtung'] == 'AUSGANG':
-                sum_netto_umsatz += netto
+                sum_umsatz += netto
             else:
-                sum_netto_ausgabe += netto
+                sum_ausgabe += netto
 
     r = ws.max_row + 2
-    rows_summary = [
-        ("SUMME Umsatz netto:", round(sum_netto_umsatz, 2)),
-        ("SUMME Ausgaben netto:", round(sum_netto_ausgabe, 2)),
-        ("GEWINN NETTO (Monat):", round(sum_netto_umsatz - sum_netto_ausgabe, 2)),
-        ("Anzahl Zahlungen OHNE Netto-Wert (nicht in Summe enthalten):", n_ohne_netto),
-    ]
-    for label, val in rows_summary:
+    for label, val in [
+        ("Umsatz netto:", round(sum_umsatz, 2)),
+        ("Ausgabe netto:", round(sum_ausgabe, 2)),
+        ("GEWINN/VERLUST:", round(sum_umsatz - sum_ausgabe, 2)),
+        ("Zahlungen ohne Beleg (kein Wert):", n_kein_beleg),
+    ]:
         ws.cell(row=r, column=1, value=label).font = Font(bold=True)
         ws.cell(row=r, column=3, value=val).font = Font(bold=True)
         r += 1
 
     style_and_fit(ws, len(headers))
-    jahres_umsatz_netto += sum_netto_umsatz
-    jahres_ausgaben_netto += sum_netto_ausgabe
-    jahres_anzahl_ohne_netto += n_ohne_netto
-    print(f"{MONATSNAMEN[m]}: {len(month_tx)} geschaeftliche Zahlungen, {n_ohne_netto} ohne Netto, "
-          f"Gewinn netto {round(sum_netto_umsatz - sum_netto_ausgabe, 2)} EUR")
+    jahr_umsatz += sum_umsatz
+    jahr_ausgabe += sum_ausgabe
+    jahr_anzahl_kein_beleg += n_kein_beleg
+    print(f"{MONATSNAMEN[m]}: Gewinn/Verlust {round(sum_umsatz - sum_ausgabe, 2)} EUR "
+          f"({n_kein_beleg} Zahlungen ohne Beleg)")
 
 wb.save(OUTFILE)
 print()
-print("Datei gespeichert:", OUTFILE)
-print(f"Jahressumme Umsatz netto: {round(jahres_umsatz_netto,2)} EUR")
-print(f"Jahressumme Ausgaben netto: {round(jahres_ausgaben_netto,2)} EUR")
-print(f"Jahres-Gewinn netto: {round(jahres_umsatz_netto - jahres_ausgaben_netto,2)} EUR")
-print(f"Zahlungen insgesamt ohne Netto-Wert (fehlen in der Summe): {jahres_anzahl_ohne_netto}")
-print("Einlagen/Entnahmen der Gesellschafter sind NICHT enthalten (separates Tab 'Einlagen_Entnahmen' in ergebnis_2025.xlsx).")
+print("Datei:", OUTFILE)
+print(f"Jahr Umsatz netto: {round(jahr_umsatz,2)} EUR | Ausgabe netto: {round(jahr_ausgabe,2)} EUR "
+      f"| GEWINN: {round(jahr_umsatz - jahr_ausgabe,2)} EUR")
+print(f"Zahlungen ohne Beleg insgesamt: {jahr_anzahl_kein_beleg}")
