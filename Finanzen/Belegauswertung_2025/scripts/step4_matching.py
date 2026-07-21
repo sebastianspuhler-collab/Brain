@@ -62,6 +62,8 @@ def main():
         tx['beleg_ids'] = []
         if tx['kategorie'] != 'GESCHAEFTLICH':
             continue  # Einlagen/Entnahmen/Umbuchungen/Unklar brauchen keinen Belegabgleich
+        if tx['status'] == 'PRUEFFALL' and tx.get('pruefgrund'):
+            continue  # bereits in Schritt 1 als Pruefall geflaggt (z.B. Duplikat-Verdacht) - nicht ueberschreiben
 
         tx_richtung_beleg = "AUSGANG" if tx['richtung'] == 'AUSGANG' else "EINGANG"
         candidates = []
@@ -164,6 +166,8 @@ def main():
     for tx in transaktionen:
         if tx['kategorie'] != 'GESCHAEFTLICH' or tx['beleg_ids']:
             continue
+        if tx['status'] == 'PRUEFFALL' and tx.get('pruefgrund') and 'Duplikat' in tx['pruefgrund']:
+            continue
         tx_richtung_beleg = "AUSGANG" if tx['richtung'] == 'AUSGANG' else "EINGANG"
         fx_candidates = []
         for b in belege:
@@ -196,6 +200,8 @@ def main():
             continue
         if tx['beleg_ids']:
             continue  # bereits behandelt oben
+        if tx['status'] == 'PRUEFFALL' and tx.get('pruefgrund') and 'Duplikat' in tx['pruefgrund']:
+            continue  # Duplikat-Verdacht bleibt IMMER echter Pruefall, unabhaengig von Bagatellgrenze
         if tx['betrag_brutto'] <= BAGATELLE:
             tx['status'] = 'AKZEPTIERT_BAGATELLE'
             tx['pruefgrund'] = None

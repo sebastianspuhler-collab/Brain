@@ -1391,11 +1391,9 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [
-        "cb32b0ee-57f4-5003-b152-322c7b79aa92"
-      ],
-      "status": "BELEGT",
-      "pruefgrund": null,
+      "beleg_ids": [],
+      "status": "PRUEFFALL",
+      "pruefgrund": "Duplikat-/Rundlauf-Verdacht: gleicher Betrag 82.99 am 2025-09-11 bei mehreren Buchungen: Benito Ferrise (EINGANG), Mohamed Amin Douioui (AUSGANG)",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -2521,8 +2519,8 @@
       "fremdwaehrung": false,
       "fx_hinweis": null,
       "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "status": "PRUEFFALL",
+      "pruefgrund": "Duplikat-/Rundlauf-Verdacht: gleicher Betrag 4760.0 am 2025-12-31 bei mehreren Buchungen: Benito Ferrise (EINGANG), Benito Ferrise (AUSGANG)",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -2537,11 +2535,9 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [
-        "8fb0b1ea-1cc2-5b93-9359-58e0260fd99d"
-      ],
+      "beleg_ids": [],
       "status": "PRUEFFALL",
-      "pruefgrund": "Zuordnung nur ueber Betrag+Zeitfenster, Partner nicht eindeutig: Transaktion 'Benito Ferrise' vs. Beleg-Partner 'Joel Wagner' (Rechnung RE250009.pdf)",
+      "pruefgrund": "Duplikat-/Rundlauf-Verdacht: gleicher Betrag 4760.0 am 2025-12-31 bei mehreren Buchungen: Benito Ferrise (EINGANG), Benito Ferrise (AUSGANG)",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -4745,13 +4741,13 @@
       "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": "FINOM-15f016a7977dc19d",
-      "zahlungsdatum": "2025-12-31",
+      "tx_id": "FINOM-b1953d7282282ac1",
+      "zahlungsdatum": "2025-12-30",
       "zahlungsweg": "BANK",
-      "status": "PRUEFFALL",
-      "pruefgrund": "Zuordnung nur ueber Betrag, Partner nicht eindeutig bestaetigt",
+      "status": "VOLLSTAENDIG",
+      "pruefgrund": null,
       "_text_len": 1241,
-      "_matched_tx": "FINOM-15f016a7977dc19d"
+      "_matched_tx": "FINOM-b1953d7282282ac1"
     },
     {
       "id": "cb32b0ee-57f4-5003-b152-322c7b79aa92",
@@ -4772,13 +4768,13 @@
       "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": "FINOM-b6c9180f60ec69e7",
-      "zahlungsdatum": "2025-09-11",
-      "zahlungsweg": "BANK",
-      "status": "VOLLSTAENDIG",
+      "tx_id": null,
+      "zahlungsdatum": null,
+      "zahlungsweg": "UNBEKANNT",
+      "status": "OHNE_ZAHLUNG",
       "pruefgrund": null,
       "_text_len": 1074,
-      "_matched_tx": "FINOM-b6c9180f60ec69e7"
+      "_matched_tx": null
     },
     {
       "id": "aaf92976-1f6c-5897-aa3c-549a60b3c845",
