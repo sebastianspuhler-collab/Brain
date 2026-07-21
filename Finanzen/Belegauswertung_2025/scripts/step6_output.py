@@ -20,6 +20,13 @@ BAGATELLE = 15.0
 HEADER_FILL = PatternFill(start_color="1F2937", end_color="1F2937", fill_type="solid")
 HEADER_FONT = Font(color="FFFFFF", bold=True)
 
+RICHTUNG_LABEL = {
+    "AUSGANG": "UMSATZ (Geld rein)",
+    "EINGANG": "AUSGABE (Geld raus)",
+}
+MONATSNAMEN = ["", "Januar", "Februar", "Maerz", "April", "Mai", "Juni", "Juli",
+               "August", "September", "Oktober", "November", "Dezember"]
+
 def normalize_partner(name):
     if not name:
         return ""
@@ -108,11 +115,40 @@ headers = ["tx_id", "Zahlungsdatum", "Monat", "Richtung", "Betrag brutto", "Gege
 ws.append(headers)
 for t in sorted(tx_all, key=lambda x: x['zahlungsdatum']):
     beleg_files = "; ".join(belege_by_id[bid]['quellref'].split('/')[-1] for bid in t.get('beleg_ids', []) if bid in belege_by_id)
-    ws.append([t['tx_id'], t['zahlungsdatum'], t['monat'], t['richtung'], t['betrag_brutto'],
+    ws.append([t['tx_id'], t['zahlungsdatum'], t['monat'], RICHTUNG_LABEL[t['richtung']], t['betrag_brutto'],
                t['gegenpartei'], t['verwendungszweck'], t['kategorie'], t.get('fremdwaehrung', False),
                beleg_files, t['status'], t.get('pruefgrund')])
 style_header(ws, len(headers))
 autofit(ws, len(headers))
+
+# ---------- Tabs: ein Blatt pro Monat mit ALLEN Transaktionen (Wunsch Nutzer) ----------
+for m in range(1, 13):
+    sheet_name = f"{m:02d}_{MONATSNAMEN[m]}"
+    ws = wb.create_sheet(sheet_name)
+    headers = ["Zahlungsdatum", "Richtung", "Betrag brutto", "Gegenpartei", "Verwendungszweck",
+               "Kategorie", "Beleg-Datei(en)", "Status", "Pruefgrund"]
+    ws.append(headers)
+    month_tx = [t for t in tx_all if t['monat'] == m]
+    for t in sorted(month_tx, key=lambda x: x['zahlungsdatum']):
+        beleg_files = "; ".join(belege_by_id[bid]['quellref'].split('/')[-1] for bid in t.get('beleg_ids', []) if bid in belege_by_id)
+        ws.append([t['zahlungsdatum'], RICHTUNG_LABEL[t['richtung']], t['betrag_brutto'], t['gegenpartei'],
+                   t['verwendungszweck'], t['kategorie'], beleg_files, t['status'], t.get('pruefgrund')])
+    # Summenzeile
+    umsatz = sum(t['betrag_brutto'] for t in month_tx if t['richtung'] == 'AUSGANG' and t['kategorie'] == 'GESCHAEFTLICH')
+    ausgabe = sum(t['betrag_brutto'] for t in month_tx if t['richtung'] == 'EINGANG' and t['kategorie'] == 'GESCHAEFTLICH')
+    einlage = sum(t['betrag_brutto'] for t in month_tx if t['richtung'] == 'AUSGANG' and t['kategorie'] == 'EINLAGE_ENTNAHME')
+    entnahme = sum(t['betrag_brutto'] for t in month_tx if t['richtung'] == 'EINGANG' and t['kategorie'] == 'EINLAGE_ENTNAHME')
+    r = ws.max_row + 2
+    ws.cell(row=r, column=1, value="SUMME Umsatz (geschaeftlich, Geld rein):").font = Font(bold=True)
+    ws.cell(row=r, column=3, value=round(umsatz, 2)).font = Font(bold=True)
+    ws.cell(row=r + 1, column=1, value="SUMME Ausgaben (geschaeftlich, Geld raus):").font = Font(bold=True)
+    ws.cell(row=r + 1, column=3, value=round(ausgabe, 2)).font = Font(bold=True)
+    ws.cell(row=r + 2, column=1, value="SUMME Einlagen (Gesellschafter, Geld rein):").font = Font(bold=True)
+    ws.cell(row=r + 2, column=3, value=round(einlage, 2)).font = Font(bold=True)
+    ws.cell(row=r + 3, column=1, value="SUMME Entnahmen (Gesellschafter, Geld raus):").font = Font(bold=True)
+    ws.cell(row=r + 3, column=3, value=round(entnahme, 2)).font = Font(bold=True)
+    style_header(ws, len(headers))
+    autofit(ws, len(headers))
 
 # ---------- Tab 4: Belege_ohne_Zahlung ----------
 ws = wb.create_sheet("Belege_ohne_Zahlung")
@@ -133,7 +169,7 @@ headers = ["Zahlungsdatum", "Betrag brutto", "Richtung", "Gegenpartei", "Verwend
 ws.append(headers)
 ohne_beleg = [t for t in tx_all if t['status'] == 'BELEG_FEHLT']
 for t in sorted(ohne_beleg, key=lambda x: -x['betrag_brutto']):
-    ws.append([t['zahlungsdatum'], t['betrag_brutto'], t['richtung'], t['gegenpartei'], t['verwendungszweck']])
+    ws.append([t['zahlungsdatum'], t['betrag_brutto'], RICHTUNG_LABEL[t['richtung']], t['gegenpartei'], t['verwendungszweck']])
 style_header(ws, len(headers))
 autofit(ws, len(headers))
 
@@ -210,7 +246,7 @@ headers = ["Datum", "Richtung", "Betrag brutto", "Gesellschafter/Gegenpartei", "
 ws.append(headers)
 ee = [t for t in tx_all if t['kategorie'] == 'EINLAGE_ENTNAHME']
 for t in sorted(ee, key=lambda x: x['zahlungsdatum']):
-    ws.append([t['zahlungsdatum'], t['richtung'], t['betrag_brutto'], t['gegenpartei'], t['verwendungszweck'], t['status']])
+    ws.append([t['zahlungsdatum'], RICHTUNG_LABEL[t['richtung']], t['betrag_brutto'], t['gegenpartei'], t['verwendungszweck'], t['status']])
 ws.append(["Summe", "", round(sum(t['betrag_brutto'] for t in ee), 2), "", "", ""])
 style_header(ws, len(headers))
 autofit(ws, len(headers))

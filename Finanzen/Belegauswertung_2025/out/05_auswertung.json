@@ -152,7 +152,7 @@
       "vorsteuer_abziehbar": 1.81,
       "vorsteuer_gefaehrdet": 6.83,
       "brutto_ohne_aufteilung": 9740.49,
-      "anzahl_pruefaelle": 18,
+      "anzahl_pruefaelle": 17,
       "gewinn_vorlaeufig": 3990.48,
       "ust_zahllast": 758.19
     }
@@ -166,7 +166,7 @@
     "vorsteuer_abziehbar": 33.31,
     "vorsteuer_gefaehrdet": 182.3,
     "brutto_ohne_aufteilung": 13581.17,
-    "anzahl_pruefaelle": 36,
+    "anzahl_pruefaelle": 35,
     "gewinn_vorlaeufig": 3924.7,
     "ust_zahllast": 745.69,
     "gewerbeertrag_basis": 3924.7,

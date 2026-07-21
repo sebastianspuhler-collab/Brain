@@ -37,6 +37,34 @@ def partner_match(a, b):
     # signifikanter Wortueberlapp
     return len(overlap) >= 1 and (len(overlap) / min(len(a_tokens), len(b_tokens))) >= 0.5
 
+# Bekannte Marken/Anbieter, um falsche "betragsgleich"-Zufallstreffer zwischen
+# eindeutig UNTERSCHIEDLICHEN Anbietern zu verhindern (z.B. Google Workspace 8,99 EUR
+# faelschlich auf einen Facebook-Ads-Beleg von 9,00 EUR gemappt, nur weil |Delta|<=0.02).
+KNOWN_BRAND_TOKENS = {
+    "google": "google", "facebk": "meta", "facebook": "meta", "meta": "meta",
+    "instantly": "instantly", "apify": "apify", "anthropic": "anthropic",
+    "openai": "openai", "mistral": "mistral", "microsoft": "microsoft",
+    "hostinger": "hostinger", "ionos": "ionos", "hetzner": "hetzner",
+    "sipgate": "sipgate", "digistore24": "digistore24", "wix": "wix",
+    "linkedin": "linkedin", "gamma": "gamma", "paddle": "paddle", "n8n": "n8n",
+    "zoho": "zoho", "bolt": "bolt", "findylead": "findylead", "haufe": "haufe",
+    "lexware": "haufe", "triathlon": "triathlon", "pnl": "finom", "finom": "finom",
+    "cyfire": "cyfire",
+}
+
+def known_brand(name):
+    low = (name or "").lower()
+    for token, brand in KNOWN_BRAND_TOKENS.items():
+        if token in low:
+            return brand
+    return None
+
+def is_known_brand_conflict(a, b):
+    """True nur wenn BEIDE Seiten einer bekannten (unterschiedlichen) Marke zugeordnet
+    werden koennen - dann ist ein reiner Betragszufallstreffer ausgeschlossen."""
+    ba, bb = known_brand(a), known_brand(b)
+    return ba is not None and bb is not None and ba != bb
+
 def parse_iso(d):
     if not d:
         return None
@@ -119,6 +147,8 @@ def main():
         for b in candidates:
             if b.get('richtung') and b['richtung'] != tx_richtung_beleg:
                 continue
+            if is_known_brand_conflict(tx['gegenpartei'], b.get('partner')):
+                continue  # z.B. Google-Transaktion nicht auf Facebook-Beleg mappen, nur weil Betrag zufaellig fast gleich ist
             win = within_window(tx['zahlungsdatum'], b.get('rechnungsdatum'))
             if win is True:
                 window_only.append(b)

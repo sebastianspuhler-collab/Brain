@@ -2410,11 +2410,9 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [
-        "93d44f5a-5c22-5999-b87a-8ba6735b27ff"
-      ],
-      "status": "PRUEFFALL",
-      "pruefgrund": "Zuordnung nur ueber Betrag+Zeitfenster, Partner nicht eindeutig: Transaktion 'GOOGLE*WORKSPACE' vs. Beleg-Partner 'Meta Platforms' (2025-12-14T13-11 Transaktion 25414279194928869-25297331939956928.pdf)",
+      "beleg_ids": [],
+      "status": "AKZEPTIERT_BAGATELLE",
+      "pruefgrund": null,
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -3040,13 +3038,13 @@
       "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": "FINOM-3e1804c85955a201",
-      "zahlungsdatum": "2025-12-23",
+      "tx_id": "FINOM-71d1133d3242ef87",
+      "zahlungsdatum": "2025-12-15",
       "zahlungsweg": "BANK",
       "status": "PRUEFFALL",
       "pruefgrund": "Zuordnung nur ueber Betrag, Partner nicht eindeutig bestaetigt",
       "_text_len": 837,
-      "_matched_tx": "FINOM-3e1804c85955a201"
+      "_matched_tx": "FINOM-71d1133d3242ef87"
     },
     {
       "id": "68b39006-c83a-5224-bef2-c7bb7348f856",
