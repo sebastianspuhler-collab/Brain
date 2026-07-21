@@ -92,7 +92,15 @@
       "Bash(ssh -o ConnectTimeout=10 brain-vps \"ps aux | grep -E 'docker.*build|docker-buildx' | grep -v grep; echo '---aktuelle Container---'; cd ~/brain-app && docker compose ps\")",
       "Read(//Library/LaunchAgents/**)",
       "Bash(crontab -l)",
-      "Bash(bash -n /Users/sesp01-user/Documents/Prozessia-Brain/_agent/start_brain.sh)"
+      "Bash(bash -n /Users/sesp01-user/Documents/Prozessia-Brain/_agent/start_brain.sh)",
+      "Bash(env)",
+      "Bash(python3 -c \"import pypdf\")",
+      "Bash(python3 -c \"import pdfplumber\")",
+      "Bash(python3 -c \"import pytesseract\")",
+      "Bash(python3 -c \"import openpyxl\")",
+      "Bash(python3 -c \"import fitz\")",
+      "Bash(python3 -c \"import pypdf; print\\('pypdf OK', pypdf.__version__\\)\")",
+      "Bash(python3 -c \"import openpyxl; print\\('openpyxl OK'\\)\")"
     ],
     "additionalDirectories": [
       "/private/tmp/claude-503/-Users-sesp01-user-Documents-Prozessia-Brain/cd05081e-a0b3-4069-8577-f3726eef0417/scratchpad"
