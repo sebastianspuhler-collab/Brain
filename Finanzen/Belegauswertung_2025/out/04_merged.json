@@ -1287,8 +1287,10 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
+      "beleg_ids": [
+        "aaf92976-1f6c-5897-aa3c-549a60b3c845"
+      ],
+      "status": "BELEGT",
       "pruefgrund": null,
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
@@ -4800,10 +4802,10 @@
         "ordner"
       ],
       "quellref": "/Users/sesp01-user/vault/Prozessia-Brain/Finanzen/Rechnungen/Rechnung_RE073.pdf",
-      "richtung": "AUSGANG",
+      "richtung": "EINGANG",
       "rechnungsdatum": "2025-09-01",
       "rechnungsnummer": "RE073",
-      "partner": "Matth",
+      "partner": "Matthä & Wimmler",
       "beschreibung": null,
       "betrag_netto": 82.0,
       "ust_satz": 19,
@@ -4813,13 +4815,13 @@
       "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
-      "zahlungsweg": "UNBEKANNT",
-      "status": "OHNE_ZAHLUNG",
+      "tx_id": "FINOM-4c59cd7d807423a5",
+      "zahlungsdatum": "2025-09-01",
+      "zahlungsweg": "BANK",
+      "status": "VOLLSTAENDIG",
       "pruefgrund": null,
       "_text_len": 1291,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-4c59cd7d807423a5"
     },
     {
       "id": "12d3cb7a-8e3b-5061-af3c-52b25dce164f",

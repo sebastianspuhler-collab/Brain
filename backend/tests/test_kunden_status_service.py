@@ -108,6 +108,37 @@ def test_sammle_dokumente_reads_single_lead_file(tmp_path):
     assert dokumente[0]["zusammenfassung"] == "Erstgespräch mit Interessent."
 
 
+def test_sammle_dokumente_includes_lead_korrespondenz_ordner(tmp_path):
+    lead = tmp_path / "2026-07-14-Zillmer-Elektrotechnik.md"
+    lead.write_text(
+        "---\ndatum: 2026-07-14\nkategorie: Lead\n---\n\n## Zusammenfassung\nErstgespräch geführt.\n",
+        encoding="utf-8",
+    )
+    korr_dir = tmp_path / "Zillmer-Elektrotechnik-Korrespondenz"
+    korr_dir.mkdir()
+    (korr_dir / "2026-07-20-Email-abcd1234-Update.md").write_text(
+        "---\ntype: email-korrespondenz\nlead: Zillmer-Elektrotechnik\ndatum: 2026-07-20\n---\n\n"
+        "## Zusammenfassung\nNeuer Termin am 21.07. bestätigt.\n",
+        encoding="utf-8",
+    )
+    dokumente = svc._sammle_dokumente(lead)
+    assert len(dokumente) == 2
+    # neuestes zuerst
+    assert dokumente[0]["datei"] == "2026-07-20-Email-abcd1234-Update.md"
+    assert dokumente[0]["zusammenfassung"] == "Neuer Termin am 21.07. bestätigt."
+    assert dokumente[1]["datei"] == "2026-07-14-Zillmer-Elektrotechnik.md"
+
+
+def test_sammle_dokumente_lead_without_korrespondenz_ordner_unaffected(tmp_path):
+    lead = tmp_path / "lead.md"
+    lead.write_text(
+        "---\ndatum: 2026-07-02\nkategorie: Lead\n---\n\n## Zusammenfassung\nErstgespräch.\n",
+        encoding="utf-8",
+    )
+    dokumente = svc._sammle_dokumente(lead)
+    assert len(dokumente) == 1
+
+
 def test_bewerte_kunde_propagates_ist_relevant_false(tmp_path, monkeypatch):
     kunde = _make_kunde(tmp_path, meetings=True)
     fake_client = SimpleNamespace(

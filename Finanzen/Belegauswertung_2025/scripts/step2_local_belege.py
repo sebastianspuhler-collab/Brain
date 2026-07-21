@@ -325,7 +325,7 @@ KNOWN_VENDORS = [
     "Microsoft", "Mistral AI", "Meta Platforms", "sipgate", "Wix.com", "IONOS",
     "Hetzner", "Google", "LinkedIn", "Haufe Service Center", "cyfire",
     "Triathlon Transfer", "PNL Fintech", "World Class Marketing", "Martin Veser",
-    "Joel Wagner", "Matth", "Benito Ferrise", "Finanzamt",
+    "Joel Wagner", "Matthä & Wimmler", "Benito Ferrise", "Finanzamt",
 ]
 
 def extract_partner(text, richtung):
