@@ -29,13 +29,14 @@ USTSATZ = 0.19  # Annahme fuer Zahlungen ohne Beleg, um sie trotzdem in der Nett
 BAGATELLE_AUSSCHLUSS_GRENZE = 10.0
 DURCHLAUFPOSTEN_TX_IDS = set()  # 2024: keine bekannten Durchlaufposten
 
-def ausschlussgrund(t):
+def ausschlussgrund(t, beleg):
     if t['tx_id'] in DURCHLAUFPOSTEN_TX_IDS:
         return "Durchlaufposten (Rundlauf-Buchung)"
     if 'finanzamt' in (t['gegenpartei'] or '').lower():
         return "Finanzamt (steuerneutral)"
     if t['betrag_brutto'] < BAGATELLE_AUSSCHLUSS_GRENZE:
-        return f"Bagatelle < {BAGATELLE_AUSSCHLUSS_GRENZE:.0f} EUR"
+        if not beleg or beleg.get('betrag_netto') is None:
+            return f"Bagatelle < {BAGATELLE_AUSSCHLUSS_GRENZE:.0f} EUR ohne Beleg"
     return None
 
 def style_and_fit(ws, ncols):
@@ -77,7 +78,7 @@ for m in range(1, 13):
         beleg = belege_by_id.get(t['beleg_ids'][0]) if t.get('beleg_ids') else None
         beleg_datei = beleg['quellref'].split('/')[-1] if beleg else ""
         fehlt = beleg is None
-        ausschluss = ausschlussgrund(t)
+        ausschluss = ausschlussgrund(t, beleg)
         if fehlt:
             n_kein_beleg += 1
             netto = round(t['betrag_brutto'] / (1 + USTSATZ), 2)
