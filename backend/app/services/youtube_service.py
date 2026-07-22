@@ -149,7 +149,7 @@ Antworte NUR mit validem JSON: {{"title": "...", "description": "..."}}"""
 
     try:
         result = get_client().messages.create(
-            model=Models.SONNET, max_tokens=1000,
+            model=Models.HAIKU, max_tokens=1000,
             thinking={"type": "disabled"},
             messages=[{"role": "user", "content": prompt}],
         )
