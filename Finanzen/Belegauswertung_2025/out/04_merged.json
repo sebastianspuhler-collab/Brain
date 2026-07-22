@@ -1582,9 +1582,11 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": "Vormals faelschlich Funnelcockpit_2.pdf zugeordnet (siehe Korrektur 2026-07-22) - Beleg wurde 08-28 zugewiesen. Echte September-Rechnung noch nicht gefunden.",
+      "beleg_ids": [
+        "2db01a96-c1b1-486b-9da2-3ce22b3daf50"
+      ],
+      "status": "BELEGT",
+      "pruefgrund": null,
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -2396,9 +2398,11 @@
           "- 25,00 $"
         ]
       },
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "beleg_ids": [
+        "5effc3cf-9405-44be-8a2b-e933e45ae21e"
+      ],
+      "status": "AKZEPTIERT_BAGATELLE",
+      "pruefgrund": "Per Nutzerentscheidung 2026-07-22 akzeptiert: keine Rechnung auffindbar trotz mehrfacher Recherche (Drive komplett, Gmail). Netto geschaetzt mit 19% USt aus Bankbetrag.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -2506,9 +2510,11 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "PRUEFFALL",
-      "pruefgrund": "Mehrere Beleg-Kandidaten mit passender Rechnungsnummer/Partner+Zeitfenster: H_33541164.pdf (Beleg 6649835b); H_34974301.pdf (Beleg aa369ac3)",
+      "beleg_ids": [
+        "aa369ac3-e24a-5368-a5ed-ea671f03286c"
+      ],
+      "status": "BELEGT",
+      "pruefgrund": null,
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -3785,13 +3791,13 @@
       "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
-      "zahlungsweg": "UNBEKANNT",
-      "status": "OHNE_ZAHLUNG",
+      "tx_id": "FINOM-f119331e6bae481c",
+      "zahlungsdatum": "2025-12-25",
+      "zahlungsweg": "BANK",
+      "status": "VOLLSTAENDIG",
       "pruefgrund": null,
       "_text_len": 625,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-f119331e6bae481c"
     },
     {
       "id": "ebc702ae-2c5e-5e40-8e25-a1a149e1b0fe",
@@ -5301,6 +5307,62 @@
       "pruefgrund": "Aus Drive nachgeladen 2026-07-22 (war lokal nicht vorhanden). Korrigiert Fehlzuordnung von Funnelcockpit_2.pdf.",
       "_text_len": 500,
       "_matched_tx": "FINOM-4ee321a525d55847"
+    },
+    {
+      "id": "2db01a96-c1b1-486b-9da2-3ce22b3daf50",
+      "quelle": [
+        "ordner"
+      ],
+      "quellref": "/Users/sesp01-user/vault/Prozessia-Brain/Finanzen/2025/09_September/Rechnung_TJC9SRX6_I-74230203-de.pdf",
+      "richtung": "EINGANG",
+      "rechnungsdatum": "2025-09-27",
+      "rechnungsnummer": "74230203-de",
+      "partner": "Digistore24 GmbH",
+      "beschreibung": "FunnelCockpit Lite Abonnement (27.09.-26.10.2025)",
+      "betrag_netto": 47.0,
+      "netto_ist_einzelwert": false,
+      "ust_satz": 19,
+      "ust_satz_unterstellt": false,
+      "ust_betrag": 8.93,
+      "betrag_brutto": 55.93,
+      "waehrung": "EUR",
+      "ist_abo": true,
+      "abo_intervall": "monatlich",
+      "tx_id": "FINOM-7a94ea5ff5d239ae",
+      "zahlungsdatum": "2025-09-29",
+      "zahlungsweg": "BANK",
+      "status": "VOLLSTAENDIG",
+      "pruefgrund": null,
+      "_text_len": 500,
+      "_matched_tx": "FINOM-7a94ea5ff5d239ae"
+    },
+    {
+      "id": "5effc3cf-9405-44be-8a2b-e933e45ae21e",
+      "quelle": [
+        "akzeptiert_ohne_beleg"
+      ],
+      "quellref": "(kein Originalbeleg - akzeptiert)",
+      "richtung": "EINGANG",
+      "rechnungsdatum": null,
+      "rechnungsnummer": null,
+      "partner": "Instantly",
+      "beschreibung": "Kein Originalbeleg auffindbar (Drive + Gmail mehrfach durchsucht)",
+      "betrag_netto": 17.92,
+      "netto_ist_einzelwert": true,
+      "ust_satz": null,
+      "ust_satz_unterstellt": true,
+      "ust_betrag": 3.41,
+      "betrag_brutto": 21.33,
+      "waehrung": "EUR",
+      "ist_abo": true,
+      "abo_intervall": "monatlich",
+      "tx_id": "FINOM-ac0930c40ca669af",
+      "zahlungsdatum": "2025-12-16",
+      "zahlungsweg": "BANK",
+      "status": "AKZEPTIERT_BAGATELLE",
+      "pruefgrund": "Per Nutzerentscheidung 2026-07-22 akzeptiert: keine Rechnung auffindbar trotz mehrfacher Recherche (Drive komplett, Gmail). Netto geschaetzt mit 19% USt aus Bankbetrag.",
+      "_text_len": 0,
+      "_matched_tx": "FINOM-ac0930c40ca669af"
     }
   ]
 }
