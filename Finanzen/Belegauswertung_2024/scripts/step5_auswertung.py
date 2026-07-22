@@ -6,12 +6,26 @@ from collections import defaultdict
 MERGED = "/Users/sesp01-user/vault/Prozessia-Brain/Finanzen/Belegauswertung_2024/out/04_merged.json"
 OUT = "/Users/sesp01-user/vault/Prozessia-Brain/Finanzen/Belegauswertung_2024/out/05_auswertung.json"
 
+BAGATELLE_AUSSCHLUSS_GRENZE = 10.0
+DURCHLAUFPOSTEN_TX_IDS = set()  # 2024: keine bekannten Durchlaufposten
+
+def zaehlt_zur_wertung(t):
+    if t['kategorie'] != 'GESCHAEFTLICH':
+        return False
+    if t['tx_id'] in DURCHLAUFPOSTEN_TX_IDS:
+        return False
+    if 'finanzamt' in (t['gegenpartei'] or '').lower():
+        return False
+    if t['betrag_brutto'] < BAGATELLE_AUSSCHLUSS_GRENZE:
+        return False
+    return True
+
 def main():
     data = json.load(open(MERGED, encoding='utf-8'))
     tx_all = data['transaktionen']
     belege_by_id = {b['id']: b for b in data['belege']}
 
-    guv_tx = [t for t in tx_all if t['kategorie'] == 'GESCHAEFTLICH']
+    guv_tx = [t for t in tx_all if zaehlt_zur_wertung(t)]
 
     monate = {m: {
         'umsatz_brutto': 0.0, 'umsatz_netto': 0.0, 'ust_vereinnahmt': 0.0,

@@ -22,7 +22,21 @@ HEADER_FILL = PatternFill(start_color="1F2937", end_color="1F2937", fill_type="s
 HEADER_FONT = Font(color="FFFFFF", bold=True)
 MISSING_FILL = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
 MISSING_FONT = Font(color="9C0006")
+EXCLUDED_FILL = PatternFill(start_color="E7E6E6", end_color="E7E6E6", fill_type="solid")
+EXCLUDED_FONT = Font(color="808080", italic=True)
 USTSATZ = 0.19  # Annahme fuer Zahlungen ohne Beleg, um sie trotzdem in der Nettorechnung zu erfassen
+
+BAGATELLE_AUSSCHLUSS_GRENZE = 10.0
+DURCHLAUFPOSTEN_TX_IDS = set()  # 2024: keine bekannten Durchlaufposten
+
+def ausschlussgrund(t):
+    if t['tx_id'] in DURCHLAUFPOSTEN_TX_IDS:
+        return "Durchlaufposten (Rundlauf-Buchung)"
+    if 'finanzamt' in (t['gegenpartei'] or '').lower():
+        return "Finanzamt (steuerneutral)"
+    if t['betrag_brutto'] < BAGATELLE_AUSSCHLUSS_GRENZE:
+        return f"Bagatelle < {BAGATELLE_AUSSCHLUSS_GRENZE:.0f} EUR"
+    return None
 
 def style_and_fit(ws, ncols):
     for c in range(1, ncols + 1):
@@ -43,7 +57,7 @@ def style_and_fit(ws, ncols):
 # Umbuchungen sind kein Umsatz/Gewinn einer GbR und tauchen hier gar nicht auf.
 geschaeftlich = [t for t in tx_all if t['kategorie'] == 'GESCHAEFTLICH']
 
-headers = ["Datum", "Richtung", "Netto-Betrag", "Beleg da?", "Beleg-Dateiname", "Partner", "Verwendungszweck"]
+headers = ["Datum", "Richtung", "Netto-Betrag", "Zaehlt zur Wertung?", "Beleg da?", "Beleg-Dateiname", "Partner", "Verwendungszweck"]
 
 wb = Workbook()
 wb.remove(wb.active)
@@ -63,10 +77,9 @@ for m in range(1, 13):
         beleg = belege_by_id.get(t['beleg_ids'][0]) if t.get('beleg_ids') else None
         beleg_datei = beleg['quellref'].split('/')[-1] if beleg else ""
         fehlt = beleg is None
+        ausschluss = ausschlussgrund(t)
         if fehlt:
             n_kein_beleg += 1
-            # Kein Beleg vorhanden: trotzdem in der Nettorechnung erfassen, mit geschaetztem
-            # Netto (Bruttobetrag der Bank-Buchung abzgl. angenommener 19% USt).
             netto = round(t['betrag_brutto'] / (1 + USTSATZ), 2)
             beleg_da = "NEIN - fehlt"
         else:
@@ -75,16 +88,23 @@ for m in range(1, 13):
             if beleg.get('netto_ist_einzelwert'):
                 beleg_da = "Ja (nur 1 Betrag, kein Netto/USt getrennt)"
 
+        wertung_label = f"Nein - {ausschluss}" if ausschluss else "Ja"
+
         row_idx = ws.max_row + 1
-        ws.append([t['zahlungsdatum'], RICHTUNG_LABEL[t['richtung']], netto, beleg_da, beleg_datei,
-                   t['gegenpartei'], t['verwendungszweck']])
-        if fehlt:
+        ws.append([t['zahlungsdatum'], RICHTUNG_LABEL[t['richtung']], netto, wertung_label, beleg_da,
+                   beleg_datei, t['gegenpartei'], t['verwendungszweck']])
+        if ausschluss:
+            for c in range(1, len(headers) + 1):
+                cell = ws.cell(row=row_idx, column=c)
+                cell.fill = EXCLUDED_FILL
+                cell.font = EXCLUDED_FONT
+        elif fehlt:
             for c in range(1, len(headers) + 1):
                 cell = ws.cell(row=row_idx, column=c)
                 cell.fill = MISSING_FILL
                 cell.font = MISSING_FONT
 
-        if netto is not None:
+        if not ausschluss and netto is not None:
             if t['richtung'] == 'AUSGANG':
                 sum_umsatz += netto
             else:
