@@ -2,7 +2,7 @@
 """EINE Excel-Datei mit 12 Monatsblaettern. Nur Nettowerte, einfache Spalten,
 Gewinn/Verlust pro Monat. Einlagen/Entnahmen der Gesellschafter sind KEIN Gewinn
 einer GbR und werden komplett ausgeschlossen - sie erscheinen nirgends hier."""
-import json
+import json, shutil
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.utils import get_column_letter
@@ -150,8 +150,13 @@ for label, val in [
 style_and_fit(ws, len(gesamt_headers))
 
 wb.save(OUTFILE)
+
+JAHRESORDNER = "/Users/sesp01-user/vault/Prozessia-Brain/Finanzen/2024"
+shutil.copy2(OUTFILE, f"{JAHRESORDNER}/ergebnis_2024_monatlich_netto.xlsx")
+
 print()
 print("Datei:", OUTFILE)
+print("Kopie synchronisiert nach:", f"{JAHRESORDNER}/ergebnis_2024_monatlich_netto.xlsx")
 print(f"Jahr Umsatz netto: {round(jahr_umsatz,2)} EUR | Ausgabe netto: {round(jahr_ausgabe,2)} EUR "
       f"| GEWINN: {round(jahr_umsatz - jahr_ausgabe,2)} EUR")
 print(f"Zahlungen ohne Beleg insgesamt: {jahr_anzahl_kein_beleg}")
