@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Schritt 6: Excel-Ausgabe (10 Tabs) + PRUEFFAELLE.md + Konsolenausgabe."""
-import json, re, shutil
+import json, re
 from collections import defaultdict, Counter
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment
@@ -330,12 +330,9 @@ autofit(ws, len(headers), maxw=100)
 
 wb.save(f"{BASE}/ergebnis_2025.xlsx")
 print("Excel gespeichert:", f"{BASE}/ergebnis_2025.xlsx")
-
-# Synchronisierte Kopie in den Jahresordner, damit die Auswertung direkt beim
-# Durchblaettern der Beleg-Ordnerstruktur sichtbar ist (Nutzerwunsch 2026-07-22).
-JAHRESORDNER = "/Users/sesp01-user/vault/Prozessia-Brain/Finanzen/2025"
-shutil.copy2(f"{BASE}/ergebnis_2025.xlsx", f"{JAHRESORDNER}/ergebnis_2025.xlsx")
-print("Kopie synchronisiert nach:", f"{JAHRESORDNER}/ergebnis_2025.xlsx")
+# Bewusst KEINE Kopie in den Jahresordner (Nutzerentscheidung 2026-07-22): dort
+# soll nur noch ergebnis_2025_monatlich_netto.xlsx liegen (siehe step7), diese
+# 10-Tab-Datei wird im Alltag nicht mehr genutzt und bleibt nur im out/-Ordner.
 
 # ---------- PRUEFFAELLE.md ----------
 pruef_rows.sort(key=lambda r: -(r[2] or 0))
