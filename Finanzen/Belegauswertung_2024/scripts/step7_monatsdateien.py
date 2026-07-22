@@ -65,6 +65,7 @@ wb.remove(wb.active)
 
 jahr_umsatz = jahr_ausgabe = 0.0
 jahr_anzahl_kein_beleg = 0
+monats_zusammenfassung = []
 
 for m in range(1, 13):
     ws = wb.create_sheet(MONATSNAMEN[m])
@@ -126,8 +127,27 @@ for m in range(1, 13):
     jahr_umsatz += sum_umsatz
     jahr_ausgabe += sum_ausgabe
     jahr_anzahl_kein_beleg += n_kein_beleg
+    monats_zusammenfassung.append((MONATSNAMEN[m], round(sum_umsatz, 2), round(sum_ausgabe, 2),
+                                    round(sum_umsatz - sum_ausgabe, 2), n_kein_beleg))
     print(f"{MONATSNAMEN[m]}: Gewinn/Verlust {round(sum_umsatz - sum_ausgabe, 2)} EUR "
           f"({n_kein_beleg} Zahlungen ohne Beleg)")
+
+ws = wb.create_sheet("13_Jahresgesamt")
+gesamt_headers = ["Monat", "Umsatz netto", "Ausgabe netto", "Gewinn/Verlust", "Zahlungen ohne Beleg"]
+ws.append(gesamt_headers)
+for row in monats_zusammenfassung:
+    ws.append(list(row))
+r = ws.max_row + 2
+for label, val in [
+    ("GESAMTUMSATZ netto (Jahr):", round(jahr_umsatz, 2)),
+    ("GESAMTAUSGABEN netto (Jahr):", round(jahr_ausgabe, 2)),
+    ("GESAMTNETTOGEWINN/-VERLUST (Jahr):", round(jahr_umsatz - jahr_ausgabe, 2)),
+    ("davon Zahlungen ohne Beleg (Jahr):", jahr_anzahl_kein_beleg),
+]:
+    ws.cell(row=r, column=1, value=label).font = Font(bold=True, size=12)
+    ws.cell(row=r, column=2, value=val).font = Font(bold=True, size=12)
+    r += 1
+style_and_fit(ws, len(gesamt_headers))
 
 wb.save(OUTFILE)
 print()
