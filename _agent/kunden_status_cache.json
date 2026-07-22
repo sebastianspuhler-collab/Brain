@@ -1,16 +1,20 @@
 {
   "Bender": {
-    "input_hash": "bb009b5b14b84f59",
+    "input_hash": "0cabdc7f694ee094",
     "ergebnis": {
       "status": "erstgespraech",
       "sicherheit": "niedrig",
       "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
       "quellen": [],
-      "warnsignal": null
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Bender",
+      "aktueller_stand": ""
     }
   },
   "Hettmer": {
-    "input_hash": "710859d7fbb3979d",
+    "input_hash": "6ac36b265af23c88",
     "ergebnis": {
       "status": "neuer_kontakt",
       "sicherheit": "niedrig",
@@ -54,7 +58,7 @@
     }
   },
   "Mundinger": {
-    "input_hash": "56b9f4cb6123071d",
+    "input_hash": "6145c1b0ff6c6248",
     "ergebnis": {
       "status": "erstgespraech",
       "sicherheit": "niedrig",
@@ -82,7 +86,7 @@
     }
   },
   "Schaufler": {
-    "input_hash": "094007018e722a65",
+    "input_hash": "6887bc5258723bfa",
     "ergebnis": {
       "status": "auftrag",
       "sicherheit": "niedrig",
@@ -96,7 +100,7 @@
     }
   },
   "TPG": {
-    "input_hash": "0842156d6f959d36",
+    "input_hash": "875d0614ab87a6cd",
     "ergebnis": {
       "status": "erstgespraech",
       "sicherheit": "niedrig",
@@ -110,7 +114,7 @@
     }
   },
   "Voigt_Salus": {
-    "input_hash": "7a1f05f3cf7da09e",
+    "input_hash": "8da2c589fcddf760",
     "ergebnis": {
       "status": "auftrag",
       "sicherheit": "niedrig",
@@ -124,7 +128,7 @@
     }
   },
   "endin": {
-    "input_hash": "37fbd713b74bbe8e",
+    "input_hash": "2623f1b2a33e7db2",
     "ergebnis": {
       "status": "angebotsphase",
       "sicherheit": "niedrig",
