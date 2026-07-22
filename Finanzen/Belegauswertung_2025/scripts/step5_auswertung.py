@@ -13,7 +13,7 @@ DURCHLAUFPOSTEN_TX_IDS = {
     "FINOM-ab4c797b9d8a034a", "FINOM-15f016a7977dc19d",  # Benito Ferrise 4760 EUR Rundlauf 2025-12-31
 }
 
-def zaehlt_zur_wertung(t):
+def zaehlt_zur_wertung(t, belege_by_id):
     if t['kategorie'] != 'GESCHAEFTLICH':
         return False
     if t['tx_id'] in DURCHLAUFPOSTEN_TX_IDS:
@@ -21,7 +21,12 @@ def zaehlt_zur_wertung(t):
     if 'finanzamt' in (t['gegenpartei'] or '').lower():
         return False
     if t['betrag_brutto'] < BAGATELLE_AUSSCHLUSS_GRENZE:
-        return False
+        # Bagatelle (< 10 EUR): nur reinnehmen, wenn ein echter Beleg mit Netto-Angabe
+        # existiert (Nutzerentscheidung 2026-07-22). Ohne Beleg ist der Rest "egal" -
+        # komplett raus, keine Schaetzung.
+        beleg = belege_by_id.get(t['beleg_ids'][0]) if t.get('beleg_ids') else None
+        if not beleg or beleg.get('betrag_netto') is None:
+            return False
     return True
 
 def main():
@@ -29,7 +34,7 @@ def main():
     tx_all = data['transaktionen']
     belege_by_id = {b['id']: b for b in data['belege']}
 
-    guv_tx = [t for t in tx_all if zaehlt_zur_wertung(t)]
+    guv_tx = [t for t in tx_all if zaehlt_zur_wertung(t, belege_by_id)]
 
     monate = {m: {
         'umsatz_brutto': 0.0, 'umsatz_netto': 0.0, 'ust_vereinnahmt': 0.0,
@@ -106,8 +111,9 @@ def main():
     jahr['hinweis_ausschluesse'] = (
         "Auf Wunsch des Nutzers (2026-07-22) zaehlen folgende Buchungen WEDER als Umsatz NOCH als "
         "Ausgabe/Verlust (bleiben aber in den Rohlisten/Prueffaellen sichtbar): (1) Bagatellen < 10 EUR "
-        "brutto, (2) alle Finanzamt-Transaktionen (USt-Erstattungen/-Vorauszahlungen, steuerneutral), "
-        "(3) die Benito-Ferrise-Rundlauf-Buchung 4760 EUR am 2025-12-31 (Durchlaufposten)."
+        "brutto OHNE Beleg (mit Beleg zaehlen sie ganz normal mit), (2) alle Finanzamt-Transaktionen "
+        "(USt-Erstattungen/-Vorauszahlungen, steuerneutral), (3) die Benito-Ferrise-Rundlauf-Buchung "
+        "4760 EUR am 2025-12-31 (Durchlaufposten)."
     )
 
     einlagen_entnahmen = [t for t in tx_all if t['kategorie'] == 'EINLAGE_ENTNAHME']

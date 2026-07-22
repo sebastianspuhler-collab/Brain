@@ -33,13 +33,16 @@ DURCHLAUFPOSTEN_TX_IDS = {
     "FINOM-ab4c797b9d8a034a", "FINOM-15f016a7977dc19d",  # Benito Ferrise 4760 EUR Rundlauf 2025-12-31
 }
 
-def ausschlussgrund(t):
+def ausschlussgrund(t, beleg):
     if t['tx_id'] in DURCHLAUFPOSTEN_TX_IDS:
         return "Durchlaufposten (Rundlauf-Buchung)"
     if 'finanzamt' in (t['gegenpartei'] or '').lower():
         return "Finanzamt (steuerneutral)"
     if t['betrag_brutto'] < BAGATELLE_AUSSCHLUSS_GRENZE:
-        return f"Bagatelle < {BAGATELLE_AUSSCHLUSS_GRENZE:.0f} EUR"
+        # Bagatelle (< 10 EUR): mit Beleg+Netto zaehlt sie ganz normal mit, ohne
+        # Beleg ist sie "egal" - komplett raus, keine Schaetzung (Nutzerentscheidung 2026-07-22).
+        if not beleg or beleg.get('betrag_netto') is None:
+            return f"Bagatelle < {BAGATELLE_AUSSCHLUSS_GRENZE:.0f} EUR ohne Beleg"
     return None
 
 def style_and_fit(ws, ncols):
@@ -81,7 +84,7 @@ for m in range(1, 13):
         beleg = belege_by_id.get(t['beleg_ids'][0]) if t.get('beleg_ids') else None
         beleg_datei = beleg['quellref'].split('/')[-1] if beleg else ""
         fehlt = beleg is None
-        ausschluss = ausschlussgrund(t)
+        ausschluss = ausschlussgrund(t, beleg)
         if fehlt:
             n_kein_beleg += 1
             # Kein Beleg vorhanden: trotzdem in der Nettorechnung erfassen, mit geschaetztem
