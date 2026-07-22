@@ -43,6 +43,7 @@ Alle Rechnungen liegen (großteils bereits lokal) als `Invoice-BCE54405-00XX.pdf
 | 2025-10-04 | 35,44 | Invoice-BCE54405-0018 | liegt lokal vor, FX plausibel |
 | 2025-10-05 | 82,83 | Invoice-BCE54405-0019 | nur in Drive, fehlt lokal |
 | 2025-05-19 | 29,54 | Invoice-BCE54405-0007 ("Instantly 05 25.pdf", 32,87 $, bezahlt 18.5.) | liegt lokal vor — ACHTUNG: dieselbe Datei ist in PRUEFFAELLE.md bereits Eintrag #25 (Beleg-Seite, 2025-05-18) — evtl. Doppelverwendung, bitte gegenprüfen |
+| 2025-06-30 | 17,12 (BOLT) | Invoice-LRDKYW8R-0002.pdf, 20,00 $, fällig 29.6. | nur in Drive, fehlt lokal, FX plausibel |
 
 → Diese 9 sind vermutlich reguläre Instantly-Abo-Abbuchungen, deren Belege existieren, aber vom
 automatischen Matching wegen der Fremdwährungsumrechnung nicht akzeptiert wurden (gleiches Muster
