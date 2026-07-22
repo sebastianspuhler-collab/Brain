@@ -82,6 +82,49 @@ Umsatzsteuervoranmeldung/Elster-Bestätigung bzw. ein Steuerbescheid. Das lokal 
 `Finanzamt Bescheid.pdf` betrifft einen anderen Vorgang (gesonderte Feststellung Gewerbebetrieb 2024)
 und deckt diese drei Erstattungen nicht ab. Müsste ggf. beim Steuerberater/über Elster nachgereicht werden.
 
+## Verifizierungslauf (2026-07-22, zweite Runde)
+
+Alle Funde nochmal gegen die Rohdaten (`04_merged.json`: Transaktionen + Belege mit `tx_id`/
+`beleg_ids`) geprüft, nicht nur gegen Suchtreffer-Snippets. Ergebnis:
+
+### Bestätigt korrekt
+- **Martin Veser (275,00 + 230,75 = 505,75 EUR, RE250006)**: Verifiziert. Der Verwendungszweck der
+  10-24-Zahlung nennt "Rechnung RE250006" explizit, die Summe stimmt auf den Cent. Es existiert eine
+  **separate, andere** Rechnung RE250007 (19.11., ebenfalls 505,75 EUR, wohl monatlicher Folgeauftrag
+  gleichen Zuschnitts) für die 2025-11-21-Zahlung — die liegt bereits korrekt als `Rechnung RE250007.pdf`
+  lokal vor und ist im System als VOLLSTAENDIG verbucht. **Kein Duplikat, kein Fehler.**
+- Paddle/n8n, Bolt Mai, Instantly 05-16: unverändert bestätigt (Beträge, Daten stimmen exakt).
+- Systemweiter Integritätscheck: Bei allen bereits als BELEGT/VOLLSTAENDIG verbuchten Transaktionen
+  stimmt der Betrag exakt mit dem zugeordneten Beleg überein (0 Abweichungen).
+
+### Korrektur einer eigenen Fehleinschätzung
+- **Instantly 2025-08-05 (52,17 EUR)**: Entgegen meiner ersten Einschätzung ("bereits anderer Buchung
+  zugeordnet") ist `Invoice-BCE54405-0014.pdf` / `Instantly 08 25.pdf` (59,42 $, 4.8.) laut Rohdaten
+  **nicht** verknüpft (`tx_id: null`) und somit frei. FX-Rate 52,17/59,42 = 0,878, konsistent mit allen
+  anderen Instantly-Fällen (0,85–0,95 Bandbreite). → Verschoben von "echte Lücke" zu "plausibler Kandidat".
+  **Es bleibt nur noch 1 echte Lücke: Instantly 2025-12-16 (21,33 EUR).**
+
+### Echte Auffälligkeit gefunden: Digistore24-Fehlzuordnung
+Systematischer Check (welcher Beleg ist mehreren Transaktionen zugeordnet) fand 2 Treffer:
+
+1. **Triathlon Miete** (11× 29,75 EUR, ein generischer Mietvertrag ohne Rechnungsdatum als Beleg für
+   alle 11 Monate) — das ist **beabsichtigt/bekannt**, bereits in PRUEFFAELLE.md dokumentiert (kein Bug).
+2. **Digistore24 / FunnelCockpit — echter Fehler**: Der Beleg `Funnelcockpit_2.pdf`
+   (Rechnungsnr. 73906478-de) ist gleichzeitig der 2025-09-29-Zahlung UND der 2025-10-28-Zahlung
+   zugeordnet (je 55,93 EUR) — obwohl das eine einzelne Monatsrechnung ist und nicht für zwei Monate
+   gelten kann. Ursache: Die Datumsextraktion hat vermutlich das *Leistungsdatum* (26.09.2025, Ende der
+   Abrechnungsperiode) statt des echten *Rechnungsdatums* (27.08.2025) übernommen — dadurch landete der
+   Beleg beim falschen Monat.
+   - Richtig wäre: Diese Rechnung (27.08., 55,93 €) gehört zur **2025-08-28-Zahlung** — genau unsere
+     ursprüngliche BELEG_FEHLT-Buchung! Das bestätigt meinen vorherigen Fund.
+   - Für 2025-09-29 fehlt dann noch die echte September-Rechnung (aktuell nicht identifiziert).
+   - Für 2025-10-28 existiert die richtige Rechnung bereits — `Rechnung Clickfunnel.pdf` /
+     Rechnungsnr. I-74568837-de, 27.10.2025, 55,93 EUR — liegt aber nur in Drive, nicht lokal, und
+     wurde daher vom Matching gar nicht berücksichtigt.
+   - **Empfehlung**: `Funnelcockpit_2.pdf` in der Auswertung von 09-29 auf 08-28 umhängen, die
+     Oktober-Rechnung aus Drive nachladen und der 10-28-Zahlung zuordnen, und für 09-29 die fehlende
+     September-Rechnung suchen (per Gmail, analog zum Instantly-Vorgehen).
+
 ## Nächste Schritte
 1. Gmail-Verbindung neu autorisieren, dann Suche nach: Instantly (05-16, 08-05, 12-16), Bolt Mai-Rechnung,
    Paddle/n8n Cloud (07-11) wiederholen.
