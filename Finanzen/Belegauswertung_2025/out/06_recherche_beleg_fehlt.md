@@ -1,15 +1,25 @@
 # Recherche zu BELEG_FEHLT (21 Transaktionen ohne Beleg)
 
-Stand: 2026-07-22. Quelle der Liste: `04_merged.json`, transaktionen mit `status: "BELEG_FEHLT"`.
+Stand: 2026-07-22 (aktualisiert nach Gmail-Reautorisierung). Quelle der Liste: `04_merged.json`,
+transaktionen mit `status: "BELEG_FEHLT"`.
 
-**WICHTIG: Gmail-Suche war in dieser Session nicht möglich** (Fehler "insufficient authentication
-scopes" bei jeder Anfrage an `mcp__claude_ai_Gmail__search_threads`). Die gesendeten/erhaltenen
-Mails aus 2025 sind NICHT durchsucht. Gmail-Verbindung muss neu autorisiert werden, dann Recherche
-fortsetzen.
+Google Drive UND Gmail (gesendet + empfangen, 2025) wurden vollständig durchsucht.
 
-Google Drive wurde vollständig durchsucht (fullText-Suche über alle Dateitypen).
+## Gelöst (5)
 
-## Gelöst (2)
+### Paddle / n8n Cloud — 2025-07-11 | 28,56 EUR
+- **Beleg gefunden in Gmail**: Mail von help@paddle.com, "Cloud Starter Beleg für Ihre
+  Abonnement-Zahlung", Beleg Nr. 73531154-143210765, Datum 10.07.2025, Betrag **28,56 €** exakt.
+  Kartenabrechnungstext im Beleg selbst genannt: "PADDLE.NET* N8N CLOUD1" — 1:1 identisch mit dem
+  Verwendungszweck der Bankbuchung. Exakter Treffer, Zahlung settled 1 Tag später (11.07.).
+  → Mail als PDF sichern und in `Rechnungen/` ablegen.
+
+### Bolt (by StackBlitz) — 2025-05-30 | 17,73 EUR
+- **Beleg gefunden in Gmail**: Mail von Stripe (invoice+statements+acct_1EPydaAHwgQ34jlN@stripe.com),
+  "Ihr Zahlungsbeleg Nr. 2514-9086 von StackBlitz, Inc.", Datum 29.05.2025, Betrag 20,00 $
+  (Pro-Plan). FX-Rate 17,73/20,00 = 0,8865 — plausibel für Ende Mai 2025, Settlement 1 Tag später.
+  → Mail als PDF sichern und in `Rechnungen/` ablegen.
+
 
 ### Martin Veser UG / WebWokr — beide Buchungen zusammen = 1 Rechnung
 - 2025-10-07 | AUSGANG | 275,00 EUR | "WebWokr Angebot AG0011 AZ" (Anzahlung)
@@ -44,21 +54,19 @@ Alle Rechnungen liegen (großteils bereits lokal) als `Invoice-BCE54405-00XX.pdf
 | 2025-10-05 | 82,83 | Invoice-BCE54405-0019 | nur in Drive, fehlt lokal |
 | 2025-05-19 | 29,54 | Invoice-BCE54405-0007 ("Instantly 05 25.pdf", 32,87 $, bezahlt 18.5.) | liegt lokal vor — ACHTUNG: dieselbe Datei ist in PRUEFFAELLE.md bereits Eintrag #25 (Beleg-Seite, 2025-05-18) — evtl. Doppelverwendung, bitte gegenprüfen |
 | 2025-06-30 | 17,12 (BOLT) | Invoice-LRDKYW8R-0002.pdf, 20,00 $, fällig 29.6. | nur in Drive, fehlt lokal, FX plausibel |
+| 2025-05-16 | 17,91 | Invoice-BCE54405-0006 ("Instantly 051 25.pdf", 20,00 $, bezahlt 15.5., Zahlungsbeleg 2242-5106) | liegt lokal vor, per Gmail bestätigt (Stripe-Zahlungsbeleg 15.05.), FX-Rate 0,8955 plausibel |
 
 → Diese 9 sind vermutlich reguläre Instantly-Abo-Abbuchungen, deren Belege existieren, aber vom
 automatischen Matching wegen der Fremdwährungsumrechnung nicht akzeptiert wurden (gleiches Muster
 wie die bereits in PRUEFFAELLE.md dokumentierten Fälle). Menschliche Prüfung/Freigabe empfohlen,
 keine neue Recherche nötig.
 
-## Kein Kandidat gefunden — echte Lücken (5)
+## Kein Kandidat gefunden — echte Lücken (2, nach Gmail-Suche bestätigt)
 
 | Datum | Betrag | Gegenpartei | Anmerkung |
 |---|---|---|---|
-| 2025-05-16 | 17,91 EUR | INSTANTLY | Keine passende Rechnungsnummer/Datum in Drive gefunden |
-| 2025-08-05 | 52,17 EUR | INSTANTLY | Invoice-BCE54405-0014 ($59,42, 4.8.) ist bereits einer anderen Buchung (Apify-Pruefall, 2025-08-07) zugeordnet — für diese Buchung kein eigener Beleg gefunden |
-| 2025-12-16 | 21,33 EUR | INSTANTLY | Keine Rechnung für Mitte Dezember in Drive gefunden |
-| 2025-05-30 | 17,73 EUR | BOLT (BY STACKBLITZ) | Nur Juni-Rechnung (Invoice-LRDKYW8R-0002, 29.6.) gefunden, keine Mai-Rechnung |
-| 2025-07-11 | 28,56 EUR | PADDLE.NET* N8N CLOUD1 | Kein n8n-Cloud-Zahlungsbeleg in Drive gefunden (nur n8n-Workflow-Dateien, keine Rechnungen) — vermutlich nur per Mail zugestellt → Gmail-Suche nötig, aktuell blockiert |
+| 2025-08-05 | 52,17 EUR | INSTANTLY | Gmail 01.–09.08.2025 durchsucht: nur der bereits bekannte Beleg 2564-1223 (4.8., $59,42, Invoice-BCE54405-0014) gefunden, der schon einer anderen Buchung zugeordnet ist. Kein eigener Beleg für diese Buchung vorhanden. |
+| 2025-12-16 | 21,33 EUR | INSTANTLY | Gmail 01.–31.12.2025 durchsucht: keine Stripe-Zahlungsbeleg-Mail von Instantly für diesen Zeitraum vorhanden. Wirklich keine Rechnung erhalten — ggf. bei Instantly-Support nachfragen oder Kontoauszug/Kreditkarten-Portal direkt prüfen. |
 
 ## Kein Einzelbeleg möglich/nötig (3) — Steuererstattungen
 
