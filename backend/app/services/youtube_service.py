@@ -13,7 +13,7 @@ from pathlib import Path
 
 from app.config import get_settings
 from app.constants import Models
-from app.services.anthropic_client import get_client, get_response_text
+from app.services.anthropic_client import complete_json
 
 logger = logging.getLogger("brain.youtube")
 
@@ -148,12 +148,7 @@ Beschreibung: 3-5 Sätze, was der Zuschauer erfährt, dann ein Call-to-Action zu
 Antworte NUR mit validem JSON: {{"title": "...", "description": "..."}}"""
 
     try:
-        result = get_client().messages.create(
-            model=Models.HAIKU, max_tokens=1000,
-            thinking={"type": "disabled"},
-            messages=[{"role": "user", "content": prompt}],
-        )
-        text = get_response_text(result).strip()
+        text = complete_json(prompt, model=Models.HAIKU, max_tokens=1000).strip()
         text_clean = text.replace("```json", "").replace("```", "").strip()
         try:
             data = json.loads(text_clean)

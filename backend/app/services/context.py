@@ -8,7 +8,7 @@ from pathlib import Path
 from app.config import get_settings
 from app.constants import Models
 from app.services import calendar_service, linkedin_service, mail_service
-from app.services.anthropic_client import get_client, get_response_text
+from app.services.anthropic_client import complete_json
 
 _SKIP_TREE = {
     ".git", ".obsidian", "__pycache__", ".DS_Store", "node_modules",

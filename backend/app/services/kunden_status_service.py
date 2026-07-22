@@ -25,7 +25,7 @@ from pathlib import Path
 
 from app.config import get_settings
 from app.constants import Models
-from app.services.anthropic_client import complete_json, get_client, get_response_text
+from app.services.anthropic_client import complete_json
 
 STATUS_RANK = {
     "neuer_kontakt": 0, "erstgespraech": 1, "angebotsphase": 2,

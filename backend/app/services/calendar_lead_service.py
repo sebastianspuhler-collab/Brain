@@ -19,7 +19,7 @@ from datetime import datetime
 from app.config import get_settings
 from app.constants import Models
 from app.services import classify, memory, outlook_client
-from app.services.anthropic_client import complete_json, get_client, get_response_text
+from app.services.anthropic_client import complete_json
 
 INTERNAL_DOMAIN = "prozessia.de"
 

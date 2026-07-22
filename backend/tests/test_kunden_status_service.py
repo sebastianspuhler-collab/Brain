@@ -1,13 +1,8 @@
 import json
-from types import SimpleNamespace
 
 import pytest
 
 from app.services import kunden_status_service as svc
-
-
-def _fake_response(payload: dict):
-    return SimpleNamespace(content=[SimpleNamespace(type="text", text=json.dumps(payload))])
 
 
 def _make_kunde(tmp_path, vertraege=False, angebote=False, meetings=False, name="TestKunde"):
@@ -54,15 +49,10 @@ def test_sammle_dokumente_reads_frontmatter_and_sections(tmp_path):
 
 def test_bewerte_kunde_enforces_floor_when_llm_understates(tmp_path, monkeypatch):
     kunde = _make_kunde(tmp_path, vertraege=True, meetings=True)
-    fake_client = SimpleNamespace(
-        messages=SimpleNamespace(
-            create=lambda **kwargs: _fake_response(
-                {"status": "neuer_kontakt", "sicherheit": "hoch",
-                 "begruendung": "x", "quellen": ["kickoff.md"], "warnsignal": None}
-            )
-        )
-    )
-    monkeypatch.setattr(svc, "get_client", lambda: fake_client)
+    monkeypatch.setattr(svc, "complete_json", lambda *a, **kw: json.dumps(
+        {"status": "neuer_kontakt", "sicherheit": "hoch",
+         "begruendung": "x", "quellen": ["kickoff.md"], "warnsignal": None}
+    ))
 
     ergebnis = svc.bewerte_kunde(kunde)
     assert ergebnis["status"] == "auftrag"  # Floor aus Vertraege/ gewinnt
@@ -71,15 +61,10 @@ def test_bewerte_kunde_enforces_floor_when_llm_understates(tmp_path, monkeypatch
 
 def test_bewerte_kunde_downgrades_confidence_on_hallucinated_source(tmp_path, monkeypatch):
     kunde = _make_kunde(tmp_path, meetings=True)
-    fake_client = SimpleNamespace(
-        messages=SimpleNamespace(
-            create=lambda **kwargs: _fake_response(
-                {"status": "erstgespraech", "sicherheit": "hoch", "begruendung": "x",
-                 "quellen": ["kickoff.md", "erfundene-datei.md"], "warnsignal": None}
-            )
-        )
-    )
-    monkeypatch.setattr(svc, "get_client", lambda: fake_client)
+    monkeypatch.setattr(svc, "complete_json", lambda *a, **kw: json.dumps(
+        {"status": "erstgespraech", "sicherheit": "hoch", "begruendung": "x",
+         "quellen": ["kickoff.md", "erfundene-datei.md"], "warnsignal": None}
+    ))
 
     ergebnis = svc.bewerte_kunde(kunde)
     assert ergebnis["sicherheit"] == "niedrig"
@@ -141,17 +126,12 @@ def test_sammle_dokumente_lead_without_korrespondenz_ordner_unaffected(tmp_path)
 
 def test_bewerte_kunde_propagates_ist_relevant_false(tmp_path, monkeypatch):
     kunde = _make_kunde(tmp_path, meetings=True)
-    fake_client = SimpleNamespace(
-        messages=SimpleNamespace(
-            create=lambda **kwargs: _fake_response(
-                {"status": "erstgespraech", "sicherheit": "hoch", "begruendung": "x",
-                 "quellen": ["kickoff.md"], "warnsignal": None,
-                 "ist_relevant": False, "relevanz_begruendung": "Externer Dienstleister, kein Kunde.",
-                 "anzeige_name": "TestKunde", "aktueller_stand": ""}
-            )
-        )
-    )
-    monkeypatch.setattr(svc, "get_client", lambda: fake_client)
+    monkeypatch.setattr(svc, "complete_json", lambda *a, **kw: json.dumps(
+        {"status": "erstgespraech", "sicherheit": "hoch", "begruendung": "x",
+         "quellen": ["kickoff.md"], "warnsignal": None,
+         "ist_relevant": False, "relevanz_begruendung": "Externer Dienstleister, kein Kunde.",
+         "anzeige_name": "TestKunde", "aktueller_stand": ""}
+    ))
 
     ergebnis = svc.bewerte_kunde(kunde, kunde_name="TestKunde")
     assert ergebnis["ist_relevant"] is False
@@ -160,15 +140,10 @@ def test_bewerte_kunde_propagates_ist_relevant_false(tmp_path, monkeypatch):
 
 def test_bewerte_kunde_falls_back_to_kunde_name_when_llm_omits_anzeige_name(tmp_path, monkeypatch):
     kunde = _make_kunde(tmp_path, meetings=True)
-    fake_client = SimpleNamespace(
-        messages=SimpleNamespace(
-            create=lambda **kwargs: _fake_response(
-                {"status": "erstgespraech", "sicherheit": "hoch", "begruendung": "x",
-                 "quellen": ["kickoff.md"], "warnsignal": None}
-            )
-        )
-    )
-    monkeypatch.setattr(svc, "get_client", lambda: fake_client)
+    monkeypatch.setattr(svc, "complete_json", lambda *a, **kw: json.dumps(
+        {"status": "erstgespraech", "sicherheit": "hoch", "begruendung": "x",
+         "quellen": ["kickoff.md"], "warnsignal": None}
+    ))
 
     ergebnis = svc.bewerte_kunde(kunde, kunde_name="TestKunde")
     assert ergebnis["anzeige_name"] == "TestKunde"
@@ -178,11 +153,10 @@ def test_bewerte_kunde_falls_back_to_kunde_name_when_llm_omits_anzeige_name(tmp_
 def test_bewerte_kunde_fallback_on_api_error_defaults_ist_relevant_true(tmp_path, monkeypatch):
     kunde = _make_kunde(tmp_path, meetings=True)
 
-    def boom(**kwargs):
+    def boom(*a, **kw):
         raise RuntimeError("API down")
 
-    fake_client = SimpleNamespace(messages=SimpleNamespace(create=boom))
-    monkeypatch.setattr(svc, "get_client", lambda: fake_client)
+    monkeypatch.setattr(svc, "complete_json", boom)
 
     ergebnis = svc.bewerte_kunde(kunde, kunde_name="TestKunde")
     assert ergebnis["ist_relevant"] is True
@@ -193,15 +167,14 @@ def test_get_status_uses_cache_when_input_unchanged(tmp_path, monkeypatch):
     kunde = _make_kunde(tmp_path, meetings=True)
     calls = []
 
-    def fake_create(**kwargs):
+    def fake_complete_json(*a, **kw):
         calls.append(1)
-        return _fake_response(
+        return json.dumps(
             {"status": "erstgespraech", "sicherheit": "hoch", "begruendung": "x",
              "quellen": ["kickoff.md"], "warnsignal": None}
         )
 
-    fake_client = SimpleNamespace(messages=SimpleNamespace(create=fake_create))
-    monkeypatch.setattr(svc, "get_client", lambda: fake_client)
+    monkeypatch.setattr(svc, "complete_json", fake_complete_json)
     monkeypatch.setattr(
         type(__import__("app.config", fromlist=["get_settings"]).get_settings()),
         "agent_dir", property(lambda self: tmp_path / "_agent"),

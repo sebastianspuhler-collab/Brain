@@ -13,6 +13,7 @@ from app.constants import ALL_MODELS, Models
 from app.deps import get_current_user
 from app.services import context as context_service
 from app.services import agents_service, chat_sessions, conversations, memory, rag
+from app.services import claude_cli
 from app.services.anthropic_client import get_client
 from app.services.tools import TOOLS, _TASK_TOOL_NAMES, execute_tool
 
@@ -223,11 +224,134 @@ def _stream_chat(
     yield "data: [DONE]\n\n"
 
 
+def _stream_chat_cli(
+    messages: list[dict], model: str, session_id: str | None = None, agent_id: str | None = None
+):
+    """CLI-Headless-Variante von _stream_chat (claude_engine="cli") - identischer
+    Kontext-Aufbau (RAG/Kunden-Akte/Memory-Synthese/Modellwahl), aber der
+    Tool-Use-Loop läuft über claude_cli.stream_chat() (Claude-Code-Subprocess,
+    Abo-Billing über CLAUDE_CODE_OAUTH_TOKEN) statt über die Anthropic Messages
+    API + tools.py-Dispatcher. Vault-Zugriff läuft nativ über Claude Codes
+    Read/Write/Edit/Glob/Grep (--add-dir), externe Aktionen (Buffer/LinkedIn/
+    YouTube/Gmail/Suche) über die projekt-lokale .mcp.json.
+
+    STATUS (2026-07-22) — NICHT production-ready, bewusst nur hinter
+    claude_engine="cli" erreichbar (Default bleibt "api", unverändertes
+    Verhalten):
+      - Strukturell fertig und gegen das empirisch verifizierte stream-json-
+        Event-Schema gebaut (system/init, assistant mit content-Blöcken im
+        bekannten Anthropic-Message-Format, result). NICHT live mit einer
+        echten Antwort durchgespielt (Test-API-Key ohne Guthaben).
+      - WICHTIGE LÜCKE: schickt nur die letzte User-Nachricht als Prompt,
+        NICHT die volle messages-History wie der API-Pfad. Mehrturn-Chats
+        würden dadurch früheren Kontext verlieren. Für echten Mehrturn-
+        Betrieb noch zu lösen (z.B. über --resume/--session-id oder
+        --input-format stream-json mit voller History).
+      - Tool-Use-Erkennung für tasks_changed ist eine Annahme (Feldname
+        "file_path" bei Edit/Write) - nicht gegen einen echten Tool-Aufruf
+        bestätigt.
+      - Granularität von --include-partial-messages (Token-für-Token vs.
+        blockweise) nicht beobachtet - aktuell werden nur komplette
+        "assistant"-Content-Blöcke als Chunk behandelt, was im schlechtesten
+        Fall gröber wirkt als der jetzige Token-Stream.
+    Vor dem Umschalten auf claude_engine="cli": echten CLAUDE_CODE_OAUTH_TOKEN
+    setzen, hier live gegen mehrere Nachrichten inkl. Tool-Nutzung testen,
+    diesen Kommentar aktualisieren.
+    """
+    if model not in CHAT_MODELS:
+        model = Models.SONNET
+    last_msg = messages[-1].get("content", "") if messages else ""
+    threading.Thread(target=conversations.log_turn, args=("user", last_msg), daemon=True).start()
+
+    agent = agents_service.get_agent(agent_id) if agent_id else None
+    agent_forced_model = bool(agent and agent.get("model") in CHAT_MODELS)
+    if agent_forced_model:
+        model = agent["model"]
+    path_prefixes = tuple(agent["ordner_filter"]) if agent and agent.get("ordner_filter") else None
+
+    try:
+        with ThreadPoolExecutor(max_workers=5) as ex:
+            f_system = ex.submit(context_service.build_system)
+            f_cust = ex.submit(context_service.get_customer_context, last_msg)
+            f_rag = ex.submit(rag.search_with_sources, last_msg, 15, path_prefixes)
+            f_mentioned = ex.submit(context_service.get_mentioned_files, messages)
+            system = f_system.result()
+            cust_ctx = f_cust.result()
+            rag_ctx, rag_sources = f_rag.result()
+            mentioned_ctx = f_mentioned.result()
+
+        if agent and agent.get("system_prompt_zusatz"):
+            system += f"\n\n=== AGENT: {agent['name']} ===\n{agent['system_prompt_zusatz']}"
+
+        if rag_sources:
+            yield _sse({"sources": rag_sources})
+
+        all_raw = "\n\n".join(filter(None, [cust_ctx, rag_ctx, mentioned_ctx]))
+        if all_raw:
+            synthesis = context_service.synthesize_context(last_msg, all_raw)
+            if synthesis:
+                system += f"\n\n=== KONTEXT-ANALYSE: VERBINDUNGEN & SCHLÜSSELINFORMATIONEN ===\n{synthesis}"
+
+        if mentioned_ctx:
+            system += f"\n\n=== DIREKT REFERENZIERTE DATEIEN ===\n{mentioned_ctx}"
+        if cust_ctx:
+            system += f"\n\n=== KUNDEN-AKTEN (vollständig) ===\n{cust_ctx}"
+        if rag_ctx:
+            system += f"\n\n=== RELEVANTE DOKUMENTE & E-MAILS ===\n{rag_ctx}"
+
+        all_text_parts = []
+        tasks_changed = False
+        try:
+            for event in claude_cli.stream_chat(last_msg, system_prompt=system, model=model):
+                etype = event.get("type")
+                if etype == "assistant":
+                    for block in event.get("message", {}).get("content", []):
+                        if block.get("type") == "text" and block.get("text"):
+                            chunk = block["text"]
+                            all_text_parts.append(chunk)
+                            yield _sse({"chunk": chunk})
+                        elif block.get("type") == "tool_use":
+                            tool_path = str(block.get("input", {}).get("file_path", ""))
+                            if "context.md" in tool_path:
+                                tasks_changed = True
+                elif etype == "result" and event.get("is_error"):
+                    yield _sse({"error": event.get("result", "Unbekannter Fehler")})
+        except claude_cli.ClaudeCliError as e:
+            yield _sse({"error": str(e)})
+
+        response_text = "".join(all_text_parts)
+        threading.Thread(target=conversations.log_turn, args=("assistant", response_text), daemon=True).start()
+
+        if session_id:
+            to_save = messages + [{"role": "assistant", "content": response_text}]
+            threading.Thread(
+                target=chat_sessions.save_session, args=(session_id, to_save, model), daemon=True
+            ).start()
+
+        if tasks_changed:
+            yield _sse({"tasks_updated": True})
+
+        saved = memory.auto_remember(last_msg, response_text)
+        if saved:
+            note = "\n\n---\n*Notiert: " + " | ".join(saved[:2]) + "*"
+            yield _sse({"chunk": note})
+    except Exception as ex:
+        yield _sse({"error": str(ex)})
+
+    yield "data: [DONE]\n\n"
+
+
 @router.post("/chat")
 def chat(body: ChatRequest, user: str = Depends(get_current_user)):
     messages = [m.model_dump() for m in body.messages]
+    engine = get_settings().claude_engine
+    generator = (
+        _stream_chat_cli(messages, body.model, body.session_id, body.agent_id)
+        if engine == "cli"
+        else _stream_chat(messages, body.model, body.session_id, body.agent_id)
+    )
     return StreamingResponse(
-        _stream_chat(messages, body.model, body.session_id, body.agent_id),
+        generator,
         media_type="text/event-stream",
         headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
     )

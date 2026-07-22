@@ -11,7 +11,7 @@ from pathlib import Path
 
 from app.config import get_settings
 from app.constants import Models
-from app.services.anthropic_client import complete_json, get_client, get_response_text
+from app.services.anthropic_client import complete_json
 
 SKIP_EXTENSIONS = {
     ".js", ".ts", ".map", ".mjs", ".jsx", ".tsx", ".css",

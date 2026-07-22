@@ -8,7 +8,7 @@ from pathlib import Path
 
 from app.constants import Models
 from app.services import classify
-from app.services.anthropic_client import complete_json, get_client, get_response_text
+from app.services.anthropic_client import complete_json
 
 _SYSTEM_PROMPT = """Du bist ein technischer Projektanalyst bei Prozessia, einer AI Process Automation Agentur für deutschen Mittelstand (Fertigung/Industrie).
 Analysiere die bereitgestellten Dokumente und Beschreibung und extrahiere folgende Informationen als JSON:
