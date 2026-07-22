@@ -6,12 +6,30 @@ from collections import defaultdict
 MERGED = "/Users/sesp01-user/vault/Prozessia-Brain/Finanzen/Belegauswertung_2025/out/04_merged.json"
 OUT = "/Users/sesp01-user/vault/Prozessia-Brain/Finanzen/Belegauswertung_2025/out/05_auswertung.json"
 
+# Korrekturregeln vom Nutzer (2026-07-22): diese Buchungen zaehlen NICHT als
+# Netto-Umsatz/-Ausgabe/-Verlust, bleiben aber in den Rohlisten sichtbar.
+BAGATELLE_AUSSCHLUSS_GRENZE = 10.0  # < 10 EUR: komplett raus aus der Wertung
+DURCHLAUFPOSTEN_TX_IDS = {
+    "FINOM-ab4c797b9d8a034a", "FINOM-15f016a7977dc19d",  # Benito Ferrise 4760 EUR Rundlauf 2025-12-31
+}
+
+def zaehlt_zur_wertung(t):
+    if t['kategorie'] != 'GESCHAEFTLICH':
+        return False
+    if t['tx_id'] in DURCHLAUFPOSTEN_TX_IDS:
+        return False
+    if 'finanzamt' in (t['gegenpartei'] or '').lower():
+        return False
+    if t['betrag_brutto'] < BAGATELLE_AUSSCHLUSS_GRENZE:
+        return False
+    return True
+
 def main():
     data = json.load(open(MERGED, encoding='utf-8'))
     tx_all = data['transaktionen']
     belege_by_id = {b['id']: b for b in data['belege']}
 
-    guv_tx = [t for t in tx_all if t['kategorie'] == 'GESCHAEFTLICH']
+    guv_tx = [t for t in tx_all if zaehlt_zur_wertung(t)]
 
     monate = {m: {
         'umsatz_brutto': 0.0, 'umsatz_netto': 0.0, 'ust_vereinnahmt': 0.0,
@@ -85,6 +103,12 @@ def main():
                         "und muessen erst per Beleg geklaert werden, bevor sie den Netto-Gewinn veraendern. "
                         "'ergebnis_brutto' ist zur Einordnung danebengestellt. Kein echter steuerlicher "
                         "Gewinn (keine Abschreibungen/Abgrenzungen/Hinzurechnungen) -> Steuerberater konsultieren.")
+    jahr['hinweis_ausschluesse'] = (
+        "Auf Wunsch des Nutzers (2026-07-22) zaehlen folgende Buchungen WEDER als Umsatz NOCH als "
+        "Ausgabe/Verlust (bleiben aber in den Rohlisten/Prueffaellen sichtbar): (1) Bagatellen < 10 EUR "
+        "brutto, (2) alle Finanzamt-Transaktionen (USt-Erstattungen/-Vorauszahlungen, steuerneutral), "
+        "(3) die Benito-Ferrise-Rundlauf-Buchung 4760 EUR am 2025-12-31 (Durchlaufposten)."
+    )
 
     einlagen_entnahmen = [t for t in tx_all if t['kategorie'] == 'EINLAGE_ENTNAHME']
     umbuchungen = [t for t in tx_all if t['kategorie'] == 'UMBUCHUNG']
