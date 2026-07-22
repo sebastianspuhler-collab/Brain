@@ -97,10 +97,7 @@ def synthesize_context(query: str, raw_context: str) -> str:
     if not raw_context or len(raw_context) < 400:
         return ""
     try:
-        result = get_client().messages.create(
-            model=Models.HAIKU, max_tokens=600,
-            thinking={"type": "disabled"},
-            messages=[{"role": "user", "content": f"""Du bist ein Kontext-Analyst. Sebastians Frage: "{query[:250]}"
+        prompt = f"""Du bist ein Kontext-Analyst. Sebastians Frage: "{query[:250]}"
 
 Analysiere die unten stehenden Daten-Fragmente und erkläre in 4-6 präzisen Bullet Points:
 - Welche Mails, Dokumente und Aufgaben hängen direkt zusammen?
@@ -111,9 +108,8 @@ Analysiere die unten stehenden Daten-Fragmente und erkläre in 4-6 präzisen Bul
 Sei konkret und nenne Dateinamen/Absender/Daten. Kein Intro, nur Bullet Points.
 
 DATEN:
-{raw_context[:3500]}"""}],
-        )
-        return get_response_text(result).strip()
+{raw_context[:3500]}"""
+        return complete_json(prompt, model=Models.HAIKU, max_tokens=600).strip()
     except Exception:
         return ""
 

@@ -11,7 +11,7 @@ from pathlib import Path
 
 from app.config import get_settings
 from app.constants import Models
-from app.services.anthropic_client import get_client, get_response_text
+from app.services.anthropic_client import complete_json, get_client, get_response_text
 
 SKIP_EXTENSIONS = {
     ".js", ".ts", ".map", ".mjs", ".jsx", ".tsx", ".css",
@@ -268,12 +268,8 @@ Antworte NUR als JSON, keine Erklärung."""
         # leerem/kaputtem Text-Block) - genau das ließ z.B. das TPG-Transkript als
         # "API-Klassifizierung fehlgeschlagen" durchfallen, obwohl der Aufruf an
         # sich funktioniert hätte.
-        resp = get_client().messages.create(
-            model=Models.SONNET, max_tokens=500,
-            thinking={"type": "disabled"},
-            messages=[{"role": "user", "content": prompt}],
-        )
-        raw = get_response_text(resp).strip().replace("```json", "").replace("```", "").strip()
+        raw = complete_json(prompt, model=Models.SONNET, max_tokens=500).strip()
+        raw = raw.replace("```json", "").replace("```", "").strip()
         result = json.loads(raw)
         if result.get("neuer_kunde"):
             ziel = settings.vault_path / result.get("zielordner", "Memos")
@@ -311,12 +307,8 @@ Antworte NUR als JSON, keine Erklärung. Format:
 {{"teilnehmer": [...], "kernpunkte": [...], "zusagen": [...], "naechste_schritte": [...], "entscheidungen": [...], "datum": "YYYY-MM-DD" oder null}}"""
 
     try:
-        resp = get_client().messages.create(
-            model=Models.SONNET, max_tokens=800,
-            thinking={"type": "disabled"},  # siehe Kommentar bei classify() oben
-            messages=[{"role": "user", "content": prompt}],
-        )
-        raw = get_response_text(resp).strip().replace("```json", "").replace("```", "").strip()
+        raw = complete_json(prompt, model=Models.SONNET, max_tokens=800).strip()
+        raw = raw.replace("```json", "").replace("```", "").strip()
         return json.loads(raw)
     except Exception:
         return None

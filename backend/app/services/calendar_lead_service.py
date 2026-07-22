@@ -19,7 +19,7 @@ from datetime import datetime
 from app.config import get_settings
 from app.constants import Models
 from app.services import classify, memory, outlook_client
-from app.services.anthropic_client import get_client, get_response_text
+from app.services.anthropic_client import complete_json, get_client, get_response_text
 
 INTERNAL_DOMAIN = "prozessia.de"
 
@@ -110,12 +110,7 @@ NUR JSON:
 {{"ist_erstgespraech": true, "firma": "Firmenname oder Personenname"}}
 Wenn nein oder unklar: {{"ist_erstgespraech": false}}"""
     try:
-        result = get_client().messages.create(
-            model=Models.HAIKU, max_tokens=200,
-            thinking={"type": "disabled"},
-            messages=[{"role": "user", "content": prompt}],
-        )
-        text = get_response_text(result).strip()
+        text = complete_json(prompt, model=Models.HAIKU, max_tokens=200).strip()
         match = re.search(r"\{.*\}", text, re.DOTALL)
         if not match:
             return None

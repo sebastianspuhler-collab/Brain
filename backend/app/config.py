@@ -11,6 +11,17 @@ class Settings(BaseSettings):
 
     vault_path: Path = Path.home() / "Documents" / "Prozessia-Brain"
     anthropic_api_key: str = ""
+
+    # ── Claude-Engine: API-Key vs. Claude-Code-Abo (2026-07-22) ────────────────
+    # "api" (Default, unverändertes Verhalten) nutzt die Anthropic Messages API
+    # mit anthropic_api_key (nutzungsabhängige Abrechnung). "cli" ruft stattdessen
+    # `claude -p` als Subprocess auf, authentifiziert über CLAUDE_CODE_OAUTH_TOKEN
+    # (claude setup-token) - Abrechnung läuft dann über das Claude-Code-Abo statt
+    # pro Token. NUR auf "cli" umstellen, nachdem der Token gesetzt UND ein
+    # Testlauf gegen jede betroffene Stelle einzeln bestätigt wurde - Verhalten
+    # ist noch nicht Ende-zu-Ende mit echten Antworten verifiziert.
+    claude_engine: str = "api"
+    claude_code_oauth_token: str = ""
     session_secret: str = "change-me"  # signiert Session-Cookies, MUSS in Prod überschrieben werden
     cors_origin: str = "http://localhost:5173"
     # Datei statt ENV-Variable: bcrypt-Hashes enthalten "$"-Zeichen, die docker-compose
