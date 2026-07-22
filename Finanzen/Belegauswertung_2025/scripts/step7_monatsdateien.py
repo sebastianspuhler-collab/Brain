@@ -20,6 +20,9 @@ MONATSNAMEN = ["", "01_Januar", "02_Februar", "03_Maerz", "04_April", "05_Mai", 
 
 HEADER_FILL = PatternFill(start_color="1F2937", end_color="1F2937", fill_type="solid")
 HEADER_FONT = Font(color="FFFFFF", bold=True)
+MISSING_FILL = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
+MISSING_FONT = Font(color="9C0006")
+USTSATZ = 0.19  # Annahme fuer Zahlungen ohne Beleg, um sie trotzdem in der Nettorechnung zu erfassen
 
 def style_and_fit(ws, ncols):
     for c in range(1, ncols + 1):
@@ -40,7 +43,7 @@ def style_and_fit(ws, ncols):
 # Umbuchungen sind kein Umsatz/Gewinn einer GbR und tauchen hier gar nicht auf.
 geschaeftlich = [t for t in tx_all if t['kategorie'] == 'GESCHAEFTLICH']
 
-headers = ["Datum", "Richtung", "Netto-Betrag", "Beleg da?", "Partner", "Verwendungszweck"]
+headers = ["Datum", "Richtung", "Netto-Betrag", "Beleg da?", "Beleg-Dateiname", "Partner", "Verwendungszweck"]
 
 wb = Workbook()
 wb.remove(wb.active)
@@ -58,15 +61,28 @@ for m in range(1, 13):
 
     for t in sorted(month_tx, key=lambda x: x['zahlungsdatum']):
         beleg = belege_by_id.get(t['beleg_ids'][0]) if t.get('beleg_ids') else None
-        netto = beleg.get('betrag_netto') if beleg else None
-        beleg_da = "Ja" if beleg else "Nein"
-        if not beleg:
+        beleg_datei = beleg['quellref'].split('/')[-1] if beleg else ""
+        fehlt = beleg is None
+        if fehlt:
             n_kein_beleg += 1
-        if beleg and beleg.get('netto_ist_einzelwert'):
-            beleg_da = "Ja (nur 1 Betrag, kein Netto/USt getrennt)"
+            # Kein Beleg vorhanden: trotzdem in der Nettorechnung erfassen, mit geschaetztem
+            # Netto (Bruttobetrag der Bank-Buchung abzgl. angenommener 19% USt).
+            netto = round(t['betrag_brutto'] / (1 + USTSATZ), 2)
+            beleg_da = "NEIN - fehlt"
+        else:
+            netto = beleg.get('betrag_netto')
+            beleg_da = "Ja"
+            if beleg.get('netto_ist_einzelwert'):
+                beleg_da = "Ja (nur 1 Betrag, kein Netto/USt getrennt)"
 
-        ws.append([t['zahlungsdatum'], RICHTUNG_LABEL[t['richtung']], netto, beleg_da,
+        row_idx = ws.max_row + 1
+        ws.append([t['zahlungsdatum'], RICHTUNG_LABEL[t['richtung']], netto, beleg_da, beleg_datei,
                    t['gegenpartei'], t['verwendungszweck']])
+        if fehlt:
+            for c in range(1, len(headers) + 1):
+                cell = ws.cell(row=row_idx, column=c)
+                cell.fill = MISSING_FILL
+                cell.font = MISSING_FONT
 
         if netto is not None:
             if t['richtung'] == 'AUSGANG':
@@ -79,7 +95,7 @@ for m in range(1, 13):
         ("Umsatz netto:", round(sum_umsatz, 2)),
         ("Ausgabe netto:", round(sum_ausgabe, 2)),
         ("GEWINN/VERLUST:", round(sum_umsatz - sum_ausgabe, 2)),
-        ("Zahlungen ohne Beleg (kein Wert):", n_kein_beleg),
+        ("davon Zahlungen ohne Beleg (rot, Netto geschaetzt mit 19% USt):", n_kein_beleg),
     ]:
         ws.cell(row=r, column=1, value=label).font = Font(bold=True)
         ws.cell(row=r, column=3, value=val).font = Font(bold=True)

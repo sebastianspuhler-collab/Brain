@@ -329,9 +329,11 @@
           "- 37,00 $"
         ]
       },
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "beleg_ids": [
+        "224b5241-3e0d-5c16-a965-5b042008a875"
+      ],
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -346,9 +348,11 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "beleg_ids": [
+        "e1e4da58-cf0c-51db-b51d-98df34ad0b9b"
+      ],
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -508,9 +512,11 @@
           "- 37,00 $"
         ]
       },
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "beleg_ids": [
+        "56071d87-ba44-5a00-9cac-2667ca3b7801"
+      ],
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -549,9 +555,11 @@
           "- 20,00 $"
         ]
       },
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "beleg_ids": [
+        "31ec0551-50d0-5488-a91d-193bacfc7598"
+      ],
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -571,9 +579,11 @@
           "- 32,87 $"
         ]
       },
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "beleg_ids": [
+        "3dbd3ed0-974e-589f-8759-1ae3d7336604"
+      ],
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -665,9 +675,11 @@
           "- 20,00 $"
         ]
       },
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "beleg_ids": [
+        "cae85532-a916-4b05-aa8f-6e4a7b338b6a"
+      ],
+      "status": "BELEGT",
+      "pruefgrund": "Nur per Gmail gefunden (Stripe-Zahlungsbeleg Nr. 2514-9086), PDF-Anhang nicht abrufbar, als Textbeleg dokumentiert. Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -721,9 +733,11 @@
           "- 97,00 $"
         ]
       },
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "beleg_ids": [
+        "4ec5cd62-b584-5935-aa2a-8ec506f5011a"
+      ],
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -803,9 +817,11 @@
           "- 20,00 $"
         ]
       },
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "beleg_ids": [
+        "1936bf78-4290-5f9e-8b94-4210bc335274"
+      ],
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -842,9 +858,11 @@
           "- 97,00 $"
         ]
       },
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "beleg_ids": [
+        "457f41ca-539f-5a4e-a59b-2f2a574d2eda"
+      ],
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -878,9 +896,11 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "beleg_ids": [
+        "8127c824-2e9e-4024-baf8-69c3131b6c66"
+      ],
+      "status": "BELEGT",
+      "pruefgrund": "Nur per Gmail gefunden (Paddle-Beleg 73531154-143210765), kein PDF-Anhang, als Textbeleg dokumentiert. Betrag/MwSt exakt aus Beleg uebernommen.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -1006,9 +1026,11 @@
           "- 59,42 $"
         ]
       },
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "beleg_ids": [
+        "a494b22f-96cb-5811-9740-4826c4157dc7"
+      ],
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -1274,9 +1296,11 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "beleg_ids": [
+        "b9157213-25d0-5904-9bd7-19d84439a7c0"
+      ],
+      "status": "BELEGT",
+      "pruefgrund": "KORRIGIERT 2026-07-22: Beleg war faelschlich 09-29 UND 10-28 zugeordnet (Datumsextraktion hatte Leistungsdatum statt Rechnungsdatum uebernommen). Rechnung datiert 27.08.2025 -> gehoert zur 08-28-Zahlung.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -1368,9 +1392,11 @@
           "- 97,00 $"
         ]
       },
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "beleg_ids": [
+        "b9412ebb-db90-5560-b37b-e34f59c32d93"
+      ],
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -1556,11 +1582,9 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [
-        "b9157213-25d0-5904-9bd7-19d84439a7c0"
-      ],
-      "status": "BELEGT",
-      "pruefgrund": null,
+      "beleg_ids": [],
+      "status": "BELEG_FEHLT",
+      "pruefgrund": "Vormals faelschlich Funnelcockpit_2.pdf zugeordnet (siehe Korrektur 2026-07-22) - Beleg wurde 08-28 zugewiesen. Echte September-Rechnung noch nicht gefunden.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -1592,9 +1616,11 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "beleg_ids": [
+        "b7597ad4-0fe5-55b8-b294-9f4799467c15"
+      ],
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -1614,9 +1640,11 @@
           "- 97,00 $"
         ]
       },
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "beleg_ids": [
+        "b2cce03a-f519-519c-8625-dc0794aa295c"
+      ],
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -1631,9 +1659,11 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "beleg_ids": [
+        "c9de292e-ac14-4bac-9312-a6f18e64e02d"
+      ],
+      "status": "BELEGT",
+      "pruefgrund": "Anzahlung auf Rechnung RE250006 (23.10.2025, Gesamtbetrag 505,75 EUR = 275,00 AZ + 230,75 Rest). Aus Drive nachgeladen 2026-07-22.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -1739,9 +1769,11 @@
       "kategorie": "GESCHAEFTLICH",
       "fremdwaehrung": false,
       "fx_hinweis": null,
-      "beleg_ids": [],
-      "status": "BELEG_FEHLT",
-      "pruefgrund": null,
+      "beleg_ids": [
+        "15283e88-9615-4646-959b-9349ec383cac"
+      ],
+      "status": "BELEGT",
+      "pruefgrund": "Restzahlung auf Rechnung RE250006 (23.10.2025, Gesamtbetrag 505,75 EUR = 275,00 AZ + 230,75 Rest). Aus Drive nachgeladen 2026-07-22.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -1774,10 +1806,10 @@
       "fremdwaehrung": false,
       "fx_hinweis": null,
       "beleg_ids": [
-        "b9157213-25d0-5904-9bd7-19d84439a7c0"
+        "c45c4f32-f4ba-4a49-90ab-1c0fe3a9ded5"
       ],
       "status": "BELEGT",
-      "pruefgrund": null,
+      "pruefgrund": "Aus Drive nachgeladen 2026-07-22 (war lokal nicht vorhanden). Korrigiert Fehlzuordnung von Funnelcockpit_2.pdf.",
       "quelle": "finom_kontoauszug",
       "quellref": "Finom_statement_21072026.pdf"
     },
@@ -3600,7 +3632,7 @@
       ],
       "quellref": "/Users/sesp01-user/vault/Prozessia-Brain/Finanzen/Rechnungen/Funnelcockpit_2.pdf",
       "richtung": "EINGANG",
-      "rechnungsdatum": "2025-09-26",
+      "rechnungsdatum": "2025-08-27",
       "rechnungsnummer": "73906478-de",
       "partner": "Digistore24",
       "beschreibung": null,
@@ -3613,13 +3645,13 @@
       "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": "FINOM-4ee321a525d55847",
-      "zahlungsdatum": "2025-10-28",
+      "tx_id": "FINOM-e7f3c07e9479ad0f",
+      "zahlungsdatum": "2025-08-28",
       "zahlungsweg": "BANK",
-      "status": "VOLLSTAENDIG",
-      "pruefgrund": null,
+      "status": "BELEGT",
+      "pruefgrund": "KORRIGIERT 2026-07-22: Beleg war faelschlich 09-29 UND 10-28 zugeordnet (Datumsextraktion hatte Leistungsdatum statt Rechnungsdatum uebernommen). Rechnung datiert 27.08.2025 -> gehoert zur 08-28-Zahlung.",
       "_text_len": 1128,
-      "_matched_tx": "FINOM-4ee321a525d55847"
+      "_matched_tx": "FINOM-e7f3c07e9479ad0f"
     },
     {
       "id": "4989f4ec-1067-5525-9941-a3a59810acee",
@@ -3800,22 +3832,22 @@
       "rechnungsnummer": "BCE54405-0002",
       "partner": "Instantly",
       "beschreibung": null,
-      "betrag_netto": 37.0,
+      "betrag_netto": 34.13,
       "netto_ist_einzelwert": true,
       "ust_satz": null,
       "ust_satz_unterstellt": false,
       "ust_betrag": null,
-      "betrag_brutto": 37.0,
-      "waehrung": "USD",
+      "betrag_brutto": 34.13,
+      "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
+      "tx_id": "FINOM-6a8991382bf02dc3",
+      "zahlungsdatum": "2025-04-05",
       "zahlungsweg": "UNBEKANNT",
-      "status": "PRUEFFALL",
-      "pruefgrund": "Fremdwaehrung vermutet: USD",
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "_text_len": 628,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-6a8991382bf02dc3"
     },
     {
       "id": "e1e4da58-cf0c-51db-b51d-98df34ad0b9b",
@@ -3828,22 +3860,22 @@
       "rechnungsnummer": "BCE54405-0003",
       "partner": "Instantly",
       "beschreibung": null,
-      "betrag_netto": 35.0,
+      "betrag_netto": 33.32,
       "netto_ist_einzelwert": true,
       "ust_satz": null,
       "ust_satz_unterstellt": false,
       "ust_betrag": null,
-      "betrag_brutto": 35.0,
-      "waehrung": "USD",
+      "betrag_brutto": 33.32,
+      "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
+      "tx_id": "FINOM-0ed2502cbb3b384f",
+      "zahlungsdatum": "2025-04-08",
       "zahlungsweg": "UNBEKANNT",
-      "status": "PRUEFFALL",
-      "pruefgrund": "Fremdwaehrung vermutet: USD",
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "_text_len": 734,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-0ed2502cbb3b384f"
     },
     {
       "id": "3dbd3ed0-974e-589f-8759-1ae3d7336604",
@@ -3856,22 +3888,22 @@
       "rechnungsnummer": "BCE54405-0007",
       "partner": "Instantly",
       "beschreibung": null,
-      "betrag_netto": 32.87,
+      "betrag_netto": 29.54,
       "netto_ist_einzelwert": true,
       "ust_satz": null,
       "ust_satz_unterstellt": false,
       "ust_betrag": null,
-      "betrag_brutto": 32.87,
-      "waehrung": "USD",
+      "betrag_brutto": 29.54,
+      "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
+      "tx_id": "FINOM-7eec2b90a318fe1b",
+      "zahlungsdatum": "2025-05-19",
       "zahlungsweg": "UNBEKANNT",
-      "status": "PRUEFFALL",
-      "pruefgrund": "Fremdwaehrung vermutet: USD",
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "_text_len": 745,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-7eec2b90a318fe1b"
     },
     {
       "id": "56071d87-ba44-5a00-9cac-2667ca3b7801",
@@ -3884,22 +3916,22 @@
       "rechnungsnummer": "BCE54405-0004",
       "partner": "Instantly",
       "beschreibung": null,
-      "betrag_netto": 37.0,
+      "betrag_netto": 32.82,
       "netto_ist_einzelwert": true,
       "ust_satz": null,
       "ust_satz_unterstellt": false,
       "ust_betrag": null,
-      "betrag_brutto": 37.0,
-      "waehrung": "USD",
+      "betrag_brutto": 32.82,
+      "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
+      "tx_id": "FINOM-3630d79bd96894f3",
+      "zahlungsdatum": "2025-05-05",
       "zahlungsweg": "UNBEKANNT",
-      "status": "PRUEFFALL",
-      "pruefgrund": "Fremdwaehrung vermutet: USD",
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "_text_len": 622,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-3630d79bd96894f3"
     },
     {
       "id": "31ec0551-50d0-5488-a91d-193bacfc7598",
@@ -3912,22 +3944,22 @@
       "rechnungsnummer": "BCE54405-0006",
       "partner": "Instantly",
       "beschreibung": null,
-      "betrag_netto": 20.0,
+      "betrag_netto": 17.91,
       "netto_ist_einzelwert": true,
       "ust_satz": null,
       "ust_satz_unterstellt": false,
       "ust_betrag": null,
-      "betrag_brutto": 20.0,
-      "waehrung": "USD",
+      "betrag_brutto": 17.91,
+      "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
+      "tx_id": "FINOM-0d1d349ec8f8ae01",
+      "zahlungsdatum": "2025-05-16",
       "zahlungsweg": "UNBEKANNT",
-      "status": "PRUEFFALL",
-      "pruefgrund": "Fremdwaehrung vermutet: USD",
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "_text_len": 925,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-0d1d349ec8f8ae01"
     },
     {
       "id": "4ec5cd62-b584-5935-aa2a-8ec506f5011a",
@@ -3940,22 +3972,22 @@
       "rechnungsnummer": "BCE54405-0008",
       "partner": "Instantly",
       "beschreibung": null,
-      "betrag_netto": 97.0,
+      "betrag_netto": 85.37,
       "netto_ist_einzelwert": true,
       "ust_satz": null,
       "ust_satz_unterstellt": false,
       "ust_betrag": null,
-      "betrag_brutto": 97.0,
-      "waehrung": "USD",
+      "betrag_brutto": 85.37,
+      "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
+      "tx_id": "FINOM-a6c46c3b55510948",
+      "zahlungsdatum": "2025-06-05",
       "zahlungsweg": "UNBEKANNT",
-      "status": "PRUEFFALL",
-      "pruefgrund": "Fremdwaehrung vermutet: USD",
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "_text_len": 616,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-a6c46c3b55510948"
     },
     {
       "id": "5049a5b2-7c09-5e0f-a677-ae32885d7621",
@@ -4052,22 +4084,22 @@
       "rechnungsnummer": "BCE54405-0010",
       "partner": "Instantly",
       "beschreibung": null,
-      "betrag_netto": 97.0,
+      "betrag_netto": 82.79,
       "netto_ist_einzelwert": true,
       "ust_satz": null,
       "ust_satz_unterstellt": false,
       "ust_betrag": null,
-      "betrag_brutto": 97.0,
-      "waehrung": "USD",
+      "betrag_brutto": 82.79,
+      "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
+      "tx_id": "FINOM-0f3095143efd4c31",
+      "zahlungsdatum": "2025-07-05",
       "zahlungsweg": "UNBEKANNT",
-      "status": "PRUEFFALL",
-      "pruefgrund": "Fremdwaehrung vermutet: USD",
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "_text_len": 561,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-0f3095143efd4c31"
     },
     {
       "id": "a494b22f-96cb-5811-9740-4826c4157dc7",
@@ -4080,22 +4112,22 @@
       "rechnungsnummer": "BCE54405-0014",
       "partner": "Instantly",
       "beschreibung": null,
-      "betrag_netto": 59.42,
+      "betrag_netto": 52.17,
       "netto_ist_einzelwert": true,
       "ust_satz": null,
       "ust_satz_unterstellt": false,
       "ust_betrag": null,
-      "betrag_brutto": 59.42,
-      "waehrung": "USD",
+      "betrag_brutto": 52.17,
+      "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
+      "tx_id": "FINOM-c97d9fd2c65c7830",
+      "zahlungsdatum": "2025-08-05",
       "zahlungsweg": "UNBEKANNT",
-      "status": "PRUEFFALL",
-      "pruefgrund": "Fremdwaehrung vermutet: USD",
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "_text_len": 591,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-c97d9fd2c65c7830"
     },
     {
       "id": "1b9d26d9-9640-5ede-92d3-c3173a1c40f1",
@@ -4136,22 +4168,22 @@
       "rechnungsnummer": "BCE54405-0016",
       "partner": "Instantly",
       "beschreibung": null,
-      "betrag_netto": 97.0,
+      "betrag_netto": 83.58,
       "netto_ist_einzelwert": true,
       "ust_satz": null,
       "ust_satz_unterstellt": false,
       "ust_betrag": null,
-      "betrag_brutto": 97.0,
-      "waehrung": "USD",
+      "betrag_brutto": 83.58,
+      "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
+      "tx_id": "FINOM-bc4ed6fd7a3b9b4b",
+      "zahlungsdatum": "2025-09-05",
       "zahlungsweg": "UNBEKANNT",
-      "status": "PRUEFFALL",
-      "pruefgrund": "Fremdwaehrung vermutet: USD",
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "_text_len": 576,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-bc4ed6fd7a3b9b4b"
     },
     {
       "id": "36f1cc22-66bc-513d-a6ea-1b89f574caf6",
@@ -4192,22 +4224,22 @@
       "rechnungsnummer": "BCE54405-0018",
       "partner": "Instantly",
       "beschreibung": null,
-      "betrag_netto": 40.0,
+      "betrag_netto": 35.44,
       "netto_ist_einzelwert": true,
       "ust_satz": null,
       "ust_satz_unterstellt": false,
       "ust_betrag": null,
-      "betrag_brutto": 40.0,
-      "waehrung": "USD",
+      "betrag_brutto": 35.44,
+      "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
+      "tx_id": "FINOM-32434586469c0503",
+      "zahlungsdatum": "2025-10-04",
       "zahlungsweg": "UNBEKANNT",
-      "status": "PRUEFFALL",
-      "pruefgrund": "Fremdwaehrung vermutet: USD",
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "_text_len": 631,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-32434586469c0503"
     },
     {
       "id": "b2cce03a-f519-519c-8625-dc0794aa295c",
@@ -4220,22 +4252,22 @@
       "rechnungsnummer": "BCE54405-0019",
       "partner": "Instantly",
       "beschreibung": null,
-      "betrag_netto": 97.0,
+      "betrag_netto": 82.83,
       "netto_ist_einzelwert": true,
       "ust_satz": null,
       "ust_satz_unterstellt": false,
       "ust_betrag": null,
-      "betrag_brutto": 97.0,
-      "waehrung": "USD",
+      "betrag_brutto": 82.83,
+      "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
+      "tx_id": "FINOM-44b20af4e53bf673",
+      "zahlungsdatum": "2025-10-05",
       "zahlungsweg": "UNBEKANNT",
-      "status": "PRUEFFALL",
-      "pruefgrund": "Fremdwaehrung vermutet: USD",
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "_text_len": 570,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-44b20af4e53bf673"
     },
     {
       "id": "e5ee1a44-639c-5c91-bace-4837bfd71437",
@@ -4304,22 +4336,22 @@
       "rechnungsnummer": "LRDKYW8R-0002",
       "partner": "Rechnungsnummer LRDKYW8R-0002",
       "beschreibung": null,
-      "betrag_netto": 20.0,
+      "betrag_netto": 17.12,
       "netto_ist_einzelwert": true,
       "ust_satz": null,
       "ust_satz_unterstellt": false,
       "ust_betrag": null,
-      "betrag_brutto": 20.0,
-      "waehrung": "USD",
+      "betrag_brutto": 17.12,
+      "waehrung": "EUR",
       "ist_abo": false,
       "abo_intervall": null,
-      "tx_id": null,
-      "zahlungsdatum": null,
+      "tx_id": "FINOM-83e5f23c68809567",
+      "zahlungsdatum": "2025-06-30",
       "zahlungsweg": "UNBEKANNT",
-      "status": "PRUEFFALL",
-      "pruefgrund": "Fremdwaehrung vermutet: USD",
+      "status": "BELEGT",
+      "pruefgrund": "Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
       "_text_len": 504,
-      "_matched_tx": null
+      "_matched_tx": "FINOM-83e5f23c68809567"
     },
     {
       "id": "0574f609-9b80-570c-9ac8-1883906047b4",
@@ -5129,6 +5161,146 @@
       "status": "VOLLSTAENDIG",
       "pruefgrund": null,
       "_matched_tx": "FINOM-fee739b336e336b6"
+    },
+    {
+      "id": "cae85532-a916-4b05-aa8f-6e4a7b338b6a",
+      "quelle": [
+        "gmail"
+      ],
+      "quellref": "/Users/sesp01-user/vault/Prozessia-Brain/Finanzen/Rechnungen/Bolt StackBlitz Beleg 05-29-2025.md",
+      "richtung": "EINGANG",
+      "rechnungsdatum": "2025-05-29",
+      "rechnungsnummer": "LRDKYW8R-0001 / Zahlungsbeleg 2514-9086",
+      "partner": "StackBlitz, Inc.",
+      "beschreibung": "Bolt Pro-Plan",
+      "betrag_netto": 17.73,
+      "netto_ist_einzelwert": true,
+      "ust_satz": null,
+      "ust_satz_unterstellt": false,
+      "ust_betrag": null,
+      "betrag_brutto": 17.73,
+      "waehrung": "EUR",
+      "ist_abo": true,
+      "abo_intervall": "monatlich",
+      "tx_id": "FINOM-1d8bbc455447a6fc",
+      "zahlungsdatum": "2025-05-30",
+      "zahlungsweg": "BANK",
+      "status": "BELEGT",
+      "pruefgrund": "Nur per Gmail gefunden (Stripe-Zahlungsbeleg Nr. 2514-9086), PDF-Anhang nicht abrufbar, als Textbeleg dokumentiert. Fremdwaehrungsbeleg (USD-Rechnung), EUR-Betrag aus Bank-Kartenumrechnung uebernommen. Manuell recherchiert/verifiziert 2026-07-22.",
+      "_text_len": 500,
+      "_matched_tx": "FINOM-1d8bbc455447a6fc"
+    },
+    {
+      "id": "8127c824-2e9e-4024-baf8-69c3131b6c66",
+      "quelle": [
+        "gmail"
+      ],
+      "quellref": "/Users/sesp01-user/vault/Prozessia-Brain/Finanzen/Rechnungen/Paddle n8n Cloud Beleg 10-07-2025.md",
+      "richtung": "EINGANG",
+      "rechnungsdatum": "2025-07-10",
+      "rechnungsnummer": "73531154-143210765",
+      "partner": "Paddle.com Market Ltd (n8n Cloud Starter)",
+      "beschreibung": "n8n Cloud Starter Abonnement",
+      "betrag_netto": 24.0,
+      "netto_ist_einzelwert": false,
+      "ust_satz": 19,
+      "ust_satz_unterstellt": false,
+      "ust_betrag": 4.56,
+      "betrag_brutto": 28.56,
+      "waehrung": "EUR",
+      "ist_abo": true,
+      "abo_intervall": "monatlich",
+      "tx_id": "FINOM-2898de69e2a68a7f",
+      "zahlungsdatum": "2025-07-11",
+      "zahlungsweg": "BANK",
+      "status": "BELEGT",
+      "pruefgrund": "Nur per Gmail gefunden (Paddle-Beleg 73531154-143210765), kein PDF-Anhang, als Textbeleg dokumentiert. Betrag/MwSt exakt aus Beleg uebernommen.",
+      "_text_len": 500,
+      "_matched_tx": "FINOM-2898de69e2a68a7f"
+    },
+    {
+      "id": "c9de292e-ac14-4bac-9312-a6f18e64e02d",
+      "quelle": [
+        "drive"
+      ],
+      "quellref": "/Users/sesp01-user/vault/Prozessia-Brain/Finanzen/Rechnungen/Rechnung Vapi Martin Veser.pdf",
+      "richtung": "AUSGANG",
+      "rechnungsdatum": "2025-10-23",
+      "rechnungsnummer": "RE250006",
+      "partner": "Martin Veser Unternehmergesellschaft",
+      "beschreibung": "Vapi Voice Agent (Anzahlung von RE250006, Gesamtbetrag 505.75 EUR)",
+      "betrag_netto": 231.09,
+      "netto_ist_einzelwert": false,
+      "ust_satz": 19,
+      "ust_satz_unterstellt": false,
+      "ust_betrag": 43.91,
+      "betrag_brutto": 275.0,
+      "waehrung": "EUR",
+      "ist_abo": false,
+      "abo_intervall": null,
+      "tx_id": "FINOM-5f1a3f1c867d3072",
+      "zahlungsdatum": "2025-10-07",
+      "zahlungsweg": "BANK",
+      "status": "BELEGT",
+      "pruefgrund": "Anzahlung auf Rechnung RE250006 (23.10.2025, Gesamtbetrag 505,75 EUR = 275,00 AZ + 230,75 Rest). Aus Drive nachgeladen 2026-07-22.",
+      "_text_len": 500,
+      "_matched_tx": "FINOM-5f1a3f1c867d3072"
+    },
+    {
+      "id": "15283e88-9615-4646-959b-9349ec383cac",
+      "quelle": [
+        "drive"
+      ],
+      "quellref": "/Users/sesp01-user/vault/Prozessia-Brain/Finanzen/Rechnungen/Rechnung Vapi Martin Veser.pdf",
+      "richtung": "AUSGANG",
+      "rechnungsdatum": "2025-10-23",
+      "rechnungsnummer": "RE250006",
+      "partner": "Martin Veser Unternehmergesellschaft",
+      "beschreibung": "Vapi Voice Agent (Restzahlung von RE250006, Gesamtbetrag 505.75 EUR)",
+      "betrag_netto": 193.91,
+      "netto_ist_einzelwert": false,
+      "ust_satz": 19,
+      "ust_satz_unterstellt": false,
+      "ust_betrag": 36.84,
+      "betrag_brutto": 230.75,
+      "waehrung": "EUR",
+      "ist_abo": false,
+      "abo_intervall": null,
+      "tx_id": "FINOM-5da91e2c0c0d1112",
+      "zahlungsdatum": "2025-10-24",
+      "zahlungsweg": "BANK",
+      "status": "BELEGT",
+      "pruefgrund": "Restzahlung auf Rechnung RE250006 (23.10.2025, Gesamtbetrag 505,75 EUR = 275,00 AZ + 230,75 Rest). Aus Drive nachgeladen 2026-07-22.",
+      "_text_len": 500,
+      "_matched_tx": "FINOM-5da91e2c0c0d1112"
+    },
+    {
+      "id": "c45c4f32-f4ba-4a49-90ab-1c0fe3a9ded5",
+      "quelle": [
+        "drive"
+      ],
+      "quellref": "/Users/sesp01-user/vault/Prozessia-Brain/Finanzen/Rechnungen/Rechnung Clickfunnel.pdf",
+      "richtung": "EINGANG",
+      "rechnungsdatum": "2025-10-27",
+      "rechnungsnummer": "I-74568837-de",
+      "partner": "Digistore24 GmbH",
+      "beschreibung": "FunnelCockpit Lite Abonnement",
+      "betrag_netto": 47.0,
+      "netto_ist_einzelwert": false,
+      "ust_satz": 19,
+      "ust_satz_unterstellt": false,
+      "ust_betrag": 8.93,
+      "betrag_brutto": 55.93,
+      "waehrung": "EUR",
+      "ist_abo": true,
+      "abo_intervall": "monatlich",
+      "tx_id": "FINOM-4ee321a525d55847",
+      "zahlungsdatum": "2025-10-28",
+      "zahlungsweg": "BANK",
+      "status": "BELEGT",
+      "pruefgrund": "Aus Drive nachgeladen 2026-07-22 (war lokal nicht vorhanden). Korrigiert Fehlzuordnung von Funnelcockpit_2.pdf.",
+      "_text_len": 500,
+      "_matched_tx": "FINOM-4ee321a525d55847"
     }
   ]
 }
