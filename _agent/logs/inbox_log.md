@@ -898,3 +898,7 @@
 - 2026-07-23 11:48 | 19f7aaa4f4-Rechnung_RE260015_20.07.2026.pdf → Kunden/Schaufler/Vertraege | Ausgangsrechnung RE260015 von Prozessia an Schaufler Tooling GmbH & Co. KG vom 2
 - 2026-07-23 11:48 | 19f5bf6740-Top 10 Lieferanten.xlsx → Kunden/Schaufler/Dokumente | Liste der Top 10 Lieferanten für E- und K1-Teile mit vollständigen Kontaktdaten 
 - 2026-07-23 11:49 | 19f8015dd3-invoice-MSTRL-API-750302-002.pdf → Finanzen/2026/07_Juli | Rechnung von Mistral AI SAS (Frankreich) an Prozessia über 13,39 € brutto für AP
+- 2026-07-23 11:50 | 19f7aad092-Rechnung_RE260016_20.07.2026.pdf → Kunden/Schaufler/Vertraege | Rechnung RE260016 von Prozessia an Schaufler Tooling GmbH & Co. KG vom 20.07.202
+- 2026-07-23 11:50 | 19f8d67a64-Image → Memos/Medien | Bilddatei ohne extrahierbaren Textinhalt bzw. unbekanntes/nicht unterstütztes Fo
+- 2026-07-23 11:50 | 19f5ac99c1-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (E-Mail-Anhang, vermutlich Screenshot). Inhal
+- 2026-07-23 11:50 | 19f5ff1aad-BEST-KIND STAHL-127653.pdf → Kunden/Schaufler/Vertraege | Bestellbeleg Nr. 127653 von Schaufler Tooling GmbH & Co. KG an Kind & Co. Edelst

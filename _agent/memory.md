@@ -1,4 +1,28 @@
 ## KONTEXT
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-PFITZER-127655.md] Lieferant PFITZER: Max-Planck-Str. 4, 74211 Leingarten; E-Mail: bestellung.po-order@pfitzer-verbindun[gstechnik]
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-KIND WBH-127668.md] Vertragsgrundlage: Schauflers AEB (www.schaufler.de), Incoterms 2020, Kontakt Lieferant: WBH-AV@Kind-Co.de
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-KIND WBH-127668.md] Lieferadresse: MJM Metallverarbeitung Mangner GmbH, Dautphetal (Endkunde/Verarbeiter)
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-KIND WBH-127668.md] Bestellbeleg-Nr. 127668 vom 26.06.2026: Schaufler Tooling beauftragt Kind & Co. Edelstahlwerke mit Wärmebehandlung (Härten) eines Ejector Shotblock-Bauteils
+- [2026-07-23 11:53] [2026-07-23-19f5ff1aad-BEST-KIND STAHL-127653.md] Bestelldatum: 24.06.2026; Vertragsgrundlage: Schaufler Allgemeine Einkaufsbedingungen + Verhaltenskodex (www.schaufler.de)
+- [2026-07-23 11:53] [2026-07-23-19f8e484e8-Top100_Lieferanten_mit_Email.md] Top-3-Lieferanten nach Volumen: Schaufler China (19,4M), Handtmann (4,3M), Fischer Tool & Die (3,4M EUR)
+- [2026-07-23 11:53] [2026-07-23-19f65504d0-Receipt-2233-8816-5318.md] Rechnungsnummer: GGYF9D9L-0020, Quittung: 2233-8816-5318
+- [2026-07-23 11:53] [2026-07-23-19f65504d0-Receipt-2233-8816-5318.md] Zahlungsdatum: 15.07.2026, Zahlungsmethode: Link (erfolgreich bezahlt)
+- [2026-07-23 11:53] [2026-07-23-19f65504d0-Receipt-2233-8816-5318.md] Anthropic API-Credits: $20.00 gekauft + $3.80 MwSt (19%) = $23.80 Gesamtbetrag
+- [2026-07-23 11:52] [2026-07-23-19f8cb719f-63459971781.md] Abrechnungszyklus läuft vom 23. eines Monats bis zum 22. des nächsten Monats; automatischer Bankeinzug — KEINE manuelle Zahlung erforderlich
+- [2026-07-23 11:52] [2026-07-23-19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.md] Mistral Vendor-Adresse: 952 418 325 SAS, 15 rue des Halles, 75001 Paris; Quittung 2026-07-23, Invoice MSTRL-API-750302-003
+- [2026-07-23 11:52] [2026-07-23-19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.md] Zahlungsmodalität: Visa-Abbuchung (***7073), automatisch bei Schwellenwert-Überschreitung
+- [2026-07-23 11:52] [2026-07-23-19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.md] Mistral OCR Nutzung: ~6.000 Seiten/Monat à 0,0034€/Seite; Juli 01-20: 6.039 Seiten = 20,53€ (brutto mit 19% MwSt.), davon 11,25€ bereits vorfinanziert
+- [2026-07-23 11:52] [2026-07-23-19f80bf0b9-invoice-MSTRL-API-750302-003.md] Prozessia nutzt Mistral OCR für API-Seitenerkennung; bisherige Nutzung bereits €11,25 abgerechnet
+- [2026-07-23 11:52] [2026-07-23-19f80bf0b9-invoice-MSTRL-API-750302-003.md] Rechnung 20.07.2026 (MSTRL-API-750302-003): €11,04 netto für 6.039 Seiten (01.–20.07.2026), zzgl. 19% DE-Steuern
+- [2026-07-23 11:51] [2026-07-23-19f80b8128-invoice-MSTRL-API-750302-003.md] Kumulierte Mistral-Nutzung: bereits 11,25 € abgerechnet vor dieser Rechnung
+- [2026-07-23 11:51] [2026-07-23-19f80b8128-invoice-MSTRL-API-750302-003.md] Mistral OCR Einzelpreis: 0,0034 € pro Seite; progressive Abrechnung ab 20,00 € Schwellenwert
+- [2026-07-23 11:51] [2026-07-23-19f80b8128-invoice-MSTRL-API-750302-003.md] Mistral AI Rechnung MSTRL-API-750302-003 (20.07.2026): 11,04 € brutto (9,28 € netto, MwSt 19%)
+- [2026-07-23 11:51] [2026-07-23-19f801f127-receipt-MSTRL-API-750302-RCPT-000001.md] Monatliche Mistral-Kosten stabil bei ~€13 brutto (Juli 2026)
+- [2026-07-23 11:51] [2026-07-23-19f801f127-invoice-MSTRL-API-750302-002.md] Kumulierte Mistral-Nutzung bereits bei €11,54 (Schwellenwert überschritten → progressive Abrechnung aktiv)
+- [2026-07-23 11:51] [2026-07-23-19f8015dd3-invoice-MSTRL-API-750302-002.md] Kumulative Mistral-Nutzung €11,54 erreicht; progressive Abrechnungslogik ab €10,00-Schwelle aktiviert
+- [2026-07-23 11:51] [2026-07-23-19f8015dd3-invoice-MSTRL-API-750302-002.md] Rechnung MSTRL-API-750302-002: €13,39 brutto, Zahlungsfrist 0 Tage (sofort fällig 20.7.2026)
+- [2026-07-23 11:51] [2026-07-23-19f8015dd3-invoice-MSTRL-API-750302-002.md] Mistral OCR API-Tarif: €0,0034 pro Seite; 3310 Seiten im Juli 2026 verarbeitet (€11,25 netto)
+- [2026-07-23 11:50] [2026-07-23-19f69cc342-Rechnung_2026-07-16_310100082556.md] Sammelrechnung 310100082556 vom 16.07.2026, Abrechnungszeitraum 16.07.–15.08.2026, Gesamtbetrag 2,00 EUR brutto
 - [2026-07-23 11:42] [2026-07-21-Email-19f83bcb-Zugesagt-Boris-Tetzlaff-and-Sebastian-Sp.md] Termin/Meeting zwischen Boris Tetzlaff (Sundh) und Sebastian Spuhler zugesagt am 2026-07-21
 - [2026-07-23 11:41] [2026-07-21-Email-19f8394e-AW-Unser-Termin.md] Sundh-Schaltanlagen hat anstehenden Urlaub im August/früher September
 - [2026-07-23 11:41] [2026-07-21-Email-19f8394e-AW-Unser-Termin.md] Nächste Termine bei Sundh-Schaltanlagen ab September 2026 möglich, bevorzugt montags
@@ -479,6 +503,14 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Lieferant: Sven & Gerhard Schmitt GbR (Maschinen- & Vorrichtungsbau), Willingshainer Str. 45, 36275 Kirchheim, s.schmitt@maschinenbau-schmitt.com, Fax 06628/9999009
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-RAFFSPED.-126744.md] Bestellbeleg 126744 | Schaufler Tooling → Spedition Karl Raff GmbH | Transportkosten 310,00 € netto (2×155,00 €) | Lieferziel Schmitt GbR | Lieferdatum 12.05.2026
+- [2026-07-23 11:53] [2026-07-23-19f5ff1aad-BEST-KIND STAHL-127653.md] Lieferant Kind & Co. Edelstahlwerke GmbH & Co. KG, Bielsteiner Str. 128-130, 51674 Wiehl; Kontakt: Sandra.hartmann@kind-co.de
+- [2026-07-23 11:53] [2026-07-23-19f8e484e8-Top100_Lieferanten_mit_Email.md] Top-100-Lieferantenliste mit vollständigen Kontaktdaten (Ansprechpartner, E-Mail, Bestellsummen) sortiert nach Einkaufsvolumen
+- [2026-07-23 11:53] [2026-07-23-19f8e484e8-Top100_Lieferanten_mit_Email.md] Top-Lieferant von Schaufler: Schaufler China (Sarah Peng, sarah.peng@schaufler.com.cn) mit 19,4M EUR Jahresbestellvolumen
+- [2026-07-23 11:53] [2026-07-23-19f5bf6740-Top 10 Lieferanten.md] Lieferanten stammen aus 4 Ländern: Deutschland (mindestens 4 Lieferanten), Ungarn, Portugal, Italien
+- [2026-07-23 11:51] [2026-07-23-19f8015dd3-invoice-MSTRL-API-750302-002.md] Mistral AI SAS (Paris, Steuer-ID FR95952418325, no-reply@mistral.ai) etablierter OCR-Lieferant
+- [2026-07-23 11:50] [2026-07-23-19f69cc342-Rechnung_2026-07-16_310100082556.md] IONOS-Kundennummer 314248816 für WebWokr (Sebastian Spuhler, Campus D 1, 66123 Saarbrücken)
 - [2026-07-23 11:42] [2026-07-21-Email-19f83e33-Angenommen-Update-Zillmer-X-Prozessia.md] Zillmer-Elektrotechnik: Ansprechpartner Dierk Biendarra (Dierk.Biendarra@zillmer-elektrotechnik.de)
 - [2026-07-23 11:41] [2026-07-21-Email-19f8394e-AW-Unser-Termin.md] Boris Tetzlaff, Betriebsleiter bei S + H Schaltanlagenbau GmbH (Sundh-Schaltanlagen), Berlin; Mobil: +49 1517 0665071, Email: b.tetzlaff@sundhschaltanlagen.de, Adresse: Lauenburger Str. 85, 12169 Berlin
 - [2026-07-23 11:41] [2026-08-24-Grohe.md] Grohe – neuer Lead, Technologieunternehmen
@@ -628,6 +660,18 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Anforderungen: Gravur, Prüfprotokoll, Härteprotokoll, Messprotokoll erforderlich
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Lieferbedingung: DAP Laichingen (Incoterms 2020)
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-PFITZER-127655.md] Liefertermin: 29.06.2026 – Lieferadresse: Goethestr. 72, 89150 Laichingen
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-PFITZER-127655.md] Bestellte Artikel: DIN 912 Schrauben M10x30 (5 Stk.) und M10x140 (5 Stk.) – Nettosumme 16,00 €
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-KIND WBH-127668.md] Spezifikation: Härten 42-46 HRC, 3x Anlassen, Härteprotokoll nach Nadca 207-2022 Class 2
+- [2026-07-23 11:53] [2026-07-23-19f5ff1aad-BEST-KIND STAHL-127653.md] Liefertermin 29.06.2026 — ÜBERFÄLLIG (heute: 23.07.2026, 24 Tage verspätet)
+- [2026-07-23 11:53] [2026-07-23-19f5ff1aad-BEST-KIND STAHL-127653.md] Bestellbeleg 127653: 1x Rundmaterial INSERT BOTTOM SLIDE, Werkstoff 1.2344 ESU, 68,25 € netto
+- [2026-07-23 11:53] [2026-07-23-19f8e484e8-Top100_Lieferanten_mit_Email.md] Liste als Input für Beschaffungsagenten-Automatisierung bei Schaufler strukturiert zur Lieferantenkommunikation
+- [2026-07-23 11:53] [2026-07-23-19f5bf6740-Top 10 Lieferanten.md] Die Lieferantenliste dient als Referenzmaterial für Beschaffungsagenten und Lieferantenmanagement im Schaufler-Projekt
+- [2026-07-23 11:52] [2026-07-23-19f8cb719f-63459971781.md] Microsoft 365 Business Standard Abo für Prozessia GbR: 2 Lizenzen, monatliche automatische Abrechnung 25,78 EUR (Gebühren 21,66 EUR + MwSt. 4,12 EUR)
+- [2026-07-23 11:52] [2026-07-23-19f80bf0b9-invoice-MSTRL-API-750302-003.md] Progressive Rechnungslegung bei Mistral: Schwellenwert €20,00 – Überschreitung triggert sofort fällige Rechnung
+- [2026-07-23 11:51] [2026-07-23-19f801f127-invoice-MSTRL-API-750302-002.md] Mistral AI OCR API in Produktion: €0,0034 pro Seite, progressive Rechnungen ab €10+ Nutzung
 - [2026-07-23 11:42] [2026-07-21-Email-19f83e33-Angenommen-Update-Zillmer-X-Prozessia.md] Zillmer bestätigt positive Antwort auf Update-Proposal für Prozessia-Zusammenarbeit (2026-07-21)
 - [2026-07-23 11:41] [2026-07-21-Email-19f834b9-FT-Ventures-x-WebWokr.md] Angebot: 15-Minuten-Konsultation zur schnellen Engpass-Entlastung bei Aufträgen ohne interne Kapazität
 - [2026-07-23 11:41] [2026-08-24-Grohe.md] Kein Transkript/Dokument vorhanden – wird ergänzt sobald Material eintrifft
