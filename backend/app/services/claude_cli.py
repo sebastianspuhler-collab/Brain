@@ -3,22 +3,29 @@ Anthropic Messages API. Abrechnung läuft dann über das Claude-Code-Abo
 (CLAUDE_CODE_OAUTH_TOKEN, via `claude setup-token`) statt nutzungsabhängig über
 anthropic_api_key - siehe app.config.Settings.claude_engine ("api"/"cli").
 
-Stand 2026-07-22, empirisch gegen die installierte Claude-Code-CLI (2.1.217)
-verifiziert:
+Stand 2026-07-23, live gegen einen echten CLAUDE_CODE_OAUTH_TOKEN verifiziert
+(vorher nur strukturell, siehe Git-Historie):
   - `--output-format stream-json` braucht zwingend `--verbose` (sonst Fehler).
   - Ist ANTHROPIC_API_KEY in der Prozessumgebung gesetzt, hat er IMMER Vorrang
     vor dem Abo-Token - auch wenn CLAUDE_CODE_OAUTH_TOKEN gesetzt ist, und OHNE
     Fehlermeldung. Muss daher aus der Subprocess-Umgebung entfernt werden.
-  - Projekt-lokale .mcp.json wird beim Start korrekt geladen (mcp_servers-Feld
-    im ersten "system"/"init"-Event bestätigt das).
-NICHT verifiziert: eine echte inhaltliche Antwort Ende-zu-Ende (der zum Testen
-verwendete API-Key hatte kein Guthaben mehr - "Credit balance is too low").
-Vor dem Umschalten von claude_engine auf "cli" für eine Stelle: einmal live
-mit echtem CLAUDE_CODE_OAUTH_TOKEN gegen genau diese Stelle testen.
+  - CLAUDE_PROJECT_DIR muss explizit als Env-Var gesetzt werden, sonst kann
+    die projekt-lokale .mcp.json ihren eigenen Startbefehl
+    (${CLAUDE_PROJECT_DIR}/backend) nicht auflösen (`claude mcp list` zeigt
+    das als Warnung).
+  - Ein in .mcp.json referenzierter MCP-Server muss einmalig pro Projekt in
+    ~/.claude.json (projects[vault_path].enabledMcpjsonServers) freigegeben
+    sein - sonst bleibt er für immer "Pending approval", weil der
+    Freigabe-Dialog im Headless-Modus (kein TTY) nie erscheint.
+  - run_json() (kein Tool-/MCP-Zugriff, `--tools ""`) liefert echte Antworten
+    sofort. stream_chat() (mit MCP) braucht das mcp_warmup_seconds-Timing dort
+    (siehe Docstring) - ohne das hält das Modell MCP-Tools fälschlich für
+    nicht verfügbar, weil es reagiert bevor der MCP-Server verbunden ist.
 """
 import json
 import os
 import subprocess
+import time
 from collections.abc import Iterator
 from pathlib import Path
 
@@ -102,6 +109,7 @@ def stream_chat(
     model: str = "claude-sonnet-5",
     max_budget_usd: float = 2.00,
     timeout: int = 300,
+    mcp_warmup_seconds: float = 8.0,
 ) -> Iterator[dict]:
     """Streaming-Ersatz für get_client().messages.stream(...) im Chat-Loop
     (chat.py). Nutzt native Claude-Code-Tools (Read/Write/Edit, beschränkt auf
@@ -113,18 +121,32 @@ def stream_chat(
     Antwort - kein manuelles MAX_TOOL_ITERATIONS-Handling wie beim bisherigen
     Anthropic-SDK-Loop nötig.
 
+    MCP-WARMUP (empirisch verifiziert 2026-07-23, live gegen echten
+    CLAUDE_CODE_OAUTH_TOKEN): das projekt-lokale MCP ("prozessia-tools", siehe
+    .mcp.json) verbindet asynchron im Hintergrund und braucht dafür ~8-13s -
+    bei --input-format text (Prompt sofort als Argument) fängt das Modell
+    aber sofort an zu antworten und hält die MCP-Tools für "nicht verfügbar",
+    wenn es vor Ablauf dieser Zeit reagiert (live beobachtet: Tool fehlte im
+    system/init-Event UND wurde vom Modell explizit als nicht vorhanden
+    gemeldet). Fix: --input-format stream-json + die eigentliche Nachricht
+    erst nach mcp_warmup_seconds über stdin schicken, statt das Timing dem
+    Modell zu überlassen - danach zeigt das init-Event zuverlässig
+    "status": "connected" und mcp__prozessia-tools__* Tools sind nutzbar.
+    Zusätzliche Voraussetzung (einmalig pro Projekt, nicht pro Call): der
+    MCP-Server muss in ~/.claude.json unter projects[vault_path].
+    enabledMcpjsonServers freigegeben sein - sonst bleibt er dauerhaft
+    "Pending approval" (kein TTY im Headless-Modus für den Freigabe-Dialog).
+
     Yielded rohe, geparste stream-json-Events (dicts). Der Aufrufer in
-    chat.py übersetzt diese ins bestehende SSE-Format fürs Frontend - NICHT
-    hier eingebaut, weil das Event-Schema zwar strukturell verifiziert ist
-    (system/init, assistant, result), aber Tool-Use-Events selbst mangels
-    funktionierendem Test-Guthaben noch nicht live beobachtet wurden.
+    chat.py übersetzt diese ins bestehende SSE-Format fürs Frontend.
     """
     settings = get_settings()
     vault = str(settings.vault_path)
     mcp_config = str(Path(vault) / ".mcp.json")
 
     cmd = [
-        CLAUDE_BIN, "-p", prompt,
+        CLAUDE_BIN, "-p",
+        "--input-format", "stream-json",
         "--output-format", "stream-json",
         "--include-partial-messages",
         "--verbose",
@@ -140,9 +162,15 @@ def stream_chat(
     ]
     proc = subprocess.Popen(
         cmd, env=_subprocess_env(), cwd=vault,
-        stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, bufsize=1,
+        stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, bufsize=1,
     )
     try:
+        time.sleep(mcp_warmup_seconds)
+        user_event = {"type": "user", "message": {"role": "user", "content": [{"type": "text", "text": prompt}]}}
+        proc.stdin.write(json.dumps(user_event) + "\n")
+        proc.stdin.flush()
+        proc.stdin.close()
+
         for line in proc.stdout:
             line = line.strip()
             if not line:
