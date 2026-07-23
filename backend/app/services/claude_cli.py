@@ -33,7 +33,11 @@ class ClaudeCliError(RuntimeError):
 
 def _subprocess_env() -> dict:
     """ANTHROPIC_API_KEY muss fehlen, sonst hat er laut Test immer Vorrang vor
-    CLAUDE_CODE_OAUTH_TOKEN - stillschweigend, ohne Fehlermeldung."""
+    CLAUDE_CODE_OAUTH_TOKEN - stillschweigend, ohne Fehlermeldung.
+    CLAUDE_PROJECT_DIR muss explizit gesetzt werden - `claude mcp list` meldet
+    sonst "Missing environment variables: CLAUDE_PROJECT_DIR", weil die
+    projekt-lokale .mcp.json genau diese Variable im Server-Startbefehl
+    referenziert (${CLAUDE_PROJECT_DIR}/backend)."""
     settings = get_settings()
     if not settings.claude_code_oauth_token:
         raise ClaudeCliError(
@@ -43,6 +47,7 @@ def _subprocess_env() -> dict:
         )
     env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_API_KEY"}
     env["CLAUDE_CODE_OAUTH_TOKEN"] = settings.claude_code_oauth_token
+    env["CLAUDE_PROJECT_DIR"] = str(settings.vault_path)
     return env
 
 
