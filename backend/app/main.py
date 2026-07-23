@@ -18,12 +18,14 @@ from app.background.jobs import (
 from app.config import get_settings
 from app.routers import auth, chat, dashboard, files, inbox, linkedin, onboarding, youtube
 from app.routers.auth import limiter
+from app.services.claude_cli import ensure_mcp_approval
 
 logging.basicConfig(level=logging.INFO)
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    ensure_mcp_approval()
     await asyncio.to_thread(load_rag_blocking)
     tasks = [
         asyncio.create_task(inbox_watcher_loop()),

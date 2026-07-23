@@ -34,6 +34,34 @@ from app.config import get_settings
 CLAUDE_BIN = "claude"
 
 
+def ensure_mcp_approval() -> None:
+    """Trägt die MCP-Server-Freigabe für dieses Projekt automatisch in
+    ~/.claude.json ein, statt sie über ein Docker-Volume persistieren zu
+    müssen - Container werden bei jedem Deploy neu gebaut/neu erstellt,
+    ~/.claude.json ist dann leer, und `claude` würde den projekt-lokalen
+    MCP-Server (prozessia-tools, siehe .mcp.json) sonst dauerhaft als
+    "Pending approval" zeigen (kein TTY im Headless-Modus für den
+    Freigabe-Dialog, siehe claude_mcp_list-Befund von der lokalen
+    Einrichtung). Idempotent, sicher bei jedem Start aufzurufen - schreibt
+    nur, wenn die Freigabe fehlt."""
+    settings = get_settings()
+    if settings.claude_engine != "cli":
+        return
+    config_path = Path.home() / ".claude.json"
+    vault_key = str(settings.vault_path)
+    try:
+        data = json.loads(config_path.read_text()) if config_path.exists() else {}
+    except (json.JSONDecodeError, OSError):
+        data = {}
+    projects = data.setdefault("projects", {})
+    project = projects.setdefault(vault_key, {})
+    enabled = project.setdefault("enabledMcpjsonServers", [])
+    if "prozessia-tools" not in enabled:
+        enabled.append("prozessia-tools")
+    project["hasTrustDialogAccepted"] = True
+    config_path.write_text(json.dumps(data, indent=2))
+
+
 class ClaudeCliError(RuntimeError):
     pass
 
