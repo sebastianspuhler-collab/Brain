@@ -1,4 +1,25 @@
 ## KONTEXT
+- [2026-07-23 12:08] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] Zahlungsart: Automatische Kreditkartenabbuchung für Hetzner-Rechnungen
+- [2026-07-23 12:08] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] Monatliche Infrastrukturkosten: 0,77 € brutto (0,65 € netto) - Juni 2026
+- [2026-07-23 12:08] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] Hetzner Kundennummer: K0631688826 (Prozessia, Sebastian Spuhler)
+- [2026-07-23 12:07] [2026-07-23-19f1c3dc33-invoice_sipgatede_B4602762.md] Kreditkarte hinterlegt bei sipgate (letzte Ziffer: 7073, Inhaber: Sebastian Spuhler)
+- [2026-07-23 12:07] [2026-07-23-19f1c3dc33-invoice_sipgatede_B4602762.md] Sipgate Telefonieguthaben-Aufladung: 105,00 EUR brutto (88,24 EUR netto + 19% USt), bezahlt per Kreditkarte
+- [2026-07-23 12:07] [2026-07-23-19f188bb24-Invoice-GGYF9D9L-0019.md] Rechnung adressiert an: 'Sebastian's Individual Org', 66123 Saarbrücken, sebastian.spuhler@prozessia.de
+- [2026-07-23 12:07] [2026-07-23-19f188bb24-Invoice-GGYF9D9L-0019.md] Zahlungsadresse für Anthropic: P.O. Box 104477, Pasadena, CA 91189-4447 (Scheck-Versand, bevorzugt: Online-Zahlung)
+- [2026-07-23 12:07] [2026-07-23-19f188bb24-Invoice-GGYF9D9L-0019.md] ⚠️ ZAHLUNGSTERMIN ÜBERSCHRITTEN: Fälligkeitsdatum war 30.06.2026, heute ist 23.07.2023 — Zahlung notwendig
+- [2026-07-23 12:07] [2026-07-23-19f188bb24-Invoice-GGYF9D9L-0019.md] Invoice GGYF9D9L-0019 von Anthropic: $23.80 USD (One-time API-Credit-Kauf $20.00 + 19% deutsche MwSt. $3.80), ausgestellt 30.06.2026
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Receipt-2713-3487.md] Reverse-Charge-Umsatzsteuer (0%) – EU B2B Transaktion (DE VAT: DE451202966)
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Receipt-2713-3487.md] Nächste automatische Abrechnung: 27. Juli 2026 (€25,00) – wiederkehrende Zahlung
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Receipt-2713-3487.md] Zahlungsart: Visa-Kreditkarte (endend auf 7073), zuletzt am 27.06.2026 bezahlt
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Receipt-2713-3487.md] Lovable Labs Pro-Abo: €25,00/Monat, monatliche Abrechnung am 27. des Monats
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Invoice-XC0AID8J-0007.md] Aktueller Abo-Zeitraum: 27.06.–27.07.2026, Fälligkeitsdatum 27.06.2026
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Invoice-XC0AID8J-0007.md] Lovable-Rechnung läuft über Reverse Charge Verfahren, keine MwSt. ausgewiesen, EU OSS VAT
+- [2026-07-23 12:07] [2026-07-23-19f46e3b5c-INV-057.md] Zahlungsmethode: Wise (Belgien) für EUR-Überweisungen innerhalb Eurozone
+- [2026-07-23 12:06] [2026-07-23-19f23ce695-5615032135.md] Domain prozessia.de ist mit diesem Google Workspace Account verknüpft
+- [2026-07-23 12:06] [2026-07-23-19f23ce695-5615032135.md] Rechnungsnummer 5615032135, Billing ID 7361-1441-4101, Rechnungsdatum 30.06.2026, gültig für Juni 2026
+- [2026-07-23 12:06] [2026-07-23-19f23ce695-5615032135.md] Monatliche Subscription-Kosten Google Workspace: 28,10 € netto (Reverse Charge 0% MwSt)
+- [2026-07-23 12:06] [2026-07-23-19f23ce695-5615032135.md] Google Workspace Business Starter: Commitment-Erhöhung von 3 auf 5 Lizenzen für Prozessia GbR
+- [2026-07-23 12:06] [2026-07-23-19f188bb24-Receipt-2715-8726-9308.md] Rechnungsnummer: GGYF9D9L-0019, Receipt-Nummer: 2715-8726-9308
 - [2026-07-23 11:58] [2026-07-23-19f4baf08b-G170104086.md] Rechnungsnummer G170104086 für Abrechnungszeitraum 01.06.-30.06.2026, Fälligkeit 09.07.2026
 - [2026-07-23 11:58] [2026-07-23-19f4baf08b-G170104086.md] Zahlungsmethode: Automatische Kreditkartenbelastung bei Microsoft
 - [2026-07-23 11:58] [2026-07-23-19f4baf08b-G170104086.md] Aktuelle monatliche Kosten: EUR 33,31 brutto (EUR 27,99 netto + EUR 5,32 MwSt.)
@@ -511,6 +532,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-23 12:07] [2026-07-23-19f1c3dc33-invoice_sipgatede_B4602762.md] sipgate Kundennummer: 3988053 (Rechnungsnummer B4602762)
 - [2026-07-23 11:55] [2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md] Rechnung RE260015 an SCHAUFLER Tooling GmbH & Co. KG (Goethestrasse 72, 89150 Laichingen) vom 20.07.2026
 - [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Lieferant: Sven & Gerhard Schmitt GbR (Maschinen- & Vorrichtungsbau), Willingshainer Str. 45, 36275 Kirchheim, s.schmitt@maschinenbau-schmitt.com, Fax 06628/9999009
 - [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-RAFFSPED.-126744.md] Bestellbeleg 126744 | Schaufler Tooling → Spedition Karl Raff GmbH | Transportkosten 310,00 € netto (2×155,00 €) | Lieferziel Schmitt GbR | Lieferdatum 12.05.2026
@@ -669,6 +691,9 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-23 12:08] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] CX33 Cloud Server mit Primary IPv4 und Backup läuft im Projekt 'Default'
+- [2026-07-23 12:07] [2026-07-23-19f1c3dc33-invoice_sipgatede_B4602762.md] Regelmäßige monatliche sipgate-Aufladung erkannt (Leistungsdatum: 01.07.2026, Rechnungsdatum: 01.07.2026)
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Invoice-XC0AID8J-0007.md] Lovable Pro-Abo kostet monatlich 25,00 €, abgerechnet monatlich zum 27. (Rechnungsnummer XC0AID8J-0007)
 - [2026-07-23 11:55] [2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md] Leistung: Einrichtung Agent-Winform-Schnittstellen inkl. Integration, Test, Validierung und geplante Umstellung auf Proleis
 - [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Anforderungen: Gravur, Prüfprotokoll, Härteprotokoll, Messprotokoll erforderlich
 - [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Lieferbedingung: DAP Laichingen (Incoterms 2020)
@@ -1189,6 +1214,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-07-23 12:08] [2026-07-23-19f47537e0-Rechnung_RE260014_09.07.2026.md] Rechnung RE260014 (09.07.2026) von 'World Class Marketing LLC' enthält private Restaurantausgaben (Speisen/Getränke, 42,10€ netto) – kein erkennbarer Geschäftsbezug zu Prozessia, möglicherweise fehlerhaft abgelegt
 - [2026-07-23 11:55] [2026-07-23-19f7aad092-Rechnung_RE260016_20.07.2026.md] Duplikat-Verdacht: Identische Rechnung RE260016 bereits am 2026-07-19 hochgeladen – Archiv prüfen auf Dopplung
 - [2026-07-23 11:39] [PRUEFFAELLE.md] Systematisches Problem: Mehrere Belege ohne eindeutig extrahierbare Rechnungsdatierungen (FA/SF 60 EUR, Google 28.1 EUR, Triathlon Transfer)
 - [2026-07-19 16:52] [2026-07-16-Einführung Beschaffungsagent.md] Umrechnungsprobleme zwischen Einheiten müssen gelöst werden (z.B. Fass vs. Liter)

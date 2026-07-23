@@ -953,3 +953,13 @@
 - 2026-07-23 12:04 | 19f40a0d3d-AVV_Schaufler_Prozessia.pdf → Kunden/Schaufler/Vertraege | Vertrag zur Auftragsverarbeitung (AVV) gemäß Art. 28 DS-GVO zwischen Schaufler T
 - 2026-07-23 12:04 | 19f2aa37a7-Hetzner_2026-07-04_083000997759.pdf → Finanzen/2026/07_Juli | Hetzner-Rechnung 083000997759 vom 04.07.2026 für Projekt 'Default' (06/2026): CX
 - 2026-07-23 12:05 | 19f17a1531-image001.png → Memos/Medien | Bilddatei (Screenshot) ohne extrahierbaren Text. Anhang vermutlich aus einer E-M
+- 2026-07-23 12:05 | 19f41bbdb4-icon.png → Memos/Medien | Bilddatei (Icon) ohne extrahierbaren Text und ohne erkennbaren Kunden- oder Proj
+- 2026-07-23 12:05 | 19f17a1531-image002.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Anhang aus einer E-Mail (image002
+- 2026-07-23 12:05 | 19f188bb24-Receipt-2715-8726-9308.pdf → Finanzen/2026/06_Juni | Zahlungsbeleg (Receipt) von Anthropic, PBC über einmaligen API-Credit-Kauf in Hö
+- 2026-07-23 12:05 | 19f41bf4b4-icon.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich ein Icon (z.B. App-Icon oder UI-E
+- 2026-07-23 12:05 | 19f17a1531-Leistungsübersicht der Business Platinum Card.pdf → Finanzen/Angebote | Produktinformationsblatt der American Express Business Platinum Card mit Leistun
+- 2026-07-23 12:05 | 19f46e3b5c-INV-057.pdf → Finanzen/2026/06_Juni | Rechnung INV-057 von World Class Marketing LLC (Wyoming/USA) an Sebastian Spuhle
+- 2026-07-23 12:06 | 19f09dec90-Invoice-XC0AID8J-0007.pdf → Finanzen/2026/07_Juli | Rechnung von Lovable Labs Incorporated über 25,00 € für das Pro-Abo (Zeitraum 27
+- 2026-07-23 12:06 | 19f472fdc9-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) ohne extrahierbaren Text, zugehörig zur E-Mail 'Infos zur
+- 2026-07-23 12:06 | 19f17dfce8-Workflow Ersatzteile.pdf → Memos | Workflow-Diagramm zur Ersatzteil-Abwicklung mit den Stationen Einkauf und Werkst
+- 2026-07-23 12:06 | 19f430a55b-Gesellschaftsvertrag der Webwokr Gbr.pdf → Vertraege | Gesellschaftsvertrag der WebWokr GbR (Sitz Saarbrücken) zwischen Sebastian Spuhl
