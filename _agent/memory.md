@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-07-23 14:54] [Neu: WhatsApp-Übergabe & Spam-Blocker] fonio Spam-Blocker: Blockiert unerwünschte Anrufe direkt über Kontakte
+- [2026-07-23 14:54] [Neu: WhatsApp-Übergabe & Spam-Blocker] fonio Feature neu: WhatsApp-Konversationen - Assistent erkennt Anliegen und leitet Konversation ans Team weiter
 - [2026-07-23 12:11] [2026-07-23-19f430a55b-Gewerbeanmeldung Mohamed Douioui.md] Betriebsstätte Prozessia: Universität/Starterzentrum Campus A 1.1, 66123 Saarbrücken
 - [2026-07-23 12:11] [2026-07-23-19f430a55b-Gesellschaftsvertrag der Webwokr Gbr.md] Kapitaleinlage pro Gesellschafter: 100€
 - [2026-07-23 12:11] [2026-07-23-19f430a55b-Gesellschaftsvertrag der Webwokr Gbr.md] Geschäftszweck WebWokr: Webdesign, SEO, Website-Konzeption/-Gestaltung/-Entwicklung, Online-Marketing-Beratung
