@@ -86,17 +86,24 @@
     }
   },
   "Schaufler": {
-    "input_hash": "6887bc5258723bfa",
+    "input_hash": "a666a453683a43ec",
     "ergebnis": {
-      "status": "auftrag",
-      "sicherheit": "niedrig",
-      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
-      "quellen": [],
-      "warnsignal": null,
+      "status": "fulfillment",
+      "sicherheit": "hoch",
+      "begruendung": "SLA und AVV (2026-07-23-19f40a0d3d-SLA_Schaufler.md, 2026-07-23-19f40a0d3d-AVV_Schaufler_Prozessia.md) sowie die Rechnungen RE260016 (Prototyp-Implementierung) und RE260015 (Winform-Schnittstellen) belegen, dass der Beschaffungsagent bereits implementiert wurde und im Live-Betrieb ist; die E-Mails zu Dashboard-Fehlern (2026-07-22-Email-19f8888c-Dashboard-fehler.md) und KI-Agent-Feedback (2026-07-21-Email-19f85405-KI-Agent.md) bestätigen den aktiven Produktivbetrieb mit laufender Kundenbetreuung.",
+      "quellen": [
+        "2026-07-23-19f40a0d3d-SLA_Schaufler .md",
+        "2026-07-23-19f40a0d3d-AVV_Schaufler_Prozessia.md",
+        "2026-07-23-19f7aad092-Rechnung_RE260016_20.07.2026.md",
+        "2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md",
+        "2026-07-22-Email-19f8888c-Dashboard-fehler.md",
+        "2026-07-21-Email-19f85405-KI-Agent.md"
+      ],
+      "warnsignal": "Benjamin Schmohl meldet seit 2026-07-22 einen anhaltenden Dashboard-Fehler, eine Antwort/Lösung ist in der Chronologie nicht dokumentiert.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
-      "anzeige_name": "Schaufler",
-      "aktueller_stand": ""
+      "anzeige_name": "Schaufler Tooling GmbH & Co. KG",
+      "aktueller_stand": "Der Beschaffungsagent wurde implementiert (Prototyp fertiggestellt, Winform-Schnittstelle eingerichtet) und läuft im Live-Betrieb; aktuell steht die Behebung eines gemeldeten Dashboard-Fehlers sowie die Erweiterung um Lieferantendaten (Top-100-Liste) und eine KI-Nutzungsrichtlinie nach EU-KI-Act an."
     }
   },
   "TPG": {
@@ -114,31 +121,40 @@
     }
   },
   "Voigt_Salus": {
-    "input_hash": "8da2c589fcddf760",
+    "input_hash": "556a159a466f4b13",
     "ergebnis": {
-      "status": "auftrag",
-      "sicherheit": "niedrig",
-      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
-      "quellen": [],
-      "warnsignal": null,
+      "status": "fulfillment",
+      "sicherheit": "mittel",
+      "begruendung": "Die Dokumente wie Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md und KI-Agent-X-Voigt-Salus.md sowie die Kostenkalkulation Testphase.md zeigen, dass sich der Kunde in der aktiven Umsetzungsphase des KI-Agenten-Projekts befindet. Die mandatsuebersicht.md bestätigt zudem ein bestehendes Auftragsverhältnis als Kanzlei-Kunde.",
+      "quellen": [
+        "2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md",
+        "2026-06-09-KI-Agent-X-Voigt-Salus.md",
+        "2026-06-09-Kostenkalkulation Testphase.md",
+        "2026-06-09-mandatsuebersicht.md"
+      ],
+      "warnsignal": "Seit dem 23.06. bis 21.07.2026 wiederholt kritische, ungelöste Security-Warnungen (RLS disabled, Daten öffentlich zugänglich) im Supabase-Projekt 'Voigtsalus' - deutet auf fehlende technische Nachbetreuung hin.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
-      "anzeige_name": "Voigt_Salus",
-      "aktueller_stand": ""
+      "anzeige_name": "Voigt Salus",
+      "aktueller_stand": "Der KI-Agent wurde onboarded und befindet sich in der Testphase/Umsetzung, jedoch bestehen seit Wochen ungelöste kritische Sicherheitslücken im zugehörigen Supabase-Projekt, die dringend behoben werden müssten."
     }
   },
   "endin": {
-    "input_hash": "2623f1b2a33e7db2",
+    "input_hash": "837769b1a0834604",
     "ergebnis": {
       "status": "angebotsphase",
-      "sicherheit": "niedrig",
-      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
-      "quellen": [],
-      "warnsignal": null,
+      "sicherheit": "hoch",
+      "begruendung": "Mehrere aktuelle Angebote (AG0026 und AG0027) liegen vor, u.a. 2026-07-23-19f37a9ec1-Angebot_AG0027_01.07.2026.md und 2026-07-23-19f1906293-Angebot_AG0026_30.06.2026.md, gültig bis Ende Juli 2026, zudem wurde laut Meetings/2026-07-09-Zwischenstand Angebot.md eine Aufteilung in kleinere Pakete besprochen.",
+      "quellen": [
+        "2026-07-23-19f37a9ec1-Angebot_AG0027_01.07.2026.md",
+        "2026-07-23-19f1906293-Angebot_AG0026_30.06.2026.md",
+        "2026-07-09-Zwischenstand Angebot.md"
+      ],
+      "warnsignal": "Endin-Geschäftsführung ist skeptisch gegenüber KI-Agenten und zeitlich stark eingebunden, was Entscheidungsfindung verzögern könnte.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
-      "anzeige_name": "endin",
-      "aktueller_stand": ""
+      "anzeige_name": "endin GmbH",
+      "aktueller_stand": "Nach der Potenzialanalyse liegen zwei Angebote (AG0026, AG0027) vor, die laut Meeting vom 09.07. in kleinere Pakete aufgeteilt werden sollen, um interne Skepsis bei Endin abzubauen; nächster Termin ist ein Update-Meeting am 2026-07-24."
     }
   },
   "Copy of undefined": {
@@ -352,17 +368,20 @@
     }
   },
   "Sundh-Schaltanlagen": {
-    "input_hash": "59b859477d77f648",
+    "input_hash": "95abab921e9c4a36",
     "ergebnis": {
-      "status": "neuer_kontakt",
-      "sicherheit": "niedrig",
-      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
-      "quellen": [],
-      "warnsignal": null,
+      "status": "erstgespraech",
+      "sicherheit": "mittel",
+      "begruendung": "Laut 2026-07-20-Sundh-Schaltanlagen.md gab es ein automatisch erkanntes Erstgespräch, und die Email 2026-07-21-Email-19f8394e-AW-Unser-Termin.md zeigt, dass ein weiterer Termin verpasst wurde und neue Termine erst im September möglich sind.",
+      "quellen": [
+        "2026-07-20-Sundh-Schaltanlagen.md",
+        "2026-07-21-Email-19f8394e-AW-Unser-Termin.md"
+      ],
+      "warnsignal": "Vereinbarter Termin wurde vergessen/verpasst, nächstes Gespräch erst im September möglich.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
-      "anzeige_name": "Sundh-Schaltanlagen",
-      "aktueller_stand": ""
+      "anzeige_name": "S + H Schaltanlagenbau GmbH",
+      "aktueller_stand": "Nach einem verpassten Termin mit Boris Tetzlaff steht ein neuer Termin erst im September an, konkrete nächste Schritte sind noch offen."
     }
   },
   "Schmidt-Hänsch": {
@@ -433,6 +452,23 @@
       "relevanz_begruendung": "",
       "anzeige_name": "Schauenberg",
       "aktueller_stand": ""
+    }
+  },
+  "Schmidt-Haensch": {
+    "input_hash": "8150b6d17e229203",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "mittel",
+      "begruendung": "Beide Dateien vom 21.07.2026 (2026-07-21-Prozessia X Schmidt-Hänsch.md und 2026-07-21-Prozessia X Schmidt-Hänsch (1).md) belegen ein Erstgespräch mit Vorstellung des KI-Beschaffungsagenten, es liegt jedoch noch kein Angebot vor.",
+      "quellen": [
+        "2026-07-21-Prozessia X Schmidt-Hänsch.md",
+        "2026-07-21-Prozessia X Schmidt-Hänsch (1).md"
+      ],
+      "warnsignal": "Folgetermin sollte laut Zusage in 1-1,5 Wochen stattfinden, ist aber laut Chronologie noch nicht terminiert.",
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Schmidt-Hänsch",
+      "aktueller_stand": "Nach dem Erstgespräch klärt Sumit Bhawar intern mit Chef und IT-Abteilung Freigabe und Server-Infrastruktur, ein Folgetermin in 1-1,5 Wochen wurde zugesagt."
     }
   }
 }
