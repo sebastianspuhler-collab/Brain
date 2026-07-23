@@ -1,0 +1,90 @@
+---
+tags:
+  - Schaufler
+  - Bestellung
+  - Lieferant
+  - Beschaffungsagent
+  - Fertigungsauftrag
+quelle: 19f5ff1aad-BEST-SCHMITT GBR-127096.pdf
+datum: 2026-07-23
+kategorie: Kunde
+---
+
+# 19f5ff1aad-BEST-SCHMITT GBR-127096
+
+## Zusammenfassung
+Bestellbeleg Nr. 127096 der Schaufler Tooling GmbH & Co. KG (Laichingen) an die Sven & Gerhard Schmitt GbR (Maschinen- & Vorrichtungsbau) über die komplette mechanische Anfertigung nach Zeichnungen, Schaufler-Norm und Prüfvorschrift. Enthält Lieferbedingungen (DAP Laichingen), Anforderungen zu Gravur, Prüfprotokollen, Härteprotokoll und Messprotokoll sowie Verweise auf Einkaufsbedingungen und Verhaltenskodex.
+
+## Vollständiger Inhalt
+Fax: 06628 / 9999009
+E-Mail: s.schmitt@maschinenbau-schmitt.com
+
+SCHAUFLER
+TOOLING
+Member of
+Schaufler Fischer Group
+
+Schaufler Tooling GmbH Co. KG * Goethestr. 72 * 89150 Laichingen
+
+Sven & Gerhard Schmitt GbR
+Maschinen- & Vorrichtungsbau
+Willingshainer Str. 45
+36275 Kirchheim
+
+Laichingen, 01.06.2026
+
+Bestellbeleg-Nr.: 127096
+
+## Bestellung
+
+Der Vertragsschluss erfolgt unter ausschließlicher Geltung unserer „Allgemeinen Einkaufsbedingungen“, welche unter www.schaufler.de ersichtlich und abrufbar sind. Auf jederzeitiges Verlangen werden wir die Allgemeinen Einkaufsbedingungen dem Lieferanten überdies unentgeltlich zusenden. Der Lieferant bestätigt, die Allgemeinen Einkaufsbedingungen zur Kenntnis genommen zu haben und mit ihrer Geltung einverstanden zu sein. Die Vertragsware wird gemäß Incoterms 2020 beliefert.
+
+Ergänzend gilt unser „Verhaltenskodex“, welcher unter www.schaufler.de ersichtlich und abrufbar ist. Auf jederzeitiges Verlangen werden wir den Verhaltenskodex dem Lieferanten überdies unentgeltlich zusenden. Der Lieferant bestätigt, den Verhaltenskodex zur Kenntnis genommen zu haben und mit seiner Geltung einverstanden zu sein.
+
+Lieferbedingungen: DAP - Goethestraße 72, 89150 Laichingen, Germany - Incoterms 2020
+
+Lieferanschrift: Schaufler Tooling
+Goethestraße 72
+89150 Laichingen
+
+Satzpreis
+Incl. vermessen und Transportkosten.
+
+Komplette mechanische Anfertigung nach Zeichnungen, Schaufler-Norm und Prüfvorschrift.
+
+Anfragezeichnungen sind keine Fertigungszeichnungen.
+Wir bitten um Bestätigung, dass Sie die Fertigungsdaten erhalten haben!
+
+Bei fertigungstechnischen Rückfragen stehen wir Ihnen gerne zur Verfügung!
+Reparaturschweißungen sind nicht erlaubt und müssen schriftlich erteilt werden.
+
+Ihre Mess-/ Prüfzeichnung und unsere Wareneingangsprüfung entbinden Sie nicht von evtl. Nachforderungen, die durch Nacharbeiten in unserem Hause entstehen. Bearbeitungsfehler werden teilweise erst bei der Endmontage der Form festgestellt.
+
+Werkstücke müssen mit Auftrags.-Nr.; Pos.-Nr. und Werkstoffnummer graviert werden.
+Bitte legen Sie jeder Lieferung das Prüf-Protokoll der Warenausgangskontrolle und das Härteprotokoll bei.
+
+Bitte senden Sie uns ein Messprotokoll des Teils 1 Woche vor Auslieferung zu.
+
+S. 1 / 3
+
+Schaufler Tooling GmbH & Co. KG
+Goethestraße 72
+89150 Laichingen
+
+www.schaufler.de
+Geschäftsführer / Managing Director:
+Siegfried Heinrich, Dr. Joachim Schuster, Andreas Thunich
+
+Registergericht / Registry court: Ulm
+HR Nr. / CR No.: KG: HRA 1841,
+GmbH: HRB 1034
+
+Alle Zeichnungsmerkmale müssen geprüft werden - Bei Angaben mit 2 Stellen nach dem Komma sind Istmaße anzugeben übrige Maße sind abzuhaken.
+
+Sofern die Winkeligkeit nicht aus den Daten hervorgeht, soll nach folgenden Angaben hergestellt werden:
+
+Die Rechtwinkeligkeit der Flächen zueinander muss unter 0,05 mm liegen und ist im Messprotokoll zu dokumentieren.
+
+Eine evtl. notwendige Untervergabe der Lohnbearbeitung darf nur mit schriftlicher Genehmigung von Schaufler Tooling erfolgen.
+
+

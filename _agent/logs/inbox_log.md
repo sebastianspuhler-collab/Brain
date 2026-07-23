@@ -849,3 +849,23 @@
 - 2026-07-20 21:30 | receipt-MSTRL-API-750302-RCPT-000001.pdf → Finanzen/Rechnungen | Mistral-Zahlungsquittung 13,39 Euro
 - 2026-07-20 21:30 | invoice-MSTRL-API-750302-003.pdf → Finanzen/Rechnungen | Mistral-Rechnung 11,04 Euro, progressive Schwellenwert-Abrechnung
 - 2026-07-20 21:30 | receipt-MSTRL-API-750302-RCPT-000002.pdf → Finanzen/Rechnungen | Mistral-Zahlungsquittung 11,04 Euro
+- 2026-07-23 11:38 | Rechnung Schnittstellen Winform.pdf → Kunden/Schaufler/Vertraege | Rechnung RE260015 an Schaufler Tooling GmbH & Co. KG über die Einrichtung der Sc
+- 2026-07-23 11:38 | Update Zillmer X Prozessia.docx → Leads/Zillmer-Elektrotechnik-Korrespondenz | Besprechungstranskript vom 21.07.2026 zwischen Sebastian Spuhler und Dierk Biend
+- 2026-07-23 11:39 | Prozessia X Schmidt-Hänsch.docx → Kunden/Schmidt-Haensch/Meetings | Besprechungstranskript vom 21.07.2026 zwischen Sebastian Spuhler und Sumit Bhawa
+- 2026-07-23 11:40 | 19f8e484e8-Top100_Lieferanten_mit_Email.xlsx → Kunden/Schaufler/Dokumente | Excel-Liste der Top 100 Lieferanten von Schaufler mit Rang, Kurzbezeichnung, Fir
+- 2026-07-23 11:40 | 19f7ea04aa-image001.png → Kunden/Schaufler/Dokumente | Screenshot-Anhang (image001.png) ohne extrahierbaren Text, vermutlich der Fehler
+- 2026-07-23 11:41 | 19f65504d0-Receipt-2233-8816-5318.pdf → Finanzen/Rechnungen | Zahlungsbeleg von Anthropic, PBC über den Kauf von API-Credits in Höhe von $20.0
+- 2026-07-23 11:41 | 19f650a55c-image001.png → Kunden/Schaufler/Dokumente | Screenshot-Bilddatei ohne extrahierbaren Text, vermutlich der Fehler-Screenshot 
+- 2026-07-23 11:41 | 19f5ff1aad-BEST-SCHMITT GBR-127096.pdf → Kunden/Schaufler/Vertraege | Bestellbeleg Nr. 127096 der Schaufler Tooling GmbH & Co. KG (Laichingen) an die 
+- 2026-07-23 11:41 | 19f8888c0a-image001.png → Kunden/Schaufler/Dokumente | Screenshot-Anhang (image001.png) zur E-Mail 'Dashboard-Fehler' vom 22.07.2026 – 
+- 2026-07-23 11:41 | 19f8cb719f-63459971781.pdf → Finanzen/2026/07_Juli | Microsoft-Rechnung Juli 2026 für Prozessia GbR über 25,78 EUR für Microsoft 365 
+- 2026-07-23 11:41 | 19f8d67a64-Image(0) → Memos/Medien | Bilddatei ohne extrahierbaren Textinhalt oder erkennbares Format. Inhalt konnte 
+- 2026-07-23 11:41 | 19f5fc7d6d-Outlook-cid_image0 → Memos/2026-07-23-Outlook-cid_image0.md | Eingebettetes Outlook-Bild (cid-Grafik) ohne erkennbaren Textinhalt oder Kontext
+- 2026-07-23 11:42 | 19f5ff1aad-BEST-PFITZER-127655.pdf → Kunden/Schaufler/Vertraege | Bestellbeleg Nr. 127655 von Schaufler Tooling GmbH & Co. KG an den Lieferanten P
+- 2026-07-23 11:42 | 19f5a99827-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) als Anhang zur E-Mail-Korrespondenz 'Statusabfrage – AI-A
+- 2026-07-23 11:42 | 19f7f9068b-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image001.png), vermutlich E-Mail-Anhang/Scre
+- 2026-07-23 11:42 | 19f8dab37e-image001.png → Memos/Medien | Bilddatei (image001.png) ohne extrahierbaren Text, vermutlich Screenshot-Anhang 
+- 2026-07-23 11:42 | 19f801f127-invoice-MSTRL-API-750302-002.pdf → Finanzen/2026/07_Juli | Rechnung von Mistral AI SAS an Prozessia über 13,39 € für API-Nutzung (Mistral O
+- 2026-07-23 11:43 | 19f5ff1aad-BEST-KIND WBH-127668.pdf → Kunden/Schaufler/Vertraege | Bestellung und Lieferschein (Härten) von Schaufler Tooling GmbH & Co. KG an Kind
+- 2026-07-23 11:43 | 19f5ff1aad-BEST-RAFFSPED.-126744.pdf → Kunden/Schaufler/Vertraege | Bestellbeleg Nr. 126744 der Schaufler Tooling GmbH & Co. KG an die Spedition Kar
+- 2026-07-23 11:43 | 19f80bf0b9-invoice-MSTRL-API-750302-003.pdf → Finanzen/2026/07_Juli | Rechnung von Mistral AI (Paris) an Prozessia über 11,04 € für API-Nutzung (Mistr

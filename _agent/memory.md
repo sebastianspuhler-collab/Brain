@@ -1,4 +1,44 @@
 ## KONTEXT
+- [2026-07-23 11:42] [2026-07-21-Email-19f83bcb-Zugesagt-Boris-Tetzlaff-and-Sebastian-Sp.md] Termin/Meeting zwischen Boris Tetzlaff (Sundh) und Sebastian Spuhler zugesagt am 2026-07-21
+- [2026-07-23 11:41] [2026-07-21-Email-19f8394e-AW-Unser-Termin.md] Sundh-Schaltanlagen hat anstehenden Urlaub im August/früher September
+- [2026-07-23 11:41] [2026-07-21-Email-19f8394e-AW-Unser-Termin.md] Nächste Termine bei Sundh-Schaltanlagen ab September 2026 möglich, bevorzugt montags
+- [2026-07-23 11:41] [2026-07-21-Email-19f834b9-FT-Ventures-x-WebWokr.md] Lead-Eingang: 21.07.2026; Kategorie: Leads/Listen; Pain-Point erkannt: Kapazitäts-Mismatch bei zeitkritischen KMU-Projekten
+- [2026-07-23 11:41] [2026-07-21-Email-19f834b9-FT-Ventures-x-WebWokr.md] Outbound-Kontakt adressiert WebWokrs Kerngeschäft: DSGVO-konforme Chatbots und KPI-Dashboards für KMUs
+- [2026-07-23 11:41] [2026-07-21-Email-19f834b9-FT-Ventures-x-WebWokr.md] FT Ventures (Kontakt: Mary, mary@exceedtree.org) – IT-Staffing-Provider mit 200+ Spezialisten in 10 Ländern; bietet flexible Kapazitäts-Entlastung für Kundenprojekte
+- [2026-07-23 11:41] [2026-08-24-Grohe.md] Ansprechpartner: Daniel Hettich (daniel.hettich@grohe-technology.de)
+- [2026-07-23 11:41] [2026-08-24-Grohe.md] Erstgespräch am 2026-08-24
+- [2026-07-23 11:41] [2026-07-21-Email-19f8596e-Action-required-security-vulnerabilities.md] Email von Supabase am 21 Jul 2026 – Supabase-Dashboard: https://supabase.com/dashboard/project/stggglgcvisnvcertpau/advisors/security
+- [2026-07-23 11:41] [2026-07-21-Email-19f8596e-Action-required-security-vulnerabilities.md] Sensitive Daten öffentlich zugänglich – Risiko für unbefugte Dateneinsicht und -manipulation
+- [2026-07-23 11:41] [2026-07-21-Email-19f8596e-Action-required-security-vulnerabilities.md] Row-Level Security (RLS) deaktiviert in Projekt stggglgcvisnvcertpau – Tabellen öffentlich lesbar/editierbar/löschbar für jeden mit Project URL
+- [2026-07-23 11:40] [2026-07-23-Email-19f8dab3-AW-Anforderung-einer-zentralen-Lösung-zu.md] Jonas Rösch (IT-Administration Schaufler) wird Kontakt zu Herr Knoblauch herstellen, falls dieser das Projekt weiter vorantreiben möchte – nächster Schritt abhängig von Knoblauch
+- [2026-07-23 11:40] [2026-07-21-Update Zillmer X Prozessia.md] Gesprächsdatum: 21.07.2026, 08:59 Uhr – Dauer: ~22 Min; Transkript via Voice-Recording
+- [2026-07-23 11:40] [2026-07-21-Update Zillmer X Prozessia.md] Status: Grundsätzliches Interesse vorhanden, aber zeitliche und prioritätsbezogene Hürden auf Seiten Zillmer (Chef-Feedback ausstehend)
+- [2026-07-23 11:40] [2026-07-21-Update Zillmer X Prozessia.md] Ausgangsproblem: Moderne Ausschreibungen oft unklar definiert – Hersteller und Produkttypen (z.B. Leuchten) nicht eindeutig identifizierbar
+- [2026-07-23 11:39] [2026-07-21-Prozessia X Schmidt-Hänsch.md] DSGVO/EU-AI-Act Compliance-Risiken: Schatten-KI durch unkontrollierte KI-Nutzung von Mitarbeitern → standardisierter Agent reduziert diese Risiken
+- [2026-07-23 11:39] [2026-07-21-Prozessia X Schmidt-Hänsch.md] Folgetermin: in 1-1,5 Wochen ab 21.07.2026 (ca. 28.07-04.08.2026); Sumit klärt intern mit Chef und IT-Abteilung Freigabe/Machbarkeit
+- [2026-07-23 11:39] [06_recherche_beleg_fehlt.md] StackBlitz Bolt Pro-Plan: 20 USD/Monat (Zahlung 17,73 EUR am 2025-05-30, FX-Rate 0,8865, Beleg Nr. 2514-9086)
+- [2026-07-23 11:39] [2026-07-22-Rechnung Schnittstellen Winform.md] Leistung erbracht 24.06.2026: Einrichtung Agent X Schnittstellen Winform, Testing und Validierung abgeschlossen
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Google-Beleg 28.1 EUR (ID: 5615032135.pdf) ohne eindeutig extrahierbare Datierung
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Gesellschafter-Transfer an Sebastian Spuhler: 1.0 EUR (2024-10-31) mit unbekanntem Verwendungszweck ('test') – Klärung erforderlich
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Triathlon Transfer 29.75 EUR (2024-12-25) taucht doppelt auf: Finom-Kontoauszug + Beleg (Triathlon Miete.pdf) – mögliches Duplikat
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Belegauswertung 2024: 15 echte Prüffälle identifiziert (Bagatellefälle ≤ 15 EUR ausgeschlossen)
+- [2026-07-23 11:39] [Paddle n8n Cloud Beleg 10-07-2025.md] Zahlungsmethod: Visa-Karte (Paddle payment processor), automatische monatliche Abrechnung
+- [2026-07-23 11:39] [Paddle n8n Cloud Beleg 10-07-2025.md] n8n Cloud Abonnement (Cloud Starter Plan) aktiv und im Betrieb
+- [2026-07-23 11:38] [Bolt StackBlitz Beleg 05-29-2025.md] Zahlungsmethode: Visa ****7073 (über Stripe/StackBlitz abgewickelt)
+- [2026-07-23 11:38] [Bolt StackBlitz Beleg 05-29-2025.md] FX-Rate Mai 2025: 20 USD = 17,73 EUR (Kurs 0,8865), Bankbuchung 30.05.2025
+- [2026-07-23 11:38] [Bolt StackBlitz Beleg 05-29-2025.md] Zahlungsbeleg Nr. 2514-9086, Rechnungsnummer LRDKYW8R-0001, Bezahlung 29.05.2025
+- [2026-07-23 11:38] [Bolt StackBlitz Beleg 05-29-2025.md] Bolt Pro-Plan (StackBlitz) — monatliches SaaS-Abo, 20,00 USD/Monat, regelmäßige Zahlung
+- [2026-07-23 11:38] [Re: Prozessia ICP] KI-Wissensmanagement: Neue Präsentation erstellt, weitere Inhalte in Entwicklung geplant (21.07.2026)
+- [2026-07-23 11:38] [Re: Prozessia ICP] Neue Leads wurden Lars Segschneider im CRM zugeteilt mit besserer ICP-Passform (21.07.2026)
+- [2026-07-23 11:38] [Re: Prozessia ICP] Kontakt Lars Segschneider (larssegschneider.ls@gmail.com) zeigt Interesse an KI-Wissensmanagement Präsentation (23.07.2026)
+- [2026-07-23 11:38] [AW: Unser Termin] Termin wurde kurzfristig von Boris Tetzlaff (Betriebsleiter S + H Schaltanlagenbau GmbH) absagen müssen – Grund: Familienangelegenheit (Betreuung Tochter)
+- [2026-07-23 11:38] [Dashboard fehler] Dashboard-Fehler seit 2026-07-22 Abend (andauernd Fehlermeldung angezeigt)
+- [2026-07-23 11:38] [AW: Anforderung einer zentralen Lösung z] Anfrage zu KI-Wissensmanagement stammt von Herr Knoblauch (nicht Jonas Rösch), Thema: zentrale Lösung zur gemeinsamen E-Mail-Ablage und Wissenssicherung
+- [2026-07-23 11:38] [FT Ventures x WebWokr] FT Ventures erkennt WebWokr-Geschäftsmodell: DSGVO-konforme Chatbots und KPI-Dashboards für KMUs
+- [2026-07-23 11:38] [FT Ventures x WebWokr] Mary (mary@exceedtree.org) von FT Ventures bietet IT-Talent-Vermittlung an: 200+ Spezialisten in 10 Ländern, spezialisiert auf schnelle Kapazitätserweiterung bei Engpässen
+- [2026-07-23 11:38] [Fwd: Live-Schaltung diese Woche] Amin Douioui (Prozessia) koordiniert die Schaltung mit Schaufler – Bestätigung durch Kunde steht noch aus
+- [2026-07-23 11:38] [Fwd: Live-Schaltung diese Woche] Feature 2 'Weiterleitung der Versanddokumente': Live-Start Donnerstag (24. Juli 2026)
+- [2026-07-23 11:38] [Fwd: Live-Schaltung diese Woche] Feature 1 'Messberichte': Live-Start Mittwoch (23. Juli 2026)
 - [2026-07-23 11:38] [KI Agent] Benjamin fordert Feedback zur Performance der Live-Daten und zur Agent-Funktionalität an; bislang keine Fehler/komischen Mails von Kollegen gemeldet (22.-23.07.2026)
 - [2026-07-23 11:38] [WhatsApp-Konversationen-Handover und Upd] fonio Update-Webinar: 30. Juli 2026, 16:00 Uhr (monatliches Webinar)
 - [2026-07-23 11:38] [WhatsApp-Konversationen-Handover und Upd] Matthias (CTO fonio) postet täglich Updates zu neuen Features auf LinkedIn
@@ -439,6 +479,14 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-23 11:42] [2026-07-21-Email-19f83e33-Angenommen-Update-Zillmer-X-Prozessia.md] Zillmer-Elektrotechnik: Ansprechpartner Dierk Biendarra (Dierk.Biendarra@zillmer-elektrotechnik.de)
+- [2026-07-23 11:41] [2026-07-21-Email-19f8394e-AW-Unser-Termin.md] Boris Tetzlaff, Betriebsleiter bei S + H Schaltanlagenbau GmbH (Sundh-Schaltanlagen), Berlin; Mobil: +49 1517 0665071, Email: b.tetzlaff@sundhschaltanlagen.de, Adresse: Lauenburger Str. 85, 12169 Berlin
+- [2026-07-23 11:41] [2026-08-24-Grohe.md] Grohe – neuer Lead, Technologieunternehmen
+- [2026-07-23 11:41] [2026-07-21-Email-19f8596e-Action-required-security-vulnerabilities.md] Voigt_Salus: Kritische Sicherheitslücken in Supabase-Projekten erkannt (20 Jul 2026)
+- [2026-07-23 11:40] [2026-07-21-Email-19f85405-KI-Agent.md] Benjamin Schmohl (Teamleiter Beschaffung, Schaufler) ist Ansprechpartner für KI-Agent-Projekt – Tel. +49 7333 9608-640, Mobil +49 151 72080431
+- [2026-07-23 11:39] [2026-07-21-Prozessia X Schmidt-Hänsch.md] Kontaktperson: Sumit Bhawar; Produkte: Prozessrefraktometer und Dichtemessgeräte; ERP-System: Sage 100 (Produktion, Einkauf, Buchhaltung)
+- [2026-07-23 11:39] [06_recherche_beleg_fehlt.md] Martin Veser UG / WebWokr-Projekt: 505,75 EUR Gesamtbetrag (Anzahlung 275 EUR am 2025-10-07 + Rechnung 230,75 EUR am 2025-10-24, Beleg verfügbar)
+- [2026-07-23 11:38] [Kalender-Erstgespräch] Grohe - Termin 'Prozessia X Grohe' am 2026-08-24 mit daniel.hettich@grohe-technology.de
 - [2026-07-23 11:38] [WhatsApp-Konversationen-Handover und Upd] WhatsApp-Assistenten-Feature (automatische Anliegen-Erkennung + Handover) ist kundenrelevant für Prozessia-Services
 - [2026-07-23 11:38] [Re: IT Sicherheit Riemann] Riemann GmbH, Georgsmarienhütte (49124), Kontaktperson: Lydia Hanneken, Assistentin der Geschäftsführung, l.hanneken@riemann-manufacturing.de, Tel: +49 5401 88199-71
 - [2026-07-19 16:52] [2026-06-30-Potenzialanalyse Endin X Prozessia.md] Kunde: Endin (Ansprechpartner: Cyril Dietz)
@@ -580,6 +628,25 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-23 11:42] [2026-07-21-Email-19f83e33-Angenommen-Update-Zillmer-X-Prozessia.md] Zillmer bestätigt positive Antwort auf Update-Proposal für Prozessia-Zusammenarbeit (2026-07-21)
+- [2026-07-23 11:41] [2026-07-21-Email-19f834b9-FT-Ventures-x-WebWokr.md] Angebot: 15-Minuten-Konsultation zur schnellen Engpass-Entlastung bei Aufträgen ohne interne Kapazität
+- [2026-07-23 11:41] [2026-08-24-Grohe.md] Kein Transkript/Dokument vorhanden – wird ergänzt sobald Material eintrifft
+- [2026-07-23 11:41] [2026-07-21-Email-19f8596e-Action-required-security-vulnerabilities.md] Sofortige Maßnahme erforderlich: RLS aktivieren und Tabellenzugriff sichern vor Datenkompromittierung
+- [2026-07-23 11:40] [2026-07-22-Email-19f8888c-Dashboard-fehler.md] Dashboard-Fehler: aktiv/ungelöst, Fehler-Screenshot im Anhang (image001.png)
+- [2026-07-23 11:40] [2026-07-21-Email-19f85405-KI-Agent.md] Bis 21.07.2026: Keine anomalen/komischen Mails durch KI Agent erkannt; Dashboard zeigt geringe Aktivität
+- [2026-07-23 11:40] [2026-07-21-Update Zillmer X Prozessia.md] Geplanter Use-Case: KI recherchiert fehlende Herstellerangaben in Ausschreibungen, führt automatischen Preisvergleich bei Großhandel/Herstellern durch, gibt Ergebnisse an beauftragte Stellen weiter
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Instantly – Fremdwährungsprobleme: USD-Beleg (97,0 USD) in EUR-Bankbuchung (84,32 EUR) nicht automatisch umgerechnet, manuelle Wechselkurskorrektur erforderlich
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Benito Ferrise – Duplikat-/Rundlauf-Verdacht: Betrag 4760,0 EUR am 2025-12-31 mehrfach gebucht (Ein- und Ausgang)
+- [2026-07-23 11:39] [2026-07-21-Prozessia X Schmidt-Hänsch.md] Technische Integration: Agent benötigt Adapter an Sage 100 ERP und Outlook/E-Mail-Schnittstelle
+- [2026-07-23 11:39] [2026-07-21-Prozessia X Schmidt-Hänsch.md] Identifizierte KI-Usecases im Einkauf: (1) automatischer Abgleich Auftragsbestätigungen ↔ ERP-Bestellungen, (2) Lieferanten-Kontakt bei Abweichungen, (3) Mahnung fehlender Auftragsbestätigungen, (4) Lieferverzugslisten generieren
+- [2026-07-23 11:39] [06_recherche_beleg_fehlt.md] Belegrecherche 2025: Von 21 fehlenden Belegen wurden 5 gelöst (Gmail + Google Drive vollständig durchsucht, Stand 2026-07-22)
+- [2026-07-23 11:39] [2026-07-22-Rechnung Schnittstellen Winform.md] Nächster Schritt geplant: Migration Schnittstellen und System von Winform auf Proleis
+- [2026-07-23 11:39] [Paddle n8n Cloud Beleg 10-07-2025.md] Wiederkehrende monatliche Gebühr: 28,56 € für n8n Cloud Starter (netto 24,00 €, zzgl. 19% MwSt.)
+- [2026-07-23 11:38] [Re: Prozessia ICP] Aktion: Sebastians Telefonnummer an Lars Segschneider übermitteln für WhatsApp-Kontakt (23.07.2026)
+- [2026-07-23 11:38] [AW: Unser Termin] Neue Termine mit S + H Schaltanlagenbau GmbH frühestens im September 2026 möglich
+- [2026-07-23 11:38] [Dashboard fehler] Screenshot des Fehlers (image001.png@01DD19B4.F3DBAA10) versendet; nächster Schritt: Dashboard-Problem diagnostizieren und beheben
+- [2026-07-23 11:38] [FT Ventures x WebWokr] Nächster Schritt angeboten: 15-Minuten-Call mit Mary zur Engpass-Entlastungs-Rahmen-Skizze; Sebastian soll Offenheit signalisieren
+- [2026-07-23 11:38] [Fwd: Live-Schaltung diese Woche] Emails werden zunächst noch als Entwürfe versendet, Kunde wurde um Bestätigung/Anpassungswünsche gebeten
 - [2026-07-23 11:38] [KI Agent] KI Agent läuft live bei Schaufler seit mindestens 23.07.2026; Dashboard freigeschaltet, aber mit begrenzte Sichtbarkeit
 - [2026-07-23 11:38] [Re: IT Sicherheit Riemann] ABSAGE: Riemann hat kein Interesse an Austausch zu IT-Sicherheit und EU AI Act (ab 02.08.2026). Grund: Thema ist intern bereits geregelt.
 - [2026-07-19 16:52] [2026-06-30-Potenzialanalyse Endin X Prozessia.md] Automatisierung des kaufmännischen Abwicklungsprozesses bei Endin geplant: Angebotserstellung, Freigabe-Workflow, Bestellungseingang
@@ -1068,6 +1135,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Systematisches Problem: Mehrere Belege ohne eindeutig extrahierbare Rechnungsdatierungen (FA/SF 60 EUR, Google 28.1 EUR, Triathlon Transfer)
 - [2026-07-19 16:52] [2026-07-16-Einführung Beschaffungsagent.md] Umrechnungsprobleme zwischen Einheiten müssen gelöst werden (z.B. Fass vs. Liter)
 - [2026-07-19 13:45] Beim Beschaffungsagent gibt es noch eine weitere Bestellung über 1000 Euro
 - [2026-07-19 13:10] [2026-07-19.md] Shared Mailboxes (HNO, Werkszeugnisse, quality_schaufler@) seit 16.07. zugänglich, aber mit 50GB-Limit (Text abgebrochen)
@@ -1132,4 +1200,5 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-13 19:09] [Personalkosten erstattet bekommen] Schulung des Teams in kundengewinnung und Tools (Clay, Claude, Close) finanziert über Fördergelder § 82 SGB III
 
 ## ENTSCHEIDUNG
+- [2026-07-23 11:42] [2026-07-21-Email-19f840fe-Angenommen-Update-Zillmer-X-Prozessia.md] Zillmer-Elektrotechnik: Update akzeptiert (Bestätigung von Dierk Biendarra, 21. Juli 2026)
 - [2026-07-17 21:42] [6---Email-19f38afa-AW-Offene-Punkte-Beschaffungsagent.md] Bestelldokument muss angepasst werden, damit Lieferanten wissen, dass bestellbezogene Daten an order@schaufler.de gehen (Verantwortung: Benjamin Schmohl)
