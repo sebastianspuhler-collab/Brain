@@ -13,10 +13,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Node.js + Claude-Code-CLI (claude_engine=cli - Chat/LinkedIn/Vision über das
 # Claude-Abo statt ANTHROPIC_API_KEY, siehe app/services/claude_cli.py).
 # NodeSource statt Debian-Standardpaket, damit die Node-Version zur nativen
-# claude-code-Binary passt (glibc-basiert, kein Alpine/musl).
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+# claude-code-Binary passt (glibc-basiert, kein Alpine/musl). Node 22, nicht
+# 20 - @anthropic-ai/claude-code>=2.1.2xx verlangt >=22 (EBADENGINE-Warnung
+# unter Node 20, führte live zu kaputtem OAuth-Handshake trotz "funktionierender"
+# --version-Ausgabe). @latest statt ohne Versionsangabe, damit ein Docker-
+# Cache-Hit auf einer älteren Version (2.1.197) nicht unbemerkt hängen bleibt.
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
     && apt-get install -y --no-install-recommends nodejs \
-    && npm install -g @anthropic-ai/claude-code \
+    && npm install -g @anthropic-ai/claude-code@latest \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
