@@ -1,9 +1,9 @@
 ---
 tags:
   - Schaufler
-  - Lieferanten
+  - Lieferantenliste
   - Beschaffungsagent
-  - Kontaktdaten
+  - Top100
   - Einkauf
 quelle: 19f8e484e8-Top100_Lieferanten_mit_Email.xlsx
 datum: 2026-07-23
@@ -13,7 +13,7 @@ kategorie: Kunde
 # 19f8e484e8-Top100_Lieferanten_mit_Email
 
 ## Zusammenfassung
-Excel-Liste der Top 100 Lieferanten von Schaufler mit Rang, Kurzbezeichnung, Firmenname, Ansprechpartner, E-Mail und jährlicher Bestellsumme in EUR. Enthält Kontaktdaten für Lieferanten wie Schaufler China, Handtmann, Fischer Tool & Die, Kind & Co. und weitere, sortiert nach Einkaufsvolumen.
+Excel-Liste der Top 100 Lieferanten von Schaufler mit Rang, Kurzbezeichnung, Firmenname, Ansprechpartner, E-Mail und jährlicher Bestellsumme. Dient als Datengrundlage für den Beschaffungsagenten zur automatisierten Lieferantenkommunikation.
 
 ## Vollständiger Inhalt
 Rang Lieferant_Kurzbez Firmenname Ansprechpartner E-Mail Bestellsumme_EUR 1 SCHAUFLER CHINA Schaufler Tooling (Jiaxing) Co., Ltd. Sarah Peng sarah.peng@schaufler.com.cn 19418459.5292 2 HANDTMANNBIBER Albert Handtmann_x000D_

@@ -399,31 +399,37 @@
     }
   },
   "Zillmer-Elektrotechnik": {
-    "input_hash": "9a4b8ba35e8ab12e",
+    "input_hash": "0ee07c6d4a4813b9",
     "ergebnis": {
       "status": "erstgespraech",
-      "sicherheit": "niedrig",
-      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
-      "quellen": [],
-      "warnsignal": null,
+      "sicherheit": "mittel",
+      "begruendung": "Am 14.07.2026 fand laut 2026-07-21-Zillmer-Elektrotechnik.md ein Erstgespräch statt, in dem Sebastian den Beschaffungsagenten live vorstellte; am 21.07.2026 gab es laut 2026-07-21-Update Zillmer X Prozessia.md ein weiteres Gespräch zum konkreten Einsatz einer KI zur Kalkulation.",
+      "quellen": [
+        "2026-07-21-Zillmer-Elektrotechnik.md",
+        "2026-07-21-Update Zillmer X Prozessia.md"
+      ],
+      "warnsignal": "Kein bevorstehender Folgetermin bekannt, obwohl Details zum KI-Einsatz bereits besprochen wurden.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Zillmer-Elektrotechnik",
-      "aktueller_stand": ""
+      "aktueller_stand": "Nach zwei Gesprächen (14.07. und 21.07.2026) zu Recherche fehlender Herstellerangaben und automatisiertem Preisvergleich steht als nächster Schritt vermutlich ein konkretes Angebot aus, ein Termin dafür ist aber nicht bekannt."
     }
   },
   "Seifert-GmbH": {
-    "input_hash": "4f5053de5687cafb",
+    "input_hash": "23ec0d28607564e8",
     "ergebnis": {
-      "status": "neuer_kontakt",
-      "sicherheit": "niedrig",
-      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
-      "quellen": [],
-      "warnsignal": null,
+      "status": "erstgespraech",
+      "sicherheit": "mittel",
+      "begruendung": "Das Besprechungstranskript 2026-07-23-Stefan Seifert and Sebastian Spuhler.md dokumentiert ein Erstgespräch über KI-Agenten-Potenzial im Bereich Frästeile/Zerspanung, ergänzt durch den Lead-Eintrag 2026-07-23-Seifert-GmbH.md.",
+      "quellen": [
+        "2026-07-23-Seifert-GmbH.md",
+        "2026-07-23-Stefan Seifert and Sebastian Spuhler.md"
+      ],
+      "warnsignal": "Alle Dokumente stammen vom selben Tag, es gibt noch keine erkennbare Folgeaktivität oder Angebot.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Seifert-GmbH",
-      "aktueller_stand": ""
+      "aktueller_stand": "Erstgespräch mit Stefan Seifert geführt, gesucht wird eine flexible Lösung zur automatisierten Material-/Zuschnittlisten-Erstellung jenseits bestehender Tools wie Spanflug - nächster Schritt noch offen."
     }
   },
   "Juchem": {
@@ -469,6 +475,22 @@
       "relevanz_begruendung": "",
       "anzeige_name": "Schmidt-Hänsch",
       "aktueller_stand": "Nach dem Erstgespräch klärt Sumit Bhawar intern mit Chef und IT-Abteilung Freigabe und Server-Infrastruktur, ein Folgetermin in 1-1,5 Wochen wurde zugesagt."
+    }
+  },
+  "Grohe": {
+    "input_hash": "28497b0f3fa654f3",
+    "ergebnis": {
+      "status": "neuer_kontakt",
+      "sicherheit": "niedrig",
+      "begruendung": "Die einzige Quelle ist 2026-08-24-Grohe.md, ein automatisch erkannter Kalendertermin ohne Transkript oder weiteres Dokument.",
+      "quellen": [
+        "2026-08-24-Grohe.md"
+      ],
+      "warnsignal": "Erstgespräch steht noch bevor, es liegt noch kein Material zur Bestätigung des Termins vor.",
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Grohe",
+      "aktueller_stand": "Erstgespräch Prozessia X Grohe ist für 2026-08-24 um 11:00 Uhr terminiert, Inhalte liegen noch nicht vor."
     }
   }
 }

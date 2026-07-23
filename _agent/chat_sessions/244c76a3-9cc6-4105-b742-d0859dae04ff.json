@@ -1,0 +1,17 @@
+{
+  "id": "244c76a3-9cc6-4105-b742-d0859dae04ff",
+  "title": "hi",
+  "model": "claude-sonnet-5",
+  "created_at": "2026-07-23T21:31:41.969782+00:00",
+  "updated_at": "2026-07-23T21:31:41.969782+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hi"
+    },
+    {
+      "role": "assistant",
+      "content": "Hi Sebastian! Was brauchst du?\n\nKurzer Blick über die Schulter, bevor du fragst – zwei Dinge stechen raus:\n\nBenjamin Schmohl (Schaufler) hat dir am 21.07. geschrieben und wartet auf Feedback zu den Live-Daten des Beschaffungsagenten (\"hast du mir ein kurzes feedback wie die ersten Live Daten sind?\") – das ist noch offen. Heute Morgen (09:22) hat er dir zusätzlich die Top-100-Lieferantenliste mit Kontaktdaten geschickt, passt vermutlich zur Lieferantenbewertung im Beschaffungsagenten.\n\nUnd das Angebot AG0026 (7.140€ brutto) läuft am 28.07.2026 ab – nur noch 5 Tage Gültigkeit, falls da noch was nachgefasst werden muss.\n\nMorgen um 11 Uhr steht außerdem das Update Prozessia X Endin an."
+    }
+  ]
+}

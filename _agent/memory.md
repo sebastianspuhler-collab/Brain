@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-07-23 21:33] [2026-07-23-19f69cc342-Rechnung_2026-07-16_310100082556.md] Zahlungsfrist: 23.07.2026 (7 Tage nach Rechnungsdatum 16.07.2026), Leistungszeitraum: 16.07.-15.08.2026
+- [2026-07-23 21:33] [2026-07-23-19f69cc342-Rechnung_2026-07-16_310100082556.md] Gesamtbetrag: 1,00 EUR (Grundgebühr 18,00 EUR minus Rabatt 17,00 EUR, inklusive 19% MwSt.), Zahlungsart: Kreditkartenabbuchung
 - [2026-07-23 15:20] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] KI-Agent-Einsatz langfristig zur Automatisierung von Kalkulationsprozessen in der Fertigung geplant
 - [2026-07-23 15:20] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Bestehendes Tool ‚Spanflug' zur Kalkulation von Frässzeiten – zeigt Limitierungen bei komplexen geschweißten Baugruppen
 - [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Zusage: Prozessia übernimmt Server-Infrastruktur auf Wunsch; Folgetermin in ~1-1,5 Wochen (ca. 28.7.-4.8.2026)

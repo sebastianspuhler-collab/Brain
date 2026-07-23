@@ -966,3 +966,36 @@
 - 2026-07-23 14:39 | 19f8e99226-icon.png → Memos/Medien | Icon-Bilddatei ohne extrahierbaren Text und ohne erkennbaren Kontext oder Kunden
 - 2026-07-23 15:18 | Prozessia X Schmidt-Hänsch (1).docx → Kunden/Schmidt-Haensch/Meetings | Besprechungstranskript vom 21. Juli 2026 zwischen Sebastian Spuhler und Sumit Bh
 - 2026-07-23 15:20 | Stefan Seifert and Sebastian Spuhler.docx → Leads/Seifert-GmbH-Korrespondenz | Besprechungstranskript zwischen Sebastian Spuhler und Stefan Seifert vom 23.07.2
+- 2026-07-23 21:29 | 19f6b69ed0-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (image001.png) ohne extrahierbaren Text, vermutlich Screenshot des gem
+- 2026-07-23 21:29 | 19f801f127-receipt-MSTRL-API-750302-RCPT-000001.pdf → Finanzen/2026/07_Juli | Quittung von Mistral AI SAS über 13,39 € für die Nutzung der Mistral OCR API im 
+- 2026-07-23 21:29 | 19f69ece3a-image001.png → Kunden/Hettmer/Dokumente | Bilddatei (kein Text extrahierbar), zugehörig zur E-Mail 'AW: Go-Live Beschaffun
+- 2026-07-23 21:29 | 19f8e484e8-Top100_Lieferanten_mit_Email.xlsx → Kunden/Schaufler/Dokumente | Excel-Liste der Top 100 Lieferanten von Schaufler mit Rang, Kurzbezeichnung, Fir
+- 2026-07-23 21:30 | 19f7f9068b-image001.png → Kunden/Schaufler/Dokumente | Bilddatei ohne extrahierbaren Text, vermutlich Screenshot im Kontext des laufend
+- 2026-07-23 21:30 | 19f80bf0b9-invoice-MSTRL-API-750302-003.pdf → Finanzen/2026/07_Juli | Progressive Rechnung MSTRL-API-750302-003 von Mistral AI SAS über 11,04 € für OC
+- 2026-07-23 21:30 | 19f69cc342-Rechnung_2026-07-16_310100082556.pdf → Finanzen/Rechnungen | IONOS-Sammelrechnung Nr. 310100082556 vom 16.07.2026 für WebWokr (Sebastian Spuh
+- 2026-07-23 21:30 | 19f8d67a64-smime.p7s → Memos | S/MIME-Signaturdatei (.p7s) ohne lesbaren Inhalt, vermutlich Anhang einer digita
+- 2026-07-23 21:30 | 19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.pdf → Finanzen/2026/07_Juli | Quittung von Mistral AI SAS für Prozessia GbR über 11,04 € (bezahlt am 20.07.202
+- 2026-07-23 21:30 | 19f6689ddd-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (image001.png) ohne extrahierbaren Text, vermutlich ein Screenshot im 
+- 2026-07-23 21:30 | 19f8e99226-icon.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich ein Icon (z.B. App- oder Systemic
+- 2026-07-23 21:31 | 19f8dab37e-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) ohne extrahierbaren Text, vermutlich der im E-Mail-Kontex
+- 2026-07-23 21:31 | 19f8d67a64-Image(0) → Memos/Medien | Bilddatei ohne extrahierbaren Textinhalt (unbekanntes/nicht auslesbares Format).
+- 2026-07-23 21:31 | 19f6689ddd-image004.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, kein Kontext zu Absender, Kunde oder Thema e
+- 2026-07-23 21:31 | 19f8d67a64-Image → Memos/Medien | Bilddatei ohne extrahierbaren Textinhalt (unbekanntes/nicht lesbares Format). Ke
+- 2026-07-23 21:31 | 19f69bbe55-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) als Anhang zu einer E-Mail im Kontext 'Messberichte' bei 
+- 2026-07-23 21:31 | 19f6689ddd-image005.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, kein inhaltlicher Kontext oder Zuordnung erk
+- 2026-07-23 21:31 | 19f7aad092-Rechnung_RE260016_20.07.2026.pdf → Kunden/Schaufler/Vertraege | Ausgangsrechnung RE260016 von Prozessia an SCHAUFLER Tooling GmbH & Co. KG vom 2
+- 2026-07-23 21:31 | 19f6689ddd-image006.png → Memos/Medien | Bilddatei ohne extrahierbaren Text oder erkennbaren Kontext. Inhalt kann ohne we
+- 2026-07-23 21:31 | 19f8cb719f-63459971781.pdf → Finanzen/2026/07_Juli | Microsoft-Rechnung Juli 2026 für Prozessia GbR über 25,78 EUR für Microsoft 365 
+- 2026-07-23 21:32 | 19f6f49178-image001.png → Kunden/Schaufler/Dokumente | Bilddatei ohne extrahierbaren Text, vermutlich Screenshot/Anhang im Zusammenhang
+- 2026-07-23 21:32 | 19f65c2455-image001.png → Kunden/Schaufler/Dokumente | Bilddatei ohne extrahierbaren Text, zugehörig zur E-Mail-Korrespondenz 'AW: Mess
+- 2026-07-23 21:32 | 19f6689ddd-image003.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, kein Dateikontext oder Absender erkennbar, d
+- 2026-07-23 21:32 | 19f80b8128-invoice-MSTRL-API-750302-003.pdf → Finanzen/2026/07_Juli | Progressive Rechnung von Mistral AI SAS über 11,04 € für die Nutzung der Mistral
+- 2026-07-23 21:32 | 19f7ea04aa-image001.png → Kunden/Schaufler/Dokumente | Bilddatei ohne extrahierbaren Text (Screenshot). Basierend auf Namenskonvention 
+- 2026-07-23 21:32 | 19f8888c0a-image001.png → Kunden/Schaufler/Dokumente | Screenshot eines Dashboard-Fehlers, der per E-Mail (Betreff 'Dashboard-Fehler') 
+- 2026-07-23 21:32 | 19f7aaa4f4-Rechnung_RE260015_20.07.2026.pdf → Kunden/Schaufler/Vertraege | Rechnung RE260015 von Prozessia an SCHAUFLER Tooling GmbH & Co. KG vom 20.07.202
+- 2026-07-23 21:32 | 19f6689ddd-image002.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, eingebettet in eine E-Mail (image002.png). O
+- 2026-07-23 21:34 | 19f5bf6740-image001.png → Kunden/Schaufler/Dokumente | Bilddatei ohne extrahierbaren Text, gleicher Dokumenten-Hash (19f5bf6740) wie 'T
+- 2026-07-23 21:34 | 19f6188f68-image001.png → Kunden/Schaufler/Dokumente | Bildanhang (image001.png) aus der E-Mail-Korrespondenz 'AW: Statusabfrage – AI-A
+- 2026-07-23 21:34 | 19f21b2f77-image005.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, kein Dateikontext oder Absenderinformation v
+- 2026-07-23 21:34 | 19f4b8def1-G170032929.pdf → Finanzen/2026/07_Juli | Microsoft-Rechnung (G170032929) für Prozessia GbR über 4,47 EUR brutto (3,76 EUR
+- 2026-07-23 21:34 | 19f41bbdb4-icon.png → Memos/Medien | Bilddatei (icon.png) ohne extrahierbaren Text. Vermutlich ein Icon/Grafik-Asset 
