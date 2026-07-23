@@ -151,8 +151,8 @@ def describe_image(
         "--model", model,
         "--add-dir", directory,
         "--tools", "Read",
+        "--allowedTools", "Read",
         "--strict-mcp-config",
-        "--permission-mode", "bypassPermissions",
         "--no-session-persistence",
         "--max-budget-usd", str(max_budget_usd),
     ]
@@ -228,9 +228,9 @@ def stream_chat(
         "--system-prompt", system_prompt,
         "--add-dir", vault,
         "--tools", "Read,Write,Edit,Glob,Grep",
+        "--allowedTools", "Read,Write,Edit,Glob,Grep,mcp__prozessia-tools__*",
         "--mcp-config", mcp_config,
         "--strict-mcp-config",
-        "--permission-mode", "bypassPermissions",
         "--no-session-persistence",
         "--max-budget-usd", str(max_budget_usd),
     ]
