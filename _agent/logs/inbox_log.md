@@ -893,3 +893,8 @@
 - 2026-07-23 11:48 | 19f5fc7d6d-Outlook-cid_image0.png → Memos/Medien | Bilddatei aus einer Outlook-E-Mail (eingebettetes cid-Bild) ohne extrahierbaren 
 - 2026-07-23 11:48 | 19f6689ddd-image004.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Anhang aus einer E-Mail. Ohne wei
 - 2026-07-23 11:48 | 19f6689ddd-image006.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, kein Kontext zur Zuordnung erkennbar. Vermut
+- 2026-07-23 11:48 | 19f8d67a64-smime.p7s → Memos/2026-07-23-Outlook-smime-Anhang.md | S/MIME-Signaturdatei (.p7s) ohne lesbaren Inhalt – kryptografische Signatur eine
+- 2026-07-23 11:48 | 19f6f49178-image001.png → Kunden/Schaufler/Dokumente | Bilddatei ohne extrahierbaren Text, vermutlich ein E-Mail-Anhang (Screenshot). L
+- 2026-07-23 11:48 | 19f7aaa4f4-Rechnung_RE260015_20.07.2026.pdf → Kunden/Schaufler/Vertraege | Ausgangsrechnung RE260015 von Prozessia an Schaufler Tooling GmbH & Co. KG vom 2
+- 2026-07-23 11:48 | 19f5bf6740-Top 10 Lieferanten.xlsx → Kunden/Schaufler/Dokumente | Liste der Top 10 Lieferanten für E- und K1-Teile mit vollständigen Kontaktdaten 
+- 2026-07-23 11:49 | 19f8015dd3-invoice-MSTRL-API-750302-002.pdf → Finanzen/2026/07_Juli | Rechnung von Mistral AI SAS (Frankreich) an Prozessia über 13,39 € brutto für AP
