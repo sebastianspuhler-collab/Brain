@@ -9,7 +9,7 @@ from datetime import datetime
 
 from app.config import get_settings
 from app.constants import Models
-from app.services.anthropic_client import get_client, get_response_text
+from app.services.anthropic_client import complete_json
 
 _CORRECTION_SIGNALS = {
     "nein", "falsch", "stimmt nicht", "das ist nicht", "eigentlich",
@@ -83,12 +83,8 @@ Max 3 Items. Wenn nichts Neues: {{"items": []}}"""
         # (dieselbe Ursache wie der classify()-Bug 2026-07-17) - hier besonders
         # tückisch, weil das lautlos bei JEDER Chat-Nachricht passiert und einfach
         # nichts gespeichert wird, ohne dass irgendwas auffällt.
-        result = get_client().messages.create(
-            model=Models.SONNET, max_tokens=300,
-            thinking={"type": "disabled"},
-            messages=[{"role": "user", "content": prompt}],
-        )
-        items = _extract_json_items(get_response_text(result).strip())
+        raw = complete_json(prompt, model=Models.SONNET, max_tokens=300)
+        items = _extract_json_items(raw.strip())
     except Exception:
         return []
 
@@ -108,12 +104,8 @@ def learn_from_text(source_label: str, prompt_body: str, min_len: int = 15) -> l
     """Gemeinsame Logik für Auto-Learning aus E-Mails und neuen Vault-Dateien."""
     settings = get_settings()
     try:
-        result = get_client().messages.create(
-            model=Models.HAIKU, max_tokens=500,
-            thinking={"type": "disabled"},
-            messages=[{"role": "user", "content": prompt_body}],
-        )
-        items = _extract_json_items(get_response_text(result).strip())
+        raw = complete_json(prompt_body, model=Models.HAIKU, max_tokens=500)
+        items = _extract_json_items(raw.strip())
     except Exception:
         return []
 

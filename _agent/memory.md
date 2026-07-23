@@ -1,4 +1,115 @@
 ## KONTEXT
+- [2026-07-23 12:09] [2026-07-23-19f1c9e313-Angebot_AG0027_01.07.2026.md] Gesamtbetrag 21.420€ brutto (18.000€ netto), 50% Abschlag bei Prototyp-Fertigstellung
+- [2026-07-23 12:09] [2026-07-23-19f1906293-Angebot_AG0026_30.06.2026.md] Preis: 7.140,00 € brutto (6.000,00 € netto + 19% USt.)
+- [2026-07-23 12:09] [2026-07-23-19f1906293-Angebot_AG0026_30.06.2026.md] Angebot AG0026 vom 30.06.2026, gültig bis 28.07.2026 – Gültigkeitsfrist in 5 Tagen ablaufend
+- [2026-07-23 12:09] [2026-07-23-19f40a0d3d-AVV_Schaufler_Prozessia.md] Technologie-Stack: Azure OpenAI Service in europäischer Region
+- [2026-07-23 12:08] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] Quelle: 19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.xlsx (Datum: 2026-07-23)
+- [2026-07-23 12:08] [2026-07-23-19f18e16e2-Mitgliedschaftsbedingungen.md] Mitgliedschaftsbedingungen aktuell vom 23.07.2026
+- [2026-07-23 12:08] [2026-07-23-19f18e16e2-Mitgliedschaftsbedingungen.md] Verfügbar: Zusatzkarten und Platinum Plus Optionen (Preise in Dokument)
+- [2026-07-23 12:08] [2026-07-23-19f18e16e2-Mitgliedschaftsbedingungen.md] Vertragspartner: American Express Europe S.A. (Germany branch), Frankfurt, HRB 112342
+- [2026-07-23 12:08] [2026-07-23-19f18e16e2-Mitgliedschaftsbedingungen.md] Jahresgebühr Hauptkarte: 850 €
+- [2026-07-23 12:08] [2026-07-23-19f17a1531-Leistungsübersicht der Business Platinum Card.md] 24/7 persönlicher Service und Versicherungspaket enthalten
+- [2026-07-23 12:08] [2026-07-23-19f17a1531-Leistungsübersicht der Business Platinum Card.md] Zusatzkarten für Mitarbeiter:innen verfügbar, individueller Verfügungsrahmen verhandelbar
+- [2026-07-23 12:08] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] Zahlungsart: Automatische Kreditkartenabbuchung für Hetzner-Rechnungen
+- [2026-07-23 12:08] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] Monatliche Infrastrukturkosten: 0,77 € brutto (0,65 € netto) - Juni 2026
+- [2026-07-23 12:08] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] Hetzner Kundennummer: K0631688826 (Prozessia, Sebastian Spuhler)
+- [2026-07-23 12:07] [2026-07-23-19f1c3dc33-invoice_sipgatede_B4602762.md] Kreditkarte hinterlegt bei sipgate (letzte Ziffer: 7073, Inhaber: Sebastian Spuhler)
+- [2026-07-23 12:07] [2026-07-23-19f1c3dc33-invoice_sipgatede_B4602762.md] Sipgate Telefonieguthaben-Aufladung: 105,00 EUR brutto (88,24 EUR netto + 19% USt), bezahlt per Kreditkarte
+- [2026-07-23 12:07] [2026-07-23-19f188bb24-Invoice-GGYF9D9L-0019.md] Rechnung adressiert an: 'Sebastian's Individual Org', 66123 Saarbrücken, sebastian.spuhler@prozessia.de
+- [2026-07-23 12:07] [2026-07-23-19f188bb24-Invoice-GGYF9D9L-0019.md] Zahlungsadresse für Anthropic: P.O. Box 104477, Pasadena, CA 91189-4447 (Scheck-Versand, bevorzugt: Online-Zahlung)
+- [2026-07-23 12:07] [2026-07-23-19f188bb24-Invoice-GGYF9D9L-0019.md] ⚠️ ZAHLUNGSTERMIN ÜBERSCHRITTEN: Fälligkeitsdatum war 30.06.2026, heute ist 23.07.2023 — Zahlung notwendig
+- [2026-07-23 12:07] [2026-07-23-19f188bb24-Invoice-GGYF9D9L-0019.md] Invoice GGYF9D9L-0019 von Anthropic: $23.80 USD (One-time API-Credit-Kauf $20.00 + 19% deutsche MwSt. $3.80), ausgestellt 30.06.2026
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Receipt-2713-3487.md] Reverse-Charge-Umsatzsteuer (0%) – EU B2B Transaktion (DE VAT: DE451202966)
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Receipt-2713-3487.md] Nächste automatische Abrechnung: 27. Juli 2026 (€25,00) – wiederkehrende Zahlung
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Receipt-2713-3487.md] Zahlungsart: Visa-Kreditkarte (endend auf 7073), zuletzt am 27.06.2026 bezahlt
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Receipt-2713-3487.md] Lovable Labs Pro-Abo: €25,00/Monat, monatliche Abrechnung am 27. des Monats
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Invoice-XC0AID8J-0007.md] Aktueller Abo-Zeitraum: 27.06.–27.07.2026, Fälligkeitsdatum 27.06.2026
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Invoice-XC0AID8J-0007.md] Lovable-Rechnung läuft über Reverse Charge Verfahren, keine MwSt. ausgewiesen, EU OSS VAT
+- [2026-07-23 12:07] [2026-07-23-19f46e3b5c-INV-057.md] Zahlungsmethode: Wise (Belgien) für EUR-Überweisungen innerhalb Eurozone
+- [2026-07-23 12:06] [2026-07-23-19f23ce695-5615032135.md] Domain prozessia.de ist mit diesem Google Workspace Account verknüpft
+- [2026-07-23 12:06] [2026-07-23-19f23ce695-5615032135.md] Rechnungsnummer 5615032135, Billing ID 7361-1441-4101, Rechnungsdatum 30.06.2026, gültig für Juni 2026
+- [2026-07-23 12:06] [2026-07-23-19f23ce695-5615032135.md] Monatliche Subscription-Kosten Google Workspace: 28,10 € netto (Reverse Charge 0% MwSt)
+- [2026-07-23 12:06] [2026-07-23-19f23ce695-5615032135.md] Google Workspace Business Starter: Commitment-Erhöhung von 3 auf 5 Lizenzen für Prozessia GbR
+- [2026-07-23 12:06] [2026-07-23-19f188bb24-Receipt-2715-8726-9308.md] Rechnungsnummer: GGYF9D9L-0019, Receipt-Nummer: 2715-8726-9308
+- [2026-07-23 11:58] [2026-07-23-19f4baf08b-G170104086.md] Rechnungsnummer G170104086 für Abrechnungszeitraum 01.06.-30.06.2026, Fälligkeit 09.07.2026
+- [2026-07-23 11:58] [2026-07-23-19f4baf08b-G170104086.md] Zahlungsmethode: Automatische Kreditkartenbelastung bei Microsoft
+- [2026-07-23 11:58] [2026-07-23-19f4baf08b-G170104086.md] Aktuelle monatliche Kosten: EUR 33,31 brutto (EUR 27,99 netto + EUR 5,32 MwSt.)
+- [2026-07-23 11:57] [2026-07-23-19f4b8def1-G170032929.md] Zahlungsart: automatische Kreditkartenabbuchung, Belegdatum 09.07.2026
+- [2026-07-23 11:57] [2026-07-23-19f4b8def1-G170032929.md] Azure AI + Machine Learning Nutzungsgebühren: 3,76 EUR netto zzgl. 19% MwSt.
+- [2026-07-23 11:57] [2026-07-23-19f4b8def1-G170032929.md] Microsoft Azure Rechnung G170032929, Abrechnungszeitraum 01.06-30.06.2026, Gesamtbetrag 4,47 EUR brutto, fällig 09.07.2026
+- [2026-07-23 11:55] [2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md] Lieferdatum: 24.06.2026 (Leistung bereits erbracht)
+- [2026-07-23 11:55] [2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md] Rechnungsbetrag 1.000€ netto (1.190€ mit 19% USt.); Zahlungsbedingung: sofort zahlbar
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-PFITZER-127655.md] Lieferant PFITZER: Max-Planck-Str. 4, 74211 Leingarten; E-Mail: bestellung.po-order@pfitzer-verbindun[gstechnik]
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-KIND WBH-127668.md] Vertragsgrundlage: Schauflers AEB (www.schaufler.de), Incoterms 2020, Kontakt Lieferant: WBH-AV@Kind-Co.de
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-KIND WBH-127668.md] Lieferadresse: MJM Metallverarbeitung Mangner GmbH, Dautphetal (Endkunde/Verarbeiter)
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-KIND WBH-127668.md] Bestellbeleg-Nr. 127668 vom 26.06.2026: Schaufler Tooling beauftragt Kind & Co. Edelstahlwerke mit Wärmebehandlung (Härten) eines Ejector Shotblock-Bauteils
+- [2026-07-23 11:53] [2026-07-23-19f5ff1aad-BEST-KIND STAHL-127653.md] Bestelldatum: 24.06.2026; Vertragsgrundlage: Schaufler Allgemeine Einkaufsbedingungen + Verhaltenskodex (www.schaufler.de)
+- [2026-07-23 11:53] [2026-07-23-19f8e484e8-Top100_Lieferanten_mit_Email.md] Top-3-Lieferanten nach Volumen: Schaufler China (19,4M), Handtmann (4,3M), Fischer Tool & Die (3,4M EUR)
+- [2026-07-23 11:53] [2026-07-23-19f65504d0-Receipt-2233-8816-5318.md] Rechnungsnummer: GGYF9D9L-0020, Quittung: 2233-8816-5318
+- [2026-07-23 11:53] [2026-07-23-19f65504d0-Receipt-2233-8816-5318.md] Zahlungsdatum: 15.07.2026, Zahlungsmethode: Link (erfolgreich bezahlt)
+- [2026-07-23 11:53] [2026-07-23-19f65504d0-Receipt-2233-8816-5318.md] Anthropic API-Credits: $20.00 gekauft + $3.80 MwSt (19%) = $23.80 Gesamtbetrag
+- [2026-07-23 11:52] [2026-07-23-19f8cb719f-63459971781.md] Abrechnungszyklus läuft vom 23. eines Monats bis zum 22. des nächsten Monats; automatischer Bankeinzug — KEINE manuelle Zahlung erforderlich
+- [2026-07-23 11:52] [2026-07-23-19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.md] Mistral Vendor-Adresse: 952 418 325 SAS, 15 rue des Halles, 75001 Paris; Quittung 2026-07-23, Invoice MSTRL-API-750302-003
+- [2026-07-23 11:52] [2026-07-23-19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.md] Zahlungsmodalität: Visa-Abbuchung (***7073), automatisch bei Schwellenwert-Überschreitung
+- [2026-07-23 11:52] [2026-07-23-19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.md] Mistral OCR Nutzung: ~6.000 Seiten/Monat à 0,0034€/Seite; Juli 01-20: 6.039 Seiten = 20,53€ (brutto mit 19% MwSt.), davon 11,25€ bereits vorfinanziert
+- [2026-07-23 11:52] [2026-07-23-19f80bf0b9-invoice-MSTRL-API-750302-003.md] Prozessia nutzt Mistral OCR für API-Seitenerkennung; bisherige Nutzung bereits €11,25 abgerechnet
+- [2026-07-23 11:52] [2026-07-23-19f80bf0b9-invoice-MSTRL-API-750302-003.md] Rechnung 20.07.2026 (MSTRL-API-750302-003): €11,04 netto für 6.039 Seiten (01.–20.07.2026), zzgl. 19% DE-Steuern
+- [2026-07-23 11:51] [2026-07-23-19f80b8128-invoice-MSTRL-API-750302-003.md] Kumulierte Mistral-Nutzung: bereits 11,25 € abgerechnet vor dieser Rechnung
+- [2026-07-23 11:51] [2026-07-23-19f80b8128-invoice-MSTRL-API-750302-003.md] Mistral OCR Einzelpreis: 0,0034 € pro Seite; progressive Abrechnung ab 20,00 € Schwellenwert
+- [2026-07-23 11:51] [2026-07-23-19f80b8128-invoice-MSTRL-API-750302-003.md] Mistral AI Rechnung MSTRL-API-750302-003 (20.07.2026): 11,04 € brutto (9,28 € netto, MwSt 19%)
+- [2026-07-23 11:51] [2026-07-23-19f801f127-receipt-MSTRL-API-750302-RCPT-000001.md] Monatliche Mistral-Kosten stabil bei ~€13 brutto (Juli 2026)
+- [2026-07-23 11:51] [2026-07-23-19f801f127-invoice-MSTRL-API-750302-002.md] Kumulierte Mistral-Nutzung bereits bei €11,54 (Schwellenwert überschritten → progressive Abrechnung aktiv)
+- [2026-07-23 11:51] [2026-07-23-19f8015dd3-invoice-MSTRL-API-750302-002.md] Kumulative Mistral-Nutzung €11,54 erreicht; progressive Abrechnungslogik ab €10,00-Schwelle aktiviert
+- [2026-07-23 11:51] [2026-07-23-19f8015dd3-invoice-MSTRL-API-750302-002.md] Rechnung MSTRL-API-750302-002: €13,39 brutto, Zahlungsfrist 0 Tage (sofort fällig 20.7.2026)
+- [2026-07-23 11:51] [2026-07-23-19f8015dd3-invoice-MSTRL-API-750302-002.md] Mistral OCR API-Tarif: €0,0034 pro Seite; 3310 Seiten im Juli 2026 verarbeitet (€11,25 netto)
+- [2026-07-23 11:50] [2026-07-23-19f69cc342-Rechnung_2026-07-16_310100082556.md] Sammelrechnung 310100082556 vom 16.07.2026, Abrechnungszeitraum 16.07.–15.08.2026, Gesamtbetrag 2,00 EUR brutto
+- [2026-07-23 11:42] [2026-07-21-Email-19f83bcb-Zugesagt-Boris-Tetzlaff-and-Sebastian-Sp.md] Termin/Meeting zwischen Boris Tetzlaff (Sundh) und Sebastian Spuhler zugesagt am 2026-07-21
+- [2026-07-23 11:41] [2026-07-21-Email-19f8394e-AW-Unser-Termin.md] Sundh-Schaltanlagen hat anstehenden Urlaub im August/früher September
+- [2026-07-23 11:41] [2026-07-21-Email-19f8394e-AW-Unser-Termin.md] Nächste Termine bei Sundh-Schaltanlagen ab September 2026 möglich, bevorzugt montags
+- [2026-07-23 11:41] [2026-07-21-Email-19f834b9-FT-Ventures-x-WebWokr.md] Lead-Eingang: 21.07.2026; Kategorie: Leads/Listen; Pain-Point erkannt: Kapazitäts-Mismatch bei zeitkritischen KMU-Projekten
+- [2026-07-23 11:41] [2026-07-21-Email-19f834b9-FT-Ventures-x-WebWokr.md] Outbound-Kontakt adressiert WebWokrs Kerngeschäft: DSGVO-konforme Chatbots und KPI-Dashboards für KMUs
+- [2026-07-23 11:41] [2026-07-21-Email-19f834b9-FT-Ventures-x-WebWokr.md] FT Ventures (Kontakt: Mary, mary@exceedtree.org) – IT-Staffing-Provider mit 200+ Spezialisten in 10 Ländern; bietet flexible Kapazitäts-Entlastung für Kundenprojekte
+- [2026-07-23 11:41] [2026-08-24-Grohe.md] Ansprechpartner: Daniel Hettich (daniel.hettich@grohe-technology.de)
+- [2026-07-23 11:41] [2026-08-24-Grohe.md] Erstgespräch am 2026-08-24
+- [2026-07-23 11:41] [2026-07-21-Email-19f8596e-Action-required-security-vulnerabilities.md] Email von Supabase am 21 Jul 2026 – Supabase-Dashboard: https://supabase.com/dashboard/project/stggglgcvisnvcertpau/advisors/security
+- [2026-07-23 11:41] [2026-07-21-Email-19f8596e-Action-required-security-vulnerabilities.md] Sensitive Daten öffentlich zugänglich – Risiko für unbefugte Dateneinsicht und -manipulation
+- [2026-07-23 11:41] [2026-07-21-Email-19f8596e-Action-required-security-vulnerabilities.md] Row-Level Security (RLS) deaktiviert in Projekt stggglgcvisnvcertpau – Tabellen öffentlich lesbar/editierbar/löschbar für jeden mit Project URL
+- [2026-07-23 11:40] [2026-07-23-Email-19f8dab3-AW-Anforderung-einer-zentralen-Lösung-zu.md] Jonas Rösch (IT-Administration Schaufler) wird Kontakt zu Herr Knoblauch herstellen, falls dieser das Projekt weiter vorantreiben möchte – nächster Schritt abhängig von Knoblauch
+- [2026-07-23 11:40] [2026-07-21-Update Zillmer X Prozessia.md] Gesprächsdatum: 21.07.2026, 08:59 Uhr – Dauer: ~22 Min; Transkript via Voice-Recording
+- [2026-07-23 11:40] [2026-07-21-Update Zillmer X Prozessia.md] Status: Grundsätzliches Interesse vorhanden, aber zeitliche und prioritätsbezogene Hürden auf Seiten Zillmer (Chef-Feedback ausstehend)
+- [2026-07-23 11:40] [2026-07-21-Update Zillmer X Prozessia.md] Ausgangsproblem: Moderne Ausschreibungen oft unklar definiert – Hersteller und Produkttypen (z.B. Leuchten) nicht eindeutig identifizierbar
+- [2026-07-23 11:39] [2026-07-21-Prozessia X Schmidt-Hänsch.md] DSGVO/EU-AI-Act Compliance-Risiken: Schatten-KI durch unkontrollierte KI-Nutzung von Mitarbeitern → standardisierter Agent reduziert diese Risiken
+- [2026-07-23 11:39] [2026-07-21-Prozessia X Schmidt-Hänsch.md] Folgetermin: in 1-1,5 Wochen ab 21.07.2026 (ca. 28.07-04.08.2026); Sumit klärt intern mit Chef und IT-Abteilung Freigabe/Machbarkeit
+- [2026-07-23 11:39] [06_recherche_beleg_fehlt.md] StackBlitz Bolt Pro-Plan: 20 USD/Monat (Zahlung 17,73 EUR am 2025-05-30, FX-Rate 0,8865, Beleg Nr. 2514-9086)
+- [2026-07-23 11:39] [2026-07-22-Rechnung Schnittstellen Winform.md] Leistung erbracht 24.06.2026: Einrichtung Agent X Schnittstellen Winform, Testing und Validierung abgeschlossen
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Google-Beleg 28.1 EUR (ID: 5615032135.pdf) ohne eindeutig extrahierbare Datierung
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Gesellschafter-Transfer an Sebastian Spuhler: 1.0 EUR (2024-10-31) mit unbekanntem Verwendungszweck ('test') – Klärung erforderlich
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Triathlon Transfer 29.75 EUR (2024-12-25) taucht doppelt auf: Finom-Kontoauszug + Beleg (Triathlon Miete.pdf) – mögliches Duplikat
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Belegauswertung 2024: 15 echte Prüffälle identifiziert (Bagatellefälle ≤ 15 EUR ausgeschlossen)
+- [2026-07-23 11:39] [Paddle n8n Cloud Beleg 10-07-2025.md] Zahlungsmethod: Visa-Karte (Paddle payment processor), automatische monatliche Abrechnung
+- [2026-07-23 11:39] [Paddle n8n Cloud Beleg 10-07-2025.md] n8n Cloud Abonnement (Cloud Starter Plan) aktiv und im Betrieb
+- [2026-07-23 11:38] [Bolt StackBlitz Beleg 05-29-2025.md] Zahlungsmethode: Visa ****7073 (über Stripe/StackBlitz abgewickelt)
+- [2026-07-23 11:38] [Bolt StackBlitz Beleg 05-29-2025.md] FX-Rate Mai 2025: 20 USD = 17,73 EUR (Kurs 0,8865), Bankbuchung 30.05.2025
+- [2026-07-23 11:38] [Bolt StackBlitz Beleg 05-29-2025.md] Zahlungsbeleg Nr. 2514-9086, Rechnungsnummer LRDKYW8R-0001, Bezahlung 29.05.2025
+- [2026-07-23 11:38] [Bolt StackBlitz Beleg 05-29-2025.md] Bolt Pro-Plan (StackBlitz) — monatliches SaaS-Abo, 20,00 USD/Monat, regelmäßige Zahlung
+- [2026-07-23 11:38] [Re: Prozessia ICP] KI-Wissensmanagement: Neue Präsentation erstellt, weitere Inhalte in Entwicklung geplant (21.07.2026)
+- [2026-07-23 11:38] [Re: Prozessia ICP] Neue Leads wurden Lars Segschneider im CRM zugeteilt mit besserer ICP-Passform (21.07.2026)
+- [2026-07-23 11:38] [Re: Prozessia ICP] Kontakt Lars Segschneider (larssegschneider.ls@gmail.com) zeigt Interesse an KI-Wissensmanagement Präsentation (23.07.2026)
+- [2026-07-23 11:38] [AW: Unser Termin] Termin wurde kurzfristig von Boris Tetzlaff (Betriebsleiter S + H Schaltanlagenbau GmbH) absagen müssen – Grund: Familienangelegenheit (Betreuung Tochter)
+- [2026-07-23 11:38] [Dashboard fehler] Dashboard-Fehler seit 2026-07-22 Abend (andauernd Fehlermeldung angezeigt)
+- [2026-07-23 11:38] [AW: Anforderung einer zentralen Lösung z] Anfrage zu KI-Wissensmanagement stammt von Herr Knoblauch (nicht Jonas Rösch), Thema: zentrale Lösung zur gemeinsamen E-Mail-Ablage und Wissenssicherung
+- [2026-07-23 11:38] [FT Ventures x WebWokr] FT Ventures erkennt WebWokr-Geschäftsmodell: DSGVO-konforme Chatbots und KPI-Dashboards für KMUs
+- [2026-07-23 11:38] [FT Ventures x WebWokr] Mary (mary@exceedtree.org) von FT Ventures bietet IT-Talent-Vermittlung an: 200+ Spezialisten in 10 Ländern, spezialisiert auf schnelle Kapazitätserweiterung bei Engpässen
+- [2026-07-23 11:38] [Fwd: Live-Schaltung diese Woche] Amin Douioui (Prozessia) koordiniert die Schaltung mit Schaufler – Bestätigung durch Kunde steht noch aus
+- [2026-07-23 11:38] [Fwd: Live-Schaltung diese Woche] Feature 2 'Weiterleitung der Versanddokumente': Live-Start Donnerstag (24. Juli 2026)
+- [2026-07-23 11:38] [Fwd: Live-Schaltung diese Woche] Feature 1 'Messberichte': Live-Start Mittwoch (23. Juli 2026)
+- [2026-07-23 11:38] [KI Agent] Benjamin fordert Feedback zur Performance der Live-Daten und zur Agent-Funktionalität an; bislang keine Fehler/komischen Mails von Kollegen gemeldet (22.-23.07.2026)
+- [2026-07-23 11:38] [WhatsApp-Konversationen-Handover und Upd] fonio Update-Webinar: 30. Juli 2026, 16:00 Uhr (monatliches Webinar)
+- [2026-07-23 11:38] [WhatsApp-Konversationen-Handover und Upd] Matthias (CTO fonio) postet täglich Updates zu neuen Features auf LinkedIn
+- [2026-07-23 11:38] [WhatsApp-Konversationen-Handover und Upd] fonio WhatsApp-Assistenten können Konversationen ab sofort direkt an Menschen übergeben (neue Funktion diese Woche)
+- [2026-07-23 11:38] [Re: IT Sicherheit Riemann] Sebastians Anfrage vom 22.07.2026 bezog sich auf Schatten-KI-Nutzung, Datenschutzverstöße und KI-Einsatz im industriellen Mittelstand
+- [2026-07-23 11:38] [Update: Änderung Sub-Auftragsverarbeiter] Änderung gemäß AVV Ziffer 5.6 (Auftragsverarbeitungsvereinbarung mit fonio.ai) – formale Benachrichtigung erhalten
+- [2026-07-23 11:38] [Update: Änderung Sub-Auftragsverarbeiter] fonio.ai ändert Sub-Auftragsverarbeiter für Text-to-Speech: Eleven Labs Inc. wird ab 06.08.2026 durch Theai, Inc. dba Inworld AI ersetzt (EU-Datenresidenz, Zero Data Retention, Standardvertragsklauseln)
 - [2026-07-19 16:52] [2026-07-16-Einführung Beschaffungsagent.md] Besprechung vom 16.07.2026 mit Benjamin Schmohl, Amin Douioui und Sebastian Spuhler zur Einführung/Weiterentwicklung Beschaffungsagent
 - [2026-07-19 16:52] [2026-06-25-Besprechung Umsetzung Server Infrastruktur Schaufler (1).md] Offene Abhängigkeit: Testview-Status bei Jochen - erforderlich vor WinForm-Anbindung
 - [2026-07-19 16:51] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler.md] Treffen am 2026-07-16 war Erstgespräch zwischen Prozessia und Lendner; nächste Schritte noch offen
@@ -432,6 +543,28 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-23 12:10] [2026-07-23-19f17dfce8-Prozess Kleinauftrag 2022.07.15.md] Endin: Prozessdiagramm 'Prozeß Kleinauftrag' (11.7.2022) für Potenzialanalyse vorhanden – dokumentiert Ablauf Ersatzteile/Kleinaufträge
+- [2026-07-23 12:08] [2026-07-23-19f18e16e2-Mitgliedschaftsbedingungen.md] Prozessia GbR nutzt American Express Business Platinum Card
+- [2026-07-23 12:07] [2026-07-23-19f1c3dc33-invoice_sipgatede_B4602762.md] sipgate Kundennummer: 3988053 (Rechnungsnummer B4602762)
+- [2026-07-23 11:55] [2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md] Rechnung RE260015 an SCHAUFLER Tooling GmbH & Co. KG (Goethestrasse 72, 89150 Laichingen) vom 20.07.2026
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Lieferant: Sven & Gerhard Schmitt GbR (Maschinen- & Vorrichtungsbau), Willingshainer Str. 45, 36275 Kirchheim, s.schmitt@maschinenbau-schmitt.com, Fax 06628/9999009
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-RAFFSPED.-126744.md] Bestellbeleg 126744 | Schaufler Tooling → Spedition Karl Raff GmbH | Transportkosten 310,00 € netto (2×155,00 €) | Lieferziel Schmitt GbR | Lieferdatum 12.05.2026
+- [2026-07-23 11:53] [2026-07-23-19f5ff1aad-BEST-KIND STAHL-127653.md] Lieferant Kind & Co. Edelstahlwerke GmbH & Co. KG, Bielsteiner Str. 128-130, 51674 Wiehl; Kontakt: Sandra.hartmann@kind-co.de
+- [2026-07-23 11:53] [2026-07-23-19f8e484e8-Top100_Lieferanten_mit_Email.md] Top-100-Lieferantenliste mit vollständigen Kontaktdaten (Ansprechpartner, E-Mail, Bestellsummen) sortiert nach Einkaufsvolumen
+- [2026-07-23 11:53] [2026-07-23-19f8e484e8-Top100_Lieferanten_mit_Email.md] Top-Lieferant von Schaufler: Schaufler China (Sarah Peng, sarah.peng@schaufler.com.cn) mit 19,4M EUR Jahresbestellvolumen
+- [2026-07-23 11:53] [2026-07-23-19f5bf6740-Top 10 Lieferanten.md] Lieferanten stammen aus 4 Ländern: Deutschland (mindestens 4 Lieferanten), Ungarn, Portugal, Italien
+- [2026-07-23 11:51] [2026-07-23-19f8015dd3-invoice-MSTRL-API-750302-002.md] Mistral AI SAS (Paris, Steuer-ID FR95952418325, no-reply@mistral.ai) etablierter OCR-Lieferant
+- [2026-07-23 11:50] [2026-07-23-19f69cc342-Rechnung_2026-07-16_310100082556.md] IONOS-Kundennummer 314248816 für WebWokr (Sebastian Spuhler, Campus D 1, 66123 Saarbrücken)
+- [2026-07-23 11:42] [2026-07-21-Email-19f83e33-Angenommen-Update-Zillmer-X-Prozessia.md] Zillmer-Elektrotechnik: Ansprechpartner Dierk Biendarra (Dierk.Biendarra@zillmer-elektrotechnik.de)
+- [2026-07-23 11:41] [2026-07-21-Email-19f8394e-AW-Unser-Termin.md] Boris Tetzlaff, Betriebsleiter bei S + H Schaltanlagenbau GmbH (Sundh-Schaltanlagen), Berlin; Mobil: +49 1517 0665071, Email: b.tetzlaff@sundhschaltanlagen.de, Adresse: Lauenburger Str. 85, 12169 Berlin
+- [2026-07-23 11:41] [2026-08-24-Grohe.md] Grohe – neuer Lead, Technologieunternehmen
+- [2026-07-23 11:41] [2026-07-21-Email-19f8596e-Action-required-security-vulnerabilities.md] Voigt_Salus: Kritische Sicherheitslücken in Supabase-Projekten erkannt (20 Jul 2026)
+- [2026-07-23 11:40] [2026-07-21-Email-19f85405-KI-Agent.md] Benjamin Schmohl (Teamleiter Beschaffung, Schaufler) ist Ansprechpartner für KI-Agent-Projekt – Tel. +49 7333 9608-640, Mobil +49 151 72080431
+- [2026-07-23 11:39] [2026-07-21-Prozessia X Schmidt-Hänsch.md] Kontaktperson: Sumit Bhawar; Produkte: Prozessrefraktometer und Dichtemessgeräte; ERP-System: Sage 100 (Produktion, Einkauf, Buchhaltung)
+- [2026-07-23 11:39] [06_recherche_beleg_fehlt.md] Martin Veser UG / WebWokr-Projekt: 505,75 EUR Gesamtbetrag (Anzahlung 275 EUR am 2025-10-07 + Rechnung 230,75 EUR am 2025-10-24, Beleg verfügbar)
+- [2026-07-23 11:38] [Kalender-Erstgespräch] Grohe - Termin 'Prozessia X Grohe' am 2026-08-24 mit daniel.hettich@grohe-technology.de
+- [2026-07-23 11:38] [WhatsApp-Konversationen-Handover und Upd] WhatsApp-Assistenten-Feature (automatische Anliegen-Erkennung + Handover) ist kundenrelevant für Prozessia-Services
+- [2026-07-23 11:38] [Re: IT Sicherheit Riemann] Riemann GmbH, Georgsmarienhütte (49124), Kontaktperson: Lydia Hanneken, Assistentin der Geschäftsführung, l.hanneken@riemann-manufacturing.de, Tel: +49 5401 88199-71
 - [2026-07-19 16:52] [2026-06-30-Potenzialanalyse Endin X Prozessia.md] Kunde: Endin (Ansprechpartner: Cyril Dietz)
 - [2026-07-19 16:52] [2026-06-18-Kai Winterscheid and Sebastian Spuhler.md] T.P.G. Gruppe hat Einkaufsvolumen von ca. 55 Millionen Euro und Jahresumsatz von 120 Millionen Euro
 - [2026-07-19 16:52] [2026-06-18-Kai Winterscheid and Sebastian Spuhler.md] Kai Winterscheid ist Einkaufsleiter der T.P.G. Gruppe mit drei Marken: Fawema, HDG und Wolf
@@ -571,6 +704,52 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-23 12:10] [2026-07-23-19f17dfce8-Prozess Kleinauftrag 2022.07.15.md] Prozeß Kleinauftrag: visualisierter Ablauf mit Legende, Grundlage für Prozessoptimierung/Analyse
+- [2026-07-23 12:09] [2026-07-23-19f37a9ec1-Angebot_AG0027_01.07.2026.md] Technische Anforderung: Schnittstellen zu Buhl Unternehmer 365, E-Mail-Postfächern, DATEV; unternehmenseigener Server (Datensicherheit, Skalierbarkeit)
+- [2026-07-23 12:09] [2026-07-23-19f37a9ec1-Angebot_AG0027_01.07.2026.md] Gesamtpreis: 17.255,00 € brutto (14.500,00 € netto + 19% USt.)
+- [2026-07-23 12:09] [2026-07-23-19f37a9ec1-Angebot_AG0027_01.07.2026.md] KI-Agent für kaufmännische Auftragsabwicklung: Angebotserstellung, Auftragserkennung, Versand-/Dokumentenmanagement, Rechnungs-/Buchhaltungsanbindung DATEV, Steuerungsdashboard
+- [2026-07-23 12:09] [2026-07-23-19f1906293-Angebot_AG0026_30.06.2026.md] Leistung: Agent für kaufmännische Abwicklung mit automatischem Lesen/Strukturieren von Bestellungen, Klassifizierung (Service/Ersatzteile/Maschine), Vorbereitung Export-Begleitdokumente inkl. Tunesien-Sonderfall, Vorprüfung Lieferschein/Rechnungsinhalte
+- [2026-07-23 12:09] [2026-07-23-19f40a0d3d-SLA_Schaufler .md] Hetzner-Server-Infrastrukturkosten werden weitergegeben an Schaufler
+- [2026-07-23 12:08] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] Offene Deliverables: Governance-Dokument, genaue Einsatzbereiche, Nutzergruppen, erlaubte Tätigkeiten definieren
+- [2026-07-23 12:08] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] Risikoklasse noch zu verifizieren: minimal vs. begrenzt Risiko (noch ungeklärt)
+- [2026-07-23 12:08] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] KI-Nutzungsrichtlinie nach EU-KI-Act für Prozessia-Agent (Cloud-Lösung) in Erstellung
+- [2026-07-23 12:08] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] CX33 Cloud Server mit Primary IPv4 und Backup läuft im Projekt 'Default'
+- [2026-07-23 12:07] [2026-07-23-19f1c3dc33-invoice_sipgatede_B4602762.md] Regelmäßige monatliche sipgate-Aufladung erkannt (Leistungsdatum: 01.07.2026, Rechnungsdatum: 01.07.2026)
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Invoice-XC0AID8J-0007.md] Lovable Pro-Abo kostet monatlich 25,00 €, abgerechnet monatlich zum 27. (Rechnungsnummer XC0AID8J-0007)
+- [2026-07-23 11:55] [2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md] Leistung: Einrichtung Agent-Winform-Schnittstellen inkl. Integration, Test, Validierung und geplante Umstellung auf Proleis
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Anforderungen: Gravur, Prüfprotokoll, Härteprotokoll, Messprotokoll erforderlich
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Lieferbedingung: DAP Laichingen (Incoterms 2020)
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-PFITZER-127655.md] Liefertermin: 29.06.2026 – Lieferadresse: Goethestr. 72, 89150 Laichingen
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-PFITZER-127655.md] Bestellte Artikel: DIN 912 Schrauben M10x30 (5 Stk.) und M10x140 (5 Stk.) – Nettosumme 16,00 €
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-KIND WBH-127668.md] Spezifikation: Härten 42-46 HRC, 3x Anlassen, Härteprotokoll nach Nadca 207-2022 Class 2
+- [2026-07-23 11:53] [2026-07-23-19f5ff1aad-BEST-KIND STAHL-127653.md] Liefertermin 29.06.2026 — ÜBERFÄLLIG (heute: 23.07.2026, 24 Tage verspätet)
+- [2026-07-23 11:53] [2026-07-23-19f5ff1aad-BEST-KIND STAHL-127653.md] Bestellbeleg 127653: 1x Rundmaterial INSERT BOTTOM SLIDE, Werkstoff 1.2344 ESU, 68,25 € netto
+- [2026-07-23 11:53] [2026-07-23-19f8e484e8-Top100_Lieferanten_mit_Email.md] Liste als Input für Beschaffungsagenten-Automatisierung bei Schaufler strukturiert zur Lieferantenkommunikation
+- [2026-07-23 11:53] [2026-07-23-19f5bf6740-Top 10 Lieferanten.md] Die Lieferantenliste dient als Referenzmaterial für Beschaffungsagenten und Lieferantenmanagement im Schaufler-Projekt
+- [2026-07-23 11:52] [2026-07-23-19f8cb719f-63459971781.md] Microsoft 365 Business Standard Abo für Prozessia GbR: 2 Lizenzen, monatliche automatische Abrechnung 25,78 EUR (Gebühren 21,66 EUR + MwSt. 4,12 EUR)
+- [2026-07-23 11:52] [2026-07-23-19f80bf0b9-invoice-MSTRL-API-750302-003.md] Progressive Rechnungslegung bei Mistral: Schwellenwert €20,00 – Überschreitung triggert sofort fällige Rechnung
+- [2026-07-23 11:51] [2026-07-23-19f801f127-invoice-MSTRL-API-750302-002.md] Mistral AI OCR API in Produktion: €0,0034 pro Seite, progressive Rechnungen ab €10+ Nutzung
+- [2026-07-23 11:42] [2026-07-21-Email-19f83e33-Angenommen-Update-Zillmer-X-Prozessia.md] Zillmer bestätigt positive Antwort auf Update-Proposal für Prozessia-Zusammenarbeit (2026-07-21)
+- [2026-07-23 11:41] [2026-07-21-Email-19f834b9-FT-Ventures-x-WebWokr.md] Angebot: 15-Minuten-Konsultation zur schnellen Engpass-Entlastung bei Aufträgen ohne interne Kapazität
+- [2026-07-23 11:41] [2026-08-24-Grohe.md] Kein Transkript/Dokument vorhanden – wird ergänzt sobald Material eintrifft
+- [2026-07-23 11:41] [2026-07-21-Email-19f8596e-Action-required-security-vulnerabilities.md] Sofortige Maßnahme erforderlich: RLS aktivieren und Tabellenzugriff sichern vor Datenkompromittierung
+- [2026-07-23 11:40] [2026-07-22-Email-19f8888c-Dashboard-fehler.md] Dashboard-Fehler: aktiv/ungelöst, Fehler-Screenshot im Anhang (image001.png)
+- [2026-07-23 11:40] [2026-07-21-Email-19f85405-KI-Agent.md] Bis 21.07.2026: Keine anomalen/komischen Mails durch KI Agent erkannt; Dashboard zeigt geringe Aktivität
+- [2026-07-23 11:40] [2026-07-21-Update Zillmer X Prozessia.md] Geplanter Use-Case: KI recherchiert fehlende Herstellerangaben in Ausschreibungen, führt automatischen Preisvergleich bei Großhandel/Herstellern durch, gibt Ergebnisse an beauftragte Stellen weiter
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Instantly – Fremdwährungsprobleme: USD-Beleg (97,0 USD) in EUR-Bankbuchung (84,32 EUR) nicht automatisch umgerechnet, manuelle Wechselkurskorrektur erforderlich
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Benito Ferrise – Duplikat-/Rundlauf-Verdacht: Betrag 4760,0 EUR am 2025-12-31 mehrfach gebucht (Ein- und Ausgang)
+- [2026-07-23 11:39] [2026-07-21-Prozessia X Schmidt-Hänsch.md] Technische Integration: Agent benötigt Adapter an Sage 100 ERP und Outlook/E-Mail-Schnittstelle
+- [2026-07-23 11:39] [2026-07-21-Prozessia X Schmidt-Hänsch.md] Identifizierte KI-Usecases im Einkauf: (1) automatischer Abgleich Auftragsbestätigungen ↔ ERP-Bestellungen, (2) Lieferanten-Kontakt bei Abweichungen, (3) Mahnung fehlender Auftragsbestätigungen, (4) Lieferverzugslisten generieren
+- [2026-07-23 11:39] [06_recherche_beleg_fehlt.md] Belegrecherche 2025: Von 21 fehlenden Belegen wurden 5 gelöst (Gmail + Google Drive vollständig durchsucht, Stand 2026-07-22)
+- [2026-07-23 11:39] [2026-07-22-Rechnung Schnittstellen Winform.md] Nächster Schritt geplant: Migration Schnittstellen und System von Winform auf Proleis
+- [2026-07-23 11:39] [Paddle n8n Cloud Beleg 10-07-2025.md] Wiederkehrende monatliche Gebühr: 28,56 € für n8n Cloud Starter (netto 24,00 €, zzgl. 19% MwSt.)
+- [2026-07-23 11:38] [Re: Prozessia ICP] Aktion: Sebastians Telefonnummer an Lars Segschneider übermitteln für WhatsApp-Kontakt (23.07.2026)
+- [2026-07-23 11:38] [AW: Unser Termin] Neue Termine mit S + H Schaltanlagenbau GmbH frühestens im September 2026 möglich
+- [2026-07-23 11:38] [Dashboard fehler] Screenshot des Fehlers (image001.png@01DD19B4.F3DBAA10) versendet; nächster Schritt: Dashboard-Problem diagnostizieren und beheben
+- [2026-07-23 11:38] [FT Ventures x WebWokr] Nächster Schritt angeboten: 15-Minuten-Call mit Mary zur Engpass-Entlastungs-Rahmen-Skizze; Sebastian soll Offenheit signalisieren
+- [2026-07-23 11:38] [Fwd: Live-Schaltung diese Woche] Emails werden zunächst noch als Entwürfe versendet, Kunde wurde um Bestätigung/Anpassungswünsche gebeten
+- [2026-07-23 11:38] [KI Agent] KI Agent läuft live bei Schaufler seit mindestens 23.07.2026; Dashboard freigeschaltet, aber mit begrenzte Sichtbarkeit
+- [2026-07-23 11:38] [Re: IT Sicherheit Riemann] ABSAGE: Riemann hat kein Interesse an Austausch zu IT-Sicherheit und EU AI Act (ab 02.08.2026). Grund: Thema ist intern bereits geregelt.
 - [2026-07-19 16:52] [2026-06-30-Potenzialanalyse Endin X Prozessia.md] Automatisierung des kaufmännischen Abwicklungsprozesses bei Endin geplant: Angebotserstellung, Freigabe-Workflow, Bestellungseingang
 - [2026-07-19 16:52] [2026-06-18-Kai Winterscheid and Sebastian Spuhler.md] Hauptprobleme: Terminverfolgung und Auftragsbestätigungen im Einkauf
 - [2026-07-19 16:52] [2026-07-19-Rechnung_RE260016_20.07.2026.md] Leistung umfasst: Technische Basis & Infrastruktur, Schnittstelleneinrichtung zu Tools/Systemen/APIs, Betrieb auf unternehmenseigenem Server mit Skalierbarkeit für 100+ Aufträge
@@ -1057,6 +1236,9 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-07-23 12:08] [2026-07-23-19f47537e0-Rechnung_RE260014_09.07.2026.md] Rechnung RE260014 (09.07.2026) von 'World Class Marketing LLC' enthält private Restaurantausgaben (Speisen/Getränke, 42,10€ netto) – kein erkennbarer Geschäftsbezug zu Prozessia, möglicherweise fehlerhaft abgelegt
+- [2026-07-23 11:55] [2026-07-23-19f7aad092-Rechnung_RE260016_20.07.2026.md] Duplikat-Verdacht: Identische Rechnung RE260016 bereits am 2026-07-19 hochgeladen – Archiv prüfen auf Dopplung
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Systematisches Problem: Mehrere Belege ohne eindeutig extrahierbare Rechnungsdatierungen (FA/SF 60 EUR, Google 28.1 EUR, Triathlon Transfer)
 - [2026-07-19 16:52] [2026-07-16-Einführung Beschaffungsagent.md] Umrechnungsprobleme zwischen Einheiten müssen gelöst werden (z.B. Fass vs. Liter)
 - [2026-07-19 13:45] Beim Beschaffungsagent gibt es noch eine weitere Bestellung über 1000 Euro
 - [2026-07-19 13:10] [2026-07-19.md] Shared Mailboxes (HNO, Werkszeugnisse, quality_schaufler@) seit 16.07. zugänglich, aber mit 50GB-Limit (Text abgebrochen)
@@ -1121,4 +1303,5 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-13 19:09] [Personalkosten erstattet bekommen] Schulung des Teams in kundengewinnung und Tools (Clay, Claude, Close) finanziert über Fördergelder § 82 SGB III
 
 ## ENTSCHEIDUNG
+- [2026-07-23 11:42] [2026-07-21-Email-19f840fe-Angenommen-Update-Zillmer-X-Prozessia.md] Zillmer-Elektrotechnik: Update akzeptiert (Bestätigung von Dierk Biendarra, 21. Juli 2026)
 - [2026-07-17 21:42] [6---Email-19f38afa-AW-Offene-Punkte-Beschaffungsagent.md] Bestelldokument muss angepasst werden, damit Lieferanten wissen, dass bestellbezogene Daten an order@schaufler.de gehen (Verantwortung: Benjamin Schmohl)

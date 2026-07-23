@@ -25,7 +25,7 @@ from pathlib import Path
 
 from app.config import get_settings
 from app.constants import Models
-from app.services.anthropic_client import get_client, get_response_text
+from app.services.anthropic_client import complete_json
 
 STATUS_RANK = {
     "neuer_kontakt": 0, "erstgespraech": 1, "angebotsphase": 2,
@@ -244,12 +244,8 @@ Antworte NUR als JSON, keine Erklärung. Format:
 {{"status": "...", "sicherheit": "...", "begruendung": "...", "quellen": [...], "warnsignal": "..." oder null, "ist_relevant": true/false, "relevanz_begruendung": "...", "anzeige_name": "...", "aktueller_stand": "..."}}"""
 
     try:
-        resp = get_client().messages.create(
-            model=Models.SONNET, max_tokens=700,
-            thinking={"type": "disabled"},  # siehe classify.py - sonst Gefahr von abgeschnittenem JSON
-            messages=[{"role": "user", "content": prompt}],
-        )
-        raw = get_response_text(resp).strip().replace("```json", "").replace("```", "").strip()
+        raw = complete_json(prompt, model=Models.SONNET, max_tokens=700).strip()
+        raw = raw.replace("```json", "").replace("```", "").strip()
         result = json.loads(raw)
     except Exception:
         return {**_FALLBACK, "status": floor, "anzeige_name": kunde_name}

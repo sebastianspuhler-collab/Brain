@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Schritt 6: Excel-Ausgabe (10 Tabs) + PRUEFFAELLE.md + Konsolenausgabe."""
-import json, re, shutil
+import json, re
 from collections import defaultdict, Counter
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment
@@ -330,10 +330,8 @@ autofit(ws, len(headers), maxw=100)
 
 wb.save(f"{BASE}/ergebnis_2024.xlsx")
 print("Excel gespeichert:", f"{BASE}/ergebnis_2024.xlsx")
-
-JAHRESORDNER = "/Users/sesp01-user/vault/Prozessia-Brain/Finanzen/2024"
-shutil.copy2(f"{BASE}/ergebnis_2024.xlsx", f"{JAHRESORDNER}/ergebnis_2024.xlsx")
-print("Kopie synchronisiert nach:", f"{JAHRESORDNER}/ergebnis_2024.xlsx")
+# Bewusst KEINE Kopie in den Jahresordner (Nutzerentscheidung 2026-07-22): dort
+# soll nur noch ergebnis_2024_monatlich_netto.xlsx liegen (siehe step7).
 
 # ---------- PRUEFFAELLE.md ----------
 pruef_rows.sort(key=lambda r: -(r[2] or 0))

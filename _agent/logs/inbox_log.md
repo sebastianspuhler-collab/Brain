@@ -849,3 +849,117 @@
 - 2026-07-20 21:30 | receipt-MSTRL-API-750302-RCPT-000001.pdf → Finanzen/Rechnungen | Mistral-Zahlungsquittung 13,39 Euro
 - 2026-07-20 21:30 | invoice-MSTRL-API-750302-003.pdf → Finanzen/Rechnungen | Mistral-Rechnung 11,04 Euro, progressive Schwellenwert-Abrechnung
 - 2026-07-20 21:30 | receipt-MSTRL-API-750302-RCPT-000002.pdf → Finanzen/Rechnungen | Mistral-Zahlungsquittung 11,04 Euro
+- 2026-07-23 11:38 | Rechnung Schnittstellen Winform.pdf → Kunden/Schaufler/Vertraege | Rechnung RE260015 an Schaufler Tooling GmbH & Co. KG über die Einrichtung der Sc
+- 2026-07-23 11:38 | Update Zillmer X Prozessia.docx → Leads/Zillmer-Elektrotechnik-Korrespondenz | Besprechungstranskript vom 21.07.2026 zwischen Sebastian Spuhler und Dierk Biend
+- 2026-07-23 11:39 | Prozessia X Schmidt-Hänsch.docx → Kunden/Schmidt-Haensch/Meetings | Besprechungstranskript vom 21.07.2026 zwischen Sebastian Spuhler und Sumit Bhawa
+- 2026-07-23 11:40 | 19f8e484e8-Top100_Lieferanten_mit_Email.xlsx → Kunden/Schaufler/Dokumente | Excel-Liste der Top 100 Lieferanten von Schaufler mit Rang, Kurzbezeichnung, Fir
+- 2026-07-23 11:40 | 19f7ea04aa-image001.png → Kunden/Schaufler/Dokumente | Screenshot-Anhang (image001.png) ohne extrahierbaren Text, vermutlich der Fehler
+- 2026-07-23 11:41 | 19f65504d0-Receipt-2233-8816-5318.pdf → Finanzen/Rechnungen | Zahlungsbeleg von Anthropic, PBC über den Kauf von API-Credits in Höhe von $20.0
+- 2026-07-23 11:41 | 19f650a55c-image001.png → Kunden/Schaufler/Dokumente | Screenshot-Bilddatei ohne extrahierbaren Text, vermutlich der Fehler-Screenshot 
+- 2026-07-23 11:41 | 19f5ff1aad-BEST-SCHMITT GBR-127096.pdf → Kunden/Schaufler/Vertraege | Bestellbeleg Nr. 127096 der Schaufler Tooling GmbH & Co. KG (Laichingen) an die 
+- 2026-07-23 11:41 | 19f8888c0a-image001.png → Kunden/Schaufler/Dokumente | Screenshot-Anhang (image001.png) zur E-Mail 'Dashboard-Fehler' vom 22.07.2026 – 
+- 2026-07-23 11:41 | 19f8cb719f-63459971781.pdf → Finanzen/2026/07_Juli | Microsoft-Rechnung Juli 2026 für Prozessia GbR über 25,78 EUR für Microsoft 365 
+- 2026-07-23 11:41 | 19f8d67a64-Image(0) → Memos/Medien | Bilddatei ohne extrahierbaren Textinhalt oder erkennbares Format. Inhalt konnte 
+- 2026-07-23 11:41 | 19f5fc7d6d-Outlook-cid_image0 → Memos/2026-07-23-Outlook-cid_image0.md | Eingebettetes Outlook-Bild (cid-Grafik) ohne erkennbaren Textinhalt oder Kontext
+- 2026-07-23 11:42 | 19f5ff1aad-BEST-PFITZER-127655.pdf → Kunden/Schaufler/Vertraege | Bestellbeleg Nr. 127655 von Schaufler Tooling GmbH & Co. KG an den Lieferanten P
+- 2026-07-23 11:42 | 19f5a99827-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) als Anhang zur E-Mail-Korrespondenz 'Statusabfrage – AI-A
+- 2026-07-23 11:42 | 19f7f9068b-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image001.png), vermutlich E-Mail-Anhang/Scre
+- 2026-07-23 11:42 | 19f8dab37e-image001.png → Memos/Medien | Bilddatei (image001.png) ohne extrahierbaren Text, vermutlich Screenshot-Anhang 
+- 2026-07-23 11:42 | 19f801f127-invoice-MSTRL-API-750302-002.pdf → Finanzen/2026/07_Juli | Rechnung von Mistral AI SAS an Prozessia über 13,39 € für API-Nutzung (Mistral O
+- 2026-07-23 11:43 | 19f5ff1aad-BEST-KIND WBH-127668.pdf → Kunden/Schaufler/Vertraege | Bestellung und Lieferschein (Härten) von Schaufler Tooling GmbH & Co. KG an Kind
+- 2026-07-23 11:43 | 19f5ff1aad-BEST-RAFFSPED.-126744.pdf → Kunden/Schaufler/Vertraege | Bestellbeleg Nr. 126744 der Schaufler Tooling GmbH & Co. KG an die Spedition Kar
+- 2026-07-23 11:43 | 19f80bf0b9-invoice-MSTRL-API-750302-003.pdf → Finanzen/2026/07_Juli | Rechnung von Mistral AI (Paris) an Prozessia über 11,04 € für API-Nutzung (Mistr
+- 2026-07-23 11:43 | 19f65c2455-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) ohne extrahierbaren Text, zugehörig zur E-Mail 19f65c24 '
+- 2026-07-23 11:43 | 19f69ece3a-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (image001.png) ohne extrahierbaren Text, angehängt an eine E-Mail mit 
+- 2026-07-23 11:44 | 19f5bf6740-image001.png → Kunden/Schaufler/Dokumente | Bilddatei ohne extrahierbaren Text, vermutlich ein Screenshot-Anhang zur E-Mail-
+- 2026-07-23 11:44 | 19f5bc2771-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text oder erkennbaren Kontext. Vermutlich Screensh
+- 2026-07-23 11:44 | 19f6689ddd-image003.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image003.png). Keine inhaltlichen Informatio
+- 2026-07-23 11:44 | 19f65504d0-Invoice-GGYF9D9L-0020.pdf → Finanzen/Rechnungen | Rechnung von Anthropic, PBC über einmalige API-Credit-Gutschrift ($20.00 USD) zz
+- 2026-07-23 11:44 | 19f6188f68-image002.png → Kunden/Schaufler/Dokumente | Bilddatei (PNG) ohne extrahierbaren Text, offenbar Anhang zur E-Mail-Korresponde
+- 2026-07-23 11:44 | 19f80b8128-invoice-MSTRL-API-750302-003.pdf → Finanzen/2026/07_Juli | Rechnung von Mistral AI (MSTRL-API-750302-003) vom 20.07.2026 über 11,04 € für A
+- 2026-07-23 11:45 | 19f5bf9833-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (PNG) ohne extrahierbaren Text. Das Dateinamens-Muster (19f5bf98...) ä
+- 2026-07-23 11:45 | 19f6689ddd-image002.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image002.png), vermutlich Anhang aus einer E
+- 2026-07-23 11:45 | 19f69cc342-Rechnung_2026-07-16_310100082556.pdf → Finanzen/2026/07_Juli | IONOS-Sammelrechnung Nr. 310100082556 vom 16.07.2026 für WebWokr (Sebastian Spuh
+- 2026-07-23 11:45 | 19f6b69ed0-image001.png → Memos/Medien | Bilddatei (image001.png) ohne extrahierbaren Text, vermutlich Anhang einer E-Mai
+- 2026-07-23 11:45 | 19f6188f68-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) ohne extrahierbaren Text. Der Dateiname (19f6188f) entspr
+- 2026-07-23 11:45 | 19f5b5b9df-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) ohne extrahierbaren Text, anhand des Datei-Hashs (19f5b5b
+- 2026-07-23 11:47 | 19f5cb7c83-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) ohne extrahierbaren Text, versendet im E-Mail-Thread 19f5
+- 2026-07-23 11:47 | 19f69bbe55-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) ohne extrahierbaren Text, zugehörig zur E-Mail-ID 19f69bb
+- 2026-07-23 11:47 | 19f801f127-receipt-MSTRL-API-750302-RCPT-000001.pdf → Finanzen/2026/07_Juli | Quittung von Mistral AI SAS über 13,39 € für API-Nutzung (Mistral OCR) im Zeitra
+- 2026-07-23 11:47 | 19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.pdf → Finanzen/2026/07_Juli | Quittung von Mistral AI SAS über 11,04 € für API-Nutzung (Mistral OCR) vom 01.–2
+- 2026-07-23 11:47 | 19f6689ddd-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image001.png), vermutlich Screenshot-Anhang 
+- 2026-07-23 11:47 | 19f6689ddd-image005.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, keine Metadaten zur Zuordnung an einen Kunde
+- 2026-07-23 11:47 | 19f5bfda1d-image001.png → Kunden/Schaufler/Dokumente | Bildanhang (image001.png) aus der E-Mail-Korrespondenz zur Statusabfrage AI-Agen
+- 2026-07-23 11:48 | 19f5fc7d6d-Outlook-cid_image0.png → Memos/Medien | Bilddatei aus einer Outlook-E-Mail (eingebettetes cid-Bild) ohne extrahierbaren 
+- 2026-07-23 11:48 | 19f6689ddd-image004.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Anhang aus einer E-Mail. Ohne wei
+- 2026-07-23 11:48 | 19f6689ddd-image006.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, kein Kontext zur Zuordnung erkennbar. Vermut
+- 2026-07-23 11:48 | 19f8d67a64-smime.p7s → Memos/2026-07-23-Outlook-smime-Anhang.md | S/MIME-Signaturdatei (.p7s) ohne lesbaren Inhalt – kryptografische Signatur eine
+- 2026-07-23 11:48 | 19f6f49178-image001.png → Kunden/Schaufler/Dokumente | Bilddatei ohne extrahierbaren Text, vermutlich ein E-Mail-Anhang (Screenshot). L
+- 2026-07-23 11:48 | 19f7aaa4f4-Rechnung_RE260015_20.07.2026.pdf → Kunden/Schaufler/Vertraege | Ausgangsrechnung RE260015 von Prozessia an Schaufler Tooling GmbH & Co. KG vom 2
+- 2026-07-23 11:48 | 19f5bf6740-Top 10 Lieferanten.xlsx → Kunden/Schaufler/Dokumente | Liste der Top 10 Lieferanten für E- und K1-Teile mit vollständigen Kontaktdaten 
+- 2026-07-23 11:49 | 19f8015dd3-invoice-MSTRL-API-750302-002.pdf → Finanzen/2026/07_Juli | Rechnung von Mistral AI SAS (Frankreich) an Prozessia über 13,39 € brutto für AP
+- 2026-07-23 11:50 | 19f7aad092-Rechnung_RE260016_20.07.2026.pdf → Kunden/Schaufler/Vertraege | Rechnung RE260016 von Prozessia an Schaufler Tooling GmbH & Co. KG vom 20.07.202
+- 2026-07-23 11:50 | 19f8d67a64-Image → Memos/Medien | Bilddatei ohne extrahierbaren Textinhalt bzw. unbekanntes/nicht unterstütztes Fo
+- 2026-07-23 11:50 | 19f5ac99c1-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (E-Mail-Anhang, vermutlich Screenshot). Inhal
+- 2026-07-23 11:50 | 19f5ff1aad-BEST-KIND STAHL-127653.pdf → Kunden/Schaufler/Vertraege | Bestellbeleg Nr. 127653 von Schaufler Tooling GmbH & Co. KG an Kind & Co. Edelst
+- 2026-07-23 11:57 | 19f4baf08b-G170104086.pdf → Finanzen/2026/07_Juli | Microsoft Rechnung (Billing Summary + Tax Invoice) für Sebastian Spuhler über Az
+- 2026-07-23 11:57 | 19f4b9a883-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Screenshot oder eingebettetes Bil
+- 2026-07-23 11:57 | 19f4b8def1-G170032929.pdf → Finanzen/2026/07_Juli | Microsoft Deutschland Rechnungszusammenfassung für Sebastian Spuhler, Abrechnung
+- 2026-07-23 11:58 | 19f277a3e6-image003.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, kein inhaltlicher Kontext zur Zuordnung vorh
+- 2026-07-23 11:58 | 19f277a3e6-image002.png → Memos/Medien | Bilddatei (PNG) ohne extrahierbaren Text. Kontext/Herkunft unklar, vermutlich An
+- 2026-07-23 11:58 | 19f462a98b-image001.jpg → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Anhang aus einer E-Mail (z.B. Scr
+- 2026-07-23 11:59 | 19f40a0d3d-SLA_Schaufler .pdf → Kunden/Schaufler/Vertraege | Service Level Agreement zwischen Prozessia (Sebastian Spuhler, Mohamed Douioui G
+- 2026-07-23 11:59 | 19f09dec90-Receipt-2713-3487.pdf → Finanzen/2026/07_Juli | Zahlungsbeleg (Receipt) von Lovable Labs Incorporated für Prozessia GbR über 25,
+- 2026-07-23 11:59 | 19f188bb24-Invoice-GGYF9D9L-0019.pdf → Finanzen/2026/07_Juli | Anthropic-Rechnung GGYF9D9L-0019 vom 30.06.2026 über einen einmaligen API-Credit
+- 2026-07-23 11:59 | 19f462a98b-image002.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Anhang aus einer E-Mail (z.B. Scr
+- 2026-07-23 11:59 | 19f277a3e6-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image001.png), vermutlich Anhang aus einer E
+- 2026-07-23 11:59 | 19f277a3e6-image005.png → Memos/Medien | Bilddatei ohne extrahierbaren Text und ohne erkennbaren Kontext (z.B. E-Mail-Anh
+- 2026-07-23 11:59 | 19f37a9ec1-Angebot_AG0027_01.07.2026.pdf → Kunden/endin/Angebote | Angebot AG0027 vom 01.07.2026 an endin GmbH über einen KI-Agenten zur kaufmännis
+- 2026-07-23 12:00 | 19f17dfce8-Prozess Lohnverguß 2022.07.20.pdf → Kunden/endin/Dokumente | Prozessbeschreibung 'Lohnverguß-Aufzug' vom 20.07.2022, vermutlich Teil der von 
+- 2026-07-23 12:00 | 19f1cec510-smime.p7s → Memos/2026-07-23-Outlook-smime-Anhang.md | S/MIME-Signaturdatei (.p7s) eines E-Mail-Anhangs, kein eigenständig lesbarer Inh
+- 2026-07-23 12:00 | 19f41285f0-icon.png → Memos/Medien | Icon-Bilddatei ohne extrahierbaren Text und ohne erkennbaren Kontext oder Absend
+- 2026-07-23 12:00 | 19f4791308-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Screenshot-Anhang aus einer E-Mai
+- 2026-07-23 12:00 | 19f277a3e6-image004.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Anhang aus einer E-Mail (image004
+- 2026-07-23 12:00 | 19f18dd610-schufa_logo.png → Memos/Medien | Bilddatei mit dem SCHUFA-Logo, kein Text extrahierbar. Ohne weiteren Kontext (z.
+- 2026-07-23 12:00 | 19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.xlsx → Kunden/Schaufler/Dokumente | Fragenkatalog zur Erstellung einer KI-Nutzungsrichtlinie nach dem EU-KI-Act für 
+- 2026-07-23 12:00 | 19f21b2f77-image002.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image002.png). Vermutlich Anhang zu einer E-
+- 2026-07-23 12:00 | 19f3d0eb39-image002.jpg → Memos/Medien | Bilddatei ohne extrahierbaren Text, kein Kontext zur Zuordnung erkennbar. Vermut
+- 2026-07-23 12:01 | 19f430a55b-Gewerbeanmeldung Mohamed Douioui.pdf → Vertraege | Gewerbeanmeldung von Mohamed Douioui (geb. 28.02.2005) als geschäftsführender Ge
+- 2026-07-23 12:01 | 19f3d0eb39-image003.jpg → Kunden/endin/Dokumente | Bilddatei (image003.jpg) ohne extrahierbaren Text, vermutlich Anhang zur E-Mail-
+- 2026-07-23 12:01 | 19f21b2f77-image003.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, kein Dateiname- oder Kontexthinweis auf Inha
+- 2026-07-23 12:01 | 19f21b2f77-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich ein Screenshot oder eingebettetes
+- 2026-07-23 12:01 | 19f22dc1f4-icon.png → Memos/Medien | Icon-Bilddatei ohne extrahierbaren Text. Vermutlich technisches Asset (z.B. App-
+- 2026-07-23 12:01 | 19f3d0eb39-image001.png → Kunden/endin/Dokumente | Bilddatei ohne extrahierbaren Text (image001.png). Die Datei-ID (19f3d0eb) entsp
+- 2026-07-23 12:01 | 19f41e0aee-icon.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich ein Icon (z.B. App- oder Favicon-
+- 2026-07-23 12:01 | 19f17dfce8-Wareneingang 2025.08.08.pdf → Kunden/endin/Dokumente | Prozessbeschreibung 'Wareneingang' vom 08.08.2025 für endin – eine der vier zur 
+- 2026-07-23 12:02 | 19f47537e0-Rechnung_RE260014_09.07.2026.pdf → Finanzen/2026/07_Juli | Rechnung RE260014 vom 09.07.2026 von 'World Class Marketing LLC' (Wyoming, USA) 
+- 2026-07-23 12:02 | 19f17dfce8-image002.jpg → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Bildanhang aus einer E-Mail. Kein
+- 2026-07-23 12:02 | 19f41bf4a2-icon.png → Memos/Medien | Icon-Bilddatei ohne extrahierbaren Text und ohne erkennbaren Bezug zu einem Kund
+- 2026-07-23 12:02 | 19f21b2f77-image005.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich E-Mail-Anhang (z.B. Signatur-Bild
+- 2026-07-23 12:02 | 19f21b2f77-image007.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Anhang aus einer E-Mail (image007
+- 2026-07-23 12:02 | 19f17dfce8-Prozess Kleinauftrag 2022.07.15.pdf → Kunden/endin/Dokumente | Prozessdiagramm 'Prozeß Kleinauftrag' vom 11.7.2022, das den Ablauf der Abwicklu
+- 2026-07-23 12:02 | 19f18e16e2-Mitgliedschaftsbedingungen.pdf → Finanzen/Rechnungen | Preis- und Leistungsübersicht sowie Mitgliedschaftsbedingungen der American Expr
+- 2026-07-23 12:02 | 19f17dfce8-image001.png → Memos/Medien | Eingebettetes Bild ohne extrahierbaren Text (Dateiname image001.png), vermutlich
+- 2026-07-23 12:03 | 19f1c3dc33-invoice_sipgatede_B4602762.pdf → Finanzen/2026/07_Juli | Rechnung von sipgate GmbH (B4602762) vom 01.07.2026 über Telefonieguthaben in Hö
+- 2026-07-23 12:03 | 19f3cde426-Ticket_1von1_TX-14010-39606_COBOTS4YOU-Würzburg.pdf → Marketing/Webinar | Ticket-Bestätigung (1 von 1) für die Veranstaltung 'COBOTS4YOU' im VCC Vogel Con
+- 2026-07-23 12:03 | 19f23ce695-5615032135.pdf → Finanzen/2026/06_Juni | Google Workspace Rechnung für Prozessia GbR über 28,10 € netto (0% MwSt, Reverse
+- 2026-07-23 12:03 | 19f1871803-image002.jpg → Memos/Medien | Bilddatei ohne extrahierbaren Text (image002.jpg). Vermutlich Anhang aus einer E
+- 2026-07-23 12:03 | 19f1906293-Angebot_AG0026_30.06.2026.pdf → Kunden/endin/Angebote | Angebot AG0026 vom 30.06.2026 an endin GmbH über einen Agenten zur kaufmännische
+- 2026-07-23 12:03 | 19f4728b7d-Mitgliedschaftsbedingungen.pdf → Vertraege | Preis- und Leistungsübersicht sowie Mitgliedschaftsbedingungen der American Expr
+- 2026-07-23 12:03 | 19f21b2f77-image008.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Screenshot oder eingebettetes Bil
+- 2026-07-23 12:04 | 19f1871803-image001.png → Kunden/Schaufler/Dokumente | Bilddatei ohne extrahierbaren Text (Screenshot), vermutlich Anhang zu einer Scha
+- 2026-07-23 12:04 | 19f1c9e313-Angebot_AG0027_01.07.2026.pdf → Kunden/endin/Angebote | Angebot AG0027 vom 01.07.2026 an endin GmbH über einen KI Agenten für die kaufmä
+- 2026-07-23 12:04 | 19f21b2f77-image009.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image009.png). Herkunft und Inhalt nicht erk
+- 2026-07-23 12:04 | 19f40a0d3d-AVV_Schaufler_Prozessia.pdf → Kunden/Schaufler/Vertraege | Vertrag zur Auftragsverarbeitung (AVV) gemäß Art. 28 DS-GVO zwischen Schaufler T
+- 2026-07-23 12:04 | 19f2aa37a7-Hetzner_2026-07-04_083000997759.pdf → Finanzen/2026/07_Juli | Hetzner-Rechnung 083000997759 vom 04.07.2026 für Projekt 'Default' (06/2026): CX
+- 2026-07-23 12:05 | 19f17a1531-image001.png → Memos/Medien | Bilddatei (Screenshot) ohne extrahierbaren Text. Anhang vermutlich aus einer E-M
+- 2026-07-23 12:05 | 19f41bbdb4-icon.png → Memos/Medien | Bilddatei (Icon) ohne extrahierbaren Text und ohne erkennbaren Kunden- oder Proj
+- 2026-07-23 12:05 | 19f17a1531-image002.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Anhang aus einer E-Mail (image002
+- 2026-07-23 12:05 | 19f188bb24-Receipt-2715-8726-9308.pdf → Finanzen/2026/06_Juni | Zahlungsbeleg (Receipt) von Anthropic, PBC über einmaligen API-Credit-Kauf in Hö
+- 2026-07-23 12:05 | 19f41bf4b4-icon.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich ein Icon (z.B. App-Icon oder UI-E
+- 2026-07-23 12:05 | 19f17a1531-Leistungsübersicht der Business Platinum Card.pdf → Finanzen/Angebote | Produktinformationsblatt der American Express Business Platinum Card mit Leistun
+- 2026-07-23 12:05 | 19f46e3b5c-INV-057.pdf → Finanzen/2026/06_Juni | Rechnung INV-057 von World Class Marketing LLC (Wyoming/USA) an Sebastian Spuhle
+- 2026-07-23 12:06 | 19f09dec90-Invoice-XC0AID8J-0007.pdf → Finanzen/2026/07_Juli | Rechnung von Lovable Labs Incorporated über 25,00 € für das Pro-Abo (Zeitraum 27
+- 2026-07-23 12:06 | 19f472fdc9-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) ohne extrahierbaren Text, zugehörig zur E-Mail 'Infos zur
+- 2026-07-23 12:06 | 19f17dfce8-Workflow Ersatzteile.pdf → Memos | Workflow-Diagramm zur Ersatzteil-Abwicklung mit den Stationen Einkauf und Werkst
+- 2026-07-23 12:06 | 19f430a55b-Gesellschaftsvertrag der Webwokr Gbr.pdf → Vertraege | Gesellschaftsvertrag der WebWokr GbR (Sitz Saarbrücken) zwischen Sebastian Spuhl

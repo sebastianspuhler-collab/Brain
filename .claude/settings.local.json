@@ -105,5 +105,8 @@
     "additionalDirectories": [
       "/private/tmp/claude-503/-Users-sesp01-user-Documents-Prozessia-Brain/cd05081e-a0b3-4069-8577-f3726eef0417/scratchpad"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "prozessia-tools"
+  ]
 }
