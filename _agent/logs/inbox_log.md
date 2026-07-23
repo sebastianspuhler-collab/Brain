@@ -869,3 +869,27 @@
 - 2026-07-23 11:43 | 19f5ff1aad-BEST-KIND WBH-127668.pdf → Kunden/Schaufler/Vertraege | Bestellung und Lieferschein (Härten) von Schaufler Tooling GmbH & Co. KG an Kind
 - 2026-07-23 11:43 | 19f5ff1aad-BEST-RAFFSPED.-126744.pdf → Kunden/Schaufler/Vertraege | Bestellbeleg Nr. 126744 der Schaufler Tooling GmbH & Co. KG an die Spedition Kar
 - 2026-07-23 11:43 | 19f80bf0b9-invoice-MSTRL-API-750302-003.pdf → Finanzen/2026/07_Juli | Rechnung von Mistral AI (Paris) an Prozessia über 11,04 € für API-Nutzung (Mistr
+- 2026-07-23 11:43 | 19f65c2455-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) ohne extrahierbaren Text, zugehörig zur E-Mail 19f65c24 '
+- 2026-07-23 11:43 | 19f69ece3a-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (image001.png) ohne extrahierbaren Text, angehängt an eine E-Mail mit 
+- 2026-07-23 11:44 | 19f5bf6740-image001.png → Kunden/Schaufler/Dokumente | Bilddatei ohne extrahierbaren Text, vermutlich ein Screenshot-Anhang zur E-Mail-
+- 2026-07-23 11:44 | 19f5bc2771-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text oder erkennbaren Kontext. Vermutlich Screensh
+- 2026-07-23 11:44 | 19f6689ddd-image003.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image003.png). Keine inhaltlichen Informatio
+- 2026-07-23 11:44 | 19f65504d0-Invoice-GGYF9D9L-0020.pdf → Finanzen/Rechnungen | Rechnung von Anthropic, PBC über einmalige API-Credit-Gutschrift ($20.00 USD) zz
+- 2026-07-23 11:44 | 19f6188f68-image002.png → Kunden/Schaufler/Dokumente | Bilddatei (PNG) ohne extrahierbaren Text, offenbar Anhang zur E-Mail-Korresponde
+- 2026-07-23 11:44 | 19f80b8128-invoice-MSTRL-API-750302-003.pdf → Finanzen/2026/07_Juli | Rechnung von Mistral AI (MSTRL-API-750302-003) vom 20.07.2026 über 11,04 € für A
+- 2026-07-23 11:45 | 19f5bf9833-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (PNG) ohne extrahierbaren Text. Das Dateinamens-Muster (19f5bf98...) ä
+- 2026-07-23 11:45 | 19f6689ddd-image002.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image002.png), vermutlich Anhang aus einer E
+- 2026-07-23 11:45 | 19f69cc342-Rechnung_2026-07-16_310100082556.pdf → Finanzen/2026/07_Juli | IONOS-Sammelrechnung Nr. 310100082556 vom 16.07.2026 für WebWokr (Sebastian Spuh
+- 2026-07-23 11:45 | 19f6b69ed0-image001.png → Memos/Medien | Bilddatei (image001.png) ohne extrahierbaren Text, vermutlich Anhang einer E-Mai
+- 2026-07-23 11:45 | 19f6188f68-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) ohne extrahierbaren Text. Der Dateiname (19f6188f) entspr
+- 2026-07-23 11:45 | 19f5b5b9df-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) ohne extrahierbaren Text, anhand des Datei-Hashs (19f5b5b
+- 2026-07-23 11:47 | 19f5cb7c83-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) ohne extrahierbaren Text, versendet im E-Mail-Thread 19f5
+- 2026-07-23 11:47 | 19f69bbe55-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) ohne extrahierbaren Text, zugehörig zur E-Mail-ID 19f69bb
+- 2026-07-23 11:47 | 19f801f127-receipt-MSTRL-API-750302-RCPT-000001.pdf → Finanzen/2026/07_Juli | Quittung von Mistral AI SAS über 13,39 € für API-Nutzung (Mistral OCR) im Zeitra
+- 2026-07-23 11:47 | 19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.pdf → Finanzen/2026/07_Juli | Quittung von Mistral AI SAS über 11,04 € für API-Nutzung (Mistral OCR) vom 01.–2
+- 2026-07-23 11:47 | 19f6689ddd-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image001.png), vermutlich Screenshot-Anhang 
+- 2026-07-23 11:47 | 19f6689ddd-image005.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, keine Metadaten zur Zuordnung an einen Kunde
+- 2026-07-23 11:47 | 19f5bfda1d-image001.png → Kunden/Schaufler/Dokumente | Bildanhang (image001.png) aus der E-Mail-Korrespondenz zur Statusabfrage AI-Agen
+- 2026-07-23 11:48 | 19f5fc7d6d-Outlook-cid_image0.png → Memos/Medien | Bilddatei aus einer Outlook-E-Mail (eingebettetes cid-Bild) ohne extrahierbaren 
+- 2026-07-23 11:48 | 19f6689ddd-image004.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Anhang aus einer E-Mail. Ohne wei
+- 2026-07-23 11:48 | 19f6689ddd-image006.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, kein Kontext zur Zuordnung erkennbar. Vermut
