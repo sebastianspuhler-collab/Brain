@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-07-23 15:20] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] KI-Agent-Einsatz langfristig zur Automatisierung von Kalkulationsprozessen in der Fertigung geplant
+- [2026-07-23 15:20] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Bestehendes Tool ‚Spanflug' zur Kalkulation von Frässzeiten – zeigt Limitierungen bei komplexen geschweißten Baugruppen
 - [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Zusage: Prozessia übernimmt Server-Infrastruktur auf Wunsch; Folgetermin in ~1-1,5 Wochen (ca. 28.7.-4.8.2026)
 - [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Schatten-KI, DSGVO/EU AI Act Risiken besprochen
 - [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Kunde interessiert an Lieferverzugsliste & automatisierter Mahnläufe bei verspäteten Lieferungen
@@ -558,6 +560,8 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-23 15:20] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Erstgespräch: 23.07.2026 (Besprechungstranskript 15:30 Min)
+- [2026-07-23 15:20] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Stefan Seifert, Seifert-GmbH – Fertigungsbetrieb im Bereich Frästeile/Zerspanung
 - [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Schmidt-Hänsch produziert Prozessrefraktometer und Dichtemessgeräte, nutzt ERP-System Sage 100 für Produktion/Einkauf/Buchhaltung
 - [2026-07-23 15:17] [2026-07-23-Email-19f8f1d8-Zugesagt-Update-Seifert-X-Prozessia.md] Kontakt: Stefan Seifert (stefan.seifert@seifert-gmbh.com) von Seifert-GmbH
 - [2026-07-23 15:17] [Zugesagt: Update Seifert X Prozessia] Stefan Seifert (Seifert GmbH) hat Zusage für 'Update Seifert X Prozessia' erteilt
@@ -724,6 +728,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-23 15:20] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Gesuchte KI-Agent-Lösung: automatisierte Erstellung von Material-/Zuschnittlisten für geschweißte Baugruppen (mehrere Einzelteile)
 - [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] KI-Beschaffungsagent für Einkauf präsentiert: Auftragsbestätigungsprüfung, Mahnwesen, Lieferantenbewertung; adaptierbar an Sage 100/Winform + Outlook
 - [2026-07-23 12:11] [2026-07-23-19f4728b7d-Mitgliedschaftsbedingungen.md] Hauptkartenentgelt: EUR 850/Jahr; Zusatzkarten mit zusätzlichen Entgelten
 - [2026-07-23 12:11] [2026-07-23-19f430a55b-Gesellschaftsvertrag der Webwokr Gbr.md] Vertrag regelt Gewinn-/Verlustverteilung, Geschäftsführung, Entscheidungsprozesse, Ausscheiden/Tod von Gesellschaftern
