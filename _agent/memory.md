@@ -1,4 +1,11 @@
 ## KONTEXT
+- [2026-07-23 11:38] [KI Agent] Benjamin fordert Feedback zur Performance der Live-Daten und zur Agent-Funktionalität an; bislang keine Fehler/komischen Mails von Kollegen gemeldet (22.-23.07.2026)
+- [2026-07-23 11:38] [WhatsApp-Konversationen-Handover und Upd] fonio Update-Webinar: 30. Juli 2026, 16:00 Uhr (monatliches Webinar)
+- [2026-07-23 11:38] [WhatsApp-Konversationen-Handover und Upd] Matthias (CTO fonio) postet täglich Updates zu neuen Features auf LinkedIn
+- [2026-07-23 11:38] [WhatsApp-Konversationen-Handover und Upd] fonio WhatsApp-Assistenten können Konversationen ab sofort direkt an Menschen übergeben (neue Funktion diese Woche)
+- [2026-07-23 11:38] [Re: IT Sicherheit Riemann] Sebastians Anfrage vom 22.07.2026 bezog sich auf Schatten-KI-Nutzung, Datenschutzverstöße und KI-Einsatz im industriellen Mittelstand
+- [2026-07-23 11:38] [Update: Änderung Sub-Auftragsverarbeiter] Änderung gemäß AVV Ziffer 5.6 (Auftragsverarbeitungsvereinbarung mit fonio.ai) – formale Benachrichtigung erhalten
+- [2026-07-23 11:38] [Update: Änderung Sub-Auftragsverarbeiter] fonio.ai ändert Sub-Auftragsverarbeiter für Text-to-Speech: Eleven Labs Inc. wird ab 06.08.2026 durch Theai, Inc. dba Inworld AI ersetzt (EU-Datenresidenz, Zero Data Retention, Standardvertragsklauseln)
 - [2026-07-19 16:52] [2026-07-16-Einführung Beschaffungsagent.md] Besprechung vom 16.07.2026 mit Benjamin Schmohl, Amin Douioui und Sebastian Spuhler zur Einführung/Weiterentwicklung Beschaffungsagent
 - [2026-07-19 16:52] [2026-06-25-Besprechung Umsetzung Server Infrastruktur Schaufler (1).md] Offene Abhängigkeit: Testview-Status bei Jochen - erforderlich vor WinForm-Anbindung
 - [2026-07-19 16:51] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler.md] Treffen am 2026-07-16 war Erstgespräch zwischen Prozessia und Lendner; nächste Schritte noch offen
@@ -432,6 +439,8 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-23 11:38] [WhatsApp-Konversationen-Handover und Upd] WhatsApp-Assistenten-Feature (automatische Anliegen-Erkennung + Handover) ist kundenrelevant für Prozessia-Services
+- [2026-07-23 11:38] [Re: IT Sicherheit Riemann] Riemann GmbH, Georgsmarienhütte (49124), Kontaktperson: Lydia Hanneken, Assistentin der Geschäftsführung, l.hanneken@riemann-manufacturing.de, Tel: +49 5401 88199-71
 - [2026-07-19 16:52] [2026-06-30-Potenzialanalyse Endin X Prozessia.md] Kunde: Endin (Ansprechpartner: Cyril Dietz)
 - [2026-07-19 16:52] [2026-06-18-Kai Winterscheid and Sebastian Spuhler.md] T.P.G. Gruppe hat Einkaufsvolumen von ca. 55 Millionen Euro und Jahresumsatz von 120 Millionen Euro
 - [2026-07-19 16:52] [2026-06-18-Kai Winterscheid and Sebastian Spuhler.md] Kai Winterscheid ist Einkaufsleiter der T.P.G. Gruppe mit drei Marken: Fawema, HDG und Wolf
@@ -571,6 +580,8 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-23 11:38] [KI Agent] KI Agent läuft live bei Schaufler seit mindestens 23.07.2026; Dashboard freigeschaltet, aber mit begrenzte Sichtbarkeit
+- [2026-07-23 11:38] [Re: IT Sicherheit Riemann] ABSAGE: Riemann hat kein Interesse an Austausch zu IT-Sicherheit und EU AI Act (ab 02.08.2026). Grund: Thema ist intern bereits geregelt.
 - [2026-07-19 16:52] [2026-06-30-Potenzialanalyse Endin X Prozessia.md] Automatisierung des kaufmännischen Abwicklungsprozesses bei Endin geplant: Angebotserstellung, Freigabe-Workflow, Bestellungseingang
 - [2026-07-19 16:52] [2026-06-18-Kai Winterscheid and Sebastian Spuhler.md] Hauptprobleme: Terminverfolgung und Auftragsbestätigungen im Einkauf
 - [2026-07-19 16:52] [2026-07-19-Rechnung_RE260016_20.07.2026.md] Leistung umfasst: Technische Basis & Infrastruktur, Schnittstelleneinrichtung zu Tools/Systemen/APIs, Betrieb auf unternehmenseigenem Server mit Skalierbarkeit für 100+ Aufträge
