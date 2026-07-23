@@ -1,4 +1,15 @@
 ## KONTEXT
+- [2026-07-23 12:09] [2026-07-23-19f1c9e313-Angebot_AG0027_01.07.2026.md] Gesamtbetrag 21.420€ brutto (18.000€ netto), 50% Abschlag bei Prototyp-Fertigstellung
+- [2026-07-23 12:09] [2026-07-23-19f1906293-Angebot_AG0026_30.06.2026.md] Preis: 7.140,00 € brutto (6.000,00 € netto + 19% USt.)
+- [2026-07-23 12:09] [2026-07-23-19f1906293-Angebot_AG0026_30.06.2026.md] Angebot AG0026 vom 30.06.2026, gültig bis 28.07.2026 – Gültigkeitsfrist in 5 Tagen ablaufend
+- [2026-07-23 12:09] [2026-07-23-19f40a0d3d-AVV_Schaufler_Prozessia.md] Technologie-Stack: Azure OpenAI Service in europäischer Region
+- [2026-07-23 12:08] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] Quelle: 19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.xlsx (Datum: 2026-07-23)
+- [2026-07-23 12:08] [2026-07-23-19f18e16e2-Mitgliedschaftsbedingungen.md] Mitgliedschaftsbedingungen aktuell vom 23.07.2026
+- [2026-07-23 12:08] [2026-07-23-19f18e16e2-Mitgliedschaftsbedingungen.md] Verfügbar: Zusatzkarten und Platinum Plus Optionen (Preise in Dokument)
+- [2026-07-23 12:08] [2026-07-23-19f18e16e2-Mitgliedschaftsbedingungen.md] Vertragspartner: American Express Europe S.A. (Germany branch), Frankfurt, HRB 112342
+- [2026-07-23 12:08] [2026-07-23-19f18e16e2-Mitgliedschaftsbedingungen.md] Jahresgebühr Hauptkarte: 850 €
+- [2026-07-23 12:08] [2026-07-23-19f17a1531-Leistungsübersicht der Business Platinum Card.md] 24/7 persönlicher Service und Versicherungspaket enthalten
+- [2026-07-23 12:08] [2026-07-23-19f17a1531-Leistungsübersicht der Business Platinum Card.md] Zusatzkarten für Mitarbeiter:innen verfügbar, individueller Verfügungsrahmen verhandelbar
 - [2026-07-23 12:08] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] Zahlungsart: Automatische Kreditkartenabbuchung für Hetzner-Rechnungen
 - [2026-07-23 12:08] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] Monatliche Infrastrukturkosten: 0,77 € brutto (0,65 € netto) - Juni 2026
 - [2026-07-23 12:08] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] Hetzner Kundennummer: K0631688826 (Prozessia, Sebastian Spuhler)
@@ -532,6 +543,8 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-23 12:10] [2026-07-23-19f17dfce8-Prozess Kleinauftrag 2022.07.15.md] Endin: Prozessdiagramm 'Prozeß Kleinauftrag' (11.7.2022) für Potenzialanalyse vorhanden – dokumentiert Ablauf Ersatzteile/Kleinaufträge
+- [2026-07-23 12:08] [2026-07-23-19f18e16e2-Mitgliedschaftsbedingungen.md] Prozessia GbR nutzt American Express Business Platinum Card
 - [2026-07-23 12:07] [2026-07-23-19f1c3dc33-invoice_sipgatede_B4602762.md] sipgate Kundennummer: 3988053 (Rechnungsnummer B4602762)
 - [2026-07-23 11:55] [2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md] Rechnung RE260015 an SCHAUFLER Tooling GmbH & Co. KG (Goethestrasse 72, 89150 Laichingen) vom 20.07.2026
 - [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Lieferant: Sven & Gerhard Schmitt GbR (Maschinen- & Vorrichtungsbau), Willingshainer Str. 45, 36275 Kirchheim, s.schmitt@maschinenbau-schmitt.com, Fax 06628/9999009
@@ -691,6 +704,15 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-23 12:10] [2026-07-23-19f17dfce8-Prozess Kleinauftrag 2022.07.15.md] Prozeß Kleinauftrag: visualisierter Ablauf mit Legende, Grundlage für Prozessoptimierung/Analyse
+- [2026-07-23 12:09] [2026-07-23-19f37a9ec1-Angebot_AG0027_01.07.2026.md] Technische Anforderung: Schnittstellen zu Buhl Unternehmer 365, E-Mail-Postfächern, DATEV; unternehmenseigener Server (Datensicherheit, Skalierbarkeit)
+- [2026-07-23 12:09] [2026-07-23-19f37a9ec1-Angebot_AG0027_01.07.2026.md] Gesamtpreis: 17.255,00 € brutto (14.500,00 € netto + 19% USt.)
+- [2026-07-23 12:09] [2026-07-23-19f37a9ec1-Angebot_AG0027_01.07.2026.md] KI-Agent für kaufmännische Auftragsabwicklung: Angebotserstellung, Auftragserkennung, Versand-/Dokumentenmanagement, Rechnungs-/Buchhaltungsanbindung DATEV, Steuerungsdashboard
+- [2026-07-23 12:09] [2026-07-23-19f1906293-Angebot_AG0026_30.06.2026.md] Leistung: Agent für kaufmännische Abwicklung mit automatischem Lesen/Strukturieren von Bestellungen, Klassifizierung (Service/Ersatzteile/Maschine), Vorbereitung Export-Begleitdokumente inkl. Tunesien-Sonderfall, Vorprüfung Lieferschein/Rechnungsinhalte
+- [2026-07-23 12:09] [2026-07-23-19f40a0d3d-SLA_Schaufler .md] Hetzner-Server-Infrastrukturkosten werden weitergegeben an Schaufler
+- [2026-07-23 12:08] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] Offene Deliverables: Governance-Dokument, genaue Einsatzbereiche, Nutzergruppen, erlaubte Tätigkeiten definieren
+- [2026-07-23 12:08] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] Risikoklasse noch zu verifizieren: minimal vs. begrenzt Risiko (noch ungeklärt)
+- [2026-07-23 12:08] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] KI-Nutzungsrichtlinie nach EU-KI-Act für Prozessia-Agent (Cloud-Lösung) in Erstellung
 - [2026-07-23 12:08] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] CX33 Cloud Server mit Primary IPv4 und Backup läuft im Projekt 'Default'
 - [2026-07-23 12:07] [2026-07-23-19f1c3dc33-invoice_sipgatede_B4602762.md] Regelmäßige monatliche sipgate-Aufladung erkannt (Leistungsdatum: 01.07.2026, Rechnungsdatum: 01.07.2026)
 - [2026-07-23 12:07] [2026-07-23-19f09dec90-Invoice-XC0AID8J-0007.md] Lovable Pro-Abo kostet monatlich 25,00 €, abgerechnet monatlich zum 27. (Rechnungsnummer XC0AID8J-0007)
