@@ -915,3 +915,41 @@
 - 2026-07-23 11:59 | 19f277a3e6-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image001.png), vermutlich Anhang aus einer E
 - 2026-07-23 11:59 | 19f277a3e6-image005.png → Memos/Medien | Bilddatei ohne extrahierbaren Text und ohne erkennbaren Kontext (z.B. E-Mail-Anh
 - 2026-07-23 11:59 | 19f37a9ec1-Angebot_AG0027_01.07.2026.pdf → Kunden/endin/Angebote | Angebot AG0027 vom 01.07.2026 an endin GmbH über einen KI-Agenten zur kaufmännis
+- 2026-07-23 12:00 | 19f17dfce8-Prozess Lohnverguß 2022.07.20.pdf → Kunden/endin/Dokumente | Prozessbeschreibung 'Lohnverguß-Aufzug' vom 20.07.2022, vermutlich Teil der von 
+- 2026-07-23 12:00 | 19f1cec510-smime.p7s → Memos/2026-07-23-Outlook-smime-Anhang.md | S/MIME-Signaturdatei (.p7s) eines E-Mail-Anhangs, kein eigenständig lesbarer Inh
+- 2026-07-23 12:00 | 19f41285f0-icon.png → Memos/Medien | Icon-Bilddatei ohne extrahierbaren Text und ohne erkennbaren Kontext oder Absend
+- 2026-07-23 12:00 | 19f4791308-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Screenshot-Anhang aus einer E-Mai
+- 2026-07-23 12:00 | 19f277a3e6-image004.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Anhang aus einer E-Mail (image004
+- 2026-07-23 12:00 | 19f18dd610-schufa_logo.png → Memos/Medien | Bilddatei mit dem SCHUFA-Logo, kein Text extrahierbar. Ohne weiteren Kontext (z.
+- 2026-07-23 12:00 | 19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.xlsx → Kunden/Schaufler/Dokumente | Fragenkatalog zur Erstellung einer KI-Nutzungsrichtlinie nach dem EU-KI-Act für 
+- 2026-07-23 12:00 | 19f21b2f77-image002.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image002.png). Vermutlich Anhang zu einer E-
+- 2026-07-23 12:00 | 19f3d0eb39-image002.jpg → Memos/Medien | Bilddatei ohne extrahierbaren Text, kein Kontext zur Zuordnung erkennbar. Vermut
+- 2026-07-23 12:01 | 19f430a55b-Gewerbeanmeldung Mohamed Douioui.pdf → Vertraege | Gewerbeanmeldung von Mohamed Douioui (geb. 28.02.2005) als geschäftsführender Ge
+- 2026-07-23 12:01 | 19f3d0eb39-image003.jpg → Kunden/endin/Dokumente | Bilddatei (image003.jpg) ohne extrahierbaren Text, vermutlich Anhang zur E-Mail-
+- 2026-07-23 12:01 | 19f21b2f77-image003.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, kein Dateiname- oder Kontexthinweis auf Inha
+- 2026-07-23 12:01 | 19f21b2f77-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich ein Screenshot oder eingebettetes
+- 2026-07-23 12:01 | 19f22dc1f4-icon.png → Memos/Medien | Icon-Bilddatei ohne extrahierbaren Text. Vermutlich technisches Asset (z.B. App-
+- 2026-07-23 12:01 | 19f3d0eb39-image001.png → Kunden/endin/Dokumente | Bilddatei ohne extrahierbaren Text (image001.png). Die Datei-ID (19f3d0eb) entsp
+- 2026-07-23 12:01 | 19f41e0aee-icon.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich ein Icon (z.B. App- oder Favicon-
+- 2026-07-23 12:01 | 19f17dfce8-Wareneingang 2025.08.08.pdf → Kunden/endin/Dokumente | Prozessbeschreibung 'Wareneingang' vom 08.08.2025 für endin – eine der vier zur 
+- 2026-07-23 12:02 | 19f47537e0-Rechnung_RE260014_09.07.2026.pdf → Finanzen/2026/07_Juli | Rechnung RE260014 vom 09.07.2026 von 'World Class Marketing LLC' (Wyoming, USA) 
+- 2026-07-23 12:02 | 19f17dfce8-image002.jpg → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Bildanhang aus einer E-Mail. Kein
+- 2026-07-23 12:02 | 19f41bf4a2-icon.png → Memos/Medien | Icon-Bilddatei ohne extrahierbaren Text und ohne erkennbaren Bezug zu einem Kund
+- 2026-07-23 12:02 | 19f21b2f77-image005.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich E-Mail-Anhang (z.B. Signatur-Bild
+- 2026-07-23 12:02 | 19f21b2f77-image007.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Anhang aus einer E-Mail (image007
+- 2026-07-23 12:02 | 19f17dfce8-Prozess Kleinauftrag 2022.07.15.pdf → Kunden/endin/Dokumente | Prozessdiagramm 'Prozeß Kleinauftrag' vom 11.7.2022, das den Ablauf der Abwicklu
+- 2026-07-23 12:02 | 19f18e16e2-Mitgliedschaftsbedingungen.pdf → Finanzen/Rechnungen | Preis- und Leistungsübersicht sowie Mitgliedschaftsbedingungen der American Expr
+- 2026-07-23 12:02 | 19f17dfce8-image001.png → Memos/Medien | Eingebettetes Bild ohne extrahierbaren Text (Dateiname image001.png), vermutlich
+- 2026-07-23 12:03 | 19f1c3dc33-invoice_sipgatede_B4602762.pdf → Finanzen/2026/07_Juli | Rechnung von sipgate GmbH (B4602762) vom 01.07.2026 über Telefonieguthaben in Hö
+- 2026-07-23 12:03 | 19f3cde426-Ticket_1von1_TX-14010-39606_COBOTS4YOU-Würzburg.pdf → Marketing/Webinar | Ticket-Bestätigung (1 von 1) für die Veranstaltung 'COBOTS4YOU' im VCC Vogel Con
+- 2026-07-23 12:03 | 19f23ce695-5615032135.pdf → Finanzen/2026/06_Juni | Google Workspace Rechnung für Prozessia GbR über 28,10 € netto (0% MwSt, Reverse
+- 2026-07-23 12:03 | 19f1871803-image002.jpg → Memos/Medien | Bilddatei ohne extrahierbaren Text (image002.jpg). Vermutlich Anhang aus einer E
+- 2026-07-23 12:03 | 19f1906293-Angebot_AG0026_30.06.2026.pdf → Kunden/endin/Angebote | Angebot AG0026 vom 30.06.2026 an endin GmbH über einen Agenten zur kaufmännische
+- 2026-07-23 12:03 | 19f4728b7d-Mitgliedschaftsbedingungen.pdf → Vertraege | Preis- und Leistungsübersicht sowie Mitgliedschaftsbedingungen der American Expr
+- 2026-07-23 12:03 | 19f21b2f77-image008.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Screenshot oder eingebettetes Bil
+- 2026-07-23 12:04 | 19f1871803-image001.png → Kunden/Schaufler/Dokumente | Bilddatei ohne extrahierbaren Text (Screenshot), vermutlich Anhang zu einer Scha
+- 2026-07-23 12:04 | 19f1c9e313-Angebot_AG0027_01.07.2026.pdf → Kunden/endin/Angebote | Angebot AG0027 vom 01.07.2026 an endin GmbH über einen KI Agenten für die kaufmä
+- 2026-07-23 12:04 | 19f21b2f77-image009.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image009.png). Herkunft und Inhalt nicht erk
+- 2026-07-23 12:04 | 19f40a0d3d-AVV_Schaufler_Prozessia.pdf → Kunden/Schaufler/Vertraege | Vertrag zur Auftragsverarbeitung (AVV) gemäß Art. 28 DS-GVO zwischen Schaufler T
+- 2026-07-23 12:04 | 19f2aa37a7-Hetzner_2026-07-04_083000997759.pdf → Finanzen/2026/07_Juli | Hetzner-Rechnung 083000997759 vom 04.07.2026 für Projekt 'Default' (06/2026): CX
+- 2026-07-23 12:05 | 19f17a1531-image001.png → Memos/Medien | Bilddatei (Screenshot) ohne extrahierbaren Text. Anhang vermutlich aus einer E-M
