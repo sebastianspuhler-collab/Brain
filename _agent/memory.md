@@ -1,4 +1,14 @@
 ## KONTEXT
+- [2026-07-23 12:11] [2026-07-23-19f430a55b-Gewerbeanmeldung Mohamed Douioui.md] Betriebsstätte Prozessia: Universität/Starterzentrum Campus A 1.1, 66123 Saarbrücken
+- [2026-07-23 12:11] [2026-07-23-19f430a55b-Gesellschaftsvertrag der Webwokr Gbr.md] Kapitaleinlage pro Gesellschafter: 100€
+- [2026-07-23 12:11] [2026-07-23-19f430a55b-Gesellschaftsvertrag der Webwokr Gbr.md] Geschäftszweck WebWokr: Webdesign, SEO, Website-Konzeption/-Gestaltung/-Entwicklung, Online-Marketing-Beratung
+- [2026-07-23 12:11] [2026-07-23-19f430a55b-Gesellschaftsvertrag der Webwokr Gbr.md] WebWokr GbR: Gesellschaftsvertrag zwischen Sebastian Spuhler und Mohamed Douioui, Sitz Saarbrücken
+- [2026-07-23 12:10] [2026-07-23-19f3cde426-Ticket_1von1_TX-14010-39606_COBOTS4YOU-Würzburg.md] Veranstaltung COBOTS4YOU ist kostenlos (freier Eintritt)
+- [2026-07-23 12:10] [2026-07-23-19f3cde426-Ticket_1von1_TX-14010-39606_COBOTS4YOU-Würzburg.md] Sebastian Spuhler/Prozessia: Ticket bestätigt (1 von 1) für COBOTS4YOU
+- [2026-07-23 12:10] [2026-07-23-19f3cde426-Ticket_1von1_TX-14010-39606_COBOTS4YOU-Würzburg.md] Veranstaltungsadresse: Max-Planck-Straße 7/9, 97082 Würzburg, Deutschland
+- [2026-07-23 12:10] [2026-07-23-19f3cde426-Ticket_1von1_TX-14010-39606_COBOTS4YOU-Würzburg.md] COBOTS4YOU Würzburg: 27.10.2026, 09:00-17:00 Uhr im VCC Vogel Convention Center
+- [2026-07-23 12:10] [2026-07-23-19f17dfce8-Wareneingang 2025.08.08.md] Vier Prozesse in der Analyse: Wareneingang, Kleinaufträge, ergänzender Workflow, Lohnfertigung
+- [2026-07-23 12:10] [2026-07-23-19f17dfce8-Prozess Lohnverguß 2022.07.20.md] Datei enthält hauptsächlich Scan des PDF-Prozessdiagramms ohne zusätzliche strukturierte Textinformationen
 - [2026-07-23 12:09] [2026-07-23-19f1c9e313-Angebot_AG0027_01.07.2026.md] Gesamtbetrag 21.420€ brutto (18.000€ netto), 50% Abschlag bei Prototyp-Fertigstellung
 - [2026-07-23 12:09] [2026-07-23-19f1906293-Angebot_AG0026_30.06.2026.md] Preis: 7.140,00 € brutto (6.000,00 € netto + 19% USt.)
 - [2026-07-23 12:09] [2026-07-23-19f1906293-Angebot_AG0026_30.06.2026.md] Angebot AG0026 vom 30.06.2026, gültig bis 28.07.2026 – Gültigkeitsfrist in 5 Tagen ablaufend
@@ -543,6 +553,8 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-23 12:10] [2026-07-23-19f17dfce8-Wareneingang 2025.08.08.md] endin – Potenzialanalyse mit vier Prozessdokumentationen geplant
+- [2026-07-23 12:10] [2026-07-23-19f17dfce8-Prozess Lohnverguß 2022.07.20.md] Endin hat Prozessdokumentationen (u.a. Lohnfertigungsaufträge) für Potenzialanalyse bereitgestellt
 - [2026-07-23 12:10] [2026-07-23-19f17dfce8-Prozess Kleinauftrag 2022.07.15.md] Endin: Prozessdiagramm 'Prozeß Kleinauftrag' (11.7.2022) für Potenzialanalyse vorhanden – dokumentiert Ablauf Ersatzteile/Kleinaufträge
 - [2026-07-23 12:08] [2026-07-23-19f18e16e2-Mitgliedschaftsbedingungen.md] Prozessia GbR nutzt American Express Business Platinum Card
 - [2026-07-23 12:07] [2026-07-23-19f1c3dc33-invoice_sipgatede_B4602762.md] sipgate Kundennummer: 3988053 (Rechnungsnummer B4602762)
@@ -704,6 +716,11 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-23 12:11] [2026-07-23-19f4728b7d-Mitgliedschaftsbedingungen.md] Hauptkartenentgelt: EUR 850/Jahr; Zusatzkarten mit zusätzlichen Entgelten
+- [2026-07-23 12:11] [2026-07-23-19f430a55b-Gesellschaftsvertrag der Webwokr Gbr.md] Vertrag regelt Gewinn-/Verlustverteilung, Geschäftsführung, Entscheidungsprozesse, Ausscheiden/Tod von Gesellschaftern
+- [2026-07-23 12:10] [2026-07-23-19f17dfce8-Wareneingang 2025.08.08.md] Visuelle Prozessdokumentation (Ablaufdiagramm + Legende) für Wareneingang vorhanden
+- [2026-07-23 12:10] [2026-07-23-19f17dfce8-Wareneingang 2025.08.08.md] Wareneingang-Prozess für endin dokumentiert (Datum: 08.08.2025, mit Ablaufdiagramm und Legende)
+- [2026-07-23 12:10] [2026-07-23-19f17dfce8-Prozess Lohnverguß 2022.07.20.md] Prozess 'Lohnverguß-Aufzug' dokumentiert vom 20.07.2022 als Teil der Endin-Prozessdokumentationen
 - [2026-07-23 12:10] [2026-07-23-19f17dfce8-Prozess Kleinauftrag 2022.07.15.md] Prozeß Kleinauftrag: visualisierter Ablauf mit Legende, Grundlage für Prozessoptimierung/Analyse
 - [2026-07-23 12:09] [2026-07-23-19f37a9ec1-Angebot_AG0027_01.07.2026.md] Technische Anforderung: Schnittstellen zu Buhl Unternehmer 365, E-Mail-Postfächern, DATEV; unternehmenseigener Server (Datensicherheit, Skalierbarkeit)
 - [2026-07-23 12:09] [2026-07-23-19f37a9ec1-Angebot_AG0027_01.07.2026.md] Gesamtpreis: 17.255,00 € brutto (14.500,00 € netto + 19% USt.)
