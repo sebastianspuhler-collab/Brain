@@ -280,6 +280,25 @@ def _format_posts_for_chat() -> str:
     )
 
 
+def list_ideas_text() -> str:
+    return _format_ideas_for_chat()
+
+
+def list_posts_text() -> str:
+    return _format_posts_for_chat()
+
+
+def schedule_post(post_id: str, datum: str, uhrzeit: str) -> dict:
+    """MCP-/Chat-Tool-Variante von schedule_post - wandelt Datum+Uhrzeit um und
+    pusht den Post. Gibt bei ungültigem Format einen Fehler zurück statt zu
+    crashen, mirror von _execute_linkedin_chat_tool's altem schedule_post-Zweig."""
+    try:
+        scheduled_at = _to_iso_berlin(datum, uhrzeit)
+    except Exception:
+        return {"error": "Ungültiges Datum/Uhrzeit-Format, bitte YYYY-MM-DD und HH:MM verwenden."}
+    return push_post_to_buffer(post_id, scheduled_at)
+
+
 _LINKEDIN_CHAT_TOOLS = [
     {
         "name": "list_ideas",
@@ -436,15 +455,11 @@ def _execute_linkedin_chat_tool(name: str, inp: dict) -> tuple[str, bool]:
         return f"Tool-Fehler ({name}): {e}", True
 
 
-def chat_linkedin(messages: list[dict]) -> dict:
-    """Agentischer Chat für die gesamte LinkedIn-Sektion: Ideen generieren,
-    Posts schreiben/überarbeiten/einplanen, Karusselle erstellen, Richtung
-    setzen - alles über Tool Use (tool_choice=auto, Mehrfach-Turns). Ersetzt
-    das frühere chat_about_post(), das auf einen einzelnen Post beschränkt war."""
+def _linkedin_system_prompt() -> str:
     now = datetime.now(BERLIN)
     weekday_de = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"][now.weekday()]
 
-    system = f"""Du steuerst für Sebastian (Prozessia GbR) die komplette LinkedIn-Content-Pipeline im Chat:
+    return f"""Du steuerst für Sebastian (Prozessia GbR) die komplette LinkedIn-Content-Pipeline im Chat:
 Ideen generieren, Posts schreiben/überarbeiten/einplanen, Karusselle erstellen, Richtung setzen.
 Heute ist {weekday_de}, {now.strftime('%Y-%m-%d')}, {now.strftime('%H:%M')} Uhr (Berliner Zeit).
 
@@ -457,13 +472,13 @@ Aktuelle gespeicherte Posts:
 {_format_posts_for_chat()}
 
 Verfügbare Aktionen (bei Bedarf aufrufen, sonst direkt in Text antworten):
-- list_ideas / list_posts: aktuellen Stand nachladen, falls sich seit obiger Übersicht etwas geändert hat
-- generate_ideas: neue Ideen generieren (ersetzt die alten)
-- write_post: Post-Text aus einer Idee/einem Thema schreiben und als Entwurf speichern - pusht NICHT automatisch
-- revise_post: Text eines bestehenden Posts (per id) überarbeiten
-- schedule_post: bestehenden Post (per id) zu einem Zeitpunkt in Buffer einplanen (rechne relative Angaben wie "morgen" anhand des heutigen Datums oben um)
-- make_carousel: Bild-Karussell erstellen (aus post_id oder freiem hook) und automatisch in Buffer einplanen
-- set_direction: Richtungsvorgabe für künftige Generierung setzen
+- list_ideas / list_posts (CLI: list_linkedin_ideas / list_linkedin_posts): aktuellen Stand nachladen, falls sich seit obiger Übersicht etwas geändert hat
+- generate_ideas (CLI: generate_linkedin_ideas): neue Ideen generieren (ersetzt die alten)
+- write_post (CLI: write_linkedin_post_draft): Post-Text aus einer Idee/einem Thema schreiben und als Entwurf speichern - pusht NICHT automatisch
+- revise_post (CLI: revise_linkedin_post): Text eines bestehenden Posts (per id) überarbeiten
+- schedule_post (CLI: schedule_linkedin_post): bestehenden Post (per id) zu einem Zeitpunkt in Buffer einplanen (rechne relative Angaben wie "morgen" anhand des heutigen Datums oben um)
+- make_carousel (CLI: generate_carousel): Bild-Karussell erstellen (aus post_id oder freiem hook) und automatisch in Buffer einplanen
+- set_direction (CLI: set_linkedin_direction): Richtungsvorgabe für künftige Generierung setzen
 
 Regeln für Post-Texte (bei write_post/revise_post):
 - Max. 15 Wörter pro Satz, Leerzeile nach jeder 2. Zeile
@@ -471,9 +486,57 @@ Regeln für Post-Texte (bei write_post/revise_post):
 - 0 Emojis außer max. 1 ganz am Ende
 - Keine Wörter: innovativ, nachhaltig, ganzheitlich, Lösung, Transformation
 
-Sei proaktiv: wenn Sebastian z.B. "schreib mir einen Post über X" sagt, ruf direkt write_post auf statt nachzufragen.
+Sei proaktiv: wenn Sebastian z.B. "schreib mir einen Post über X" sagt, ruf direkt den write_post-Tool auf statt nachzufragen.
 Frag nur nach, wenn eine Aktion sonst mehrdeutig wäre (z.B. welcher Post gemeint ist).
 Nach jedem Tool-Aufruf kurz bestätigen, was passiert ist."""
+
+
+_LINKEDIN_STATE_CHANGING_MCP_TOOLS = {
+    "generate_linkedin_ideas", "write_linkedin_post_draft", "revise_linkedin_post",
+    "schedule_linkedin_post", "generate_carousel", "set_linkedin_direction",
+}
+
+
+def _chat_linkedin_cli(messages: list[dict]) -> dict:
+    """CLI-Variante von chat_linkedin() (claude_engine="cli") - nutzt dieselben
+    Aktionen, aber als MCP-Tools (siehe app.mcp_server) über einen Claude-Code-
+    Subprocess statt des Custom-Tool-Loops unten. Abrechnung über
+    CLAUDE_CODE_OAUTH_TOKEN statt ANTHROPIC_API_KEY. Wie beim Haupt-Chat
+    (chat.py:_stream_chat_cli) wird nur die letzte User-Nachricht als Prompt
+    geschickt, nicht die volle messages-History."""
+    from app.services import claude_cli
+    last_msg = messages[-1].get("content", "") if messages else ""
+    if not last_msg:
+        return {"error": "Keine Nachricht erhalten"}
+    system = _linkedin_system_prompt()
+    try:
+        text_parts: list[str] = []
+        state_changed = False
+        for event in claude_cli.stream_chat(last_msg, system_prompt=system, model=Models.SONNET, timeout=180):
+            etype = event.get("type")
+            if etype == "assistant":
+                for block in event.get("message", {}).get("content", []):
+                    if block.get("type") == "text" and block.get("text"):
+                        text_parts.append(block["text"])
+                    elif block.get("type") == "tool_use" and block.get("name") in _LINKEDIN_STATE_CHANGING_MCP_TOOLS:
+                        state_changed = True
+            elif etype == "result" and event.get("is_error"):
+                return {"error": event.get("result", "Unbekannter Fehler")}
+        return {"ok": True, "antwort": "".join(text_parts).strip() or "Erledigt.", "state_changed": state_changed}
+    except claude_cli.ClaudeCliError as e:
+        return {"error": str(e)}
+
+
+def chat_linkedin(messages: list[dict]) -> dict:
+    """Agentischer Chat für die gesamte LinkedIn-Sektion: Ideen generieren,
+    Posts schreiben/überarbeiten/einplanen, Karusselle erstellen, Richtung
+    setzen - alles über Tool Use (tool_choice=auto, Mehrfach-Turns). Ersetzt
+    das frühere chat_about_post(), das auf einen einzelnen Post beschränkt war.
+    Bei claude_engine="cli" siehe stattdessen _chat_linkedin_cli()."""
+    if get_settings().claude_engine == "cli":
+        return _chat_linkedin_cli(messages)
+
+    system = _linkedin_system_prompt()
 
     try:
         current_messages = list(messages)

@@ -110,11 +110,52 @@ def generate_linkedin_posts(spec: str) -> dict:
 
 
 @mcp.tool(description=(
+    "Schreibt einen LinkedIn-Post-Text aus einer Idee/einem Thema und speichert ihn NUR als Entwurf - "
+    "pusht NICHT nach Buffer. Für die eigentliche Veröffentlichung danach schedule_linkedin_post aufrufen."
+))
+def write_linkedin_post_draft(spec: str) -> dict:
+    return linkedin_service.generate_posts(spec)
+
+
+@mcp.tool(description="Zeigt die aktuell gespeicherten LinkedIn-Ideen (Titel, Hook, Kategorie, Branche, Format).")
+def list_linkedin_ideas() -> str:
+    return linkedin_service.list_ideas_text()
+
+
+@mcp.tool(description="Zeigt die aktuell gespeicherten/geplanten LinkedIn-Posts (id, Tag, Termin, ob schon gepusht, Thema).")
+def list_linkedin_posts() -> str:
+    return linkedin_service.list_posts_text()
+
+
+@mcp.tool(description="Überarbeitet den Text eines bestehenden, gespeicherten LinkedIn-Posts per id (siehe list_linkedin_posts).")
+def revise_linkedin_post(post_id: str, neuer_text: str) -> dict:
+    return linkedin_service.update_post_text(post_id, neuer_text)
+
+
+@mcp.tool(description=(
+    "Plant einen bestehenden, gespeicherten LinkedIn-Post (per id) zu Datum+Uhrzeit in Buffer ein (beide Kanäle). "
+    "datum als YYYY-MM-DD, uhrzeit als HH:MM (24h, Berliner Zeit)."
+))
+def schedule_linkedin_post(post_id: str, datum: str, uhrzeit: str) -> dict:
+    return linkedin_service.schedule_post(post_id, datum, uhrzeit)
+
+
+@mcp.tool(description="Setzt die Richtungsvorgabe, die künftige LinkedIn-Ideen-/Post-Generierung beeinflusst.")
+def set_linkedin_direction(prompt: str) -> dict:
+    return linkedin_service.set_direction(prompt)
+
+
+@mcp.tool(description=(
     "Vollständige Karussell-Pipeline: Slides (Claude) -> KI-Bilder (gpt-image-1) -> PDF -> Cloudinary -> Buffer Document-Post. "
+    "Entweder post_id (Karussell aus einem bestehenden, gespeicherten Post ableiten) oder hook (freies Thema) angeben. "
     "Datum optional, ohne Datum wird der nächste Di oder Fr 09:30 genommen."
 ))
-def generate_carousel(hook: str, branche: str = "Alle", saeule: str = "Wissen", due_date: str = "") -> dict:
+def generate_carousel(hook: str = "", branche: str = "Alle", saeule: str = "Wissen", due_date: str = "", post_id: str = "") -> dict:
     due_at = f"{due_date}T09:30:00+02:00" if due_date and re.match(r"\d{4}-\d{2}-\d{2}", due_date) else None
+    if post_id:
+        return linkedin_service.make_carousel_from_post(post_id, branche=branche or "Alle", saeule=saeule or "Wissen", due_at=due_at)
+    if not hook:
+        return {"ok": False, "error": "Weder hook noch post_id angegeben."}
     return carousel_service.generate_carousel(hook, branche or "Alle", saeule or "Wissen", due_at=due_at)
 
 
