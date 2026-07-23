@@ -963,3 +963,4 @@
 - 2026-07-23 12:06 | 19f472fdc9-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) ohne extrahierbaren Text, zugehörig zur E-Mail 'Infos zur
 - 2026-07-23 12:06 | 19f17dfce8-Workflow Ersatzteile.pdf → Memos | Workflow-Diagramm zur Ersatzteil-Abwicklung mit den Stationen Einkauf und Werkst
 - 2026-07-23 12:06 | 19f430a55b-Gesellschaftsvertrag der Webwokr Gbr.pdf → Vertraege | Gesellschaftsvertrag der WebWokr GbR (Sitz Saarbrücken) zwischen Sebastian Spuhl
+- 2026-07-23 14:39 | 19f8e99226-icon.png → Memos/Medien | Icon-Bilddatei ohne extrahierbaren Text und ohne erkennbaren Kontext oder Kunden
