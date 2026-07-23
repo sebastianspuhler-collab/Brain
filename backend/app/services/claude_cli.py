@@ -17,6 +17,15 @@ Stand 2026-07-23, live gegen einen echten CLAUDE_CODE_OAUTH_TOKEN verifiziert
     ~/.claude.json (projects[vault_path].enabledMcpjsonServers) freigegeben
     sein - sonst bleibt er für immer "Pending approval", weil der
     Freigabe-Dialog im Headless-Modus (kein TTY) nie erscheint.
+  - `--permission-mode bypassPermissions` (und `--dangerously-skip-permissions`)
+    werden von Claude Code verweigert, wenn der Prozess als root läuft
+    ("cannot be used with root/sudo privileges for security reasons") - der
+    Backend-Container läuft komplett als root, das brach stream_chat() und
+    describe_image() live mit exit 1 ab (leere SSE-Antwort trotz HTTP 200).
+    Fix: stattdessen `--allowedTools` mit der exakten Tool-Liste (inkl.
+    `mcp__prozessia-tools__*` für die MCP-Tools bei stream_chat()) - das
+    umgeht den Root-Guard, weil es einzelne Tools freigibt statt ALLE
+    Permission-Checks zu deaktivieren.
   - run_json() (kein Tool-/MCP-Zugriff, `--tools ""`) liefert echte Antworten
     sofort. stream_chat() (mit MCP) braucht das mcp_warmup_seconds-Timing dort
     (siehe Docstring) - ohne das hält das Modell MCP-Tools fälschlich für
