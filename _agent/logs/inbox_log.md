@@ -902,3 +902,6 @@
 - 2026-07-23 11:50 | 19f8d67a64-Image → Memos/Medien | Bilddatei ohne extrahierbaren Textinhalt bzw. unbekanntes/nicht unterstütztes Fo
 - 2026-07-23 11:50 | 19f5ac99c1-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (E-Mail-Anhang, vermutlich Screenshot). Inhal
 - 2026-07-23 11:50 | 19f5ff1aad-BEST-KIND STAHL-127653.pdf → Kunden/Schaufler/Vertraege | Bestellbeleg Nr. 127653 von Schaufler Tooling GmbH & Co. KG an Kind & Co. Edelst
+- 2026-07-23 11:57 | 19f4baf08b-G170104086.pdf → Finanzen/2026/07_Juli | Microsoft Rechnung (Billing Summary + Tax Invoice) für Sebastian Spuhler über Az
+- 2026-07-23 11:57 | 19f4b9a883-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Screenshot oder eingebettetes Bil
+- 2026-07-23 11:57 | 19f4b8def1-G170032929.pdf → Finanzen/2026/07_Juli | Microsoft Deutschland Rechnungszusammenfassung für Sebastian Spuhler, Abrechnung

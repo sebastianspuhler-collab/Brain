@@ -1,4 +1,12 @@
 ## KONTEXT
+- [2026-07-23 11:58] [2026-07-23-19f4baf08b-G170104086.md] Rechnungsnummer G170104086 für Abrechnungszeitraum 01.06.-30.06.2026, Fälligkeit 09.07.2026
+- [2026-07-23 11:58] [2026-07-23-19f4baf08b-G170104086.md] Zahlungsmethode: Automatische Kreditkartenbelastung bei Microsoft
+- [2026-07-23 11:58] [2026-07-23-19f4baf08b-G170104086.md] Aktuelle monatliche Kosten: EUR 33,31 brutto (EUR 27,99 netto + EUR 5,32 MwSt.)
+- [2026-07-23 11:57] [2026-07-23-19f4b8def1-G170032929.md] Zahlungsart: automatische Kreditkartenabbuchung, Belegdatum 09.07.2026
+- [2026-07-23 11:57] [2026-07-23-19f4b8def1-G170032929.md] Azure AI + Machine Learning Nutzungsgebühren: 3,76 EUR netto zzgl. 19% MwSt.
+- [2026-07-23 11:57] [2026-07-23-19f4b8def1-G170032929.md] Microsoft Azure Rechnung G170032929, Abrechnungszeitraum 01.06-30.06.2026, Gesamtbetrag 4,47 EUR brutto, fällig 09.07.2026
+- [2026-07-23 11:55] [2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md] Lieferdatum: 24.06.2026 (Leistung bereits erbracht)
+- [2026-07-23 11:55] [2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md] Rechnungsbetrag 1.000€ netto (1.190€ mit 19% USt.); Zahlungsbedingung: sofort zahlbar
 - [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-PFITZER-127655.md] Lieferant PFITZER: Max-Planck-Str. 4, 74211 Leingarten; E-Mail: bestellung.po-order@pfitzer-verbindun[gstechnik]
 - [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-KIND WBH-127668.md] Vertragsgrundlage: Schauflers AEB (www.schaufler.de), Incoterms 2020, Kontakt Lieferant: WBH-AV@Kind-Co.de
 - [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-KIND WBH-127668.md] Lieferadresse: MJM Metallverarbeitung Mangner GmbH, Dautphetal (Endkunde/Verarbeiter)
@@ -503,6 +511,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-23 11:55] [2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md] Rechnung RE260015 an SCHAUFLER Tooling GmbH & Co. KG (Goethestrasse 72, 89150 Laichingen) vom 20.07.2026
 - [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Lieferant: Sven & Gerhard Schmitt GbR (Maschinen- & Vorrichtungsbau), Willingshainer Str. 45, 36275 Kirchheim, s.schmitt@maschinenbau-schmitt.com, Fax 06628/9999009
 - [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-RAFFSPED.-126744.md] Bestellbeleg 126744 | Schaufler Tooling → Spedition Karl Raff GmbH | Transportkosten 310,00 € netto (2×155,00 €) | Lieferziel Schmitt GbR | Lieferdatum 12.05.2026
 - [2026-07-23 11:53] [2026-07-23-19f5ff1aad-BEST-KIND STAHL-127653.md] Lieferant Kind & Co. Edelstahlwerke GmbH & Co. KG, Bielsteiner Str. 128-130, 51674 Wiehl; Kontakt: Sandra.hartmann@kind-co.de
@@ -660,6 +669,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-23 11:55] [2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md] Leistung: Einrichtung Agent-Winform-Schnittstellen inkl. Integration, Test, Validierung und geplante Umstellung auf Proleis
 - [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Anforderungen: Gravur, Prüfprotokoll, Härteprotokoll, Messprotokoll erforderlich
 - [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Lieferbedingung: DAP Laichingen (Incoterms 2020)
 - [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-PFITZER-127655.md] Liefertermin: 29.06.2026 – Lieferadresse: Goethestr. 72, 89150 Laichingen
@@ -1179,6 +1189,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-07-23 11:55] [2026-07-23-19f7aad092-Rechnung_RE260016_20.07.2026.md] Duplikat-Verdacht: Identische Rechnung RE260016 bereits am 2026-07-19 hochgeladen – Archiv prüfen auf Dopplung
 - [2026-07-23 11:39] [PRUEFFAELLE.md] Systematisches Problem: Mehrere Belege ohne eindeutig extrahierbare Rechnungsdatierungen (FA/SF 60 EUR, Google 28.1 EUR, Triathlon Transfer)
 - [2026-07-19 16:52] [2026-07-16-Einführung Beschaffungsagent.md] Umrechnungsprobleme zwischen Einheiten müssen gelöst werden (z.B. Fass vs. Liter)
 - [2026-07-19 13:45] Beim Beschaffungsagent gibt es noch eine weitere Bestellung über 1000 Euro
