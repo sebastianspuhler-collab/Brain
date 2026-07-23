@@ -964,3 +964,4 @@
 - 2026-07-23 12:06 | 19f17dfce8-Workflow Ersatzteile.pdf → Memos | Workflow-Diagramm zur Ersatzteil-Abwicklung mit den Stationen Einkauf und Werkst
 - 2026-07-23 12:06 | 19f430a55b-Gesellschaftsvertrag der Webwokr Gbr.pdf → Vertraege | Gesellschaftsvertrag der WebWokr GbR (Sitz Saarbrücken) zwischen Sebastian Spuhl
 - 2026-07-23 14:39 | 19f8e99226-icon.png → Memos/Medien | Icon-Bilddatei ohne extrahierbaren Text und ohne erkennbaren Kontext oder Kunden
+- 2026-07-23 15:18 | Prozessia X Schmidt-Hänsch (1).docx → Kunden/Schmidt-Haensch/Meetings | Besprechungstranskript vom 21. Juli 2026 zwischen Sebastian Spuhler und Sumit Bh

@@ -1,4 +1,7 @@
 ## KONTEXT
+- [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Zusage: Prozessia übernimmt Server-Infrastruktur auf Wunsch; Folgetermin in ~1-1,5 Wochen (ca. 28.7.-4.8.2026)
+- [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Schatten-KI, DSGVO/EU AI Act Risiken besprochen
+- [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Kunde interessiert an Lieferverzugsliste & automatisierter Mahnläufe bei verspäteten Lieferungen
 - [2026-07-23 14:54] [Neu: WhatsApp-Übergabe & Spam-Blocker] fonio Spam-Blocker: Blockiert unerwünschte Anrufe direkt über Kontakte
 - [2026-07-23 14:54] [Neu: WhatsApp-Übergabe & Spam-Blocker] fonio Feature neu: WhatsApp-Konversationen - Assistent erkennt Anliegen und leitet Konversation ans Team weiter
 - [2026-07-23 12:11] [2026-07-23-19f430a55b-Gewerbeanmeldung Mohamed Douioui.md] Betriebsstätte Prozessia: Universität/Starterzentrum Campus A 1.1, 66123 Saarbrücken
@@ -555,6 +558,9 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Schmidt-Hänsch produziert Prozessrefraktometer und Dichtemessgeräte, nutzt ERP-System Sage 100 für Produktion/Einkauf/Buchhaltung
+- [2026-07-23 15:17] [2026-07-23-Email-19f8f1d8-Zugesagt-Update-Seifert-X-Prozessia.md] Kontakt: Stefan Seifert (stefan.seifert@seifert-gmbh.com) von Seifert-GmbH
+- [2026-07-23 15:17] [Zugesagt: Update Seifert X Prozessia] Stefan Seifert (Seifert GmbH) hat Zusage für 'Update Seifert X Prozessia' erteilt
 - [2026-07-23 12:10] [2026-07-23-19f17dfce8-Wareneingang 2025.08.08.md] endin – Potenzialanalyse mit vier Prozessdokumentationen geplant
 - [2026-07-23 12:10] [2026-07-23-19f17dfce8-Prozess Lohnverguß 2022.07.20.md] Endin hat Prozessdokumentationen (u.a. Lohnfertigungsaufträge) für Potenzialanalyse bereitgestellt
 - [2026-07-23 12:10] [2026-07-23-19f17dfce8-Prozess Kleinauftrag 2022.07.15.md] Endin: Prozessdiagramm 'Prozeß Kleinauftrag' (11.7.2022) für Potenzialanalyse vorhanden – dokumentiert Ablauf Ersatzteile/Kleinaufträge
@@ -718,6 +724,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] KI-Beschaffungsagent für Einkauf präsentiert: Auftragsbestätigungsprüfung, Mahnwesen, Lieferantenbewertung; adaptierbar an Sage 100/Winform + Outlook
 - [2026-07-23 12:11] [2026-07-23-19f4728b7d-Mitgliedschaftsbedingungen.md] Hauptkartenentgelt: EUR 850/Jahr; Zusatzkarten mit zusätzlichen Entgelten
 - [2026-07-23 12:11] [2026-07-23-19f430a55b-Gesellschaftsvertrag der Webwokr Gbr.md] Vertrag regelt Gewinn-/Verlustverteilung, Geschäftsführung, Entscheidungsprozesse, Ausscheiden/Tod von Gesellschaftern
 - [2026-07-23 12:10] [2026-07-23-19f17dfce8-Wareneingang 2025.08.08.md] Visuelle Prozessdokumentation (Ablaufdiagramm + Legende) für Wareneingang vorhanden
@@ -1312,6 +1319,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-13 12:22] Schaufler Tooling GmbH: Monatliches Hosting/Retainer ab Juli 2026 auf 280 € erhöht (vorher 220 €)
 
 ## PROJEKTSTATUS
+- [2026-07-23 15:17] [2026-07-23-Email-19f8f1d8-Zugesagt-Update-Seifert-X-Prozessia.md] Lead Seifert-GmbH: Status Update-Projekt genehmigt, nächste Schritte ausstehend
 - [2026-07-01 14:21] [2026-07-01-AW-Unser-Gespraech-MTO-Days.md] Nachverfolgung erforderlich: Christian Spamer sollte Unterlagen zusammenstellen (Stand 1. Juli 2026: noch nicht eingegangen)
 
 ## ANGEBOT
@@ -1322,5 +1330,6 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-13 19:09] [Personalkosten erstattet bekommen] Schulung des Teams in kundengewinnung und Tools (Clay, Claude, Close) finanziert über Fördergelder § 82 SGB III
 
 ## ENTSCHEIDUNG
+- [2026-07-23 15:17] [2026-07-23-Email-19f8f1d8-Zugesagt-Update-Seifert-X-Prozessia.md] Seifert-GmbH hat Projekt 'Seifert X Prozessia' zugesagt – bestätigt am 2026-07-23
 - [2026-07-23 11:42] [2026-07-21-Email-19f840fe-Angenommen-Update-Zillmer-X-Prozessia.md] Zillmer-Elektrotechnik: Update akzeptiert (Bestätigung von Dierk Biendarra, 21. Juli 2026)
 - [2026-07-17 21:42] [6---Email-19f38afa-AW-Offene-Punkte-Beschaffungsagent.md] Bestelldokument muss angepasst werden, damit Lieferanten wissen, dass bestellbezogene Daten an order@schaufler.de gehen (Verantwortung: Benjamin Schmohl)
