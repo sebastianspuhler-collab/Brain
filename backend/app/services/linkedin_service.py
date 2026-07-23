@@ -492,8 +492,12 @@ Nach jedem Tool-Aufruf kurz bestätigen, was passiert ist."""
 
 
 _LINKEDIN_STATE_CHANGING_MCP_TOOLS = {
-    "generate_linkedin_ideas", "write_linkedin_post_draft", "revise_linkedin_post",
-    "schedule_linkedin_post", "generate_carousel", "set_linkedin_direction",
+    "mcp__prozessia-tools__generate_linkedin_ideas",
+    "mcp__prozessia-tools__write_linkedin_post_draft",
+    "mcp__prozessia-tools__revise_linkedin_post",
+    "mcp__prozessia-tools__schedule_linkedin_post",
+    "mcp__prozessia-tools__generate_carousel",
+    "mcp__prozessia-tools__set_linkedin_direction",
 }
 
 

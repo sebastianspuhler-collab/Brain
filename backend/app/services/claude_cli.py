@@ -103,6 +103,52 @@ def run_json(
     return data.get("result", "")
 
 
+def describe_image(
+    image_path: str,
+    instruction: str,
+    model: str = "claude-sonnet-5",
+    max_budget_usd: float = 0.50,
+    timeout: int = 90,
+) -> str:
+    """Ersatz für den Base64-Image-Content-Block der Anthropic Messages API
+    (inbox.py's Vision-Call) - nutzt stattdessen Claude Codes natives Read-Tool,
+    das Bilddateien direkt von der Platte lesen kann. Kein MCP nötig (die Datei
+    liegt schon im Inbox-Verzeichnis, bevor dieser Call passiert), daher auch
+    kein mcp_warmup-Timing wie bei stream_chat() erforderlich - Read ist ein
+    natives Tool und sofort verfügbar."""
+    directory = str(Path(image_path).parent)
+    cmd = [
+        CLAUDE_BIN, "-p", f"Lies die Bilddatei {image_path} und {instruction}",
+        "--output-format", "json",
+        "--model", model,
+        "--add-dir", directory,
+        "--tools", "Read",
+        "--strict-mcp-config",
+        "--permission-mode", "bypassPermissions",
+        "--no-session-persistence",
+        "--max-budget-usd", str(max_budget_usd),
+    ]
+    try:
+        result = subprocess.run(
+            cmd, env=_subprocess_env(), capture_output=True, text=True, timeout=timeout,
+        )
+    except subprocess.TimeoutExpired as e:
+        raise ClaudeCliError(f"claude -p Timeout nach {timeout}s") from e
+
+    if result.returncode != 0:
+        raise ClaudeCliError(f"claude -p exit {result.returncode}: {result.stderr[:500] or result.stdout[:500]}")
+
+    try:
+        data = json.loads(result.stdout)
+    except json.JSONDecodeError as e:
+        raise ClaudeCliError(f"claude -p Ausgabe kein valides JSON: {result.stdout[:300]}") from e
+
+    if data.get("is_error"):
+        raise ClaudeCliError(f"claude -p Fehler: {data.get('result', '?')}")
+
+    return data.get("result", "")
+
+
 def stream_chat(
     prompt: str,
     system_prompt: str,

@@ -57,17 +57,26 @@ async def upload(file: UploadFile, user: str = Depends(get_current_user)):
     suffix = Path(filename).suffix.lower()
     if suffix in IMAGE_EXTS:
         try:
-            b64 = base64.standard_b64encode(body).decode()
-            mt = "image/jpeg" if suffix in (".jpg", ".jpeg") else "image/png"
-            vision_result = get_client().messages.create(
-                model=Models.SONNET, max_tokens=2000,
-                thinking={"type": "disabled"},
-                messages=[{"role": "user", "content": [
-                    {"type": "image", "source": {"type": "base64", "media_type": mt, "data": b64}},
-                    {"type": "text", "text": "Extrahiere ALLEN Text und ALLE Zahlen/Daten aus diesem Bild. Formatiere als sauberen Markdown-Text. Nichts weglassen."},
-                ]}],
-            )
-            transcription = get_response_text(vision_result)
+            if settings.claude_engine == "cli":
+                from app.services import claude_cli
+                transcription = claude_cli.describe_image(
+                    str(inbox_path),
+                    "extrahiere ALLEN Text und ALLE Zahlen/Daten daraus. Formatiere als "
+                    "sauberen Markdown-Text. Nichts weglassen. Gib NUR den extrahierten "
+                    "Text zurück, keine Erklärung davor/danach.",
+                )
+            else:
+                b64 = base64.standard_b64encode(body).decode()
+                mt = "image/jpeg" if suffix in (".jpg", ".jpeg") else "image/png"
+                vision_result = get_client().messages.create(
+                    model=Models.SONNET, max_tokens=2000,
+                    thinking={"type": "disabled"},
+                    messages=[{"role": "user", "content": [
+                        {"type": "image", "source": {"type": "base64", "media_type": mt, "data": b64}},
+                        {"type": "text", "text": "Extrahiere ALLEN Text und ALLE Zahlen/Daten aus diesem Bild. Formatiere als sauberen Markdown-Text. Nichts weglassen."},
+                    ]}],
+                )
+                transcription = get_response_text(vision_result)
             md_path = settings.inbox_dir / (Path(filename).stem + "_vision.md")
             md_path.write_text(f"# {Path(filename).stem}\n\n{transcription}", encoding="utf-8")
             inbox_path.unlink(missing_ok=True)
