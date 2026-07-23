@@ -905,3 +905,13 @@
 - 2026-07-23 11:57 | 19f4baf08b-G170104086.pdf → Finanzen/2026/07_Juli | Microsoft Rechnung (Billing Summary + Tax Invoice) für Sebastian Spuhler über Az
 - 2026-07-23 11:57 | 19f4b9a883-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Screenshot oder eingebettetes Bil
 - 2026-07-23 11:57 | 19f4b8def1-G170032929.pdf → Finanzen/2026/07_Juli | Microsoft Deutschland Rechnungszusammenfassung für Sebastian Spuhler, Abrechnung
+- 2026-07-23 11:58 | 19f277a3e6-image003.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, kein inhaltlicher Kontext zur Zuordnung vorh
+- 2026-07-23 11:58 | 19f277a3e6-image002.png → Memos/Medien | Bilddatei (PNG) ohne extrahierbaren Text. Kontext/Herkunft unklar, vermutlich An
+- 2026-07-23 11:58 | 19f462a98b-image001.jpg → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Anhang aus einer E-Mail (z.B. Scr
+- 2026-07-23 11:59 | 19f40a0d3d-SLA_Schaufler .pdf → Kunden/Schaufler/Vertraege | Service Level Agreement zwischen Prozessia (Sebastian Spuhler, Mohamed Douioui G
+- 2026-07-23 11:59 | 19f09dec90-Receipt-2713-3487.pdf → Finanzen/2026/07_Juli | Zahlungsbeleg (Receipt) von Lovable Labs Incorporated für Prozessia GbR über 25,
+- 2026-07-23 11:59 | 19f188bb24-Invoice-GGYF9D9L-0019.pdf → Finanzen/2026/07_Juli | Anthropic-Rechnung GGYF9D9L-0019 vom 30.06.2026 über einen einmaligen API-Credit
+- 2026-07-23 11:59 | 19f462a98b-image002.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Anhang aus einer E-Mail (z.B. Scr
+- 2026-07-23 11:59 | 19f277a3e6-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image001.png), vermutlich Anhang aus einer E
+- 2026-07-23 11:59 | 19f277a3e6-image005.png → Memos/Medien | Bilddatei ohne extrahierbaren Text und ohne erkennbaren Kontext (z.B. E-Mail-Anh
+- 2026-07-23 11:59 | 19f37a9ec1-Angebot_AG0027_01.07.2026.pdf → Kunden/endin/Angebote | Angebot AG0027 vom 01.07.2026 an endin GmbH über einen KI-Agenten zur kaufmännis
