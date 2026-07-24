@@ -8,9 +8,60 @@
 
 /* Prozessia-Branding, übernommen aus _agent/brain_ui.py (Streamlit-Version).
    Farben aus dem Messe-Flyer: C_DARK #111111 - C_PURPLE #534AB7 - C_PURPLE_LIGHT #B088FF.
-   Die App ist immer dunkel (kein Light-Mode-Toggle, das ist das Prozessia-Brand) -
-   :root und .dark tragen deshalb bewusst dieselben Werte. */
-:root,
+   Seit 2026-07-24 zwei Themes statt nur Dunkel (Sebastian): Hell/Lila-Weiß nach
+   Vorbild von adrise-ai (packages/ui/src/globals.css, [data-theme="light"]) ist
+   jetzt Standard, das bisherige Dunkel-Theme bleibt unverändert als Alternative
+   über den Theme-Switcher in den Einstellungen erreichbar (next-themes, Klasse
+   ".dark" auf <html>, siehe main.tsx). */
+:root {
+  --radius: 0.625rem;
+
+  --background: #fdfdfd;
+  --foreground: #000000;
+
+  --card: #fdfdfd;
+  --card-foreground: #000000;
+
+  --popover: #fdfdfd;
+  --popover-foreground: #000000;
+
+  --primary: #7033ff;
+  --primary-foreground: #ffffff;
+
+  --secondary: #edf0f4;
+  --secondary-foreground: #525252;
+
+  --muted: #edf0f4;
+  --muted-foreground: #8a8a8f;
+
+  --accent: #e2ebff;
+  --accent-foreground: #1e69dc;
+
+  --destructive: #e54b4f;
+  --destructive-foreground: #ffffff;
+
+  --border: #e7e7ee;
+  --input: #e7e7ee;
+  --ring: #7033ff;
+
+  --chart-1: #7033ff;
+  --chart-2: #1e69dc;
+  --chart-3: #8a8a8f;
+  --chart-4: #16a34a;
+  --chart-5: #d97706;
+
+  --sidebar: #f5f8fb;
+  --sidebar-foreground: #525252;
+  --sidebar-primary: #7033ff;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e2ebff;
+  --sidebar-accent-foreground: #1e69dc;
+  --sidebar-border: #e7e7ee;
+  --sidebar-ring: #7033ff;
+
+  --card-shadow: 0px 2px 3px 0px rgb(0 0 0 / 0.08), 0px 1px 2px -1px rgb(0 0 0 / 0.08);
+}
+
 .dark {
   --radius: 0.625rem;
 
@@ -56,6 +107,8 @@
   --sidebar-accent-foreground: #ffffff;
   --sidebar-border: #1e1e1e;
   --sidebar-ring: #534ab7;
+
+  --card-shadow: 0px 2px 3px 0px rgb(0 0 0 / 0.24), 0px 1px 2px -1px rgb(0 0 0 / 0.24);
 }
 
 @theme inline {
@@ -99,9 +152,9 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  /* Adrise-Style Karten-Schatten (dark-Wert, da die App immer dunkel ist) -
-     reine Formsprache, kein Farbwert. Ergibt automatisch die Utility shadow-card. */
-  --shadow-card: 0px 2px 3px 0px rgb(0 0 0 / 0.24), 0px 1px 2px -1px rgb(0 0 0 / 0.24);
+  /* Adrise-Style Karten-Schatten, pro Theme unterschiedlich stark (siehe
+     --card-shadow in :root/.dark oben). Ergibt automatisch die Utility shadow-card. */
+  --shadow-card: var(--card-shadow);
 
   --font-sans: "DM Sans", system-ui, sans-serif;
   --font-display: "DM Serif Display", Georgia, serif;

@@ -9,6 +9,7 @@ import {
   Mail,
   MessageSquare,
   MessageSquarePlus,
+  Settings,
   Share2,
   SquarePlay,
   Trash2,
@@ -45,6 +46,7 @@ const NAV_ITEMS = [
   { to: "/linkedin", label: "LinkedIn", icon: Share2 },
   { to: "/youtube", label: "YouTube", icon: SquarePlay },
   { to: "/onboarding", label: "Onboarding", icon: UserPlus },
+  { to: "/einstellungen", label: "Einstellungen", icon: Settings },
 ];
 
 function isRouteActive(pathname: string, to: string, end?: boolean): boolean {
