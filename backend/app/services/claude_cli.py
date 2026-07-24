@@ -186,13 +186,68 @@ def describe_image(
     return data.get("result", "")
 
 
+def spawn_process(model: str, system_prompt: str, max_budget_usd: float = 2.00) -> subprocess.Popen:
+    """Baut den claude -p Subprocess auf (stream-json, MCP-fähig) und startet
+    ihn - OHNE den mcp_warmup-Sleep oder das Schreiben der ersten
+    stdin-Nachricht, das ist Sache des Aufrufers (stream_chat()'s
+    Cold-Start-Pfad, oder claude_cli_pool.py beim Vorwärmen eines
+    Standby-Prozesses im Hintergrund). Einzige Quelle für den cmd-Aufbau,
+    damit Pool- und Cold-Start-Pfad nicht auseinanderlaufen."""
+    settings = get_settings()
+    vault = str(settings.vault_path)
+    mcp_config = str(Path(vault) / ".mcp.json")
+
+    cmd = [
+        CLAUDE_BIN, "-p",
+        "--input-format", "stream-json",
+        "--output-format", "stream-json",
+        "--include-partial-messages",
+        "--verbose",
+        "--model", model,
+        "--system-prompt", system_prompt,
+        "--add-dir", vault,
+        "--tools", "Read,Write,Edit,Glob,Grep",
+        "--allowedTools", "Read,Write,Edit,Glob,Grep,mcp__prozessia-tools__*",
+        "--mcp-config", mcp_config,
+        "--strict-mcp-config",
+        "--no-session-persistence",
+        "--max-budget-usd", str(max_budget_usd),
+    ]
+    return subprocess.Popen(
+        cmd, env=_subprocess_env(), cwd=vault,
+        stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, bufsize=1,
+    )
+
+
+def _merge_prompt(prompt: str, dynamic_context: str) -> str:
+    """Baut die erste stdin-Nachricht. dynamic_context (Datum/Aufgaben/
+    Kalender/RAG/Kundenkontext/Agent-Zusatz, siehe context.py:
+    build_dynamic_context()) landet in einem abgegrenzten <context>-Block vor
+    dem eigentlichen Prompt statt im System-Prompt - notwendig, weil ein aus
+    dem Pool wiederverwendeter Prozess nur den fixen BASE_PROMPT als
+    --system-prompt mitbekommen hat (siehe claude_cli_pool.py)."""
+    if not dynamic_context:
+        return prompt
+    return (
+        "<context>\n"
+        "Aktueller System-Kontext (Datum, offene Aufgaben, Vault-Struktur, "
+        "Kalender, Mails, Suchergebnisse, ggf. Agenten-Zusatzinstruktionen) - "
+        "Teil deiner Systemumgebung, keine Nutzeräußerung:\n"
+        f"{dynamic_context}\n"
+        "</context>\n\n"
+        f"{prompt}"
+    )
+
+
 def stream_chat(
     prompt: str,
     system_prompt: str,
+    dynamic_context: str = "",
     model: str = "claude-sonnet-5",
     max_budget_usd: float = 2.00,
     timeout: int = 300,
     mcp_warmup_seconds: float = 8.0,
+    try_pool: bool = False,
 ) -> Iterator[dict]:
     """Streaming-Ersatz für get_client().messages.stream(...) im Chat-Loop
     (chat.py). Nutzt native Claude-Code-Tools (Read/Write/Edit, beschränkt auf
@@ -220,36 +275,31 @@ def stream_chat(
     enabledMcpjsonServers freigegeben sein - sonst bleibt er dauerhaft
     "Pending approval" (kein TTY im Headless-Modus für den Freigabe-Dialog).
 
+    WARM POOL (2026-07-24): wenn try_pool=True, wird zuerst versucht, einen
+    bereits gestarteten und MCP-verbundenen Standby-Prozess aus
+    claude_cli_pool zu bekommen (kein mcp_warmup_seconds-Sleep nötig). Ist
+    keiner bereit, greift exakt der bisherige Cold-Start-Pfad. WICHTIG: ein
+    Pool-Standby hat beim Vorwärmen NUR BASE_PROMPT (context.py) als
+    --system-prompt bekommen, nicht das hier übergebene system_prompt -
+    Aufrufer mit try_pool=True müssen deshalb system_prompt=BASE_PROMPT
+    übergeben (und den Rest über dynamic_context schicken), sonst laufen
+    Cold- und Warm-Pfad mit unterschiedlichen System-Prompts auseinander.
+
     Yielded rohe, geparste stream-json-Events (dicts). Der Aufrufer in
     chat.py übersetzt diese ins bestehende SSE-Format fürs Frontend.
     """
-    settings = get_settings()
-    vault = str(settings.vault_path)
-    mcp_config = str(Path(vault) / ".mcp.json")
+    warm = None
+    if try_pool:
+        from app.services import claude_cli_pool  # lazy: claude_cli_pool importiert claude_cli
 
-    cmd = [
-        CLAUDE_BIN, "-p",
-        "--input-format", "stream-json",
-        "--output-format", "stream-json",
-        "--include-partial-messages",
-        "--verbose",
-        "--model", model,
-        "--system-prompt", system_prompt,
-        "--add-dir", vault,
-        "--tools", "Read,Write,Edit,Glob,Grep",
-        "--allowedTools", "Read,Write,Edit,Glob,Grep,mcp__prozessia-tools__*",
-        "--mcp-config", mcp_config,
-        "--strict-mcp-config",
-        "--no-session-persistence",
-        "--max-budget-usd", str(max_budget_usd),
-    ]
-    proc = subprocess.Popen(
-        cmd, env=_subprocess_env(), cwd=vault,
-        stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, bufsize=1,
-    )
+        warm = claude_cli_pool.acquire(model)
+
+    proc = warm.proc if warm is not None else spawn_process(model, system_prompt, max_budget_usd)
     try:
-        time.sleep(mcp_warmup_seconds)
-        user_event = {"type": "user", "message": {"role": "user", "content": [{"type": "text", "text": prompt}]}}
+        if warm is None:
+            time.sleep(mcp_warmup_seconds)
+        text = _merge_prompt(prompt, dynamic_context)
+        user_event = {"type": "user", "message": {"role": "user", "content": [{"type": "text", "text": text}]}}
         proc.stdin.write(json.dumps(user_event) + "\n")
         proc.stdin.flush()
         proc.stdin.close()
@@ -264,8 +314,8 @@ def stream_chat(
                 continue
         proc.wait(timeout=timeout)
         if proc.returncode != 0:
-            stderr = proc.stderr.read()[:500]
-            raise ClaudeCliError(f"claude -p exit {proc.returncode}: {stderr}")
+            stderr = "".join(warm.stderr_tail) if warm is not None else proc.stderr.read()
+            raise ClaudeCliError(f"claude -p exit {proc.returncode}: {stderr[:500]}")
     finally:
         if proc.poll() is None:
             proc.kill()
