@@ -11,6 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { StatusPill } from "@/components/shared/status-pill";
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? "";
 
@@ -93,11 +94,7 @@ export function MeetingsPage() {
                   <span className="whitespace-nowrap text-xs font-medium text-muted-foreground">
                     {formatDatum(m.datum)}
                   </span>
-                  {m.kunde && (
-                    <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary">
-                      {m.kunde}
-                    </span>
-                  )}
+                  {m.kunde && <StatusPill variant="info">{m.kunde}</StatusPill>}
                   <span className="truncate text-sm font-medium text-foreground">{m.name}</span>
                 </div>
                 {m.zusammenfassung && (

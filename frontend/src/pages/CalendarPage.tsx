@@ -2,13 +2,13 @@ import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { api } from "@/api/client";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { StatusPill } from "@/components/shared/status-pill";
 import { cn } from "@/lib/utils";
 
 interface CalendarEvent {
@@ -150,9 +150,9 @@ export function CalendarPage() {
                     <TableCell>{e.title}</TableCell>
                     <TableCell className="text-muted-foreground">{e.location ?? "-"}</TableCell>
                     <TableCell>
-                      <Badge variant={e.type === "deadline" ? "destructive" : "secondary"}>
+                      <StatusPill variant={e.type === "deadline" ? "danger" : "info"}>
                         {e.type === "deadline" ? "Deadline" : "Termin"}
-                      </Badge>
+                      </StatusPill>
                     </TableCell>
                   </TableRow>
                 ))}
@@ -160,7 +160,7 @@ export function CalendarPage() {
             </Table>
           )
         ) : (
-          <div className="overflow-hidden rounded-lg border border-border">
+          <div className="overflow-hidden rounded-2xl border border-border">
             <div className="grid grid-cols-7 border-b border-border bg-muted/40">
               {WEEKDAYS.map((d) => (
                 <div key={d} className="px-2 py-2 text-center text-xs font-medium text-muted-foreground">
@@ -208,7 +208,7 @@ export function CalendarPage() {
                               render={
                                 <div
                                   className={cn(
-                                    "cursor-default truncate rounded px-1.5 py-0.5 text-[11px] leading-tight",
+                                    "cursor-default truncate rounded-md px-1.5 py-0.5 text-[11px] leading-tight",
                                     e.type === "deadline"
                                       ? "bg-destructive/15 text-destructive"
                                       : "bg-primary/15 text-primary"

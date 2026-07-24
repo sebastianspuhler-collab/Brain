@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Textarea } from "@/components/ui/textarea";
+import { StatusPill } from "@/components/shared/status-pill";
 
 const MODELS = [
   { id: "", label: "Wie im Chat gewählt" },
@@ -176,9 +177,9 @@ export function AgentsPage() {
                   <div className="flex items-center gap-2">
                     <span className="font-medium text-foreground">{a.name}</span>
                     {a.model && (
-                      <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary">
+                      <StatusPill variant="info">
                         {MODELS.find((m) => m.id === a.model)?.label ?? a.model}
-                      </span>
+                      </StatusPill>
                     )}
                   </div>
                   {a.system_prompt_zusatz && (

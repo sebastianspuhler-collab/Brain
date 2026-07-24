@@ -13,7 +13,7 @@ export function FeatureCard({ label, active, onToggle }: FeatureCardProps) {
       type="button"
       onClick={onToggle}
       className={cn(
-        "flex items-center gap-2 rounded-lg border px-3 py-2.5 text-left text-sm transition",
+        "flex items-center gap-2 rounded-2xl border px-3 py-2.5 text-left text-sm transition",
         active
           ? "border-primary bg-primary/10 text-foreground"
           : "border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
