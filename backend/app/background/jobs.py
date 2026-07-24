@@ -45,6 +45,19 @@ def _git_remote_with_pat(vault_path, pat: str) -> str | None:
         return None
 
 
+def _abort_stuck_rebase(vault, env) -> None:
+    """Bricht einen hängengebliebenen Rebase ab, bevor ein neuer git pull
+    versucht wird - ohne das würde ein einmal fehlgeschlagener Rebase (z.B.
+    durch einen Binärdatei-Konflikt bei _agent/vault.index, siehe
+    .gitattributes) den Sync dauerhaft blockieren: jeder weitere Aufruf
+    dieser Funktion würde denselben Rebase-in-Progress-Fehler wiederholen,
+    statt es erneut zu versuchen. git rebase --abort ist ein No-Op (Fehler
+    wird ignoriert), wenn gerade kein Rebase läuft."""
+    if (vault / ".git" / "rebase-merge").exists() or (vault / ".git" / "rebase-apply").exists():
+        subprocess.run(["git", "rebase", "--abort"], cwd=vault, capture_output=True, timeout=30, env=env)
+        logger.warning("git pull: hängenden Rebase vor neuem Versuch abgebrochen")
+
+
 def git_pull_vault() -> bool:
     """Führt git pull im Vault aus. Gibt True zurück wenn erfolgreich."""
     settings = get_settings()
@@ -55,6 +68,7 @@ def git_pull_vault() -> bool:
     env = os.environ.copy()
     env["GIT_TERMINAL_PROMPT"] = "0"
     try:
+        _abort_stuck_rebase(vault, env)
         cmd = ["git", "pull", "--rebase", "--autostash"]
         if pat:
             remote_url = _git_remote_with_pat(vault, pat)

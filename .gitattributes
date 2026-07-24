@@ -1,0 +1,8 @@
+# Pro Umgebung (Mac/VPS) unabhängig neu generierte Dateien - beide Seiten
+# bauen ihren eigenen RAG-Index/Metadata, unterschiedlicher Binärinhalt ist
+# erwartet und darf beim Sync nicht in einen (bei Binärdateien unlösbaren)
+# Merge-Konflikt laufen. merge=ours behält bei Konflikten immer die lokale
+# Version (siehe .git/config: merge.ours.driver muss lokal je Maschine
+# gesetzt sein, das synct NICHT über git selbst).
+_agent/vault.index merge=ours
+_agent/vault_metadata.json merge=ours
