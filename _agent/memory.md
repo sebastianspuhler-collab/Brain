@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-07-24 03:20] [2026-07-24-19f5bf6740-Top 10 Lieferanten.md] Lieferantenliste aktuell vom 2026-07-24 als Referenzmaterial für Beschaffungsagenten verfügbar
+- [2026-07-24 03:20] [2026-07-24-19f5bf6740-Top 10 Lieferanten.md] Lieferanten geografisch verteilt: Deutschland (4), Portugal (1), Ungarn (1), Italien geplant
 - [2026-07-23 21:33] [2026-07-23-19f69cc342-Rechnung_2026-07-16_310100082556.md] Zahlungsfrist: 23.07.2026 (7 Tage nach Rechnungsdatum 16.07.2026), Leistungszeitraum: 16.07.-15.08.2026
 - [2026-07-23 21:33] [2026-07-23-19f69cc342-Rechnung_2026-07-16_310100082556.md] Gesamtbetrag: 1,00 EUR (Grundgebühr 18,00 EUR minus Rabatt 17,00 EUR, inklusive 19% MwSt.), Zahlungsart: Kreditkartenabbuchung
 - [2026-07-23 15:20] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] KI-Agent-Einsatz langfristig zur Automatisierung von Kalkulationsprozessen in der Fertigung geplant
@@ -562,6 +564,9 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-PFITZER-127655.md] Nettosumme: 16,00 €
+- [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-KIND WBH-127668.md] Preis: 227,7 EUR; Kontakt Lieferant: WBH-AV@Kind-Co.de
+- [2026-07-24 03:20] [2026-07-24-19f5bf6740-Top 10 Lieferanten.md] Schaufler-Projekt: Beschaffung von E- und K1-Teilen für Werkzeug- und Formenbau
 - [2026-07-23 15:20] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Erstgespräch: 23.07.2026 (Besprechungstranskript 15:30 Min)
 - [2026-07-23 15:20] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Stefan Seifert, Seifert-GmbH – Fertigungsbetrieb im Bereich Frästeile/Zerspanung
 - [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Schmidt-Hänsch produziert Prozessrefraktometer und Dichtemessgeräte, nutzt ERP-System Sage 100 für Produktion/Einkauf/Buchhaltung
@@ -730,6 +735,20 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-24 03:21] [2026-07-24-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Bestellwert: EUR 4.499
+- [2026-07-24 03:21] [2026-07-24-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Bestellbeleg Nr. 127096 vom 01.06.2026, Schaufler Tooling GmbH & Co. KG, Lieferadresse Goethestraße 72, 89150 Laichingen
+- [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-RAFFSPED.-126744.md] Transportauftrag für Lieferungen unterliegt Allgemeinen Einkaufsbedingungen (www.schaufler.de)
+- [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-RAFFSPED.-126744.md] Lieferadresse: Schmitt GbR, Goethestraße 72, 89150 Laichingen
+- [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-RAFFSPED.-126744.md] Lieferbedingung: DAP Laichingen, Incoterms 2020, Liefertermin 12.05.26
+- [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-PFITZER-127655.md] Liefertermin: 29.06.2026
+- [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-KIND WBH-127668.md] Liefertermin: 07.07.2026 (Lieferbedingung DAP an MJM Metallverarbeitung Mangner GmbH, Schwarzackerstraße 26, 35232 Dautphetal)
+- [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-KIND WBH-127668.md] Leistung: Härten Ejector Shotblock, Werkstoff 1.2344 ESU, Härte 42-46 HRC, 3x anlassen mit Härteprotokoll Nadca 207-2022 Class 2
+- [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-KIND STAHL-127653.md] Zahlungskonditionen: 30 Tage 3% Skonto oder 90 Tage netto
+- [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-KIND STAHL-127653.md] Nettosumme: 68,25 EUR, Liefertermin: 29.06.2026
+- [2026-07-24 03:20] [2026-07-24-19f5bf6740-Top 10 Lieferanten.md] Top 10 Lieferantenliste mit vollständigen Kontaktdaten (Adresse, Telefon, E-Mail) erstellt
+- [2026-07-24 03:19] [2026-07-24-19f4baf08b-G170104086.md] Dokumentdatum: 09.07.2026, Fällig: 09.07.2026, Zahlungsart: automatische Kreditkartenabbuchung
+- [2026-07-24 03:19] [2026-07-24-19f4baf08b-G170104086.md] Rechnungsnummer G170104086, Betrag: 33,31 EUR (27,99 € netto + 5,32 € USt. 19%)
+- [2026-07-24 03:19] [2026-07-24-19f4baf08b-G170104086.md] Abrechnungszeitraum: 01.06.2026 - 30.06.2026; Service: Azure AI + Machine Learning
 - [2026-07-23 15:20] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Gesuchte KI-Agent-Lösung: automatisierte Erstellung von Material-/Zuschnittlisten für geschweißte Baugruppen (mehrere Einzelteile)
 - [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] KI-Beschaffungsagent für Einkauf präsentiert: Auftragsbestätigungsprüfung, Mahnwesen, Lieferantenbewertung; adaptierbar an Sage 100/Winform + Outlook
 - [2026-07-23 12:11] [2026-07-23-19f4728b7d-Mitgliedschaftsbedingungen.md] Hauptkartenentgelt: EUR 850/Jahr; Zusatzkarten mit zusätzlichen Entgelten
@@ -1340,3 +1359,6 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-23 15:17] [2026-07-23-Email-19f8f1d8-Zugesagt-Update-Seifert-X-Prozessia.md] Seifert-GmbH hat Projekt 'Seifert X Prozessia' zugesagt – bestätigt am 2026-07-23
 - [2026-07-23 11:42] [2026-07-21-Email-19f840fe-Angenommen-Update-Zillmer-X-Prozessia.md] Zillmer-Elektrotechnik: Update akzeptiert (Bestätigung von Dierk Biendarra, 21. Juli 2026)
 - [2026-07-17 21:42] [6---Email-19f38afa-AW-Offene-Punkte-Beschaffungsagent.md] Bestelldokument muss angepasst werden, damit Lieferanten wissen, dass bestellbezogene Daten an order@schaufler.de gehen (Verantwortung: Benjamin Schmohl)
+
+## ANFORDERUNGEN
+- [2026-07-24 03:21] [2026-07-24-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Komplette mechanische Anfertigung nach Zeichnungen mit Gravur, Prüf-, Härte- und Messprotokoll erforderlich

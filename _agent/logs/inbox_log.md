@@ -1011,3 +1011,31 @@
 - 2026-07-24 03:17 | 19f5bfda1d-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (image001.png) ohne extrahierbaren Text, zugehörig zum E-Mail-Thread '
 - 2026-07-24 03:18 | 19f5ac99c1-image001.png → Memos | Bilddatei ohne extrahierbaren Text und ohne erkennbaren Kontext (kein Betreff, k
 - 2026-07-24 03:18 | 19f5ff1aad-BEST-RAFFSPED.-126744.pdf → Kunden/Schaufler/Vertraege | Bestellbeleg Nr. 126744 der Schaufler Tooling GmbH & Co. KG vom 11.05.2026 an di
+- 2026-07-24 03:18 | 19f5ff1aad-BEST-KIND STAHL-127653.pdf → Kunden/Schaufler/Vertraege | Bestellung Nr. 127653 von Schaufler Tooling GmbH & Co. KG an Kind & Co. Edelstah
+- 2026-07-24 03:18 | 19f5bf9833-image001.png → Kunden/Schaufler/Dokumente | Bilddatei ohne extrahierbaren Text (Screenshot). Basierend auf wiederkehrenden M
+- 2026-07-24 03:18 | 19f5fc7d6d-Outlook-cid_image0 → Memos | Eingebettetes Outlook-Bild (cid_image0) ohne erkennbaren Textinhalt bzw. unbekan
+- 2026-07-24 03:18 | 19f5ff1aad-BEST-PFITZER-127655.pdf → Kunden/Schaufler/Vertraege | Bestellbeleg Nr. 127655 von Schaufler Tooling GmbH & Co. KG an den Lieferanten P
+- 2026-07-24 03:18 | 19f5bf6740-Top 10 Lieferanten.xlsx → Kunden/Schaufler/Dokumente | Liste der Top 10 Lieferanten für E- und K1-Teile mit Kontaktdaten (Adresse, Tele
+- 2026-07-24 03:19 | 19f650a55c-image001.png → Memos/Medien | Bilddatei (Screenshot) ohne extrahierbaren Text. Basierend auf Dateiname-Muster 
+- 2026-07-24 03:19 | 19f5cb7c83-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) ohne extrahierbaren Text. Die Datei-ID (19f5cb7c) entspri
+- 2026-07-24 03:22 | 19f277a3e6-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, kein Inbox-Unterordner und kein Begleitkonte
+- 2026-07-24 03:22 | 19f430a55b-Gesellschaftsvertrag der Webwokr Gbr.pdf → Vertraege | Gesellschaftsvertrag der WebWokr GbR (Sitz Saarbrücken) mit den Gesellschaftern 
+- 2026-07-24 03:22 | 19f17dfce8-Prozess Lohnverguß 2022.07.20.pdf → Kunden/endin/Dokumente | Prozessdokumentation 'Lohnverguß-Auftrag' vom 20.07.2022 mit visualisiertem BPMN
+- 2026-07-24 03:22 | 19f40a0d3d-AVV_Schaufler_Prozessia.pdf → Kunden/Schaufler/Vertraege | AVV (Auftragsverarbeitungsvertrag gemäß Art. 28 DS-GVO) zwischen Schaufler Tooli
+- 2026-07-24 03:22 | 19f21b2f77-image008.png → Memos/Medien | Bilddatei ohne extrahierbaren Text oder erkennbaren Kontext. Ohne Begleitinforma
+- 2026-07-24 03:22 | 19f21b2f77-image002.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, keine Zuordnung zu Inhalt möglich. Dateiname
+- 2026-07-24 03:22 | 19f462a98b-image001.jpg → Memos/Medien | Bilddatei (image001.jpg) ohne extrahierbaren Text und ohne Kontextinformationen 
+- 2026-07-24 03:22 | 19f1871803-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich Screenshot-Anhang (z. B. zum geme
+- 2026-07-24 03:23 | 19f18e16e2-Mitgliedschaftsbedingungen.pdf → Vertraege | Mitgliedschaftsbedingungen und Preis-/Leistungsübersicht der American Express Bu
+- 2026-07-24 03:23 | 19f21b2f77-image009.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image009.png). Vermutlich Screenshot oder ei
+- 2026-07-24 03:23 | 19f1906293-Angebot_AG0026_30.06.2026.pdf → Kunden/endin/Angebote | Angebot AG0026 von Prozessia an endin GmbH vom 30.06.2026 (gültig bis 28.07.2026
+- 2026-07-24 03:23 | 19f40a0d3d-SLA_Schaufler .pdf → Kunden/Schaufler/Vertraege | Service Level Agreement zum Betrieb des Beschaffungsagenten zwischen Prozessia G
+- 2026-07-24 03:23 | 19f1c9e313-Angebot_AG0027_01.07.2026.pdf → Kunden/endin/Angebote | Angebot AG0027 von Prozessia an endin GmbH vom 01.07.2026 (gültig bis 29.07.2026
+- 2026-07-24 03:23 | 19f1871803-image002.jpg → Memos/Medien | Bilddatei ohne extrahierbaren Text und ohne erkennbaren Absender- oder Kundenkon
+- 2026-07-24 03:23 | 19f462a98b-image002.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, kein Dateiname-Kontext oder Metadaten vorhan
+- 2026-07-24 03:23 | 19f21b2f77-image001.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, vermutlich E-Mail-Anhang (Screenshot oder Si
+- 2026-07-24 03:23 | 19f22dc1f4-icon.png → Memos/Medien | Bilddatei (Icon) ohne extrahierbaren Text, keinerlei inhaltlicher Kontext oder M
+- 2026-07-24 03:24 | 19f21b2f77-image007.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image007.png). Ohne Kontext (z.B. zugehörige
+- 2026-07-24 03:24 | 19f3d0eb39-image001.png → Kunden/endin/Dokumente | Bilddatei ohne extrahierbaren Text, zugehörig zur E-Mail-Korrespondenz 'AW: Pote
+- 2026-07-24 03:24 | 19f17dfce8-Workflow Ersatzteile.pdf → Kunden/endin/Dokumente | Prozessablauf-Diagramm 'Workflow Ersatzteile' für die Bestellabwicklung: Bestell
+- 2026-07-24 03:24 | 19f277a3e6-image005.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image005.png). Ohne Begleittext oder erkennb
