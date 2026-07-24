@@ -298,8 +298,9 @@ export function ChatPage() {
     <div className="mx-auto flex h-[calc(100vh-6.5rem)] w-full max-w-3xl flex-col">
       <div className="flex-1 overflow-y-auto">
         <div className="flex flex-col gap-6 px-1 py-4">
-          {messages.map((m, i) =>
-            m.role === "user" ? (
+          {messages.map((m, i) => {
+            const isThinking = streaming && i === messages.length - 1 && !m.content;
+            return m.role === "user" ? (
               <div key={i} className="flex justify-end">
                 <div className="max-w-[80%] rounded-3xl bg-muted px-4 py-2 text-sm text-foreground">
                   {m.content}
@@ -307,16 +308,25 @@ export function ChatPage() {
               </div>
             ) : (
               <div key={i} className="flex gap-3">
-                <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
-                  <BrainCircuit className="size-3.5" />
+                <div className="relative flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
+                  {isThinking && (
+                    <>
+                      <span className="absolute inset-0 rounded-full border border-primary animate-[brain-pulse_1.6s_ease-out_infinite]" />
+                      <span
+                        className="absolute inset-0 rounded-full border border-primary animate-[brain-pulse_1.6s_ease-out_infinite]"
+                        style={{ animationDelay: "0.8s" }}
+                      />
+                    </>
+                  )}
+                  <BrainCircuit className="relative size-3.5" />
                 </div>
                 <div className="min-w-0 flex-1 pt-0.5">
                   <div className="mb-1 text-xs font-medium text-muted-foreground">Brain</div>
-                  <div className="prose prose-invert prose-sm max-w-none text-foreground">
-                    <ReactMarkdown>
-                      {m.content || (streaming && i === messages.length - 1 ? "…" : "")}
-                    </ReactMarkdown>
-                  </div>
+                  {!isThinking && (
+                    <div className="prose prose-invert prose-sm max-w-none text-foreground">
+                      <ReactMarkdown>{m.content}</ReactMarkdown>
+                    </div>
+                  )}
                   {!!m.sources?.length && (
                     <div className="mt-2 flex flex-wrap gap-1.5">
                       {m.sources.map((s) => (
@@ -333,8 +343,8 @@ export function ChatPage() {
                   )}
                 </div>
               </div>
-            )
-          )}
+            );
+          })}
           {error && <p className="text-sm text-destructive">{error}</p>}
           <div ref={bottomRef} />
         </div>

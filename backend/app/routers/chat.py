@@ -257,6 +257,15 @@ def _stream_chat_cli(
     Vor dem Umschalten auf claude_engine="cli": echten CLAUDE_CODE_OAUTH_TOKEN
     setzen, hier live gegen mehrere Nachrichten inkl. Tool-Nutzung testen,
     diesen Kommentar aktualisieren.
+
+    UPDATE (2026-07-24): claude_engine="cli" ist seit 2026-07-23 produktiv
+    (siehe .env). Der bisher komplett dynamisch gebaute System-Prompt wird
+    jetzt in BASE_PROMPT (fix, für den Warm-Pool) und dynamic_context
+    (Datum/Aufgaben/RAG/Kundenkontext/Agent-Zusatz, wechselt bei jeder
+    Anfrage) aufgeteilt, siehe context_service.build_dynamic_context() und
+    claude_cli_pool.py. Die oben genannten Lücken (Mehrturn-History,
+    tasks_changed-Erkennung, Partial-Message-Granularität) bestehen
+    unverändert fort - nicht Teil des Pool-Umbaus.
     """
     if model not in CHAT_MODELS:
         model = Models.SONNET
@@ -271,17 +280,17 @@ def _stream_chat_cli(
 
     try:
         with ThreadPoolExecutor(max_workers=5) as ex:
-            f_system = ex.submit(context_service.build_system)
+            f_system = ex.submit(context_service.build_dynamic_context)
             f_cust = ex.submit(context_service.get_customer_context, last_msg)
             f_rag = ex.submit(rag.search_with_sources, last_msg, 15, path_prefixes)
             f_mentioned = ex.submit(context_service.get_mentioned_files, messages)
-            system = f_system.result()
+            dynamic = f_system.result()
             cust_ctx = f_cust.result()
             rag_ctx, rag_sources = f_rag.result()
             mentioned_ctx = f_mentioned.result()
 
         if agent and agent.get("system_prompt_zusatz"):
-            system += f"\n\n=== AGENT: {agent['name']} ===\n{agent['system_prompt_zusatz']}"
+            dynamic += f"\n\n=== AGENT: {agent['name']} ===\n{agent['system_prompt_zusatz']}"
 
         if rag_sources:
             yield _sse({"sources": rag_sources})
@@ -290,19 +299,25 @@ def _stream_chat_cli(
         if all_raw:
             synthesis = context_service.synthesize_context(last_msg, all_raw)
             if synthesis:
-                system += f"\n\n=== KONTEXT-ANALYSE: VERBINDUNGEN & SCHLÜSSELINFORMATIONEN ===\n{synthesis}"
+                dynamic += f"\n\n=== KONTEXT-ANALYSE: VERBINDUNGEN & SCHLÜSSELINFORMATIONEN ===\n{synthesis}"
 
         if mentioned_ctx:
-            system += f"\n\n=== DIREKT REFERENZIERTE DATEIEN ===\n{mentioned_ctx}"
+            dynamic += f"\n\n=== DIREKT REFERENZIERTE DATEIEN ===\n{mentioned_ctx}"
         if cust_ctx:
-            system += f"\n\n=== KUNDEN-AKTEN (vollständig) ===\n{cust_ctx}"
+            dynamic += f"\n\n=== KUNDEN-AKTEN (vollständig) ===\n{cust_ctx}"
         if rag_ctx:
-            system += f"\n\n=== RELEVANTE DOKUMENTE & E-MAILS ===\n{rag_ctx}"
+            dynamic += f"\n\n=== RELEVANTE DOKUMENTE & E-MAILS ===\n{rag_ctx}"
 
         all_text_parts = []
         tasks_changed = False
         try:
-            for event in claude_cli.stream_chat(last_msg, system_prompt=system, model=model):
+            for event in claude_cli.stream_chat(
+                last_msg,
+                system_prompt=context_service.BASE_PROMPT,
+                dynamic_context=dynamic,
+                model=model,
+                try_pool=True,
+            ):
                 etype = event.get("type")
                 if etype == "assistant":
                     for block in event.get("message", {}).get("content", []):

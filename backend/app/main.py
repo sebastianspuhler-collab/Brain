@@ -18,6 +18,7 @@ from app.background.jobs import (
 from app.config import get_settings
 from app.routers import auth, chat, dashboard, files, inbox, linkedin, onboarding, youtube
 from app.routers.auth import limiter
+from app.services import claude_cli_pool
 from app.services.claude_cli import ensure_mcp_approval
 
 logging.basicConfig(level=logging.INFO)
@@ -26,6 +27,12 @@ logging.basicConfig(level=logging.INFO)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     ensure_mcp_approval()
+    settings = get_settings()
+    if settings.claude_engine == "cli":
+        # Vor dem blockierenden RAG-Laden gestartet, damit der erste
+        # Standby-Prozess parallel dazu vorwärmt (claude_cli_pool.py) -
+        # maximaler Vorsprung vor der ersten echten Chat-Anfrage.
+        claude_cli_pool.start()
     await asyncio.to_thread(load_rag_blocking)
     tasks = [
         asyncio.create_task(inbox_watcher_loop()),
@@ -37,6 +44,8 @@ async def lifespan(app: FastAPI):
     yield
     for task in tasks:
         task.cancel()
+    if settings.claude_engine == "cli":
+        claude_cli_pool.stop()
 
 
 def create_app() -> FastAPI:

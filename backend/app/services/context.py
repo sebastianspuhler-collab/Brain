@@ -114,7 +114,7 @@ DATEN:
         return ""
 
 
-_BASE_PROMPT = """Du bist das persönliche Second Brain von Sebastian Spuhler (Prozessia GbR, Saarbrücken).
+BASE_PROMPT = """Du bist das persönliche Second Brain von Sebastian Spuhler (Prozessia GbR, Saarbrücken).
 Du hast vollständigen Zugriff auf seinen Vault, alle Kundendaten, Aufgaben, E-Mails und Dokumente.
 
 SCHREIBSTIL:
@@ -147,7 +147,11 @@ _WEEKDAYS_DE = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Sams
 _WEEKDAYS_SHORT = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
 
 
-def build_system() -> str:
+def _build_dynamic_parts() -> list[str]:
+    """Alles, was build_system() zusammenbaut, außer BASE_PROMPT - Datum,
+    Aufgaben/Memory/Profil, Vault-Baum, Konversations-Log, Kalender, Mails,
+    LinkedIn-Status. Ändert sich bei jeder Anfrage (Dateien werden frisch
+    gelesen, Kalender/Mails live abgefragt) - siehe build_dynamic_context()."""
     settings = get_settings()
     now = datetime.now()
     today_str = f"{_WEEKDAYS_DE[now.weekday()]}, {now.strftime('%d.%m.%Y')}"
@@ -159,7 +163,7 @@ def build_system() -> str:
         marker = " ← HEUTE" if day.date() == now.date() else ""
         week_lines.append(f"  {_WEEKDAYS_SHORT[i]} {day.strftime('%d.%m.%Y')}{marker}")
 
-    parts = [_BASE_PROMPT, f"Heute: {today_str}.", "\n".join(week_lines), ""]
+    parts = [f"Heute: {today_str}.", "\n".join(week_lines), ""]
 
     for label, path, limit in [
         ("PROZESSIA-PROFIL", settings.prozessia_path, 5000),
@@ -233,7 +237,20 @@ def build_system() -> str:
     except Exception:
         pass
 
-    return "\n".join(parts)
+    return parts
+
+
+def build_system() -> str:
+    return "\n".join([BASE_PROMPT] + _build_dynamic_parts())
+
+
+def build_dynamic_context() -> str:
+    """Wie build_system(), aber ohne BASE_PROMPT - für den claude_cli-Pool-Pfad
+    (chat.py:_stream_chat_cli), der BASE_PROMPT fix beim Vorwärmen eines
+    Standby-Prozesses mitgibt (--system-prompt ist ein Start-Flag, siehe
+    claude_cli_pool.py) und den Rest hier als Teil der ersten stdin-Nachricht
+    verschickt, statt als System-Prompt."""
+    return "\n".join(_build_dynamic_parts())
 
 
 def _get_recent_conversations() -> str:
