@@ -999,3 +999,15 @@
 - 2026-07-23 21:34 | 19f21b2f77-image005.png → Memos/Medien | Bilddatei ohne extrahierbaren Text, kein Dateikontext oder Absenderinformation v
 - 2026-07-23 21:34 | 19f4b8def1-G170032929.pdf → Finanzen/2026/07_Juli | Microsoft-Rechnung (G170032929) für Prozessia GbR über 4,47 EUR brutto (3,76 EUR
 - 2026-07-23 21:34 | 19f41bbdb4-icon.png → Memos/Medien | Bilddatei (icon.png) ohne extrahierbaren Text. Vermutlich ein Icon/Grafik-Asset 
+- 2026-07-24 03:16 | 19f5a99827-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) ohne extrahierbaren Text, die dem E-Mail-Thread 'AW: Stat
+- 2026-07-24 03:16 | 19f5ff1aad-BEST-SCHMITT GBR-127096.pdf → Kunden/Schaufler/Vertraege | Bestellbeleg Nr. 127096 der Schaufler Tooling GmbH & Co. KG an Sven & Gerhard Sc
+- 2026-07-24 03:16 | 19f5ff1aad-BEST-KIND WBH-127668.pdf → Kunden/Schaufler/Vertraege | Bestellbeleg 127668 von Schaufler Tooling GmbH & Co. KG an Kind & Co. Edelstahlw
+- 2026-07-24 03:16 | 19f4baf08b-G170104086.pdf → Finanzen/2026/07_Juli | Microsoft Azure Rechnung (Billing Summary & Tax Invoice) für Sebastian Spuhler, 
+- 2026-07-24 03:16 | 19f5b5b9df-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) ohne extrahierbaren Text, zugehörig zur E-Mail-Korrespond
+- 2026-07-24 03:17 | 19f6188f68-image002.png → Kunden/Schaufler/Dokumente | Bilddatei (image002.png) ohne extrahierbaren Text, vermutlich Anhang aus dem E-M
+- 2026-07-24 03:17 | 19f5fc7d6d-Outlook-cid_image0.png → Memos/Medien | Bilddatei aus einer Outlook-E-Mail (cid:image0), ohne extrahierbaren Text. Vermu
+- 2026-07-24 03:17 | 19f5bc2771-image001.png → Memos | Bilddatei (PNG) ohne extrahierbaren Text, vermutlich ein Screenshot-Anhang aus e
+- 2026-07-24 03:17 | 19f4b9a883-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (Screenshot) ohne extrahierbaren Text. Basierend auf dem Dateinamensmu
+- 2026-07-24 03:17 | 19f5bfda1d-image001.png → Kunden/Schaufler/Dokumente | Bilddatei (image001.png) ohne extrahierbaren Text, zugehörig zum E-Mail-Thread '
+- 2026-07-24 03:18 | 19f5ac99c1-image001.png → Memos | Bilddatei ohne extrahierbaren Text und ohne erkennbaren Kontext (kein Betreff, k
+- 2026-07-24 03:18 | 19f5ff1aad-BEST-RAFFSPED.-126744.pdf → Kunden/Schaufler/Vertraege | Bestellbeleg Nr. 126744 der Schaufler Tooling GmbH & Co. KG vom 11.05.2026 an di
