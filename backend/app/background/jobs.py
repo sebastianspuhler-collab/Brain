@@ -82,6 +82,12 @@ def git_pull_vault() -> bool:
             logger.info("git pull: %s", result.stdout.strip() or "up to date")
             return True
         logger.warning("git pull Fehler: %s", result.stderr.strip()[:200])
+        # Bei einem Konflikt (z.B. Mac/VPS-Divergenz bei generierten Dateien,
+        # siehe .gitattributes) sofort aufräumen statt bis zum nächsten
+        # Zyklus (GIT_SYNC_SECONDS) hängen zu lassen - sonst liegen bis zu
+        # 10 Minuten lang Dateien mit Konflikt-Markern im Arbeitsverzeichnis,
+        # die z.B. der Inbox-Watcher zwischenzeitlich einliest.
+        _abort_stuck_rebase(vault, env)
         return False
     except Exception as exc:
         logger.warning("git pull Exception: %s", exc)
