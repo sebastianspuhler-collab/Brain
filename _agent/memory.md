@@ -1,4 +1,8 @@
 ## KONTEXT
+- [2026-07-24 13:48] [20260724-19f94522-The-final-varieties-of-peach-season.md] Cresthaven: Anfang-August-Sorte, durchgehend süß, beliebt zum Einmachen
+- [2026-07-24 13:47] [20260724-19f94520-The-final-varieties-of-peach-season.md] Sun Prince: ausgewogen süß, fest - für Verzehr und Backen; Cresthaven: frühe August-Sorte, süß, gut zum Einmachen
+- [2026-07-24 13:47] [20260724-19f94520-The-final-varieties-of-peach-season.md] Verfügbare Pfirsichsorten Ende Juli 2026: Sun Prince, Cresthaven, Flame Prince, Dixieland
+- [2026-07-24 13:46] [20260724-19f93b0b-Angebot-AG0032-von-Prozessia.md] Angebotsnummer AG0032 vom 24.07.2026 von Prozessia
 - [2026-07-24 03:20] [2026-07-24-19f5bf6740-Top 10 Lieferanten.md] Lieferantenliste aktuell vom 2026-07-24 als Referenzmaterial für Beschaffungsagenten verfügbar
 - [2026-07-24 03:20] [2026-07-24-19f5bf6740-Top 10 Lieferanten.md] Lieferanten geografisch verteilt: Deutschland (4), Portugal (1), Ungarn (1), Italien geplant
 - [2026-07-23 21:33] [2026-07-23-19f69cc342-Rechnung_2026-07-16_310100082556.md] Zahlungsfrist: 23.07.2026 (7 Tage nach Rechnungsdatum 16.07.2026), Leistungszeitraum: 16.07.-15.08.2026
@@ -735,6 +739,14 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-24 13:48] [20260724-19f94522-The-final-varieties-of-peach-season.md] Letzter Bestelltag für Pfirsichlieferung Sommer 2026: Donnerstag, 30. Juli 2026
+- [2026-07-24 13:47] [20260724-19f94520-The-final-varieties-of-peach-season.md] Deadline für Pfirsich-Bestellungen: Donnerstag, 30. Juli 2026 (letzter Liefertag der Saison 2026)
+- [2026-07-24 13:47] [20260724-19f94296-Re-Decube-x-WebWokr.md] Nachfass ausstehend: Drei Punkte zu Decube x WebWokr – Daniela wartet auf Rückmeldung, ob sie Details per E-Mail zusenden soll
+- [2026-07-24 13:47] [20260724-19f94296-Re-Decube-x-WebWokr.md] Decube x WebWokr: Trusty unterstützt Metadaten in deutscher Sprache – ermöglicht Datenzugang für globale Teams ohne Englischkenntnisse
+- [2026-07-24 13:47] [20260724-19f9412a-Re-FT-Ventures-x-WebWokr.md] Nächster Schritt: Mary bereit, drei Kandidatenprofile zu schicken - wartet auf Bestätigung (Ja/Nein)
+- [2026-07-24 13:47] [20260724-19f9412a-Re-FT-Ventures-x-WebWokr.md] Anfrage: Integration von externen Entwicklern direkt in Sebastians Team zur Kapazitätserweiterung
+- [2026-07-24 13:46] [2026-07-24.md] AG0026: 7.140€ brutto, Deadline 28.07.2026 (in 4 Tagen)
+- [2026-07-24 13:46] [2026-07-24.md] AG0032: Angebot via Lexoffice am 24.07.2026 verschickt, gültig bis 24.08.2026
 - [2026-07-24 03:21] [2026-07-24-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Bestellwert: EUR 4.499
 - [2026-07-24 03:21] [2026-07-24-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Bestellbeleg Nr. 127096 vom 01.06.2026, Schaufler Tooling GmbH & Co. KG, Lieferadresse Goethestraße 72, 89150 Laichingen
 - [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-RAFFSPED.-126744.md] Transportauftrag für Lieferungen unterliegt Allgemeinen Einkaufsbedingungen (www.schaufler.de)

@@ -1039,3 +1039,5 @@
 - 2026-07-24 03:24 | 19f3d0eb39-image001.png → Kunden/endin/Dokumente | Bilddatei ohne extrahierbaren Text, zugehörig zur E-Mail-Korrespondenz 'AW: Pote
 - 2026-07-24 03:24 | 19f17dfce8-Workflow Ersatzteile.pdf → Kunden/endin/Dokumente | Prozessablauf-Diagramm 'Workflow Ersatzteile' für die Bestellabwicklung: Bestell
 - 2026-07-24 03:24 | 19f277a3e6-image005.png → Memos/Medien | Bilddatei ohne extrahierbaren Text (image005.png). Ohne Begleittext oder erkennb
+- 2026-07-24 13:55 | 19f93b0bdf-Angebot_AG0032_24.07.2026.pdf → Kunden/endin/Angebote | Angebot AG0032 von Prozessia an endin GmbH über einen KI-Agenten für die kaufmän
+- 2026-07-24 13:55 | 19f93b0bdf-Angebot_AG0032_24.07.2026.pdf → Kunden/endin/Angebote | Angebot AG0032 von Prozessia an endin GmbH vom 24.07.2026 (gültig bis 24.08.2026

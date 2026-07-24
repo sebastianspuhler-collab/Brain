@@ -1,0 +1,25 @@
+{
+  "id": "5a9f1d88-4155-4c14-86b8-4d6dbd0124b7",
+  "title": "hallo",
+  "model": "claude-sonnet-5",
+  "created_at": "2026-07-24T13:49:33.312161+00:00",
+  "updated_at": "2026-07-24T13:52:26.003886+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hallo"
+    },
+    {
+      "role": "assistant",
+      "content": "Hallo Sebastian!"
+    },
+    {
+      "role": "user",
+      "content": "was geht"
+    },
+    {
+      "role": "assistant",
+      "content": "Grad ziemlich viel Peach-Truck-Newsletter-Rauschen im Postfach, aber operativ sieht's so aus:\n\n**Heute reingekommen:**\n- **Cyril Dietz (Endin)** hat um 14:01 das Meeting \"Prozessia X Endin\" (das heute vormittag um 11 Uhr lief) zugesagt – falls das Update noch nicht stattgefunden hat, steht es an.\n- **AG0032** wurde heute 10:34 automatisch über Lexoffice als Angebot verschickt. Ich weiß noch nicht an wen – wenn das dein Schaufler-Angebot war, kannst du den Punkt \"Schaufler Lexoffice-Angebot fertigstellen\" aus context.md abhaken. Sag mir Bescheid, dann schau ich in den Anhang und kläre es ab.\n- **Stefan Seifert** hat gestern das Meeting \"Update Seifert X Prozessia\" (28.07., 14:30) zugesagt.\n\n**Nächste Termine (kommende Woche):**\nMontag 27.07. wird dicht: 9:30 Meeting Montag, 10:00 Bedarfsanalyse TPG. Dienstag 28.07. sogar noch dichter – Mundinger (10:30), Zillmer (11:00), Arbeit (11:45), Seifert (14:30) direkt hintereinander.\n\n**Weiterhin offen, unbeantwortet:**\n- Benjamin Schmohl (Schaufler) wartet seit 21.07. auf dein Feedback zu den Live-Daten des Beschaffungsagenten – das ist jetzt 3 Tage offen. Er hat gestern zusätzlich die Top-100-Lieferantenliste mit Kontaktdaten geschickt.\n- AG0026 (7.140€ brutto) läuft in 4 Tagen (28.07.) ab.\n\nWas soll ich als Erstes angehen – AG0032 klären, Schmohl antworten, oder was anderes?"
+    }
+  ]
+}
