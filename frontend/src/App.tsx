@@ -11,6 +11,7 @@ import { LinkedInPage } from "@/pages/LinkedInPage";
 import { MailPage } from "@/pages/MailPage";
 import { MeetingsPage } from "@/pages/MeetingsPage";
 import { OnboardingPage } from "@/pages/Onboarding";
+import { SettingsPage } from "@/pages/SettingsPage";
 import { TasksPage } from "@/pages/TasksPage";
 import { YouTubePage } from "@/pages/YouTubePage";
 
@@ -36,6 +37,7 @@ function App() {
         <Route path="linkedin" element={<LinkedInPage />} />
         <Route path="youtube" element={<YouTubePage />} />
         <Route path="onboarding" element={<OnboardingPage />} />
+        <Route path="einstellungen" element={<SettingsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
