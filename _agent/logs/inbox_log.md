@@ -967,3 +967,4 @@
 - 2026-07-23 15:18 | Prozessia X Schmidt-Hänsch (1).docx → Kunden/Schmidt-Haensch/Meetings | Besprechungstranskript vom 21. Juli 2026 zwischen Sebastian Spuhler und Sumit Bh
 - 2026-07-23 15:20 | Stefan Seifert and Sebastian Spuhler.docx → Leads/Seifert-GmbH-Korrespondenz | Besprechungstranskript zwischen Sebastian Spuhler und Stefan Seifert vom 23.07.2
 - 2026-07-24 15:11 | Angebot_endin_überarbeitet.pdf → Kunden/endin/Angebote | Angebot AG0032 vom 24.07.2026 von Prozessia an endin GmbH für einen KI-Agenten z
+- 2026-07-24 15:12 | 19f93b0bdf-Angebot_AG0032_24.07.2026.pdf → Kunden/endin/Angebote | Angebot AG0032 von Prozessia an endin GmbH (Weikersheim) vom 24.07.2026 für eine
