@@ -26,7 +26,22 @@ _inbox/
 # Embedding-Modell selbst laufen zu lassen (hat schon zweimal den Container-
 # Stack durcheinandergebracht) - Index wird lokal gebaut und per Git auf den
 # VPS transportiert, da kein direkter scp-Zugriff vom Laptop besteht.
-_agent/processed_cache.json
+# (vault.index/vault_metadata.json bleiben deshalb bewusst getrackt, siehe
+# .gitattributes: merge=ours verhindert dort zumindest künftige Konflikte.)
+
+# ── Pro-Maschine-Tracking-State (2026-07-24) ─────────────────────────────────
+# processed_cache.json und downloaded_attachments.json sind KEINE geteilten
+# Daten, sondern rein lokaler "was habe ich schon gesehen"-Zustand von Mac
+# und VPS unabhängig voneinander. Waren fälschlich (mit-)getrackt bzw. der
+# alte Ignore-Eintrag zeigte auf den falschen Pfad (_agent/processed_cache.json
+# statt _agent/logs/processed_cache.json) - dadurch gerieten sie in dieselben
+# Rebase-Konflikte wie vault.index und wurden bei einem fehlgeschlagenen/
+# abgebrochenen Sync-Zyklus auf einen älteren Stand zurückgesetzt. Das ließ
+# attachment_backfill_loop() (jobs.py) glauben, nichts sei je heruntergeladen
+# worden, und die komplette _inbox/ erneut mit bereits verarbeiteten Anhängen
+# fluten (live beobachtet: 104 Karteileichen, siehe Aufräumung 2026-07-24).
+_agent/logs/processed_cache.json
+_agent/downloaded_attachments.json
 
 # ── Präsentationen (zu groß für Git, im RAG als Text erfasst) ────────────────
 *.pptx
