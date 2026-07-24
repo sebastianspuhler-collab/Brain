@@ -1,0 +1,93 @@
+---
+tags:
+  - endin
+  - Angebot
+  - KI-Agent
+  - Beschaffung
+  - kaufmännische Abwicklung
+quelle: Angebot_endin_überarbeitet.pdf
+datum: 2026-07-24
+kategorie: Kunde
+---
+
+# Angebot_endin_überarbeitet
+
+## Zusammenfassung
+Angebot AG0032 vom 24.07.2026 von Prozessia an endin GmbH für einen KI-Agenten zur kaufmännischen Auftragsabwicklung: Schnittstellen zu E-Mail-Postfächern, Betrieb auf unternehmenseigenem Server, Empfang und Klassifizierung von Bestellungen (Service, Ersatzteile, Maschine) sowie ein Steuerungs-Dashboard. Gesamtbetrag 3.451,00 € brutto (2.900,00 € netto zzgl. 19% USt.), gültig bis 24.08.2026.
+
+## Vollständiger Inhalt
+**Prozessia.**
+AI AGENCY
+
+Angebot
+
+Angebotsnr.: AG0032
+Kundennr.: 10001
+Datum: 24.07.2026
+gültig bis: 24.08.2026
+
+Prozessia, Campus Starterzentrum Gebäude A1 1, 66123
+Saarbrücken
+
+endin GmbH
+Kreuzstr. 1
+97990 Weikersheim
+
+Prozessia
+Campus Starterzentrum Gebäude A1 1
+66123 Saarbrücken
+info@prozessia.de
+https://prozessia.de/
+
+Gerne bieten wir Ihnen an:
+
+|  Pos. | Bezeichnung | Menge | Einheit | Einzel € | Gesamt €  |
+| --- | --- | --- | --- | --- | --- |
+|  1 | **KI Agent für die kaufmännische Abwicklung von Aufträgen** 1. Technische Basis & Infrastruktur 1.1 Einrichtung der notwendigen Schnittstellen zu E-Mail-Postfächern 1.2 Konstruktion und Betrieb der Anwendung auf einem unternehmenseigenen Server zur sicheren Datenverarbeitung sowie zur Sicherstellung der erforderlichen Skalierbarkeit und Belastbarkeit aller Prozesse und Funktionen 2. Empfang von Bestellungen 2.1 Programmieren der Funktionen zum Empfang, zur Erkennung und zur Verwaltung eingehender Kundenbestellungen 2.2 Programmieren der automatischen Klassifizierung nach Auftragstyp (Service, Ersatzteile, Maschine) 3. Steuerung & Transparenz 3.1 Einrichtung und Programmierung eines interaktiven Dashboards zur zentralen Steuerung, | 1 | Stück | 2.900,00 | 2.900,00  |
+|  **Zwischensumme** |   |   |   |   | **2.900,00**  |
+
+Prozessia
+Campus Starterzentrum Gebäude A1 1
+66123 Saarbrücken
+info@prozessia.de
+https://prozessia.de/
+
+USt-IdNr.: DE451202966
+Steuernummer: 040/163/12016
+Sebastian Spuhler, Mohmed Douloui GbR
+
+Sebastian Spuhler
+Finom Payments Zweigniederlassung
+Deutschland
+IBAN: DE97 1001 8000 0739 3368 62
+BIC: FNOMDEB2XXX
+
+Seite 1/2
+
+|  Pos. | Bezeichnung | Menge | Einheit | Einzel € | Gesamt €  |
+| --- | --- | --- | --- | --- | --- |
+|  **Übertrag** |   |   |   |   | **2.900,00**  |
+|   | Überwachung und Kommunikation mit dem Agenten 3.2 Dashboard zur detaillierten Einsicht der kategorisierten und analysierten Bestellungen |  |  |  |   |
+|  Zwischensumme (netto) |   |   |   |   | 2.900,00  |
+|  Umsatzsteuer 19 % |   |   |   |   | 551,00  |
+|  **Gesamtbetrag** |   |   |   |   | **3.451,00**  |
+
+Wir freuen uns auf Ihre Auftragserteilung und sichern eine einwandfreie Ausführung zu.
+
+Prozessia  
+ Campus Starterzentrum Gebäude A1 1  
+ 66123 Saarbrücken  
+ info@prozessia.de  
+ <https://prozessia.de/>
+
+USt-IdNr.: DE451202966  
+ Steuernummer: 040/163/12016  
+ Sebastian Spuhler, Mohamed Douloui GbR
+
+Sebastian Spuhler  
+ Finom Payments Zweigniederlassung  
+ Deutschland  
+ IBAN: DE97 1001 8000 0739 3368 62  
+ BIC: FNOMDEB2XXX
+
+Seite 2/2

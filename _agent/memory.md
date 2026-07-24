@@ -1,4 +1,10 @@
 ## KONTEXT
+- [2026-07-24 15:11] [2026-07-21-Prozessia X Schmidt-Hänsch.md] Nächster Termin: eineinhalb Wochen nach 21.07.2026 (ca. 04-07.08) – Sebastian planen
+- [2026-07-24 15:11] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Kundenprioritäten: Lieferverzugsliste und Automatisierung von Mahnläufen bei verspäteten Lieferungen
+- [2026-07-24 15:11] [Re: FT Ventures x WebWokr] FT Ventures/exceedtree: 5-köpfiges Team mit mehreren parallelen Aufträgen; externe Entwickler-Kapazität ist ein Engpass
+- [2026-07-24 15:11] [Re: Decube x WebWokr] Trusty-Feature: Versteht Metadaten in deutscher Sprache, ermöglicht Datenzugang für globale Teams ohne Englischkenntnisse – ergänzender Punkt zu früherer Nachricht von Daniela (cloudmeshes.org) zum Decube x WebWork-Projekt
+- [2026-07-24 15:11] [Unsere aktuellen KI- und Digitalformate ] EDIH Saarland positioniert sich als Anlaufstelle für KI & Digitalisierung mit Angeboten von Workshops bis zur konkreten Umsetzung
+- [2026-07-24 15:11] [Unsere aktuellen KI- und Digitalformate ] EDIH Saarland (info@edih-saarland.de) bewirbt Workshop 'KI für den Shopfloor' am 29. Juli 2026, 14:00–15:00 Uhr (Online)
 - [2026-07-23 15:20] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] KI-Agent-Einsatz langfristig zur Automatisierung von Kalkulationsprozessen in der Fertigung geplant
 - [2026-07-23 15:20] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Bestehendes Tool ‚Spanflug' zur Kalkulation von Frässzeiten – zeigt Limitierungen bei komplexen geschweißten Baugruppen
 - [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Zusage: Prozessia übernimmt Server-Infrastruktur auf Wunsch; Folgetermin in ~1-1,5 Wochen (ca. 28.7.-4.8.2026)
@@ -560,6 +566,9 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-24 15:11] [2026-07-24-Angebot_endin_überarbeitet.md] Gesamtpreis 3.451,00 € brutto (2.900,00 € netto zzgl. 19% USt.)
+- [2026-07-24 15:11] [2026-07-21-Prozessia X Schmidt-Hänsch.md] Schmidt-Hänsch: Sumit Bhawar (Einkauf) ist Ansprechpartner; Hersteller von Prozessrefraktometern und Dichtemessgeräten
+- [2026-07-24 15:11] Schmidt-Hänsch: Folgetermin am 04.08.2026, 10:00 Uhr ist im Kalender eingetragen.
 - [2026-07-23 15:20] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Erstgespräch: 23.07.2026 (Besprechungstranskript 15:30 Min)
 - [2026-07-23 15:20] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Stefan Seifert, Seifert-GmbH – Fertigungsbetrieb im Bereich Frästeile/Zerspanung
 - [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Schmidt-Hänsch produziert Prozessrefraktometer und Dichtemessgeräte, nutzt ERP-System Sage 100 für Produktion/Einkauf/Buchhaltung
@@ -728,6 +737,10 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-24 15:11] [2026-07-21-Prozessia X Schmidt-Hänsch.md] KI-Beschaffungsagent: Auftragsbestätigungen mit ERP-Bestellungen abgleichen, Abweichungen/fehlende Bestätigungen automatisch mahnen, Lieferverzugslisten erstellen
+- [2026-07-24 15:11] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Zusagen: Prozessia übernimmt ggf. Server-Infrastruktur; Folgetermin geplant für ca. 1-1,5 Wochen nach 21.07. (ca. 01.-04.08.2026)
+- [2026-07-24 15:11] [Re: FT Ventures x WebWokr] Sebastian sollte antworten: entweder Ja mit Interesse (dann Profile anfordern) oder Nein kurz absagen (2026-07-24)
+- [2026-07-24 15:11] [Re: FT Ventures x WebWokr] Mary bietet an, 3 Developer-Profile zur direkten Team-Integration zu schicken
 - [2026-07-23 15:20] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Gesuchte KI-Agent-Lösung: automatisierte Erstellung von Material-/Zuschnittlisten für geschweißte Baugruppen (mehrere Einzelteile)
 - [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] KI-Beschaffungsagent für Einkauf präsentiert: Auftragsbestätigungsprüfung, Mahnwesen, Lieferantenbewertung; adaptierbar an Sage 100/Winform + Outlook
 - [2026-07-23 12:11] [2026-07-23-19f4728b7d-Mitgliedschaftsbedingungen.md] Hauptkartenentgelt: EUR 850/Jahr; Zusatzkarten mit zusätzlichen Entgelten
