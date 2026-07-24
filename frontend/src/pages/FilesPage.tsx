@@ -54,7 +54,7 @@ function FolderTree({
         href={`${API_BASE}${node.url}`}
         target="_blank"
         rel="noreferrer"
-        className="flex items-center gap-2 rounded px-2 py-1 text-sm hover:bg-muted hover:underline"
+        className="flex items-center gap-2 rounded-lg px-2 py-1 text-sm hover:bg-muted hover:underline"
         style={{ paddingLeft: `${depth * 1.25 + 0.5}rem` }}
       >
         <File className="size-3.5 shrink-0 text-muted-foreground" />
@@ -75,7 +75,7 @@ function FolderTree({
       <button
         type="button"
         onClick={() => onToggle(node.path)}
-        className="flex w-full items-center gap-1.5 rounded px-2 py-1 text-sm font-medium hover:bg-muted"
+        className="flex w-full items-center gap-1.5 rounded-lg px-2 py-1 text-sm font-medium hover:bg-muted"
         style={{ paddingLeft: `${depth * 1.25}rem` }}
       >
         {isOpen ? (

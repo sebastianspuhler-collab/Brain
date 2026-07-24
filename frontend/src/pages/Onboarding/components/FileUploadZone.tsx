@@ -44,7 +44,7 @@ export function FileUploadZone({ files, onChange, label }: FileUploadZoneProps) 
           addFiles(e.dataTransfer.files);
         }}
         className={cn(
-          "flex flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed px-6 py-8 text-center transition",
+          "flex flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed px-6 py-8 text-center transition",
           dragOver ? "border-primary bg-primary/5" : "border-border hover:border-primary/40"
         )}
       >

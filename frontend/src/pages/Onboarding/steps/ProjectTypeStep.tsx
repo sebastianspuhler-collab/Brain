@@ -61,7 +61,7 @@ export function ProjectTypeStep({ data, onChange, onUpdateAnalysis, analyzing, a
                 })
               }
               className={cn(
-                "flex flex-col items-start gap-2 rounded-lg border p-4 text-left transition",
+                "flex flex-col items-start gap-2 rounded-2xl border p-4 text-left transition",
                 active ? "border-primary bg-primary/10" : "border-border hover:border-primary/40"
               )}
             >
@@ -137,7 +137,7 @@ export function ProjectTypeStep({ data, onChange, onUpdateAnalysis, analyzing, a
 
 function AiAnalysisReview({ analysis, onChange }: { analysis: AiAnalysis; onChange: (patch: Partial<AiAnalysis>) => void }) {
   return (
-    <div className="flex flex-col gap-4 rounded-lg border border-border p-4">
+    <div className="flex flex-col gap-4 rounded-2xl border border-border p-4">
       <div className="flex items-center gap-2 text-sm font-medium">
         <Sparkles className="size-4 text-primary" />
         KI-Analyse (alle Felder editierbar)

@@ -11,6 +11,8 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Switch } from "@/components/ui/switch";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Textarea } from "@/components/ui/textarea";
+import { KpiCard } from "@/components/shared/kpi-card";
+import { StatusPill, type StatusPillVariant } from "@/components/shared/status-pill";
 import { cn } from "@/lib/utils";
 
 type Status = "neuer_kontakt" | "erstgespraech" | "angebotsphase" | "auftrag" | "fulfillment" | "abgeschlossen";
@@ -62,13 +64,13 @@ const STATUS_LABEL: Record<Status, string> = {
   fulfillment: "Fulfillment",
   abgeschlossen: "Abgeschlossen",
 };
-const STATUS_COLOR: Record<Status, string> = {
-  neuer_kontakt: "bg-muted text-muted-foreground",
-  erstgespraech: "bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-300",
-  angebotsphase: "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300",
-  auftrag: "bg-violet-100 text-violet-800 dark:bg-violet-950 dark:text-violet-300",
-  fulfillment: "bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300",
-  abgeschlossen: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300",
+const STATUS_VARIANT: Record<Status, StatusPillVariant> = {
+  neuer_kontakt: "neutral",
+  erstgespraech: "info",
+  angebotsphase: "warning",
+  auftrag: "info",
+  fulfillment: "info",
+  abgeschlossen: "success",
 };
 const STATUS_OVERRIDE_OPTIONS: { value: string; label: string }[] = [
   { value: "", label: "Automatisch" },
@@ -101,15 +103,6 @@ function formatTermin(iso: string): string {
   return `${d}.${m}.${y}${time ? " " + time.slice(0, 5) : ""}`;
 }
 
-function StatTile({ label, value }: { label: string; value: number | string }) {
-  return (
-    <div className="flex flex-col gap-1 rounded-xl border border-border p-3">
-      <span className="text-2xl font-semibold tabular-nums text-foreground">{value}</span>
-      <span className="text-xs text-muted-foreground">{label}</span>
-    </div>
-  );
-}
-
 function StatusBadge({ eintrag }: { eintrag: Eintrag }) {
   const manuell = eintrag.status !== eintrag.status_automatisch;
   const titelTeile = [
@@ -119,13 +112,10 @@ function StatusBadge({ eintrag }: { eintrag: Eintrag }) {
   ].filter(Boolean);
   return (
     <span className="inline-flex items-center gap-1.5">
-      <span
-        className={cn("inline-block rounded-full px-2 py-0.5 text-xs font-medium", STATUS_COLOR[eintrag.status])}
-        title={titelTeile.join("\n")}
-      >
+      <StatusPill variant={STATUS_VARIANT[eintrag.status]} title={titelTeile.join("\n")}>
         {STATUS_LABEL[eintrag.status]}
         {manuell && " *"}
-      </span>
+      </StatusPill>
       <span
         className={cn("size-1.5 rounded-full", SICHERHEIT_DOT[eintrag.sicherheit])}
         title={SICHERHEIT_LABEL[eintrag.sicherheit]}
@@ -240,17 +230,14 @@ export function DashboardPage() {
             <Skeleton className="h-20 w-full" />
           ) : (
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-              <StatTile label="Geplante Posts" value={li?.geplante_posts ?? 0} />
-              <StatTile label="Gepushte Posts" value={li?.gepushte_posts ?? 0} />
-              <StatTile label="Offene Ideen" value={li?.offene_ideen ?? 0} />
-              <div className="flex flex-col gap-1 rounded-xl border border-border p-3">
-                <span className="text-sm font-medium text-foreground">
-                  {li?.naechster_post ? formatTermin(li.naechster_post.termin) : "–"}
-                </span>
-                <span className="truncate text-xs text-muted-foreground">
-                  {li?.naechster_post?.idee ?? "Kein Post geplant"}
-                </span>
-              </div>
+              <KpiCard label="Geplante Posts" value={String(li?.geplante_posts ?? 0)} />
+              <KpiCard label="Gepushte Posts" value={String(li?.gepushte_posts ?? 0)} />
+              <KpiCard label="Offene Ideen" value={String(li?.offene_ideen ?? 0)} />
+              <KpiCard
+                label="Nächster Post"
+                value={li?.naechster_post ? formatTermin(li.naechster_post.termin) : "–"}
+                description={li?.naechster_post?.idee ?? "Kein Post geplant"}
+              />
             </div>
           )}
         </CardContent>

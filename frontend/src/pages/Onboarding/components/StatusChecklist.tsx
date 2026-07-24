@@ -29,7 +29,7 @@ export function StatusChecklist({ toggles, events }: StatusChecklistProps) {
           <li
             key={key}
             className={cn(
-              "flex items-center justify-between gap-3 rounded-lg border border-border px-3 py-2.5",
+              "flex items-center justify-between gap-3 rounded-2xl border border-border px-3 py-2.5",
               status === "running" && "border-primary/40 bg-primary/5"
             )}
           >

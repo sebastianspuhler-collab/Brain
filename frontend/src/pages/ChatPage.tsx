@@ -302,7 +302,7 @@ export function ChatPage() {
             const isThinking = streaming && i === messages.length - 1 && !m.content;
             return m.role === "user" ? (
               <div key={i} className="flex justify-end">
-                <div className="max-w-[80%] rounded-3xl bg-muted px-4 py-2 text-sm text-foreground">
+                <div className="max-w-[80%] rounded-3xl rounded-br-md bg-muted px-4 py-2 text-sm text-foreground">
                   {m.content}
                 </div>
               </div>

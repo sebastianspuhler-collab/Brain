@@ -8,9 +8,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import { StatusPill } from "@/components/shared/status-pill";
 
 interface Idea {
   titel: string;
@@ -152,7 +152,9 @@ function LinkedInChat({
           {messages.map((m, i) =>
             m.role === "user" ? (
               <div key={i} className="flex justify-end">
-                <div className="max-w-[80%] rounded-3xl bg-muted px-4 py-2 text-sm text-foreground">{m.content}</div>
+                <div className="max-w-[80%] rounded-3xl rounded-br-md bg-muted px-4 py-2 text-sm text-foreground">
+                  {m.content}
+                </div>
               </div>
             ) : (
               <div key={i} className="flex gap-3">
@@ -232,9 +234,9 @@ function PostDetailSheet({ postId, onClose }: { postId: string | null; onClose: 
             {detailQuery.data?.idee || "Post bearbeiten"}
           </SheetTitle>
           <div className="flex items-center gap-1.5 pt-1">
-            <Badge variant={detailQuery.data?.pushed ? "default" : "outline"} className="text-xs">
+            <StatusPill variant={detailQuery.data?.pushed ? "success" : "neutral"}>
               {detailQuery.data?.pushed ? "In Buffer geplant" : "Noch nicht geplant"}
-            </Badge>
+            </StatusPill>
             {detailQuery.data?.termin && (
               <span className="text-xs text-muted-foreground">{detailQuery.data.termin.slice(0, 16).replace("T", " ")}</span>
             )}
@@ -358,9 +360,9 @@ export function LinkedInPage() {
                       className="flex flex-col gap-1 border-b border-border pb-3 last:border-0 text-left transition hover:opacity-80"
                     >
                       <div className="flex items-center gap-2">
-                        <Badge variant="outline" className="text-xs">{p.tag}</Badge>
+                        <StatusPill variant="neutral">{p.tag}</StatusPill>
                         <span className="text-xs text-muted-foreground">{p.termin.slice(0, 10)}</span>
-                        {p.pushed && <Badge variant="default" className="text-xs">geplant</Badge>}
+                        {p.pushed && <StatusPill variant="success">geplant</StatusPill>}
                       </div>
                       <p className="text-sm font-medium">{p.idee}</p>
                       {p.text_preview && <p className="text-xs text-muted-foreground line-clamp-2">{p.text_preview}</p>}

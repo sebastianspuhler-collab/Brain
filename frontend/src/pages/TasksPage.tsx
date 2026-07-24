@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { cn } from "@/lib/utils";
+import { SegmentedControl } from "@/components/shared/segmented-control";
 
 type Assignee = "Amin" | "Sebastian" | "Beide";
 
@@ -135,22 +135,11 @@ export function TasksPage() {
           </Button>
         </div>
 
-        <div className="flex items-center gap-1.5">
-          {(["Alle", ...ASSIGNEES] as const).map((a) => (
-            <button
-              key={a}
-              onClick={() => setFilter(a)}
-              className={cn(
-                "rounded-full border px-2.5 py-1 text-xs transition",
-                filter === a
-                  ? "border-primary bg-primary/15 text-primary"
-                  : "border-border text-muted-foreground hover:bg-muted hover:text-foreground"
-              )}
-            >
-              {a}
-            </button>
-          ))}
-        </div>
+        <SegmentedControl
+          options={(["Alle", ...ASSIGNEES] as const).map((a) => ({ value: a, label: a }))}
+          value={filter}
+          onChange={setFilter}
+        />
 
         {isLoading ? (
           <div className="space-y-2">

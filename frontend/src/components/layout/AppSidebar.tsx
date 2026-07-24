@@ -47,6 +47,11 @@ const NAV_ITEMS = [
   { to: "/onboarding", label: "Onboarding", icon: UserPlus },
 ];
 
+function isRouteActive(pathname: string, to: string, end?: boolean): boolean {
+  if (end) return pathname === to;
+  return pathname === to || pathname.startsWith(`${to}/`);
+}
+
 function timeAgo(iso: string): string {
   if (!iso) return "";
   const diffMs = Date.now() - new Date(iso).getTime();
@@ -89,7 +94,7 @@ export function AppSidebar() {
   }
 
   return (
-    <Sidebar>
+    <Sidebar variant="floating">
       <SidebarHeader className="px-3 py-4">
         <div className="flex flex-col gap-0.5">
           <span className="font-display text-lg text-foreground" style={{ fontFamily: "var(--font-display)" }}>
@@ -106,12 +111,9 @@ export function AppSidebar() {
               {NAV_ITEMS.map((item) => (
                 <SidebarMenuItem key={item.to}>
                   <SidebarMenuButton
+                    isActive={isRouteActive(location.pathname, item.to, item.end)}
                     render={
-                      <NavLink
-                        to={item.to}
-                        end={item.end}
-                        className={({ isActive }) => (isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "")}
-                      >
+                      <NavLink to={item.to} end={item.end}>
                         <item.icon />
                         <span>{item.label}</span>
                       </NavLink>
@@ -139,11 +141,9 @@ export function AppSidebar() {
               {sessions.map((s) => (
                 <SidebarMenuItem key={s.id}>
                   <SidebarMenuButton
+                    isActive={s.id === activeSessionId}
                     render={
-                      <NavLink
-                        to={`/?session=${s.id}`}
-                        className={s.id === activeSessionId ? "bg-sidebar-accent text-sidebar-accent-foreground" : ""}
-                      >
+                      <NavLink to={`/?session=${s.id}`}>
                         <span className="min-w-0 flex-1 truncate">{s.title}</span>
                         <span className="shrink-0 text-[10px] text-muted-foreground">{timeAgo(s.updated_at)}</span>
                         <button

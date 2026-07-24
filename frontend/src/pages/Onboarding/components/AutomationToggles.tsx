@@ -11,7 +11,7 @@ export function AutomationToggles({ toggles, onChange, hasFiles }: AutomationTog
   const keys = Object.keys(STEP_LABELS) as (keyof TogglesType)[];
 
   return (
-    <div className="flex flex-col divide-y divide-border rounded-lg border border-border">
+    <div className="flex flex-col divide-y divide-border rounded-2xl border border-border">
       {keys.map((key) => {
         const disabled = key === "file_upload" && !hasFiles;
         return (
