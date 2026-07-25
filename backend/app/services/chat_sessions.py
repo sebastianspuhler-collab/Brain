@@ -50,11 +50,24 @@ def list_sessions() -> list[dict]:
                 "title": data.get("title", "Neuer Chat"),
                 "updated_at": data.get("updated_at", ""),
                 "model": data.get("model", ""),
+                "agent_id": data.get("agent_id"),
             })
         except Exception:
             continue
     sessions.sort(key=lambda s: s["updated_at"], reverse=True)
     return sessions
+
+
+def find_session_for_agent(agent_id: str) -> str | None:
+    """Eigener, dauerhafter Chat pro Agent (Umsetzungsplan 2026-07-25): statt
+    einen zweiten Zeiger auf dem Agent zu pflegen (Drift-Gefahr, falls die
+    Session gelöscht wird), sucht "Chat öffnen" hier einfach die neueste
+    Session mit passender agent_id - list_sessions() ist schon nach
+    updated_at absteigend sortiert."""
+    for s in list_sessions():
+        if s.get("agent_id") == agent_id:
+            return s["id"]
+    return None
 
 
 def load_session(session_id: str) -> dict | None:
@@ -67,7 +80,7 @@ def load_session(session_id: str) -> dict | None:
         return None
 
 
-def save_session(session_id: str, messages: list[dict], model: str) -> dict:
+def save_session(session_id: str, messages: list[dict], model: str, agent_id: str | None = None) -> dict:
     path = _session_path(session_id)
     now = datetime.now(timezone.utc).isoformat()
     existing = load_session(session_id)
@@ -79,6 +92,7 @@ def save_session(session_id: str, messages: list[dict], model: str) -> dict:
         "created_at": created_at,
         "updated_at": now,
         "messages": messages,
+        "agent_id": agent_id,
     }
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     return data

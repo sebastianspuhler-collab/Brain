@@ -47,6 +47,35 @@ services:
       - "traefik.http.routers.brain-http.middlewares=brain-https-redirect"
       - "traefik.http.middlewares.brain-https-redirect.redirectscheme.scheme=https"
 
+  # Entwickler-Agent-Sandbox (Umsetzungsplan 2026-07-25): isolierter Container
+  # ohne docker.sock, ohne --privileged, NUR auf dem schmalen
+  # dev-agent-bridge-Netzwerk mit backend - kann die anderen Produktions-
+  # Container (twenty-crm, schaufler-*, n8n, ...) weder sehen noch erreichen
+  # (live verifiziert: kein docker.sock, `getent hosts <anderer-container>`
+  # schlägt fehl). Eigenes Volume (/workspace = "Prozessia-Dev"-Ordner),
+  # Ressourcen-Limits gegen Überlastung der 4-Kern-VPS, fester
+  # Host-Port-Bereich für Live-Vorschau-Links (kein Traefik/DNS nötig - DNS
+  # ist hier nicht wildcard, siehe DEPLOY.md).
+  dev-agent:
+    build: ./dev-agent
+    env_file: ./dev-agent/.env
+    volumes:
+      - dev-agent-workspace:/workspace
+    ports:
+      - "8100-8120:8100-8120"
+    restart: unless-stopped
+    networks:
+      - dev-agent-bridge
+    deploy:
+      resources:
+        limits:
+          cpus: "1.5"
+          memory: 2g
+
 networks:
   traefik_web:
     external: true
+  dev-agent-bridge: {}
+
+volumes:
+  dev-agent-workspace: {}

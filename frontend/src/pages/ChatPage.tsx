@@ -36,6 +36,7 @@ const SUGGESTIONS = [
 export function ChatPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const sessionId = searchParams.get("session");
+  const agentFromUrl = searchParams.get("agent");
 
   const [messages, setMessages] = useState<UiMessage[]>([]);
   const [input, setInput] = useState("");
@@ -80,6 +81,12 @@ export function ChatPage() {
         if (cancelled) return;
         setMessages(data.messages ?? []);
         if (data.model) setModel(data.model);
+        // Eigener Chat pro Agent (Umsetzungsplan 2026-07-25): die Session-Datei
+        // ist maßgeblich, sobald sie existiert. Der URL-Parameter greift nur
+        // beim allerersten Besuch einer frisch erzeugten, noch leeren Session
+        // (nach Klick auf "Chat öffnen" bei einem Agenten ohne Verlauf).
+        if (data.agent_id) setAgentId(data.agent_id);
+        else if (agentFromUrl) setAgentId(agentFromUrl);
       })
       .catch(() => {
         if (!cancelled) toast.error("Chat konnte nicht geladen werden");
@@ -90,7 +97,7 @@ export function ChatPage() {
     return () => {
       cancelled = true;
     };
-  }, [sessionId]);
+  }, [sessionId, agentFromUrl]);
 
   async function send(overrideText?: string) {
     const text = (overrideText ?? input).trim();

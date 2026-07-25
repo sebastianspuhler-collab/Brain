@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ChevronDown, Plus, Trash2 } from "lucide-react";
+import { ChevronDown, Pencil, Plus, Trash2 } from "lucide-react";
 import { agents as agentsApi, type Agent } from "@/api/client";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Dialog,
   DialogBody,
@@ -18,6 +20,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { IdentityAvatar } from "@/components/shared/identity-avatar";
 import { StatusPill } from "@/components/shared/status-pill";
@@ -29,6 +32,21 @@ const MODELS = [
   { id: "claude-opus-4-8", label: "Opus" },
 ];
 
+// Fähigkeits-Gruppen für Agenten-Berechtigungen - Keys/Labels müssen zu
+// backend/app/services/agent_capabilities.py passen (CAPABILITY_LABELS).
+// Schränkt nur ein, welche Tools der Agent nutzen darf (echte Durchsetzung
+// über --allowedTools) - KEIN Ordner-Zugriffsschutz (siehe Ordner-Filter
+// unten, der bleibt reine RAG-Suchbeschränkung; einen Zuständigkeitsbereich
+// gibt der Agent sich selbst über den Zusatz-Prompt).
+const CAPABILITY_LABELS: Record<string, string> = {
+  files_read: "Dateien lesen",
+  files_write: "Dateien schreiben",
+  linkedin: "LinkedIn",
+  youtube: "YouTube",
+  email_anhaenge: "E-Mail/Anhänge",
+  meetings_suche: "Meetings-Suche",
+};
+
 // Nach buzz-ai's "Advanced fields"-Reveal in AgentDefinitionDialog.tsx (motion/react).
 const ADVANCED_FIELDS_TRANSITION = { duration: 0.18, ease: [0.23, 1, 0.32, 1] as const };
 // Nach buzz-ai's Zeilen-Enter-Spring (AgentSessionTranscriptList.tsx).
@@ -37,7 +55,7 @@ const CARD_ENTER_SPRING = { type: "spring" as const, stiffness: 480, damping: 38
 const GRID_CLASS = "grid grid-cols-[repeat(auto-fill,minmax(180px,200px))] justify-center gap-4 sm:justify-start";
 
 function emptyForm(): Omit<Agent, "id"> {
-  return { name: "", system_prompt_zusatz: "", ordner_filter: [], model: null };
+  return { name: "", system_prompt_zusatz: "", ordner_filter: [], model: null, allowed_tools: null };
 }
 
 // Label über einer abgerundeten, gedämpften "Schale" statt eines eigenen Inputrahmens
@@ -66,6 +84,8 @@ function AgentDialog({
   const [form, setForm] = useState<Omit<Agent, "id">>(emptyForm());
   const [ordnerText, setOrdnerText] = useState("");
   const [showAdvanced, setShowAdvanced] = useState(false);
+  const [restrictTools, setRestrictTools] = useState(false);
+  const [allowedTools, setAllowedTools] = useState<string[]>([]);
 
   useEffect(() => {
     if (agent) {
@@ -74,13 +94,18 @@ function AgentDialog({
         system_prompt_zusatz: agent.system_prompt_zusatz,
         ordner_filter: agent.ordner_filter,
         model: agent.model,
+        allowed_tools: agent.allowed_tools,
       });
       setOrdnerText(agent.ordner_filter.join(", "));
-      setShowAdvanced(agent.ordner_filter.length > 0);
+      setShowAdvanced(agent.ordner_filter.length > 0 || agent.allowed_tools !== null);
+      setRestrictTools(agent.allowed_tools !== null);
+      setAllowedTools(agent.allowed_tools ?? []);
     } else {
       setForm(emptyForm());
       setOrdnerText("");
       setShowAdvanced(false);
+      setRestrictTools(false);
+      setAllowedTools([]);
     }
   }, [agent, open]);
 
@@ -92,6 +117,7 @@ function AgentDialog({
           .split(",")
           .map((s) => s.trim())
           .filter(Boolean),
+        allowed_tools: restrictTools ? allowedTools : null,
       };
       return agent ? agentsApi.update(agent.id, payload) : agentsApi.create(payload);
     },
@@ -190,6 +216,31 @@ function AgentDialog({
                       Komma-getrennt. Ohne Angabe durchsucht der Agent den gesamten Vault wie der normale Chat.
                     </p>
                   </div>
+                  <div className="space-y-1.5 pt-4">
+                    <div className="flex items-center justify-between">
+                      <Label>Zugriff auf Tools einschränken</Label>
+                      <Switch checked={restrictTools} onCheckedChange={setRestrictTools} />
+                    </div>
+                    {restrictTools && (
+                      <div className="grid grid-cols-2 gap-2 pt-1">
+                        {Object.entries(CAPABILITY_LABELS).map(([key, label]) => (
+                          <label key={key} className="flex items-center gap-2 text-sm">
+                            <Checkbox
+                              checked={allowedTools.includes(key)}
+                              onCheckedChange={(c) =>
+                                setAllowedTools((prev) => (c === true ? [...prev, key] : prev.filter((k) => k !== key)))
+                              }
+                            />
+                            {label}
+                          </label>
+                        ))}
+                      </div>
+                    )}
+                    <p className="text-xs text-muted-foreground">
+                      Unmarkiert = kein Zugriff auf diese Fähigkeit. Ohne Einschränkung (Standard) hat der Agent
+                      Zugriff auf alle Tools wie bisher.
+                    </p>
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -210,10 +261,12 @@ function AgentDialog({
 
 function AgentCard({
   agent,
+  onChat,
   onEdit,
   onDelete,
 }: {
   agent: Agent;
+  onChat: () => void;
   onEdit: () => void;
   onDelete: () => void;
 }) {
@@ -223,21 +276,31 @@ function AgentCard({
     <div className="group relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-colors hover:border-primary/40">
       <button
         type="button"
-        onClick={onEdit}
+        onClick={onChat}
         className="absolute inset-0 z-10 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-        aria-label={`${agent.name} bearbeiten`}
+        aria-label={`${agent.name} Chat öffnen`}
       />
       <div className="pointer-events-none flex h-full w-full flex-col items-center justify-center gap-4 px-4 pb-14">
         <IdentityAvatar name={agent.name} />
       </div>
-      <button
-        type="button"
-        onClick={onDelete}
-        className="absolute top-2 right-2 z-20 flex size-7 items-center justify-center rounded-full text-muted-foreground opacity-0 transition-opacity hover:bg-destructive/10 hover:text-destructive group-hover:opacity-100"
-        aria-label={`${agent.name} löschen`}
-      >
-        <Trash2 className="size-3.5" />
-      </button>
+      <div className="absolute top-2 right-2 z-20 flex items-center gap-1">
+        <button
+          type="button"
+          onClick={onEdit}
+          className="flex size-7 items-center justify-center rounded-full text-muted-foreground opacity-0 transition-opacity hover:bg-muted hover:text-foreground group-hover:opacity-100"
+          aria-label={`${agent.name} bearbeiten`}
+        >
+          <Pencil className="size-3.5" />
+        </button>
+        <button
+          type="button"
+          onClick={onDelete}
+          className="flex size-7 items-center justify-center rounded-full text-muted-foreground opacity-0 transition-opacity hover:bg-destructive/10 hover:text-destructive group-hover:opacity-100"
+          aria-label={`${agent.name} löschen`}
+        >
+          <Trash2 className="size-3.5" />
+        </button>
+      </div>
       <div className="pointer-events-none absolute inset-x-3 bottom-3 z-10 flex min-w-0 flex-col gap-1 text-left">
         <span className="min-w-0 truncate text-sm font-semibold text-foreground">{agent.name}</span>
         {modelLabel && (
@@ -265,6 +328,7 @@ function NewAgentCard({ onClick }: { onClick: () => void }) {
 
 export function AgentsPage() {
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
   const { data, isLoading } = useQuery({
     queryKey: ["agents"],
@@ -281,6 +345,20 @@ export function AgentsPage() {
     },
     onError: () => toast.error("Löschen fehlgeschlagen"),
   });
+
+  // Eigener, dauerhafter Chat pro Agent (Umsetzungsplan 2026-07-25): sucht
+  // die neueste vorhandene Session für diesen Agenten, sonst wird eine neue
+  // erzeugt - ChatPage übernimmt agent_id aus der geladenen Session bzw.
+  // (bei einer frisch erzeugten, noch leeren Session) aus dem URL-Parameter.
+  async function openChat(agent: Agent) {
+    let sessionId: string | null = null;
+    try {
+      sessionId = (await agentsApi.session(agent.id)).session_id;
+    } catch {
+      // still fine - Fallback unten erzeugt eine neue Session
+    }
+    navigate(`/?session=${sessionId ?? crypto.randomUUID()}&agent=${agent.id}`);
+  }
 
   return (
     <div className="flex flex-col gap-8">
@@ -316,7 +394,12 @@ export function AgentsPage() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={CARD_ENTER_SPRING}
               >
-                <AgentCard agent={a} onEdit={() => setEditing(a)} onDelete={() => remove.mutate(a.id)} />
+                <AgentCard
+                  agent={a}
+                  onChat={() => openChat(a)}
+                  onEdit={() => setEditing(a)}
+                  onDelete={() => remove.mutate(a.id)}
+                />
               </motion.div>
             ))}
           </AnimatePresence>

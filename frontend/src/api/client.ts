@@ -56,6 +56,7 @@ export interface ChatSessionSummary {
   title: string;
   updated_at: string;
   model: string;
+  agent_id: string | null;
 }
 
 export interface ChatSessionData {
@@ -63,6 +64,7 @@ export interface ChatSessionData {
   title: string;
   model: string;
   messages: ChatMessage[];
+  agent_id: string | null;
 }
 
 /** Chat-Verlauf: Sessions bleiben nach Reload/Neustart erhalten (Ergänzung, kein
@@ -79,6 +81,9 @@ export interface Agent {
   system_prompt_zusatz: string;
   ordner_filter: string[];
   model: string | null;
+  /** null = uneingeschränkt (Standard). [] = keine einzige Fähigkeit. Sonst
+   * eine Liste von Fähigkeits-Gruppen-Keys, siehe backend/app/services/agent_capabilities.py. */
+  allowed_tools: string[] | null;
 }
 
 /** Eigene benannte Chat-Agenten (Umsetzungsplan-Memo 2026-07-16, Punkt D2) -
@@ -88,6 +93,9 @@ export const agents = {
   create: (data: Omit<Agent, "id">) => api.post<Agent>("/api/agents", data),
   update: (id: string, data: Omit<Agent, "id">) => api.put<Agent>(`/api/agents/${id}`, data),
   remove: (id: string) => api.del<{ ok: boolean }>(`/api/agents/${id}`),
+  /** Eigener, dauerhafter Chat pro Agent (Umsetzungsplan 2026-07-25): findet
+   * die neueste Session, die schon mit diesem Agenten geführt wurde. */
+  session: (id: string) => api.get<{ session_id: string | null }>(`/api/agents/${id}/session`),
 };
 
 export interface ChatSource {
