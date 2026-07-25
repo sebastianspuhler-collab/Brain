@@ -652,7 +652,7 @@ _GENERATE_IDEAS_TOOL = {
                     "type": "object",
                     "properties": {
                         "typ": {"type": "string", "enum": ["A", "B", "C"]},
-                        "kategorie": {"type": "string", "enum": ["Einkauf", "Industrie", "Compliance", "KI-Tipp", "Kundenstory"]},
+                        "kategorie": {"type": "string", "enum": ["Einkauf", "Industrie", "Compliance", "KI-Tipp", "Kundenstory", "Wissensmanagement"]},
                         "titel": {"type": "string", "description": "Max 60 Zeichen."},
                         "hook": {"type": "string", "description": "Erste Zeile, max 80 Zeichen, stoppt den Scroll."},
                         "kern_botschaft": {"type": "string", "description": "Was der Leser mitnimmt."},
@@ -676,7 +676,7 @@ def generate_ideas(focus: str = "") -> dict:
 
 Zielgruppe: Einkaufsleiter und Geschäftsführer in produzierenden Betrieben, 20–80 MA, DACH.
 Prozessia automatisiert Beschaffungsprozesse und Stücklistenprüfung — keine Beratung, konkrete Agenten die Arbeit abnehmen.
-Themen insgesamt: KI-Beschaffung, Automatisierung, EU AI Act & KI-Compliance, Produktivität im Mittelstand, allgemeine KI-Tipps für Entscheider — nicht nur das Kernprodukt, sondern die ganze Bandbreite dessen was die Zielgruppe zu KI im Betrieb wissen muss.
+Themen insgesamt: KI-Beschaffung, Automatisierung, EU AI Act & KI-Compliance, KI-Wissensmanagement, Produktivität im Mittelstand, allgemeine KI-Tipps für Entscheider — nicht nur das Kernprodukt, sondern die ganze Bandbreite dessen was die Zielgruppe zu KI im Betrieb wissen muss.
 
 {f"Richtungsvorgabe: {current_direction}" if current_direction else ""}
 {f"Zusätzlicher Fokus: {focus}" if focus else ""}
@@ -689,11 +689,12 @@ Jede Idee bekommt EINEN dieser drei Post-Typen:
 Jede Idee bekommt außerdem GENAU EINE Kategorie (Themen-Säule), für Mischung sorgen — NICHT alle 10 aus derselben Kategorie:
 - Einkauf: konkrete Beschaffungs-/Stücklisten-Schmerzpunkte (Prozessias Kernprodukt)
 - Industrie: allgemeinere Produktions-/Mittelstandsthemen, nicht zwingend Beschaffung
-- Compliance: EU AI Act, Datenschutz, Haftung bei KI-Einsatz — sachlich, keine Panikmache
+- Compliance: EU AI Act, Datenschutz, Haftung bei KI-Einsatz, Schatten-KI-Risiko durch unkontrollierten Wissensabfluss (Mitarbeiter kopieren Firmenwissen/Kundendaten in ChatGPT & Co.) — sachlich, keine Panikmache
 - KI-Tipp: praktische, sofort umsetzbare KI-Tipps für Entscheider (Prompts, Tools, Workflows)
 - Kundenstory: anonymisiertes Vorher/Nachher
+- Wissensmanagement: Spezialwissen erfahrener Mitarbeiter geht verloren, wenn Fachkräfte in Rente gehen (Verrentungswelle im Mittelstand) oder Wissen nur in Köpfen/E-Mails/verstreuten Dokumenten steckt statt durchsuchbar zu sein; Zeitverlust durch tägliche Informationssuche; einfache ChatGPT-Uploads/Markdown-Ordner skalieren nicht auf echtes Firmenwissen — bewusste Brücke zu Compliance (unkontrollierter Wissensabfluss über Schatten-KI)
 
-Ziel-Verteilung über die 10 Ideen: mindestens 2× Einkauf, mindestens 2× Compliance, mindestens 2× KI-Tipp, Rest frei gemischt aus Industrie/Kundenstory/Einkauf.
+Ziel-Verteilung über die 10 Ideen: mindestens 2× Einkauf, mindestens 2× Compliance, mindestens 2× KI-Tipp, mindestens 1× Wissensmanagement, Rest frei gemischt aus Industrie/Kundenstory/Einkauf.
 
 Generiere GENAU 10 Ideen: 4× Typ A, 3× Typ B, 3× Typ C.
 
@@ -713,7 +714,7 @@ PFLICHT für jeden Hook:
             json_prompt = prompt + """
 
 Antworte NUR mit einem JSON-Objekt in genau diesem Format, kein Markdown, keine Erklärung davor/danach:
-{"ideen": [{"typ": "A|B|C", "kategorie": "Einkauf|Industrie|Compliance|KI-Tipp|Kundenstory", "titel": "...", "hook": "...", "kern_botschaft": "...", "branche": "Werkzeugbau|Maschinenbau|Lohnfertiger|Elektrotechnik|Allgemein", "zielgruppe_spezifisch": "...", "format_empfehlung": "Text|Karussell|Liste", "cta_vorschlag": "..."}] (genau 10 Einträge)}"""
+{"ideen": [{"typ": "A|B|C", "kategorie": "Einkauf|Industrie|Compliance|KI-Tipp|Kundenstory|Wissensmanagement", "titel": "...", "hook": "...", "kern_botschaft": "...", "branche": "Werkzeugbau|Maschinenbau|Lohnfertiger|Elektrotechnik|Allgemein", "zielgruppe_spezifisch": "...", "format_empfehlung": "Text|Karussell|Liste", "cta_vorschlag": "..."}] (genau 10 Einträge)}"""
             raw = claude_cli.run_json(json_prompt, model=Models.SONNET, max_budget_usd=1.00).strip()
             raw = raw.replace("```json", "").replace("```", "").strip()
             data = json.loads(raw)
@@ -785,7 +786,7 @@ def generate_posts(spec: str) -> dict:
 
 Zielgruppe: Einkaufsleiter und Geschäftsführer in produzierenden Betrieben, 20–80 MA, DACH.
 Prozessia automatisiert Beschaffungsprozesse und Stücklistenprüfung — konkrete Agenten, keine Beratung.
-Themen insgesamt breiter als nur das Produkt: KI-Beschaffung, EU AI Act & KI-Compliance, allgemeine KI-Tipps für Entscheider, Produktivität im Mittelstand — Mischung, nicht nur Beschaffungsagent-Werbung.
+Themen insgesamt breiter als nur das Produkt: KI-Beschaffung, EU AI Act & KI-Compliance, KI-Wissensmanagement (inkl. Schatten-KI-Risiko als Brücke zu Compliance), allgemeine KI-Tipps für Entscheider, Produktivität im Mittelstand — Mischung, nicht nur Beschaffungsagent-Werbung.
 
 {f"Richtungsvorgabe: {current_direction}" if current_direction else ""}
 
@@ -799,7 +800,7 @@ FORMAT-REGELN (ausnahmslos):
 - Leerzeile nach jeder 2. Zeile (nicht nach jeder Zeile)
 - Max. 3 Hashtags, immer am Ende
 - VERBOTENE Hashtags: #KI, #AI, #Innovation, #Digitalisierung, #Mittelstand, #Automation (zu groß, zu allgemein)
-- Erlaubte Hashtags: #Einkauf, #Beschaffung, #Produktion, #Werkzeugbau, #Lohnfertigung, #ERP, #EUAIAct, #KICompliance
+- Erlaubte Hashtags: #Einkauf, #Beschaffung, #Produktion, #Werkzeugbau, #Lohnfertigung, #ERP, #EUAIAct, #KICompliance, #Wissensmanagement
 - 0 Emojis, außer maximal 1 in der letzten Zeile (optional)
 - Links NIEMALS im Post-Text — nur als separater Kommentar
 
