@@ -164,7 +164,19 @@ def _save_post_fields(post_id: str, **fields) -> dict:
 
 
 def update_post_text(post_id: str, new_text: str) -> dict:
-    return _save_post_fields(post_id, text=new_text)
+    """Aktualisiert den Post-Text lokal - UND in Buffer, falls der Post schon
+    gepusht wurde (siehe buffer_edit_post()). Ohne das würde eine Textänderung
+    nach dem Push nur lokal ankommen, während der bereits geplante Buffer-Post
+    unbemerkt beim alten Text bliebe (live beobachtet, 2026-07-25)."""
+    post = get_post(post_id)
+    result = _save_post_fields(post_id, text=new_text)
+    if not result.get("ok"):
+        return result
+    buffer_ids = [b for b in (post or {}).get("buffer_post_ids", []) if b]
+    if buffer_ids:
+        buffer_result = buffer_edit_post(buffer_ids, new_text, due_at=(post or {}).get("termin"))
+        result["buffer"] = buffer_result
+    return result
 
 
 def _to_iso_berlin(datum: str, uhrzeit: str) -> str:
@@ -999,3 +1011,67 @@ mutation CreatePost($input: CreatePostInput!) {
     if errors and not pushed:
         return {"error": errors}
     return {"ok": True, "pushed": pushed, "errors": errors or None}
+
+
+def buffer_edit_post(buffer_post_ids: list[str], text: str, due_at: str | None = None) -> dict:
+    """Aktualisiert bereits in Buffer angelegte Posts (per editPost-Mutation)
+    - für Textänderungen NACH dem Push, die sonst nur lokal gespeichert
+    würden (update_post_text()) und in Buffer unbemerkt veraltet blieben.
+    Gleiches Schema wie buffer_push() (Union-Response, PostActionSuccess),
+    live per Introspection verifiziert (2026-07-25)."""
+    settings = get_settings()
+    token = settings.buffer_api_token
+    if not token:
+        return {"error": "BUFFER_API_TOKEN nicht gesetzt"}
+
+    mutation = """
+mutation EditPost($input: EditPostInput!) {
+  editPost(input: $input) {
+    ... on PostActionSuccess {
+      post { id status dueAt }
+    }
+    ... on InvalidInputError { message }
+    ... on UnauthorizedError { message }
+    ... on NotFoundError { message }
+    ... on UnexpectedError { message }
+    ... on RestProxyError { message }
+    ... on LimitReachedError { message }
+  }
+}"""
+    updated = []
+    errors = []
+    for post_id in buffer_post_ids:
+        if not post_id:
+            continue
+        variables = {
+            "input": {
+                "id": post_id,
+                "text": text,
+                "schedulingType": "automatic",
+                **({"mode": "customScheduled", "dueAt": due_at} if due_at else {}),
+            }
+        }
+        payload = json.dumps({"query": mutation, "variables": variables}).encode()
+        req = urllib.request.Request(
+            BUFFER_GRAPHQL, data=payload,
+            headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"},
+            method="POST",
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                data = json.loads(resp.read())
+            if data.get("errors"):
+                errors.append({"post_id": post_id, "errors": data["errors"]})
+                continue
+            result = data.get("data", {}).get("editPost") or {}
+            post = result.get("post")
+            if post and post.get("id"):
+                updated.append(post_id)
+            else:
+                errors.append({"post_id": post_id, "errors": [{"message": result.get("message", "Unbekannte Antwort ohne post/message")}]})
+        except Exception as exc:
+            errors.append({"post_id": post_id, "error": str(exc)})
+
+    if errors and not updated:
+        return {"error": errors}
+    return {"ok": True, "updated": updated, "errors": errors or None}
