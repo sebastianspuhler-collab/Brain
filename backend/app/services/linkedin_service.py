@@ -715,7 +715,7 @@ PFLICHT für jeden Hook:
 
 Antworte NUR mit einem JSON-Objekt in genau diesem Format, kein Markdown, keine Erklärung davor/danach:
 {"ideen": [{"typ": "A|B|C", "kategorie": "Einkauf|Industrie|Compliance|KI-Tipp|Kundenstory|Wissensmanagement", "titel": "...", "hook": "...", "kern_botschaft": "...", "branche": "Werkzeugbau|Maschinenbau|Lohnfertiger|Elektrotechnik|Allgemein", "zielgruppe_spezifisch": "...", "format_empfehlung": "Text|Karussell|Liste", "cta_vorschlag": "..."}] (genau 10 Einträge)}"""
-            raw = claude_cli.run_json(json_prompt, model=Models.SONNET, max_budget_usd=1.00).strip()
+            raw = claude_cli.run_json(json_prompt, model=Models.SONNET, max_budget_usd=1.00, timeout=240).strip()
             raw = raw.replace("```json", "").replace("```", "").strip()
             data = json.loads(raw)
         else:
@@ -825,7 +825,7 @@ Schreibe jeden Post vollständig aus."""
 
 Antworte NUR mit einem JSON-Objekt in genau diesem Format, kein Markdown, keine Erklärung davor/danach:
 {"posts": [{"tag": "...", "datum": "YYYY-MM-DD", "typ": "A|B|C", "thema": "...", "text": "...", "hashtags": ["..."], "erster_kommentar": "..."}]}"""
-            raw = claude_cli.run_json(json_prompt, model=Models.SONNET, max_budget_usd=1.00).strip()
+            raw = claude_cli.run_json(json_prompt, model=Models.SONNET, max_budget_usd=1.00, timeout=240).strip()
             raw = raw.replace("```json", "").replace("```", "").strip()
             posts = json.loads(raw).get("posts", [])
         else:
