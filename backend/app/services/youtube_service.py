@@ -187,19 +187,29 @@ def push_to_buffer(filename: str, scheduled_at: str | None = None) -> dict:
 
     video_url = f"{settings.public_media_base_url}/api/youtube/media/{filename}"
 
-    # Gleiche Mutation-Form wie linkedin_service.buffer_push()/carousel_service -
-    # erprobt und funktionierend, im Gegensatz zur älteren Union-Type-Variante
-    # ("... on PostActionSuccess"), die hier nie live getestet wurde.
+    # Buffer-Schema live per Introspection verifiziert (2026-07-25, siehe
+    # linkedin_service.buffer_push()): createPost liefert PostActionPayload,
+    # ein UNION aus PostActionSuccess und diversen Fehlertypen - braucht
+    # Inline-Fragmente, kein organizationId auf CreatePostInput, Post hat
+    # dueAt statt scheduledAt. Die vorherige Version hier validierte serverseitig
+    # nie (GRAPHQL_VALIDATION_FAILED), wurde aber fälschlich als "erprobt und
+    # funktionierend" dokumentiert.
     mutation = """
 mutation CreatePost($input: CreatePostInput!) {
   createPost(input: $input) {
-    post { id status scheduledAt }
-    userErrors { message }
+    ... on PostActionSuccess {
+      post { id status dueAt }
+    }
+    ... on InvalidInputError { message }
+    ... on UnauthorizedError { message }
+    ... on NotFoundError { message }
+    ... on UnexpectedError { message }
+    ... on RestProxyError { message }
+    ... on LimitReachedError { message }
   }
 }"""
     variables = {
         "input": {
-            "organizationId": "6a15c3685a233c9c16251245",
             "channelId": channel_id,
             "text": meta.get("description", ""),
             "schedulingType": "automatic",
@@ -230,17 +240,16 @@ mutation CreatePost($input: CreatePostInput!) {
             meta["error"] = err
             _save_meta(filename, meta)
             return {"error": err}
-        r = data.get("data", {}).get("createPost", {})
-        errs = r.get("userErrors") or []
+        r = data.get("data", {}).get("createPost") or {}
         post = r.get("post")
-        if post:
+        if post and post.get("id"):
             meta["pushed"] = True
             meta["post_id"] = post["id"]
-            meta["scheduled_at"] = post.get("scheduledAt")
+            meta["scheduled_at"] = post.get("dueAt")
             meta["error"] = None
             _save_meta(filename, meta)
             return {"ok": True, "post_id": post["id"], "status": post.get("status")}
-        err = errs[0]["message"] if errs else "Unbekannter Buffer-Fehler"
+        err = r.get("message", "Unbekannte Antwort ohne post/message")
         meta["error"] = err
         _save_meta(filename, meta)
         return {"error": err}
