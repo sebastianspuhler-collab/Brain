@@ -186,16 +186,41 @@ def describe_image(
     return data.get("result", "")
 
 
-def spawn_process(model: str, system_prompt: str, max_budget_usd: float = 2.00) -> subprocess.Popen:
+def spawn_process(
+    model: str,
+    system_prompt: str,
+    max_budget_usd: float = 2.00,
+    tools: str | None = None,
+    allowed_tools: str | None = None,
+) -> subprocess.Popen:
     """Baut den claude -p Subprocess auf (stream-json, MCP-fähig) und startet
     ihn - OHNE den mcp_warmup-Sleep oder das Schreiben der ersten
     stdin-Nachricht, das ist Sache des Aufrufers (stream_chat()'s
     Cold-Start-Pfad, oder claude_cli_pool.py beim Vorwärmen eines
     Standby-Prozesses im Hintergrund). Einzige Quelle für den cmd-Aufbau,
-    damit Pool- und Cold-Start-Pfad nicht auseinanderlaufen."""
+    damit Pool- und Cold-Start-Pfad nicht auseinanderlaufen.
+
+    tools/allowed_tools (Agenten-Berechtigungen, Umsetzungsplan 2026-07-25):
+    None => exakt die bisherigen hartcodierten Werte (alle Tools) -
+    claude_cli_pool.py's Aufruf bleibt dadurch unverändert 3-Positional-Args
+    und byte-identisch zu vorher. Nur wenn ein Agent eingeschränkt ist,
+    übergibt der Aufrufer (claude_cli.stream_chat()) hier konkrete Werte.
+
+    KEIN Ordner-Scoping (bewusst, Sebastian 2026-07-25): --add-dir wurde
+    live auf dem VPS getestet und schränkt den Datei-Zugriff NICHT wirklich
+    ein - ein Prozess mit --allowedTools Read und --add-dir auf einen
+    Unterordner konnte trotzdem Dateien außerhalb davon lesen (cwd bleibt
+    der ganze Vault, --add-dir ist rein additiv, keine Sandbox). Ein
+    Zuständigkeitsbereich läuft deshalb ausschließlich über den
+    Zusatz-Prompt (system_prompt_zusatz) - der Agent wird angewiesen, sich
+    daran zu halten, es gibt keine technische Durchsetzung. ordner_filter
+    bleibt wie bisher nur eine Einschränkung der RAG-Suche."""
     settings = get_settings()
     vault = str(settings.vault_path)
     mcp_config = str(Path(vault) / ".mcp.json")
+
+    tools_value = tools if tools is not None else "Read,Write,Edit,Glob,Grep"
+    allowed_value = allowed_tools if allowed_tools is not None else "Read,Write,Edit,Glob,Grep,mcp__prozessia-tools__*"
 
     cmd = [
         CLAUDE_BIN, "-p",
@@ -206,8 +231,8 @@ def spawn_process(model: str, system_prompt: str, max_budget_usd: float = 2.00) 
         "--model", model,
         "--system-prompt", system_prompt,
         "--add-dir", vault,
-        "--tools", "Read,Write,Edit,Glob,Grep",
-        "--allowedTools", "Read,Write,Edit,Glob,Grep,mcp__prozessia-tools__*",
+        "--tools", tools_value,
+        "--allowedTools", allowed_value,
         "--mcp-config", mcp_config,
         "--strict-mcp-config",
         "--no-session-persistence",
@@ -248,6 +273,8 @@ def stream_chat(
     timeout: int = 300,
     mcp_warmup_seconds: float = 8.0,
     try_pool: bool = False,
+    tools: str | None = None,
+    allowed_tools: str | None = None,
 ) -> Iterator[dict]:
     """Streaming-Ersatz für get_client().messages.stream(...) im Chat-Loop
     (chat.py). Nutzt native Claude-Code-Tools (Read/Write/Edit, beschränkt auf
@@ -287,14 +314,33 @@ def stream_chat(
 
     Yielded rohe, geparste stream-json-Events (dicts). Der Aufrufer in
     chat.py übersetzt diese ins bestehende SSE-Format fürs Frontend.
+
+    AGENTEN-BERECHTIGUNGEN (2026-07-25): tools/allowed_tools sind None,
+    solange kein Agent mit allowed_tools aktiv ist - dann bleibt
+    effective_try_pool unverändert try_pool, alter Pfad. Ist eins der beiden
+    gesetzt (scoped), wird der Pool IMMER umgangen, auch bei try_pool=True:
+    ein Standby-Prozess wurde schon beim Vorwärmen mit vollem Tool-Zugriff
+    gestartet, bevor der Agent überhaupt bekannt war (siehe
+    claude_cli_pool.py) - er kann nachträglich nicht mehr eingeschränkt
+    werden. Eingeschränkte Agenten kalt-starten deshalb immer ihren eigenen,
+    korrekt begrenzten Prozess und verlieren dafür die ~8-15s
+    Pool-Ersparnis - akzeptierter, bewusster Trade-off. (Kein add_dirs-
+    Parameter mehr: --add-dir schränkt den Datei-Zugriff live getestet
+    NICHT wirklich ein, siehe spawn_process()'s Docstring - ein
+    Zuständigkeitsbereich läuft nur über den Zusatz-Prompt.)
     """
+    scoped = tools is not None or allowed_tools is not None
+    effective_try_pool = try_pool and not scoped
+
     warm = None
-    if try_pool:
+    if effective_try_pool:
         from app.services import claude_cli_pool  # lazy: claude_cli_pool importiert claude_cli
 
         warm = claude_cli_pool.acquire(model)
 
-    proc = warm.proc if warm is not None else spawn_process(model, system_prompt, max_budget_usd)
+    proc = warm.proc if warm is not None else spawn_process(
+        model, system_prompt, max_budget_usd, tools=tools, allowed_tools=allowed_tools
+    )
     try:
         if warm is None:
             time.sleep(mcp_warmup_seconds)

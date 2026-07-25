@@ -4,6 +4,7 @@ import logging
 import threading
 from concurrent.futures import ThreadPoolExecutor
 
+import httpx
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
@@ -12,7 +13,7 @@ from app.config import get_settings
 from app.constants import ALL_MODELS, Models
 from app.deps import get_current_user
 from app.services import context as context_service
-from app.services import agents_service, chat_sessions, conversations, memory, rag
+from app.services import agent_capabilities, agents_service, chat_sessions, conversations, memory, rag
 from app.services import claude_cli
 from app.services.anthropic_client import get_client
 from app.services.tools import TOOLS, _TASK_TOOL_NAMES, execute_tool
@@ -208,7 +209,7 @@ def _stream_chat(
         if session_id:
             to_save = messages + [{"role": "assistant", "content": response_text}]
             threading.Thread(
-                target=chat_sessions.save_session, args=(session_id, to_save, model), daemon=True
+                target=chat_sessions.save_session, args=(session_id, to_save, model, agent_id), daemon=True
             ).start()
 
         if tasks_changed:
@@ -278,6 +279,19 @@ def _stream_chat_cli(
         model = agent["model"]
     path_prefixes = tuple(agent["ordner_filter"]) if agent and agent.get("ordner_filter") else None
 
+    # Agenten-Berechtigungen (Umsetzungsplan 2026-07-25): allowed_tools
+    # schränkt --tools/--allowedTools ein. Kein Ordner-Scoping (--add-dir
+    # schränkt den echten Datei-Zugriff live getestet NICHT ein, siehe
+    # agent_capabilities.py) - ein Zuständigkeitsbereich läuft nur über den
+    # Zusatz-Prompt. Bleibt allowed_tools nicht gesetzt, bleibt das
+    # Verhalten exakt wie bisher (alle Tools, Pool-Pfad aktiv).
+    scoped_tools: str | None = None
+    scoped_allowed_tools: str | None = None
+    if agent and agent.get("allowed_tools") is not None:
+        native_tools, allowed_tool_names = agent_capabilities.expand(agent["allowed_tools"])
+        scoped_tools = ",".join(native_tools)
+        scoped_allowed_tools = ",".join(allowed_tool_names)
+
     try:
         with ThreadPoolExecutor(max_workers=5) as ex:
             f_system = ex.submit(context_service.build_dynamic_context)
@@ -317,6 +331,8 @@ def _stream_chat_cli(
                 dynamic_context=dynamic,
                 model=model,
                 try_pool=True,
+                tools=scoped_tools,
+                allowed_tools=scoped_allowed_tools,
             ):
                 etype = event.get("type")
                 if etype == "assistant":
@@ -340,7 +356,7 @@ def _stream_chat_cli(
         if session_id:
             to_save = messages + [{"role": "assistant", "content": response_text}]
             threading.Thread(
-                target=chat_sessions.save_session, args=(session_id, to_save, model), daemon=True
+                target=chat_sessions.save_session, args=(session_id, to_save, model, agent_id), daemon=True
             ).start()
 
         if tasks_changed:
@@ -380,6 +396,7 @@ def chat(body: ChatRequest, user: str = Depends(get_current_user)):
 class SaveSessionRequest(BaseModel):
     messages: list[ChatMessage]
     model: str = Models.SONNET
+    agent_id: str | None = None
 
 
 @router.get("/chat/sessions")
@@ -391,14 +408,14 @@ def list_chat_sessions(user: str = Depends(get_current_user)):
 def get_chat_session(session_id: str, user: str = Depends(get_current_user)):
     data = chat_sessions.load_session(session_id)
     if data is None:
-        return {"id": session_id, "title": "Neuer Chat", "model": Models.SONNET, "messages": []}
+        return {"id": session_id, "title": "Neuer Chat", "model": Models.SONNET, "messages": [], "agent_id": None}
     return data
 
 
 @router.post("/chat/sessions/{session_id}")
 def put_chat_session(session_id: str, body: SaveSessionRequest, user: str = Depends(get_current_user)):
     messages = [m.model_dump() for m in body.messages]
-    return chat_sessions.save_session(session_id, messages, body.model)
+    return chat_sessions.save_session(session_id, messages, body.model, body.agent_id)
 
 
 @router.delete("/chat/sessions/{session_id}")
@@ -416,6 +433,7 @@ class AgentRequest(BaseModel):
     system_prompt_zusatz: str = ""
     ordner_filter: list[str] = []
     model: str | None = None
+    allowed_tools: list[str] | None = None
 
 
 @router.get("/agents")
@@ -426,14 +444,15 @@ def list_agents(user: str = Depends(get_current_user)):
 @router.post("/agents")
 def create_agent(body: AgentRequest, user: str = Depends(get_current_user)):
     return agents_service.create_agent(
-        body.name, body.system_prompt_zusatz, body.ordner_filter, body.model
+        body.name, body.system_prompt_zusatz, body.ordner_filter, body.model, body.allowed_tools
     )
 
 
 @router.put("/agents/{agent_id}")
 def update_agent(agent_id: str, body: AgentRequest, user: str = Depends(get_current_user)):
     updated = agents_service.update_agent(
-        agent_id, body.name, body.system_prompt_zusatz, body.ordner_filter, body.model
+        agent_id, body.name, body.system_prompt_zusatz, body.ordner_filter, body.model,
+        body.allowed_tools, allowed_tools_set=True,
     )
     if updated is None:
         raise HTTPException(status_code=404, detail="Agent nicht gefunden")
@@ -444,3 +463,46 @@ def update_agent(agent_id: str, body: AgentRequest, user: str = Depends(get_curr
 def delete_agent(agent_id: str, user: str = Depends(get_current_user)):
     agents_service.delete_agent(agent_id)
     return {"ok": True}
+
+
+@router.get("/agents/{agent_id}/session")
+def get_agent_session(agent_id: str, user: str = Depends(get_current_user)):
+    """Eigener, dauerhafter Chat pro Agent (Umsetzungsplan 2026-07-25): das
+    Frontend ruft das beim Klick auf "Chat öffnen" ab, um eine vorhandene
+    Session wiederzuverwenden statt jedes Mal eine neue anzulegen."""
+    if agents_service.get_agent(agent_id) is None:
+        raise HTTPException(status_code=404, detail="Agent nicht gefunden")
+    return {"session_id": chat_sessions.find_session_for_agent(agent_id)}
+
+
+# ── Entwickler-Agent-Sandbox (Umsetzungsplan 2026-07-25) ────────────────────
+# Reiner Proxy zum isolierten dev-agent-Container (dev-agent/server.py) - das
+# Backend hat selbst KEINEN Datei-/Docker-Zugriff auf die Sandbox, nur diesen
+# einen HTTP-Aufruf über das schmale dev-agent-bridge-Netzwerk (siehe
+# docker-compose.yml). Kein RAG, keine Vault-Session-Persistenz, kein
+# Agenten-Konzept aus agents_service.py - komplett eigenständig, weil die
+# Sandbox in /workspace arbeitet, nicht im Vault.
+DEV_AGENT_URL = "http://dev-agent:8000/chat"
+
+
+class DevAgentChatRequest(BaseModel):
+    messages: list[ChatMessage]
+
+
+@router.post("/dev-agent/chat")
+async def dev_agent_chat(body: DevAgentChatRequest, user: str = Depends(get_current_user)):
+    async def proxy():
+        try:
+            async with httpx.AsyncClient(timeout=610.0) as client:
+                async with client.stream("POST", DEV_AGENT_URL, json=body.model_dump()) as resp:
+                    async for chunk in resp.aiter_raw():
+                        yield chunk
+        except httpx.HTTPError as ex:
+            yield f'data: {json.dumps({"error": f"Entwickler-Agent nicht erreichbar: {ex}"})}\n\n'
+            yield "data: [DONE]\n\n"
+
+    return StreamingResponse(
+        proxy(),
+        media_type="text/event-stream",
+        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
+    )

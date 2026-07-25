@@ -6,6 +6,7 @@ import { AgentsPage } from "@/pages/AgentsPage";
 import { CalendarPage } from "@/pages/CalendarPage";
 import { ChatPage } from "@/pages/ChatPage";
 import { DashboardPage } from "@/pages/DashboardPage";
+import { DevAgentPage } from "@/pages/DevAgentPage";
 import { FilesPage } from "@/pages/FilesPage";
 import { LinkedInPage } from "@/pages/LinkedInPage";
 import { MailPage } from "@/pages/MailPage";
@@ -38,6 +39,7 @@ function App() {
         <Route path="youtube" element={<YouTubePage />} />
         <Route path="onboarding" element={<OnboardingPage />} />
         <Route path="einstellungen" element={<SettingsPage />} />
+        <Route path="entwicklung" element={<DevAgentPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>

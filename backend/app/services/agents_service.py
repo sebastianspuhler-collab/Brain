@@ -13,6 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from app.config import get_settings
+from app.services import agent_capabilities
 
 
 def _agents_path() -> Path:
@@ -46,11 +47,18 @@ def get_agent(agent_id: str) -> dict | None:
     return None
 
 
+def _sanitize_allowed_tools(allowed_tools: list[str] | None) -> list[str] | None:
+    if allowed_tools is None:
+        return None
+    return [k for k in allowed_tools if k in agent_capabilities.CAPABILITY_GROUPS]
+
+
 def create_agent(
     name: str,
     system_prompt_zusatz: str = "",
     ordner_filter: list[str] | None = None,
     model: str | None = None,
+    allowed_tools: list[str] | None = None,
 ) -> dict:
     agents = _load_all()
     now = datetime.now(timezone.utc).isoformat()
@@ -60,6 +68,10 @@ def create_agent(
         "system_prompt_zusatz": system_prompt_zusatz.strip(),
         "ordner_filter": [o.strip() for o in (ordner_filter or []) if o.strip()],
         "model": model or None,
+        # None = uneingeschränkt (heutiges Verhalten). Explizit [] = keine
+        # einzige Fähigkeit - bewusst von None unterschieden, siehe
+        # agent_capabilities.py.
+        "allowed_tools": _sanitize_allowed_tools(allowed_tools),
         "created_at": now,
     }
     agents.append(agent)
@@ -73,6 +85,8 @@ def update_agent(
     system_prompt_zusatz: str | None = None,
     ordner_filter: list[str] | None = None,
     model: str | None = None,
+    allowed_tools: list[str] | None = None,
+    allowed_tools_set: bool = False,
 ) -> dict | None:
     agents = _load_all()
     for a in agents:
@@ -86,6 +100,12 @@ def update_agent(
             a["ordner_filter"] = [o.strip() for o in ordner_filter if o.strip()]
         if model is not None:
             a["model"] = model or None
+        if allowed_tools_set:
+            # allowed_tools=None ist hier ein gültiger Zielwert ("auf
+            # uneingeschränkt zurücksetzen"), nicht "Feld weglassen" wie bei
+            # den anderen Parametern - deshalb das eigene Set-Flag statt der
+            # sonst üblichen is-not-None-Prüfung.
+            a["allowed_tools"] = _sanitize_allowed_tools(allowed_tools)
         _save_all(agents)
         return a
     return None
