@@ -1,9 +1,63 @@
-// Claude API Service - Prozessia Content Engine
-const Anthropic = require('@anthropic-ai/sdk');
+// Claude Service - Prozessia Content Engine
+//
+// Läuft über die Claude-Code-CLI (Subprocess) statt der Anthropic-SDK/API-Key
+// (2026-07-25) - Abrechnung damit über das Claude-Code-Abo
+// (CLAUDE_CODE_OAUTH_TOKEN, siehe backend/.env, per `claude setup-token`
+// erzeugt) statt über einen separaten, nutzungsabhängigen Anthropic-API-Key.
+// Direkter Anlass: der bisherige ANTHROPIC_API_KEY war aufgebraucht ("credit
+// balance too low"), während das Claude-Code-Abo ein eigenes, dediziertes
+// Konto für das Brain-System ist. Selbes Muster wie backend/app/services/
+// claude_cli.py:run_json() - einmaliger Prompt, kein Tool-Use, JSON-Antwort.
+const { execFile } = require('child_process');
 
-const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
+const CLAUDE_BIN = 'claude';
+
+// ANTHROPIC_API_KEY hat, falls gesetzt, immer Vorrang vor CLAUDE_CODE_OAUTH_TOKEN
+// - stillschweigend, ohne Fehlermeldung (siehe claude_cli.py-Docstring, live
+// verifiziert). Muss deshalb aus der Subprocess-Umgebung entfernt werden.
+function subprocessEnv() {
+  const env = { ...process.env };
+  delete env.ANTHROPIC_API_KEY;
+  return env;
+}
+
+function runClaudeCli(prompt, systemPrompt, { maxBudgetUsd = 1.0, timeoutMs = 120000 } = {}) {
+  return new Promise((resolve, reject) => {
+    const args = [
+      '-p', prompt,
+      '--output-format', 'json',
+      '--model', 'claude-sonnet-5',
+      '--system-prompt', systemPrompt,
+      '--tools', '',
+      '--strict-mcp-config',
+      '--no-session-persistence',
+      '--max-budget-usd', String(maxBudgetUsd),
+    ];
+    execFile(
+      CLAUDE_BIN,
+      args,
+      { env: subprocessEnv(), timeout: timeoutMs, maxBuffer: 10 * 1024 * 1024 },
+      (error, stdout, stderr) => {
+        if (error) {
+          reject(new Error(`claude -p Fehler: ${(stderr || error.message || '').slice(0, 500)}`));
+          return;
+        }
+        let data;
+        try {
+          data = JSON.parse(stdout);
+        } catch (e) {
+          reject(new Error(`claude -p Ausgabe kein valides JSON: ${stdout.slice(0, 300)}`));
+          return;
+        }
+        if (data.is_error) {
+          reject(new Error(`claude -p Fehler: ${data.result || '?'}`));
+          return;
+        }
+        resolve(data.result || '');
+      }
+    );
+  });
+}
 
 // Vollständiger System Prompt mit Prozessia Kontext - wird bei JEDEM Call mitgeschickt
 const PROZESSIA_SYSTEM_PROMPT = `Du bist der Content Stratege von Prozessia - einem deutschen KI-Unternehmen das Beschaffungsagenten, Chatbots und Voice Agents für den Mittelstand entwickelt.
@@ -65,13 +119,8 @@ async function generiereIdeen(newsArtikel = []) {
     ? `\n\nAKTUELLE NEWS ZUM EINBEZIEHEN:\n${newsArtikel.map((a, i) => `${i+1}. ${a.title}: ${a.summary || a.contentSnippet || ''}`).join('\n')}`
     : '';
 
-  const response = await client.messages.create({
-    model: 'claude-sonnet-4-6',
-    max_tokens: 2000,
-    system: PROZESSIA_SYSTEM_PROMPT,
-    messages: [{
-      role: 'user',
-      content: `Generiere genau 5 LinkedIn Content-Ideen für Prozessia.${newsKontext}
+  const text = (await runClaudeCli(
+    `Generiere genau 5 LinkedIn Content-Ideen für Prozessia.${newsKontext}
 
 Antworte NUR mit validem JSON in diesem Format:
 [
@@ -90,11 +139,9 @@ Branche: "Automotive", "Pharma", "Bau", "Maschinenbau" oder "Alle"
 Säule: "Schmerz", "Wissen", "Beweis" oder "Meinung"
 Impact: "Hoch", "Mittel" oder "Niedrig"
 
-Mach die Hooks konkret, provokant und relevant für Einkaufsleiter.`
-    }]
-  });
-
-  const text = response.content[0].text.trim();
+Mach die Hooks konkret, provokant und relevant für Einkaufsleiter.`,
+    PROZESSIA_SYSTEM_PROMPT
+  )).trim();
 
   // JSON aus der Antwort extrahieren
   const jsonMatch = text.match(/\[[\s\S]*\]/);
@@ -113,13 +160,8 @@ Mach die Hooks konkret, provokant und relevant für Einkaufsleiter.`
 async function schreibeTextPost(idee, zusatzInfos = '') {
   console.log('[Claude] Schreibe LinkedIn Post für:', idee.hook);
 
-  const response = await client.messages.create({
-    model: 'claude-sonnet-4-6',
-    max_tokens: 1500,
-    system: PROZESSIA_SYSTEM_PROMPT,
-    messages: [{
-      role: 'user',
-      content: `Schreibe einen vollständigen LinkedIn Post für Prozessia.
+  const text = (await runClaudeCli(
+    `Schreibe einen vollständigen LinkedIn Post für Prozessia.
 
 IDEE:
 Hook: ${idee.hook}
@@ -142,11 +184,10 @@ Antworte NUR mit validem JSON:
 {
   "post": "Der vollständige Post-Text mit Zeilenumbrüchen als \\n",
   "kommentar": "Auto-Plug Kommentar (separat, 2-3 Zeilen, z.B. Link zu Calendly oder Website)"
-}`
-    }]
-  });
+}`,
+    PROZESSIA_SYSTEM_PROMPT
+  )).trim();
 
-  const text = response.content[0].text.trim();
   const jsonMatch = text.match(/\{[\s\S]*\}/);
   if (!jsonMatch) throw new Error('Kein valides JSON vom Claude erhalten');
 
@@ -161,13 +202,8 @@ Antworte NUR mit validem JSON:
 async function generiereKarussell(idee) {
   console.log('[Claude] Generiere Karussell für:', idee.hook);
 
-  const response = await client.messages.create({
-    model: 'claude-sonnet-4-6',
-    max_tokens: 2000,
-    system: PROZESSIA_SYSTEM_PROMPT,
-    messages: [{
-      role: 'user',
-      content: `Erstelle ein LinkedIn Karussell (7 Slides) für Prozessia.
+  const text = (await runClaudeCli(
+    `Erstelle ein LinkedIn Karussell (7 Slides) für Prozessia.
 
 IDEE:
 Hook: ${idee.hook}
@@ -205,11 +241,10 @@ Antworte NUR mit validem JSON:
       "text": "Kurze Handlungsaufforderung"
     }
   ]
-}`
-    }]
-  });
+}`,
+    PROZESSIA_SYSTEM_PROMPT
+  )).trim();
 
-  const text = response.content[0].text.trim();
   const jsonMatch = text.match(/\{[\s\S]*\}/);
   if (!jsonMatch) throw new Error('Kein valides JSON vom Claude erhalten');
 
@@ -228,13 +263,8 @@ async function bewerteNewsArtikel(artikel) {
     `${i+1}. Titel: ${a.title}\nQuelle: ${a.source}\nBeschreibung: ${a.contentSnippet || a.summary || 'Keine Beschreibung'}`
   ).join('\n\n');
 
-  const response = await client.messages.create({
-    model: 'claude-sonnet-4-6',
-    max_tokens: 1000,
-    system: PROZESSIA_SYSTEM_PROMPT,
-    messages: [{
-      role: 'user',
-      content: `Bewerte diese News-Artikel auf Relevanz für Prozessia's Zielgruppe (Einkaufsleiter in Automotive, Pharma, Bau, Maschinenbau).
+  const text = (await runClaudeCli(
+    `Bewerte diese News-Artikel auf Relevanz für Prozessia's Zielgruppe (Einkaufsleiter in Automotive, Pharma, Bau, Maschinenbau).
 
 ARTIKEL:
 ${artikelListe}
@@ -246,11 +276,11 @@ Antworte NUR mit JSON:
 [
   {"index": 0, "relevanz": 8, "begruendung": "Kurze Begründung"},
   ...
-]`
-    }]
-  });
+]`,
+    PROZESSIA_SYSTEM_PROMPT,
+    { maxBudgetUsd: 0.5 }
+  )).trim();
 
-  const text = response.content[0].text.trim();
   const jsonMatch = text.match(/\[[\s\S]*\]/);
   if (!jsonMatch) throw new Error('Kein valides JSON erhalten');
 

@@ -44,7 +44,7 @@ app.get('/health', (req, res) => {
     version: '1.0.0',
     timestamp: new Date().toISOString(),
     apis: {
-      claude: !!process.env.ANTHROPIC_API_KEY,
+      claude: !!process.env.CLAUDE_CODE_OAUTH_TOKEN,
       openai: !!process.env.OPENAI_API_KEY,
     },
   });
@@ -68,7 +68,7 @@ app.listen(PORT, () => {
   console.log('╚══════════════════════════════════════╝');
   console.log('');
   console.log(`[Server] Läuft auf http://localhost:${PORT}`);
-  console.log(`[Server] Claude API: ${process.env.ANTHROPIC_API_KEY ? 'Konfiguriert' : 'FEHLT - .env prüfen!'}`);
+  console.log(`[Server] Claude Abo (CLAUDE_CODE_OAUTH_TOKEN): ${process.env.CLAUDE_CODE_OAUTH_TOKEN ? 'Konfiguriert' : 'FEHLT - .env prüfen!'}`);
   console.log(`[Server] OpenAI API: ${process.env.OPENAI_API_KEY ? 'Konfiguriert' : 'Nicht gesetzt (Bilder deaktiviert)'}`);
   console.log('');
 });
