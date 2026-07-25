@@ -1,5 +1,25 @@
 [
   {
+    "id": "a1cacc60",
+    "source_post_id": "25b934b0",
+    "hook": "Wissensverlust durch Renteneintritt in der Produktion",
+    "branche": "Alle",
+    "slide_titles": [
+      "In 5 Jahren geht Ihr Wissen in Rente",
+      "Das Problem ist unsichtbar",
+      "Excel-Listen sterben mit Mitarbeitern",
+      "Der Fachkräftemangel verschärft alles",
+      "Wissen gehört in Systeme, nicht Köpfe",
+      "Einarbeitung dauert plötzlich Tage",
+      "Wissen sichern, bevor es geht"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1784999946/carousel/prozessia/20260728/20260728-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1784999947/carousel/prozessia/20260728/20260728-karussell.pdf",
+    "due_at": "2026-07-28T12:00:00+02:00",
+    "anzahl_gepusht": 2,
+    "created_at": "2026-07-25T17:19:09.139752"
+  },
+  {
     "id": "82a0e149",
     "source_post_id": "25b934b0",
     "hook": "Wissensverlust durch Renteneintritt in der Produktion",
