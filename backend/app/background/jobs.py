@@ -10,6 +10,7 @@ import json
 import logging
 import os
 import subprocess
+import time
 
 from app.config import get_settings
 from app.services import calendar_lead_service, classify, email_indexer, gmail_client, memory, rag
@@ -23,6 +24,26 @@ CALENDAR_LEAD_POLL_SECONDS = 1800  # alle 30 Minuten - Kalender ändert sich sel
 ATTACHMENT_POLL_SECONDS = 900  # alle 15 Minuten - Anhänge sind seltener als neue Mails
 _SKIP_EXT = {".js", ".ts", ".map", ".css", ".lock", ".yml", ".yaml"}
 _SKIP_NAMES = {".DS_Store", "Thumbs.db"}
+
+# Gemeinsamer Gmail-Rate-Limit-Cooldown (2026-07-25): email_indexer_loop UND
+# attachment_backfill_loop rufen unabhängig voneinander Gmail auf. Ohne diesen
+# gemeinsamen Cooldown liefen beide bei einem 429 ("User-rate limit exceeded")
+# einfach nach ihrem eigenen festen Intervall wieder los, was das Rate-Limit-
+# Fenster live beobachtet immer weiter nach hinten verschoben hat, statt es
+# abklingen zu lassen.
+_gmail_cooldown_until = 0.0
+_GMAIL_COOLDOWN_SECONDS = 20 * 60
+
+
+def _gmail_in_cooldown() -> bool:
+    return time.monotonic() < _gmail_cooldown_until
+
+
+def _note_gmail_error(exc: Exception) -> None:
+    global _gmail_cooldown_until
+    if "rateLimitExceeded" in str(exc) or " 429 " in str(exc):
+        _gmail_cooldown_until = time.monotonic() + _GMAIL_COOLDOWN_SECONDS
+        logger.warning("Gmail Rate-Limit erkannt - Cooldown fuer %ds gesetzt", _GMAIL_COOLDOWN_SECONDS)
 
 
 def load_rag_blocking() -> None:
@@ -204,10 +225,14 @@ async def email_indexer_loop() -> None:
         except Exception:
             logger.exception("Email Deep-Scan Fehler")
     while True:
+        if _gmail_in_cooldown():
+            await asyncio.sleep(EMAIL_POLL_SECONDS)
+            continue
         try:
             await asyncio.to_thread(email_indexer.index_new_emails, False)
-        except Exception:
+        except Exception as exc:
             logger.exception("Email-Indexer Fehler")
+            _note_gmail_error(exc)
         await asyncio.sleep(EMAIL_POLL_SECONDS)
 
 
@@ -262,6 +287,9 @@ async def attachment_backfill_loop() -> None:
     settings = get_settings()
     await asyncio.sleep(60)
     while True:
+        if _gmail_in_cooldown():
+            await asyncio.sleep(ATTACHMENT_POLL_SECONDS)
+            continue
         try:
             if gmail_client.is_authenticated():
                 bekannt = await asyncio.to_thread(_load_downloaded_attachments)
@@ -312,6 +340,7 @@ async def attachment_backfill_loop() -> None:
                 await asyncio.to_thread(_save_downloaded_attachments, bekannt)
                 if neu:
                     logger.info("Attachment-Backfill: %d neue Anhang/Anhänge nach _inbox/ gespeichert", neu)
-        except Exception:
+        except Exception as exc:
             logger.exception("Attachment-Backfill Fehler")
+            _note_gmail_error(exc)
         await asyncio.sleep(ATTACHMENT_POLL_SECONDS)
