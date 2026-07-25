@@ -1,4 +1,7 @@
 ## KONTEXT
+- [2026-07-25 12:24] [Zahlung erhalten] Server-Domain: srv1089921.hstgr.cloud
+- [2026-07-25 12:24] [Zahlung erhalten] Gesamtbetrag bezahlt: 304,83 EUR (257,88 EUR Produkt + 49,00 EUR Steuern - 2,05 EUR Credits)
+- [2026-07-25 12:24] [Zahlung erhalten] Hostinger KVM 4 Server (1 Jahr) erfolgreich aktiviert - Rechnung H_47569812
 - [2026-07-24 13:48] [20260724-19f94522-The-final-varieties-of-peach-season.md] Cresthaven: Anfang-August-Sorte, durchgehend süß, beliebt zum Einmachen
 - [2026-07-24 13:47] [20260724-19f94520-The-final-varieties-of-peach-season.md] Sun Prince: ausgewogen süß, fest - für Verzehr und Backen; Cresthaven: frühe August-Sorte, süß, gut zum Einmachen
 - [2026-07-24 13:47] [20260724-19f94520-The-final-varieties-of-peach-season.md] Verfügbare Pfirsichsorten Ende Juli 2026: Sun Prince, Cresthaven, Flame Prince, Dixieland
