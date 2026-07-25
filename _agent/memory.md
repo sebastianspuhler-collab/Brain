@@ -739,6 +739,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-25 00:11] [2026-07-25.md] Inbox-Verarbeitung 2026-07-25 00:11: 4 Fehler, 0 Items verarbeitet
 - [2026-07-24 13:56] [2026-07-24-19f93b0bdf-Angebot_AG0032_24.07.2026.md] KI-Agent mit E-Mail-Schnittstellen, automatischer Klassifizierung (Service/Ersatzteile/Maschine), Steuerungs-Dashboard
 - [2026-07-24 13:48] [20260724-19f94522-The-final-varieties-of-peach-season.md] Letzter Bestelltag für Pfirsichlieferung Sommer 2026: Donnerstag, 30. Juli 2026
 - [2026-07-24 13:47] [20260724-19f94520-The-final-varieties-of-peach-season.md] Deadline für Pfirsich-Bestellungen: Donnerstag, 30. Juli 2026 (letzter Liefertag der Saison 2026)
