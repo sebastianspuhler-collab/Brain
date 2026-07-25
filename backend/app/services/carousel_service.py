@@ -191,11 +191,27 @@ def _push_carousel_to_buffer(settings, slides: list, pdf_url: str, thumb_url: st
         )
         + "\n\n#KIAutomatisierung #Einkauf #Mittelstand #Prozessia"
     )
+    # Buffer-Schema live per Introspection verifiziert (2026-07-25, siehe
+    # linkedin_service.buffer_push()): createPost liefert PostActionPayload,
+    # ein UNION aus PostActionSuccess und diversen Fehlertypen - braucht
+    # Inline-Fragmente, kein organizationId/content-Wrapper auf
+    # CreatePostInput (text ist top-level), mode/schedulingType sind
+    # Pflichtfelder, Post hat dueAt statt scheduledAt. Die alte Query
+    # validierte serverseitig nie (GRAPHQL_VALIDATION_FAILED, kein "data"-Feld
+    # in der Antwort), wurde hier aber mangels Prüfung auf ein oberstes
+    # "errors"-Feld fälschlich als Erfolg mit leerer post_id gewertet.
     mutation = """
 mutation CreatePost($input: CreatePostInput!) {
   createPost(input: $input) {
-    post { id status scheduledAt }
-    userErrors { message }
+    ... on PostActionSuccess {
+      post { id status dueAt }
+    }
+    ... on InvalidInputError { message }
+    ... on UnauthorizedError { message }
+    ... on NotFoundError { message }
+    ... on UnexpectedError { message }
+    ... on RestProxyError { message }
+    ... on LimitReachedError { message }
   }
 }"""
     results = []
@@ -205,10 +221,11 @@ mutation CreatePost($input: CreatePostInput!) {
     ):
         variables = {
             "input": {
-                "organizationId": "6a15c3685a233c9c16251245",
                 "channelId": channel_id,
-                "content": {"text": post_text},
-                "dueAt": due_at,
+                "text": post_text,
+                "mode": "customScheduled" if due_at else "addToQueue",
+                "schedulingType": "automatic",
+                **({"dueAt": due_at} if due_at else {}),
                 "assets": [{"document": {"url": pdf_url, "title": hook, "thumbnailUrl": thumb_url}}],
             }
         }
@@ -220,13 +237,16 @@ mutation CreatePost($input: CreatePostInput!) {
                 timeout=15,
             )
             resp.raise_for_status()
-            data = resp.json().get("data", {}).get("createPost", {})
-            errs = data.get("userErrors", [])
-            if errs:
-                results.append({"ok": False, "channel": channel_name, "error": errs[0].get("message", "?")})
+            body = resp.json()
+            if body.get("errors"):
+                results.append({"ok": False, "channel": channel_name, "error": body["errors"][0].get("message", "?")})
+                continue
+            data = body.get("data", {}).get("createPost") or {}
+            post = data.get("post")
+            if post and post.get("id"):
+                results.append({"ok": True, "channel": channel_name, "postId": post["id"], "dueAt": post.get("dueAt", "")})
             else:
-                post = data.get("post", {})
-                results.append({"ok": True, "channel": channel_name, "postId": post.get("id", ""), "dueAt": post.get("scheduledAt", "")})
+                results.append({"ok": False, "channel": channel_name, "error": data.get("message", "Unbekannte Antwort ohne post/message")})
         except Exception as exc:
             results.append({"ok": False, "channel": channel_name, "error": str(exc)})
     return results

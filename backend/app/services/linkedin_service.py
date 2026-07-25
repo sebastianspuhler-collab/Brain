@@ -954,11 +954,20 @@ mutation CreatePost($input: CreatePostInput!) {
     ... on LimitReachedError { message }
   }
 }"""
+        # CreatePostInput-Form ebenfalls live per Introspection bestätigt
+        # (2026-07-25): kein organizationId, kein content-Wrapper - text ist
+        # ein Top-Level-Feld. mode/schedulingType sind Pflichtfelder (Enums),
+        # vorher gar nicht gesetzt. mode=customScheduled für einen festen
+        # Termin (dueAt gesetzt), sonst addToQueue (Buffer sucht selbst den
+        # nächsten freien Slot). schedulingType=automatic, damit der Post
+        # tatsächlich automatisch veröffentlicht wird statt nur eine
+        # Erinnerung zu erzeugen (Alternative laut Schema: "notification").
         variables = {
             "input": {
-                "organizationId": "6a15c3685a233c9c16251245",
                 "channelId": channel_id,
-                "content": {"text": text},
+                "text": text,
+                "mode": "customScheduled" if due else "addToQueue",
+                "schedulingType": "automatic",
                 **({"dueAt": due} if due else {}),
             }
         }
