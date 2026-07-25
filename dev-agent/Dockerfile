@@ -9,6 +9,7 @@ WORKDIR /app
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
+    openssh-client \
     curl \
     ca-certificates \
     gnupg \
@@ -21,9 +22,10 @@ RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
     && npm install -g @anthropic-ai/claude-code@latest \
     && rm -rf /var/lib/apt/lists/*
 
-# GitHub CLI - eigenes, frisches Credential wird zur Laufzeit über
-# GH_TOKEN/GIT_ASKPASS eingebracht (siehe docker-compose.yml), nicht die
-# Host-Identität.
+# GitHub CLI - git-Push läuft über einen zur Laufzeit read-only gemounteten
+# SSH-Key (siehe docker-compose.yml, dev-agent-Service) statt über gh selbst;
+# gh bleibt hier installiert für spätere Nutzung (z.B. `gh pr create`), ist
+# aber aktuell nicht separat authentifiziert.
 RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg -o /usr/share/keyrings/githubcli-archive-keyring.gpg \
     && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" > /etc/apt/sources.list.d/github-cli.list \
     && apt-get update && apt-get install -y --no-install-recommends gh \
