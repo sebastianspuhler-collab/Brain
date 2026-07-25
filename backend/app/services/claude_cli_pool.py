@@ -36,7 +36,7 @@ from app.services.context import BASE_PROMPT
 
 logger = logging.getLogger("brain.claude_cli_pool")
 
-POOL_TARGET_SIZE = 1
+POOL_TARGET_SIZE = 2
 IDLE_EXPIRY_SECONDS = 15 * 60
 MAINTENANCE_INTERVAL_SECONDS = 5
 WARM_MCP_SECONDS = 15.0
