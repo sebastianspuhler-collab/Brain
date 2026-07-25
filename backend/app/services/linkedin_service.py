@@ -516,7 +516,16 @@ def _chat_linkedin_cli(messages: list[dict]) -> dict:
     try:
         text_parts: list[str] = []
         state_changed = False
-        for event in claude_cli.stream_chat(last_msg, system_prompt=system, model=Models.SONNET, timeout=180):
+        # mcp_warmup_seconds hochgesetzt (2026-07-25): dieser Pfad läuft bewusst
+        # nicht über den warmen Pool (claude_cli_pool.py bäckt nur BASE_PROMPT
+        # ein, nicht die LinkedIn-Persona/-Tools aus _linkedin_system_prompt())
+        # und kaltstartet daher bei jeder Anfrage. Unter Serverlast (parallele
+        # RAG-Embeddings, Inbox-Verarbeitung) reichten die generischen 8s nicht
+        # zuverlässig aus, live beobachtet: Modell antwortete bevor MCP verbunden
+        # war und hielt write_linkedin_post_draft & Co. für nicht verfügbar.
+        for event in claude_cli.stream_chat(
+            last_msg, system_prompt=system, model=Models.SONNET, timeout=180, mcp_warmup_seconds=15.0
+        ):
             etype = event.get("type")
             if etype == "assistant":
                 for block in event.get("message", {}).get("content", []):
