@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ChevronDown, Pencil, Plus, Trash2 } from "lucide-react";
+import { ChevronDown, Pencil, Plus, Terminal, Trash2 } from "lucide-react";
 import { agents as agentsApi, type Agent } from "@/api/client";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -313,6 +313,33 @@ function AgentCard({
   );
 }
 
+// Fest eingebauter Entwickler-Agent (Umsetzungsplan 2026-07-25): kein Eintrag
+// aus agents.json, sondern die isolierte Sandbox aus dev-agent/ - eigenes
+// Backend, eigener Chat-Screen (DevAgentPage.tsx unter /entwicklung), daher
+// weder bearbeitbar noch löschbar wie die selbst angelegten Agenten. Immer
+// als erste Kachel im Grid gepinnt.
+function DevAgentCard({ onClick }: { onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="group relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-colors hover:border-primary/40"
+    >
+      <div className="flex h-full w-full flex-col items-center justify-center gap-4 px-4 pb-14">
+        <span className="flex h-24 w-24 items-center justify-center rounded-full border-[3px] border-background bg-primary/15 text-primary shadow-sm">
+          <Terminal className="size-8" />
+        </span>
+      </div>
+      <div className="pointer-events-none absolute inset-x-3 bottom-3 z-10 flex min-w-0 flex-col gap-1 text-left">
+        <span className="min-w-0 truncate text-sm font-semibold text-foreground">Entwicklung</span>
+        <StatusPill variant="info" className="w-fit">
+          Sandbox
+        </StatusPill>
+      </div>
+    </button>
+  );
+}
+
 function NewAgentCard({ onClick }: { onClick: () => void }) {
   return (
     <button
@@ -384,6 +411,7 @@ export function AgentsPage() {
         </div>
       ) : (
         <motion.div layout className={GRID_CLASS}>
+          <DevAgentCard onClick={() => navigate("/entwicklung")} />
           <AnimatePresence mode="popLayout" initial={false}>
             {data?.map((a) => (
               <motion.div
