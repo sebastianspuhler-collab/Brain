@@ -1,0 +1,116 @@
+{
+  "ideen": [
+    {
+      "typ": "A",
+      "kategorie": "Einkauf",
+      "titel": "Der dritte Stücklisten-Abgleich am Freitagabend",
+      "hook": "Freitag, 19 Uhr. Immer noch beim dritten Stücklisten-Abgleich.",
+      "kern_botschaft": "Manuelles Abgleichen von Stücklisten mit Lieferantenangeboten frisst Abende und Wochenenden von Einkaufsleitern – Fehler fallen trotzdem erst in der Fertigung auf, wenn es teuer wird.",
+      "branche": "Maschinenbau",
+      "zielgruppe_spezifisch": "Einkaufsleiter mittelständischer Maschinenbauer, die Stücklisten noch manuell gegen Angebote prüfen",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie viele Stunden gehen bei euch pro Woche für Stücklistenabgleich drauf?"
+    },
+    {
+      "typ": "B",
+      "kategorie": "Einkauf",
+      "titel": "Fünf Anzeichen für manuelle Beschaffung",
+      "hook": "5 Zeichen, dass dein Einkauf noch im Excel-Zeitalter steckt?",
+      "kern_botschaft": "Eine Selbstcheck-Liste mit typischen Symptomen manueller Beschaffung: doppelte Bestellungen, keine automatische Stücklistenprüfung, E-Mail-Chaos mit Lieferanten, manueller Preisvergleich, keine zentrale Lieferantendatenbank.",
+      "branche": "Allgemein",
+      "zielgruppe_spezifisch": "Einkaufsleiter und Geschäftsführer, die unsicher sind, ob sich Automatisierung für sie lohnt",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Welcher Punkt trifft bei euch zu?"
+    },
+    {
+      "typ": "A",
+      "kategorie": "Compliance",
+      "titel": "Kundendaten im ChatGPT-Verlauf",
+      "hook": "Unsere Kundenliste – gefunden in einem ChatGPT-Verlauf letzte Woche.",
+      "kern_botschaft": "Mitarbeiter kopieren sensible Firmendaten aus Bequemlichkeit in öffentliche KI-Tools, ohne dass es die Geschäftsführung merkt – sachliche Aufklärung über das Risiko unkontrollierten Wissensabflusses, keine Panikmache.",
+      "branche": "Elektrotechnik",
+      "zielgruppe_spezifisch": "Geschäftsführer, die Schatten-KI-Nutzung im eigenen Betrieb unterschätzen",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wisst ihr, was eure Mitarbeiter aktuell in KI-Tools eingeben?"
+    },
+    {
+      "typ": "B",
+      "kategorie": "Compliance",
+      "titel": "EU AI Act – die vier Fragen, die zählen",
+      "hook": "Weißt du, wo der EU AI Act euch wirklich betrifft?",
+      "kern_botschaft": "Kompakte Checkliste für Mittelständler: Welche KI-Systeme sind im Einsatz, welche Risikokategorie gilt, welche Dokumentationspflichten bestehen, wer trägt intern die Verantwortung.",
+      "branche": "Allgemein",
+      "zielgruppe_spezifisch": "Geschäftsführer von Betrieben mit 20-80 Mitarbeitenden ohne bisherige Auseinandersetzung mit AI-Act-Pflichten",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Welcher Punkt ist bei euch noch offen?"
+    },
+    {
+      "typ": "B",
+      "kategorie": "KI-Tipp",
+      "titel": "Drei Prompts für den Einkaufsalltag",
+      "hook": "3 Prompts, die ich diese Woche im Einkauf genutzt habe.",
+      "kern_botschaft": "Konkrete, sofort einsetzbare Prompt-Vorlagen für Einkaufsleiter: Lieferantenvergleich strukturieren, Angebotsanfrage formulieren, lange E-Mail-Verläufe zusammenfassen.",
+      "branche": "Allgemein",
+      "zielgruppe_spezifisch": "Einkaufsleiter, die ChatGPT bereits nutzen, aber ohne klare Struktur",
+      "format_empfehlung": "Liste",
+      "cta_vorschlag": "Welchen Prompt testest du zuerst?"
+    },
+    {
+      "typ": "A",
+      "kategorie": "KI-Tipp",
+      "titel": "Drei Stunden für nichts Brauchbares",
+      "hook": "Drei Stunden mit ChatGPT – und nichts Brauchbares am Ende.",
+      "kern_botschaft": "Viele Entscheider verschwenden Zeit mit generischen KI-Antworten, weil Rolle, Kontext und Zielformat im Prompt fehlen – ein einfacher Aufbau ändert das Ergebnis grundlegend.",
+      "branche": "Werkzeugbau",
+      "zielgruppe_spezifisch": "Geschäftsführer, die von KI-Tools frustriert sind, weil die Ergebnisse zu allgemein bleiben",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Was war dein schlechtestes KI-Ergebnis bisher?"
+    },
+    {
+      "typ": "A",
+      "kategorie": "Wissensmanagement",
+      "titel": "Sechs Wochen bis zur Rente – und 30 Jahre Wissen gehen mit",
+      "hook": "In sechs Wochen geht unser Werkstattleiter in Rente – und mit ihm 30 Jahre Wissen.",
+      "kern_botschaft": "Spezialwissen steckt oft ausschließlich im Kopf einzelner erfahrener Mitarbeiter und ist beim Renteneintritt unwiederbringlich weg; einfache Ordner oder ChatGPT-Uploads reichen nicht, um dieses Wissen dauerhaft durchsuchbar zu machen.",
+      "branche": "Lohnfertiger",
+      "zielgruppe_spezifisch": "Geschäftsführer, die die anstehende Verrentungswelle im eigenen Betrieb unterschätzen",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie viele eurer Fachkräfte gehen in den nächsten fünf Jahren in Rente?"
+    },
+    {
+      "typ": "C",
+      "kategorie": "Industrie",
+      "titel": "Angebotswesen halbiert – zeitlich",
+      "hook": "Ich hab neulich gesehen, wie ein Lohnfertiger sein Angebotswesen halbiert hat – zeitlich.",
+      "kern_botschaft": "Anonymisiertes Vorher/Nachher: Angebotserstellung dauerte vorher rund sechs Stunden pro Auftrag, heute sind es etwa zwei Stunden, weil der Prozess klar strukturiert und Teile automatisiert wurden.",
+      "branche": "Lohnfertiger",
+      "zielgruppe_spezifisch": "Geschäftsführer, die Angebotsprozesse als reinen Verwaltungsaufwand statt als Kostenfaktor sehen",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie lange dauert bei euch ein Angebot im Schnitt?"
+    },
+    {
+      "typ": "C",
+      "kategorie": "Kundenstory",
+      "titel": "Von 8 Stunden auf 45 Minuten Stücklistenprüfung",
+      "hook": "8 Stunden Stücklistenprüfung pro Woche – bei einem Werkzeugbauer, den ich kenne, sind es jetzt 45 Minuten.",
+      "kern_botschaft": "Konkretes Vorher/Nachher: Ein Werkzeugbau-Betrieb prüfte Stücklisten manuell gegen Zeichnungen und Angebote, ein Prozessia-Agent übernimmt heute den Abgleich, Fehlerquote und Zeitaufwand sinken deutlich.",
+      "branche": "Werkzeugbau",
+      "zielgruppe_spezifisch": "Einkaufsleiter, die den Zeitaufwand und die Fehleranfälligkeit manueller BOM-Prüfung genau kennen",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wollt ihr sehen, wie das bei euch aussehen würde?"
+    },
+    {
+      "typ": "C",
+      "kategorie": "Kundenstory",
+      "titel": "Von 3 Tagen auf 20 Minuten Preisvergleich",
+      "hook": "3 Tage warten auf Preisvergleiche – bei einem Kunden von uns sind es jetzt 20 Minuten.",
+      "kern_botschaft": "Anonymisiertes Vorher/Nachher: Ein Elektrotechnik-Betrieb wartete früher tagelang auf zusammengetragene Lieferantenpreise, heute liegt der Vergleich automatisiert vor, wodurch das Einkaufsteam Zeit für Verhandlungen gewinnt.",
+      "branche": "Elektrotechnik",
+      "zielgruppe_spezifisch": "Einkaufsleiter mit langen Wartezeiten auf Lieferantenangebote und -preise",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Wie lange wartet ihr aktuell auf Preisvergleiche?"
+    }
+  ],
+  "generiert_am": "2026-07-25T15:06:23.906117",
+  "anzahl": 10
+}
