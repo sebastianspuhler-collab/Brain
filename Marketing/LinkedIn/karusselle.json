@@ -1,5 +1,65 @@
 [
   {
+    "id": "75ae02c7",
+    "source_post_id": null,
+    "hook": "3 Prompts, die ich diese Woche im Einkauf genutzt habe.",
+    "branche": "Allgemein",
+    "slide_titles": [
+      "3 Prompts, die diese Woche Zeit sparten",
+      "Prompt 1: Lieferantenmails sortieren",
+      "Prompt 2: Abweichungen erklären lassen",
+      "Prompt 3: Angebote vergleichen",
+      "Die Grenze von ChatGPT",
+      "Deshalb reicht Prompting nicht",
+      "Willst du sehen, wie das automatisiert läuft?"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1785003860/carousel/prozessia/20260731/20260731-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1785003861/carousel/prozessia/20260731/20260731-karussell.pdf",
+    "due_at": "2026-07-31T12:00:00+02:00",
+    "anzahl_gepusht": 2,
+    "created_at": "2026-07-25T18:24:23.047233"
+  },
+  {
+    "id": "ea90bea6",
+    "source_post_id": null,
+    "hook": "Weißt du, wo der EU AI Act euch wirklich betrifft?",
+    "branche": "Allgemein",
+    "slide_titles": [
+      "Weißt du, wo der EU AI Act euch wirklich betrifft?",
+      "Nicht jede KI ist gleich riskant",
+      "Beschaffung ist selten Hochrisiko",
+      "Transparenzpflicht wird unterschätzt",
+      "Datenherkunft entscheidet mit",
+      "Ab August 2026 wird es ernst",
+      "Prüft eure KI-Systeme jetzt"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1785003677/carousel/prozessia/20260730/20260730-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1785003679/carousel/prozessia/20260730/20260730-karussell.pdf",
+    "due_at": "2026-07-30T12:00:00+02:00",
+    "anzahl_gepusht": 2,
+    "created_at": "2026-07-25T18:21:20.350863"
+  },
+  {
+    "id": "99c509ed",
+    "source_post_id": "25b934b0",
+    "hook": "Wissensverlust durch Renteneintritt in der Produktion",
+    "branche": "Alle",
+    "slide_titles": [
+      "In 5 Jahren geht Ihr Wissen in Rente",
+      "Das Problem ist nicht neu",
+      "Excel-Listen sterben mit",
+      "Neue Kollegen fangen bei Null",
+      "KI-Agenten vergessen nicht",
+      "Erfahrung wird messbar",
+      "Wissen sichern, bevor es geht"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1785003538/carousel/prozessia/20260728/20260728-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1785003539/carousel/prozessia/20260728/20260728-karussell.pdf",
+    "due_at": "2026-07-28T12:00:00+02:00",
+    "anzahl_gepusht": 2,
+    "created_at": "2026-07-25T18:19:01.027278"
+  },
+  {
     "id": "03a5bbee",
     "source_post_id": null,
     "hook": "Weißt du, wo der EU AI Act euch wirklich betrifft?",

@@ -1,0 +1,18 @@
+{
+  "id": "cf888316-bc23-4652-a031-3adfdf8c082b",
+  "title": "Hallo",
+  "model": "claude-sonnet-5",
+  "created_at": "2026-07-25T18:21:23.972557+00:00",
+  "updated_at": "2026-07-25T18:21:23.972557+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hallo"
+    },
+    {
+      "role": "assistant",
+      "content": "Hallo Sebastian!\n\nKurz zwei Sachen im Blick, die noch offen sind: Benjamin Schmohl (Schaufler) wartet weiter auf dein Feedback zu den Live-Daten des Beschaffungsagenten – das steht jetzt seit dem 21.07. offen. Und am Montag wird's dicht: 9:30 Meeting, 10:00 Bedarfsanalyse TPG, und Dienstag folgen direkt vier Termine hintereinander (Mundinger, Zillmer, Arbeit, Seifert)."
+    }
+  ],
+  "agent_id": null
+}
