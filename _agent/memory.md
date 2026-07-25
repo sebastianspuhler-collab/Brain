@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-07-25 14:36] [Your Invite to our new Approval Program ] Marketing-/Spam-E-Mail von Regal Cash Group (Sydney Brooks, EVP) für Unternehmensfinanzierungsangebot - keine Relevanz für Prozessia GbR erkannt
 - [2026-07-25 12:24] [Zahlung erhalten] Server-Domain: srv1089921.hstgr.cloud
 - [2026-07-25 12:24] [Zahlung erhalten] Gesamtbetrag bezahlt: 304,83 EUR (257,88 EUR Produkt + 49,00 EUR Steuern - 2,05 EUR Credits)
 - [2026-07-25 12:24] [Zahlung erhalten] Hostinger KVM 4 Server (1 Jahr) erfolgreich aktiviert - Rechnung H_47569812
