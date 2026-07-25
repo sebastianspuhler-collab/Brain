@@ -65,8 +65,23 @@ services:
   dev-agent:
     build: ./dev-agent
     env_file: ./dev-agent/.env
+    environment:
+      # Commits im Namen des Agenten statt der auf dem VPS eingeloggten
+      # Github-Identität (der SSH-Key unten authentifiziert nur den Push,
+      # bestimmt nicht die Commit-Identität).
+      - GIT_AUTHOR_NAME=Prozessia Dev-Agent
+      - GIT_AUTHOR_EMAIL=dev-agent@prozessia.de
+      - GIT_COMMITTER_NAME=Prozessia Dev-Agent
+      - GIT_COMMITTER_EMAIL=dev-agent@prozessia.de
     volumes:
       - dev-agent-workspace:/workspace
+      # Sebastians bestehender, mit seinem persönlichen GitHub-Account
+      # (AminDouioui) verknüpfter Host-SSH-Key, read-only eingebunden - kein
+      # frisch erzeugter, eng begrenzter Key (bewusste Abweichung vom
+      # ursprünglichen Plan, auf Wunsch von Sebastian 2026-07-25).
+      - /root/.ssh/id_ed25519:/root/.ssh/id_ed25519:ro
+      - /root/.ssh/id_ed25519.pub:/root/.ssh/id_ed25519.pub:ro
+      - /root/.ssh/known_hosts:/root/.ssh/known_hosts:ro
     ports:
       - "8100-8120:8100-8120"
     restart: unless-stopped
