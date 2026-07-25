@@ -927,11 +927,31 @@ def buffer_push(text: str, scheduled_at: str | None = None) -> dict:
     for channel_id in channels:
         # due_at: ISO-8601 mit Z oder leer → Buffer-Default (nächster freier Slot)
         due = scheduled_at or ""
+        # createPost liefert PostActionPayload zurück - seit einem Buffer-
+        # Schema-Update (2026-07, live per Introspection bestätigt) ein UNION
+        # aus PostActionSuccess (echter Post) und diversen Fehlertypen
+        # (InvalidInputError/UnauthorizedError/NotFoundError/UnexpectedError/
+        # RestProxyError/LimitReachedError), alle mit "message". Braucht daher
+        # Inline-Fragmente statt direkter post/userErrors-Felder - die alte
+        # Query war gegen das aktuelle Schema komplett ungültig
+        # (GRAPHQL_VALIDATION_FAILED), lieferte aber trotzdem HTTP 200 mit
+        # einem obersten "errors"-Feld statt "data". Der bisherige Code
+        # prüfte nur data["data"]["createPost"], fand dort nichts (leeres
+        # dict), und markierte den Post fälschlich als erfolgreich gepusht
+        # mit leerer post_id - kein einziger Post kam seither wirklich in
+        # Buffer an, ohne dass das je auffiel.
         mutation = """
 mutation CreatePost($input: CreatePostInput!) {
   createPost(input: $input) {
-    post { id status scheduledAt }
-    userErrors { message }
+    ... on PostActionSuccess {
+      post { id status dueAt }
+    }
+    ... on InvalidInputError { message }
+    ... on UnauthorizedError { message }
+    ... on NotFoundError { message }
+    ... on UnexpectedError { message }
+    ... on RestProxyError { message }
+    ... on LimitReachedError { message }
   }
 }"""
         variables = {
@@ -955,12 +975,15 @@ mutation CreatePost($input: CreatePostInput!) {
         try:
             with urllib.request.urlopen(req, timeout=15) as resp:
                 data = json.loads(resp.read())
-            errs = data.get("data", {}).get("createPost", {}).get("userErrors", [])
-            if errs:
-                errors.append({"channel": channel_id, "errors": errs})
+            if data.get("errors"):
+                errors.append({"channel": channel_id, "errors": data["errors"]})
+                continue
+            result = data.get("data", {}).get("createPost") or {}
+            post = result.get("post")
+            if post and post.get("id"):
+                pushed.append({"channel": channel_id, "post_id": post["id"]})
             else:
-                post_id = data.get("data", {}).get("createPost", {}).get("post", {}).get("id", "")
-                pushed.append({"channel": channel_id, "post_id": post_id})
+                errors.append({"channel": channel_id, "errors": [{"message": result.get("message", "Unbekannte Antwort ohne post/message")}]})
         except Exception as exc:
             errors.append({"channel": channel_id, "error": str(exc)})
 
