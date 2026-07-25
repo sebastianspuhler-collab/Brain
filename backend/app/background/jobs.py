@@ -272,8 +272,17 @@ async def attachment_backfill_loop() -> None:
                     if not message_id:
                         continue
                     attachments = await asyncio.to_thread(gmail_client.get_attachments, message_id)
-                    for att in attachments:
-                        key = f"{message_id}:{att['attachmentId']}"
+                    for i, att in enumerate(attachments):
+                        # WICHTIG (2026-07-25, live verifiziert): Gmails
+                        # attachmentId ist NICHT stabil - ändert sich bei jedem
+                        # get_attachments()-Aufruf für denselben Anhang. Als
+                        # Dedup-Key komplett nutzlos, das ließ hier JEDEN
+                        # Anhang bei jedem 15-Minuten-Zyklus für immer als
+                        # "neu" gelten -> endloser Redownload, Inbox-Backlog
+                        # wuchs unbegrenzt. Index+Dateiname (stabil pro Mail,
+                        # solange get_attachments() dieselbe Reihenfolge
+                        # liefert) statt attachmentId als Schlüssel.
+                        key = f"{message_id}:{i}:{att['filename']}"
                         if key in bekannt:
                             continue
                         # .ics: reine Kalender-Termindaten, kein Dokument mit
