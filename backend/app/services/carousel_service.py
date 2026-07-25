@@ -1,6 +1,6 @@
-"""LinkedIn-Karussell: Slides (Content-Engine) -> KI-Bilder (OpenAI) -> PDF
-(PIL) -> Cloudinary -> Buffer Document-Post. Migriert aus
-_agent/carousel_push.py — Unterschiede zum Original:
+"""LinkedIn-Karussell: Slides (Content-Engine) -> gebrandetes PDF (PIL) ->
+Cloudinary -> Buffer Document-Post. Migriert aus _agent/carousel_push.py —
+Unterschiede zum Original:
 - Content-Engine läuft als eigener Docker-Service (services/content-engine/),
   erreichbar über den internen Docker-DNS-Namen statt localhost:3002; kein
   Subprocess-Start mehr nötig (Container läuft immer).
@@ -9,6 +9,11 @@ _agent/carousel_push.py — Unterschiede zum Original:
 - Credentials kommen aus den zentralen Settings statt aus lokalen .env-Dateien.
 - Buffer-Push nutzt dieselbe erprobte Mutation/Antwortform wie
   linkedin_service.buffer_push(), nur mit zusätzlichem document-Asset.
+- Design (2026-07-25): kein generisches KI-Hintergrundbild (OpenAI) mehr pro
+  Slide - passte farblich/stilistisch nicht zu Website/Präsentationen.
+  Stattdessen der echte Prozessia-Look (dunkler Hintergrund, Markenlila,
+  echtes Logo), 1:1 aus Marketing/Präsis/Wissensmanagement_Prozessia.pdf
+  übernommen.
 """
 import hashlib
 import io
