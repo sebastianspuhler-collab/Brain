@@ -1,0 +1,185 @@
+import { useEffect, useRef, useState } from "react";
+import { ArrowUp, ExternalLink, Terminal } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import type { ChatMessage } from "@/api/client";
+import { streamDevAgentChat } from "@/api/client";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+
+// Fester Host-Port-Bereich statt Subdomain (DNS ist auf dem VPS nicht
+// wildcard, siehe Umsetzungsplan 2026-07-25) - der Sandbox-Container
+// veröffentlicht 8100-8120 direkt auf die VPS-IP.
+const VPS_HOST = "72.61.80.20";
+const PORT_PATTERN = /\bPort\s+(\d{4,5})\b/i;
+
+const SUGGESTIONS = [
+  { title: "Neues Projekt", prompt: "Lege ein neues kleines Vite-React-Projekt an und starte einen Dev-Server dafür." },
+  { title: "Bestehendes Projekt fortsetzen", prompt: "Welche Projekte gibt es schon in /workspace? Gib mir eine kurze Übersicht." },
+  { title: "Feature ergänzen", prompt: "Ergänze im zuletzt bearbeiteten Projekt eine neue Funktion: " },
+  { title: "Nach GitHub pushen", prompt: "Committe die Änderungen im aktuellen Projekt und pushe sie nach GitHub." },
+];
+
+function previewLink(content: string): string | null {
+  const match = content.match(PORT_PATTERN);
+  return match ? `http://${VPS_HOST}:${match[1]}` : null;
+}
+
+export function DevAgentPage() {
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [input, setInput] = useState("");
+  const [streaming, setStreaming] = useState(false);
+  const [error, setError] = useState("");
+  const abortRef = useRef<AbortController | null>(null);
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  async function send(overrideText?: string) {
+    const text = (overrideText ?? input).trim();
+    if (!text || streaming) return;
+
+    const nextMessages: ChatMessage[] = [...messages, { role: "user", content: text }];
+    setMessages([...nextMessages, { role: "assistant", content: "" }]);
+    setInput("");
+    setStreaming(true);
+    setError("");
+
+    const controller = new AbortController();
+    abortRef.current = controller;
+
+    let assistantText = "";
+    try {
+      await streamDevAgentChat(
+        nextMessages,
+        (chunk) => {
+          assistantText += chunk;
+          setMessages([...nextMessages, { role: "assistant", content: assistantText }]);
+        },
+        controller.signal
+      );
+    } catch (err) {
+      if (!(err instanceof DOMException && err.name === "AbortError")) {
+        setError("Verbindung zum Entwickler-Agenten unterbrochen. Bitte erneut versuchen.");
+      }
+    } finally {
+      setStreaming(false);
+    }
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      send();
+    }
+  }
+
+  const inputBar = (
+    <div className="flex flex-col rounded-3xl border border-border bg-card/60 shadow-lg backdrop-blur-sm transition focus-within:border-ring/50">
+      <Textarea
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        onKeyDown={handleKeyDown}
+        placeholder="Aufgabe für den Entwickler-Agenten…"
+        rows={1}
+        disabled={streaming}
+        className="min-h-[48px] max-h-52 resize-none border-0 bg-transparent px-4 py-3.5 text-sm shadow-none focus-visible:ring-0"
+      />
+      <div className="flex items-center justify-end px-2 pb-2">
+        <Button size="icon" className="size-8 rounded-full" onClick={() => send()} disabled={streaming || !input.trim()}>
+          <ArrowUp className="size-4" />
+        </Button>
+      </div>
+    </div>
+  );
+
+  if (messages.length === 0) {
+    return (
+      <div className="mx-auto flex h-[calc(100vh-6.5rem)] w-full max-w-2xl flex-col items-center justify-center gap-6 px-4">
+        <div className="flex flex-col items-center gap-3 text-center">
+          <div className="flex size-11 items-center justify-center rounded-full bg-accent">
+            <Terminal className="size-5 text-accent-foreground" />
+          </div>
+          <h1 className="font-display text-3xl text-foreground">Entwicklung</h1>
+          <p className="max-w-md text-sm text-muted-foreground">
+            Läuft isoliert in einer eigenen Sandbox mit Zugriff auf einen eigenen{" "}
+            <code className="rounded bg-muted px-1 py-0.5 text-xs">Prozessia-Dev</code>-Ordner - kein Zugriff auf den
+            Vault oder andere Systeme.
+          </p>
+        </div>
+        <div className="w-full">{inputBar}</div>
+        <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2">
+          {SUGGESTIONS.map((s) => (
+            <button
+              key={s.title}
+              onClick={() => send(s.prompt)}
+              className="rounded-xl border border-border px-3.5 py-2.5 text-left transition hover:bg-muted"
+            >
+              <div className="text-sm font-medium text-foreground">{s.title}</div>
+              <div className="text-xs text-muted-foreground line-clamp-1">{s.prompt}</div>
+            </button>
+          ))}
+        </div>
+        {error && <p className="text-sm text-destructive">{error}</p>}
+      </div>
+    );
+  }
+
+  return (
+    <div className="mx-auto flex h-[calc(100vh-6.5rem)] w-full max-w-3xl flex-col">
+      <div className="flex-1 overflow-y-auto">
+        <div className="flex flex-col gap-6 px-1 py-4">
+          {messages.map((m, i) => {
+            const isThinking = streaming && i === messages.length - 1 && !m.content;
+            const link = m.role === "assistant" ? previewLink(m.content) : null;
+            return m.role === "user" ? (
+              <div key={i} className="flex justify-end">
+                <div className="max-w-[80%] rounded-3xl rounded-br-md bg-muted px-4 py-2 text-sm text-foreground">
+                  {m.content}
+                </div>
+              </div>
+            ) : (
+              <div key={i} className="flex gap-3">
+                <div className="relative flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
+                  {isThinking && (
+                    <>
+                      <span className="absolute inset-0 rounded-full border border-primary animate-[brain-pulse_1.6s_ease-out_infinite]" />
+                      <span
+                        className="absolute inset-0 rounded-full border border-primary animate-[brain-pulse_1.6s_ease-out_infinite]"
+                        style={{ animationDelay: "0.8s" }}
+                      />
+                    </>
+                  )}
+                  <Terminal className="relative size-3.5" />
+                </div>
+                <div className="min-w-0 flex-1 pt-0.5">
+                  <div className="mb-1 text-xs font-medium text-muted-foreground">Entwickler-Agent</div>
+                  {!isThinking && (
+                    <div className="prose prose-invert prose-sm max-w-none text-foreground">
+                      <ReactMarkdown>{m.content}</ReactMarkdown>
+                    </div>
+                  )}
+                  {link && (
+                    <a
+                      href={link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-primary/30 px-3 py-1 text-xs font-medium text-primary hover:bg-primary/10"
+                    >
+                      <ExternalLink className="size-3" />
+                      Vorschau öffnen ({link.replace("http://", "")})
+                    </a>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+          {error && <p className="text-sm text-destructive">{error}</p>}
+          <div ref={bottomRef} />
+        </div>
+      </div>
+      <div className="sticky bottom-0 bg-background pt-2 pb-1">{inputBar}</div>
+    </div>
+  );
+}

@@ -11,6 +11,12 @@ services:
     restart: unless-stopped
     networks:
       - default
+      # Schmale Brücke NUR zum dev-agent-Container (Umsetzungsplan 2026-07-25,
+      # /api/dev-agent/chat in chat.py) - backend sieht dadurch NICHT die
+      # anderen Container auf dem dev-agent-bridge-Netzwerk (da gibt es keine
+      # außer dev-agent selbst), und die Sandbox bekommt dadurch weiterhin
+      # keinen Zugriff auf backend's eigenes default-Netzwerk/Volumes.
+      - dev-agent-bridge
 
   # LinkedIn-Karussell: generiert nur die Slide-Texte via Claude (Bilder/PDF/
   # Cloudinary-Upload/Buffer-Push laufen im backend-Service). Rein intern,

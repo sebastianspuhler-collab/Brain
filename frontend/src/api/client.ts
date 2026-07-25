@@ -154,6 +154,53 @@ export async function streamChat(
   }
 }
 
+/** Streamt eine Antwort des isolierten Entwickler-Agenten (Umsetzungsplan
+ * 2026-07-25) - kein Modell/Agent/Session-Auswahl wie beim Hauptchat, nur ein
+ * einziger fester Sandbox-Endpunkt. Kein Verlauf serverseitig gespeichert. */
+export async function streamDevAgentChat(
+  messages: ChatMessage[],
+  onChunk: (text: string) => void,
+  signal?: AbortSignal
+): Promise<void> {
+  const res = await fetch(`${API_BASE}/api/dev-agent/chat`, {
+    method: "POST",
+    credentials: "include",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ messages }),
+    signal,
+  });
+  if (!res.ok || !res.body) {
+    const body = await res.json().catch(() => ({}));
+    throw new ApiError(res.status, body.detail ?? "Entwickler-Agent-Anfrage fehlgeschlagen");
+  }
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+
+    const lines = buffer.split("\n\n");
+    buffer = lines.pop() ?? "";
+    for (const line of lines) {
+      if (!line.startsWith("data: ")) continue;
+      const payload = line.slice(6);
+      if (payload === "[DONE]") return;
+      let data: { chunk?: string; error?: string };
+      try {
+        data = JSON.parse(payload);
+      } catch {
+        continue;
+      }
+      if (data.error) throw new Error(data.error);
+      if (data.chunk) onChunk(data.chunk);
+    }
+  }
+}
+
 export interface LinkedInChatEvent {
   chunk?: string;
   state_changed?: boolean;

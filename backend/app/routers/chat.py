@@ -4,6 +4,7 @@ import logging
 import threading
 from concurrent.futures import ThreadPoolExecutor
 
+import httpx
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
@@ -472,3 +473,36 @@ def get_agent_session(agent_id: str, user: str = Depends(get_current_user)):
     if agents_service.get_agent(agent_id) is None:
         raise HTTPException(status_code=404, detail="Agent nicht gefunden")
     return {"session_id": chat_sessions.find_session_for_agent(agent_id)}
+
+
+# ── Entwickler-Agent-Sandbox (Umsetzungsplan 2026-07-25) ────────────────────
+# Reiner Proxy zum isolierten dev-agent-Container (dev-agent/server.py) - das
+# Backend hat selbst KEINEN Datei-/Docker-Zugriff auf die Sandbox, nur diesen
+# einen HTTP-Aufruf über das schmale dev-agent-bridge-Netzwerk (siehe
+# docker-compose.yml). Kein RAG, keine Vault-Session-Persistenz, kein
+# Agenten-Konzept aus agents_service.py - komplett eigenständig, weil die
+# Sandbox in /workspace arbeitet, nicht im Vault.
+DEV_AGENT_URL = "http://dev-agent:8000/chat"
+
+
+class DevAgentChatRequest(BaseModel):
+    messages: list[ChatMessage]
+
+
+@router.post("/dev-agent/chat")
+async def dev_agent_chat(body: DevAgentChatRequest, user: str = Depends(get_current_user)):
+    async def proxy():
+        try:
+            async with httpx.AsyncClient(timeout=610.0) as client:
+                async with client.stream("POST", DEV_AGENT_URL, json=body.model_dump()) as resp:
+                    async for chunk in resp.aiter_raw():
+                        yield chunk
+        except httpx.HTTPError as ex:
+            yield f'data: {json.dumps({"error": f"Entwickler-Agent nicht erreichbar: {ex}"})}\n\n'
+            yield "data: [DONE]\n\n"
+
+    return StreamingResponse(
+        proxy(),
+        media_type="text/event-stream",
+        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
+    )
