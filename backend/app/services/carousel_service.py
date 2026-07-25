@@ -9,11 +9,13 @@ Unterschiede zum Original:
 - Credentials kommen aus den zentralen Settings statt aus lokalen .env-Dateien.
 - Buffer-Push nutzt dieselbe erprobte Mutation/Antwortform wie
   linkedin_service.buffer_push(), nur mit zusätzlichem document-Asset.
-- Design (2026-07-25): kein generisches KI-Hintergrundbild (OpenAI) mehr pro
-  Slide - passte farblich/stilistisch nicht zu Website/Präsentationen.
-  Stattdessen der echte Prozessia-Look (dunkler Hintergrund, Markenlila,
-  echtes Logo), 1:1 aus Marketing/Präsis/Wissensmanagement_Prozessia.pdf
-  übernommen.
+- Design (2026-07-25, zweite Iteration): KI-Hintergrundbild pro Slide bleibt
+  (gibt visuelle Tiefe/Textur), Prompt aber auf Markenlila (#534AB7/#B088FF)
+  statt der ursprünglichen Navy-Blau/Orange-Farben umgestellt, die zu
+  Website/Präsentationen nicht passten. Kein Logo mehr im Bild (nur noch
+  dezenter "prozessia.de"-Text) - erste Iteration hatte statt Bildern nur
+  einen Lila-Glow + Logo, das war Sebastian "schicker vorher, nur Farben
+  falsch" zu schlicht.
 """
 import hashlib
 import io
@@ -44,28 +46,56 @@ def _generate_slides(hook: str, branche: str, saeule: str) -> list:
     return resp.json()["post"]["slides"]
 
 
-def _logo_path() -> str:
-    return str(get_settings().vault_path / "Marketing" / "Branding" / "Logo-removebg-preview.png")
+def _generate_image(openai_key: str, slide_context: str) -> bytes | None:
+    """KI-Hintergrundbild pro Slide - gibt dem Karussell mehr visuelle Tiefe/
+    Textur als eine flache Fläche (Sebastian, 2026-07-25: "das Design war
+    vorher schicker, nur die Farben unpassend"). Prompt jetzt auf das echte
+    Markenlila (#534AB7/#B088FF) statt der ursprünglichen Navy-Blau/Orange-
+    Farben umgestellt."""
+    if not openai_key:
+        return None
+    prompt = (
+        "Professional B2B LinkedIn slide background image, near-black gradient "
+        "(#0A0A0A to #1A1025), no text, minimalist premium tech illustration, "
+        "abstract geometric shapes, soft glowing orb, purple accents "
+        f"(#534AB7 dark purple, #B088FF light purple), elegant, high quality. Context: {slide_context[:120]}"
+    )
+    try:
+        resp = requests.post(
+            "https://api.openai.com/v1/images/generations",
+            headers={"Authorization": f"Bearer {openai_key}"},
+            json={"model": "gpt-image-1", "prompt": prompt, "n": 1, "size": "1024x1024", "quality": "low"},
+            timeout=60,
+        )
+        resp.raise_for_status()
+        item = resp.json()["data"][0]
+        if item.get("b64_json"):
+            import base64
+            return base64.b64decode(item["b64_json"])
+        if item.get("url"):
+            img_resp = requests.get(item["url"], timeout=30)
+            img_resp.raise_for_status()
+            return img_resp.content
+    except Exception:
+        logger.exception("Karussell-Bildgenerierung fehlgeschlagen")
+    return None
 
 
 def _render_slides(slides: list, images: list | None = None) -> list:
-    """Rendert die Slides im echten Prozessia-Brand-Look (2026-07-25 neu
-    gestaltet) - Farben/Typografie 1:1 aus dem Messe-Flyer bzw. der
-    tatsächlichen Präsentation Marketing/Präsis/Wissensmanagement_Prozessia.pdf
-    übernommen (fast schwarzer Hintergrund, helles Lila #B088FF als Akzent,
-    dunkleres Lila #534AB7, dezenter Glow statt generischer KI-Bilder), statt
-    der bisherigen, frei erfundenen Navy-Blau/Orange-Palette, die zu Website
-    und Präsentationen nicht passte. images-Parameter bleibt aus
-    Aufrufer-Kompatibilität erhalten, wird aber nicht mehr genutzt."""
+    """Rendert die Slides im Prozessia-Brand-Look: KI-Hintergrundbilder (für
+    visuelle Tiefe, wie im ursprünglichen Design) jetzt in Markenlila statt
+    Navy-Blau/Orange, dunkel abgetönt für Textkontrast. Kein Logo mehr
+    (Sebastian, 2026-07-25: "mach das Logo weg") - nur noch dezenter
+    "prozessia.de"-Text unten."""
     from PIL import Image, ImageDraw, ImageFont
 
     SIZE = 1080
     PAD = 80
-    BG = (10, 10, 10)
-    PURPLE = (83, 74, 183)       # #534AB7 - dunkleres Markenlila
+    BG1 = (10, 10, 10)
+    BG2 = (26, 16, 37)  # dunkles Lila statt des alten Navy-Blau-Tons
     PURPLE_LIGHT = (176, 136, 255)  # #B088FF - helles Markenlila (Hauptakzent)
     WHITE = (255, 255, 255)
-    GRAY = (138, 138, 148)       # entspricht --muted-foreground der Brain-UI
+    GRAY = (168, 168, 178)
 
     def fn(size, bold=True):
         try:
@@ -73,19 +103,16 @@ def _render_slides(slides: list, images: list | None = None) -> list:
         except Exception:
             return ImageFont.load_default()
 
-    def branded_background():
-        """Fast schwarzer Hintergrund mit dezentem Lila-Glow unten rechts -
-        ruhiger und markenkonformer als ein generisches KI-Bild pro Slide."""
-        img = Image.new("RGB", (SIZE, SIZE), BG)
-        glow = Image.new("RGBA", (SIZE, SIZE), (0, 0, 0, 0))
-        gdraw = ImageDraw.Draw(glow)
-        cx, cy, max_r = int(SIZE * 0.86), int(SIZE * 0.88), 520
-        steps = 40
-        for i in range(steps, 0, -1):
-            r = int(max_r * i / steps)
-            alpha = int(38 * (1 - i / steps) ** 2)
-            gdraw.ellipse([cx - r, cy - r, cx + r, cy + r], fill=(*PURPLE_LIGHT, alpha))
-        img.paste(Image.alpha_composite(img.convert("RGBA"), glow).convert("RGB"))
+    def gradient():
+        img = Image.new("RGB", (SIZE, SIZE), BG1)
+        draw = ImageDraw.Draw(img)
+        steps = 60
+        for i in range(steps):
+            t = i / steps
+            c = tuple(int(BG1[j] + (BG2[j] - BG1[j]) * t) for j in range(3))
+            y0 = int(SIZE * i / steps)
+            y1 = int(SIZE * (i + 1) / steps)
+            draw.rectangle([(0, y0), (SIZE, y1)], fill=c)
         return img
 
     def wrap_draw(draw, text, x, y, font, fill, max_w, gap=10):
@@ -105,23 +132,19 @@ def _render_slides(slides: list, images: list | None = None) -> list:
             y += draw.textbbox((0, 0), line, font=font)[3] + gap
         return y
 
-    # Echtes Wordmark (statt gezeichnetem Platzhalter-"P"-Quadrat) einmal
-    # geladen und auf Weiß getönt, damit es auf dem dunklen Hintergrund
-    # sichtbar ist - Original ist schwarz auf transparent.
-    logo_white = None
-    try:
-        logo_src = Image.open(_logo_path()).convert("RGBA")
-        logo_src.thumbnail((280, 90))
-        alpha = logo_src.split()[3]
-        logo_white = Image.new("RGBA", logo_src.size, (*WHITE, 0))
-        logo_white.putalpha(alpha)
-    except Exception:
-        logger.exception("Logo konnte nicht geladen werden, falle auf Text zurück")
-
     rendered = []
     total = len(slides)
-    for slide in slides:
-        img = branded_background()
+    for i, slide in enumerate(slides):
+        img_bytes = images[i] if images and i < len(images) else None
+        if img_bytes:
+            bg = Image.open(io.BytesIO(img_bytes)).resize((SIZE, SIZE))
+            overlay = Image.new("RGBA", (SIZE, SIZE), (10, 10, 10, int(0.72 * 255)))
+            base = bg.convert("RGBA")
+            base.paste(overlay, mask=overlay.split()[3])
+            img = base.convert("RGB")
+        else:
+            img = gradient()
+
         draw = ImageDraw.Draw(img)
         max_w = SIZE - PAD * 2
 
@@ -138,11 +161,7 @@ def _render_slides(slides: list, images: list | None = None) -> list:
             wrap_draw(draw, slide["text"], PAD, y, fn(32, bold=False), GRAY, max_w, gap=10)
 
         by = SIZE - PAD - 40
-        if logo_white:
-            img.paste(logo_white, (PAD, by - logo_white.height + 40), logo_white)
-            draw.text((PAD + logo_white.width + 20, by), "prozessia.de", font=fn(26, bold=False), fill=GRAY)
-        else:
-            draw.text((PAD, by), "Prozessia. — prozessia.de", font=fn(28), fill=GRAY)
+        draw.text((PAD, by), "prozessia.de", font=fn(26, bold=False), fill=GRAY)
 
         rendered.append(img)
     return rendered
@@ -278,21 +297,24 @@ def generate_carousel(hook: str, branche: str = "Alle", saeule: str = "Wissen",
     due_at = due_at or _next_carousel_slot()
 
     try:
-        log(f"[1/5] Generiere Slides: \"{hook}\"...")
+        log(f"[1/6] Generiere Slides: \"{hook}\"...")
         slides = _generate_slides(hook, branche, saeule)
         log(f"  {len(slides)} Slides generiert")
 
-        # Kein KI-Bild-Schritt mehr (2026-07-25): generische KI-Hintergrundbilder
-        # passten farblich/stilistisch nicht zu Website/Präsentationen. Das
-        # gebrandete Design (dunkler Hintergrund, Lila-Glow, echtes Logo) in
-        # _render_slides() braucht keine Bilder mehr, kein OpenAI-Aufruf/-Kosten.
-        log("[2/5] Rendere Slides im Prozessia-Design (1080x1080)...")
-        rendered = _render_slides(slides)
+        log("[2/6] Generiere KI-Hintergrundbilder (Markenlila)...")
+        images = []
+        for s in slides:
+            ctx = f"{s['titel']} {s.get('text', '')}".strip()[:120]
+            img = _generate_image(settings.openai_api_key, ctx)
+            images.append(img)
 
-        log("[3/5] Erstelle PDF...")
+        log("[3/6] Rendere Slides im Prozessia-Design (1080x1080)...")
+        rendered = _render_slides(slides, images)
+
+        log("[4/6] Erstelle PDF...")
         pdf_bytes = _make_pdf(rendered)
 
-        log("[4/5] Lade nach Cloudinary hoch...")
+        log("[5/6] Lade nach Cloudinary hoch...")
         date_slug = due_at[:10].replace("-", "")
         folder = f"carousel/prozessia/{date_slug}"
         thumb_buf = io.BytesIO()
@@ -300,7 +322,7 @@ def generate_carousel(hook: str, branche: str = "Alle", saeule: str = "Wissen",
         thumb_url = _cloudinary_upload(settings, thumb_buf.getvalue(), "image", f"{date_slug}-thumb", folder)
         pdf_url = _cloudinary_upload(settings, pdf_bytes, "raw", f"{date_slug}-karussell", folder)
 
-        log("[5/5] Pushe nach Buffer...")
+        log("[6/6] Pushe nach Buffer...")
         results = _push_carousel_to_buffer(settings, slides, pdf_url, thumb_url, due_at)
         ok_count = sum(1 for r in results if r["ok"])
 
