@@ -1,5 +1,65 @@
 [
   {
+    "id": "03a5bbee",
+    "source_post_id": null,
+    "hook": "Weißt du, wo der EU AI Act euch wirklich betrifft?",
+    "branche": "Allgemein",
+    "slide_titles": [
+      "Weißt du, wo der EU AI Act euch wirklich betrifft?",
+      "Nicht jede KI ist gleich riskant",
+      "Beschaffungsagenten sind meist unkritisch",
+      "Transparenzpflicht gilt für alle",
+      "EU-Hosting wird zum Wettbewerbsvorteil",
+      "Jetzt handeln spart später Kosten",
+      "Frag dich: Ist unser KI-Einsatz compliant?"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1785002975/carousel/prozessia/20260730/20260730-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1785002977/carousel/prozessia/20260730/20260730-karussell.pdf",
+    "due_at": "2026-07-30T12:00:00+02:00",
+    "anzahl_gepusht": 2,
+    "created_at": "2026-07-25T18:09:38.429119"
+  },
+  {
+    "id": "dd87493e",
+    "source_post_id": "25b934b0",
+    "hook": "Wissensverlust durch Renteneintritt in der Produktion",
+    "branche": "Alle",
+    "slide_titles": [
+      "In 5 Jahren geht Ihr Wissen in Rente",
+      "Das Wissen steckt nur im Kopf",
+      "Übergabe dauert Wochen, nicht Tage",
+      "Excel-Listen sterben mit dem Ersteller",
+      "KI macht Erfahrung dokumentierbar",
+      "Neue Mitarbeiter starten sofort",
+      "Wissen sichern, bevor es geht"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1785002919/carousel/prozessia/20260728/20260728-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1785002921/carousel/prozessia/20260728/20260728-karussell.pdf",
+    "due_at": "2026-07-28T12:00:00+02:00",
+    "anzahl_gepusht": 2,
+    "created_at": "2026-07-25T18:08:42.242480"
+  },
+  {
+    "id": "2b34ee5e",
+    "source_post_id": null,
+    "hook": "Weißt du, wo der EU AI Act euch wirklich betrifft?",
+    "branche": "Allgemein",
+    "slide_titles": [
+      "Weißt du, wo der EU AI Act euch trifft?",
+      "Chatbot ist nicht gleich Chatbot",
+      "Transparenzpflicht ab August 2026",
+      "Dokumentation wird Pflicht",
+      "Nicht jede KI ist gleich riskant",
+      "Wer jetzt handelt, spart später",
+      "Lasst euren KI-Einsatz prüfen"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1785002844/carousel/prozessia/20260730/20260730-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1785002846/carousel/prozessia/20260730/20260730-karussell.pdf",
+    "due_at": "2026-07-30T12:00:00+02:00",
+    "anzahl_gepusht": 2,
+    "created_at": "2026-07-25T18:07:27.390367"
+  },
+  {
     "id": "a1cacc60",
     "source_post_id": "25b934b0",
     "hook": "Wissensverlust durch Renteneintritt in der Produktion",
