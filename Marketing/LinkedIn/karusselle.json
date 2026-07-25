@@ -1,23 +1,23 @@
 [
   {
-    "id": "75ae02c7",
+    "id": "51eb94da",
     "source_post_id": null,
-    "hook": "3 Prompts, die ich diese Woche im Einkauf genutzt habe.",
+    "hook": "3 KI-Tipps, die wirklich Zeit sparen im Arbeitsalltag.",
     "branche": "Allgemein",
     "slide_titles": [
-      "3 Prompts, die diese Woche Zeit sparten",
-      "Prompt 1: Lieferantenmails sortieren",
-      "Prompt 2: Abweichungen erklären lassen",
-      "Prompt 3: Angebote vergleichen",
-      "Die Grenze von ChatGPT",
-      "Deshalb reicht Prompting nicht",
-      "Willst du sehen, wie das automatisiert läuft?"
+      "3 KI-Tipps, die wirklich Zeit sparen",
+      "Wiederkehrende Fragen automatisch beantworten",
+      "Informationen bündeln statt suchen",
+      "Frühwarnung statt ständiger Kontrolle",
+      "Der größte Zeitfresser bleibt",
+      "Was das konkret bringt",
+      "Zeit sparen, nicht nur reden"
     ],
-    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1785003860/carousel/prozessia/20260731/20260731-thumb.png",
-    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1785003861/carousel/prozessia/20260731/20260731-karussell.pdf",
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1785005028/carousel/prozessia/20260731/20260731-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1785005029/carousel/prozessia/20260731/20260731-karussell.pdf",
     "due_at": "2026-07-31T12:00:00+02:00",
     "anzahl_gepusht": 2,
-    "created_at": "2026-07-25T18:24:23.047233"
+    "created_at": "2026-07-25T18:43:51.514008"
   },
   {
     "id": "ea90bea6",
@@ -58,125 +58,5 @@
     "due_at": "2026-07-28T12:00:00+02:00",
     "anzahl_gepusht": 2,
     "created_at": "2026-07-25T18:19:01.027278"
-  },
-  {
-    "id": "03a5bbee",
-    "source_post_id": null,
-    "hook": "Weißt du, wo der EU AI Act euch wirklich betrifft?",
-    "branche": "Allgemein",
-    "slide_titles": [
-      "Weißt du, wo der EU AI Act euch wirklich betrifft?",
-      "Nicht jede KI ist gleich riskant",
-      "Beschaffungsagenten sind meist unkritisch",
-      "Transparenzpflicht gilt für alle",
-      "EU-Hosting wird zum Wettbewerbsvorteil",
-      "Jetzt handeln spart später Kosten",
-      "Frag dich: Ist unser KI-Einsatz compliant?"
-    ],
-    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1785002975/carousel/prozessia/20260730/20260730-thumb.png",
-    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1785002977/carousel/prozessia/20260730/20260730-karussell.pdf",
-    "due_at": "2026-07-30T12:00:00+02:00",
-    "anzahl_gepusht": 2,
-    "created_at": "2026-07-25T18:09:38.429119"
-  },
-  {
-    "id": "dd87493e",
-    "source_post_id": "25b934b0",
-    "hook": "Wissensverlust durch Renteneintritt in der Produktion",
-    "branche": "Alle",
-    "slide_titles": [
-      "In 5 Jahren geht Ihr Wissen in Rente",
-      "Das Wissen steckt nur im Kopf",
-      "Übergabe dauert Wochen, nicht Tage",
-      "Excel-Listen sterben mit dem Ersteller",
-      "KI macht Erfahrung dokumentierbar",
-      "Neue Mitarbeiter starten sofort",
-      "Wissen sichern, bevor es geht"
-    ],
-    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1785002919/carousel/prozessia/20260728/20260728-thumb.png",
-    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1785002921/carousel/prozessia/20260728/20260728-karussell.pdf",
-    "due_at": "2026-07-28T12:00:00+02:00",
-    "anzahl_gepusht": 2,
-    "created_at": "2026-07-25T18:08:42.242480"
-  },
-  {
-    "id": "2b34ee5e",
-    "source_post_id": null,
-    "hook": "Weißt du, wo der EU AI Act euch wirklich betrifft?",
-    "branche": "Allgemein",
-    "slide_titles": [
-      "Weißt du, wo der EU AI Act euch trifft?",
-      "Chatbot ist nicht gleich Chatbot",
-      "Transparenzpflicht ab August 2026",
-      "Dokumentation wird Pflicht",
-      "Nicht jede KI ist gleich riskant",
-      "Wer jetzt handelt, spart später",
-      "Lasst euren KI-Einsatz prüfen"
-    ],
-    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1785002844/carousel/prozessia/20260730/20260730-thumb.png",
-    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1785002846/carousel/prozessia/20260730/20260730-karussell.pdf",
-    "due_at": "2026-07-30T12:00:00+02:00",
-    "anzahl_gepusht": 2,
-    "created_at": "2026-07-25T18:07:27.390367"
-  },
-  {
-    "id": "a1cacc60",
-    "source_post_id": "25b934b0",
-    "hook": "Wissensverlust durch Renteneintritt in der Produktion",
-    "branche": "Alle",
-    "slide_titles": [
-      "In 5 Jahren geht Ihr Wissen in Rente",
-      "Das Problem ist unsichtbar",
-      "Excel-Listen sterben mit Mitarbeitern",
-      "Der Fachkräftemangel verschärft alles",
-      "Wissen gehört in Systeme, nicht Köpfe",
-      "Einarbeitung dauert plötzlich Tage",
-      "Wissen sichern, bevor es geht"
-    ],
-    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1784999946/carousel/prozessia/20260728/20260728-thumb.png",
-    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1784999947/carousel/prozessia/20260728/20260728-karussell.pdf",
-    "due_at": "2026-07-28T12:00:00+02:00",
-    "anzahl_gepusht": 2,
-    "created_at": "2026-07-25T17:19:09.139752"
-  },
-  {
-    "id": "82a0e149",
-    "source_post_id": "25b934b0",
-    "hook": "Wissensverlust durch Renteneintritt in der Produktion",
-    "branche": "Alle",
-    "slide_titles": [
-      "In 5 Jahren geht Ihr Wissen in Rente",
-      "Der Mann kennt jede Maschine",
-      "Excel-Listen sterben mit Menschen",
-      "Wir sehen das bei jedem Kunden",
-      "KI-Agenten vergessen nicht",
-      "Wissen dokumentieren reicht nicht",
-      "Wissen sichern, bevor es geht"
-    ],
-    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1784997688/carousel/prozessia/20260728/20260728-thumb.png",
-    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1784997690/carousel/prozessia/20260728/20260728-karussell.pdf",
-    "due_at": "2026-07-28T07:00:00+02:00",
-    "anzahl_gepusht": 2,
-    "created_at": "2026-07-25T16:41:31.557214"
-  },
-  {
-    "id": "f091ba2d",
-    "source_post_id": "25b934b0",
-    "hook": "Wissensverlust durch Renteneintritt in der Produktion",
-    "branche": "Alle",
-    "slide_titles": [
-      "In 5 Jahren geht Ihr Wissen in Rente",
-      "Das Problem ist real",
-      "Wissen sitzt in Köpfen, nicht im System",
-      "Übergabe funktioniert selten wirklich",
-      "Die Folgekosten sieht keiner",
-      "KI kann Erfahrungswissen sichern",
-      "Wissen sichern, bevor es geht"
-    ],
-    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1784996949/carousel/prozessia/20260728/20260728-thumb.png",
-    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1784996951/carousel/prozessia/20260728/20260728-karussell.pdf",
-    "due_at": "2026-07-28T07:00:00+02:00",
-    "anzahl_gepusht": 2,
-    "created_at": "2026-07-25T16:29:12.227657"
   }
 ]
