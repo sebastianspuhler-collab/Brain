@@ -1,5 +1,25 @@
 [
   {
+    "id": "82a0e149",
+    "source_post_id": "25b934b0",
+    "hook": "Wissensverlust durch Renteneintritt in der Produktion",
+    "branche": "Alle",
+    "slide_titles": [
+      "In 5 Jahren geht Ihr Wissen in Rente",
+      "Der Mann kennt jede Maschine",
+      "Excel-Listen sterben mit Menschen",
+      "Wir sehen das bei jedem Kunden",
+      "KI-Agenten vergessen nicht",
+      "Wissen dokumentieren reicht nicht",
+      "Wissen sichern, bevor es geht"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1784997688/carousel/prozessia/20260728/20260728-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1784997690/carousel/prozessia/20260728/20260728-karussell.pdf",
+    "due_at": "2026-07-28T07:00:00+02:00",
+    "anzahl_gepusht": 2,
+    "created_at": "2026-07-25T16:41:31.557214"
+  },
+  {
     "id": "f091ba2d",
     "source_post_id": "25b934b0",
     "hook": "Wissensverlust durch Renteneintritt in der Produktion",
