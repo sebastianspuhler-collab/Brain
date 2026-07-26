@@ -11,8 +11,6 @@ import {
   MessageSquare,
   MessageSquarePlus,
   Settings,
-  Share2,
-  SquarePlay,
   Terminal,
   Trash2,
   UserPlus,
@@ -46,8 +44,6 @@ const NAV_ITEMS = [
   { to: "/dateien", label: "Dateien", icon: FileText },
   { to: "/meetings", label: "Meetings", icon: Users },
   { to: "/agenten", label: "Agenten", icon: Bot },
-  { to: "/linkedin", label: "LinkedIn", icon: Share2 },
-  { to: "/youtube", label: "YouTube", icon: SquarePlay },
   { to: "/onboarding", label: "Onboarding", icon: UserPlus },
   { to: "/einstellungen", label: "Einstellungen", icon: Settings },
 ];
