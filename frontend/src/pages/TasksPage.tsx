@@ -1,19 +1,22 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { Trash2 } from "lucide-react";
-import { useState } from "react";
+import { Calendar as CalendarIcon, ChevronDown, ChevronLeft, ChevronRight, List, Trash2 } from "lucide-react";
+import { useMemo, useState } from "react";
 import { toast } from "sonner";
 import { api } from "@/api/client";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { DayEventsPopoverContent } from "@/components/shared/day-events-popover";
+import { MonthGrid, toDayKey } from "@/components/shared/month-grid";
 import { SegmentedControl } from "@/components/shared/segmented-control";
+import { cn } from "@/lib/utils";
 
 type Assignee = "Amin" | "Sebastian" | "Beide";
+type View = "list" | "calendar";
+type Bucket = "overdue" | "today" | "week" | "later" | "none";
 
 interface Task {
   text: string;
@@ -24,20 +27,42 @@ interface Task {
 }
 
 const ASSIGNEES: Assignee[] = ["Amin", "Sebastian", "Beide"];
+const MONTHS = [
+  "Januar", "Februar", "März", "April", "Mai", "Juni",
+  "Juli", "August", "September", "Oktober", "November", "Dezember",
+];
 
-const URGENCY_LABEL: Record<Task["urgency"], string> = {
-  urgent: "Dringend",
-  soon: "Bald",
-  normal: "Normal",
-  done: "Erledigt",
+// Fälligkeits-Pille statt Prioritäts-Badge (Umsetzungsplan 2026-07-26,
+// Microsoft-To-Do/Google-Tasks-Vorbild) - die Buckets unten sagen schon, wie
+// dringend etwas ist, die Farbe hier ist nur noch ein leiser Zusatzhinweis.
+const URGENCY_DOT: Record<Task["urgency"], string> = {
+  urgent: "bg-destructive/15 text-destructive",
+  soon: "bg-amber-500/15 text-amber-600 dark:text-amber-400",
+  normal: "bg-muted text-muted-foreground",
+  done: "bg-muted text-muted-foreground",
 };
 
-const URGENCY_VARIANT: Record<Task["urgency"], "destructive" | "secondary" | "outline"> = {
-  urgent: "destructive",
-  soon: "secondary",
-  normal: "outline",
-  done: "outline",
+const BUCKET_LABEL: Record<Bucket, string> = {
+  overdue: "Überfällig",
+  today: "Heute",
+  week: "Diese Woche",
+  later: "Später",
+  none: "Kein Datum",
 };
+const BUCKET_ORDER: Bucket[] = ["overdue", "today", "week", "later", "none"];
+
+function formatDue(due: string): string {
+  const [, m, d] = due.split("-");
+  return `${d}.${m}.`;
+}
+
+function bucketFor(due: string | null, todayStr: string, weekAheadStr: string): Bucket {
+  if (!due) return "none";
+  if (due < todayStr) return "overdue";
+  if (due === todayStr) return "today";
+  if (due <= weekAheadStr) return "week";
+  return "later";
+}
 
 export function TasksPage() {
   const queryClient = useQueryClient();
@@ -45,6 +70,12 @@ export function TasksPage() {
   const [newAssignee, setNewAssignee] = useState<Assignee>("Beide");
   const [newDue, setNewDue] = useState("");
   const [filter, setFilter] = useState<Assignee | "Alle">("Alle");
+  const [view, setView] = useState<View>("list");
+  const [showDone, setShowDone] = useState(false);
+  const [cursor, setCursor] = useState(() => {
+    const now = new Date();
+    return new Date(now.getFullYear(), now.getMonth(), 1);
+  });
 
   const { data, isLoading } = useQuery({
     queryKey: ["tasks"],
@@ -85,13 +116,34 @@ export function TasksPage() {
     onError: () => toast.error("Zuständigkeit konnte nicht geändert werden"),
   });
 
-  const setDue = useMutation({
-    mutationFn: ({ text, due }: { text: string; due: string | null }) => api.post("/api/tasks/due", { text, due }),
-    onSuccess: invalidate,
-    onError: () => toast.error("Datum konnte nicht gespeichert werden"),
-  });
+  const filtered = (data ?? []).filter((t) => filter === "Alle" || t.assignee === filter);
+  const openTasks = filtered.filter((t) => !t.done);
+  const doneTasks = filtered.filter((t) => t.done);
 
-  const open = (data?.filter((t) => !t.done) ?? []).filter((t) => filter === "Alle" || t.assignee === filter);
+  const buckets = useMemo(() => {
+    const todayStr = toDayKey(new Date());
+    const weekAhead = new Date();
+    weekAhead.setDate(weekAhead.getDate() + 7);
+    const weekAheadStr = toDayKey(weekAhead);
+    const map: Record<Bucket, Task[]> = { overdue: [], today: [], week: [], later: [], none: [] };
+    for (const t of openTasks) {
+      map[bucketFor(t.due, todayStr, weekAheadStr)].push(t);
+    }
+    for (const b of BUCKET_ORDER) {
+      map[b].sort((a, c) => (a.due ?? "").localeCompare(c.due ?? ""));
+    }
+    return map;
+  }, [openTasks]);
+
+  const tasksByDue = useMemo(() => {
+    const map = new Map<string, Task[]>();
+    for (const t of openTasks) {
+      if (!t.due) continue;
+      if (!map.has(t.due)) map.set(t.due, []);
+      map.get(t.due)!.push(t);
+    }
+    return map;
+  }, [openTasks]);
 
   const submitNewTask = () => {
     const text = newTask.trim();
@@ -99,10 +151,63 @@ export function TasksPage() {
     addTask.mutate({ text, assignee: newAssignee, due: newDue || null });
   };
 
+  function TaskRow({ t }: { t: Task }) {
+    return (
+      <div className="group flex items-center gap-2.5 rounded-xl px-2 py-2 transition-colors hover:bg-muted/40">
+        <Checkbox
+          checked={!!t.done}
+          disabled={toggleTask.isPending}
+          onCheckedChange={(checked) => toggleTask.mutate({ text: t.text, done: checked === true })}
+        />
+        <span className={cn("min-w-0 flex-1 truncate text-sm", t.done && "text-muted-foreground line-through")}>
+          {t.text}
+        </span>
+        {t.due && (
+          <span className={cn("shrink-0 rounded-full px-2 py-0.5 text-[11px] font-medium", URGENCY_DOT[t.urgency])}>
+            {formatDue(t.due)}
+          </span>
+        )}
+        <Select
+          value={t.assignee}
+          onValueChange={(v) => v && setAssignee.mutate({ text: t.text, assignee: v as Assignee })}
+          disabled={setAssignee.isPending}
+        >
+          <SelectTrigger size="sm" className="h-7 w-24 shrink-0 border-none bg-transparent text-xs shadow-none">
+            <SelectValue>{(v: string) => v}</SelectValue>
+          </SelectTrigger>
+          <SelectContent>
+            {ASSIGNEES.map((a) => (
+              <SelectItem key={a} value={a}>
+                {a}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <Button
+          variant="ghost"
+          size="icon-sm"
+          className="shrink-0 opacity-0 group-hover:opacity-100"
+          disabled={deleteTask.isPending}
+          onClick={() => deleteTask.mutate(t.text)}
+        >
+          <Trash2 className="size-4" />
+        </Button>
+      </div>
+    );
+  }
+
   return (
     <Card>
-      <CardHeader>
+      <CardHeader className="flex-row items-center justify-between gap-2 space-y-0">
         <CardTitle>Aufgaben</CardTitle>
+        <SegmentedControl
+          options={[
+            { value: "list", label: "Liste", icon: <List className="size-3.5" /> },
+            { value: "calendar", label: "Kalender", icon: <CalendarIcon className="size-3.5" /> },
+          ]}
+          value={view}
+          onChange={setView}
+        />
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="flex items-center gap-2">
@@ -124,12 +229,7 @@ export function TasksPage() {
               ))}
             </SelectContent>
           </Select>
-          <Input
-            type="date"
-            value={newDue}
-            onChange={(e) => setNewDue(e.target.value)}
-            className="w-36 shrink-0"
-          />
+          <Input type="date" value={newDue} onChange={(e) => setNewDue(e.target.value)} className="w-36 shrink-0" />
           <Button size="sm" onClick={submitNewTask} disabled={addTask.isPending || !newTask.trim()}>
             {addTask.isPending ? "…" : "Hinzufügen"}
           </Button>
@@ -147,74 +247,110 @@ export function TasksPage() {
             <Skeleton className="h-8 w-full" />
             <Skeleton className="h-8 w-full" />
           </div>
-        ) : open.length === 0 ? (
-          <p className="text-sm text-muted-foreground">Keine offenen Aufgaben.</p>
+        ) : view === "calendar" ? (
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center justify-between gap-2">
+              <span className="text-sm font-medium text-foreground">
+                {MONTHS[cursor.getMonth()]} {cursor.getFullYear()}
+              </span>
+              <div className="flex items-center gap-1">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    const now = new Date();
+                    setCursor(new Date(now.getFullYear(), now.getMonth(), 1));
+                  }}
+                >
+                  Heute
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon-sm"
+                  aria-label="Vorheriger Monat"
+                  onClick={() => setCursor((c) => new Date(c.getFullYear(), c.getMonth() - 1, 1))}
+                >
+                  <ChevronLeft className="size-4" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon-sm"
+                  aria-label="Nächster Monat"
+                  onClick={() => setCursor((c) => new Date(c.getFullYear(), c.getMonth() + 1, 1))}
+                >
+                  <ChevronRight className="size-4" />
+                </Button>
+              </div>
+            </div>
+            <MonthGrid
+              cursor={cursor}
+              itemsByDay={tasksByDue}
+              renderPill={(t, idx) => (
+                <div
+                  key={idx}
+                  className={cn("truncate rounded-md px-1.5 py-0.5 text-[11px] leading-tight", URGENCY_DOT[t.urgency])}
+                >
+                  {t.text}
+                </div>
+              )}
+              renderPopoverContent={(date, dayTasks) => (
+                <DayEventsPopoverContent
+                  date={date}
+                  items={dayTasks}
+                  emptyLabel="Keine Aufgaben an diesem Tag."
+                  renderItem={(t) => (
+                    <div className="flex items-center gap-2 rounded-lg px-2 py-1.5 hover:bg-muted/50">
+                      <Checkbox
+                        checked={!!t.done}
+                        disabled={toggleTask.isPending}
+                        onCheckedChange={(checked) => toggleTask.mutate({ text: t.text, done: checked === true })}
+                      />
+                      <span className="min-w-0 flex-1 truncate text-sm text-foreground">{t.text}</span>
+                    </div>
+                  )}
+                />
+              )}
+            />
+          </div>
+        ) : openTasks.length === 0 && doneTasks.length === 0 ? (
+          <p className="text-sm text-muted-foreground">Keine Aufgaben.</p>
         ) : (
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-8" />
-                <TableHead>Aufgabe</TableHead>
-                <TableHead className="w-28">Priorität</TableHead>
-                <TableHead className="w-32">Zuständig</TableHead>
-                <TableHead className="w-36">Fällig</TableHead>
-                <TableHead className="w-8" />
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {open.map((t, i) => (
-                <TableRow key={`${i}-${t.text}`}>
-                  <TableCell>
-                    <Checkbox
-                      disabled={toggleTask.isPending}
-                      onCheckedChange={(checked) => toggleTask.mutate({ text: t.text, done: checked === true })}
-                    />
-                  </TableCell>
-                  <TableCell>{t.text}</TableCell>
-                  <TableCell>
-                    <Badge variant={URGENCY_VARIANT[t.urgency]}>{URGENCY_LABEL[t.urgency]}</Badge>
-                  </TableCell>
-                  <TableCell>
-                    <Select
-                      value={t.assignee}
-                      onValueChange={(v) => v && setAssignee.mutate({ text: t.text, assignee: v as Assignee })}
-                      disabled={setAssignee.isPending}
-                    >
-                      <SelectTrigger size="sm" className="h-7 w-28 text-xs">
-                        <SelectValue>{(v: string) => v}</SelectValue>
-                      </SelectTrigger>
-                      <SelectContent>
-                        {ASSIGNEES.map((a) => (
-                          <SelectItem key={a} value={a}>
-                            {a}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </TableCell>
-                  <TableCell>
-                    <Input
-                      type="date"
-                      value={t.due ?? ""}
-                      disabled={setDue.isPending}
-                      onChange={(e) => setDue.mutate({ text: t.text, due: e.target.value || null })}
-                      className="h-7 w-full text-xs"
-                    />
-                  </TableCell>
-                  <TableCell>
-                    <Button
-                      variant="ghost"
-                      size="icon-sm"
-                      disabled={deleteTask.isPending}
-                      onClick={() => deleteTask.mutate(t.text)}
-                    >
-                      <Trash2 />
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+          <div className="flex flex-col gap-4">
+            {openTasks.length === 0 ? (
+              <p className="text-sm text-muted-foreground">Keine offenen Aufgaben.</p>
+            ) : (
+              BUCKET_ORDER.filter((b) => buckets[b].length > 0).map((b) => (
+                <div key={b}>
+                  <div className="mb-1 px-2 text-xs font-medium text-muted-foreground">{BUCKET_LABEL[b]}</div>
+                  <div className="flex flex-col">
+                    {buckets[b].map((t, i) => (
+                      <TaskRow key={`${b}-${i}-${t.text}`} t={t} />
+                    ))}
+                  </div>
+                </div>
+              ))
+            )}
+
+            {doneTasks.length > 0 && (
+              <div>
+                <button
+                  type="button"
+                  onClick={() => setShowDone((v) => !v)}
+                  className="flex items-center gap-1 px-2 text-xs font-medium text-muted-foreground hover:text-foreground"
+                >
+                  {showDone ? <ChevronDown className="size-3.5" /> : <ChevronRight className="size-3.5" />}
+                  Erledigt ({doneTasks.length})
+                </button>
+                {showDone && (
+                  <div className="mt-1 flex flex-col">
+                    {doneTasks.map((t, i) => (
+                      <TaskRow key={`done-${i}-${t.text}`} t={t} />
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
         )}
       </CardContent>
     </Card>

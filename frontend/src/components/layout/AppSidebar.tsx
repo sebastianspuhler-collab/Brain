@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import {
   Bot,
   CalendarDays,
@@ -12,6 +13,7 @@ import {
   Settings,
   Share2,
   SquarePlay,
+  Terminal,
   Trash2,
   UserPlus,
   Users,
@@ -31,8 +33,9 @@ import {
 } from "@/components/ui/sidebar";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { IdentityAvatar } from "@/components/shared/identity-avatar";
 import { useAuth } from "@/context/AuthContext";
-import { chatSessions, type ChatSessionSummary } from "@/api/client";
+import { agents as agentsApi, chatSessions, DEV_AGENT_ID, type ChatSessionSummary } from "@/api/client";
 
 const NAV_ITEMS = [
   { to: "/", label: "Chat", icon: MessageSquare, end: true },
@@ -73,6 +76,10 @@ export function AppSidebar() {
   const [searchParams] = useSearchParams();
   const activeSessionId = location.pathname === "/" ? searchParams.get("session") : null;
   const [sessions, setSessions] = useState<ChatSessionSummary[]>([]);
+  // Agenten-Icon pro Verlaufs-Eintrag (Umsetzungsplan 2026-07-26) - gleicher
+  // Query-Key wie AgentsPage.tsx/ChatPage.tsx, damit der Cache geteilt wird
+  // statt einen zusätzlichen Request auszulösen, falls schon geladen.
+  const { data: agentsList } = useQuery({ queryKey: ["agents"], queryFn: () => agentsApi.list() });
 
   useEffect(() => {
     function refresh() {
@@ -140,26 +147,38 @@ export function AppSidebar() {
                   }
                 />
               </SidebarMenuItem>
-              {sessions.map((s) => (
-                <SidebarMenuItem key={s.id}>
-                  <SidebarMenuButton
-                    isActive={s.id === activeSessionId}
-                    render={
-                      <NavLink to={`/?session=${s.id}`}>
-                        <span className="min-w-0 flex-1 truncate">{s.title}</span>
-                        <span className="shrink-0 text-[10px] text-muted-foreground">{timeAgo(s.updated_at)}</span>
-                        <button
-                          onClick={(e) => handleDelete(e, s.id)}
-                          className="ml-1 shrink-0 rounded p-0.5 text-muted-foreground opacity-0 transition hover:text-destructive group-hover/menu-item:opacity-100"
-                          title="Chat löschen"
-                        >
-                          <Trash2 className="size-3" />
-                        </button>
-                      </NavLink>
-                    }
-                  />
-                </SidebarMenuItem>
-              ))}
+              {sessions.map((s) => {
+                const isDevAgent = s.agent_id === DEV_AGENT_ID;
+                const agent = s.agent_id ? agentsList?.find((a) => a.id === s.agent_id) : null;
+                const href = isDevAgent ? `/entwicklung?session=${s.id}` : `/?session=${s.id}`;
+                return (
+                  <SidebarMenuItem key={s.id}>
+                    <SidebarMenuButton
+                      isActive={s.id === activeSessionId}
+                      render={
+                        <NavLink to={href}>
+                          {isDevAgent ? (
+                            <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
+                              <Terminal className="size-3" />
+                            </span>
+                          ) : (
+                            agent && <IdentityAvatar name={agent.name} size="xs" />
+                          )}
+                          <span className="min-w-0 flex-1 truncate">{s.title}</span>
+                          <span className="shrink-0 text-[10px] text-muted-foreground">{timeAgo(s.updated_at)}</span>
+                          <button
+                            onClick={(e) => handleDelete(e, s.id)}
+                            className="ml-1 shrink-0 rounded p-0.5 text-muted-foreground opacity-0 transition hover:text-destructive group-hover/menu-item:opacity-100"
+                            title="Chat löschen"
+                          >
+                            <Trash2 className="size-3" />
+                          </button>
+                        </NavLink>
+                      }
+                    />
+                  </SidebarMenuItem>
+                );
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

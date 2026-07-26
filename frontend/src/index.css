@@ -195,3 +195,27 @@
     opacity: 0;
   }
 }
+
+/* Dünne, themefähige Scrollbar statt der hässlichen nativen Browser-Balken
+   (Sebastian, 2026-07-26) - global statt pro Komponente, damit Tabellen,
+   Dropdowns, Dialoge, Sidebar etc. automatisch mitziehen. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--muted-foreground);
+}
