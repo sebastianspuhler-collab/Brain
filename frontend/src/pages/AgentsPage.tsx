@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ChevronDown, Pencil, Plus, Terminal, Trash2 } from "lucide-react";
+import { ChevronDown, Pencil, Plus, Share2, SquarePlay, Terminal, Trash2, type LucideIcon } from "lucide-react";
 import { agents as agentsApi, DEV_AGENT_ID, type Agent } from "@/api/client";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -353,6 +354,43 @@ function DevAgentCard() {
   );
 }
 
+// Gepinnte Kachel für bestehende Vollseiten wie LinkedIn/YouTube, die schon
+// ihre eigene Chat-/Tool-Logik haben (Umsetzungsplan 2026-07-26: "auch als
+// Agenten unter der Agenten-Seite auflisten") - anders als AgentCard/
+// DevAgentCard rein navigierend statt über das generische Verlauf-Dropdown,
+// weil diese Seiten nicht über chat_sessions.py laufen und ein Verlauf hier
+// leer/irreführend wäre. Klick öffnet einfach die bestehende Seite unverändert.
+function StaticAgentCard({
+  to,
+  icon: Icon,
+  label,
+  badge,
+}: {
+  to: string;
+  icon: LucideIcon;
+  label: string;
+  badge: string;
+}) {
+  return (
+    <Link
+      to={to}
+      className="group relative flex aspect-[4/5] w-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-colors hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+    >
+      <div className="flex h-full w-full flex-col items-center justify-center gap-4 px-4 pb-14">
+        <span className="flex h-24 w-24 items-center justify-center rounded-full border-[3px] border-background bg-primary/15 text-primary shadow-sm">
+          <Icon className="size-8" />
+        </span>
+      </div>
+      <div className="pointer-events-none absolute inset-x-3 bottom-3 z-10 flex min-w-0 flex-col gap-1 text-left">
+        <span className="min-w-0 truncate text-sm font-semibold text-foreground">{label}</span>
+        <StatusPill variant="info" className="w-fit">
+          {badge}
+        </StatusPill>
+      </div>
+    </Link>
+  );
+}
+
 function NewAgentCard({ onClick }: { onClick: () => void }) {
   return (
     <button
@@ -410,6 +448,8 @@ export function AgentsPage() {
       ) : (
         <motion.div layout className={GRID_CLASS}>
           <DevAgentCard />
+          <StaticAgentCard to="/linkedin" icon={Share2} label="LinkedIn" badge="Social Media" />
+          <StaticAgentCard to="/youtube" icon={SquarePlay} label="YouTube" badge="Video" />
           <AnimatePresence mode="popLayout" initial={false}>
             {data?.map((a) => (
               <motion.div
