@@ -1,6 +1,5 @@
 """Chat-Endpoint mit SSE-Streaming. Migriert aus brain_server.py:handle_chat()."""
 import json
-import logging
 import threading
 from concurrent.futures import ThreadPoolExecutor
 
@@ -13,7 +12,7 @@ from app.config import get_settings
 from app.constants import ALL_MODELS, Models
 from app.deps import get_current_user
 from app.services import context as context_service
-from app.services import agent_capabilities, agents_service, chat_sessions, conversations, memory, rag
+from app.services import agent_capabilities, agents_service, chat_sessions, conversations, memory, rag, usage_service
 from app.services import claude_cli
 from app.services.anthropic_client import get_client
 from app.services.tools import TOOLS, _TASK_TOOL_NAMES, execute_tool
@@ -21,7 +20,6 @@ from app.services.tools import TOOLS, _TASK_TOOL_NAMES, execute_tool
 MAX_TOOL_ITERATIONS = 8
 
 router = APIRouter(prefix="/api", tags=["chat"])
-_usage_logger = logging.getLogger("model_usage")
 
 CHAT_MODELS = {Models.SONNET, Models.OPUS}
 COMPLEX_KEYWORDS = {
@@ -38,20 +36,6 @@ COMPLEX_KEYWORDS = {
 # als bewusste Entscheidung respektiert, nie stillschweigend überschrieben).
 HAIKU_MODEL = Models.HAIKU
 SIMPLE_MAX_CHARS = 80
-
-
-def _setup_usage_logger() -> None:
-    """Modellauswahl-Überarbeitung (Sebastian, 2026-07-18): pro Chat-Anfrage
-    Modell + Tokenverbrauch in einer eigenen Log-Datei festhalten, damit
-    Kosten nachvollziehbar sind, statt sie nur zu schätzen."""
-    if _usage_logger.handlers:
-        return
-    log_path = get_settings().agent_dir / "model_usage.log"
-    log_path.parent.mkdir(parents=True, exist_ok=True)
-    handler = logging.FileHandler(log_path, encoding="utf-8")
-    handler.setFormatter(logging.Formatter("%(asctime)s %(message)s"))
-    _usage_logger.addHandler(handler)
-    _usage_logger.setLevel(logging.INFO)
 
 
 class ChatMessage(BaseModel):
@@ -235,14 +219,10 @@ def _stream_chat(
 
         response_text = "".join(all_text_parts)
         threading.Thread(target=conversations.log_turn, args=("assistant", response_text), daemon=True).start()
-        _setup_usage_logger()
-        _usage_logger.info(
-            "model=%s input_tokens=%d output_tokens=%d cache_read_input_tokens=%d",
-            model,
-            usage_totals["input_tokens"],
-            usage_totals["output_tokens"],
-            usage_totals["cache_read_input_tokens"],
-        )
+        # Kein total_cost_usd verfügbar wie beim CLI-Pfad (die Anthropic SDK
+        # liefert nur Token-Zahlen, keine Kosten-Schätzung) - Nutzungs-Dashboard
+        # zeigt für diesen (inaktiven) Pfad daher 0 $ an, Tokens stimmen.
+        usage_service.log_usage("chat", model, usage_totals, cost_usd=None, agent_id=agent_id)
 
         if session_id:
             to_save = messages + [{"role": "assistant", "content": response_text}]
@@ -372,6 +352,8 @@ def _stream_chat_cli(
 
         all_text_parts = []
         tasks_changed = False
+        usage_info: dict | None = None
+        cost_usd = 0.0
         try:
             for event in claude_cli.stream_chat(
                 last_msg,
@@ -393,13 +375,21 @@ def _stream_chat_cli(
                             tool_path = str(block.get("input", {}).get("file_path", ""))
                             if "context.md" in tool_path:
                                 tasks_changed = True
-                elif etype == "result" and event.get("is_error"):
-                    yield _sse({"error": event.get("result", "Unbekannter Fehler")})
+                elif etype == "result":
+                    if event.get("is_error"):
+                        yield _sse({"error": event.get("result", "Unbekannter Fehler")})
+                    # Nutzungs-/Kostentracking (Umsetzungsplan 2026-07-27): das
+                    # abschließende result-Event der CLI trägt usage/total_cost_usd
+                    # unabhängig davon, ob is_error gesetzt ist - bisher wurde das
+                    # nirgends ausgelesen.
+                    usage_info = event.get("usage")
+                    cost_usd = event.get("total_cost_usd") or 0.0
         except claude_cli.ClaudeCliError as e:
             yield _sse({"error": str(e)})
 
         response_text = "".join(all_text_parts)
         threading.Thread(target=conversations.log_turn, args=("assistant", response_text), daemon=True).start()
+        usage_service.log_usage("chat", model, usage_info, cost_usd, agent_id)
 
         if session_id:
             to_save = messages + [{"role": "assistant", "content": response_text}]
@@ -563,6 +553,8 @@ async def dev_agent_chat(body: DevAgentChatRequest, user: str = Depends(get_curr
 
     async def proxy():
         assistant_text = ""
+        usage_info: dict | None = None
+        cost_usd = 0.0
         try:
             async with httpx.AsyncClient(timeout=610.0) as client:
                 async with client.stream(
@@ -581,10 +573,21 @@ async def dev_agent_chat(body: DevAgentChatRequest, user: str = Depends(get_curr
                             continue
                         if data.get("chunk"):
                             assistant_text += data["chunk"]
+                        # Nutzungs-/Kostentracking (Umsetzungsplan 2026-07-27) -
+                        # der Sandbox-Container hat keinen Vault-Zugriff und kann
+                        # usage_log.jsonl daher nicht selbst schreiben, schickt die
+                        # Zahlen stattdessen als eigenes SSE-Event mit (siehe
+                        # dev-agent/server.py::_stream), das Frontend ignoriert
+                        # unbekannte Felder und zeigt es nicht an.
+                        if "usage" in data:
+                            usage_info = data.get("usage")
+                            cost_usd = data.get("total_cost_usd") or 0.0
         except httpx.HTTPError as ex:
             yield f'data: {json.dumps({"error": f"Entwickler-Agent nicht erreichbar: {ex}"})}\n\n'
             yield "data: [DONE]\n\n"
             return
+
+        usage_service.log_usage("dev-agent", model, usage_info, cost_usd, DEV_AGENT_ID)
 
         if session_id and assistant_text:
             to_save = messages + [{"role": "assistant", "content": assistant_text}]

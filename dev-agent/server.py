@@ -155,8 +155,16 @@ def _stream(messages: list[dict], model: str):
                 for block in event.get("message", {}).get("content", []):
                     if block.get("type") == "text" and block.get("text"):
                         yield _sse({"chunk": block["text"]})
-            elif event.get("type") == "result" and event.get("is_error"):
-                yield _sse({"error": event.get("result", "Unbekannter Fehler")})
+            elif event.get("type") == "result":
+                if event.get("is_error"):
+                    yield _sse({"error": event.get("result", "Unbekannter Fehler")})
+                # Nutzungs-/Kostentracking (Umsetzungsplan 2026-07-27): dieser
+                # Container hat keinen Vault-Zugriff und kann usage_log.jsonl
+                # nicht selbst schreiben - schickt die Zahlen aus dem
+                # result-Event stattdessen als eigenes SSE-Event mit, das
+                # backend/app/routers/chat.py::dev_agent_chat abfängt und dort
+                # protokolliert.
+                yield _sse({"usage": event.get("usage"), "total_cost_usd": event.get("total_cost_usd")})
         proc.wait(timeout=600)
         if proc.returncode != 0:
             stderr = proc.stderr.read()
