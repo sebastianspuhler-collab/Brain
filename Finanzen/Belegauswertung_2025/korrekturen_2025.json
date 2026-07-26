@@ -1,0 +1,62 @@
+{
+  "_hinweis": "Manuelle Korrekturen nach Belegpruefung am 2026-07-26 (Sebastian). Werden von scripts/step4b_korrekturen.py idempotent auf out/04_merged.json angewendet. Reihenfolge: step4 -> step4b -> step5 -> step6 -> step7 -> step8.",
+  "beleg_korrekturen": [
+    {
+      "datei": "Premium Paket 2025.pdf",
+      "setze": { "betrag_netto": 240.00, "ust_betrag": 45.60, "betrag_brutto": 285.60, "rechnungsnummer": "1194582161" },
+      "grund": "Parser hat das Netto-Feld leer gelassen. Rechnung Wix #1194582161 vom 21.08.2025 weist aus: Zwischensumme 240,00 EUR, MwSt 19% 45,60 EUR, Gesamt 285,60 EUR. Buchung floss bisher mit 0,00 EUR Netto in die Wertung, obwohl 45,60 EUR Vorsteuer gezaehlt wurden."
+    },
+    {
+      "datei": "Domain webwokr.pdf",
+      "setze": { "betrag_netto": 14.95, "ust_betrag": 2.84, "betrag_brutto": 17.79, "rechnungsnummer": "1191877287" },
+      "grund": "Netto fehlte. Rechnung Wix #1191877287 vom 05.08.2025, Domain webwokr.de, Laufzeit 04.09.2025-04.09.2026."
+    },
+    {
+      "datei": "Google Workspace 2025.pdf",
+      "setze": { "betrag_netto": 163.20, "ust_betrag": 31.00, "betrag_brutto": 194.20, "rechnungsnummer": "1191877299" },
+      "grund": "Netto fehlte. Rechnung Wix #1191877299 vom 05.08.2025, Google Workspace Starter, 2 Postfaecher, Laufzeit 04.09.2025-04.09.2026."
+    },
+    {
+      "datei": "LNKD_INVOICE_789144507558.pdf",
+      "setze": { "betrag_netto": 99.99, "ust_betrag": 19.00, "betrag_brutto": 118.99, "rechnungsnummer": "789144507558" },
+      "grund": "Parser hat den Nettobetrag als Brutto uebernommen. Rechnung LinkedIn Ireland vom 18.09.2025: Sales Navigator Core 99,99 EUR netto + 19% USt = 118,99 EUR brutto."
+    },
+    {
+      "datei": "Rechnung_RE0009 (1).pdf",
+      "setze": { "betrag_netto": 82.99, "ust_betrag": 0.0, "betrag_brutto": 82.99, "ust_satz": 0, "rechnungsnummer": "RE0009" },
+      "verknuepfe_tx": "FINOM-b6c9180f60ec69e7",
+      "grund": "Parser hat die Zwischensumme vor Rabatt (122,99) als Netto und den Gesamtbetrag (82,99) als USt gelesen. Auslagenabrechnung Benito Ferrise vom 10.09.2025: Uebernachtung Melia 84,00 + Parkhaus 14,33 + Fahrtkosten 20,00 + Parkhaus 4,66 abzgl. 40,00 Rabatt = 82,99 EUR, ausdruecklich 0% USt (Erstattung verauslagter Kosten). Beleg war der Kontobuchung vom 11.09.2025 nicht zugeordnet."
+    }
+  ],
+  "privat_bezahlte_ausgaben": [
+    {
+      "tx_id": "PRIVAT-wix-domain-20250805",
+      "zahlungsdatum": "2025-08-05",
+      "betrag_brutto": 17.79,
+      "gegenpartei": "Wix.com LTD",
+      "beleg_datei": "Domain webwokr.pdf",
+      "grund": "Betrieblich veranlasst, per privatem PayPal bezahlt, nie ueber das Geschaeftskonto gelaufen. Betriebsausgabe + Einlage."
+    },
+    {
+      "tx_id": "PRIVAT-wix-workspace-20250805",
+      "zahlungsdatum": "2025-08-05",
+      "betrag_brutto": 194.20,
+      "gegenpartei": "Wix.com LTD",
+      "beleg_datei": "Google Workspace 2025.pdf",
+      "grund": "Betrieblich veranlasst, per privatem PayPal bezahlt, nie ueber das Geschaeftskonto gelaufen. Betriebsausgabe + Einlage."
+    },
+    {
+      "tx_id": "PRIVAT-linkedin-20250918",
+      "zahlungsdatum": "2025-09-18",
+      "betrag_brutto": 118.99,
+      "gegenpartei": "LinkedIn Ireland Unlimited Company",
+      "beleg_datei": "LNKD_INVOICE_789144507558.pdf",
+      "grund": "Sales Navigator Core, betrieblich veranlasst, per privatem PayPal bezahlt. Betriebsausgabe + Einlage."
+    }
+  ],
+  "offene_punkte": [
+    "Alle drei privat bezahlten Rechnungen sind auf 'Sebastian Spuhler, Hunsrueckstrasse 4, Voelklingen' bzw. 'WebWokr' ausgestellt, nicht auf die GbR. Fuer den Vorsteuerabzug der Gesellschaft mit dem Steuerberater klaeren.",
+    "Fuenf Angebote (571,20 / 714,00 / 1.963,50 / 11.900,00 / 58.310,00 EUR) sind faelschlich als Belege eingelesen. Ohne Zahlungszuordnung verfaelschen sie keine Summe, gehoeren aber aus dem Belegbestand entfernt.",
+    "Instantly-Rechnungen Juli (97,00) und August (59,42) bleiben Prueffaelle: USD-Umrechnungsdifferenzen gegenueber den EUR-Kontobuchungen, keine zusaetzlichen Ausgaben."
+  ]
+}
