@@ -22,6 +22,8 @@ from pydantic import BaseModel
 WORKSPACE = Path("/workspace")
 CLAUDE_BIN = "claude"
 PORT_RANGE = "8100-8120"
+DEFAULT_MODEL = "claude-sonnet-5"
+ALLOWED_MODELS = {"claude-sonnet-5", "claude-opus-4-8"}
 
 SYSTEM_PROMPT = f"""Du bist der Prozessia-Entwickler-Agent. Du arbeitest
 ausschließlich in {WORKSPACE} - das ist dein einziger Zuständigkeitsbereich,
@@ -62,6 +64,7 @@ class ChatMessage(BaseModel):
 
 class ChatRequest(BaseModel):
     messages: list[ChatMessage]
+    model: str = DEFAULT_MODEL
 
 
 def _subprocess_env() -> dict:
@@ -79,15 +82,42 @@ def _sse(payload: dict) -> str:
     return f"data: {json.dumps(payload, ensure_ascii=False)}\n\n"
 
 
-def _stream(messages: list[dict]):
+def _format_history(messages: list[dict], budget_chars: int = 12000) -> str:
+    """Wie backend/app/routers/chat.py::_format_history() - eigenständig
+    implementiert (kein Shared-Import, siehe Datei-Docstring). Jeder Aufruf
+    hier ist ein frischer, zustandsloser claude-Subprozess
+    (--no-session-persistence, kein --resume) - ohne das würde der Agent bei
+    "füg jetzt noch X hinzu" nicht mehr wissen, an welchem Projekt/Kontext er
+    gerade war."""
+    if len(messages) <= 1:
+        return ""
+    picked: list[str] = []
+    used = 0
+    for m in reversed(messages[:-1]):
+        role = "Nutzer" if m.get("role") == "user" else "Assistent"
+        line = f"{role}: {m.get('content', '')}"
+        if used + len(line) > budget_chars and picked:
+            break
+        picked.append(line)
+        used += len(line)
+    picked.reverse()
+    return "\n\n".join(picked)
+
+
+def _stream(messages: list[dict], model: str):
     last_msg = messages[-1]["content"] if messages else ""
+    history_block = _format_history(messages)
+    prompt = (
+        f"<bisherige_unterhaltung>\n{history_block}\n</bisherige_unterhaltung>\n\n{last_msg}"
+        if history_block else last_msg
+    )
     cmd = [
         CLAUDE_BIN, "-p",
         "--input-format", "stream-json",
         "--output-format", "stream-json",
         "--include-partial-messages",
         "--verbose",
-        "--model", "claude-sonnet-5",
+        "--model", model,
         "--system-prompt", SYSTEM_PROMPT,
         "--add-dir", str(WORKSPACE),
         "--tools", "Bash,Read,Write,Edit,Glob,Grep",
@@ -108,7 +138,7 @@ def _stream(messages: list[dict]):
         return
 
     try:
-        user_event = {"type": "user", "message": {"role": "user", "content": [{"type": "text", "text": last_msg}]}}
+        user_event = {"type": "user", "message": {"role": "user", "content": [{"type": "text", "text": prompt}]}}
         proc.stdin.write(json.dumps(user_event) + "\n")
         proc.stdin.flush()
         proc.stdin.close()
@@ -143,8 +173,9 @@ def _stream(messages: list[dict]):
 @app.post("/chat")
 def chat(body: ChatRequest):
     messages = [m.model_dump() for m in body.messages]
+    model = body.model if body.model in ALLOWED_MODELS else DEFAULT_MODEL
     return StreamingResponse(
-        _stream(messages),
+        _stream(messages, model),
         media_type="text/event-stream",
         headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
     )

@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { ArrowUp, ExternalLink, Terminal } from "lucide-react";
 import ReactMarkdown from "react-markdown";
-import type { ChatMessage } from "@/api/client";
-import { streamDevAgentChat } from "@/api/client";
+import { toast } from "sonner";
+import { chatSessions, streamDevAgentChat, type ChatMessage } from "@/api/client";
 import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 
 // Fester Host-Port-Bereich statt Subdomain (DNS ist auf dem VPS nicht
@@ -11,6 +13,12 @@ import { Textarea } from "@/components/ui/textarea";
 // veröffentlicht 8100-8120 direkt auf die VPS-IP.
 const VPS_HOST = "72.61.80.20";
 const PORT_PATTERN = /\bPort\s+(\d{4,5})\b/i;
+
+// Muss zu dev-agent/server.py::ALLOWED_MODELS passen (Umsetzungsplan 2026-07-26).
+const MODELS = [
+  { id: "claude-sonnet-5", label: "Sonnet" },
+  { id: "claude-opus-4-8", label: "Opus" },
+];
 
 const SUGGESTIONS = [
   { title: "Neues Projekt", prompt: "Lege ein neues kleines Vite-React-Projekt an und starte einen Dev-Server dafür." },
@@ -25,10 +33,15 @@ function previewLink(content: string): string | null {
 }
 
 export function DevAgentPage() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const sessionId = searchParams.get("session");
+
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
+  const [model, setModel] = useState(MODELS[0].id);
   const [streaming, setStreaming] = useState(false);
   const [error, setError] = useState("");
+  const [loadingSession, setLoadingSession] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
@@ -36,9 +49,43 @@ export function DevAgentPage() {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  // Chat-Verlauf pro Agent (Umsetzungsplan 2026-07-26): Historie laden, sobald
+  // eine Session in der URL steht - gleiches Muster wie ChatPage.tsx, nutzt
+  // dieselbe chat_sessions.py-Persistenz über die reservierte DEV_AGENT_ID.
+  useEffect(() => {
+    if (!sessionId) {
+      setMessages([]);
+      return;
+    }
+    let cancelled = false;
+    setLoadingSession(true);
+    chatSessions
+      .get(sessionId)
+      .then((data) => {
+        if (cancelled) return;
+        setMessages(data.messages ?? []);
+        if (data.model) setModel(data.model);
+      })
+      .catch(() => {
+        if (!cancelled) toast.error("Chat konnte nicht geladen werden");
+      })
+      .finally(() => {
+        if (!cancelled) setLoadingSession(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [sessionId]);
+
   async function send(overrideText?: string) {
     const text = (overrideText ?? input).trim();
     if (!text || streaming) return;
+
+    let activeSessionId = sessionId;
+    if (!activeSessionId) {
+      activeSessionId = crypto.randomUUID();
+      setSearchParams({ session: activeSessionId }, { replace: true });
+    }
 
     const nextMessages: ChatMessage[] = [...messages, { role: "user", content: text }];
     setMessages([...nextMessages, { role: "assistant", content: "" }]);
@@ -53,11 +100,13 @@ export function DevAgentPage() {
     try {
       await streamDevAgentChat(
         nextMessages,
+        model,
         (chunk) => {
           assistantText += chunk;
           setMessages([...nextMessages, { role: "assistant", content: assistantText }]);
         },
-        controller.signal
+        controller.signal,
+        activeSessionId
       );
     } catch (err) {
       if (!(err instanceof DOMException && err.name === "AbortError")) {
@@ -65,6 +114,7 @@ export function DevAgentPage() {
       }
     } finally {
       setStreaming(false);
+      window.dispatchEvent(new CustomEvent("brain:sessions-changed"));
     }
   }
 
@@ -74,6 +124,24 @@ export function DevAgentPage() {
       send();
     }
   }
+
+  const modelSelect = (
+    <Select value={model} onValueChange={(value) => value && setModel(value)} disabled={streaming}>
+      <SelectTrigger
+        size="sm"
+        className="h-7 w-auto gap-1 border-none bg-transparent px-2 text-xs text-muted-foreground shadow-none hover:bg-muted hover:text-foreground"
+      >
+        <SelectValue>{(value: string) => MODELS.find((m) => m.id === value)?.label ?? value}</SelectValue>
+      </SelectTrigger>
+      <SelectContent>
+        {MODELS.map((m) => (
+          <SelectItem key={m.id} value={m.id}>
+            {m.label}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  );
 
   const inputBar = (
     <div className="flex flex-col rounded-3xl border border-border bg-card/60 shadow-lg backdrop-blur-sm transition focus-within:border-ring/50">
@@ -86,13 +154,22 @@ export function DevAgentPage() {
         disabled={streaming}
         className="min-h-[48px] max-h-52 resize-none border-0 bg-transparent px-4 py-3.5 text-sm shadow-none focus-visible:ring-0"
       />
-      <div className="flex items-center justify-end px-2 pb-2">
+      <div className="flex items-center justify-between px-2 pb-2">
+        {modelSelect}
         <Button size="icon" className="size-8 rounded-full" onClick={() => send()} disabled={streaming || !input.trim()}>
           <ArrowUp className="size-4" />
         </Button>
       </div>
     </div>
   );
+
+  if (loadingSession) {
+    return (
+      <div className="flex h-[calc(100vh-6.5rem)] w-full items-center justify-center text-sm text-muted-foreground">
+        Chat wird geladen…
+      </div>
+    );
+  }
 
   if (messages.length === 0) {
     return (

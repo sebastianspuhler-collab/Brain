@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ChevronDown, Pencil, Plus, Terminal, Trash2 } from "lucide-react";
-import { agents as agentsApi, type Agent } from "@/api/client";
+import { agents as agentsApi, DEV_AGENT_ID, type Agent } from "@/api/client";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -16,12 +15,14 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
+import { AgentHistoryMenuContent } from "@/components/shared/agent-history-menu";
 import { IdentityAvatar } from "@/components/shared/identity-avatar";
 import { StatusPill } from "@/components/shared/status-pill";
 import { cn } from "@/lib/utils";
@@ -261,12 +262,10 @@ function AgentDialog({
 
 function AgentCard({
   agent,
-  onChat,
   onEdit,
   onDelete,
 }: {
   agent: Agent;
-  onChat: () => void;
   onEdit: () => void;
   onDelete: () => void;
 }) {
@@ -274,12 +273,18 @@ function AgentCard({
 
   return (
     <div className="group relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-colors hover:border-primary/40">
-      <button
-        type="button"
-        onClick={onChat}
-        className="absolute inset-0 z-10 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-        aria-label={`${agent.name} Chat öffnen`}
-      />
+      <DropdownMenu>
+        <DropdownMenuTrigger
+          render={
+            <button
+              type="button"
+              className="absolute inset-0 z-10 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              aria-label={`${agent.name} Chat öffnen`}
+            />
+          }
+        />
+        <AgentHistoryMenuContent agentId={agent.id} buildUrl={(id) => `/?session=${id}&agent=${agent.id}`} />
+      </DropdownMenu>
       <div className="pointer-events-none flex h-full w-full flex-col items-center justify-center gap-4 px-4 pb-14">
         <IdentityAvatar name={agent.name} />
       </div>
@@ -318,14 +323,22 @@ function AgentCard({
 // Backend, eigener Chat-Screen (DevAgentPage.tsx unter /entwicklung), daher
 // weder bearbeitbar noch löschbar wie die selbst angelegten Agenten. Immer
 // als erste Kachel im Grid gepinnt.
-function DevAgentCard({ onClick }: { onClick: () => void }) {
+function DevAgentCard() {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="group relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-colors hover:border-primary/40"
-    >
-      <div className="flex h-full w-full flex-col items-center justify-center gap-4 px-4 pb-14">
+    <div className="group relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-colors hover:border-primary/40">
+      <DropdownMenu>
+        <DropdownMenuTrigger
+          render={
+            <button
+              type="button"
+              className="absolute inset-0 z-10 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              aria-label="Entwicklungs-Agent Chat öffnen"
+            />
+          }
+        />
+        <AgentHistoryMenuContent agentId={DEV_AGENT_ID} buildUrl={(id) => `/entwicklung?session=${id}`} />
+      </DropdownMenu>
+      <div className="pointer-events-none flex h-full w-full flex-col items-center justify-center gap-4 px-4 pb-14">
         <span className="flex h-24 w-24 items-center justify-center rounded-full border-[3px] border-background bg-primary/15 text-primary shadow-sm">
           <Terminal className="size-8" />
         </span>
@@ -336,7 +349,7 @@ function DevAgentCard({ onClick }: { onClick: () => void }) {
           Sandbox
         </StatusPill>
       </div>
-    </button>
+    </div>
   );
 }
 
@@ -355,7 +368,6 @@ function NewAgentCard({ onClick }: { onClick: () => void }) {
 
 export function AgentsPage() {
   const queryClient = useQueryClient();
-  const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
   const { data, isLoading } = useQuery({
     queryKey: ["agents"],
@@ -372,20 +384,6 @@ export function AgentsPage() {
     },
     onError: () => toast.error("Löschen fehlgeschlagen"),
   });
-
-  // Eigener, dauerhafter Chat pro Agent (Umsetzungsplan 2026-07-25): sucht
-  // die neueste vorhandene Session für diesen Agenten, sonst wird eine neue
-  // erzeugt - ChatPage übernimmt agent_id aus der geladenen Session bzw.
-  // (bei einer frisch erzeugten, noch leeren Session) aus dem URL-Parameter.
-  async function openChat(agent: Agent) {
-    let sessionId: string | null = null;
-    try {
-      sessionId = (await agentsApi.session(agent.id)).session_id;
-    } catch {
-      // still fine - Fallback unten erzeugt eine neue Session
-    }
-    navigate(`/?session=${sessionId ?? crypto.randomUUID()}&agent=${agent.id}`);
-  }
 
   return (
     <div className="flex flex-col gap-8">
@@ -411,7 +409,7 @@ export function AgentsPage() {
         </div>
       ) : (
         <motion.div layout className={GRID_CLASS}>
-          <DevAgentCard onClick={() => navigate("/entwicklung")} />
+          <DevAgentCard />
           <AnimatePresence mode="popLayout" initial={false}>
             {data?.map((a) => (
               <motion.div
@@ -422,12 +420,7 @@ export function AgentsPage() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={CARD_ENTER_SPRING}
               >
-                <AgentCard
-                  agent={a}
-                  onChat={() => openChat(a)}
-                  onEdit={() => setEditing(a)}
-                  onDelete={() => remove.mutate(a.id)}
-                />
+                <AgentCard agent={a} onEdit={() => setEditing(a)} onDelete={() => remove.mutate(a.id)} />
               </motion.div>
             ))}
           </AnimatePresence>

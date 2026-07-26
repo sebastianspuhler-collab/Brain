@@ -58,16 +58,15 @@ def list_sessions() -> list[dict]:
     return sessions
 
 
-def find_session_for_agent(agent_id: str) -> str | None:
-    """Eigener, dauerhafter Chat pro Agent (Umsetzungsplan 2026-07-25): statt
-    einen zweiten Zeiger auf dem Agent zu pflegen (Drift-Gefahr, falls die
-    Session gelöscht wird), sucht "Chat öffnen" hier einfach die neueste
-    Session mit passender agent_id - list_sessions() ist schon nach
-    updated_at absteigend sortiert."""
-    for s in list_sessions():
-        if s.get("agent_id") == agent_id:
-            return s["id"]
-    return None
+def list_sessions_for_agent(agent_id: str) -> list[dict]:
+    """Chat-Verlauf pro Agent (Umsetzungsplan 2026-07-26): alle Sessions mit
+    passender agent_id statt nur der neuesten (vorheriges
+    find_session_for_agent) - list_sessions() ist schon nach updated_at
+    absteigend sortiert, bleibt hier erhalten. Funktioniert unverändert auch
+    für den Entwicklungs-Agenten (reservierte agent_id "dev-agent", kein
+    echter Eintrag in agents.json - diese Funktion kennt/braucht das nicht,
+    Sessions sind einfach nur mit dem String getaggt)."""
+    return [s for s in list_sessions() if s.get("agent_id") == agent_id]
 
 
 def load_session(session_id: str) -> dict | None:

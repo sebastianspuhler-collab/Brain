@@ -70,6 +70,31 @@ def _sse(payload: dict) -> str:
     return f"data: {json.dumps(payload, ensure_ascii=False)}\n\n"
 
 
+def _format_history(messages: list[dict], budget_chars: int = 12000) -> str:
+    """Baut ein Text-Transkript der bisherigen Unterhaltung (alles außer der
+    letzten Nachricht) für dynamic_context - der CLI-Pfad (_stream_chat_cli)
+    schickt sonst pro Aufruf nur die letzte Nachricht an claude -p
+    (--no-session-persistence, kein --resume), Mehrturn-Chats würden sonst
+    jeden früheren Kontext verlieren (Umsetzungsplan 2026-07-26). Läuft
+    rückwärts ab der vorletzten Nachricht, bis budget_chars erreicht ist, dann
+    wieder in chronologischer Reihenfolge - begrenzt das Prompt-Wachstum bei
+    langen Unterhaltungen. Ältere Nachrichten bleiben in der Session-Datei
+    erhalten, fließen nur nicht mehr in jeden neuen Prompt ein."""
+    if len(messages) <= 1:
+        return ""
+    picked: list[str] = []
+    used = 0
+    for m in reversed(messages[:-1]):
+        role = "Nutzer" if m.get("role") == "user" else "Assistent"
+        line = f"{role}: {m.get('content', '')}"
+        if used + len(line) > budget_chars and picked:
+            break
+        picked.append(line)
+        used += len(line)
+    picked.reverse()
+    return "\n\n".join(picked)
+
+
 def _stream_chat(
     messages: list[dict], model: str, session_id: str | None = None, agent_id: str | None = None
 ):
@@ -243,11 +268,11 @@ def _stream_chat_cli(
         Event-Schema gebaut (system/init, assistant mit content-Blöcken im
         bekannten Anthropic-Message-Format, result). NICHT live mit einer
         echten Antwort durchgespielt (Test-API-Key ohne Guthaben).
-      - WICHTIGE LÜCKE: schickt nur die letzte User-Nachricht als Prompt,
-        NICHT die volle messages-History wie der API-Pfad. Mehrturn-Chats
-        würden dadurch früheren Kontext verlieren. Für echten Mehrturn-
-        Betrieb noch zu lösen (z.B. über --resume/--session-id oder
-        --input-format stream-json mit voller History).
+      - Behoben (2026-07-26): schickte ursprünglich nur die letzte User-
+        Nachricht als Prompt, ohne Erinnerung an frühere Nachrichten. Jetzt
+        wird die bisherige Unterhaltung als Text-Transkript in dynamic_context
+        eingebettet (siehe _format_history()) - kein echtes --resume/
+        Session-Handling im CLI, aber der Prompt enthält den nötigen Kontext.
       - Tool-Use-Erkennung für tasks_changed ist eine Annahme (Feldname
         "file_path" bei Edit/Write) - nicht gegen einen echten Tool-Aufruf
         bestätigt.
@@ -302,6 +327,10 @@ def _stream_chat_cli(
             cust_ctx = f_cust.result()
             rag_ctx, rag_sources = f_rag.result()
             mentioned_ctx = f_mentioned.result()
+
+        history_block = _format_history(messages)
+        if history_block:
+            dynamic += f"\n\n=== BISHERIGE UNTERHALTUNG (bereits erledigt, nicht erneut ausführen) ===\n{history_block}"
 
         if agent and agent.get("system_prompt_zusatz"):
             dynamic += f"\n\n=== AGENT: {agent['name']} ===\n{agent['system_prompt_zusatz']}"
@@ -465,41 +494,75 @@ def delete_agent(agent_id: str, user: str = Depends(get_current_user)):
     return {"ok": True}
 
 
-@router.get("/agents/{agent_id}/session")
-def get_agent_session(agent_id: str, user: str = Depends(get_current_user)):
-    """Eigener, dauerhafter Chat pro Agent (Umsetzungsplan 2026-07-25): das
-    Frontend ruft das beim Klick auf "Chat öffnen" ab, um eine vorhandene
-    Session wiederzuverwenden statt jedes Mal eine neue anzulegen."""
-    if agents_service.get_agent(agent_id) is None:
-        raise HTTPException(status_code=404, detail="Agent nicht gefunden")
-    return {"session_id": chat_sessions.find_session_for_agent(agent_id)}
+@router.get("/agents/{agent_id}/sessions")
+def get_agent_sessions(agent_id: str, user: str = Depends(get_current_user)):
+    """Chat-Verlauf pro Agent (Umsetzungsplan 2026-07-26): liefert ALLE
+    bisherigen Chats für diesen Agenten (nicht nur den neuesten), damit man
+    sie im Frontend sehen/fortsetzen/löschen kann. Bewusst OHNE Prüfung, ob
+    agent_id in agents_service existiert (anders als die übrigen
+    /agents/{id}-Endpunkte) - funktioniert dadurch auch für die reservierte
+    "dev-agent"-ID, die kein echter agents.json-Eintrag ist."""
+    return chat_sessions.list_sessions_for_agent(agent_id)
 
 
-# ── Entwickler-Agent-Sandbox (Umsetzungsplan 2026-07-25) ────────────────────
-# Reiner Proxy zum isolierten dev-agent-Container (dev-agent/server.py) - das
-# Backend hat selbst KEINEN Datei-/Docker-Zugriff auf die Sandbox, nur diesen
-# einen HTTP-Aufruf über das schmale dev-agent-bridge-Netzwerk (siehe
-# docker-compose.yml). Kein RAG, keine Vault-Session-Persistenz, kein
-# Agenten-Konzept aus agents_service.py - komplett eigenständig, weil die
-# Sandbox in /workspace arbeitet, nicht im Vault.
+# ── Entwickler-Agent-Sandbox (Umsetzungsplan 2026-07-25/26) ─────────────────
+# Proxy zum isolierten dev-agent-Container (dev-agent/server.py) - das Backend
+# hat selbst KEINEN Datei-/Docker-Zugriff auf die Sandbox, nur diesen einen
+# HTTP-Aufruf über das schmale dev-agent-bridge-Netzwerk (siehe
+# docker-compose.yml). Kein RAG, kein Agenten-Konzept aus agents_service.py -
+# die Sandbox arbeitet in /workspace, nicht im Vault. Die Session-Persistenz
+# läuft aber über dieselbe chat_sessions.py wie der normale Chat, getaggt mit
+# der reservierten agent_id "dev-agent" (kein echter agents.json-Eintrag) -
+# dadurch funktionieren die bestehenden generischen Session-Endpunkte
+# (GET/DELETE /api/chat/sessions/{id}) unverändert auch für ihn mit.
 DEV_AGENT_URL = "http://dev-agent:8000/chat"
+DEV_AGENT_ID = "dev-agent"
 
 
 class DevAgentChatRequest(BaseModel):
     messages: list[ChatMessage]
+    model: str = Models.SONNET
+    session_id: str | None = None
 
 
 @router.post("/dev-agent/chat")
 async def dev_agent_chat(body: DevAgentChatRequest, user: str = Depends(get_current_user)):
+    model = body.model if body.model in CHAT_MODELS else Models.SONNET
+    messages = [m.model_dump() for m in body.messages]
+    session_id = body.session_id
+
     async def proxy():
+        assistant_text = ""
         try:
             async with httpx.AsyncClient(timeout=610.0) as client:
-                async with client.stream("POST", DEV_AGENT_URL, json=body.model_dump()) as resp:
-                    async for chunk in resp.aiter_raw():
-                        yield chunk
+                async with client.stream(
+                    "POST", DEV_AGENT_URL, json={"messages": messages, "model": model}
+                ) as resp:
+                    async for line in resp.aiter_lines():
+                        if not line.startswith("data: "):
+                            continue
+                        yield f"{line}\n\n"
+                        payload = line[6:]
+                        if payload == "[DONE]":
+                            continue
+                        try:
+                            data = json.loads(payload)
+                        except json.JSONDecodeError:
+                            continue
+                        if data.get("chunk"):
+                            assistant_text += data["chunk"]
         except httpx.HTTPError as ex:
             yield f'data: {json.dumps({"error": f"Entwickler-Agent nicht erreichbar: {ex}"})}\n\n'
             yield "data: [DONE]\n\n"
+            return
+
+        if session_id and assistant_text:
+            to_save = messages + [{"role": "assistant", "content": assistant_text}]
+            threading.Thread(
+                target=chat_sessions.save_session,
+                args=(session_id, to_save, model, DEV_AGENT_ID),
+                daemon=True,
+            ).start()
 
     return StreamingResponse(
         proxy(),
