@@ -1,0 +1,18 @@
+{
+  "id": "22340397-e0d6-4ad4-9046-e7f1cc925257",
+  "title": "test",
+  "model": "claude-sonnet-5",
+  "created_at": "2026-07-26T12:57:57.263613+00:00",
+  "updated_at": "2026-07-26T12:57:57.263613+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "test"
+    },
+    {
+      "role": "assistant",
+      "content": "Das Workspace-Verzeichnis `/workspace` ist aktuell leer – es gibt noch keine Projekte.\n\nDeine Nachricht war nur \"test\". Kannst du mir sagen, was du konkret bauen oder testen möchtest? Zum Beispiel:\n\n- Eine neue Web-App (z. B. React, Vue, einfaches HTML/JS)\n- Ein Backend/API-Projekt (Node, Python/Flask/FastAPI, etc.)\n- Ein bestehendes Projekt, das du testen/prüfen willst\n\nSag mir einfach, was das Ziel ist, dann lege ich ein passendes Projekt in `/workspace` an und richte bei Bedarf einen Preview-Server ein."
+    }
+  ],
+  "agent_id": "dev-agent"
+}
