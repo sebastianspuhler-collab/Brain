@@ -104,6 +104,19 @@ def _stream_chat(
     last_msg = messages[-1].get("content", "") if messages else ""
     threading.Thread(target=conversations.log_turn, args=("user", last_msg), daemon=True).start()
 
+    # Sofort-Speichern der Nutzer-Nachricht (Umsetzungsplan 2026-07-26): bisher
+    # wurde die Session erst NACH der vollständigen Antwort gespeichert - wer
+    # währenddessen wegnavigiert hat, fand den Chat im Verlauf nicht mehr, weil
+    # die Datei noch gar nicht existierte. Jetzt existiert die Session schon
+    # mit der Nutzer-Nachricht, sobald die Anfrage losläuft; die Antwort
+    # überschreibt sie am Ende (siehe unten) mit dem vollständigen Verlauf.
+    # Bewusst synchron statt in einem eigenen Thread wie der Abschluss-Save
+    # unten - sonst könnte der (parallel gestartete) Abschluss-Save bei sehr
+    # kurzen Antworten vor diesem Sofort-Save fertig werden und die
+    # vollständige Antwort mit dem Nur-Nutzer-Stand wieder überschreiben.
+    if session_id:
+        chat_sessions.save_session(session_id, messages, model, agent_id)
+
     # Eigene benannte Agenten (Umsetzungsplan-Memo 2026-07-16, Punkt D2) - rein
     # optional, ohne agent_id verhält sich der Chat exakt wie zuvor. Ein Agent
     # kann einen Zusatz-Prompt, eine feste Modellwahl und/oder eine Einschränkung
@@ -297,6 +310,12 @@ def _stream_chat_cli(
         model = Models.SONNET
     last_msg = messages[-1].get("content", "") if messages else ""
     threading.Thread(target=conversations.log_turn, args=("user", last_msg), daemon=True).start()
+
+    # Sofort-Speichern der Nutzer-Nachricht (Umsetzungsplan 2026-07-26) - siehe
+    # ausführliche Begründung in _stream_chat() oben (bewusst synchron, gegen
+    # die Race mit dem parallelen Abschluss-Save-Thread), gilt hier identisch.
+    if session_id:
+        chat_sessions.save_session(session_id, messages, model, agent_id)
 
     agent = agents_service.get_agent(agent_id) if agent_id else None
     agent_forced_model = bool(agent and agent.get("model") in CHAT_MODELS)
@@ -530,6 +549,17 @@ async def dev_agent_chat(body: DevAgentChatRequest, user: str = Depends(get_curr
     model = body.model if body.model in CHAT_MODELS else Models.SONNET
     messages = [m.model_dump() for m in body.messages]
     session_id = body.session_id
+
+    # Sofort-Speichern (Umsetzungsplan 2026-07-26): bisher wurde die Session
+    # erst nach der vollständigen Antwort geschrieben - bei Aufgaben, die der
+    # Entwickler-Agent länger beschäftigen (z.B. ein ganzes Projekt aufsetzen),
+    # verschwand der Chat aus dem Verlauf, wenn man währenddessen wegnavigiert
+    # ist, weil die Datei noch nicht existierte. Jetzt existiert die Session
+    # sofort mit der Nutzer-Nachricht; die Antwort überschreibt sie am Ende.
+    # Bewusst synchron (siehe _stream_chat() in dieser Datei für die
+    # ausführliche Begründung gegen die Race mit dem Abschluss-Save-Thread).
+    if session_id:
+        chat_sessions.save_session(session_id, messages, model, DEV_AGENT_ID)
 
     async def proxy():
         assistant_text = ""
