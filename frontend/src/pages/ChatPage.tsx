@@ -1,9 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { ArrowUp, Bot, BrainCircuit, FileText, Paperclip } from "lucide-react";
+import { ArrowUp, BookPlus, Bot, BrainCircuit, FileText, Loader2, Paperclip, X } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { toast } from "sonner";
-import { agents as agentsApi, api, chatSessions, streamChat, type Agent, type ChatMessage, type ChatSource } from "@/api/client";
+import {
+  agents as agentsApi,
+  api,
+  ApiError,
+  chatAttach,
+  chatSessions,
+  streamChat,
+  type Agent,
+  type ChatAttachment,
+  type ChatMessage,
+  type ChatSource,
+} from "@/api/client";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
@@ -44,12 +55,15 @@ export function ChatPage() {
   const [streaming, setStreaming] = useState(false);
   const [error, setError] = useState("");
   const [uploading, setUploading] = useState(false);
+  const [attaching, setAttaching] = useState(false);
+  const [pendingAttachments, setPendingAttachments] = useState<ChatAttachment[]>([]);
   const [loadingSession, setLoadingSession] = useState(false);
   const [agentsList, setAgentsList] = useState<Agent[]>([]);
   const [agentId, setAgentId] = useState<string>("");
   const abortRef = useRef<AbortController | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const attachInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -111,9 +125,13 @@ export function ChatPage() {
       setSearchParams({ session: activeSessionId }, { replace: true });
     }
 
-    const nextMessages: ChatMessage[] = [...messages, { role: "user", content: text }];
+    const nextMessages: ChatMessage[] = [
+      ...messages,
+      { role: "user", content: text, attachments: pendingAttachments.length ? pendingAttachments : undefined },
+    ];
     setMessages([...nextMessages, { role: "assistant", content: "" }]);
     setInput("");
+    setPendingAttachments([]);
     setStreaming(true);
     setError("");
 
@@ -172,6 +190,28 @@ export function ChatPage() {
     }
   }
 
+  // Datei-Anhang nur für die nächste Nachricht (Umsetzungsplan 2026-07-27) -
+  // anders als handleFileSelect oben: kein Wissens-Eintrag, der Text landet
+  // direkt im Prompt dieses einen Turns (siehe chat.py::_format_attachments).
+  async function handleChatAttach(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file || attaching) return;
+    setAttaching(true);
+    try {
+      const result = await chatAttach.upload(file);
+      setPendingAttachments((prev) => [...prev, result]);
+    } catch (err) {
+      toast.error(err instanceof ApiError ? err.message : "Datei konnte nicht gelesen werden");
+    } finally {
+      setAttaching(false);
+    }
+  }
+
+  function removeAttachment(filename: string) {
+    setPendingAttachments((prev) => prev.filter((a) => a.filename !== filename));
+  }
+
   const modelSelect = (
     <Select value={model} onValueChange={(value) => value && setModel(value)} disabled={streaming || !!activeAgent?.model}>
       <SelectTrigger
@@ -222,6 +262,27 @@ export function ChatPage() {
 
   const inputBar = (
     <div className="flex flex-col rounded-3xl border border-border bg-card/60 shadow-lg backdrop-blur-sm transition focus-within:border-ring/50">
+      {pendingAttachments.length > 0 && (
+        <div className="flex flex-wrap gap-1.5 px-4 pt-3">
+          {pendingAttachments.map((a) => (
+            <span
+              key={a.filename}
+              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/60 px-2.5 py-1 text-xs text-foreground"
+            >
+              <FileText className="size-3.5 shrink-0" />
+              <span className="max-w-40 truncate">{a.filename}</span>
+              <button
+                type="button"
+                onClick={() => removeAttachment(a.filename)}
+                className="shrink-0 text-muted-foreground hover:text-destructive"
+                title="Anhang entfernen"
+              >
+                <X className="size-3" />
+              </button>
+            </span>
+          ))}
+        </div>
+      )}
       <Textarea
         value={input}
         onChange={(e) => setInput(e.target.value)}
@@ -236,6 +297,23 @@ export function ChatPage() {
           {modelSelect}
           {agentSelect}
           <input
+            ref={attachInputRef}
+            type="file"
+            className="hidden"
+            onChange={handleChatAttach}
+            disabled={attaching}
+          />
+          <Button
+            size="icon"
+            variant="ghost"
+            className="size-7 rounded-full text-muted-foreground hover:text-foreground"
+            onClick={() => attachInputRef.current?.click()}
+            disabled={attaching}
+            title="Datei an diese Nachricht anhängen (nur für diese Anfrage, nicht im Wissen gespeichert)"
+          >
+            {attaching ? <Loader2 className="size-4 animate-spin" /> : <Paperclip className="size-4" />}
+          </Button>
+          <input
             ref={fileInputRef}
             type="file"
             className="hidden"
@@ -248,9 +326,9 @@ export function ChatPage() {
             className="size-7 rounded-full text-muted-foreground hover:text-foreground"
             onClick={() => fileInputRef.current?.click()}
             disabled={uploading}
-            title="Datei anhängen (wird im Wissen abgelegt)"
+            title="Datei dauerhaft ins Wissen aufnehmen (RAG-Index)"
           >
-            <Paperclip className="size-4" />
+            <BookPlus className="size-4" />
           </Button>
           {uploading && <span className="text-xs text-muted-foreground">Wird verarbeitet…</span>}
         </div>
@@ -308,7 +386,20 @@ export function ChatPage() {
           {messages.map((m, i) => {
             const isThinking = streaming && i === messages.length - 1 && !m.content;
             return m.role === "user" ? (
-              <div key={i} className="flex justify-end">
+              <div key={i} className="flex flex-col items-end gap-1.5">
+                {!!m.attachments?.length && (
+                  <div className="flex max-w-[80%] flex-wrap justify-end gap-1.5">
+                    {m.attachments.map((a) => (
+                      <span
+                        key={a.filename}
+                        className="inline-flex items-center gap-1 rounded-full border border-border bg-muted/40 px-2 py-0.5 text-[11px] text-muted-foreground"
+                      >
+                        <FileText className="size-3 shrink-0" />
+                        <span className="max-w-32 truncate">{a.filename}</span>
+                      </span>
+                    ))}
+                  </div>
+                )}
                 <div className="max-w-[80%] rounded-3xl rounded-br-md bg-muted px-4 py-2 text-sm text-foreground">
                   {m.content}
                 </div>

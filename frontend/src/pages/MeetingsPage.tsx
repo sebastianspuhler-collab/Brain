@@ -81,7 +81,7 @@ export function MeetingsPage() {
   return (
     <Card>
       <CardHeader className="flex-row items-center justify-between gap-2 space-y-0">
-        <CardTitle>Meeting Cockpit</CardTitle>
+        <CardTitle>Transkripte</CardTitle>
         <div className="flex items-center gap-2">
           <SegmentedControl
             options={[
@@ -162,7 +162,7 @@ export function MeetingsPage() {
                 <DayEventsPopoverContent
                   date={date}
                   items={dayMeetings}
-                  emptyLabel="Keine Meetings an diesem Tag."
+                  emptyLabel="Keine Transkripte an diesem Tag."
                   renderItem={(m) => (
                     <a
                       href={`${API_BASE}${m.url}`}
@@ -184,7 +184,7 @@ export function MeetingsPage() {
             />
           </div>
         ) : meetings.length === 0 ? (
-          <p className="text-sm text-muted-foreground">Keine Meeting-Notizen gefunden.</p>
+          <p className="text-sm text-muted-foreground">Keine Transkripte gefunden.</p>
         ) : (
           <div className="flex flex-col divide-y divide-border">
             {meetings.map((m) => (
