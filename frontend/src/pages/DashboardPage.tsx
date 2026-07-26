@@ -302,18 +302,6 @@ export function DashboardPage() {
           </div>
         </CardHeader>
         <CardContent>
-          <p className="mb-3 text-sm text-muted-foreground">
-            Kunden (Kunden/) und echte Einzel-Interessenten (Leads/, ohne Massen-Kontaktlisten) in
-            einer Ansicht. Der Status wird automatisch aus allen Unterlagen (E-Mails, Dokumenten,
-            Meeting-Mitschriften) hergeleitet, nicht nur aus Ordner-Anwesenheit - der Punkt neben dem
-            Status zeigt die Sicherheit dieser Einschätzung (grün/gelb/rot), ein ⚠ ein erkanntes
-            Warnsignal. Einträge, bei denen die KI keine echte Kunden-/Interessenten-Beziehung erkennt
-            (z.B. ein Lieferant oder eine private Notiz im falschen Ordner), werden automatisch
-            ausgeblendet - über "Irrelevante anzeigen" sichtbar machen. Die Notiz fließt zusätzlich als
-            Hinweis in die Bewertung ein. Status, Anzeigename, Aktueller Stand und Notiz lassen sich
-            jederzeit manuell überschreiben (mit * markiert), und mit dem Neu-bewerten-Button lässt sich
-            die Einschätzung sofort aktualisieren, statt auf die nächste Dateiänderung zu warten.
-          </p>
           {kundenLoading ? (
             <div className="space-y-2">
               <Skeleton className="h-8 w-full" />
