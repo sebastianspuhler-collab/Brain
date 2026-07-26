@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { ArrowUp, ExternalLink, Terminal } from "lucide-react";
+import { ArrowUp, ExternalLink, FileText, Loader2, Paperclip, Terminal, X } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { toast } from "sonner";
-import { chatSessions, streamDevAgentChat, type ChatMessage } from "@/api/client";
+import { ApiError, chatAttach, chatSessions, streamDevAgentChat, type ChatAttachment, type ChatMessage } from "@/api/client";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
@@ -42,8 +42,11 @@ export function DevAgentPage() {
   const [streaming, setStreaming] = useState(false);
   const [error, setError] = useState("");
   const [loadingSession, setLoadingSession] = useState(false);
+  const [attaching, setAttaching] = useState(false);
+  const [pendingAttachments, setPendingAttachments] = useState<ChatAttachment[]>([]);
   const abortRef = useRef<AbortController | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const attachInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -87,9 +90,13 @@ export function DevAgentPage() {
       setSearchParams({ session: activeSessionId }, { replace: true });
     }
 
-    const nextMessages: ChatMessage[] = [...messages, { role: "user", content: text }];
+    const nextMessages: ChatMessage[] = [
+      ...messages,
+      { role: "user", content: text, attachments: pendingAttachments.length ? pendingAttachments : undefined },
+    ];
     setMessages([...nextMessages, { role: "assistant", content: "" }]);
     setInput("");
+    setPendingAttachments([]);
     setStreaming(true);
     setError("");
 
@@ -125,6 +132,29 @@ export function DevAgentPage() {
     }
   }
 
+  // Datei-Anhang nur für diesen Turn (Umsetzungsplan 2026-07-27) - gleiches
+  // Muster wie ChatPage.tsx: Text wird vorab extrahiert (POST /api/chat/attach)
+  // und nur in den Prompt dieser einen Nachricht eingebettet, kein echter
+  // Datei-Zugriff für den Agenten in /workspace.
+  async function handleChatAttach(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file || attaching) return;
+    setAttaching(true);
+    try {
+      const result = await chatAttach.upload(file);
+      setPendingAttachments((prev) => [...prev, result]);
+    } catch (err) {
+      toast.error(err instanceof ApiError ? err.message : "Datei konnte nicht gelesen werden");
+    } finally {
+      setAttaching(false);
+    }
+  }
+
+  function removeAttachment(filename: string) {
+    setPendingAttachments((prev) => prev.filter((a) => a.filename !== filename));
+  }
+
   const modelSelect = (
     <Select value={model} onValueChange={(value) => value && setModel(value)} disabled={streaming}>
       <SelectTrigger
@@ -145,6 +175,27 @@ export function DevAgentPage() {
 
   const inputBar = (
     <div className="flex flex-col rounded-3xl border border-border bg-card/60 shadow-lg backdrop-blur-sm transition focus-within:border-ring/50">
+      {pendingAttachments.length > 0 && (
+        <div className="flex flex-wrap gap-1.5 px-4 pt-3">
+          {pendingAttachments.map((a) => (
+            <span
+              key={a.filename}
+              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/60 px-2.5 py-1 text-xs text-foreground"
+            >
+              <FileText className="size-3.5 shrink-0" />
+              <span className="max-w-40 truncate">{a.filename}</span>
+              <button
+                type="button"
+                onClick={() => removeAttachment(a.filename)}
+                className="shrink-0 text-muted-foreground hover:text-destructive"
+                title="Anhang entfernen"
+              >
+                <X className="size-3" />
+              </button>
+            </span>
+          ))}
+        </div>
+      )}
       <Textarea
         value={input}
         onChange={(e) => setInput(e.target.value)}
@@ -155,7 +206,26 @@ export function DevAgentPage() {
         className="min-h-[48px] max-h-52 resize-none border-0 bg-transparent px-4 py-3.5 text-sm shadow-none focus-visible:ring-0"
       />
       <div className="flex items-center justify-between px-2 pb-2">
-        {modelSelect}
+        <div className="flex items-center gap-1">
+          {modelSelect}
+          <input
+            ref={attachInputRef}
+            type="file"
+            className="hidden"
+            onChange={handleChatAttach}
+            disabled={attaching}
+          />
+          <Button
+            size="icon"
+            variant="ghost"
+            className="size-7 rounded-full text-muted-foreground hover:text-foreground"
+            onClick={() => attachInputRef.current?.click()}
+            disabled={attaching}
+            title="Datei an diese Nachricht anhängen (nur für diese Anfrage)"
+          >
+            {attaching ? <Loader2 className="size-4 animate-spin" /> : <Paperclip className="size-4" />}
+          </Button>
+        </div>
         <Button size="icon" className="size-8 rounded-full" onClick={() => send()} disabled={streaming || !input.trim()}>
           <ArrowUp className="size-4" />
         </Button>
@@ -211,7 +281,20 @@ export function DevAgentPage() {
             const isThinking = streaming && i === messages.length - 1 && !m.content;
             const link = m.role === "assistant" ? previewLink(m.content) : null;
             return m.role === "user" ? (
-              <div key={i} className="flex justify-end">
+              <div key={i} className="flex flex-col items-end gap-1.5">
+                {!!m.attachments?.length && (
+                  <div className="flex max-w-[80%] flex-wrap justify-end gap-1.5">
+                    {m.attachments.map((a) => (
+                      <span
+                        key={a.filename}
+                        className="inline-flex items-center gap-1 rounded-full border border-border bg-muted/40 px-2 py-0.5 text-[11px] text-muted-foreground"
+                      >
+                        <FileText className="size-3 shrink-0" />
+                        <span className="max-w-32 truncate">{a.filename}</span>
+                      </span>
+                    ))}
+                  </div>
+                )}
                 <div className="max-w-[80%] rounded-3xl rounded-br-md bg-muted px-4 py-2 text-sm text-foreground">
                   {m.content}
                 </div>
