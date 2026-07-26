@@ -1,9 +1,10 @@
 # EÜR 2025 – Betriebsausgaben nach Feldern der Anlage EÜR
 
-> Basis: exakt die Buchungen, die auch in `ergebnis_2025_monatlich_netto.xlsx` zur Wertung zählen
-> (Ausschlussregel aus `step5_auswertung.py::zaehlt_zur_wertung`). Netto-Logik wie in `step7_monatsdateien.py`:
-> Beleg vorhanden → Netto vom Beleg; kein Beleg → geschätztes Netto = brutto / 1,19.
-> Gesamtsumme stimmt mit dem Blatt `13_Jahresgesamt` der Excel überein.
+> Basis: Buchungen, die laut `step5_auswertung.py::zaehlt_zur_wertung` zur Wertung zählen.
+> Netto: Beleg vorhanden → Netto vom Beleg; kein Beleg → geschätztes Netto = brutto / 1,19.
+> **Abweichung zur Excel:** Das Hotel Meliá (69,74 €) ist hier auf Entscheidung von Sebastian
+> (2026-07-26) herausgenommen, weil keine Rechnung vorliegt. `ergebnis_2025_monatlich_netto.xlsx`
+> enthält es noch und weist deshalb 2.474,29 € statt 2.404,55 € aus – muss nachgezogen werden.
 
 
 ## Werbekosten
@@ -118,16 +119,9 @@
 | 2025-09-01 | Mattha  Wimmler eGbR | 82,00 € | 15,58 € | ja |
 | | **Summe** | **82,00 €** | **15,58 €** | 1 Buchungen |
 
-## Übernachtungs-/Reisekosten
-
-| Datum | Partner | Netto | Vorsteuer | Beleg |
-|---|---|---:|---:|---|
-| 2025-09-11 | Benito Ferrise | 69,74 € | – | **fehlt** – Netto geschätzt aus 82,99 € |
-| | **Summe** | **69,74 €** | **0,00 €** | 1 Buchungen |
-
 ## Gesamt
 
-- **Betriebsausgaben netto: 2.474,29 €** (77 Buchungen)
+- **Betriebsausgaben netto: 2.404,55 €** (76 Buchungen)
 - **Gezahlte Vorsteuerbeträge: 166,55 €**
 - An das Finanzamt gezahlte Umsatzsteuer: 0,00 €
 
@@ -136,5 +130,6 @@
 | Grund | Betrag brutto | Buchungen |
 |---|---:|---|
 | Durchlaufposten Benito Ferrise | 4.760,00 € | 1 |
+| Hotel Meliá – keine Rechnung vorhanden | 82,99 € | 1 |
 | Bagatelle < 10 € ohne Beleg | 57,55 € | 9 |
 | Nicht als geschäftlich eingestuft | 4,02 € | 1 |
