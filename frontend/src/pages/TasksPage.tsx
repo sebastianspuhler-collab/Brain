@@ -1,15 +1,27 @@
 import { DndContext, DragOverlay, PointerSensor, useDraggable, useDroppable, useSensor, useSensors } from "@dnd-kit/core";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { Calendar as CalendarIcon, ChevronDown, ChevronLeft, ChevronRight, Kanban as KanbanIcon, List, Trash2 } from "lucide-react";
-import { useMemo, useState } from "react";
+import {
+  Calendar as CalendarIcon,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  Kanban as KanbanIcon,
+  List,
+  Plus,
+  Trash2,
+} from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import { api } from "@/api/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Dialog, DialogBody, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Textarea } from "@/components/ui/textarea";
 import { DayEventsPopoverContent } from "@/components/shared/day-events-popover";
 import { MonthGrid, toDayKey } from "@/components/shared/month-grid";
 import { SegmentedControl } from "@/components/shared/segmented-control";
@@ -27,13 +39,21 @@ interface Task {
   assignee: Assignee;
   due: string | null;
   status: KanbanStatus;
+  kunde: string | null;
+  kategorie: string | null;
+  beschreibung: string;
 }
 
 const ASSIGNEES: Assignee[] = ["Amin", "Sebastian", "Beide"];
+// Muss zu tasks_service.py::CATEGORIES passen (Umsetzungsplan 2026-07-27).
+const CATEGORIES = ["Entwicklung", "Buchhaltung", "LinkedIn", "Cold Calls", "Meetings", "Administration", "Sonstiges"];
 const MONTHS = [
   "Januar", "Februar", "März", "April", "Mai", "Juni",
   "Juli", "August", "September", "Oktober", "November", "Dezember",
 ];
+
+const KATEGORIE_BADGE = "shrink-0 rounded-full bg-secondary px-1.5 py-0.5 text-[10px] font-medium text-secondary-foreground";
+const KUNDE_BADGE = "shrink-0 rounded-full bg-accent px-1.5 py-0.5 text-[10px] font-medium text-accent-foreground";
 
 // Fälligkeits-Pille statt Prioritäts-Badge (Umsetzungsplan 2026-07-26,
 // Microsoft-To-Do/Google-Tasks-Vorbild) - die Buckets unten sagen schon, wie
@@ -77,7 +97,7 @@ const KANBAN_COLUMNS: { key: KanbanStatus; label: string }[] = [
   { key: "done", label: "Erledigt" },
 ];
 
-function KanbanCard({ t }: { t: Task }) {
+function KanbanCard({ t, onEdit }: { t: Task; onEdit: (t: Task) => void }) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({ id: t.text });
   const style = transform ? { transform: `translate3d(${transform.x}px, ${transform.y}px, 0)` } : undefined;
   return (
@@ -86,25 +106,38 @@ function KanbanCard({ t }: { t: Task }) {
       style={style}
       {...listeners}
       {...attributes}
+      onClick={() => onEdit(t)}
       className={cn(
         "cursor-grab touch-none rounded-xl border border-border bg-card p-2.5 shadow-sm select-none active:cursor-grabbing",
         isDragging && "opacity-40"
       )}
     >
       <div className={cn("text-sm text-foreground", t.done && "text-muted-foreground line-through")}>{t.text}</div>
-      <div className="mt-1.5 flex items-center gap-1.5">
+      <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
         {t.due && (
-          <span className={cn("rounded-full px-1.5 py-0.5 text-[10px] font-medium", URGENCY_DOT[t.urgency])}>
+          <span className={cn("shrink-0 rounded-full px-1.5 py-0.5 text-[10px] font-medium", URGENCY_DOT[t.urgency])}>
             {formatDue(t.due)}
           </span>
         )}
-        <span className="rounded-full bg-muted px-1.5 py-0.5 text-[10px] text-muted-foreground">{t.assignee}</span>
+        <span className="shrink-0 rounded-full bg-muted px-1.5 py-0.5 text-[10px] text-muted-foreground">{t.assignee}</span>
+        {t.kategorie && <span className={KATEGORIE_BADGE}>{t.kategorie}</span>}
+        {t.kunde && <span className={KUNDE_BADGE}>{t.kunde}</span>}
       </div>
     </div>
   );
 }
 
-function KanbanColumn({ status, label, tasks }: { status: KanbanStatus; label: string; tasks: Task[] }) {
+function KanbanColumn({
+  status,
+  label,
+  tasks,
+  onEdit,
+}: {
+  status: KanbanStatus;
+  label: string;
+  tasks: Task[];
+  onEdit: (t: Task) => void;
+}) {
   const { setNodeRef, isOver } = useDroppable({ id: status });
   return (
     <div
@@ -120,14 +153,22 @@ function KanbanColumn({ status, label, tasks }: { status: KanbanStatus; label: s
       </div>
       <div className="flex flex-col gap-2">
         {tasks.map((t, i) => (
-          <KanbanCard key={`${status}-${i}-${t.text}`} t={t} />
+          <KanbanCard key={`${status}-${i}-${t.text}`} t={t} onEdit={onEdit} />
         ))}
       </div>
     </div>
   );
 }
 
-function KanbanBoard({ tasks, onMove }: { tasks: Task[]; onMove: (text: string, status: KanbanStatus) => void }) {
+function KanbanBoard({
+  tasks,
+  onMove,
+  onEdit,
+}: {
+  tasks: Task[];
+  onMove: (text: string, status: KanbanStatus) => void;
+  onEdit: (t: Task) => void;
+}) {
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 8 } }));
   const [activeText, setActiveText] = useState<string | null>(null);
 
@@ -150,11 +191,171 @@ function KanbanBoard({ tasks, onMove }: { tasks: Task[]; onMove: (text: string, 
     >
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         {KANBAN_COLUMNS.map((c) => (
-          <KanbanColumn key={c.key} status={c.key} label={c.label} tasks={byStatus[c.key]} />
+          <KanbanColumn key={c.key} status={c.key} label={c.label} tasks={byStatus[c.key]} onEdit={onEdit} />
         ))}
       </div>
-      <DragOverlay>{activeTask && <KanbanCard t={activeTask} />}</DragOverlay>
+      <DragOverlay>{activeTask && <KanbanCard t={activeTask} onEdit={onEdit} />}</DragOverlay>
     </DndContext>
+  );
+}
+
+interface TaskFormState {
+  text: string;
+  beschreibung: string;
+  assignee: Assignee;
+  due: string;
+  kunde: string;
+  kategorie: string;
+}
+
+function emptyTaskForm(): TaskFormState {
+  return { text: "", beschreibung: "", assignee: "Beide", due: "", kunde: "", kategorie: "" };
+}
+
+// Bearbeiten-Dialog wie bei Jira (Umsetzungsplan 2026-07-27): Titel,
+// Beschreibung, Zuständigkeit, Kunde, Kategorie, Fälligkeitsdatum in einem
+// Formular - gleiches Baukasten-Muster wie AgentDialog in AgentsPage.tsx.
+// task=null → Neuanlage (POST /api/tasks), sonst Bearbeiten (POST
+// /api/tasks/update, Zeile wird über den ursprünglichen Titel gefunden).
+function TaskDialog({ task, open, onClose }: { task: Task | null; open: boolean; onClose: () => void }) {
+  const queryClient = useQueryClient();
+  const [form, setForm] = useState<TaskFormState>(emptyTaskForm());
+
+  const { data: kundenListe } = useQuery({
+    queryKey: ["kunden-liste"],
+    queryFn: () => api.get<{ kunde: string; anzeige_name: string }[]>("/api/kunden/liste"),
+  });
+
+  useEffect(() => {
+    if (task) {
+      setForm({
+        text: task.text,
+        beschreibung: task.beschreibung,
+        assignee: task.assignee,
+        due: task.due ?? "",
+        kunde: task.kunde ?? "",
+        kategorie: task.kategorie ?? "",
+      });
+    } else {
+      setForm(emptyTaskForm());
+    }
+  }, [task, open]);
+
+  const save = useMutation({
+    mutationFn: () => {
+      const payload = {
+        text: form.text.trim(),
+        assignee: form.assignee,
+        due: form.due || null,
+        kunde: form.kunde || null,
+        kategorie: form.kategorie || null,
+        beschreibung: form.beschreibung,
+      };
+      return task ? api.post("/api/tasks/update", { original_text: task.text, ...payload }) : api.post("/api/tasks", payload);
+    },
+    onSuccess: () => {
+      toast.success(task ? "Aufgabe gespeichert" : "Aufgabe angelegt");
+      queryClient.invalidateQueries({ queryKey: ["tasks"] });
+      onClose();
+    },
+    onError: () => toast.error("Speichern fehlgeschlagen"),
+  });
+
+  return (
+    <Dialog open={open} onOpenChange={(o) => !o && onClose()}>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>{task ? "Aufgabe bearbeiten" : "Neue Aufgabe"}</DialogTitle>
+        </DialogHeader>
+        <DialogBody className="flex flex-col gap-4">
+          <div className="space-y-1.5">
+            <Label>Titel</Label>
+            <Input
+              value={form.text}
+              onChange={(e) => setForm((f) => ({ ...f, text: e.target.value }))}
+              placeholder="z.B. Neue Landingpage bauen"
+            />
+          </div>
+          <div className="space-y-1.5">
+            <Label>Beschreibung</Label>
+            <Textarea
+              value={form.beschreibung}
+              onChange={(e) => setForm((f) => ({ ...f, beschreibung: e.target.value }))}
+              placeholder="Details, optional"
+              className="min-h-20"
+            />
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <div className="space-y-1.5">
+              <Label>Zuständig</Label>
+              <Select
+                value={form.assignee}
+                onValueChange={(v) => v && setForm((f) => ({ ...f, assignee: v as Assignee }))}
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue>{(v: string) => v}</SelectValue>
+                </SelectTrigger>
+                <SelectContent>
+                  {ASSIGNEES.map((a) => (
+                    <SelectItem key={a} value={a}>
+                      {a}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-1.5">
+              <Label>Fällig am</Label>
+              <Input type="date" value={form.due} onChange={(e) => setForm((f) => ({ ...f, due: e.target.value }))} />
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <div className="space-y-1.5">
+              <Label>Kunde</Label>
+              <Select value={form.kunde} onValueChange={(v) => setForm((f) => ({ ...f, kunde: v ?? "" }))}>
+                <SelectTrigger className="w-full">
+                  <SelectValue>
+                    {(v: string) => (v ? (kundenListe?.find((k) => k.kunde === v)?.anzeige_name ?? v) : "Kein Kunde")}
+                  </SelectValue>
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="">Kein Kunde</SelectItem>
+                  {kundenListe?.map((k) => (
+                    <SelectItem key={k.kunde} value={k.kunde}>
+                      {k.anzeige_name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-1.5">
+              <Label>Kategorie</Label>
+              <Select value={form.kategorie} onValueChange={(v) => setForm((f) => ({ ...f, kategorie: v ?? "" }))}>
+                <SelectTrigger className="w-full">
+                  <SelectValue>{(v: string) => v || "Keine Kategorie"}</SelectValue>
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="">Keine Kategorie</SelectItem>
+                  {CATEGORIES.map((c) => (
+                    <SelectItem key={c} value={c}>
+                      {c}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+        </DialogBody>
+        <DialogFooter>
+          <Button variant="outline" onClick={onClose}>
+            Abbrechen
+          </Button>
+          <Button onClick={() => save.mutate()} disabled={save.isPending || !form.text.trim()}>
+            {save.isPending ? "Speichere…" : "Speichern"}
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   );
 }
 
@@ -170,6 +371,8 @@ export function TasksPage() {
     const now = new Date();
     return new Date(now.getFullYear(), now.getMonth(), 1);
   });
+  const [editingTask, setEditingTask] = useState<Task | null>(null);
+  const [creatingTask, setCreatingTask] = useState(false);
 
   const { data, isLoading } = useQuery({
     queryKey: ["tasks"],
@@ -259,42 +462,54 @@ export function TasksPage() {
 
   function TaskRow({ t }: { t: Task }) {
     return (
-      <div className="group flex items-center gap-2.5 rounded-xl px-2 py-2 transition-colors hover:bg-muted/40">
-        <Checkbox
-          checked={!!t.done}
-          disabled={toggleTask.isPending}
-          onCheckedChange={(checked) => toggleTask.mutate({ text: t.text, done: checked === true })}
-        />
+      <div
+        className="group flex cursor-pointer items-center gap-2.5 rounded-xl px-2 py-2 transition-colors hover:bg-muted/40"
+        onClick={() => setEditingTask(t)}
+      >
+        <div onClick={(e) => e.stopPropagation()}>
+          <Checkbox
+            checked={!!t.done}
+            disabled={toggleTask.isPending}
+            onCheckedChange={(checked) => toggleTask.mutate({ text: t.text, done: checked === true })}
+          />
+        </div>
         <span className={cn("min-w-0 flex-1 truncate text-sm", t.done && "text-muted-foreground line-through")}>
           {t.text}
         </span>
+        {t.kategorie && <span className={KATEGORIE_BADGE}>{t.kategorie}</span>}
+        {t.kunde && <span className={KUNDE_BADGE}>{t.kunde}</span>}
         {t.due && (
           <span className={cn("shrink-0 rounded-full px-2 py-0.5 text-[11px] font-medium", URGENCY_DOT[t.urgency])}>
             {formatDue(t.due)}
           </span>
         )}
-        <Select
-          value={t.assignee}
-          onValueChange={(v) => v && setAssignee.mutate({ text: t.text, assignee: v as Assignee })}
-          disabled={setAssignee.isPending}
-        >
-          <SelectTrigger size="sm" className="h-7 w-24 shrink-0 border-none bg-transparent text-xs shadow-none">
-            <SelectValue>{(v: string) => v}</SelectValue>
-          </SelectTrigger>
-          <SelectContent>
-            {ASSIGNEES.map((a) => (
-              <SelectItem key={a} value={a}>
-                {a}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        <div onClick={(e) => e.stopPropagation()}>
+          <Select
+            value={t.assignee}
+            onValueChange={(v) => v && setAssignee.mutate({ text: t.text, assignee: v as Assignee })}
+            disabled={setAssignee.isPending}
+          >
+            <SelectTrigger size="sm" className="h-7 w-24 shrink-0 border-none bg-transparent text-xs shadow-none">
+              <SelectValue>{(v: string) => v}</SelectValue>
+            </SelectTrigger>
+            <SelectContent>
+              {ASSIGNEES.map((a) => (
+                <SelectItem key={a} value={a}>
+                  {a}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
         <Button
           variant="ghost"
           size="icon-sm"
           className="shrink-0 opacity-0 group-hover:opacity-100"
           disabled={deleteTask.isPending}
-          onClick={() => deleteTask.mutate(t.text)}
+          onClick={(e) => {
+            e.stopPropagation();
+            deleteTask.mutate(t.text);
+          }}
         >
           <Trash2 className="size-4" />
         </Button>
@@ -340,6 +555,15 @@ export function TasksPage() {
           <Button size="sm" onClick={submitNewTask} disabled={addTask.isPending || !newTask.trim()}>
             {addTask.isPending ? "…" : "Hinzufügen"}
           </Button>
+          <Button
+            size="icon"
+            variant="outline"
+            className="shrink-0"
+            onClick={() => setCreatingTask(true)}
+            title="Aufgabe mit Beschreibung, Kunde, Kategorie anlegen"
+          >
+            <Plus className="size-4" />
+          </Button>
         </div>
 
         <SegmentedControl
@@ -355,7 +579,7 @@ export function TasksPage() {
             <Skeleton className="h-8 w-full" />
           </div>
         ) : view === "kanban" ? (
-          <KanbanBoard tasks={filtered} onMove={moveKanbanCard} />
+          <KanbanBoard tasks={filtered} onMove={moveKanbanCard} onEdit={setEditingTask} />
         ) : view === "calendar" ? (
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between gap-2">
@@ -462,6 +686,8 @@ export function TasksPage() {
           </div>
         )}
       </CardContent>
+      <TaskDialog task={editingTask} open={!!editingTask} onClose={() => setEditingTask(null)} />
+      <TaskDialog task={null} open={creatingTask} onClose={() => setCreatingTask(false)} />
     </Card>
   );
 }
