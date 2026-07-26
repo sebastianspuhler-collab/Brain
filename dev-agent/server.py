@@ -57,9 +57,19 @@ app.add_middleware(
 )
 
 
+class ChatAttachment(BaseModel):
+    filename: str
+    text: str
+
+
 class ChatMessage(BaseModel):
     role: str
     content: str
+    # Datei-Anhänge nur für diesen Turn (Umsetzungsplan 2026-07-27) - Text kommt
+    # vom Backend durchgereicht (backend/app/routers/chat.py::ChatMessage, wird
+    # dort bereits über POST /api/chat/attach extrahiert), hier nur noch in den
+    # Prompt eingebettet, siehe _format_attachments()/_stream().
+    attachments: list[ChatAttachment] | None = None
 
 
 class ChatRequest(BaseModel):
@@ -104,13 +114,29 @@ def _format_history(messages: list[dict], budget_chars: int = 12000) -> str:
     return "\n\n".join(picked)
 
 
+def _format_attachments(messages: list[dict]) -> str:
+    """Wie backend/app/routers/chat.py::_format_attachments() - eigenständig
+    implementiert (kein Shared-Import). Nur die Anhänge der letzten (aktuellen)
+    Nachricht, nicht aller vorherigen (sonst würde jeder neue Turn erneut den
+    vollen Text alter Anhänge mitschleppen)."""
+    if not messages:
+        return ""
+    attachments = messages[-1].get("attachments") or []
+    if not attachments:
+        return ""
+    parts = [f"[ANGEHÄNGTE DATEI: {a.get('filename', '?')}]\n{a.get('text', '')}" for a in attachments]
+    return "\n\n".join(parts)
+
+
 def _stream(messages: list[dict], model: str):
     last_msg = messages[-1]["content"] if messages else ""
     history_block = _format_history(messages)
-    prompt = (
-        f"<bisherige_unterhaltung>\n{history_block}\n</bisherige_unterhaltung>\n\n{last_msg}"
-        if history_block else last_msg
-    )
+    attachments_block = _format_attachments(messages)
+    prompt = last_msg
+    if attachments_block:
+        prompt = f"<angehaengte_dateien>\n{attachments_block}\n</angehaengte_dateien>\n\n{prompt}"
+    if history_block:
+        prompt = f"<bisherige_unterhaltung>\n{history_block}\n</bisherige_unterhaltung>\n\n{prompt}"
     cmd = [
         CLAUDE_BIN, "-p",
         "--input-format", "stream-json",
