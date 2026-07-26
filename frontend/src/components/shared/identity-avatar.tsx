@@ -29,7 +29,7 @@ function colorIndexFor(seed: string): number {
 
 export interface IdentityAvatarProps {
   name: string
-  size?: "sm" | "lg"
+  size?: "xs" | "sm" | "lg"
   className?: string
 }
 
@@ -40,13 +40,18 @@ export function IdentityAvatar({ name, size = "lg", className }: IdentityAvatarP
   return (
     <span
       className={cn(
-        "flex shrink-0 items-center justify-center rounded-full border-[3px] border-background font-semibold shadow-sm",
-        size === "lg" ? "h-24 w-24 text-2xl" : "h-9 w-9 text-sm",
+        "flex shrink-0 items-center justify-center rounded-full font-semibold shadow-sm",
+        size === "lg" && "h-24 w-24 border-[3px] border-background text-2xl",
+        size === "sm" && "h-9 w-9 border-[3px] border-background text-sm",
+        // Kompakte Variante für enge Zeilen wie den Sidebar-Verlauf
+        // (Umsetzungsplan 2026-07-26) - dünnerer Rand statt 3px, sonst wirkt
+        // er bei 20px Gesamtgröße wie ein dicker Ring statt ein Avatar.
+        size === "xs" && "h-5 w-5 border border-background text-[10px]",
         colorClass,
         className
       )}
     >
-      {initials || <UserRound className={size === "lg" ? "h-8 w-8" : "h-4 w-4"} />}
+      {initials || <UserRound className={size === "lg" ? "h-8 w-8" : size === "sm" ? "h-4 w-4" : "h-3 w-3"} />}
     </span>
   )
 }

@@ -11,9 +11,19 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Switch } from "@/components/ui/switch";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Textarea } from "@/components/ui/textarea";
+import { BarChartCard, type BarDatum } from "@/components/shared/bar-chart-card";
+import { DonutStat, type DonutSegment } from "@/components/shared/donut-stat";
 import { KpiCard } from "@/components/shared/kpi-card";
 import { StatusPill, type StatusPillVariant } from "@/components/shared/status-pill";
 import { cn } from "@/lib/utils";
+
+type Assignee = "Amin" | "Sebastian" | "Beide";
+
+interface Task {
+  text: string;
+  done?: boolean;
+  assignee: Assignee;
+}
 
 type Status = "neuer_kontakt" | "erstgespraech" | "angebotsphase" | "auftrag" | "fulfillment" | "abgeschlossen";
 type Sicherheit = "hoch" | "mittel" | "niedrig";
@@ -76,6 +86,18 @@ const STATUS_OVERRIDE_OPTIONS: { value: string; label: string }[] = [
   { value: "", label: "Automatisch" },
   ...STATUS_ORDER.map((s) => ({ value: s, label: STATUS_LABEL[s] })),
 ];
+
+// Farben fürs Donut-Diagramm (Umsetzungsplan 2026-07-26) - an dieselbe
+// Bedeutung wie STATUS_VARIANT angelehnt (info/warning/success), nur eben als
+// Chart-Token statt StatusPill-Variante.
+const STATUS_CHART_COLOR: Record<Status, string> = {
+  neuer_kontakt: "var(--chart-3)",
+  erstgespraech: "var(--chart-2)",
+  angebotsphase: "var(--chart-5)",
+  auftrag: "var(--chart-2)",
+  fulfillment: "var(--chart-1)",
+  abgeschlossen: "var(--chart-4)",
+};
 
 // Sicherheit der automatischen Einschätzung (kunden_status_service.py) - bewusst
 // sichtbar statt versteckt, damit "niedrig" (z.B. widersprüchliche Belege oder
@@ -181,9 +203,24 @@ export function DashboardPage() {
     queryKey: ["dashboard-linkedin-status"],
     queryFn: () => api.get<LinkedInStatus>("/api/dashboard/linkedin-status"),
   });
+  const { data: tasks } = useQuery({
+    queryKey: ["dashboard-tasks"],
+    queryFn: () => api.get<Task[]>("/api/tasks"),
+  });
 
   const meta = useKundenMeta();
   const neuBewerten = useKundenNeuBewerten();
+
+  const statusSegments: DonutSegment[] = STATUS_ORDER.map((s) => ({
+    label: STATUS_LABEL[s],
+    value: (kundenData?.kunden ?? []).filter((k) => k.status === s).length,
+    color: STATUS_CHART_COLOR[s],
+  })).filter((seg) => seg.value > 0);
+
+  const assigneeBars: BarDatum[] = (["Amin", "Sebastian", "Beide"] as const).map((a) => ({
+    label: a,
+    value: (tasks ?? []).filter((t) => !t.done && t.assignee === a).length,
+  }));
 
   function startEdit(e: Eintrag) {
     setEditing(e.kunde);
@@ -242,6 +279,13 @@ export function DashboardPage() {
           )}
         </CardContent>
       </Card>
+
+      {!kundenLoading && (
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          {statusSegments.length > 0 && <DonutStat title="Kunden-Status-Verteilung" segments={statusSegments} />}
+          <BarChartCard title="Offene Aufgaben pro Zuständigem" data={assigneeBars} />
+        </div>
+      )}
 
       <Card>
         <CardHeader className="flex-row items-center justify-between gap-2 space-y-0">
