@@ -49,6 +49,11 @@ class SetTaskDueRequest(BaseModel):
     due: str | None = None
 
 
+class SetTaskStatusRequest(BaseModel):
+    text: str
+    status: str
+
+
 class KundenMetaRequest(BaseModel):
     archiviert: bool | None = None
     status_override: str | None = None
@@ -114,6 +119,13 @@ def set_task_assignee(body: SetTaskAssigneeRequest, user: str = Depends(get_curr
 @router.post("/tasks/due")
 def set_task_due(body: SetTaskDueRequest, user: str = Depends(get_current_user)):
     return tasks_service.set_task_due(body.text, body.due)
+
+
+@router.post("/tasks/status")
+def set_task_status(body: SetTaskStatusRequest, user: str = Depends(get_current_user)):
+    """Kanban-Spaltenwechsel (Umsetzungsplan 2026-07-27) - "todo"/"in_progress",
+    der Wechsel nach "Erledigt" läuft weiterhin über /tasks/toggle."""
+    return tasks_service.set_task_status(body.text, body.status)
 
 
 # ── Management-Dashboard-Erweiterung (Umsetzungsplan-Memo 2026-07-16, Punkt B3;

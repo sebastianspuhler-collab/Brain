@@ -1,5 +1,6 @@
+import { DndContext, DragOverlay, PointerSensor, useDraggable, useDroppable, useSensor, useSensors } from "@dnd-kit/core";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { Calendar as CalendarIcon, ChevronDown, ChevronLeft, ChevronRight, List, Trash2 } from "lucide-react";
+import { Calendar as CalendarIcon, ChevronDown, ChevronLeft, ChevronRight, Kanban as KanbanIcon, List, Trash2 } from "lucide-react";
 import { useMemo, useState } from "react";
 import { toast } from "sonner";
 import { api } from "@/api/client";
@@ -15,8 +16,9 @@ import { SegmentedControl } from "@/components/shared/segmented-control";
 import { cn } from "@/lib/utils";
 
 type Assignee = "Amin" | "Sebastian" | "Beide";
-type View = "list" | "calendar";
+type View = "list" | "calendar" | "kanban";
 type Bucket = "overdue" | "today" | "week" | "later" | "none";
+type KanbanStatus = "todo" | "in_progress" | "done";
 
 interface Task {
   text: string;
@@ -24,6 +26,7 @@ interface Task {
   done?: boolean;
   assignee: Assignee;
   due: string | null;
+  status: KanbanStatus;
 }
 
 const ASSIGNEES: Assignee[] = ["Amin", "Sebastian", "Beide"];
@@ -62,6 +65,97 @@ function bucketFor(due: string | null, todayStr: string, weekAheadStr: string): 
   if (due === todayStr) return "today";
   if (due <= weekAheadStr) return "week";
   return "later";
+}
+
+// Kanban-Board wie bei Jira (Umsetzungsplan 2026-07-27): drei Spalten nach
+// Bearbeitungsstatus statt Fälligkeit. "Erledigt" bleibt weiterhin die echte
+// Checkbox (siehe tasks_service.py::set_task_status) - ein Kartenzug aus
+// "Erledigt" heraus öffnet die Aufgabe wieder, wie in Jira üblich.
+const KANBAN_COLUMNS: { key: KanbanStatus; label: string }[] = [
+  { key: "todo", label: "Zu erledigen" },
+  { key: "in_progress", label: "In Arbeit" },
+  { key: "done", label: "Erledigt" },
+];
+
+function KanbanCard({ t }: { t: Task }) {
+  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({ id: t.text });
+  const style = transform ? { transform: `translate3d(${transform.x}px, ${transform.y}px, 0)` } : undefined;
+  return (
+    <div
+      ref={setNodeRef}
+      style={style}
+      {...listeners}
+      {...attributes}
+      className={cn(
+        "cursor-grab touch-none rounded-xl border border-border bg-card p-2.5 shadow-sm select-none active:cursor-grabbing",
+        isDragging && "opacity-40"
+      )}
+    >
+      <div className={cn("text-sm text-foreground", t.done && "text-muted-foreground line-through")}>{t.text}</div>
+      <div className="mt-1.5 flex items-center gap-1.5">
+        {t.due && (
+          <span className={cn("rounded-full px-1.5 py-0.5 text-[10px] font-medium", URGENCY_DOT[t.urgency])}>
+            {formatDue(t.due)}
+          </span>
+        )}
+        <span className="rounded-full bg-muted px-1.5 py-0.5 text-[10px] text-muted-foreground">{t.assignee}</span>
+      </div>
+    </div>
+  );
+}
+
+function KanbanColumn({ status, label, tasks }: { status: KanbanStatus; label: string; tasks: Task[] }) {
+  const { setNodeRef, isOver } = useDroppable({ id: status });
+  return (
+    <div
+      ref={setNodeRef}
+      className={cn(
+        "flex min-h-40 flex-1 flex-col gap-2 rounded-2xl border border-border bg-muted/20 p-2.5 transition-colors",
+        isOver && "border-primary/50 bg-primary/5"
+      )}
+    >
+      <div className="flex items-center justify-between px-0.5">
+        <span className="text-xs font-semibold text-muted-foreground">{label}</span>
+        <span className="text-xs text-muted-foreground">{tasks.length}</span>
+      </div>
+      <div className="flex flex-col gap-2">
+        {tasks.map((t, i) => (
+          <KanbanCard key={`${status}-${i}-${t.text}`} t={t} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function KanbanBoard({ tasks, onMove }: { tasks: Task[]; onMove: (text: string, status: KanbanStatus) => void }) {
+  const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 8 } }));
+  const [activeText, setActiveText] = useState<string | null>(null);
+
+  const byStatus: Record<KanbanStatus, Task[]> = { todo: [], in_progress: [], done: [] };
+  for (const t of tasks) byStatus[t.status].push(t);
+  const activeTask = tasks.find((t) => t.text === activeText) ?? null;
+
+  return (
+    <DndContext
+      sensors={sensors}
+      onDragStart={(e) => setActiveText(String(e.active.id))}
+      onDragEnd={(e) => {
+        setActiveText(null);
+        const target = e.over?.id as KanbanStatus | undefined;
+        if (!target) return;
+        const task = tasks.find((t) => t.text === e.active.id);
+        if (task && task.status !== target) onMove(task.text, target);
+      }}
+      onDragCancel={() => setActiveText(null)}
+    >
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+        {KANBAN_COLUMNS.map((c) => (
+          <KanbanColumn key={c.key} status={c.key} label={c.label} tasks={byStatus[c.key]} />
+        ))}
+      </div>
+      <DragOverlay>{activeTask && <KanbanCard t={activeTask} />}</DragOverlay>
+    </DndContext>
+  );
 }
 
 export function TasksPage() {
@@ -115,6 +209,18 @@ export function TasksPage() {
     onSuccess: invalidate,
     onError: () => toast.error("Zuständigkeit konnte nicht geändert werden"),
   });
+
+  const setStatus = useMutation({
+    mutationFn: ({ text, status }: { text: string; status: KanbanStatus }) =>
+      api.post("/api/tasks/status", { text, status }),
+    onSuccess: invalidate,
+    onError: () => toast.error("Status konnte nicht geändert werden"),
+  });
+
+  function moveKanbanCard(text: string, status: KanbanStatus) {
+    if (status === "done") toggleTask.mutate({ text, done: true });
+    else setStatus.mutate({ text, status });
+  }
 
   const filtered = (data ?? []).filter((t) => filter === "Alle" || t.assignee === filter);
   const openTasks = filtered.filter((t) => !t.done);
@@ -203,6 +309,7 @@ export function TasksPage() {
         <SegmentedControl
           options={[
             { value: "list", label: "Liste", icon: <List className="size-3.5" /> },
+            { value: "kanban", label: "Kanban", icon: <KanbanIcon className="size-3.5" /> },
             { value: "calendar", label: "Kalender", icon: <CalendarIcon className="size-3.5" /> },
           ]}
           value={view}
@@ -247,6 +354,8 @@ export function TasksPage() {
             <Skeleton className="h-8 w-full" />
             <Skeleton className="h-8 w-full" />
           </div>
+        ) : view === "kanban" ? (
+          <KanbanBoard tasks={filtered} onMove={moveKanbanCard} />
         ) : view === "calendar" ? (
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between gap-2">

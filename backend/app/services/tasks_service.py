@@ -18,6 +18,13 @@ _ASSIGNEE_TAG_RE = re.compile(r"(?:^|(?<=\s))@(Amin|Sebastian|Beide)(?=\s|$)", r
 _DUE_TAG_RE = re.compile(r"(?:^|(?<=\s))!due\((\d{4}-\d{2}-\d{2})\)(?=\s|$)", re.IGNORECASE)
 _LEGACY_DATE_RE = re.compile(r"(\d{1,2})\.(\d{1,2})\.")
 
+# Kanban-Board (Umsetzungsplan 2026-07-27): dritter Tag neben @Zuständig und
+# !due(...) - nur für offene Aufgaben relevant ("todo"/"in_progress"), erledigt
+# bleibt weiterhin allein über die Checkbox gesteuert (kein doppeltes
+# Wahrheits-Feld). Fehlt der Tag (bestehende Alt-Einträge), gilt "todo".
+STATUS_VALUES = ("todo", "in_progress")
+_STATUS_TAG_RE = re.compile(r"(?:^|(?<=\s))!status\((\w+)\)(?=\s|$)", re.IGNORECASE)
+
 
 def _strip_checkbox(line: str) -> str | None:
     """Gibt den Aufgabentext (inkl. Tags) ohne Checkbox-Präfix zurück, oder None."""
@@ -28,12 +35,18 @@ def _strip_checkbox(line: str) -> str | None:
     return None
 
 
-def _split_tags(raw_text: str) -> tuple[str, str, str | None]:
-    """Trennt @Zuständig- und !due(...)-Tags vom Aufgabentext."""
+def _split_tags(raw_text: str) -> tuple[str, str, str | None, str]:
+    """Trennt @Zuständig-, !due(...)- und !status(...)-Tags vom Aufgabentext."""
     due = None
     m = _DUE_TAG_RE.search(raw_text)
     if m:
         due = m.group(1)
+        raw_text = (raw_text[: m.start()] + raw_text[m.end() :]).strip()
+
+    status = "todo"
+    m = _STATUS_TAG_RE.search(raw_text)
+    if m and m.group(1).lower() in STATUS_VALUES:
+        status = m.group(1).lower()
         raw_text = (raw_text[: m.start()] + raw_text[m.end() :]).strip()
 
     assignee = DEFAULT_ASSIGNEE
@@ -42,7 +55,7 @@ def _split_tags(raw_text: str) -> tuple[str, str, str | None]:
         assignee = next(a for a in ASSIGNEES if a.lower() == m.group(1).lower())
         raw_text = (raw_text[: m.start()] + raw_text[m.end() :]).strip()
 
-    return raw_text, assignee, due
+    return raw_text, assignee, due, status
 
 
 def parse_task_line(line: str) -> dict | None:
@@ -51,14 +64,16 @@ def parse_task_line(line: str) -> dict | None:
     if raw is None:
         return None
     done = "- [x]" in line or "- [X]" in line
-    text, assignee, due = _split_tags(raw)
-    return {"text": text, "done": done, "assignee": assignee, "due": due}
+    text, assignee, due, status = _split_tags(raw)
+    return {"text": text, "done": done, "assignee": assignee, "due": due, "status": status}
 
 
-def _format_task_line(checkbox: str, text: str, assignee: str, due: str | None) -> str:
+def _format_task_line(checkbox: str, text: str, assignee: str, due: str | None, status: str = "todo") -> str:
     line = f"- {checkbox} {text} @{assignee}"
     if due:
         line += f" !due({due})"
+    if status != "todo":
+        line += f" !status({status})"
     return line
 
 
@@ -98,7 +113,7 @@ def get_tasks() -> list[dict]:
         if parsed["done"]:
             tasks.append({
                 "text": parsed["text"], "urgency": "done", "done": True,
-                "assignee": parsed["assignee"], "due": parsed["due"],
+                "assignee": parsed["assignee"], "due": parsed["due"], "status": "done",
             })
             continue
 
@@ -116,6 +131,7 @@ def get_tasks() -> list[dict]:
             "urgency": _urgency_from_date(dt) if dt else "normal",
             "assignee": parsed["assignee"],
             "due": parsed["due"],
+            "status": parsed["status"],
         })
     return tasks
 
@@ -165,7 +181,7 @@ def add_task(text: str, assignee: str = DEFAULT_ASSIGNEE, due: str | None = None
 def toggle_task(text: str, done: bool) -> dict:
     checkbox = "[x]" if done else "[ ]"
     return _update_task_line(
-        text, lambda p: _format_task_line(checkbox, p["text"], p["assignee"], p["due"])
+        text, lambda p: _format_task_line(checkbox, p["text"], p["assignee"], p["due"], p["status"])
     )
 
 
@@ -174,7 +190,7 @@ def set_task_assignee(text: str, assignee: str) -> dict:
         return {"error": "ungültige Zuständigkeit"}
     return _update_task_line(
         text,
-        lambda p: _format_task_line("[x]" if p["done"] else "[ ]", p["text"], assignee, p["due"]),
+        lambda p: _format_task_line("[x]" if p["done"] else "[ ]", p["text"], assignee, p["due"], p["status"]),
     )
 
 
@@ -186,7 +202,21 @@ def set_task_due(text: str, due: str | None) -> dict:
             return {"error": "ungültiges Datum"}
     return _update_task_line(
         text,
-        lambda p: _format_task_line("[x]" if p["done"] else "[ ]", p["text"], p["assignee"], due),
+        lambda p: _format_task_line("[x]" if p["done"] else "[ ]", p["text"], p["assignee"], due, p["status"]),
+    )
+
+
+def set_task_status(text: str, status: str) -> dict:
+    """Kanban-Spaltenwechsel (Umsetzungsplan 2026-07-27): nur für "todo"/
+    "in_progress" gedacht - der Wechsel nach "Erledigt" läuft weiterhin über
+    toggle_task (echte Checkbox), daher wird die Checkbox hier bewusst immer
+    auf offen gesetzt (ein Kanban-Zug aus der Erledigt-Spalte heraus öffnet
+    die Aufgabe wieder, wie in Jira üblich)."""
+    if status not in STATUS_VALUES:
+        return {"error": "ungültiger Status"}
+    return _update_task_line(
+        text,
+        lambda p: _format_task_line("[ ]", p["text"], p["assignee"], p["due"], status),
     )
 
 
