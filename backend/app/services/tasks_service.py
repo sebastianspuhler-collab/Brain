@@ -25,6 +25,19 @@ _LEGACY_DATE_RE = re.compile(r"(\d{1,2})\.(\d{1,2})\.")
 STATUS_VALUES = ("todo", "in_progress")
 _STATUS_TAG_RE = re.compile(r"(?:^|(?<=\s))!status\((\w+)\)(?=\s|$)", re.IGNORECASE)
 
+# Jira-artige Zusatzfelder (Umsetzungsplan 2026-07-27): Kunde/Kategorie nach
+# demselben Tag-Muster wie @Zuständig/!due(...). Beschreibung bewusst NICHT
+# als eingerückte Zeile unter der Checkbox (das würde _update_task_line()/
+# delete_task() zwingen, Nachbarzeilen zuverlässig einer Aufgabe zuzuordnen -
+# fehleranfällig beim Löschen), sondern als eigener !desc[...]-Tag auf
+# derselben Zeile (eckige statt runde Klammern, damit Kommas/Punkte im
+# Beschreibungstext nicht mit !due(...)/!kunde(...) kollidieren). Einzige
+# Einschränkung: keine schließende eckige Klammer "]" im Beschreibungstext.
+CATEGORIES = ("Entwicklung", "Buchhaltung", "LinkedIn", "Cold Calls", "Meetings", "Administration", "Sonstiges")
+_KUNDE_TAG_RE = re.compile(r"(?:^|(?<=\s))!kunde\(([^)]*)\)(?=\s|$)", re.IGNORECASE)
+_KATEGORIE_TAG_RE = re.compile(r"(?:^|(?<=\s))!kategorie\(([^)]*)\)(?=\s|$)", re.IGNORECASE)
+_DESC_TAG_RE = re.compile(r"(?:^|(?<=\s))!desc\[([^\]]*)\](?=\s|$)", re.IGNORECASE)
+
 
 def _strip_checkbox(line: str) -> str | None:
     """Gibt den Aufgabentext (inkl. Tags) ohne Checkbox-Präfix zurück, oder None."""
@@ -35,8 +48,9 @@ def _strip_checkbox(line: str) -> str | None:
     return None
 
 
-def _split_tags(raw_text: str) -> tuple[str, str, str | None, str]:
-    """Trennt @Zuständig-, !due(...)- und !status(...)-Tags vom Aufgabentext."""
+def _split_tags(raw_text: str) -> tuple[str, str, str | None, str, str | None, str | None, str]:
+    """Trennt @Zuständig-, !due(...)-, !status(...)-, !kunde(...)-,
+    !kategorie(...)- und !desc[...]-Tags vom Aufgabentext."""
     due = None
     m = _DUE_TAG_RE.search(raw_text)
     if m:
@@ -49,13 +63,31 @@ def _split_tags(raw_text: str) -> tuple[str, str, str | None, str]:
         status = m.group(1).lower()
         raw_text = (raw_text[: m.start()] + raw_text[m.end() :]).strip()
 
+    kunde = None
+    m = _KUNDE_TAG_RE.search(raw_text)
+    if m:
+        kunde = m.group(1) or None
+        raw_text = (raw_text[: m.start()] + raw_text[m.end() :]).strip()
+
+    kategorie = None
+    m = _KATEGORIE_TAG_RE.search(raw_text)
+    if m and m.group(1) in CATEGORIES:
+        kategorie = m.group(1)
+        raw_text = (raw_text[: m.start()] + raw_text[m.end() :]).strip()
+
+    desc = ""
+    m = _DESC_TAG_RE.search(raw_text)
+    if m:
+        desc = m.group(1)
+        raw_text = (raw_text[: m.start()] + raw_text[m.end() :]).strip()
+
     assignee = DEFAULT_ASSIGNEE
     m = _ASSIGNEE_TAG_RE.search(raw_text)
     if m:
         assignee = next(a for a in ASSIGNEES if a.lower() == m.group(1).lower())
         raw_text = (raw_text[: m.start()] + raw_text[m.end() :]).strip()
 
-    return raw_text, assignee, due, status
+    return raw_text, assignee, due, status, kunde, kategorie, desc
 
 
 def parse_task_line(line: str) -> dict | None:
@@ -64,16 +96,28 @@ def parse_task_line(line: str) -> dict | None:
     if raw is None:
         return None
     done = "- [x]" in line or "- [X]" in line
-    text, assignee, due, status = _split_tags(raw)
-    return {"text": text, "done": done, "assignee": assignee, "due": due, "status": status}
+    text, assignee, due, status, kunde, kategorie, desc = _split_tags(raw)
+    return {
+        "text": text, "done": done, "assignee": assignee, "due": due, "status": status,
+        "kunde": kunde, "kategorie": kategorie, "beschreibung": desc,
+    }
 
 
-def _format_task_line(checkbox: str, text: str, assignee: str, due: str | None, status: str = "todo") -> str:
+def _format_task_line(
+    checkbox: str, text: str, assignee: str, due: str | None, status: str = "todo",
+    kunde: str | None = None, kategorie: str | None = None, beschreibung: str | None = None,
+) -> str:
     line = f"- {checkbox} {text} @{assignee}"
     if due:
         line += f" !due({due})"
     if status != "todo":
         line += f" !status({status})"
+    if kunde:
+        line += f" !kunde({kunde})"
+    if kategorie:
+        line += f" !kategorie({kategorie})"
+    if beschreibung:
+        line += f" !desc[{beschreibung}]"
     return line
 
 
@@ -114,6 +158,7 @@ def get_tasks() -> list[dict]:
             tasks.append({
                 "text": parsed["text"], "urgency": "done", "done": True,
                 "assignee": parsed["assignee"], "due": parsed["due"], "status": "done",
+                "kunde": parsed["kunde"], "kategorie": parsed["kategorie"], "beschreibung": parsed["beschreibung"],
             })
             continue
 
@@ -132,6 +177,9 @@ def get_tasks() -> list[dict]:
             "assignee": parsed["assignee"],
             "due": parsed["due"],
             "status": parsed["status"],
+            "kunde": parsed["kunde"],
+            "kategorie": parsed["kategorie"],
+            "beschreibung": parsed["beschreibung"],
         })
     return tasks
 
@@ -154,12 +202,17 @@ def _update_task_line(text: str, build_line) -> dict:
     return {"ok": True, "changed": changed}
 
 
-def add_task(text: str, assignee: str = DEFAULT_ASSIGNEE, due: str | None = None) -> dict:
+def add_task(
+    text: str, assignee: str = DEFAULT_ASSIGNEE, due: str | None = None,
+    kunde: str | None = None, kategorie: str | None = None, beschreibung: str = "",
+) -> dict:
     text = text.strip()
     if not text:
         return {"error": "kein Text"}
     if assignee not in ASSIGNEES:
         return {"error": "ungültige Zuständigkeit"}
+    if kategorie and kategorie not in CATEGORIES:
+        return {"error": "ungültige Kategorie"}
     if due:
         try:
             datetime.fromisoformat(due)
@@ -169,7 +222,7 @@ def add_task(text: str, assignee: str = DEFAULT_ASSIGNEE, due: str | None = None
     path = settings.context_path
     content = path.read_text(encoding="utf-8") if path.exists() else ""
     header = "## Offene Aufgaben"
-    entry = _format_task_line("[ ]", text, assignee, due)
+    entry = _format_task_line("[ ]", text, assignee, due, kunde=kunde, kategorie=kategorie, beschreibung=beschreibung)
     if header in content:
         content = content.replace(header, f"{header}\n{entry}", 1)
     else:
@@ -181,7 +234,10 @@ def add_task(text: str, assignee: str = DEFAULT_ASSIGNEE, due: str | None = None
 def toggle_task(text: str, done: bool) -> dict:
     checkbox = "[x]" if done else "[ ]"
     return _update_task_line(
-        text, lambda p: _format_task_line(checkbox, p["text"], p["assignee"], p["due"], p["status"])
+        text,
+        lambda p: _format_task_line(
+            checkbox, p["text"], p["assignee"], p["due"], p["status"], p["kunde"], p["kategorie"], p["beschreibung"]
+        ),
     )
 
 
@@ -190,7 +246,10 @@ def set_task_assignee(text: str, assignee: str) -> dict:
         return {"error": "ungültige Zuständigkeit"}
     return _update_task_line(
         text,
-        lambda p: _format_task_line("[x]" if p["done"] else "[ ]", p["text"], assignee, p["due"], p["status"]),
+        lambda p: _format_task_line(
+            "[x]" if p["done"] else "[ ]", p["text"], assignee, p["due"], p["status"],
+            p["kunde"], p["kategorie"], p["beschreibung"],
+        ),
     )
 
 
@@ -202,7 +261,39 @@ def set_task_due(text: str, due: str | None) -> dict:
             return {"error": "ungültiges Datum"}
     return _update_task_line(
         text,
-        lambda p: _format_task_line("[x]" if p["done"] else "[ ]", p["text"], p["assignee"], due, p["status"]),
+        lambda p: _format_task_line(
+            "[x]" if p["done"] else "[ ]", p["text"], p["assignee"], due, p["status"],
+            p["kunde"], p["kategorie"], p["beschreibung"],
+        ),
+    )
+
+
+def update_task(
+    original_text: str, text: str, assignee: str, due: str | None,
+    kunde: str | None, kategorie: str | None, beschreibung: str,
+) -> dict:
+    """Voll-Update aus dem Bearbeiten-Dialog (Umsetzungsplan 2026-07-27) - der
+    Titel selbst kann sich ändern, die Zeile wird daher über `original_text`
+    gefunden (wie bei den übrigen Settern), aber mit dem neuen Text neu
+    geschrieben. done/status bleiben unangetastet (nicht Teil dieses
+    Dialogs - siehe toggle_task/set_task_status fürs Kanban-Board)."""
+    text = text.strip()
+    if not text:
+        return {"error": "kein Text"}
+    if assignee not in ASSIGNEES:
+        return {"error": "ungültige Zuständigkeit"}
+    if kategorie and kategorie not in CATEGORIES:
+        return {"error": "ungültige Kategorie"}
+    if due:
+        try:
+            datetime.fromisoformat(due)
+        except ValueError:
+            return {"error": "ungültiges Datum"}
+    return _update_task_line(
+        original_text,
+        lambda p: _format_task_line(
+            "[x]" if p["done"] else "[ ]", text, assignee, due, p["status"], kunde, kategorie, beschreibung
+        ),
     )
 
 
@@ -216,7 +307,9 @@ def set_task_status(text: str, status: str) -> dict:
         return {"error": "ungültiger Status"}
     return _update_task_line(
         text,
-        lambda p: _format_task_line("[ ]", p["text"], p["assignee"], p["due"], status),
+        lambda p: _format_task_line(
+            "[ ]", p["text"], p["assignee"], p["due"], status, p["kunde"], p["kategorie"], p["beschreibung"]
+        ),
     )
 
 

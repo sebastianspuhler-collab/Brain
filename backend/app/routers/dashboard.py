@@ -28,6 +28,19 @@ class AddTaskRequest(BaseModel):
     text: str
     assignee: str = tasks_service.DEFAULT_ASSIGNEE
     due: str | None = None
+    kunde: str | None = None
+    kategorie: str | None = None
+    beschreibung: str = ""
+
+
+class UpdateTaskRequest(BaseModel):
+    original_text: str
+    text: str
+    assignee: str
+    due: str | None = None
+    kunde: str | None = None
+    kategorie: str | None = None
+    beschreibung: str = ""
 
 
 class ToggleTaskRequest(BaseModel):
@@ -98,7 +111,18 @@ def tasks(user: str = Depends(get_current_user)):
 
 @router.post("/tasks")
 def add_task(body: AddTaskRequest, user: str = Depends(get_current_user)):
-    return tasks_service.add_task(body.text, body.assignee, body.due)
+    return tasks_service.add_task(
+        body.text, body.assignee, body.due, body.kunde, body.kategorie, body.beschreibung
+    )
+
+
+@router.post("/tasks/update")
+def update_task(body: UpdateTaskRequest, user: str = Depends(get_current_user)):
+    """Voll-Update aus dem Bearbeiten-Dialog (Umsetzungsplan 2026-07-27)."""
+    return tasks_service.update_task(
+        body.original_text, body.text, body.assignee, body.due,
+        body.kunde, body.kategorie, body.beschreibung,
+    )
 
 
 @router.post("/tasks/toggle")
@@ -253,6 +277,43 @@ def _ist_einzel_lead(md_path) -> bool:
     if not m_quelle:
         return False
     return Path(m_quelle.group(1).strip()).suffix.lower() not in _LEADS_MASSENLISTE_EXTS
+
+
+@router.get("/kunden/liste")
+def kunden_liste(user: str = Depends(get_current_user)):
+    """Leichtgewichtige Namensliste für Auswahlfelder (z.B. Kunde bei Aufgaben,
+    Umsetzungsplan 2026-07-27) - dieselbe Ordner-/Filter-Logik wie
+    kunden_status() unten, aber bewusst OHNE kunden_status_service.get_status()
+    (E-Mail-/Meeting-Scan + LLM-Synthese) - für eine reine Namensliste unnötig
+    teuer."""
+    settings = get_settings()
+    result = []
+
+    kunden_dir = settings.vault_path / "Kunden"
+    if kunden_dir.exists():
+        for kunde_path in sorted(kunden_dir.iterdir()):
+            if not kunde_path.is_dir() or kunde_path.name.startswith((".", "[", "_")):
+                continue
+            meta = kunden_meta_service.get_meta(kunde_path.name)
+            if meta.get("archiviert"):
+                continue
+            anzeige_name = (meta.get("overrides") or {}).get("anzeige_name") or kunde_path.name
+            result.append({"kunde": kunde_path.name, "anzeige_name": anzeige_name})
+
+    leads_dir = settings.vault_path / "Leads"
+    if leads_dir.exists():
+        for md_path in sorted(leads_dir.glob("*.md")):
+            if not _ist_einzel_lead(md_path):
+                continue
+            name = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", md_path.stem)
+            meta = kunden_meta_service.get_meta(name)
+            if meta.get("archiviert"):
+                continue
+            anzeige_name = (meta.get("overrides") or {}).get("anzeige_name") or name
+            result.append({"kunde": name, "anzeige_name": anzeige_name})
+
+    result.sort(key=lambda k: k["anzeige_name"].lower())
+    return result
 
 
 @router.get("/dashboard/kunden-status")
