@@ -1,0 +1,26 @@
+{
+  "id": "6d270007-1a86-49c5-979a-0cc6eb4e4937",
+  "title": "was steht als näschtes bei herrn Seifert an?",
+  "model": "claude-sonnet-5",
+  "created_at": "2026-07-26T16:06:17.795128+00:00",
+  "updated_at": "2026-07-26T16:09:32.610417+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "was steht als näschtes bei herrn Seifert an?"
+    },
+    {
+      "role": "assistant",
+      "content": "Kurzer Überblick zum Stand bei Seifert-GmbH (Stefan Seifert):\n\n**Wo du stehst:** Erstgespräch am 23.07.2026 (15 Min., laut Transkript). Thema war das Potenzial für einen KI-Agenten im Bereich Frästeile/Zerspanung. Seifert nutzt aktuell Spanflug zur Kalkulation von Frässzeiten (PDF + 3D-Modell rein, System berechnet Fräszeit, Bohrer/Fräser-Bedarf, Werktage) – das funktioniert aber nur bei einteiligen Zerspanungsteilen. Bei Seifert sind die meisten Teile geschweißte Baugruppen aus mehreren Einzelteilen, und genau da versagt Spanflug: es erkennt die Zusammensetzung nicht. Seifert erstellt Material-/Zuschnittlisten (was, wie oft, zu welchen Positionen, für die Kostenaufteilung) aktuell noch manuell/handschriftlich zusammen. Das Transkript bricht nach dieser Schmerzpunkt-Schilderung ab – es gibt keine dokumentierten \"Nächste Schritte\" oder Zusagen aus diesem Gespräch selbst.\n\n**Was als nächstes ansteht:** Am **Dienstag, 28.07. um 14:30 Uhr** steht laut Kalender \"Update Seifert X Prozessia\" (Teams) an – Seifert hat das per Mail am 23.07. bereits zugesagt. Das ist vermutlich das Meeting, in dem du auf Basis des Erstgesprächs einen konkreten Vorschlag machst: eine flexiblere Lösung als Spanflug, die automatisiert Material-/Zuschnittlisten auch für geschweißte Mehrteil-Baugruppen erstellt – das ist genau die Lücke, die Seifert beschrieben hat.\n\nNebenbei: das steht bei dir Dienstag ziemlich dicht – Mundinger 10:30, Zillmer 11:00, dazwischen \"Arbeit\" 11:45, dann Seifert 14:30. Lohnt sich, den Seifert-Vorschlag (Zuschnittlisten-Automatisierung) vorher kurz zu skizzieren, damit du im Termin konkret werden kannst statt nur nachzufassen."
+    },
+    {
+      "role": "user",
+      "content": "ja, wir wollten ihm eine demo ziegen oder?"
+    },
+    {
+      "role": "assistant",
+      "content": "Kurz zur Faktenlage: Im Transkript des Erstgesprächs vom 23.07. selbst steht keine explizite Zusage \"wir zeigen ihm eine Demo\" – das Gespräch bricht direkt nach der Schmerzpunkt-Schilderung (Spanflug versagt bei geschweißten Mehrteil-Baugruppen, Zuschnittlisten aktuell handschriftlich) ab, ohne dokumentierte nächste Schritte.\n\nAber inhaltlich macht deine Erinnerung total Sinn: Der Termin morgen um 14:30 heißt \"**Update** Seifert X Prozessia\" – nicht \"Erstgespräch\" – das spricht dafür, dass ihr da anschließt und einen konkreten Lösungsansatz zeigen wollt, keine reine Nachfrage-Runde. Genau dafür hättest du auch schon ein Vorbild im Haus: Bei Mundinger habt ihr am 08.06. exakt so eine Live-Demo gefahren (Kunden/Mundinger/Meetings/2026-06-08-Vorstellung Stücklistenagent.md) – Human-in-the-Loop mit Ampel-Klassifizierung grün/gelb/rot an einer Beispiel-Stückliste, Verarbeitung in 1-2 Minuten. Das ließe sich 1:1 auf Seiferts Fall übertragen: Zuschnitt-/Materialliste für eine geschweißte Baugruppe automatisiert erzeugen statt Spanflug (das nur Einzelteile kann).\n\nEinziges Problem: Ich finde in E-Mails oder Dokumenten **keine von Seifert geschickte Beispiel-Stückliste oder Zeichnung**, auf der du morgen live demonstrieren könntest. Wenn du also wirklich eine Demo zeigen willst, brauchst du entweder ein eigenes Fake-Beispiel einer geschweißten Baugruppe oder du fragst Seifert kurz vorher nach einer echten Musterzeichnung – sonst bleibt's bei einer generischen Erklärung ohne \"Wow-Effekt\"."
+    }
+  ],
+  "agent_id": null
+}
