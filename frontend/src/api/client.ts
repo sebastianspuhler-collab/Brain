@@ -93,10 +93,15 @@ export const agents = {
   create: (data: Omit<Agent, "id">) => api.post<Agent>("/api/agents", data),
   update: (id: string, data: Omit<Agent, "id">) => api.put<Agent>(`/api/agents/${id}`, data),
   remove: (id: string) => api.del<{ ok: boolean }>(`/api/agents/${id}`),
-  /** Eigener, dauerhafter Chat pro Agent (Umsetzungsplan 2026-07-25): findet
-   * die neueste Session, die schon mit diesem Agenten geführt wurde. */
-  session: (id: string) => api.get<{ session_id: string | null }>(`/api/agents/${id}/session`),
+  /** Chat-Verlauf pro Agent (Umsetzungsplan 2026-07-26): alle bisherigen
+   * Chats mit diesem Agenten, nicht nur der neueste - funktioniert mit
+   * derselben ID auch für den reservierten Entwicklungs-Agenten. */
+  sessions: (id: string) => api.get<ChatSessionSummary[]>(`/api/agents/${id}/sessions`),
 };
+
+/** Reservierte agent_id für den Entwicklungs-Agenten (kein echter
+ * agents.json-Eintrag) - muss zu backend/app/routers/chat.py::DEV_AGENT_ID passen. */
+export const DEV_AGENT_ID = "dev-agent";
 
 export interface ChatSource {
   path: string;
@@ -155,18 +160,21 @@ export async function streamChat(
 }
 
 /** Streamt eine Antwort des isolierten Entwickler-Agenten (Umsetzungsplan
- * 2026-07-25) - kein Modell/Agent/Session-Auswahl wie beim Hauptchat, nur ein
- * einziger fester Sandbox-Endpunkt. Kein Verlauf serverseitig gespeichert. */
+ * 2026-07-25/26) - eigener fester Sandbox-Endpunkt, aber Modell wählbar und
+ * Verlauf wird serverseitig gespeichert (wie beim Hauptchat, siehe
+ * chat.py::DEV_AGENT_ID). */
 export async function streamDevAgentChat(
   messages: ChatMessage[],
+  model: string,
   onChunk: (text: string) => void,
-  signal?: AbortSignal
+  signal?: AbortSignal,
+  sessionId?: string
 ): Promise<void> {
   const res = await fetch(`${API_BASE}/api/dev-agent/chat`, {
     method: "POST",
     credentials: "include",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ messages }),
+    body: JSON.stringify({ messages, model, session_id: sessionId }),
     signal,
   });
   if (!res.ok || !res.body) {
