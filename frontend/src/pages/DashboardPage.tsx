@@ -57,6 +57,34 @@ interface LinkedInStatus {
   naechster_post: { termin: string; idee: string } | null;
 }
 
+interface UsageBucket {
+  requests: number;
+  tokens: number;
+  cost_usd: number;
+}
+
+interface UsageSummary {
+  today: UsageBucket;
+  session_5h: UsageBucket;
+  week: UsageBucket;
+  by_model: (UsageBucket & { model: string })[];
+  daily: { date: string; tokens: number; cost_usd: number }[];
+}
+
+// Freundliche Namen für die Claude-Code-CLI-Modell-IDs (Umsetzungsplan
+// 2026-07-27) - dieselben IDs wie in ChatPage.tsx/AgentsPage.tsx MODELS.
+const USAGE_MODEL_LABEL: Record<string, string> = {
+  "claude-sonnet-5": "Sonnet",
+  "claude-opus-4-8": "Opus",
+  "claude-haiku-4-5-20251001": "Haiku",
+};
+function usageModelLabel(model: string): string {
+  return USAGE_MODEL_LABEL[model] ?? model;
+}
+function formatCost(usd: number): string {
+  return usd > 0 && usd < 0.01 ? "< 0,01 $" : `${usd.toFixed(2).replace(".", ",")} $`;
+}
+
 // Vertriebs-Pipeline statt Aktivitäts-Ampel (Sebastian, 2026-07-19: eine Ampel
 // nach Aktivitäts-Recency sagt nichts über den echten Vertriebsstand). Nur die
 // ersten vier Stufen werden automatisch aus Ordnerinhalten abgeleitet (siehe
@@ -207,6 +235,11 @@ export function DashboardPage() {
     queryKey: ["dashboard-tasks"],
     queryFn: () => api.get<Task[]>("/api/tasks"),
   });
+  const { data: usage, isLoading: usageLoading } = useQuery({
+    queryKey: ["dashboard-usage"],
+    queryFn: () => api.get<UsageSummary>("/api/dashboard/usage"),
+    refetchInterval: 60 * 1000,
+  });
 
   const meta = useKundenMeta();
   const neuBewerten = useKundenNeuBewerten();
@@ -220,6 +253,15 @@ export function DashboardPage() {
   const assigneeBars: BarDatum[] = (["Amin", "Sebastian", "Beide"] as const).map((a) => ({
     label: a,
     value: (tasks ?? []).filter((t) => !t.done && t.assignee === a).length,
+  }));
+
+  const usageModelSegments: DonutSegment[] = (usage?.by_model ?? []).map((m) => ({
+    label: usageModelLabel(m.model),
+    value: m.tokens,
+  }));
+  const usageDailyBars: BarDatum[] = (usage?.daily ?? []).map((d) => ({
+    label: d.date.slice(8, 10) + "." + d.date.slice(5, 7) + ".",
+    value: d.tokens,
   }));
 
   function startEdit(e: Eintrag) {
@@ -279,6 +321,47 @@ export function DashboardPage() {
           )}
         </CardContent>
       </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Nutzung</CardTitle>
+        </CardHeader>
+        <CardContent>
+          {usageLoading ? (
+            <Skeleton className="h-20 w-full" />
+          ) : (
+            <>
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                <KpiCard
+                  label="Aktuelle Sitzung (5h)"
+                  value={String(usage?.session_5h.requests ?? 0)}
+                  description="Anfragen im rollierenden 5-Std.-Fenster"
+                />
+                <KpiCard
+                  label="Diese Woche (7 Tage)"
+                  value={String(usage?.week.requests ?? 0)}
+                  description="Anfragen im rollierenden 7-Tage-Fenster"
+                />
+                <KpiCard label="Tokens heute" value={(usage?.today.tokens ?? 0).toLocaleString("de-DE")} />
+                <KpiCard label="Kosten heute (geschätzt)" value={formatCost(usage?.today.cost_usd ?? 0)} />
+              </div>
+              <p className="mt-3 text-xs text-muted-foreground">
+                Eigene Zählung, keine offizielle Anthropic-Limit-Anzeige - Claude Code selbst legt die genauen
+                Kontingente pro Abo nirgends offen, daher hier Anfragen statt Prozent-Auslastung.
+              </p>
+            </>
+          )}
+        </CardContent>
+      </Card>
+
+      {!usageLoading && (usageModelSegments.length > 0 || usageDailyBars.length > 0) && (
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          {usageModelSegments.length > 0 && (
+            <DonutStat title="Tokens pro Modell" segments={usageModelSegments} totalLabel="Tokens" />
+          )}
+          <BarChartCard title="Tokens pro Tag (letzte 14 Tage)" data={usageDailyBars} />
+        </div>
+      )}
 
       {!kundenLoading && (
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">

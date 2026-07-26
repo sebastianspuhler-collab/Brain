@@ -18,6 +18,7 @@ from app.services import (
     mail_service,
     rag,
     tasks_service,
+    usage_service,
 )
 
 router = APIRouter(prefix="/api", tags=["dashboard"])
@@ -70,6 +71,14 @@ def status():
 @router.get("/calendar")
 def calendar(user: str = Depends(get_current_user)):
     return calendar_service.get_calendar_events()
+
+
+@router.get("/dashboard/usage")
+def dashboard_usage(user: str = Depends(get_current_user)):
+    """Nutzungs-/Kostentracking (Umsetzungsplan 2026-07-27): aggregiert
+    usage_log.jsonl (Claude-Code-CLI-Token-/Kostenangaben aus dem result-
+    Event, siehe usage_service.py) für ein Nutzungs-Widget im Dashboard."""
+    return usage_service.get_summary()
 
 
 @router.get("/gmail")

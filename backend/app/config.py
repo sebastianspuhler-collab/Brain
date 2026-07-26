@@ -120,6 +120,13 @@ class Settings(BaseSettings):
         return self.agent_dir / "conversations"
 
     @property
+    def usage_log_path(self) -> Path:
+        # Nutzungs-/Kostentracking für Claude-Code-CLI-Anfragen (Umsetzungsplan
+        # 2026-07-27) - eine JSON-Zeile pro abgeschlossener Anfrage, siehe
+        # app/services/usage_service.py.
+        return self.agent_dir / "usage_log.jsonl"
+
+    @property
     def email_cache_dir(self) -> Path:
         return self.agent_dir / "email_cache"
 
