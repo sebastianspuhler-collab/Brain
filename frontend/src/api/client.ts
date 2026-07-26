@@ -46,10 +46,26 @@ export const api = {
   postForm: <T>(path: string, form: FormData) => request<T>(path, { method: "POST", body: form as unknown as BodyInit }),
 };
 
+export interface ChatAttachment {
+  filename: string;
+  text: string;
+}
+
 export interface ChatMessage {
   role: "user" | "assistant";
   content: string;
+  /** Datei-Anhänge nur für diesen Turn (Umsetzungsplan 2026-07-27) - anders
+   * als der bestehende Datei-Upload-Button (legt dauerhaft im Wissen/RAG ab).
+   * Text kommt vorab über POST /api/chat/attach (chatAttach.upload). */
+  attachments?: ChatAttachment[];
 }
+
+/** Extrahiert Text aus einer Datei nur für diesen Chat-Turn (Umsetzungsplan
+ * 2026-07-27) - speichert/indexiert nichts dauerhaft, anders als
+ * api.upload("/api/upload", ...). */
+export const chatAttach = {
+  upload: (file: File) => api.upload<ChatAttachment>("/api/chat/attach", file),
+};
 
 export interface ChatSessionSummary {
   id: string;

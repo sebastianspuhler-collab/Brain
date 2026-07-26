@@ -42,7 +42,7 @@ const NAV_ITEMS = [
   { to: "/kalender", label: "Kalender", icon: CalendarDays },
   { to: "/mail", label: "Mail", icon: Mail },
   { to: "/dateien", label: "Dateien", icon: FileText },
-  { to: "/meetings", label: "Meetings", icon: Users },
+  { to: "/meetings", label: "Transkripte", icon: Users },
   { to: "/agenten", label: "Agenten", icon: Bot },
   { to: "/onboarding", label: "Onboarding", icon: UserPlus },
   { to: "/einstellungen", label: "Einstellungen", icon: Settings },

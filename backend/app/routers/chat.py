@@ -1,20 +1,23 @@
 """Chat-Endpoint mit SSE-Streaming. Migriert aus brain_server.py:handle_chat()."""
+import base64
 import json
+import tempfile
 import threading
 from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
 
 import httpx
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, UploadFile
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
 from app.config import get_settings
-from app.constants import ALL_MODELS, Models
+from app.constants import Models, ALL_MODELS
 from app.deps import get_current_user
 from app.services import context as context_service
-from app.services import agent_capabilities, agents_service, chat_sessions, conversations, memory, rag, usage_service
+from app.services import agent_capabilities, agents_service, chat_sessions, classify, conversations, memory, rag, usage_service
 from app.services import claude_cli
-from app.services.anthropic_client import get_client
+from app.services.anthropic_client import get_client, get_response_text
 from app.services.tools import TOOLS, _TASK_TOOL_NAMES, execute_tool
 
 MAX_TOOL_ITERATIONS = 8
@@ -38,9 +41,19 @@ HAIKU_MODEL = Models.HAIKU
 SIMPLE_MAX_CHARS = 80
 
 
+class ChatAttachment(BaseModel):
+    filename: str
+    text: str
+
+
 class ChatMessage(BaseModel):
     role: str
     content: str
+    # Datei-Anhänge nur für diesen einen Turn (Umsetzungsplan 2026-07-27) -
+    # bewusst NICHT dasselbe wie /api/upload (das indexiert dauerhaft ins
+    # Wissen/RAG). Text kommt vom Frontend vorab über POST /api/chat/attach,
+    # wird hier nur noch in den Prompt eingebettet, siehe _stream_chat(_cli).
+    attachments: list[ChatAttachment] | None = None
 
 
 class ChatRequest(BaseModel):
@@ -77,6 +90,23 @@ def _format_history(messages: list[dict], budget_chars: int = 12000) -> str:
         used += len(line)
     picked.reverse()
     return "\n\n".join(picked)
+
+
+def _format_attachments(messages: list[dict]) -> str:
+    """Baut den Kontext-Block für Datei-Anhänge der letzten (aktuellen)
+    Nachricht (Umsetzungsplan 2026-07-27) - bewusst nur der letzten, nicht
+    aller vorherigen Nachrichten, sonst würde jeder neue Turn erneut den
+    vollen Text alter Anhänge mitschleppen (Prompt-Wachstum). Der Text bleibt
+    trotzdem in der gespeicherten Session erhalten (chat_sessions.py ist
+    schema-agnostisch), nur die Wiederverwendung im Prompt ist auf diesen
+    Turn begrenzt."""
+    if not messages:
+        return ""
+    attachments = messages[-1].get("attachments") or []
+    if not attachments:
+        return ""
+    parts = [f"[ANGEHÄNGTE DATEI: {a.get('filename', '?')}]\n{a.get('text', '')}" for a in attachments]
+    return "\n\n".join(parts)
 
 
 def _stream_chat(
@@ -140,6 +170,9 @@ def _stream_chat(
             system += f"\n\n=== KUNDEN-AKTEN (vollständig) ===\n{cust_ctx}"
         if rag_ctx:
             system += f"\n\n=== RELEVANTE DOKUMENTE & E-MAILS ===\n{rag_ctx}"
+        attachments_ctx = _format_attachments(messages)
+        if attachments_ctx:
+            system += f"\n\n=== ANGEHÄNGTE DATEIEN (nur dieser Turn) ===\n{attachments_ctx}"
 
         is_complex = (
             any(kw in last_msg.lower() for kw in COMPLEX_KEYWORDS)
@@ -165,7 +198,11 @@ def _stream_chat(
         # stop_reason "tool_use" endet: Tool ausführen, Ergebnis als tool_result
         # zurückschicken, Claude erneut anfragen — bis es fertig ist oder das
         # Iterations-Limit erreicht ist. Migriert aus brain_server.py:handle_chat().
-        current_messages = list(messages)
+        # Nur role/content an die Anthropic API - "attachments" ist ein reines
+        # Zusatzfeld dieser App (siehe ChatMessage oben), die API akzeptiert
+        # keine unbekannten Message-Felder (schon einmal live als "Extra
+        # inputs are not permitted" mitten im Tool-Use-Loop aufgefallen).
+        current_messages = [{"role": m["role"], "content": m["content"]} for m in messages]
         all_text_parts = []
         tasks_changed = False
         usage_totals = {"input_tokens": 0, "output_tokens": 0, "cache_read_input_tokens": 0}
@@ -349,6 +386,9 @@ def _stream_chat_cli(
             dynamic += f"\n\n=== KUNDEN-AKTEN (vollständig) ===\n{cust_ctx}"
         if rag_ctx:
             dynamic += f"\n\n=== RELEVANTE DOKUMENTE & E-MAILS ===\n{rag_ctx}"
+        attachments_ctx = _format_attachments(messages)
+        if attachments_ctx:
+            dynamic += f"\n\n=== ANGEHÄNGTE DATEIEN (nur dieser Turn) ===\n{attachments_ctx}"
 
         all_text_parts = []
         tasks_changed = False
@@ -424,6 +464,62 @@ def chat(body: ChatRequest, user: str = Depends(get_current_user)):
         media_type="text/event-stream",
         headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
     )
+
+
+# ── Datei-Anhänge in Chat-Nachrichten (Umsetzungsplan 2026-07-27) ──────────
+# Bewusst getrennt von /api/upload (inbox.py) - das legt Dateien dauerhaft im
+# Vault/RAG ab, hier geht es nur um Text-Extraktion für EINEN Chat-Turn, ohne
+# irgendetwas zu speichern/indexieren. Nutzt dieselbe classify.extract_text()
+# wie die Inbox-Verarbeitung und dieselbe Bild-Transkription wie /api/upload
+# (claude_cli.describe_image bzw. Sonnet-Vision-Fallback), aber rein temporär.
+ATTACH_MAX_BYTES = 15 * 1024 * 1024  # 15 MB
+ATTACH_MAX_CHARS = 20000
+_ATTACH_IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
+_ATTACH_IMAGE_PROMPT = (
+    "Extrahiere ALLEN Text und ALLE Zahlen/Daten aus diesem Bild. Formatiere als "
+    "sauberen Markdown-Text. Nichts weglassen. Gib NUR den extrahierten Text zurück, "
+    "keine Erklärung davor/danach."
+)
+
+
+@router.post("/chat/attach")
+async def chat_attach(file: UploadFile, user: str = Depends(get_current_user)):
+    body = await file.read()
+    if len(body) > ATTACH_MAX_BYTES:
+        raise HTTPException(status_code=400, detail="Datei zu groß (max. 15 MB)")
+
+    filename = Path(file.filename).name
+    suffix = Path(filename).suffix.lower()
+    settings = get_settings()
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        tmp_path = Path(tmpdir) / filename
+        tmp_path.write_bytes(body)
+
+        if suffix in _ATTACH_IMAGE_EXTS:
+            try:
+                if settings.claude_engine == "cli":
+                    text = claude_cli.describe_image(str(tmp_path), _ATTACH_IMAGE_PROMPT)
+                else:
+                    b64 = base64.standard_b64encode(body).decode()
+                    mt = "image/jpeg" if suffix in (".jpg", ".jpeg") else "image/png"
+                    vision_result = get_client().messages.create(
+                        model=Models.SONNET, max_tokens=2000,
+                        thinking={"type": "disabled"},
+                        messages=[{"role": "user", "content": [
+                            {"type": "image", "source": {"type": "base64", "media_type": mt, "data": b64}},
+                            {"type": "text", "text": _ATTACH_IMAGE_PROMPT},
+                        ]}],
+                    )
+                    text = get_response_text(vision_result)
+            except Exception as ex:
+                raise HTTPException(status_code=400, detail=f"Bild konnte nicht gelesen werden: {ex}") from ex
+        else:
+            text = classify.extract_text(tmp_path, max_chars=ATTACH_MAX_CHARS)
+            if text is None:
+                raise HTTPException(status_code=400, detail="Dateiformat wird nicht unterstützt")
+
+    return {"filename": filename, "text": text}
 
 
 # ── Chat-Session-Persistenz (Umsetzungsplan A2) ─────────────────────────────
