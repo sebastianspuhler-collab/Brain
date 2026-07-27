@@ -1,4 +1,5 @@
 """Chat-Endpoint mit SSE-Streaming. Migriert aus brain_server.py:handle_chat()."""
+import asyncio
 import base64
 import json
 import tempfile
@@ -7,7 +8,8 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import httpx
-from fastapi import APIRouter, Depends, HTTPException, UploadFile
+import websockets
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, WebSocket, WebSocketDisconnect
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
@@ -621,6 +623,7 @@ def get_agent_sessions(agent_id: str, user: str = Depends(get_current_user)):
 # dadurch funktionieren die bestehenden generischen Session-Endpunkte
 # (GET/DELETE /api/chat/sessions/{id}) unverändert auch für ihn mit.
 DEV_AGENT_URL = "http://dev-agent:8000/chat"
+DEV_AGENT_UPLOAD_URL = "http://dev-agent:8000/upload-to-workspace"
 DEV_AGENT_ID = "dev-agent"
 
 
@@ -698,3 +701,87 @@ async def dev_agent_chat(body: DevAgentChatRequest, user: str = Depends(get_curr
         media_type="text/event-stream",
         headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
     )
+
+
+@router.post("/dev-agent/upload")
+async def dev_agent_upload(file: UploadFile, user: str = Depends(get_current_user)):
+    """Proxy zu dev-agent/server.py::upload_to_workspace() (Umsetzungsplan
+    2026-07-27) - der Container ist nur intern erreichbar, siehe Docstring
+    oben. Legt die Datei direkt in /workspace ab (kein Text-Extrakt wie
+    /api/chat/attach - im echten Terminal referenziert man die Datei per
+    Dateiname statt sie als Prompt-Kontext zu bekommen)."""
+    body = await file.read()
+    try:
+        async with httpx.AsyncClient(timeout=60.0) as client:
+            resp = await client.post(
+                DEV_AGENT_UPLOAD_URL,
+                files={"file": (file.filename, body, file.content_type)},
+            )
+        resp.raise_for_status()
+        return resp.json()
+    except httpx.HTTPError as ex:
+        raise HTTPException(status_code=502, detail=f"Entwickler-Agent nicht erreichbar: {ex}") from ex
+
+
+# ── Echtes interaktives Terminal (Umsetzungsplan 2026-07-27) ────────────────
+# "1:1 wie Claude Code" statt der Chat-Simulation oben (/dev-agent/chat, alter
+# Pfad bleibt bestehen, hat aber keinen Aufrufer mehr im Frontend): reine
+# Byte-Weiterleitung zwischen dem Browser und dev-agent/server.py's
+# WebSocket-Endpunkt (dort läuft der dauerhafte, an ein PTY gebundene
+# `claude`-Prozess - dieses Backend hier macht nur Auth + Relay, kein
+# eigener Zustand). Caddy leitet WebSocket-Upgrades unter /api/* automatisch
+# durch, keine Sonderkonfiguration nötig.
+DEV_AGENT_WS_URL = "ws://dev-agent:8000/ws"
+
+
+@router.websocket("/ws/dev-agent/{session_id}")
+async def dev_agent_terminal(websocket: WebSocket, session_id: str):
+    try:
+        user = get_current_user(websocket)
+    except HTTPException:
+        await websocket.close(code=4401)
+        return
+
+    await websocket.accept()
+
+    model = websocket.query_params.get("model", Models.SONNET)
+    effort = websocket.query_params.get("effort", "")
+    upstream_url = f"{DEV_AGENT_WS_URL}/{session_id}?model={model}&effort={effort}"
+
+    try:
+        async with websockets.connect(upstream_url, max_size=None) as upstream:
+            async def browser_to_upstream():
+                try:
+                    while True:
+                        text = await websocket.receive_text()
+                        await upstream.send(text)
+                except WebSocketDisconnect:
+                    pass
+                except Exception:
+                    pass
+
+            async def upstream_to_browser():
+                try:
+                    async for message in upstream:
+                        if isinstance(message, bytes):
+                            await websocket.send_bytes(message)
+                        else:
+                            await websocket.send_text(message)
+                except Exception:
+                    pass
+
+            task1 = asyncio.ensure_future(browser_to_upstream())
+            task2 = asyncio.ensure_future(upstream_to_browser())
+            done, pending = await asyncio.wait({task1, task2}, return_when=asyncio.FIRST_COMPLETED)
+            for t in pending:
+                t.cancel()
+    except Exception as ex:
+        try:
+            await websocket.send_text(json.dumps({"type": "error", "message": f"Entwickler-Agent nicht erreichbar: {ex}"}))
+        except Exception:
+            pass
+    finally:
+        try:
+            await websocket.close()
+        except Exception:
+            pass
