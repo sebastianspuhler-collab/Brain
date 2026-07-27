@@ -744,6 +744,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-27 11:54] [Beispiel Anfrage für KI] Kundenanfrage mit Stücklisten und Einzelteilzeichnungen eingegangen, Ansprechpartner: Stefan Seifert (Seifert GmbH, stefan.seifert@seifert-gmbh.com, +49 9077 957588-33)
 - [2026-07-27 05:36] [08_euer_ausgaben_zuordnung.md] Werbe-Service-Partner 2025: INSTANTLY, LinkedIn Ireland, Digistore24; Netto-Beträge mit separater Vorsteuer-Dokumentation
 - [2026-07-27 05:36] [08_euer_ausgaben_zuordnung.md] INSTANTLY: Regelmäßiger Werbekostenpartner mit monatlichen Zahlungen 2025 (17,91€–85,37€ netto)
 - [2026-07-27 00:14] [2026-07-27.md] Inbox-Verarbeitung vom 2026-07-27 00:14: 6 Fehler bei der Verarbeitung aufgetreten
