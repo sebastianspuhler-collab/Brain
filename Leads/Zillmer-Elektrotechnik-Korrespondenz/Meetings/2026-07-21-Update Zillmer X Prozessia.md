@@ -15,6 +15,33 @@ kategorie: Lead
 ## Zusammenfassung
 Besprechungstranskript vom 21.07.2026 zwischen Sebastian Spuhler und Dierk Biendarra (Zillmer Elektrotechnik) über den Einsatz einer KI zur Kalkulation: Recherche fehlender Herstellerangaben in Ausschreibungen, automatischer Preisvergleich bei Großhandel/Herstelleranfragen und Weitergabe der Ergebnisse an beauftragte Stellen.
 
+## Teilnehmer
+- Sebastian Spuhler (Prozessia)
+- Dierk Biendarra (Zillmer Elektrotechnik)
+
+## Kernpunkte
+- Kernbedarf: Ausschreibungen (LV-Bereich) sind oft unklar definiert – Hersteller und Leuchtentypen stehen nicht drin. Eine KI soll das recherchieren.
+- Zweiter Schritt: Anfragen an Großhandel/Hersteller, KI vergleicht die eingehenden Preise und liefert den günstigsten Anbieter für die Kalkulation, Weitergabe an Beauftragte.
+- Fehleranfälligkeit lässt sich stark senken, wenn der Herstellerraum eingegrenzt wird (ca. 50 relevante Leuchtenhersteller) und der Prozess im Systemprompt exakt beschrieben ist – anders als bei ChatGPT/Claude, die bei gleicher Anfrage unterschiedliche Ergebnisse und Halluzinationen liefern.
+- Regulatorik als Treiber: DSGVO plus EU AI Act ab 2. August (Dokumentationspflicht für jede KI-verarbeitete Aktion, Haftungsthema für Geschäftsführung); 42–70 % der Mitarbeiter nutzen Schatten-KI.
+- Kostenstruktur erklärt: einmaliger Projektpreis + laufende Sprachmodellkosten (DSGVO-konform auf Microsoft-Server Frankfurt) + optionale Wartung; laufend voraussichtlich im niedrigen dreistelligen Bereich pro Monat.
+- Zugriffsbeschränkung (nur Biendarra bzw. definierte Nutzer) ist softwareseitig Standard und kein Problem; lokal auf dem Arbeitsplatzrechner wäre die Rechenleistung zu gering.
+- Interesse ist grundsätzlich da, der Chef hat sich das bisher nicht angeschaut – zeitliches Thema.
+
+## Zusagen
+- Dierk Biendarra: schickt eine echte Anfrage/Ausschreibung als PDF plus eine Skizze des gewünschten Prozesses und Vorschläge relevanter Leuchtenhersteller.
+- Sebastian Spuhler: erstellt darauf basierend eine Produkt-/Projektskizze mit konkretem Aufbau und Kostenvoranschlag.
+- Sebastian Spuhler: schickt das Transkript dieses Meetings zu.
+
+## Nächste Schritte
+- Beispiel-Anfrage und Herstellerliste von Zillmer abwarten.
+- Produktskizze und Kostenvoranschlag erarbeiten.
+- Folgetermin in einer Woche als Standardblocker; bei konkreter Umsetzung die Entscheider bei Zillmer einbinden.
+
+## Entscheidungen
+- Einstieg über ein klein geschnittenes Startprojekt statt eines großen Gesamtsystems.
+- Preismodell: einmaliger Projektpreis, Wartung ausdrücklich optional und nicht Teil des ersten Pakets.
+
 ## Vollständiger Inhalt
 Update Zillmer X Prozessia-20260721_105953-Besprechungstranskript 21. Juli 2026, 08:59AM 21 Min. 48 Sek. 
 Sebastian Spuhler Transkription gestartet 

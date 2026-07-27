@@ -16,6 +16,34 @@ kategorie: Lead
 ## Zusammenfassung
 Besprechungstranskript zwischen Sebastian Spuhler und Stefan Seifert vom 23.07.2026 über KI-Agenten-Potenzial im Bereich Frästeile/Zerspanung. Seifert beschreibt bestehende Tools wie Spanflug zur Kalkulation von Frässzeiten, die aber bei geschweißten Baugruppen aus mehreren Einzelteilen an Grenzen stoßen. Gesucht wird eine flexiblere Lösung zur automatisierten Erstellung von Material-/Zuschnittlisten.
 
+## Teilnehmer
+- Sebastian Spuhler (Prozessia)
+- Stefan Seifert (Seifert GmbH)
+- Miklas Gentsch
+
+## Kernpunkte
+- Bestehendes Tool Spanflug kalkuliert aus PDF und 3D-Modell die Fräszeit, scheitert aber an geschweißten Baugruppen aus mehreren Einzelteilen – der häufigste Fall bei Seifert.
+- Eigentlicher Schmerzpunkt: aus Anfrage, Zeichnungen und Stückliste händisch eine Gesamtliste mit Material, Zuschnitten, Mengen und Positionszuordnung zusammenstellen.
+- E-Mail-Automatisierung ist kein Thema – es wird wenig geschrieben, Standardtexte reichen. Der Wert liegt im aufbereiteten Dokument.
+- Erschwerend: jeder Kunde zeichnet und strukturiert anders, deshalb ist die Erkennung der Einzelteile die eigentliche Herausforderung.
+- Vorgehensempfehlung: klein anfangen, Autonomie des Agenten schrittweise erhöhen statt 0 auf 100.
+- Öffentliche Chatbots scheiden aus (Strafen, Unternehmenswissen wird Trainingsdaten); Lösung auf deutschen Servern mit verschlüsselten Modellen.
+- Seifert ist bei KI bisher unerfahren, kennt Protokoll-/Aufgaben-Automatisierung aus Teams-Meetings über seinen Bruder.
+
+## Zusagen
+- Sebastian Spuhler: erstellt eine Einschätzung, wie KI im konkreten Anfrage-/Kalkulationsprozess einsetzbar wäre, inklusive Aufwand.
+- Sebastian Spuhler: prüft passende Referenzprojekte/Anwendungsfälle für den nächsten Schritt.
+- Stefan Seifert: stellt Zeichnungen, Prozessbeschreibung und Beispiele bereit (per Antwort auf die Einladung an sebastian.spuhler@prozessia.de).
+
+## Nächste Schritte
+- Material von Seifert abwarten und auswerten.
+- Folgetermin: Dienstag, 28.07.2026, 14:30 Uhr – konkrete Einschätzung, Aufwand und mögliches Anfangsprojekt.
+- Referenzen aus der Region bzw. vergleichbare Anwendungsfälle aufbereiten.
+
+## Entscheidungen
+- Einstieg über den Anfrage-/Kalkulationsprozess (Zusammenführung von Anfrage, Zeichnung, Stückliste), nicht über E-Mail-Automatisierung.
+- Folgetermin fix auf Dienstag, 28.07.2026, 14:30 Uhr.
+
 ## Vollständiger Inhalt
 Stefan Seifert and Sebastian Spuhler-20260723_145318-Besprechungstranskript 23. Juli 2026, 12:53PM 15 Min. 30 Sek. 
 Sebastian Spuhler Transkription gestartet 
