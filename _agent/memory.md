@@ -1,4 +1,7 @@
 ## KONTEXT
+- [2026-07-27 12:13] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83493383.md] Dokument wirkt wie technisches Beispiel/Test-Stückliste ohne erkennbaren Kundenbezug
+- [2026-07-27 12:13] [2026-07-27-19fa3698b1-MATERIAL_2670270.md] GB-Materialnummer 2670270 dokumentiert, aber ohne Kundenzuordnung oder weiteren Kontext
+- [2026-07-27 12:13] [2026-07-27-19fa3698b1-MATERIAL_83493383.md] Materialnummer GB 83493383 – Fragment ohne Kundenzuordnung oder weitere Kontextinformation
 - [2026-07-27 12:13] [2026-07-27-19fa3698b1-MATERIAL_83480037.md] GB Materialnummer: 83480037 - Fragment ohne Prozess-/Kundenzuordnung
 - [2026-07-27 12:12] [2026-07-27-19fa3698b1-MATERIAL_83479898.md] GB Materialnummer 83479898 dokumentiert, ohne erkennbaren Projekt- oder Kundenbezug
 - [2026-07-27 12:12] [2026-07-27-19fa3698b1-MATERIAL_2672654.md] Materialnummer 2672654 (GB) ohne Kundenbezug oder Projektkontext - Zuordnung erforderlich
@@ -757,6 +760,9 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-27 12:13] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83493383.md] Gesamtgewicht: 0,368 KG
+- [2026-07-27 12:13] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83493383.md] Hauptkomponente: C-Profil aus S235JR (EN 10025-2), Länge 345mm
+- [2026-07-27 12:13] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83493383.md] Artikel 83493383 'Halter' (Zeichnungsnummer 21170344) mit Stückliste erfasst
 - [2026-07-27 12:12] [2026-07-27-19fa3698b1-MATERIAL_2663013.md] GB-Materialnummer 2663013 identifiziert, Kontext und Kundenbezug unklar – fragmentarisches Dokument
 - [2026-07-27 12:12] [2026-07-27-19fa3698b1-MATERIAL_2663011.md] Prüffall: Materialnummer erfordert Klärung und Zuordnung
 - [2026-07-27 12:11] [2026-07-27-19fa3698b1-MATERIAL_2588573.md] Gekennzeichnet als Prüffall - Material-Stammdaten unvollständig
@@ -1339,6 +1345,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-07-27 12:13] [2026-07-27-19fa3698b1-MATERIAL_IU485.md] Materialnummer IU485 (Quelle: 19fa3698b1-MATERIAL_IU485.pdf) benötigt Kontextklärung und Zuordnung zu Kundenprojekt
 - [2026-07-27 12:11] [2026-07-27-19fa3698b1-MATERIAL_2588573.md] Kundenbezug unklar - Material ohne Kontextinformationen
 - [2026-07-27 12:11] [2026-07-27-19fa3698b1-MATERIAL_2588569.md] Klärungsbedarf: Materialnummer 2588569 benötigt Kontextualisierung und Projektzuordnung
 - [2026-07-23 12:08] [2026-07-23-19f47537e0-Rechnung_RE260014_09.07.2026.md] Rechnung RE260014 (09.07.2026) von 'World Class Marketing LLC' enthält private Restaurantausgaben (Speisen/Getränke, 42,10€ netto) – kein erkennbarer Geschäftsbezug zu Prozessia, möglicherweise fehlerhaft abgelegt
