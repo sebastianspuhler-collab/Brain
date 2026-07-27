@@ -40,11 +40,10 @@
 | 2025-12-14 | FACEBK *WSY378HLU2 | 8,00 € | – | 2025-12-13T12-47 Transaktion 25476762878680504-25421830257507097.pdf |
 | 2025-12-15 | FACEBK *QHNPD9DLU2 | 9,00 € | – | 2025-12-14T13-11 Transaktion 25414279194928869-25297331939956928.pdf |
 | 2025-12-15 | FACEBK *C3GR9A9MU2 | 10,00 € | – | 2025-12-15T00-11 Transaktion 25416472061376255-25521729800850479.pdf |
-| 2025-12-16 | INSTANTLY | 17,92 € | 3,41 € | (kein Originalbeleg - akzeptiert) |
 | 2025-12-17 | FACEBK *4Q76L9RLU2 | 11,00 € | – | 2025-12-16T09-14 Transaktion 25533610619662397-25501444542879004.pdf |
 | 2025-12-18 | FACEBK *BNNY6A5MU2 | 12,00 € | – | 2025-12-17T13-22 Transaktion 25323714033985385-25323714057318716.pdf |
 | 2025-12-19 | FACEBK *QUFFB9ZLU2 | 14,00 € | – | 2025-12-18T20-09 Transaktion 25556351544054971-25365991733090951.pdf |
-| | **Summe** | **1.135,61 €** | **49,20 €** | 34 Buchungen |
+| | **Summe** | **1.117,69 €** | **45,79 €** | 33 Buchungen |
 
 ## Rechts- und Steuerberatung, Buchführung
 
@@ -71,7 +70,6 @@
 
 | Datum | Partner | Netto | Vorsteuer | Beleg |
 |---|---|---:|---:|---|
-| 2025-04-01 | ZOHO-ZOHO CORP | 10,80 € | – | **fehlt** – Netto geschätzt aus 12,85 € |
 | 2025-05-30 | BOLT (BY STACKBLITZ) | 17,73 € | – | Bolt StackBlitz Beleg 05-29-2025.md |
 | 2025-06-30 | BOLT (BY STACKBLITZ) | 17,12 € | – | Invoice-LRDKYW8R-0002.pdf |
 | 2025-07-11 | PADDLE.NET* N8N CLOUD1 | 24,00 € | 4,56 € | Paddle n8n Cloud Beleg 10-07-2025.md |
@@ -82,12 +80,11 @@
 | 2025-09-06 | APIFY* INV#20250906015 | 39,00 € | – | Apify_Invoice_202509060156.pdf |
 | 2025-09-19 | IONOS SE | 0,84 € | 0,16 € | IONOS Rechnung 2025-09-13 - RG_100171679573 (1).pdf |
 | 2025-11-01 | HOSTINGER* HOSTINGER.D | 9,99 € | 1,90 € | H_31943964.pdf |
-| 2025-11-15 | OPENAI | 8,64 € | – | **fehlt** – Netto geschätzt aus 10,28 € |
 | 2025-11-15 | hostinger.com | 1,16 € | 0,22 € | H_32869079.pdf |
 | 2025-11-28 | hostinger.com | 17,99 € | 3,42 € | H_33541164.pdf |
 | 2025-12-05 | GAMMA.APP | 24,00 € | – | Invoice-GMM5S7YE-0001.pdf |
 | 2025-12-25 | HOSTINGER* HOSTINGER.D | 17,99 € | 3,42 € | H_34974301.pdf |
-| | **Summe** | **646,41 €** | **93,12 €** | 16 Buchungen |
+| | **Summe** | **626,97 €** | **93,12 €** | 14 Buchungen |
 
 ## Miete/Pacht für Geschäftsräume
 
@@ -124,17 +121,17 @@
 
 | Feld | Betrag |
 |---|---:|
-| Werbekosten | 1.135,61 € |
+| Werbekosten | 1.117,69 € |
 | Rechts- und Steuerberatung, Buchführung | 773,67 € |
-| Laufende IT-Kosten | 646,41 € |
+| Laufende IT-Kosten | 626,97 € |
 | Miete/Pacht für Geschäftsräume | 275,00 € |
 | Übernachtungs- und Reisekosten | 82,99 € |
 | Fortbildungskosten | 82,00 € |
-| **Summe Betriebsausgaben** | **2.995,68 €** |
-| Gezahlte Vorsteuerbeträge | 219,39 € |
+| **Summe Betriebsausgaben** | **2.958,32 €** |
+| Gezahlte Vorsteuerbeträge | 215,98 € |
 | An das Finanzamt gezahlte Umsatzsteuer | 0,00 € |
 
-78 gewertete Buchungen.
+75 gewertete Buchungen.
 
 ## Privat bezahlt – zugleich Einlage
 
@@ -154,5 +151,5 @@
 | Grund | Betrag brutto | Buchungen |
 |---|---:|---|
 | Durchlaufposten Benito Ferrise | 4.760,00 € | 1 |
+| Nicht als geschäftlich eingestuft | 58,48 € | 6 |
 | Bagatelle < 10 € ohne Beleg | 57,55 € | 9 |
-| Nicht als geschäftlich eingestuft | 14,02 € | 3 |

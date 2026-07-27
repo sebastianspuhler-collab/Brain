@@ -287,14 +287,15 @@
    "betrag_brutto": 12.85,
    "gegenpartei": "ZOHO-ZOHO CORP",
    "verwendungszweck": "ZOHO-ZOHO CORP",
-   "kategorie": "GESCHAEFTLICH",
+   "kategorie": "KEIN_BELEG_AUSGESCHLOSSEN",
    "fremdwaehrung": false,
    "fx_hinweis": null,
    "beleg_ids": [],
    "status": "AKZEPTIERT_BAGATELLE",
    "pruefgrund": null,
    "quelle": "finom_kontoauszug",
-   "quellref": "Finom_statement_21072026.pdf"
+   "quellref": "Finom_statement_21072026.pdf",
+   "korrektur_grund": "ZOHO CORP, 2025-04-01, 12,85 EUR brutto. Kein Beleg auffindbar, Netto war nur geschaetzt (brutto/1,19). Regel 2026-07-27: kein Beleg = wird nicht berechnet, unabhaengig vom Betrag."
   },
   {
    "tx_id": "FINOM-e8eb8fb27744638e",
@@ -2005,7 +2006,7 @@
    "betrag_brutto": 10.28,
    "gegenpartei": "OPENAI",
    "verwendungszweck": "OPENAI",
-   "kategorie": "GESCHAEFTLICH",
+   "kategorie": "KEIN_BELEG_AUSGESCHLOSSEN",
    "fremdwaehrung": true,
    "fx_hinweis": {
     "fx_rate_line": "1 EUR = 1,1575 USD",
@@ -2017,7 +2018,8 @@
    "status": "AKZEPTIERT_BAGATELLE",
    "pruefgrund": null,
    "quelle": "finom_kontoauszug",
-   "quellref": "Finom_statement_21072026.pdf"
+   "quellref": "Finom_statement_21072026.pdf",
+   "korrektur_grund": "OPENAI, 2025-11-15, 10,28 EUR brutto. Kein Beleg auffindbar, Netto war nur geschaetzt (brutto/1,19). Regel 2026-07-27: kein Beleg = wird nicht berechnet, unabhaengig vom Betrag."
   },
   {
    "tx_id": "FINOM-6602729573fcbfe7",
@@ -2457,7 +2459,7 @@
    "betrag_brutto": 21.33,
    "gegenpartei": "INSTANTLY",
    "verwendungszweck": "INSTANTLY",
-   "kategorie": "GESCHAEFTLICH",
+   "kategorie": "KEIN_BELEG_AUSGESCHLOSSEN",
    "fremdwaehrung": true,
    "fx_hinweis": {
     "fx_rate_line": "1 EUR = 1,172 USD",
@@ -2471,7 +2473,8 @@
    "status": "AKZEPTIERT_BAGATELLE",
    "pruefgrund": "Per Nutzerentscheidung 2026-07-22 akzeptiert: keine Rechnung auffindbar trotz mehrfacher Recherche (Drive komplett, Gmail). Netto geschaetzt mit 19% USt aus Bankbetrag.",
    "quelle": "finom_kontoauszug",
-   "quellref": "Finom_statement_21072026.pdf"
+   "quellref": "Finom_statement_21072026.pdf",
+   "korrektur_grund": "INSTANTLY, 2025-12-16, 21,33 EUR brutto. Trotz vollstaendiger Drive+Gmail-Recherche kein Originalbeleg gefunden, bisher als Pseudo-Beleg 'akzeptiert_ohne_beleg' mit geschaetzter Vorsteuer (3,41 EUR) mitgezaehlt. Regel 2026-07-27: kein Beleg = wird nicht berechnet, auch die darauf beruhende Vorsteuer nicht."
   },
   {
    "tx_id": "FINOM-b28ec8e545dd43f3",
