@@ -1,345 +1,255 @@
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { ArrowUp, ExternalLink, FileText, Loader2, Paperclip, Terminal, X } from "lucide-react";
-import ReactMarkdown from "react-markdown";
+import { FitAddon } from "@xterm/addon-fit";
+import { Terminal } from "@xterm/xterm";
+import "@xterm/xterm/css/xterm.css";
+import { RotateCcw, Terminal as TerminalIcon, Upload } from "lucide-react";
 import { toast } from "sonner";
-import { ApiError, chatAttach, chatSessions, streamDevAgentChat, type ChatAttachment, type ChatMessage } from "@/api/client";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
+import { cn } from "@/lib/utils";
 
-// Fester Host-Port-Bereich statt Subdomain (DNS ist auf dem VPS nicht
-// wildcard, siehe Umsetzungsplan 2026-07-25) - der Sandbox-Container
-// veröffentlicht 8100-8120 direkt auf die VPS-IP.
-const VPS_HOST = "72.61.80.20";
-const PORT_PATTERN = /\bPort\s+(\d{4,5})\b/i;
+const API_BASE = import.meta.env.VITE_API_BASE ?? "";
 
-// Muss zu dev-agent/server.py::ALLOWED_MODELS passen (Umsetzungsplan 2026-07-26).
+// Muss zu dev-agent/server.py::ALLOWED_MODELS/ALLOWED_EFFORTS passen
+// (Umsetzungsplan 2026-07-27).
 const MODELS = [
   { id: "claude-sonnet-5", label: "Sonnet" },
   { id: "claude-opus-4-8", label: "Opus" },
 ];
-
-const SUGGESTIONS = [
-  { title: "Neues Projekt", prompt: "Lege ein neues kleines Vite-React-Projekt an und starte einen Dev-Server dafür." },
-  { title: "Bestehendes Projekt fortsetzen", prompt: "Welche Projekte gibt es schon in /workspace? Gib mir eine kurze Übersicht." },
-  { title: "Feature ergänzen", prompt: "Ergänze im zuletzt bearbeiteten Projekt eine neue Funktion: " },
-  { title: "Nach GitHub pushen", prompt: "Committe die Änderungen im aktuellen Projekt und pushe sie nach GitHub." },
+const EFFORTS = [
+  { id: "", label: "Standard" },
+  { id: "low", label: "Low" },
+  { id: "medium", label: "Medium" },
+  { id: "high", label: "High" },
+  { id: "xhigh", label: "XHigh" },
+  { id: "max", label: "Max" },
 ];
 
-function previewLink(content: string): string | null {
-  const match = content.match(PORT_PATTERN);
-  return match ? `http://${VPS_HOST}:${match[1]}` : null;
+function wsUrl(sessionId: string, model: string, effort: string): string {
+  const base = API_BASE || `${location.protocol}//${location.host}`;
+  const wsBase = base.replace(/^http/, "ws");
+  return `${wsBase}/api/ws/dev-agent/${sessionId}?model=${encodeURIComponent(model)}&effort=${encodeURIComponent(effort)}`;
 }
 
+// Entwicklungs-Agent als echtes interaktives Claude-Code-Terminal
+// (Umsetzungsplan 2026-07-27) - ersetzt die bisherige Chat-Bubble-Simulation
+// (jeder Turn ein frischer Headless-Prozess, Tool-Aufrufe unsichtbar) durch
+// einen dauerhaften, an ein PTY gebundenen `claude`-Prozess pro Sitzung, per
+// WebSocket 1:1 mit xterm.js verbunden. Modellwechsel/Effort/weitere Befehle
+// laufen ab Verbindungsaufbau über die echten Slash-Commands der CLI selbst
+// (/model, /effort, /clear, /compact, ...) - keine eigene UI dafür nötig.
 export function DevAgentPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const sessionId = searchParams.get("session");
 
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
-  const [input, setInput] = useState("");
+  const [phase, setPhase] = useState<"config" | "terminal">(sessionId ? "terminal" : "config");
   const [model, setModel] = useState(MODELS[0].id);
-  const [streaming, setStreaming] = useState(false);
-  const [error, setError] = useState("");
-  const [loadingSession, setLoadingSession] = useState(false);
-  const [attaching, setAttaching] = useState(false);
-  const [pendingAttachments, setPendingAttachments] = useState<ChatAttachment[]>([]);
-  const abortRef = useRef<AbortController | null>(null);
-  const bottomRef = useRef<HTMLDivElement>(null);
-  const attachInputRef = useRef<HTMLInputElement>(null);
+  const [effort, setEffort] = useState("");
+  const [connected, setConnected] = useState(false);
+  const [connectionError, setConnectionError] = useState("");
+  const [uploading, setUploading] = useState(false);
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const uploadInputRef = useRef<HTMLInputElement>(null);
+  const wsRef = useRef<WebSocket | null>(null);
+
+  function startTerminal() {
+    const id = sessionId ?? crypto.randomUUID();
+    if (!sessionId) setSearchParams({ session: id }, { replace: true });
+    setConnectionError("");
+    setPhase("terminal");
+  }
+
+  function restartTerminal() {
+    setSearchParams({ session: crypto.randomUUID() }, { replace: true });
+    setPhase("config");
+    setConnected(false);
+  }
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+    if (phase !== "terminal" || !sessionId || !containerRef.current) return;
 
-  // Chat-Verlauf pro Agent (Umsetzungsplan 2026-07-26): Historie laden, sobald
-  // eine Session in der URL steht - gleiches Muster wie ChatPage.tsx, nutzt
-  // dieselbe chat_sessions.py-Persistenz über die reservierte DEV_AGENT_ID.
-  useEffect(() => {
-    if (!sessionId) {
-      setMessages([]);
-      return;
-    }
-    let cancelled = false;
-    setLoadingSession(true);
-    chatSessions
-      .get(sessionId)
-      .then((data) => {
-        if (cancelled) return;
-        setMessages(data.messages ?? []);
-        if (data.model) setModel(data.model);
-      })
-      .catch(() => {
-        if (!cancelled) toast.error("Chat konnte nicht geladen werden");
-      })
-      .finally(() => {
-        if (!cancelled) setLoadingSession(false);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [sessionId]);
+    const term = new Terminal({
+      cursorBlink: true,
+      fontSize: 13,
+      fontFamily: "var(--font-mono), ui-monospace, monospace",
+      theme: { background: "#0d0d0d", foreground: "#e5e5e5" },
+    });
+    const fitAddon = new FitAddon();
+    term.loadAddon(fitAddon);
+    term.open(containerRef.current);
+    fitAddon.fit();
 
-  async function send(overrideText?: string) {
-    const text = (overrideText ?? input).trim();
-    if (!text || streaming) return;
+    const ws = new WebSocket(wsUrl(sessionId, model, effort));
+    ws.binaryType = "arraybuffer";
+    wsRef.current = ws;
 
-    let activeSessionId = sessionId;
-    if (!activeSessionId) {
-      activeSessionId = crypto.randomUUID();
-      setSearchParams({ session: activeSessionId }, { replace: true });
-    }
-
-    const nextMessages: ChatMessage[] = [
-      ...messages,
-      { role: "user", content: text, attachments: pendingAttachments.length ? pendingAttachments : undefined },
-    ];
-    setMessages([...nextMessages, { role: "assistant", content: "" }]);
-    setInput("");
-    setPendingAttachments([]);
-    setStreaming(true);
-    setError("");
-
-    const controller = new AbortController();
-    abortRef.current = controller;
-
-    let assistantText = "";
-    try {
-      await streamDevAgentChat(
-        nextMessages,
-        model,
-        (chunk) => {
-          assistantText += chunk;
-          setMessages([...nextMessages, { role: "assistant", content: assistantText }]);
-        },
-        controller.signal,
-        activeSessionId
-      );
-    } catch (err) {
-      if (!(err instanceof DOMException && err.name === "AbortError")) {
-        setError("Verbindung zum Entwickler-Agenten unterbrochen. Bitte erneut versuchen.");
+    function sendResize() {
+      if (ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify({ type: "resize", cols: term.cols, rows: term.rows }));
       }
-    } finally {
-      setStreaming(false);
-      window.dispatchEvent(new CustomEvent("brain:sessions-changed"));
     }
-  }
 
-  function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      send();
-    }
-  }
+    ws.onopen = () => {
+      setConnected(true);
+      setConnectionError("");
+      sendResize();
+      term.focus();
+    };
+    ws.onmessage = (event) => {
+      if (typeof event.data === "string") {
+        try {
+          const msg = JSON.parse(event.data);
+          if (msg.type === "error") {
+            setConnectionError(msg.message);
+            term.write(`\r\n\x1b[31m${msg.message}\x1b[0m\r\n`);
+          }
+        } catch {
+          term.write(event.data);
+        }
+      } else {
+        term.write(new Uint8Array(event.data));
+      }
+    };
+    ws.onclose = () => {
+      setConnected(false);
+      term.write("\r\n\x1b[90m[Verbindung getrennt]\x1b[0m\r\n");
+    };
+    ws.onerror = () => {
+      setConnectionError("Verbindung zum Entwickler-Agenten fehlgeschlagen.");
+    };
 
-  // Datei-Anhang nur für diesen Turn (Umsetzungsplan 2026-07-27) - gleiches
-  // Muster wie ChatPage.tsx: Text wird vorab extrahiert (POST /api/chat/attach)
-  // und nur in den Prompt dieser einen Nachricht eingebettet, kein echter
-  // Datei-Zugriff für den Agenten in /workspace.
-  async function handleChatAttach(e: React.ChangeEvent<HTMLInputElement>) {
+    const dataDisposable = term.onData((data) => {
+      if (ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify({ type: "input", data }));
+      }
+    });
+
+    const resizeObserver = new ResizeObserver(() => {
+      fitAddon.fit();
+      sendResize();
+    });
+    resizeObserver.observe(containerRef.current);
+
+    return () => {
+      resizeObserver.disconnect();
+      dataDisposable.dispose();
+      ws.close();
+      term.dispose();
+      wsRef.current = null;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase, sessionId]);
+
+  async function handleUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     e.target.value = "";
-    if (!file || attaching) return;
-    setAttaching(true);
+    if (!file || uploading) return;
+    setUploading(true);
     try {
-      const result = await chatAttach.upload(file);
-      setPendingAttachments((prev) => [...prev, result]);
-    } catch (err) {
-      toast.error(err instanceof ApiError ? err.message : "Datei konnte nicht gelesen werden");
+      const form = new FormData();
+      form.append("file", file);
+      const res = await fetch(`${API_BASE}/api/dev-agent/upload`, {
+        method: "POST",
+        credentials: "include",
+        body: form,
+      });
+      if (!res.ok) throw new Error(await res.text());
+      const result = await res.json();
+      toast.success(`„${result.filename}" liegt jetzt in /workspace`);
+    } catch {
+      toast.error("Datei-Upload fehlgeschlagen");
     } finally {
-      setAttaching(false);
+      setUploading(false);
     }
   }
 
-  function removeAttachment(filename: string) {
-    setPendingAttachments((prev) => prev.filter((a) => a.filename !== filename));
-  }
-
-  const modelSelect = (
-    <Select value={model} onValueChange={(value) => value && setModel(value)} disabled={streaming}>
-      <SelectTrigger
-        size="sm"
-        className="h-7 w-auto gap-1 border-none bg-transparent px-2 text-xs text-muted-foreground shadow-none hover:bg-muted hover:text-foreground"
-      >
-        <SelectValue>{(value: string) => MODELS.find((m) => m.id === value)?.label ?? value}</SelectValue>
-      </SelectTrigger>
-      <SelectContent>
-        {MODELS.map((m) => (
-          <SelectItem key={m.id} value={m.id}>
-            {m.label}
-          </SelectItem>
-        ))}
-      </SelectContent>
-    </Select>
-  );
-
-  const inputBar = (
-    <div className="flex flex-col rounded-3xl border border-border bg-card/60 shadow-lg backdrop-blur-sm transition focus-within:border-ring/50">
-      {pendingAttachments.length > 0 && (
-        <div className="flex flex-wrap gap-1.5 px-4 pt-3">
-          {pendingAttachments.map((a) => (
-            <span
-              key={a.filename}
-              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/60 px-2.5 py-1 text-xs text-foreground"
-            >
-              <FileText className="size-3.5 shrink-0" />
-              <span className="max-w-40 truncate">{a.filename}</span>
-              <button
-                type="button"
-                onClick={() => removeAttachment(a.filename)}
-                className="shrink-0 text-muted-foreground hover:text-destructive"
-                title="Anhang entfernen"
-              >
-                <X className="size-3" />
-              </button>
-            </span>
-          ))}
-        </div>
-      )}
-      <Textarea
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder="Aufgabe für den Entwickler-Agenten…"
-        rows={1}
-        disabled={streaming}
-        className="min-h-[48px] max-h-52 resize-none border-0 bg-transparent px-4 py-3.5 text-sm shadow-none focus-visible:ring-0"
-      />
-      <div className="flex items-center justify-between px-2 pb-2">
-        <div className="flex items-center gap-1">
-          {modelSelect}
-          <input
-            ref={attachInputRef}
-            type="file"
-            className="hidden"
-            onChange={handleChatAttach}
-            disabled={attaching}
-          />
-          <Button
-            size="icon"
-            variant="ghost"
-            className="size-7 rounded-full text-muted-foreground hover:text-foreground"
-            onClick={() => attachInputRef.current?.click()}
-            disabled={attaching}
-            title="Datei an diese Nachricht anhängen (nur für diese Anfrage)"
-          >
-            {attaching ? <Loader2 className="size-4 animate-spin" /> : <Paperclip className="size-4" />}
-          </Button>
-        </div>
-        <Button size="icon" className="size-8 rounded-full" onClick={() => send()} disabled={streaming || !input.trim()}>
-          <ArrowUp className="size-4" />
-        </Button>
-      </div>
-    </div>
-  );
-
-  if (loadingSession) {
+  if (phase === "config") {
     return (
-      <div className="flex h-[calc(100vh-6.5rem)] w-full items-center justify-center text-sm text-muted-foreground">
-        Chat wird geladen…
-      </div>
-    );
-  }
-
-  if (messages.length === 0) {
-    return (
-      <div className="mx-auto flex h-[calc(100vh-6.5rem)] w-full max-w-2xl flex-col items-center justify-center gap-6 px-4">
+      <div className="mx-auto flex h-[calc(100vh-6.5rem)] w-full max-w-md flex-col items-center justify-center gap-6 px-4">
         <div className="flex flex-col items-center gap-3 text-center">
           <div className="flex size-11 items-center justify-center rounded-full bg-accent">
-            <Terminal className="size-5 text-accent-foreground" />
+            <TerminalIcon className="size-5 text-accent-foreground" />
           </div>
           <h1 className="font-display text-3xl text-foreground">Entwicklung</h1>
-          <p className="max-w-md text-sm text-muted-foreground">
-            Läuft isoliert in einer eigenen Sandbox mit Zugriff auf einen eigenen{" "}
-            <code className="rounded bg-muted px-1 py-0.5 text-xs">Prozessia-Dev</code>-Ordner - kein Zugriff auf den
-            Vault oder andere Systeme.
+          <p className="max-w-sm text-sm text-muted-foreground">
+            Startet ein echtes, interaktives Claude-Code-Terminal in einer isolierten Sandbox mit Zugriff auf einen
+            eigenen <code className="rounded bg-muted px-1 py-0.5 text-xs">Prozessia-Dev</code>-Ordner - kein Zugriff
+            auf den Vault oder andere Systeme. Modell und Denk-Aufwand lassen sich danach jederzeit direkt im
+            Terminal mit <code className="rounded bg-muted px-1 py-0.5 text-xs">/model</code>/
+            <code className="rounded bg-muted px-1 py-0.5 text-xs">/effort</code> ändern.
           </p>
         </div>
-        <div className="w-full">{inputBar}</div>
-        <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2">
-          {SUGGESTIONS.map((s) => (
-            <button
-              key={s.title}
-              onClick={() => send(s.prompt)}
-              className="rounded-xl border border-border px-3.5 py-2.5 text-left transition hover:bg-muted"
-            >
-              <div className="text-sm font-medium text-foreground">{s.title}</div>
-              <div className="text-xs text-muted-foreground line-clamp-1">{s.prompt}</div>
-            </button>
-          ))}
+        <div className="flex w-full flex-col gap-3">
+          <div className="flex items-center justify-between gap-3">
+            <span className="text-sm text-muted-foreground">Modell</span>
+            <Select value={model} onValueChange={(v) => v && setModel(v)}>
+              <SelectTrigger className="w-40">
+                <SelectValue>{(v: string) => MODELS.find((m) => m.id === v)?.label ?? v}</SelectValue>
+              </SelectTrigger>
+              <SelectContent>
+                {MODELS.map((m) => (
+                  <SelectItem key={m.id} value={m.id}>
+                    {m.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="flex items-center justify-between gap-3">
+            <span className="text-sm text-muted-foreground">Denk-Aufwand</span>
+            <Select value={effort} onValueChange={(v) => v !== null && setEffort(v)}>
+              <SelectTrigger className="w-40">
+                <SelectValue>{(v: string) => EFFORTS.find((e) => e.id === v)?.label ?? "Standard"}</SelectValue>
+              </SelectTrigger>
+              <SelectContent>
+                {EFFORTS.map((e) => (
+                  <SelectItem key={e.id} value={e.id}>
+                    {e.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
         </div>
-        {error && <p className="text-sm text-destructive">{error}</p>}
+        <Button className="w-full" onClick={startTerminal}>
+          Terminal starten
+        </Button>
       </div>
     );
   }
 
   return (
-    <div className="mx-auto flex h-[calc(100vh-6.5rem)] w-full max-w-3xl flex-col">
-      <div className="flex-1 overflow-y-auto">
-        <div className="flex flex-col gap-6 px-1 py-4">
-          {messages.map((m, i) => {
-            const isThinking = streaming && i === messages.length - 1 && !m.content;
-            const link = m.role === "assistant" ? previewLink(m.content) : null;
-            return m.role === "user" ? (
-              <div key={i} className="flex flex-col items-end gap-1.5">
-                {!!m.attachments?.length && (
-                  <div className="flex max-w-[80%] flex-wrap justify-end gap-1.5">
-                    {m.attachments.map((a) => (
-                      <span
-                        key={a.filename}
-                        className="inline-flex items-center gap-1 rounded-full border border-border bg-muted/40 px-2 py-0.5 text-[11px] text-muted-foreground"
-                      >
-                        <FileText className="size-3 shrink-0" />
-                        <span className="max-w-32 truncate">{a.filename}</span>
-                      </span>
-                    ))}
-                  </div>
-                )}
-                <div className="max-w-[80%] rounded-3xl rounded-br-md bg-muted px-4 py-2 text-sm text-foreground">
-                  {m.content}
-                </div>
-              </div>
-            ) : (
-              <div key={i} className="flex gap-3">
-                <div className="relative flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
-                  {isThinking && (
-                    <>
-                      <span className="absolute inset-0 rounded-full border border-primary animate-[brain-pulse_1.6s_ease-out_infinite]" />
-                      <span
-                        className="absolute inset-0 rounded-full border border-primary animate-[brain-pulse_1.6s_ease-out_infinite]"
-                        style={{ animationDelay: "0.8s" }}
-                      />
-                    </>
-                  )}
-                  <Terminal className="relative size-3.5" />
-                </div>
-                <div className="min-w-0 flex-1 pt-0.5">
-                  <div className="mb-1 text-xs font-medium text-muted-foreground">Entwickler-Agent</div>
-                  {!isThinking && (
-                    <div className="prose prose-invert prose-sm max-w-none text-foreground">
-                      <ReactMarkdown>{m.content}</ReactMarkdown>
-                    </div>
-                  )}
-                  {link && (
-                    <a
-                      href={link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-primary/30 px-3 py-1 text-xs font-medium text-primary hover:bg-primary/10"
-                    >
-                      <ExternalLink className="size-3" />
-                      Vorschau öffnen ({link.replace("http://", "")})
-                    </a>
-                  )}
-                </div>
-              </div>
-            );
-          })}
-          {error && <p className="text-sm text-destructive">{error}</p>}
-          <div ref={bottomRef} />
+    <div className="mx-auto flex h-[calc(100vh-6.5rem)] w-full max-w-5xl flex-col gap-2">
+      <div className="flex items-center justify-between gap-2 px-1">
+        <div className="flex items-center gap-2">
+          <span
+            className={cn("size-2 rounded-full", connected ? "bg-emerald-500" : "bg-muted-foreground/40")}
+            title={connected ? "Verbunden" : "Nicht verbunden"}
+          />
+          <span className="text-sm font-medium text-foreground">Entwicklung</span>
+          {connectionError && <span className="text-xs text-destructive">{connectionError}</span>}
+        </div>
+        <div className="flex items-center gap-1">
+          <input ref={uploadInputRef} type="file" className="hidden" onChange={handleUpload} disabled={uploading} />
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() => uploadInputRef.current?.click()}
+            disabled={uploading}
+            title="Datei in /workspace legen"
+          >
+            <Upload className="size-3.5" />
+            {uploading ? "Lädt…" : "Datei hochladen"}
+          </Button>
+          <Button size="sm" variant="ghost" onClick={restartTerminal} title="Neue Sitzung starten">
+            <RotateCcw className="size-3.5" />
+            Neu
+          </Button>
         </div>
       </div>
-      <div className="sticky bottom-0 bg-background pt-2 pb-1">{inputBar}</div>
+      <div ref={containerRef} className="min-h-0 flex-1 overflow-hidden rounded-2xl border border-border bg-[#0d0d0d] p-2" />
     </div>
   );
 }
