@@ -588,6 +588,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-27 17:40] Seifert benötigt keine Kalkulationslösung für Einzelteile (hat bereits Spanflug), sondern eine Lösung für Baugruppenkalkulation. Spanflug erkennt bei geschweißten Baugruppen aus mehreren Einzelteilen die Zusammensetzung nicht, da es nur für einteilige Zerspanungsteile gebaut ist.
 - [2026-07-27 12:11] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Seifert-GmbH: Stückliste für Artikel 83486122 'Fuß' eingereicht
 - [2026-07-27 12:10] [2026-07-27-19fa3698b1-6000017119.md] Grenzebach Maschinenbau GmbH, Albanusstraße 1, 86663 Asbach-Bäumenheim
 - [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-PFITZER-127655.md] Nettosumme: 16,00 €
