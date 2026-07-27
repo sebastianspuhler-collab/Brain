@@ -139,9 +139,16 @@ def _spawn_session(session_id: str, model: str, effort: str) -> PtySession:
     master_fd, slave_fd = pty.openpty()
     _set_winsize(master_fd, 120, 30)
 
+    # Kein --permission-mode bypassPermissions/--dangerously-skip-permissions:
+    # die CLI verweigert das explizit als root ("cannot be used with root/sudo
+    # privileges for security reasons" - live beim Deploy-Test aufgefallen).
+    # Stattdessen wie im bisherigen Headless-Pfad (_stream() unten) nur ein
+    # festes Tool-Whitelist über --allowedTools - lief dort schon als root.
+    # Anders als im Headless-Modus kann der Nutzer hier ohnehin live auf einen
+    # eventuellen Rückfrage-Prompt reagieren (echtes interaktives Terminal),
+    # das ist sogar näher am echten Claude-Code-Gefühl als ein Blanket-Bypass.
     cmd = [
         CLAUDE_BIN,
-        "--permission-mode", "bypassPermissions",
         "--model", model,
         "--system-prompt", SYSTEM_PROMPT,
         "--add-dir", str(WORKSPACE),
