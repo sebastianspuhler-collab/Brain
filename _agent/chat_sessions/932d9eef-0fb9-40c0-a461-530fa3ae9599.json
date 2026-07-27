@@ -1,0 +1,19 @@
+{
+  "id": "932d9eef-0fb9-40c0-a461-530fa3ae9599",
+  "title": "was ist das letzte transkript",
+  "model": "claude-sonnet-5",
+  "created_at": "2026-07-27T11:21:04.722075+00:00",
+  "updated_at": "2026-07-27T11:22:36.326452+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "was ist das letzte transkript",
+      "attachments": null
+    },
+    {
+      "role": "assistant",
+      "content": "Gefunden – das ist tatsächlich das chronologisch letzte Transkript im Vault.Das aktuellste Transkript im Vault ist das Erstgespräch mit **Stefan Seifert** (Seifert-GmbH) vom **23.07.2026, 12:53 Uhr** – 15 Minuten 30 Sekunden lang, abgelegt in `Leads/Seifert-GmbH-Korrespondenz/2026-07-23-Stefan Seifert and Sebastian Spuhler.md`.\n\nInhaltlich geht es darum, was ein KI-Agent bei Seifert leisten könnte: Seifert nutzt aktuell **Spanflug** zur Kalkulation von Frässzeiten (PDF + 3D-Modell rein, System berechnet Fräszeit, Bohrer-/Fräserbedarf, Werktage) – das funktioniert aber nur bei einteiligen Zerspanungsteilen. Bei Seifert sind die meisten Teile geschweißte Baugruppen aus mehreren Einzelteilen, und genau da erkennt Spanflug die Zusammensetzung nicht. Material-/Zuschnittlisten (was, wie oft, zu welchen Positionen, für die Kostenaufteilung) erstellt Seifert deshalb noch handschriftlich. Das Transkript bricht an der Stelle ab, wo Seifert beginnt zu beschreiben, wie ein Programm das lösen könnte.\n\nZur Einordnung: Danach kommen chronologisch die Module 1-6 der KI-Schulungsreihe (09.06.) und diverse Kunden-Meetings (Lendner 16.07., Schaufler 14.-16.07.) – aber das Seifert-Transkript vom 23.07. ist tatsächlich das jüngste im ganzen Vault.\n\nNebenbei, passend dazu: Morgen um 14:30 Uhr steht \"Update Seifert X Prozessia\" im Kalender an – vermutlich der Termin, in dem du auf Basis genau dieses Gesprächs einen konkreten Lösungsvorschlag machst. Falls du willst, skizziere ich dir vorab kurz, wie ein Stücklisten-/Materiallisten-Agent für geschweißte Baugruppen aussehen könnte, analog zum Ansatz beim Mundinger-Projekt."
+    }
+  ],
+  "agent_id": null
+}
