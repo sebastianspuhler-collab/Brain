@@ -17,11 +17,10 @@ USTSATZ = 0.19
 # Feldbezeichnungen der Anlage EUER (Betriebsausgaben). Reihenfolge = Prioritaet.
 REGELN = [
     (r'FACEBK|META|INSTANTLY|DIGISTORE24|FINDYLEAD|LINKEDIN', 'Werbekosten'),
-    (r'HAUFE|CYFIRE',                                          'Rechts- und Steuerberatung, Buchführung'),
+    (r'HAUFE|CYFIRE|PNL FINTECH',                              'Rechts- und Steuerberatung, Buchführung'),
     (r'TRIATHLON',                                             'Miete/Pacht für Geschäftsräume'),
     (r'WIX|HOSTINGER|IONOS|OPENAI|ZOHO|BOLT|STACKBLITZ|PADDLE|N8N|APIFY|GAMMA|GOOGLE.?WORKSPACE',
                                                                'Laufende IT-Kosten'),
-    (r'PNL FINTECH',                                           'Übrige unbeschränkt abziehbare Betriebsausgaben'),
     (r'MATTH|WIMMLER',                                         'Fortbildungskosten'),
     (r'FERRISE|HOTEL|MELIA',                                   'Übernachtungs- und Reisekosten'),
 ]

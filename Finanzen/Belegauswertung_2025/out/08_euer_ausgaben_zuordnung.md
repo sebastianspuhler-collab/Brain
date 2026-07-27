@@ -62,9 +62,10 @@
 | 2025-10-09 | Haufe Service Center GmbH via Moll | 21,90 € | 4,16 € | 88aacb33-33ad-417c-8fe4-832b7e70f14f.pdf |
 | 2025-11-11 | Haufe Service Center GmbH via Moll | 21,90 € | 4,16 € | e2a326b2-ade7-430c-ad97-bafe06fe26ce.pdf |
 | 2025-11-13 | cyfire Rechtsanwaltsgesellschaft m | 450,00 € | – | Finom_payment_13112025.pdf |
+| 2025-11-29 | PNL Fintech B.V. | 97,20 € | 18,47 € | Drive:876cdb25-f3f5-4c8e-87b7-9c44fbc3f49e.html (Rechnung Nr. 3OJ3-0005 PNL Fintech) |
 | 2025-12-02 | Haufe Service Center GmbH via Moll | 1,30 € | 0,25 € | a9c2c58e-ea2a-45d6-a7e5-43a3744c3a21.pdf |
 | 2025-12-31 | Haufe Service Center GmbH via Moll | 8,22 € | 1,56 € | 97ea7bc1-9f7c-470d-a996-5cf104d13ad4.pdf |
-| | **Summe** | **676,47 €** | **43,02 €** | 14 Buchungen |
+| | **Summe** | **773,67 €** | **61,49 €** | 15 Buchungen |
 
 ## Laufende IT-Kosten
 
@@ -105,13 +106,6 @@
 | 2025-12-24 | TRIATHLON TRANSFER GMBH | 25,00 € | – | Triathlon Miete.pdf |
 | | **Summe** | **275,00 €** | **0,00 €** | 11 Buchungen |
 
-## Übrige unbeschränkt abziehbare Betriebsausgaben
-
-| Datum | Partner | Netto | Vorsteuer | Beleg |
-|---|---|---:|---:|---|
-| 2025-11-29 | PNL Fintech B.V. | 97,20 € | 18,47 € | Drive:876cdb25-f3f5-4c8e-87b7-9c44fbc3f49e.html (Rechnung Nr. 3OJ3-0005 PNL Fintech) |
-| | **Summe** | **97,20 €** | **18,47 €** | 1 Buchungen |
-
 ## Übernachtungs- und Reisekosten
 
 | Datum | Partner | Netto | Vorsteuer | Beleg |
@@ -131,10 +125,9 @@
 | Feld | Betrag |
 |---|---:|
 | Werbekosten | 1.135,61 € |
-| Rechts- und Steuerberatung, Buchführung | 676,47 € |
+| Rechts- und Steuerberatung, Buchführung | 773,67 € |
 | Laufende IT-Kosten | 646,41 € |
 | Miete/Pacht für Geschäftsräume | 275,00 € |
-| Übrige unbeschränkt abziehbare Betriebsausgaben | 97,20 € |
 | Übernachtungs- und Reisekosten | 82,99 € |
 | Fortbildungskosten | 82,00 € |
 | **Summe Betriebsausgaben** | **2.995,68 €** |
