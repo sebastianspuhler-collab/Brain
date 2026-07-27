@@ -28,6 +28,18 @@
       "grund": "Parser hat die Zwischensumme vor Rabatt (122,99) als Netto und den Gesamtbetrag (82,99) als USt gelesen. Auslagenabrechnung Benito Ferrise vom 10.09.2025: Uebernachtung Melia 84,00 + Parkhaus 14,33 + Fahrtkosten 20,00 + Parkhaus 4,66 abzgl. 40,00 Rabatt = 82,99 EUR, ausdruecklich 0% USt (Erstattung verauslagter Kosten). Beleg war der Kontobuchung vom 11.09.2025 nicht zugeordnet."
     }
   ],
+  "tx_korrekturen": [
+    {
+      "tx_id": "FINOM-a78c9dc8bf2894fe",
+      "setze": { "kategorie": "BAGATELLE_IGNORIERT" },
+      "grund": "PNL Fintech (Finom) Rechnung 3OJ3-0003, 'Fee for extra services' 29.04.-28.05.2025, 5,00 EUR. Per Nutzerentscheidung 2026-07-27 als Bagatelle ignoriert."
+    },
+    {
+      "tx_id": "FINOM-fee739b336e336b6",
+      "setze": { "kategorie": "BAGATELLE_IGNORIERT" },
+      "grund": "PNL Fintech (Finom) Rechnung 3OJ3-0004, 'Fee for extra services' 29.06.-28.07.2025, 5,00 EUR. Per Nutzerentscheidung 2026-07-27 als Bagatelle ignoriert."
+    }
+  ],
   "privat_bezahlte_ausgaben": [
     {
       "tx_id": "PRIVAT-wix-domain-20250805",

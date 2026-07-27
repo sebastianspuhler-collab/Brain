@@ -109,10 +109,8 @@
 
 | Datum | Partner | Netto | Vorsteuer | Beleg |
 |---|---|---:|---:|---|
-| 2025-05-29 | PNL Fintech B.V. | 5,00 € | 0,00 € | Drive:05b869a0-4824-4fb2-b89f-cdb651e1dad6.html (Rechnung Nr. 3OJ3-0003 PNL Fintech) |
-| 2025-07-29 | PNL Fintech B.V. | 5,00 € | 0,00 € | Drive:dabdf808-8706-4d9c-8111-ac218a331f15.html (Rechnung Nr. 3OJ3-0004 PNL Fintech) |
 | 2025-11-29 | PNL Fintech B.V. | 97,20 € | 18,47 € | Drive:876cdb25-f3f5-4c8e-87b7-9c44fbc3f49e.html (Rechnung Nr. 3OJ3-0005 PNL Fintech) |
-| | **Summe** | **107,20 €** | **18,47 €** | 3 Buchungen |
+| | **Summe** | **97,20 €** | **18,47 €** | 1 Buchungen |
 
 ## Übernachtungs- und Reisekosten
 
@@ -136,14 +134,14 @@
 | Rechts- und Steuerberatung, Buchführung | 676,47 € |
 | Laufende IT-Kosten | 646,41 € |
 | Miete/Pacht für Geschäftsräume | 275,00 € |
-| Übrige unbeschränkt abziehbare Betriebsausgaben | 107,20 € |
+| Übrige unbeschränkt abziehbare Betriebsausgaben | 97,20 € |
 | Übernachtungs- und Reisekosten | 82,99 € |
 | Fortbildungskosten | 82,00 € |
-| **Summe Betriebsausgaben** | **3.005,68 €** |
+| **Summe Betriebsausgaben** | **2.995,68 €** |
 | Gezahlte Vorsteuerbeträge | 219,39 € |
 | An das Finanzamt gezahlte Umsatzsteuer | 0,00 € |
 
-80 gewertete Buchungen.
+78 gewertete Buchungen.
 
 ## Privat bezahlt – zugleich Einlage
 
@@ -164,4 +162,4 @@
 |---|---:|---|
 | Durchlaufposten Benito Ferrise | 4.760,00 € | 1 |
 | Bagatelle < 10 € ohne Beleg | 57,55 € | 9 |
-| Nicht als geschäftlich eingestuft | 4,02 € | 1 |
+| Nicht als geschäftlich eingestuft | 14,02 € | 3 |

@@ -47,6 +47,21 @@ for k in korr['beleg_korrekturen']:
             n_link += 1
             print(f"      verknuepft mit Kontobuchung {t['tx_id']} vom {t['zahlungsdatum']}")
 
+# --- 1b. Transaktionsfelder direkt korrigieren (z.B. Kategorie aendern) --------
+for k in korr.get('tx_korrekturen', []):
+    t = by_tx.get(k['tx_id'])
+    if t is None:
+        print(f"  ! Transaktion nicht gefunden: {k['tx_id']}")
+        continue
+    geaendert = [f"{f}: {t.get(f)} -> {v}" for f, v in k['setze'].items() if t.get(f) != v]
+    t.update(k['setze'])
+    t['korrektur_grund'] = k['grund']
+    if geaendert:
+        n_tx += 1
+        print(f"  Transaktion {k['tx_id']}")
+        for g in geaendert:
+            print(f"      {g}")
+
 # --- 2. Privat bezahlte Ausgaben als Pseudo-Buchung ergaenzen ------------------
 for p in korr['privat_bezahlte_ausgaben']:
     if p['tx_id'] in by_tx:
