@@ -107,17 +107,20 @@
     }
   },
   "TPG": {
-    "input_hash": "875d0614ab87a6cd",
+    "input_hash": "3a22e0cd88aeab83",
     "ergebnis": {
       "status": "erstgespraech",
-      "sicherheit": "niedrig",
-      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
-      "quellen": [],
-      "warnsignal": null,
+      "sicherheit": "mittel",
+      "begruendung": "Das Erstgespräch fand laut 2026-06-18-Kai Winterscheid and Sebastian Spuhler.md statt, wurde aber danach nicht zu einem Angebot weitergeführt, da laut 2026-07-15-Email-19f6689d-Abgelehnt-Bedarfsanalyse-TPG-X-Prozessia.md der Folgetermin zur Bedarfsanalyse ausgesetzt wurde.",
+      "quellen": [
+        "2026-06-18-Kai Winterscheid and Sebastian Spuhler.md",
+        "2026-07-15-Email-19f6689d-Abgelehnt-Bedarfsanalyse-TPG-X-Prozessia.md"
+      ],
+      "warnsignal": "Termin zur Bedarfsanalyse wurde am 2026-07-15 seitens TPG ausgesetzt, da das ERP-Team zunächst an Schnittstellen arbeitet - kein neuer Termin vereinbart.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
-      "anzeige_name": "TPG",
-      "aktueller_stand": ""
+      "anzeige_name": "TPG (The Packaging Group GmbH)",
+      "aktueller_stand": "Nach dem Erstgespräch am 18.06.2026 wartet Prozessia auf Rückmeldung von TPG, da der geplante Bedarfsanalyse-Termin am 15.07.2026 wegen interner ERP-Arbeiten bei TPG ausgesetzt wurde."
     }
   },
   "Voigt_Salus": {
