@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-07-27 12:40] [Automatische Antwort: Kapazitätenplanung] Bei dringenden Angelegenheiten: Kontakt zu Antonia Häberle (antonia.haeberle@schaufler.de)
 - [2026-07-27 12:13] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83493383.md] Dokument wirkt wie technisches Beispiel/Test-Stückliste ohne erkennbaren Kundenbezug
 - [2026-07-27 12:13] [2026-07-27-19fa3698b1-MATERIAL_2670270.md] GB-Materialnummer 2670270 dokumentiert, aber ohne Kundenzuordnung oder weiteren Kontext
 - [2026-07-27 12:13] [2026-07-27-19fa3698b1-MATERIAL_83493383.md] Materialnummer GB 83493383 – Fragment ohne Kundenzuordnung oder weitere Kontextinformation
@@ -760,6 +761,8 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-27 12:40] [2026-07-27-Email-19fa3942-Automatische-Antwort-Kapazitätenplanung.md] Projekt Kapazitätenplanung Stücklistenprojekt - potenzielle Verzögerung bei Rückfragen bis 8.8.2026
+- [2026-07-27 12:40] [2026-07-27-Email-19fa3942-Automatische-Antwort-Kapazitätenplanung.md] Juergen Mahler abwesend bis 8. August 2026, eingeschränkter Email-Zugriff
 - [2026-07-27 12:13] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83493383.md] Gesamtgewicht: 0,368 KG
 - [2026-07-27 12:13] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83493383.md] Hauptkomponente: C-Profil aus S235JR (EN 10025-2), Länge 345mm
 - [2026-07-27 12:13] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83493383.md] Artikel 83493383 'Halter' (Zeichnungsnummer 21170344) mit Stückliste erfasst
