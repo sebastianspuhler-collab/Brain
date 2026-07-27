@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-07-27 05:36] [08_euer_ausgaben_zuordnung.md] EÜR 2025 Betriebsausgaben Werbekosten nach Belegprüfung vom 2026-07-26 klassifiziert
 - [2026-07-25 14:36] [Your Invite to our new Approval Program ] Marketing-/Spam-E-Mail von Regal Cash Group (Sydney Brooks, EVP) für Unternehmensfinanzierungsangebot - keine Relevanz für Prozessia GbR erkannt
 - [2026-07-25 12:24] [Zahlung erhalten] Server-Domain: srv1089921.hstgr.cloud
 - [2026-07-25 12:24] [Zahlung erhalten] Gesamtbetrag bezahlt: 304,83 EUR (257,88 EUR Produkt + 49,00 EUR Steuern - 2,05 EUR Credits)
@@ -743,6 +744,8 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-27 05:36] [08_euer_ausgaben_zuordnung.md] Werbe-Service-Partner 2025: INSTANTLY, LinkedIn Ireland, Digistore24; Netto-Beträge mit separater Vorsteuer-Dokumentation
+- [2026-07-27 05:36] [08_euer_ausgaben_zuordnung.md] INSTANTLY: Regelmäßiger Werbekostenpartner mit monatlichen Zahlungen 2025 (17,91€–85,37€ netto)
 - [2026-07-27 00:14] [2026-07-27.md] Inbox-Verarbeitung vom 2026-07-27 00:14: 6 Fehler bei der Verarbeitung aufgetreten
 - [2026-07-26 00:13] [2026-07-26.md] Inbox-Verarbeitung: 2 Fehler erkannt am 2026-07-26 00:12
 - [2026-07-25 00:11] [2026-07-25.md] Inbox-Verarbeitung 2026-07-25 00:11: 4 Fehler, 0 Items verarbeitet
