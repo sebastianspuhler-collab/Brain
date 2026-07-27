@@ -86,24 +86,22 @@
     }
   },
   "Schaufler": {
-    "input_hash": "c12714129c8b20dc",
+    "input_hash": "03cdc021d86af293",
     "ergebnis": {
       "status": "fulfillment",
       "sicherheit": "hoch",
-      "begruendung": "Der Beschaffungsagent ist bereits produktiv im Einsatz, belegt durch SLA und AVV (2026-07-23-19f40a0d3d-SLA_Schaufler .md, 2026-07-23-19f40a0d3d-AVV_Schaufler_Prozessia.md) sowie Rechnungen für Implementierung und Winform-Schnittstellen (2026-07-23-19f7aad092-Rechnung_RE260016_20.07.2026.md, 2026-07-22-Rechnung Schnittstellen Winform.md). Zudem gibt es laufenden Support-Bedarf wie eine Dashboard-Fehlermeldung (2026-07-22-Email-19f8888c-Dashboard-fehler.md) und Fragen zu Live-Daten (2026-07-21-Email-19f85405-KI-Agent.md).",
+      "begruendung": "Laut SLA_Schaufler und AVV_Schaufler_Prozessia wurde der Beschaffungsagent bereits vertraglich beauftragt und ist in Betrieb; die Rechnungen RE260016 (Implementierung, Prototyp fertiggestellt) und RE260015 (Schnittstelle zu Winform) belegen laufende Umsetzungsarbeiten.",
       "quellen": [
-        "2026-07-23-19f40a0d3d-SLA_Schaufler .md",
+        "2026-07-24-19f40a0d3d-SLA_Schaufler .md",
         "2026-07-23-19f40a0d3d-AVV_Schaufler_Prozessia.md",
         "2026-07-23-19f7aad092-Rechnung_RE260016_20.07.2026.md",
-        "2026-07-22-Rechnung Schnittstellen Winform.md",
-        "2026-07-22-Email-19f8888c-Dashboard-fehler.md",
-        "2026-07-21-Email-19f85405-KI-Agent.md"
+        "2026-07-22-Rechnung Schnittstellen Winform.md"
       ],
-      "warnsignal": "Kunde meldete am 22.07. einen Dashboard-Fehler und äußerte am 21.07. Unsicherheit über die Wirksamkeit des Agenten - keine erkennbare Antwort/Lösung in der Chronologie.",
+      "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Schaufler Tooling GmbH & Co. KG",
-      "aktueller_stand": "Der Beschaffungsagent ist implementiert und an Winform angebunden, befindet sich aber noch in der Einführungsphase mit offenen technischen Problemen (Dashboard-Fehler) und Klärungsbedarf zur Performance der Live-Daten."
+      "aktueller_stand": "Der Beschaffungsagent ist implementiert und wird aktuell an die Systeme Winform/Proleis angebunden; parallel werden Lieferantendaten (Top 100 Liste) gesammelt und die KI-Nutzungsrichtlinie gemäß EU-KI-Act finalisiert."
     }
   },
   "TPG": {
@@ -420,20 +418,21 @@
     }
   },
   "Seifert-GmbH": {
-    "input_hash": "23ec0d28607564e8",
+    "input_hash": "7c1f22fc4085e3ea",
     "ergebnis": {
       "status": "erstgespraech",
       "sicherheit": "mittel",
-      "begruendung": "Das Besprechungstranskript 2026-07-23-Stefan Seifert and Sebastian Spuhler.md dokumentiert ein Erstgespräch über KI-Agenten-Potenzial im Bereich Frästeile/Zerspanung, ergänzt durch den Lead-Eintrag 2026-07-23-Seifert-GmbH.md.",
+      "begruendung": "Am 23.07.2026 fand laut '2026-07-23-Stefan Seifert and Sebastian Spuhler.md' ein Erstgespräch zum KI-Agenten-Potenzial statt; am 27.07.2026 wurden mit den Dateien '2026-07-27-19fa3698b1-6000017119.md' und den zugehörigen Stücklisten Beispieldaten zur Konzeptvorbereitung nachgereicht, ein Angebot liegt aber noch nicht vor.",
       "quellen": [
-        "2026-07-23-Seifert-GmbH.md",
-        "2026-07-23-Stefan Seifert and Sebastian Spuhler.md"
+        "2026-07-23-Stefan Seifert and Sebastian Spuhler.md",
+        "2026-07-27-19fa3698b1-6000017119.md",
+        "2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83479898.md"
       ],
-      "warnsignal": "Alle Dokumente stammen vom selben Tag, es gibt noch keine erkennbare Folgeaktivität oder Angebot.",
+      "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
-      "anzeige_name": "Seifert-GmbH",
-      "aktueller_stand": "Erstgespräch mit Stefan Seifert geführt, gesucht wird eine flexible Lösung zur automatisierten Material-/Zuschnittlisten-Erstellung jenseits bestehender Tools wie Spanflug - nächster Schritt noch offen."
+      "anzeige_name": "Seifert GmbH",
+      "aktueller_stand": "Nach dem Erstgespräch am 23.07.2026 hat Seifert GmbH am 27.07.2026 konkrete Beispieldokumente (Anfrage und Stücklisten) zur Verfügung gestellt, damit Prozessia eine passende KI-Agent-Lösung für automatisierte Material-/Zuschnittlisten konzipieren kann; nächster Schritt wäre die Ausarbeitung eines Angebots."
     }
   },
   "Juchem": {
