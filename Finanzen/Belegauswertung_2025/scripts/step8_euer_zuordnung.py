@@ -28,10 +28,20 @@ REGELN = [
 def eur(x):
     return f"{x:,.2f} €".replace(',', 'X').replace('.', ',').replace('X', '.')
 
+# Tatsaechliche Finanzamt-Cashflows 2025 (aus Finom-Kontoauszug-Analyse 2026-07-26, siehe
+# project-euer-2025-finanzamt-zahlungen-Memory). Werden separat gefuehrt, weil Finanzamt-Buchungen
+# in zaehlt_zur_wertung() bewusst ausgeschlossen sind (kein normaler Umsatz/keine normale Ausgabe),
+# aber auf der Anlage EUER als eigene Zeilen (17/18 Einnahmen, 58 Ausgaben) noetig sind.
+FA_ERSTATTET_2025 = 25.59 + 93.27 + 155.10   # Zeile 18: vom Finanzamt erstattete Umsatzsteuer
+FA_GEZAHLT_2025 = 0.0                          # Zeile 58: an das Finanzamt gezahlte Umsatzsteuer
+
 merged = json.load(open(f"{BASE}/out/04_merged.json", encoding='utf-8'))
 bel = {b['id']: b for b in merged['belege']}
 alle = [t for t in merged['transaktionen'] if t['richtung'] == 'EINGANG']   # EINGANG = Geldabfluss
 gewertet = [t for t in alle if zaehlt_zur_wertung(t, bel)]
+
+alle_ein = [t for t in merged['transaktionen'] if t['richtung'] == 'AUSGANG']   # AUSGANG = Geldeingang
+gewertet_ein = [t for t in alle_ein if zaehlt_zur_wertung(t, bel)]
 
 def netto_von(t):
     """(netto, vorsteuer, beleg_vorhanden) - identisch zur Logik in step7."""
@@ -87,8 +97,38 @@ for feld in sorted(gruppen, key=lambda f: -summe(f)):
     A(f"| {feld} | {eur(summe(feld))} |")
 A(f"| **Summe Betriebsausgaben** | **{eur(G['nt'])}** |")
 A(f"| Gezahlte Vorsteuerbeträge | {eur(G['vst'])} |")
-A(f"| An das Finanzamt gezahlte Umsatzsteuer | {eur(0)} |")
+A(f"| An das Finanzamt gezahlte Umsatzsteuer | {eur(FA_GEZAHLT_2025)} |")
 A(f"\n{G['n']} gewertete Buchungen.\n")
+
+# --- Betriebseinnahmen (Umsatzseite) -------------------------------------------
+A("\n## Betriebseinnahmen\n")
+A("| Datum | Partner | Netto | Vereinnahmte USt | Beleg |")
+A("|---|---|---:|---:|---|")
+E = {'nt': 0.0, 'ust': 0.0}
+for t in sorted(gewertet_ein, key=lambda x: x['zahlungsdatum']):
+    b = bel.get(t['beleg_ids'][0]) if t.get('beleg_ids') else None
+    n = (b.get('betrag_netto') if b else None) or round(t['betrag_brutto'] / (1 + USTSATZ), 2)
+    v = (b.get('ust_betrag') if b else None) or 0.0
+    E['nt'] += n; E['ust'] += v
+    hinweis = b['quellref'].split('/')[-1] if b else f"**fehlt** – Netto geschätzt aus {eur(t['betrag_brutto'])}"
+    A(f"| {t['zahlungsdatum']} | {t['gegenpartei'][:34]} | {eur(n)} | {eur(v)} | {hinweis} |")
+A(f"| | **Summe** | **{eur(E['nt'])}** | **{eur(E['ust'])}** | {len(gewertet_ein)} Buchungen |")
+
+# --- Gesamtrechnung: Netto-Gewinn plus NUR die tatsaechlichen Finanzamt-Transaktionen 2025 --
+A("\n## Gesamtrechnung EÜR 2025\n")
+A("> Nutzerentscheidung 2026-07-27: Vereinnahmte USt und Vorsteuer werden NICHT separat aufaddiert")
+A("> (das waere Doppelzaehlung). Zum Netto-Gewinn zaehlt nur dazu, was tatsaechlich 2025 mit dem")
+A("> Finanzamt transaktioniert wurde (§ 11 EStG Zufluss-/Abflussprinzip).\n")
+netto_gewinn = E['nt'] - G['nt']
+A(f"| | Betrag |")
+A("|---|---:|")
+A(f"| Umsatz netto | {eur(E['nt'])} |")
+A(f"| Ausgaben netto | {eur(G['nt'])} |")
+A(f"| Netto-Gewinn (Umsatz − Ausgaben) | {eur(netto_gewinn)} |")
+A(f"| + Vom Finanzamt erstattete Umsatzsteuer 2025 | {eur(FA_ERSTATTET_2025)} |")
+A(f"| − An das Finanzamt gezahlte Umsatzsteuer 2025 | {eur(FA_GEZAHLT_2025)} |")
+finaler_gewinn = netto_gewinn + FA_ERSTATTET_2025 - FA_GEZAHLT_2025
+A(f"| **Gewinn 2025** | **{eur(finaler_gewinn)}** |")
 
 priv = [t for t in gewertet if t.get('privat_bezahlt')]
 if priv:

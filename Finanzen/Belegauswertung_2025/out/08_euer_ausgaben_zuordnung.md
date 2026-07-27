@@ -133,6 +133,32 @@
 
 75 gewertete Buchungen.
 
+
+## Betriebseinnahmen
+
+| Datum | Partner | Netto | Vereinnahmte USt | Beleg |
+|---|---|---:|---:|---|
+| 2025-08-28 | Joel Wagner | 100,00 € | 19,00 € | Rechnung Joel Wagner.pdf |
+| 2025-10-07 | Martin Veser UG (haftungsbeschr?nk | 231,09 € | 43,91 € | Rechnung Vapi Martin Veser.pdf |
+| 2025-10-24 | Martin Veser UG (haftungsbeschr?nk | 193,91 € | 36,84 € | Rechnung Vapi Martin Veser.pdf |
+| 2025-11-21 | Martin Veser UG (haftungsbeschr?nk | 425,00 € | 80,75 € | Rechnung RE250007.pdf |
+| 2025-12-30 | Joel Wagner | 4.000,00 € | 760,00 € | Rechnung RE250009.pdf |
+| | **Summe** | **4.950,00 €** | **940,50 €** | 5 Buchungen |
+
+## Gesamtrechnung EÜR 2025
+
+> Nutzerentscheidung 2026-07-27: Vereinnahmte USt und Vorsteuer werden NICHT separat aufaddiert
+> (das waere Doppelzaehlung). Zum Netto-Gewinn zaehlt nur dazu, was tatsaechlich 2025 mit dem
+> Finanzamt transaktioniert wurde (§ 11 EStG Zufluss-/Abflussprinzip).
+
+| | Betrag |
+|---|---:|
+| Umsatz netto | 4.950,00 € |
+| Ausgaben netto | 2.958,32 € |
+| Netto-Gewinn (Umsatz − Ausgaben) | 1.991,68 € |
+| + Vom Finanzamt erstattete Umsatzsteuer 2025 | 273,96 € |
+| − An das Finanzamt gezahlte Umsatzsteuer 2025 | 0,00 € |
+| **Gewinn 2025** | **2.265,64 €** |
 ## Privat bezahlt – zugleich Einlage
 
 | Datum | Partner | Netto | Vorsteuer | Brutto = Einlage |
