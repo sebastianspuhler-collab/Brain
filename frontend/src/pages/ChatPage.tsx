@@ -2,6 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { ArrowUp, BookPlus, Bot, BrainCircuit, FileText, Loader2, Paperclip, X } from "lucide-react";
 import ReactMarkdown from "react-markdown";
+// GitHub-Flavored Markdown (2026-07-27): ohne dieses Plugin rendert react-markdown
+// nur CommonMark - Tabellen kamen als rohe Pipe-Zeilen durch, ebenso Durchstreichen
+// und Aufgabenlisten. Brain antwortet aber regelmäßig in Tabellenform.
+import remarkGfm from "remark-gfm";
 import { toast } from "sonner";
 import {
   agents as agentsApi,
@@ -420,9 +424,15 @@ export function ChatPage() {
                 </div>
                 <div className="min-w-0 flex-1 pt-0.5">
                   <div className="mb-1 text-xs font-medium text-muted-foreground">Brain</div>
+                  {/* prose-invert nur im Dunkelmodus: seit der helle Modus der
+                      Standard ist (main.tsx, defaultTheme="light"), färbte die
+                      Invert-Palette Überschriften, Fettes, Listenpunkte, Code
+                      und Links fast weiß - auf hellem Grund unlesbar bzw.
+                      "verrückt". Fließtext blieb nur zufällig sichtbar, weil
+                      text-foreground danebensteht. */}
                   {!isThinking && (
-                    <div className="prose prose-invert prose-sm max-w-none text-foreground">
-                      <ReactMarkdown>{m.content}</ReactMarkdown>
+                    <div className="prose dark:prose-invert prose-sm max-w-none text-foreground">
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>{m.content}</ReactMarkdown>
                     </div>
                   )}
                   {!!m.sources?.length && (

@@ -396,6 +396,9 @@ def _stream_chat_cli(
         tasks_changed = False
         usage_info: dict | None = None
         cost_usd = 0.0
+        # Text des gerade laufenden Blocks, der schon Token für Token rausging -
+        # siehe stream_event-Zweig unten.
+        delta_buffer = ""
         try:
             for event in claude_cli.stream_chat(
                 last_msg,
@@ -407,9 +410,38 @@ def _stream_chat_cli(
                 allowed_tools=scoped_allowed_tools,
             ):
                 etype = event.get("type")
-                if etype == "assistant":
+                # Token-Stream (Umsetzungsplan 2026-07-27, Sebastian: "hängt am
+                # Anfang immer ein bisschen"). --include-partial-messages liefert
+                # den Text als content_block_delta, Zeichen für Zeichen; die
+                # "assistant"-Events kommen erst, wenn ein Block KOMPLETT fertig
+                # ist. Bisher wurden nur letztere ausgewertet - die Antwort blieb
+                # deshalb bis zum Ende des ersten Blocks komplett unsichtbar und
+                # sprang dann am Stück ins Fenster. Das ist die im Docstring von
+                # claude_cli.stream_chat() offen gelassene Granularitätsfrage,
+                # empirisch geklärt: es sind echte Token-Deltas.
+                if etype == "stream_event":
+                    ev = event.get("event", {})
+                    ev_type = ev.get("type")
+                    if ev_type == "content_block_start":
+                        delta_buffer = ""
+                    elif ev_type == "content_block_delta":
+                        delta = ev.get("delta", {})
+                        # thinking_delta/signature_delta bewusst ignorieren -
+                        # gehören nicht in die sichtbare Antwort.
+                        if delta.get("type") == "text_delta" and delta.get("text"):
+                            chunk = delta["text"]
+                            delta_buffer += chunk
+                            all_text_parts.append(chunk)
+                            yield _sse({"chunk": chunk})
+                elif etype == "assistant":
                     for block in event.get("message", {}).get("content", []):
                         if block.get("type") == "text" and block.get("text"):
+                            # Denselben Text nicht doppelt schicken. Fällt der
+                            # Delta-Stream einmal aus (andere CLI-Version, Flag
+                            # nicht gesetzt), greift dieser Zweig wie bisher als
+                            # Fallback und die Antwort kommt blockweise.
+                            if block["text"] == delta_buffer:
+                                continue
                             chunk = block["text"]
                             all_text_parts.append(chunk)
                             yield _sse({"chunk": chunk})

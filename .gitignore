@@ -50,6 +50,13 @@ _agent/logs/
 _agent/logs/processed_cache.json
 _agent/downloaded_attachments.json
 
+# Altlast aus genau diesem Bug: 112 Anhänge, die der Backfill am 24.07. erneut
+# heruntergeladen hatte, obwohl sie laut processed_cache.json längst verarbeitet
+# waren. Lagen seitdem unbeweglich in _inbox/. Beim Freigeben von _inbox/ (oben)
+# wären sie sonst auf den VPS gewandert und dort ein zweites Mal einsortiert
+# worden. Bewusst nur beiseitegelegt, nicht gelöscht - Sebastian entscheidet.
+_agent/inbox_altlast_*/
+
 # ── Präsentationen (zu groß für Git, im RAG als Text erfasst) ────────────────
 *.pptx
 *.ppt
