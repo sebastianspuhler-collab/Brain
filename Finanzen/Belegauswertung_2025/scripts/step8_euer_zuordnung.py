@@ -102,32 +102,36 @@ A(f"\n{G['n']} gewertete Buchungen.\n")
 
 # --- Betriebseinnahmen (Umsatzseite) -------------------------------------------
 A("\n## Betriebseinnahmen\n")
-A("| Datum | Partner | Netto | Vereinnahmte USt | Beleg |")
-A("|---|---|---:|---:|---|")
-E = {'nt': 0.0, 'ust': 0.0}
+A("| Datum | Partner | Netto | Beleg |")
+A("|---|---|---:|---|")
+E = {'nt': 0.0}
 for t in sorted(gewertet_ein, key=lambda x: x['zahlungsdatum']):
     b = bel.get(t['beleg_ids'][0]) if t.get('beleg_ids') else None
     n = (b.get('betrag_netto') if b else None) or round(t['betrag_brutto'] / (1 + USTSATZ), 2)
-    v = (b.get('ust_betrag') if b else None) or 0.0
-    E['nt'] += n; E['ust'] += v
+    E['nt'] += n
     hinweis = b['quellref'].split('/')[-1] if b else f"**fehlt** – Netto geschätzt aus {eur(t['betrag_brutto'])}"
-    A(f"| {t['zahlungsdatum']} | {t['gegenpartei'][:34]} | {eur(n)} | {eur(v)} | {hinweis} |")
-A(f"| | **Summe** | **{eur(E['nt'])}** | **{eur(E['ust'])}** | {len(gewertet_ein)} Buchungen |")
+    A(f"| {t['zahlungsdatum']} | {t['gegenpartei'][:34]} | {eur(n)} | {hinweis} |")
+A(f"| 2025-07-28 | Finanzamt Saarlouis (Erstattung USt 2VJ/25) | {eur(25.59)} | Finom-Kontoauszug |")
+A(f"| 2025-08-07 | Finanzamt Saarlouis (Erstattung USt 2024) | {eur(93.27)} | Finom-Kontoauszug |")
+A(f"| 2025-10-09 | Finanzamt Saarlouis (Erstattung USt 3VJ/25) | {eur(155.10)} | Finom-Kontoauszug |")
+umsatz_gesamt = E['nt'] + FA_ERSTATTET_2025
+A(f"| | **Summe (inkl. Finanzamt-Erstattung)** | **{eur(umsatz_gesamt)}** | {len(gewertet_ein)+3} Buchungen |")
 
-# --- Gesamtrechnung: Netto-Gewinn plus NUR die tatsaechlichen Finanzamt-Transaktionen 2025 --
+# --- Gesamtrechnung: Betriebseinnahmen (inkl. FA-Erstattung) minus Betriebsausgaben ---------
 A("\n## Gesamtrechnung EÜR 2025\n")
 A("> Nutzerentscheidung 2026-07-27: Vereinnahmte USt und Vorsteuer werden NICHT separat aufaddiert")
-A("> (das waere Doppelzaehlung). Zum Netto-Gewinn zaehlt nur dazu, was tatsaechlich 2025 mit dem")
-A("> Finanzamt transaktioniert wurde (§ 11 EStG Zufluss-/Abflussprinzip).\n")
-netto_gewinn = E['nt'] - G['nt']
+A("> (das waere Doppelzaehlung). Die tatsaechlich 2025 vom Finanzamt erhaltene Erstattung zaehlt")
+A("> direkt zu den Betriebseinnahmen (§ 11 EStG Zufluss-/Abflussprinzip).\n")
 A(f"| | Betrag |")
 A("|---|---:|")
-A(f"| Umsatz netto | {eur(E['nt'])} |")
+A(f"| Umsatz netto (Kunden) | {eur(E['nt'])} |")
+A(f"| Vom Finanzamt erstattete Umsatzsteuer 2025 | {eur(FA_ERSTATTET_2025)} |")
+A(f"| **Betriebseinnahmen gesamt** | **{eur(umsatz_gesamt)}** |")
 A(f"| Ausgaben netto | {eur(G['nt'])} |")
-A(f"| Netto-Gewinn (Umsatz − Ausgaben) | {eur(netto_gewinn)} |")
-A(f"| + Vom Finanzamt erstattete Umsatzsteuer 2025 | {eur(FA_ERSTATTET_2025)} |")
-A(f"| − An das Finanzamt gezahlte Umsatzsteuer 2025 | {eur(FA_GEZAHLT_2025)} |")
-finaler_gewinn = netto_gewinn + FA_ERSTATTET_2025 - FA_GEZAHLT_2025
+A(f"| An das Finanzamt gezahlte Umsatzsteuer 2025 | {eur(FA_GEZAHLT_2025)} |")
+ausgaben_gesamt = G['nt'] + FA_GEZAHLT_2025
+A(f"| **Betriebsausgaben gesamt** | **{eur(ausgaben_gesamt)}** |")
+finaler_gewinn = umsatz_gesamt - ausgaben_gesamt
 A(f"| **Gewinn 2025** | **{eur(finaler_gewinn)}** |")
 
 priv = [t for t in gewertet if t.get('privat_bezahlt')]
