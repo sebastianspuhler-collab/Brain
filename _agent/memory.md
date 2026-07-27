@@ -1,4 +1,15 @@
 ## KONTEXT
+- [2026-07-27 12:13] [2026-07-27-19fa3698b1-MATERIAL_83480037.md] GB Materialnummer: 83480037 - Fragment ohne Prozess-/Kundenzuordnung
+- [2026-07-27 12:12] [2026-07-27-19fa3698b1-MATERIAL_83479898.md] GB Materialnummer 83479898 dokumentiert, ohne erkennbaren Projekt- oder Kundenbezug
+- [2026-07-27 12:12] [2026-07-27-19fa3698b1-MATERIAL_2672654.md] Materialnummer 2672654 (GB) ohne Kundenbezug oder Projektkontext - Zuordnung erforderlich
+- [2026-07-27 12:12] [2026-07-27-19fa3698b1-MATERIAL_2663011.md] GB-Materialnummer 2663011 aufgenommen - Kunden- und Projektbezug unklar
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-MATERIAL_2588573.md] GB-Materialnummer 2588573 identifiziert
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-MATERIAL_2588569.md] GB-Materialnummer 2588569 ohne erkannte Kundenzuordnung identifiziert
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Stückliste bearbeitet 20.07.2026, eingegangen 27.07.2026
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83479898.md] Bearbeitungsdatum: 20.07.2026, Datei vom 27.07.2026, Quelle: PDF-Stückliste 19fa3698b1
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83479898.md] Spezifikationen Fuß-Baugruppe: Gewicht 18.075,976 kg, Längenmaß 2016 mm, Zeichnungsnummer 11946823.MI 00
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-6000017119.md] Anfragennummer: 6000017119 vom 27.07.2026
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83480037.md] Bearbeitungsdatum: 20.07.2026
 - [2026-07-27 05:36] [08_euer_ausgaben_zuordnung.md] EÜR 2025 Betriebsausgaben Werbekosten nach Belegprüfung vom 2026-07-26 klassifiziert
 - [2026-07-25 14:36] [Your Invite to our new Approval Program ] Marketing-/Spam-E-Mail von Regal Cash Group (Sydney Brooks, EVP) für Unternehmensfinanzierungsangebot - keine Relevanz für Prozessia GbR erkannt
 - [2026-07-25 12:24] [Zahlung erhalten] Server-Domain: srv1089921.hstgr.cloud
@@ -573,6 +584,8 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Seifert-GmbH: Stückliste für Artikel 83486122 'Fuß' eingereicht
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-6000017119.md] Grenzebach Maschinenbau GmbH, Albanusstraße 1, 86663 Asbach-Bäumenheim
 - [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-PFITZER-127655.md] Nettosumme: 16,00 €
 - [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-KIND WBH-127668.md] Preis: 227,7 EUR; Kontakt Lieferant: WBH-AV@Kind-Co.de
 - [2026-07-24 03:20] [2026-07-24-19f5bf6740-Top 10 Lieferanten.md] Schaufler-Projekt: Beschaffung von E- und K1-Teilen für Werkzeug- und Formenbau
@@ -744,6 +757,20 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-27 12:12] [2026-07-27-19fa3698b1-MATERIAL_2663013.md] GB-Materialnummer 2663013 identifiziert, Kontext und Kundenbezug unklar – fragmentarisches Dokument
+- [2026-07-27 12:12] [2026-07-27-19fa3698b1-MATERIAL_2663011.md] Prüffall: Materialnummer erfordert Klärung und Zuordnung
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-MATERIAL_2588573.md] Gekennzeichnet als Prüffall - Material-Stammdaten unvollständig
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Werkstoffe: S235 und S355J2H gemäß Fertigungsvorgaben
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Komponenten: 2588569 (Platte) und 2670270 (Seitenprofil) mit Unterstücklisten
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83479898.md] Artikel 83479898 'Fuß'-Baugruppe: Mehrstufige Struktur mit Platten (S235) und Seitenprofile/Hohlprofile (S355J2H)
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-6000017119.md] Liefertermin: 07.09.2026
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-6000017119.md] Anforderung: Fertigungsteile (Halter, Fuß, Schwinge) mit Zeichnungsnummern und Mengen
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-Grenzebach-Anfrage 6000017119.md] Eingangsdatum: 27.07.2026
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-Grenzebach-Anfrage 6000017119.md] Anfrage-Referenznummer: 6000017119
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83480037.md] Stückliste enthält Unterbaugruppen 2663011 und 2663013
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83480037.md] Komponente POS 0001: 2x Platte (Zeichnung 11934033.00, Artikel 2663011)
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83480037.md] Zeichnungsnummer 21126984.MI Version 00 für Schwinge
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83480037.md] Artikel 83480037 'Schwinge' mit Gesamtgewicht 43,462 kg
 - [2026-07-27 11:54] [Beispiel Anfrage für KI] Kundenanfrage mit Stücklisten und Einzelteilzeichnungen eingegangen, Ansprechpartner: Stefan Seifert (Seifert GmbH, stefan.seifert@seifert-gmbh.com, +49 9077 957588-33)
 - [2026-07-27 05:36] [08_euer_ausgaben_zuordnung.md] Werbe-Service-Partner 2025: INSTANTLY, LinkedIn Ireland, Digistore24; Netto-Beträge mit separater Vorsteuer-Dokumentation
 - [2026-07-27 05:36] [08_euer_ausgaben_zuordnung.md] INSTANTLY: Regelmäßiger Werbekostenpartner mit monatlichen Zahlungen 2025 (17,91€–85,37€ netto)
@@ -1312,6 +1339,8 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-MATERIAL_2588573.md] Kundenbezug unklar - Material ohne Kontextinformationen
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-MATERIAL_2588569.md] Klärungsbedarf: Materialnummer 2588569 benötigt Kontextualisierung und Projektzuordnung
 - [2026-07-23 12:08] [2026-07-23-19f47537e0-Rechnung_RE260014_09.07.2026.md] Rechnung RE260014 (09.07.2026) von 'World Class Marketing LLC' enthält private Restaurantausgaben (Speisen/Getränke, 42,10€ netto) – kein erkennbarer Geschäftsbezug zu Prozessia, möglicherweise fehlerhaft abgelegt
 - [2026-07-23 11:55] [2026-07-23-19f7aad092-Rechnung_RE260016_20.07.2026.md] Duplikat-Verdacht: Identische Rechnung RE260016 bereits am 2026-07-19 hochgeladen – Archiv prüfen auf Dopplung
 - [2026-07-23 11:39] [PRUEFFAELLE.md] Systematisches Problem: Mehrere Belege ohne eindeutig extrahierbare Rechnungsdatierungen (FA/SF 60 EUR, Google 28.1 EUR, Triathlon Transfer)
