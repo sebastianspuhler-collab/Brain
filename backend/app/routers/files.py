@@ -1,10 +1,13 @@
 """Datei-Browser + Download. Migriert aus brain_server.py (_list_files, _serve_file)."""
+import io
 import mimetypes
 import re
 from pathlib import Path
 
+import markdown as md
 from fastapi import APIRouter, Depends, HTTPException
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, Response
+from xhtml2pdf import pisa
 
 from app.config import get_settings
 from app.deps import get_current_user
@@ -142,3 +145,46 @@ def download_file(rel_path: str, user: str = Depends(get_current_user)):
         raise HTTPException(status_code=404, detail="not found")
     mime = mimetypes.guess_type(str(target))[0] or "application/octet-stream"
     return FileResponse(target, media_type=mime, filename=target.name)
+
+
+# ── Transkript-Download als PDF (Sebastian, 2026-07-28) ─────────────────────
+# Meeting-Notizen sind im Vault als .md abgelegt (siehe classify.py::process_file),
+# der Download-Button in der Transkripte-Übersicht (MeetingsPage.tsx) soll aber
+# ein lesbares PDF liefern statt der rohen Markdown-Datei. Rein clientseitig
+# beim Download gerendert (kein zusätzliches .pdf im Vault) - dieselbe .md
+# bleibt weiter die Quelle der Wahrheit.
+_PDF_CSS = """
+@page { margin: 2cm; }
+body { font-family: "DejaVu Sans", sans-serif; font-size: 10.5pt; line-height: 1.45; }
+h1 { font-size: 16pt; margin-bottom: 4pt; }
+h2 { font-size: 13pt; margin-top: 14pt; border-bottom: 1px solid #ccc; padding-bottom: 2pt; }
+table { border-collapse: collapse; width: 100%; margin: 8pt 0; }
+th, td { border: 1px solid #ccc; padding: 4pt 6pt; text-align: left; font-size: 9.5pt; }
+code { font-family: "DejaVu Sans Mono", monospace; background: #f2f2f2; }
+"""
+
+
+def _markdown_to_pdf(text: str) -> bytes:
+    html = md.markdown(text, extensions=["extra", "sane_lists"])
+    full_html = f"<html><head><style>{_PDF_CSS}</style></head><body>{html}</body></html>"
+    buffer = io.BytesIO()
+    pisa.CreatePDF(src=full_html, dest=buffer, encoding="utf-8")
+    return buffer.getvalue()
+
+
+@router.get("/files/download-pdf/{rel_path:path}")
+def download_file_as_pdf(rel_path: str, user: str = Depends(get_current_user)):
+    settings = get_settings()
+    target = (settings.vault_path / rel_path).resolve()
+    if not str(target).startswith(str(settings.vault_path.resolve())):
+        raise HTTPException(status_code=403, detail="forbidden")
+    if not target.exists() or not target.is_file() or target.suffix.lower() != ".md":
+        raise HTTPException(status_code=404, detail="not found")
+    text = target.read_text(encoding="utf-8", errors="ignore")
+    pdf_bytes = _markdown_to_pdf(text)
+    filename = target.stem + ".pdf"
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
