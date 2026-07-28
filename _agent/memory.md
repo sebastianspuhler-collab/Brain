@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-07-28 13:18] [2026-07-28-Update Seifert X Prozessia.md] Demo-Datenbasis: 16 Positionen aus Seifert-Anfrage vom 27.07. - Folgetermin zum Erstgespräch vom 23.07.2026
 - [2026-07-28 12:04] [Bessere Sprachqualität ab nächster Woche] Datenschutz-Verbesserung durch EU-Datenresidenz und Zero Data Retention
 - [2026-07-28 12:04] [Bessere Sprachqualität ab nächster Woche] Natürlichere Stimmen und deutlich verbesserte Aussprache von Zahlen (Telefonnummern, Preise, Termine)
 - [2026-07-28 08:35] Seifert-Problem: Spanflug (PDF+3D-Modell -> Fräszeit/Werkzeugbedarf/Werktage) funktioniert gut bei einteiligen Frästeilen, aber Seifert hat überwiegend geschweißte Baugruppen, was Spanflug nicht abdeckt
@@ -773,6 +774,9 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-28 13:18] [2026-07-28-Update Zillmer X Prozessia.md] KI-Agent-Prozess bei Zillmer: (1) Ausschreibung eingehend → (2) Hersteller eindeutig? → (3) Bei Unsicherheit: Recherche in ~50 definierten Herstellern → (4) Agent erstellt Preisanfragen (E-Mail-Anbindung) → (5) Günstigstes Angebot an Biendarra
+- [2026-07-28 13:18] [2026-07-28-Update Seifert X Prozessia.md] Human-in-the-Loop 'Warnung'-Funktion markiert unsichere Positionen (z.B. unleserliche Abbildungen) zur manuellen Prüfung - verhindert Halluzinationen
+- [2026-07-28 13:18] [2026-07-28-Update Seifert X Prozessia.md] Stücklistenagent-Demo: System extrahiert automatisch Positionsnummer, Material und relevante Daten aus hochgeladenen Stücklisten/Zeichnungen
 - [2026-07-28 12:04] [Bessere Sprachqualität ab nächster Woche] Monatliches Update-Webinar am Donnerstag, 31.07.2026
 - [2026-07-28 08:22] [2026-07-28-Prozessskizze-KI-Kalkulation.md] 5-Schritt-Ablauf: (1) Ausschreibung eingang, (2) Hersteller-Eindeutigkeit prüfen, (3) KI-Recherche wenn nötig, (4) Automatisierter Preisvergleich, (5) Preiseinspeisung in Kalkulation
 - [2026-07-27 20:35] [2026-06-09-New Record from Google Meet (1).md] KI-gestützte Cold-Outreach wird eingesetzt, persönlicher Kundenkontakt bleibt aber entscheidend und ist noch nicht vollständig automatisierbar
@@ -1319,6 +1323,8 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-07-28 13:18] [2026-07-28-Update Zillmer X Prozessia.md] Sicherheitsstufen-Ansatz: Start mit E-Mail-Entwürfen (Zillmer-Freigabe erforderlich), erst nach Vertrauensaufbau automatischer Versand an Hersteller
+- [2026-07-28 13:18] [2026-07-28-Update Seifert X Prozessia.md] Agent muss unterscheiden zwischen bereits zugeschnittenem Material und Material, das laut Zeichnung noch zugeschnitten werden muss (Bleche, Rollprofile, Stabmaterial)
 - [2026-07-28 08:35] [2026-07-28-Prozessskizze-Materialliste.md] Regelfall bei Seifert: geschweißte Baugruppen; benötigt automatisierte Gesamtliste mit Materialangaben und Zuschnittdetails
 - [2026-07-28 08:22] [2026-07-28-Prozessskizze-KI-Kalkulation.md] KI-Suchraum bewusst auf ca. 50 relevante Hersteller für technische Leuchten in Deutschland begrenzen – Ziel: Halluzinationen auf 0 reduzieren
 - [2026-07-19 16:52] [2026-06-15-Prozessia Abstimmung Messdokumente (1).md] KI-Assistent soll Messberichte automatisch verarbeiten und Vollständigkeitsprüfung durchführen
