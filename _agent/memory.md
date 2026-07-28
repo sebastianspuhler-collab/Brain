@@ -610,6 +610,8 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-28 17:54] [2026-07-28-Email-19fa9a02-Action-required-security-vulnerabilities.md] Voigt_Salus hat kritische Sicherheitsvulnerabilitäten in Projekt stggglgcvisnvcertpau
+- [2026-07-28 17:54] [2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md] Siegfried Heinrich (CEO Schaufler Tooling GmbH) ist primärer Ansprechpartner, Tel. +49 170 2471808
 - [2026-07-28 17:40] [AW: Kapazitätenplanung Stücklistenprojek] Kundenwunsch: Einblick in Effizienz und Performance des Beschaffungsagenten vor Beginn des nächsten Projekts
 - [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] Lieferantenstruktur: 3 feste Aluminiumlieferanten + 10-15 Normteil-Unternehmen + Einzelbestellungen
 - [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] M.Reuss Werkzeugbau: ~45 Projektleiter bestellen dezentralisiert selbst nach Bedarf, keine zentrale Einkaufsabteilung
@@ -796,6 +798,10 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-28 17:54] [2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md] Kundenrequest: Klärung wer Support für Agent-Performance-Analyse übernimmt
+- [2026-07-28 17:54] [2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md] Stücklistenprojekt ist geplant, Freigabe hängt von Agent-Evaluierung ab
+- [2026-07-28 17:54] [2026-07-28-Email-19fa924d-AW-Integration-Einkäufermail.md] Agenda: Vorgänge und Daten der Woche 28.07.2026 mit Einkäufer besprechen
+- [2026-07-28 17:54] [2026-07-28-Email-19fa924d-AW-Integration-Einkäufermail.md] Ab 2026-07-28: Neuer Prozess - Zuständige Einkäufer werden bei potenziellen Eskalationen per Mail informiert
 - [2026-07-28 17:40] [AW: Kapazitätenplanung Stücklistenprojek] Nächstes Projekt: Stücklistenprojekt mit Kapazitätenplanung
 - [2026-07-28 14:37] [AW: Integration Einkäufermail] Ab 28. Juli 2026: Potenzielle Eskalationen werden dem zuständigen Einkäufer per Mail informiert
 - [2026-07-28 14:34] [2026-07-28-Seifert_GmbH_pitch_deck.md] Prozessia KI-Lösung für automatisierte Einzelteilerkennung und Stücklistenerstellung
@@ -1497,6 +1503,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-17 21:42] [6---Email-19f38afa-AW-Offene-Punkte-Beschaffungsagent.md] Bestelldokument muss angepasst werden, damit Lieferanten wissen, dass bestellbezogene Daten an order@schaufler.de gehen (Verantwortung: Benjamin Schmohl)
 
 ## ANFORDERUNGEN
+- [2026-07-28 17:54] [2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md] Kunde (Siegfried Heinrich) fordert Analyse der Effizienz und Performance des Beschaffungsagenten vor nächstem Projekt
 - [2026-07-24 03:21] [2026-07-24-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Komplette mechanische Anfertigung nach Zeichnungen mit Gravur, Prüf-, Härte- und Messprotokoll erforderlich
 
 ## PREIS
