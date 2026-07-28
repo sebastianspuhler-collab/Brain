@@ -12,40 +12,37 @@ tags: [Umsatzsteuer, Elster, Steuern, Buchhaltung]
 > siehe `08_euer_ausgaben_zuordnung.md` und Brain-Memory
 > [[project-euer-2025-finanzamt-zahlungen]] / [[project-euer-2025-ausgaben-korrekturen]].
 
-## Korrektur 2026-07-28
+## Klarstellung 2026-07-28 zur Joel-Wagner/WebWokr-Buchung
 
-Die „Joel Wagner 100,00 €"-Buchung vom 28.08.2025 war fälschlich als Umsatz erfasst
-(Pipeline-Fehler: richtung=AUSGANG statt EINGANG). Tatsächlich ist RE250005 eine
-**Eingangsrechnung von WebWokr (Joel Wagner)** an Prozessia für eine Meta-Ads-Tracking-Sheet-
-Anpassung — also eine Ausgabe, kein Umsatz. Korrigiert in `korrekturen_2025.json`
-(`tx_korrektur` FINOM-844f31d5c70f63f1) und in `scripts/step8_euer_zuordnung.py`
-(neue Kategorie „Fremdleistungen"). Von Sebastian am 2026-07-28 bestätigt: die drei echten
-Einnahmen 2025 sind RE250006 (425,00 €), RE250007 (425,00 €) und RE250009 (4.000,00 €),
-zusammen **4.850,00 €** netto.
+Die Buchung „Joel Wagner, 28.08.2025, 100,00 €" (RE250005) ist eine Ausgangsrechnung von
+**WebWokr an Joel Wagner** über eine Meta-Ads-Tracking-Sheet-Anpassung. Auf dem Belegvordruck
+steht eine andere Steuernummer (040/276/11732) als bei den übrigen Prozessia-Rechnungen
+(040/163/12016) — laut Sebastian (2026-07-28) ist das **eine Firma**, die Vorlage trägt nur
+eine veraltete/falsche Steuernummer. Die 100 € zählen daher normal als Umsatz. (Ein
+zwischenzeitlicher Versuch, diese Buchung als Ausgabe umzubuchen, wurde wieder verworfen —
+siehe [[project-euer-2025-ausgaben-korrekturen]].)
 
 ## Einzutragende Werte (Hauptvordruck USt-Erklärung)
 
 | Kennzahl | Bezeichnung | Betrag |
 |---|---|---:|
-| **Kz. 81** | Steuerpflichtige Umsätze zum allgemeinen Steuersatz (19 %), netto | **4.850,00 €** |
-| **Kz. 66** | Abziehbare Vorsteuerbeträge aus Rechnungen anderer Unternehmer | **234,98 €** |
+| **Kz. 81** | Steuerpflichtige Umsätze zum allgemeinen Steuersatz (19 %), netto | **4.950,00 €** |
+| **Kz. 66** | Abziehbare Vorsteuerbeträge aus Rechnungen anderer Unternehmer | **215,98 €** |
 
 Elster berechnet die Umsatzsteuer auf Kz. 81 automatisch (19 %):
 
 | | Betrag |
 |---|---:|
-| Umsatz netto (Kz. 81) | 4.850,00 € |
-| Umsatzsteuer darauf (19 %) | 921,50 € |
-| Vorsteuer (Kz. 66) | 234,98 € |
-| Rechnerische Jahres-USt 2025 | 686,52 € |
+| Umsatz netto (Kz. 81) | 4.950,00 € |
+| Umsatzsteuer darauf (19 %) | 940,50 € |
+| Vorsteuer (Kz. 66) | 215,98 € |
+| Rechnerische Jahres-USt 2025 | 724,52 € |
 
-**Wichtig – keine zusätzliche Zahllast:** Die 686,52 € sind eine rein rechnerische Kontrollgröße
+**Keine zusätzliche Zahllast:** Die 724,52 € sind eine rein rechnerische Kontrollgröße
 (Umsatz × 19 % minus Vorsteuer, für das ganze Jahr auf einmal), **keine noch offene Zahlung**.
-Sebastian hat 2025 quartalsweise korrekt per USt-Voranmeldung erklärt und bezahlt (Q1+Q2 gemeinsam
-in einer Erklärung, dann Q3 und Q4 einzeln) — die Jahreserklärung fasst das nur zusammen, sie
-erzeugt keine neue Schuld. Die tatsächlichen Zahlungen/Erstattungen stehen unten; die 686,52 €
-sollten sich (ggf. mit kleinen Rundungs-/Periodenabgrenzungsdifferenzen) daraus ergeben, sind
-selbst aber **nicht zusätzlich zu zahlen**.
+Sebastian hat 2025 quartalsweise korrekt per USt-Voranmeldung erklärt und bezahlt (Q1+Q2
+gemeinsam in einer Erklärung, dann Q3 und Q4 einzeln, inkl. 860,73 € am 03.01.2026 für
+Q4/2025) — die Jahreserklärung fasst das nur zusammen, sie erzeugt keine neue Schuld.
 
 ## Reverse-Charge (§ 13b UStG)
 
@@ -62,9 +59,9 @@ Betrifft v. a. Instantly/Apify-Ausgaben ohne deutschen USt-Ausweis (ca. 293,80 �
 | 09.10.2025 | Erstattung USt 3. Vj. 2025 | +155,10 € |
 | 03.01.2026 | Zahlung USt 4. Vj. 2025 | −860,73 € |
 
-Q1/2025 ist **kein offener Punkt mehr**: Sebastian hat Q1 und Q2 2025 gemeinsam in einer
-Voranmeldung erklärt und gekennzeichnet — die Erstattung vom 28.07.2025 (25,59 €) ist bereits
-das Ergebnis von Q1+Q2 zusammen, deshalb gibt es keine separate Q1-Buchung.
+Q1/2025 ist kein offener Punkt: Sebastian hat Q1 und Q2 2025 gemeinsam in einer Voranmeldung
+erklärt und gekennzeichnet — die Erstattung vom 28.07.2025 (25,59 €) ist bereits das Ergebnis
+von Q1+Q2 zusammen, deshalb gibt es keine separate Q1-Buchung.
 
 ## Weitere offene Punkte (aus der Belegprüfung, betreffen primär die EÜR, nicht die USt)
 
@@ -76,3 +73,6 @@ das Ergebnis von Q1+Q2 zusammen, deshalb gibt es keine separate Q1-Buchung.
   Vorsteuer: 52,25 €/Jahr).
 - Unklar, welche Gesellschaft (Prozessia GbR vs. „Sebastian Spuhler, Mohamed Douioui GbR")
   die Erklärung für 2025 tatsächlich abgibt — Finom-Kontoinhaber ist die letztere.
+- WebWokr-Rechnungen tragen eine andere Steuernummer (040/276/11732) als Prozessia
+  (040/163/12016) — laut Sebastian dieselbe Firma, aber die Vorlage sollte beim
+  Steuerberater/für künftige Rechnungen korrigiert werden, um Verwechslungen zu vermeiden.
