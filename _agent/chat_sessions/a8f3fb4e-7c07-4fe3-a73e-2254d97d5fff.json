@@ -1,0 +1,15 @@
+{
+  "id": "a8f3fb4e-7c07-4fe3-a73e-2254d97d5fff",
+  "title": "Haben wir im letzten Meeting mit Jochum Details über technis…",
+  "model": "claude-sonnet-5",
+  "created_at": "2026-07-28T17:52:39.089837+00:00",
+  "updated_at": "2026-07-28T17:52:39.089837+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Haben wir im letzten Meeting mit Jochum Details über technisches gesprochen",
+      "attachments": null
+    }
+  ],
+  "agent_id": null
+}
