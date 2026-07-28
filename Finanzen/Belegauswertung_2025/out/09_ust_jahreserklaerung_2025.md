@@ -112,18 +112,10 @@ Unklarheit, welche Gesellschaft die Erklärung abgibt. Kein offener Punkt mehr.
   Firmenadresse — Vorsteuerabzug ist bei einer Personengesellschaft/Einzelunternehmer i. d. R.
   unproblematisch (Einlage), aber formal sauberer wäre eine Rechnung auf den Firmennamen;
   für künftige Bestellungen beachten.
-- **cyfire Rechtsanwaltsgesellschaft (450,00 €, 13.11.2025):** Nur ein Finom-Zahlungsbeleg
-  hinterlegt, keine echte Rechnung mit USt-Ausweis. cyfire hat eine deutsche USt-IdNr.
-  (DE346209585) — die 450,00 € könnten netto **oder** brutto sein (Differenz bis zu 71,85 €
-  Vorsteuer). Sebastian sucht die Original-Rechnung raus, dann nachtragen.
-- **Apify (2× 39 USD, August + September 2025):** Rechnungen weisen „19% European VAT
-  (Germany): 7,41 USD" aus (OSS-Verfahren, tschechischer Anbieter). Auf Nutzerentscheidung
-  2026-07-28 **nicht** als Vorsteuer angesetzt (Vorsteuerabzug bei OSS-Rechnungen rechtlich
-  unklar) — bewusst konservativ, ca. 13 € möglich entgangene Vorsteuer.
-- 6 Instantly-Buchungen (März/Juni/Aug/Sept/Nov/Dez) zeigen eine 1:1-USD→EUR-Übernahme ohne
-  erkennbare Wechselkurs-Umrechnung, während vergleichbare Buchungen einen plausiblen Kurs
-  (~0,85–0,92) zeigen — mögliche Netto-Abweichung von zusammen 25-30 €, kann ohne
-  Kreditkartenabrechnung nicht abschließend geklärt werden.
+**Geklärt (2026-07-28, kein Handlungsbedarf mehr):**
+- **cyfire (450,00 €):** von Sebastian bestätigt **netto**, so mit dem Anwalt vereinbart — bleibt wie in der Pipeline erfasst (keine Vorsteuer, da keine gesondert ausgewiesene USt vorliegt).
+- **Apify (~13 € mögliche Vorsteuer):** bleibt bewusst draußen, wie entschieden.
+- **6 Instantly-Buchungen:** von Sebastian bestätigt korrekt per Reverse-Charge gebucht (ergibt 0 € Vorsteuer) — keine Änderung nötig.
 - WebWokr-Rechnungen tragen eine andere Steuernummer (040/276/11732) als der Rest
   (040/163/12016) — reiner Vorlagenfehler (siehe oben), für künftige Rechnungen korrigieren,
   um Verwechslungen zu vermeiden.
