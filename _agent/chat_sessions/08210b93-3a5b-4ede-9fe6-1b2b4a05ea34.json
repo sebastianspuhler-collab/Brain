@@ -1,0 +1,29 @@
+{
+  "id": "08210b93-3a5b-4ede-9fe6-1b2b4a05ea34",
+  "title": "bitte beides richtig einsortieren",
+  "model": "claude-sonnet-5",
+  "created_at": "2026-07-28T14:31:19.673080+00:00",
+  "updated_at": "2026-07-28T14:32:07.172441+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "bitte beides richtig einsortieren",
+      "attachments": null
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "attachments": null
+    },
+    {
+      "role": "user",
+      "content": "hallo",
+      "attachments": null
+    },
+    {
+      "role": "assistant",
+      "content": "Hallo Sebastian!\n\nZwei Dinge fallen mir grad auf, wenn ich kurz über die Schulter schaue: Das Angebot **AG0026** (7.140 € brutto) läuft heute, am 28.07., ab – falls das noch offen ist, lohnt sich ein schneller Check, ob da noch was zu tun ist. Und heute Nacht kam laut Finom eine Zahlung von **1.190 €** von Schaufler Tooling rein – passt zum laufenden Beschaffungsagenten-Abo.\n\nSonst offen: Seifert wartet noch auf dein Nachfassen zum Prototyp-Termin von gestern (kein Folgetermin vereinbart), und Jürgen Mahler bei Schaufler ist laut Auto-Reply gerade abwesend – falls du wegen des Stücklistenprojekts an ihn geschrieben hast, ist Antonia Häberle die Vertretung.\n\nWas brauchst du?"
+    }
+  ],
+  "agent_id": null
+}

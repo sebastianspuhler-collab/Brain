@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-07-28 14:34] [2026-07-28-Seifert_GmbH_pitch_deck.md] Kernherausforderung: unterschiedliche Kunden-Zeichnungsformate und manueller Aufwand bei Material-/Zuschnittlisten
 - [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] Kontaktperson: Moritz Klüpfel (Arbeitsvorbereitung, Schnittstelle Produktion/Geschäftsführung/CAD, nicht direkt Einkauf)
 - [2026-07-28 14:15] [2026-06-08-Juchem.md] Datenschutz-Constraint: Mitarbeiter bei Juchem dürfen nur Microsoft Copilot nutzen, keine anderen Chatbots – bei Lösung beachten
 - [2026-07-28 14:15] [2026-06-09-Susanne Riedt (Huissel GmbH) X Prozessia.md] Frühe Sondierungsphase; Präsentation wurde während des Gesprächs gezeigt
@@ -793,6 +794,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-28 14:34] [2026-07-28-Seifert_GmbH_pitch_deck.md] Prozessia KI-Lösung für automatisierte Einzelteilerkennung und Stücklistenerstellung
 - [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] Kernherausforderung: Fehler in Auftragsbestätigungen werden regelmäßig übersehen
 - [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] ERP-System: BIOS 2000 (alle Bestellungen laufen darüber)
 - [2026-07-28 14:15] [2026-06-08-Juchem.md] Demo durchgeführt: AB-Prüfung, Eskalationsmechanismus, Lieferantenscore, Dokumentenablage über ERP-/Postfach-Adapter
