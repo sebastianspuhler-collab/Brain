@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-07-28 12:04] [Bessere Sprachqualität ab nächster Woche] Datenschutz-Verbesserung durch EU-Datenresidenz und Zero Data Retention
+- [2026-07-28 12:04] [Bessere Sprachqualität ab nächster Woche] Natürlichere Stimmen und deutlich verbesserte Aussprache von Zahlen (Telefonnummern, Preise, Termine)
 - [2026-07-28 08:35] Seifert-Problem: Spanflug (PDF+3D-Modell -> Fräszeit/Werkzeugbedarf/Werktage) funktioniert gut bei einteiligen Frästeilen, aber Seifert hat überwiegend geschweißte Baugruppen, was Spanflug nicht abdeckt
 - [2026-07-28 07:08] [Wachstum systematisieren] Erfolgsbeispiele: DRIP-Wachstum von 200k auf über 450k pro Monat, notus-Wachstum von 40k auf 170k mit gleicher Lead-Anzahl
 - [2026-07-28 07:08] [Wachstum systematisieren] Levin Germann, Gründer & Geschäftsführer PREDICT PA GmbH (levin@predict-abilityos.com, Rosenthaler Str. 42-44, 10178 Berlin)
@@ -593,6 +595,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-28 12:04] [Bessere Sprachqualität ab nächster Woche] Vorgefertigter Text für Kundenkommunikation zum TTS-Wechsel wird bereitgestellt
 - [2026-07-28 08:35] [2026-07-28-Prozessskizze-Materialliste.md] Seifert GmbH nutzt aktuell Spanflug zur Kalkulation von Frästeilen
 - [2026-07-28 08:23] Angebot für Kunde Zillmer: Pilotprojekt Kalkulationsagent (Recherche-Logik + Preisvergleich + Kalkulations-Anbindung) als Festpreis ab 12.000€ netto, danach laufende Kosten 220€/Monat (100€ Hosting-Basis + 120€ 1. Agent)
 - [2026-07-28 08:22] [2026-07-28-Prozessskizze-KI-Kalkulation.md] Zillmer Elektrotechnik – Lead für KI-gestützten Kalkulationsprozess bei Ausschreibungen technischer Leuchten
@@ -770,6 +773,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-28 12:04] [Bessere Sprachqualität ab nächster Woche] Monatliches Update-Webinar am Donnerstag, 31.07.2026
 - [2026-07-28 08:22] [2026-07-28-Prozessskizze-KI-Kalkulation.md] 5-Schritt-Ablauf: (1) Ausschreibung eingang, (2) Hersteller-Eindeutigkeit prüfen, (3) KI-Recherche wenn nötig, (4) Automatisierter Preisvergleich, (5) Preiseinspeisung in Kalkulation
 - [2026-07-27 20:35] [2026-06-09-New Record from Google Meet (1).md] KI-gestützte Cold-Outreach wird eingesetzt, persönlicher Kundenkontakt bleibt aber entscheidend und ist noch nicht vollständig automatisierbar
 - [2026-07-27 20:35] [2026-06-09-New Record from Google Meet (1).md] Vertriebsstrategie: Skalierung durch Handelsvertreter statt fest angestellte Vertriebler geplant
@@ -1363,6 +1367,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-07-28 12:04] [Bessere Sprachqualität ab nächster Woche] Text-to-Speech-Anbieter wechselt von Eleven Labs zu Inworld AI zum 06.08.2026
 - [2026-07-28 08:25] Zillmer (Biendarra) hat laut Sebastian aktuell nicht so viel Fallaufkommen/Auftragsvolumen wie ursprünglich angenommen - Umfang ist geringer, da Biendarras Chef intern noch keine Priorität gesetzt hat und Ausschreibungen ohne Herstellerangabe nur 'einige Bereiche' betreffen, nicht den Regelfall. Tatsächlicher Fall-Umfang bei Zillmer vermutlich kleiner als bei Schaufler.
 - [2026-07-28 00:13] [2026-07-28.md] Inbox-Verarbeitung vom 2026-07-28 00:13: 2 Fehler aufgetreten, 0 Items verarbeitet
 - [2026-07-27 12:13] [2026-07-27-19fa3698b1-MATERIAL_IU485.md] Materialnummer IU485 (Quelle: 19fa3698b1-MATERIAL_IU485.pdf) benötigt Kontextklärung und Zuordnung zu Kundenprojekt
