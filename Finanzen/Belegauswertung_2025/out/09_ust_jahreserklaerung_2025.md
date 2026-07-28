@@ -22,12 +22,12 @@ eine veraltete/falsche Steuernummer. Die 100 € zählen daher normal als Umsatz
 zwischenzeitlicher Versuch, diese Buchung als Ausgabe umzubuchen, wurde wieder verworfen —
 siehe [[project-euer-2025-ausgaben-korrekturen]].)
 
-## Einzutragende Werte (Hauptvordruck USt-Erklärung)
+## Einzutragende Werte (Hauptvordruck USt-Erklärung) — Stand 2026-07-28 nach Einzelverifizierung
 
 | Kennzahl | Bezeichnung | Betrag |
 |---|---|---:|
 | **Kz. 81** | Steuerpflichtige Umsätze zum allgemeinen Steuersatz (19 %), netto | **4.950,00 €** |
-| **Kz. 66** | Abziehbare Vorsteuerbeträge aus Rechnungen anderer Unternehmer | **215,98 €** |
+| **Kz. 66** | Abziehbare Vorsteuerbeträge aus Rechnungen anderer Unternehmer | **249,76 €** |
 
 Elster berechnet die Umsatzsteuer auf Kz. 81 automatisch (19 %):
 
@@ -35,14 +35,26 @@ Elster berechnet die Umsatzsteuer auf Kz. 81 automatisch (19 %):
 |---|---:|
 | Umsatz netto (Kz. 81) | 4.950,00 € |
 | Umsatzsteuer darauf (19 %) | 940,50 € |
-| Vorsteuer (Kz. 66) | 215,98 € |
-| Rechnerische Jahres-USt 2025 | 724,52 € |
+| Vorsteuer (Kz. 66) | 249,76 € |
+| Rechnerische Jahres-USt 2025 | 690,74 € |
 
-**Keine zusätzliche Zahllast:** Die 724,52 € sind eine rein rechnerische Kontrollgröße
+**Keine zusätzliche Zahllast:** Die 690,74 € sind eine rein rechnerische Kontrollgröße
 (Umsatz × 19 % minus Vorsteuer, für das ganze Jahr auf einmal), **keine noch offene Zahlung**.
 Sebastian hat 2025 quartalsweise korrekt per USt-Voranmeldung erklärt und bezahlt (Q1+Q2
 gemeinsam in einer Erklärung, dann Q3 und Q4 einzeln, inkl. 860,73 € am 03.01.2026 für
 Q4/2025) — die Jahreserklärung fasst das nur zusammen, sie erzeugt keine neue Schuld.
+
+**Update 2026-07-28 (Einzelverifizierung aller 80 Buchungen):** Zwei belegbasierte Korrekturen
+gegenüber dem vorherigen Stand (215,98 €):
+- **+52,25 €**: Triathlon-Miete weist entgegen der bisherigen Annahme sehr wohl 19 % USt aus
+  (25,00 € netto + 4,75 € USt = 29,75 € brutto/Monat, 11 Monate) — war fälschlich mit 0 €
+  Vorsteuer geführt.
+- **−18,47 €**: PNL-Fintech-Rechnung (3OJ3-0005) weist niederländische USt aus (USt-IdNr.
+  NL859799189B01), keine deutsche — ausländische USt ist nicht als deutsche Vorsteuer
+  abzugsfähig (§ 15 UStG). Der volle Bruttobetrag (115,67 €) zählt stattdessen als Netto-
+  Betriebsausgabe.
+Netto: 215,98 + 52,25 − 18,47 = **249,76 €**. Details siehe
+`00_zusammenfassung_steuerpruefung_2025.md`.
 
 ## Reverse-Charge (§ 13b UStG)
 
@@ -100,9 +112,18 @@ Unklarheit, welche Gesellschaft die Erklärung abgibt. Kein offener Punkt mehr.
   Firmenadresse — Vorsteuerabzug ist bei einer Personengesellschaft/Einzelunternehmer i. d. R.
   unproblematisch (Einlage), aber formal sauberer wäre eine Rechnung auf den Firmennamen;
   für künftige Bestellungen beachten.
-- Triathlon-Mietvertrag (11× 29,75 € brutto/Monat) weist keine USt aus, obwohl rechnerisch
-  19 % aufgingen — mangels USt-Ausweis auf dem Beleg nicht geltend gemacht (möglich entgangene
-  Vorsteuer: 52,25 €/Jahr).
+- **cyfire Rechtsanwaltsgesellschaft (450,00 €, 13.11.2025):** Nur ein Finom-Zahlungsbeleg
+  hinterlegt, keine echte Rechnung mit USt-Ausweis. cyfire hat eine deutsche USt-IdNr.
+  (DE346209585) — die 450,00 € könnten netto **oder** brutto sein (Differenz bis zu 71,85 €
+  Vorsteuer). Sebastian sucht die Original-Rechnung raus, dann nachtragen.
+- **Apify (2× 39 USD, August + September 2025):** Rechnungen weisen „19% European VAT
+  (Germany): 7,41 USD" aus (OSS-Verfahren, tschechischer Anbieter). Auf Nutzerentscheidung
+  2026-07-28 **nicht** als Vorsteuer angesetzt (Vorsteuerabzug bei OSS-Rechnungen rechtlich
+  unklar) — bewusst konservativ, ca. 13 € möglich entgangene Vorsteuer.
+- 6 Instantly-Buchungen (März/Juni/Aug/Sept/Nov/Dez) zeigen eine 1:1-USD→EUR-Übernahme ohne
+  erkennbare Wechselkurs-Umrechnung, während vergleichbare Buchungen einen plausiblen Kurs
+  (~0,85–0,92) zeigen — mögliche Netto-Abweichung von zusammen 25-30 €, kann ohne
+  Kreditkartenabrechnung nicht abschließend geklärt werden.
 - WebWokr-Rechnungen tragen eine andere Steuernummer (040/276/11732) als der Rest
   (040/163/12016) — reiner Vorlagenfehler (siehe oben), für künftige Rechnungen korrigieren,
   um Verwechslungen zu vermeiden.

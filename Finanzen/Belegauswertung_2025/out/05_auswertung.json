@@ -6,13 +6,13 @@
       "ust_vereinnahmt": 0.0,
       "ausgaben_brutto": 41.59,
       "ausgaben_netto": 34.95,
-      "vorsteuer_abziehbar": 1.89,
+      "vorsteuer_abziehbar": 6.64,
       "vorsteuer_gefaehrdet": 0.0,
       "brutto_ohne_aufteilung": 0.0,
       "anzahl_pruefaelle": 1,
       "gewinn_netto": -34.95,
       "ergebnis_brutto": -41.59,
-      "ust_zahllast": -1.89
+      "ust_zahllast": -6.64
     },
     "2": {
       "umsatz_brutto": 0.0,
@@ -20,13 +20,13 @@
       "ust_vereinnahmt": 0.0,
       "ausgaben_brutto": 53.43,
       "ausgaben_netto": 44.9,
-      "vorsteuer_abziehbar": 3.78,
+      "vorsteuer_abziehbar": 8.53,
       "vorsteuer_gefaehrdet": 0.0,
       "brutto_ohne_aufteilung": 0.0,
       "anzahl_pruefaelle": 1,
       "gewinn_netto": -44.9,
       "ergebnis_brutto": -53.43,
-      "ust_zahllast": -3.78
+      "ust_zahllast": -8.53
     },
     "3": {
       "umsatz_brutto": 0.0,
@@ -34,13 +34,13 @@
       "ust_vereinnahmt": 0.0,
       "ausgaben_brutto": 89.05,
       "ausgaben_netto": 81.9,
-      "vorsteuer_abziehbar": 3.78,
+      "vorsteuer_abziehbar": 8.53,
       "vorsteuer_gefaehrdet": 0.0,
       "brutto_ohne_aufteilung": 0.0,
       "anzahl_pruefaelle": 2,
       "gewinn_netto": -81.9,
       "ergebnis_brutto": -89.05,
-      "ust_zahllast": -3.78
+      "ust_zahllast": -8.53
     },
     "4": {
       "umsatz_brutto": 0.0,
@@ -62,13 +62,13 @@
       "ust_vereinnahmt": 0.0,
       "ausgaben_brutto": 181.18,
       "ausgaben_netto": 167.9,
-      "vorsteuer_abziehbar": 3.78,
+      "vorsteuer_abziehbar": 13.28,
       "vorsteuer_gefaehrdet": 0.0,
       "brutto_ohne_aufteilung": 0.0,
       "anzahl_pruefaelle": 2,
       "gewinn_netto": -167.9,
       "ergebnis_brutto": -181.18,
-      "ust_zahllast": -3.78
+      "ust_zahllast": -13.28
     },
     "6": {
       "umsatz_brutto": 0.0,
@@ -90,13 +90,13 @@
       "ust_vereinnahmt": 0.0,
       "ausgaben_brutto": 164.78,
       "ausgaben_netto": 151.69,
-      "vorsteuer_abziehbar": 8.34,
+      "vorsteuer_abziehbar": 13.09,
       "vorsteuer_gefaehrdet": 0.0,
       "brutto_ohne_aufteilung": 0.0,
       "anzahl_pruefaelle": 1,
       "gewinn_netto": -151.69,
       "ergebnis_brutto": -164.78,
-      "ust_zahllast": -8.34
+      "ust_zahllast": -13.09
     },
     "8": {
       "umsatz_brutto": 119.0,
@@ -118,13 +118,13 @@
       "ust_vereinnahmt": 0.0,
       "ausgaben_brutto": 552.86,
       "ausgaben_netto": 502.3,
-      "vorsteuer_abziehbar": 47.83,
+      "vorsteuer_abziehbar": 52.58,
       "vorsteuer_gefaehrdet": 0.0,
       "brutto_ohne_aufteilung": 0.0,
       "anzahl_pruefaelle": 3,
       "gewinn_netto": -502.3,
       "ergebnis_brutto": -552.86,
-      "ust_zahllast": -47.83
+      "ust_zahllast": -52.58
     },
     "10": {
       "umsatz_brutto": 505.75,
@@ -132,27 +132,27 @@
       "ust_vereinnahmt": 80.75,
       "ausgaben_brutto": 259.76,
       "ausgaben_netto": 237.17,
-      "vorsteuer_abziehbar": 13.09,
+      "vorsteuer_abziehbar": 22.59,
       "vorsteuer_gefaehrdet": 0.0,
       "brutto_ohne_aufteilung": 0.0,
       "anzahl_pruefaelle": 2,
       "gewinn_netto": 187.83,
       "ergebnis_brutto": 245.99,
-      "ust_zahllast": 67.66
+      "ust_zahllast": 58.16
     },
     "11": {
       "umsatz_brutto": 505.75,
       "umsatz_netto": 425.0,
       "ust_vereinnahmt": 80.75,
       "ausgaben_brutto": 740.48,
-      "ausgaben_netto": 720.24,
-      "vorsteuer_abziehbar": 28.17,
+      "ausgaben_netto": 738.71,
+      "vorsteuer_abziehbar": 14.45,
       "vorsteuer_gefaehrdet": 0.0,
       "brutto_ohne_aufteilung": 0.0,
       "anzahl_pruefaelle": 2,
-      "gewinn_netto": -295.24,
+      "gewinn_netto": -313.71,
       "ergebnis_brutto": -234.73,
-      "ust_zahllast": 52.58
+      "ust_zahllast": 66.3
     },
     "12": {
       "umsatz_brutto": 4760.0,
@@ -160,13 +160,13 @@
       "ust_vereinnahmt": 760.0,
       "ausgaben_brutto": 196.25,
       "ausgaben_netto": 189.31,
-      "vorsteuer_abziehbar": 5.23,
+      "vorsteuer_abziehbar": 9.98,
       "vorsteuer_gefaehrdet": 0.0,
       "brutto_ohne_aufteilung": 0.0,
       "anzahl_pruefaelle": 15,
       "gewinn_netto": 3810.69,
       "ergebnis_brutto": 4563.75,
-      "ust_zahllast": 754.77
+      "ust_zahllast": 750.02
     }
   },
   "jahr": {
@@ -174,17 +174,17 @@
     "umsatz_netto": 4950.0,
     "ust_vereinnahmt": 940.5,
     "ausgaben_brutto": 3203.29,
-    "ausgaben_netto": 2958.32,
-    "vorsteuer_abziehbar": 215.98,
+    "ausgaben_netto": 2976.79,
+    "vorsteuer_abziehbar": 249.76,
     "vorsteuer_gefaehrdet": 0.0,
     "brutto_ohne_aufteilung": 0.0,
     "anzahl_pruefaelle": 32,
-    "gewinn_netto": 1991.68,
+    "gewinn_netto": 1973.21,
     "ergebnis_brutto": 2687.21,
-    "ust_zahllast": 724.52,
-    "gewerbeertrag_basis": 1991.68,
+    "ust_zahllast": 690.74,
+    "gewerbeertrag_basis": 1973.21,
     "gewerbeertrag_nach_freibetrag": 0.0,
-    "gewinnanteil_je_gesellschafter": 995.84,
+    "gewinnanteil_je_gesellschafter": 986.61,
     "hinweis": "HAUPTKENNZAHL ist 'gewinn_netto' (Umsatz netto - Ausgaben netto), NUR aus Zahlungen mit einem Beleg, der eine explizite Netto-/USt-Angabe traegt - kein Wert wird geschaetzt oder aus dem Bruttobetrag zurueckgerechnet. Zahlungen ohne diese Angabe fehlen in dieser Kennzahl (siehe 'brutto_ohne_aufteilung' und die Statistik-Tabs) und muessen erst per Beleg geklaert werden, bevor sie den Netto-Gewinn veraendern. 'ergebnis_brutto' ist zur Einordnung danebengestellt. Kein echter steuerlicher Gewinn (keine Abschreibungen/Abgrenzungen/Hinzurechnungen) -> Steuerberater konsultieren.",
     "hinweis_ausschluesse": "Auf Wunsch des Nutzers (2026-07-22) zaehlen folgende Buchungen WEDER als Umsatz NOCH als Ausgabe/Verlust (bleiben aber in den Rohlisten/Prueffaellen sichtbar): (1) Bagatellen < 10 EUR brutto OHNE Beleg (mit Beleg zaehlen sie ganz normal mit), (2) alle Finanzamt-Transaktionen (USt-Erstattungen/-Vorauszahlungen, steuerneutral), (3) die Benito-Ferrise-Rundlauf-Buchung 4760 EUR am 2025-12-31 (Durchlaufposten)."
   },

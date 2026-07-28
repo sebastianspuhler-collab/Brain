@@ -5149,7 +5149,7 @@
    "netto_ist_einzelwert": false,
    "ust_satz": null,
    "ust_satz_unterstellt": false,
-   "ust_betrag": null,
+   "ust_betrag": 4.75,
    "betrag_brutto": 29.75,
    "waehrung": "EUR",
    "ist_abo": false,
@@ -5160,7 +5160,8 @@
    "status": "PRUEFFALL",
    "pruefgrund": "Kein Rechnungsdatum extrahierbar, Zuordnung ueber Betrag+Partner",
    "_text_len": 1417,
-   "_matched_tx": "FINOM-30e897bc56d3efb8"
+   "_matched_tx": "FINOM-30e897bc56d3efb8",
+   "korrektur_grund": "Beleg wurde faelschlich als 'keine USt ausgewiesen' behandelt (ust_betrag war leer/None). Tatsaechlich zeigt der Beleg explizit: netto 25,00 EUR, zzgl. 19% USt 4,75 EUR, brutto 29,75 EUR (Triathlon Transfer GmbH, deutsche USt-IdNr. DE 219904187). Verifiziert 2026-07-28 durch direktes Lesen des PDFs. Betrifft alle 11 Monatszahlungen 2025 (derselbe Beleg fuer alle 11 Buchungen verknuepft) -> zusaetzlich 11 x 4,75 = 52,25 EUR abziehbare Vorsteuer."
   },
   {
    "id": "d2278aa2-fa85-52a9-a886-f2cc33b8504b",
@@ -5173,11 +5174,11 @@
    "rechnungsnummer": "3OJ3-0005",
    "partner": "PNL Fintech",
    "beschreibung": null,
-   "betrag_netto": 97.2,
+   "betrag_netto": 115.67,
    "netto_ist_einzelwert": false,
    "ust_satz": 19,
    "ust_satz_unterstellt": false,
-   "ust_betrag": 18.47,
+   "ust_betrag": 0.0,
    "betrag_brutto": 115.67,
    "waehrung": "EUR",
    "ist_abo": false,
@@ -5187,7 +5188,8 @@
    "zahlungsweg": "BANK",
    "status": "VOLLSTAENDIG",
    "pruefgrund": null,
-   "_matched_tx": "FINOM-57b55e401368ddaa"
+   "_matched_tx": "FINOM-57b55e401368ddaa",
+   "korrektur_grund": "PNL Fintech B.V. (Amsterdam) hat mit niederlaendischer USt-IdNr. (NL859799189B01) und 19% NIEDERLAENDISCHER USt fakturiert (18,47 EUR), nicht per Reverse-Charge (Rechnung vermerkt: Reverse-Charge nur bei VIES-verifizierter USt-IdNr. des Empfaengers ausserhalb NL). Auslaendische USt ist in der deutschen USt-Erklaerung nicht als Vorsteuer abziehbar (par. 15 UStG). Daher: kompletter Bruttobetrag (115,67 EUR) wird als netto Betriebsausgabe gewertet, Vorsteuer = 0. Verifiziert 2026-07-28 durch direktes Lesen der Original-PDF-Rechnung (Finanzen/2025/11_November/PNL Fintech Rechnung 3OJ3-0005 2025-11-29.pdf)."
   },
   {
    "id": "4cb6fde0-b57b-523a-befc-dd3c9fa5e175",
