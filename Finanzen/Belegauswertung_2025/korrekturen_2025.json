@@ -2,6 +2,11 @@
   "_hinweis": "Manuelle Korrekturen nach Belegpruefung am 2026-07-26 (Sebastian). Werden von scripts/step4b_korrekturen.py idempotent auf out/04_merged.json angewendet. Reihenfolge: step4 -> step4b -> step5 -> step6 -> step7 -> step8.",
   "beleg_korrekturen": [
     {
+      "datei": "Rechnung Joel Wagner.pdf",
+      "setze": { "richtung": "EINGANG" },
+      "grund": "War faelschlich als richtung=AUSGANG (Umsatz) erfasst. RE250005 ist eine Eingangsrechnung von WebWokr (Joel Wagner) an Prozessia (Meta-Ads-Tracking-Sheet Anpassung), also eine Ausgabe. Siehe zugehoerige tx_korrektur FINOM-844f31d5c70f63f1."
+    },
+    {
       "datei": "Premium Paket 2025.pdf",
       "setze": { "betrag_netto": 240.00, "ust_betrag": 45.60, "betrag_brutto": 285.60, "rechnungsnummer": "1194582161" },
       "grund": "Parser hat das Netto-Feld leer gelassen. Rechnung Wix #1194582161 vom 21.08.2025 weist aus: Zwischensumme 240,00 EUR, MwSt 19% 45,60 EUR, Gesamt 285,60 EUR. Buchung floss bisher mit 0,00 EUR Netto in die Wertung, obwohl 45,60 EUR Vorsteuer gezaehlt wurden."
@@ -29,6 +34,11 @@
     }
   ],
   "tx_korrekturen": [
+    {
+      "tx_id": "FINOM-844f31d5c70f63f1",
+      "setze": { "richtung": "EINGANG" },
+      "grund": "Joel Wagner RE250005, 28.08.2025, 119,00 EUR brutto. War faelschlich als richtung=AUSGANG (Umsatz) gebucht, ist aber eine Eingangsrechnung von WebWokr (Joel Wagner) an Prozessia fuer eine Excel Meta-Ads-Tracking-Sheet Anpassung (100,00 EUR netto + 19,00 EUR USt) - also eine Ausgabe, kein Umsatz. Nutzerbestaetigung 2026-07-28: die drei echten Einnahmen 2025 sind RE250006 (425,00), RE250007 (425,00) und RE250009 (4.000,00), zusammen 4.850,00 EUR netto."
+    },
     {
       "tx_id": "FINOM-a78c9dc8bf2894fe",
       "setze": { "kategorie": "BAGATELLE_IGNORIERT" },

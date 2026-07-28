@@ -103,6 +103,13 @@
 | 2025-12-24 | TRIATHLON TRANSFER GMBH | 25,00 € | – | Triathlon Miete.pdf |
 | | **Summe** | **275,00 €** | **0,00 €** | 11 Buchungen |
 
+## Fremdleistungen
+
+| Datum | Partner | Netto | Vorsteuer | Beleg |
+|---|---|---:|---:|---|
+| 2025-08-28 | Joel Wagner | 100,00 € | 19,00 € | Rechnung Joel Wagner.pdf |
+| | **Summe** | **100,00 €** | **19,00 €** | 1 Buchungen |
+
 ## Übernachtungs- und Reisekosten
 
 | Datum | Partner | Netto | Vorsteuer | Beleg |
@@ -125,20 +132,20 @@
 | Rechts- und Steuerberatung, Buchführung | 773,67 € |
 | Laufende IT-Kosten | 626,97 € |
 | Miete/Pacht für Geschäftsräume | 275,00 € |
+| Fremdleistungen | 100,00 € |
 | Übernachtungs- und Reisekosten | 82,99 € |
 | Fortbildungskosten | 82,00 € |
-| **Summe Betriebsausgaben** | **2.958,32 €** |
-| Gezahlte Vorsteuerbeträge | 215,98 € |
+| **Summe Betriebsausgaben** | **3.058,32 €** |
+| Gezahlte Vorsteuerbeträge | 234,98 € |
 | An das Finanzamt gezahlte Umsatzsteuer | 0,00 € |
 
-75 gewertete Buchungen.
+76 gewertete Buchungen.
 
 
 ## Betriebseinnahmen
 
 | Datum | Partner | Netto | Beleg |
 |---|---|---:|---|
-| 2025-08-28 | Joel Wagner | 100,00 € | Rechnung Joel Wagner.pdf |
 | 2025-10-07 | Martin Veser UG (haftungsbeschr?nk | 231,09 € | Rechnung Vapi Martin Veser.pdf |
 | 2025-10-24 | Martin Veser UG (haftungsbeschr?nk | 193,91 € | Rechnung Vapi Martin Veser.pdf |
 | 2025-11-21 | Martin Veser UG (haftungsbeschr?nk | 425,00 € | Rechnung RE250007.pdf |
@@ -146,7 +153,7 @@
 | 2025-07-28 | Finanzamt Saarlouis (Erstattung USt 2VJ/25) | 25,59 € | Finom-Kontoauszug |
 | 2025-08-07 | Finanzamt Saarlouis (Erstattung USt 2024) | 93,27 € | Finom-Kontoauszug |
 | 2025-10-09 | Finanzamt Saarlouis (Erstattung USt 3VJ/25) | 155,10 € | Finom-Kontoauszug |
-| | **Summe (inkl. Finanzamt-Erstattung)** | **5.223,96 €** | 8 Buchungen |
+| | **Summe (inkl. Finanzamt-Erstattung)** | **5.123,96 €** | 7 Buchungen |
 
 ## Gesamtrechnung EÜR 2025
 
@@ -156,13 +163,13 @@
 
 | | Betrag |
 |---|---:|
-| Umsatz netto (Kunden) | 4.950,00 € |
+| Umsatz netto (Kunden) | 4.850,00 € |
 | Vom Finanzamt erstattete Umsatzsteuer 2025 | 273,96 € |
-| **Betriebseinnahmen gesamt** | **5.223,96 €** |
-| Ausgaben netto | 2.958,32 € |
+| **Betriebseinnahmen gesamt** | **5.123,96 €** |
+| Ausgaben netto | 3.058,32 € |
 | An das Finanzamt gezahlte Umsatzsteuer 2025 | 0,00 € |
-| **Betriebsausgaben gesamt** | **2.958,32 €** |
-| **Gewinn 2025** | **2.265,64 €** |
+| **Betriebsausgaben gesamt** | **3.058,32 €** |
+| **Gewinn 2025** | **2.065,64 €** |
 ## Privat bezahlt – zugleich Einlage
 
 | Datum | Partner | Netto | Vorsteuer | Brutto = Einlage |

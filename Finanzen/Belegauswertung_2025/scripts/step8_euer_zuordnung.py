@@ -23,6 +23,7 @@ REGELN = [
                                                                'Laufende IT-Kosten'),
     (r'MATTH|WIMMLER',                                         'Fortbildungskosten'),
     (r'FERRISE|HOTEL|MELIA',                                   'Übernachtungs- und Reisekosten'),
+    (r'JOEL WAGNER|WEBWOKR',                                    'Fremdleistungen'),
 ]
 
 def eur(x):

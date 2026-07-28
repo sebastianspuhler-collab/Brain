@@ -1315,7 +1315,7 @@
    "tx_id": "FINOM-844f31d5c70f63f1",
    "zahlungsdatum": "2025-08-28",
    "monat": 8,
-   "richtung": "AUSGANG",
+   "richtung": "EINGANG",
    "betrag_brutto": 119.0,
    "gegenpartei": "Joel Wagner",
    "verwendungszweck": "RE250005 | IBAN: DE90590501010067196121 | BIC: SAKSDE55XXX",
@@ -1328,7 +1328,8 @@
    "status": "BELEGT",
    "pruefgrund": null,
    "quelle": "finom_kontoauszug",
-   "quellref": "Finom_statement_21072026.pdf"
+   "quellref": "Finom_statement_21072026.pdf",
+   "korrektur_grund": "Joel Wagner RE250005, 28.08.2025, 119,00 EUR brutto. War faelschlich als richtung=AUSGANG (Umsatz) gebucht, ist aber eine Eingangsrechnung von WebWokr (Joel Wagner) an Prozessia fuer eine Excel Meta-Ads-Tracking-Sheet Anpassung (100,00 EUR netto + 19,00 EUR USt) - also eine Ausgabe, kein Umsatz. Nutzerbestaetigung 2026-07-28: die drei echten Einnahmen 2025 sind RE250006 (425,00), RE250007 (425,00) und RE250009 (4.000,00), zusammen 4.850,00 EUR netto."
   },
   {
    "tx_id": "FINOM-e7f3c07e9479ad0f",
@@ -4887,7 +4888,7 @@
     "ordner"
    ],
    "quellref": "/Users/sesp01-user/vault/Prozessia-Brain/Finanzen/2025/08_August/Rechnung Joel Wagner.pdf",
-   "richtung": "AUSGANG",
+   "richtung": "EINGANG",
    "rechnungsdatum": "2025-08-20",
    "rechnungsnummer": "RE250005",
    "partner": "Joel Wagner",
@@ -4907,7 +4908,8 @@
    "status": "VOLLSTAENDIG",
    "pruefgrund": null,
    "_text_len": 909,
-   "_matched_tx": "FINOM-844f31d5c70f63f1"
+   "_matched_tx": "FINOM-844f31d5c70f63f1",
+   "korrektur_grund": "War faelschlich als richtung=AUSGANG (Umsatz) erfasst. RE250005 ist eine Eingangsrechnung von WebWokr (Joel Wagner) an Prozessia (Meta-Ads-Tracking-Sheet Anpassung), also eine Ausgabe. Siehe zugehoerige tx_korrektur FINOM-844f31d5c70f63f1."
   },
   {
    "id": "41e9face-336f-53a4-9423-f6e018ef5bcd",
