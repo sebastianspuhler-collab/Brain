@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-07-28 17:40] [AW: Kapazitätenplanung Stücklistenprojek] Beteiligte Personen: Juergen Mahler, Florian Knoblauch (im CC der Original-Email)
 - [2026-07-28 14:34] [2026-07-28-Seifert_GmbH_pitch_deck.md] Kernherausforderung: unterschiedliche Kunden-Zeichnungsformate und manueller Aufwand bei Material-/Zuschnittlisten
 - [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] Kontaktperson: Moritz Klüpfel (Arbeitsvorbereitung, Schnittstelle Produktion/Geschäftsführung/CAD, nicht direkt Einkauf)
 - [2026-07-28 14:15] [2026-06-08-Juchem.md] Datenschutz-Constraint: Mitarbeiter bei Juchem dürfen nur Microsoft Copilot nutzen, keine anderen Chatbots – bei Lösung beachten
@@ -609,6 +610,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-28 17:40] [AW: Kapazitätenplanung Stücklistenprojek] Kundenwunsch: Einblick in Effizienz und Performance des Beschaffungsagenten vor Beginn des nächsten Projekts
 - [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] Lieferantenstruktur: 3 feste Aluminiumlieferanten + 10-15 Normteil-Unternehmen + Einzelbestellungen
 - [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] M.Reuss Werkzeugbau: ~45 Projektleiter bestellen dezentralisiert selbst nach Bedarf, keine zentrale Einkaufsabteilung
 - [2026-07-28 14:15] [2026-06-08-Juchem.md] Juchem: Lebensmittelindustrie mit Rezepturen, Standort Eppelborn (234 MA) + Großrosseln (1 MA), ERP-System Info LN
@@ -794,6 +796,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-28 17:40] [AW: Kapazitätenplanung Stücklistenprojek] Nächstes Projekt: Stücklistenprojekt mit Kapazitätenplanung
 - [2026-07-28 14:37] [AW: Integration Einkäufermail] Ab 28. Juli 2026: Potenzielle Eskalationen werden dem zuständigen Einkäufer per Mail informiert
 - [2026-07-28 14:34] [2026-07-28-Seifert_GmbH_pitch_deck.md] Prozessia KI-Lösung für automatisierte Einzelteilerkennung und Stücklistenerstellung
 - [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] Kernherausforderung: Fehler in Auftragsbestätigungen werden regelmäßig übersehen
