@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-07-28 01:06] [2026-07-28-Email-19fa640b-Neue-Zahlung-von-SCHAUFLER-TOOLING-GMBH.md] Zahlungsbenachrichtigung von Finom am 2026-07-28
 - [2026-07-27 20:35] [2026-06-09-New Record from Google Meet (1).md] Meeting-Datum: 2026-06-09, Thema: Vertriebsskalierung und KI-Vertrieb
 - [2026-07-27 12:40] [Automatische Antwort: Kapazitätenplanung] Bei dringenden Angelegenheiten: Kontakt zu Antonia Häberle (antonia.haeberle@schaufler.de)
 - [2026-07-27 12:13] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83493383.md] Dokument wirkt wie technisches Beispiel/Test-Stückliste ohne erkennbaren Kundenbezug
