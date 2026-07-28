@@ -794,6 +794,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-28 14:37] [AW: Integration Einkäufermail] Ab 28. Juli 2026: Potenzielle Eskalationen werden dem zuständigen Einkäufer per Mail informiert
 - [2026-07-28 14:34] [2026-07-28-Seifert_GmbH_pitch_deck.md] Prozessia KI-Lösung für automatisierte Einzelteilerkennung und Stücklistenerstellung
 - [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] Kernherausforderung: Fehler in Auftragsbestätigungen werden regelmäßig übersehen
 - [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] ERP-System: BIOS 2000 (alle Bestellungen laufen darüber)
