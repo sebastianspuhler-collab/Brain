@@ -3,7 +3,7 @@
   "title": "was steht heut ebei zillmer an?",
   "model": "claude-sonnet-5",
   "created_at": "2026-07-28T08:03:50.744519+00:00",
-  "updated_at": "2026-07-28T08:26:21.644441+00:00",
+  "updated_at": "2026-07-28T08:36:25.083850+00:00",
   "messages": [
     {
       "role": "user",
@@ -81,6 +81,26 @@
     {
       "role": "user",
       "content": "okqy, gib mir prompt für clade für die Prozessskizze, nix erfiden, nur das was im transkriot besprochen wurde und stelle die arbeit des AGenten da",
+      "attachments": null
+    },
+    {
+      "role": "assistant",
+      "content": "Hier ist der Prompt, direkt kopierbar für Claude:\n\n---\n\n```\nErstelle eine Prozessskizze für den KI-gestützten Kalkulationsprozess bei Zillmer Elektrotechnik, ausschließlich auf Basis der folgenden Fakten aus dem Meeting-Transkript \"Update Zillmer X Prozessia\" vom 21.07.2026 zwischen Sebastian Spuhler und Dierk Biendarra. Erfinde nichts hinzu, ergänze keine Schritte, Zahlen oder Details, die nicht explizit genannt wurden.\n\nAusgangslage: Zillmer bearbeitet Ausschreibungen (Beispiel: technische Leuchten), die teilweise nicht eindeutig spezifiziert sind - es fehlt manchmal die klare Angabe, welcher Hersteller oder Typ gemeint ist. Das betrifft laut Biendarra nur \"einige Bereiche\", nicht den Regelfall.\n\nStelle die Arbeit des KI-Agenten in folgenden Schritten dar:\n\n1. Ausschreibung geht ein.\n2. Prüfung, ob Hersteller/Typ eindeutig im Ausschreibungstext angegeben ist.\n   - Falls ja: direkt weiter zur Preisanfrage.\n   - Falls nein: KI-Recherche.\n3. KI-Recherche (nur bei fehlender Angabe): Die KI liest den Ausschreibungstext und leitet daraus ab, welcher Hersteller/Typ gemeint sein könnte. Der Suchraum wird bewusst eingegrenzt auf ca. 50 relevante Hersteller für technische Leuchten in Deutschland, um die Fehleranfälligkeit/Halluzination der KI zu minimieren (Prinzip: je spezifischer der Suchraum, desto sicherer das Ergebnis).\n4. Automatisierter Preisvergleich: Die KI sendet automatisiert Anfragen an Großhandel und/oder Hersteller und vergleicht die eingehenden Preise, um den günstigsten Anbieter zu ermitteln.\n5. Einspeisung in die Kalkulation: Der ermittelte Preis fließt direkt in die Angebotskalkulation ein.\n6. Bei Auftragserteilung: Das Ergebnis (Hersteller, Typ, Preis) wird automatisch an weitere am Projekt Beteiligte weitergegeben.\n\nStelle den Ablauf klar strukturiert dar (Input -> Verarbeitung -> Output je Schritt) und baue eine einfache Flussgrafik/Diagramm-Darstellung ein, die sich für eine Präsentationsfolie eignet. Halte dich strikt an die oben genannten Fakten - keine zusätzlichen Anwendungsfälle, keine zusätzlichen technischen Details, keine geschätzten Zahlen.\n```\n\n---\n\nKurzer Hinweis: Das ist inhaltlich identisch mit der Prozessskizze, die ich dir vorhin schon in `Leads/Zillmer-Elektrotechnik-Korrespondenz/2026-07-28-Prozessskizze-KI-Kalkulation.md` abgelegt habe – falls du den Prompt nur brauchst, um daraus in Claude eine schönere Grafik/Folie zu bauen, spart dir das evtl. den Umweg.\n\nDer Termin mit Biendarra ist in gut 30 Minuten (11:00 Uhr), und davor um 10:30 schon Mundinger – falls dir für Mundinger noch was fehlt, sag Bescheid, sonst bist du für beide gut vorbereitet.",
+      "attachments": null
+    },
+    {
+      "role": "user",
+      "content": "okay, kannst du so eine prozessskizze evtl. auc für seofert machen",
+      "attachments": null
+    },
+    {
+      "role": "assistant",
+      "content": "Ist abgelegt: `Leads/Seifert-GmbH-Korrespondenz/2026-07-28-Prozessskizze-Materialliste.md` – analog zum Zillmer-Dokument, aber inhaltlich komplett anders, weil das Problem ein anderes ist.\n\nKurz zum Aufbau: Ausgangslage ist Spanflug (PDF + 3D-Modell rein, berechnet Fräszeit/Werkzeugbedarf/Werktage – funktioniert bei einteiligen Frästeilen gut). Das Problem: Seifert hat überwiegend geschweißte Baugruppen aus mehreren Einzelteilen, die Spanflug nicht erkennt. Der eigentliche Bedarf ist eine automatisierte Material-/Zuschnittliste je Position zur Kostenaufteilung – aktuell macht Seifert das handschriftlich. Ich hab bewusst betont, dass das ein anderes Tool wäre als Spanflug, nicht dessen Ersatz, damit du das im Termin sauber trennst.\n\nZwei Sachen aus dem Transkript hab ich als offene Punkte reingeschrieben, weil sie wörtlich so drinstehen:\n\n1. Das Transkript bricht exakt an der Stelle ab, wo Seifert anfängt zu beschreiben, wie ein Programm das lösen könnte – seine konkrete technische Vorstellung fehlt also komplett. Im Termin gezielt nachfragen: Eingabeformat, gewünschte Ausgabe, wie granular die Positionszuordnung sein soll.\n2. Wie schon gestern notiert: Die per Mail geschickten Stücklisten/Zeichnungen (6000017119) wirken laut bisheriger Indexierung wie generische Testdaten ohne klaren Bezug zu einem echten Seifert-Auftrag – das würde ich vor 14:30 Uhr noch kurz gegenchecken, sonst redest du im Meeting eventuell an den falschen Zahlen vorbei.\n\nPreis hab ich diesmal bewusst nicht reingeschrieben, weil dazu im Transkript nichts gesagt wurde – anders als bei Zillmer gibt's hier noch keine Kostendiskussion, auf die ich mich stützen könnte.\n\nDer Termin ist in knapp 6 Stunden (14:30 Uhr), aber vorher stehen noch Mundinger (10:30) und Zillmer (11:00) an – falls du für die beiden noch was brauchst, sag Bescheid.\n\n---\n*Notiert: Seifert-Problem: Spanflug (PDF+3D-Modell -> Fräszeit/Werkzeugbedarf/Werktage) funktioniert gut bei einteiligen Frästeilen, aber Seifert hat überwiegend geschweißte Baugruppen, was Spanflug nicht abdeckt*",
+      "attachments": null
+    },
+    {
+      "role": "user",
+      "content": "bitte auch als Prompt machen",
       "attachments": null
     }
   ],

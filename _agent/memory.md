@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-07-28 08:35] Seifert-Problem: Spanflug (PDF+3D-Modell -> Fräszeit/Werkzeugbedarf/Werktage) funktioniert gut bei einteiligen Frästeilen, aber Seifert hat überwiegend geschweißte Baugruppen, was Spanflug nicht abdeckt
 - [2026-07-28 07:08] [Wachstum systematisieren] Erfolgsbeispiele: DRIP-Wachstum von 200k auf über 450k pro Monat, notus-Wachstum von 40k auf 170k mit gleicher Lead-Anzahl
 - [2026-07-28 07:08] [Wachstum systematisieren] Levin Germann, Gründer & Geschäftsführer PREDICT PA GmbH (levin@predict-abilityos.com, Rosenthaler Str. 42-44, 10178 Berlin)
 - [2026-07-28 01:06] [2026-07-28-Email-19fa640b-Neue-Zahlung-von-SCHAUFLER-TOOLING-GMBH.md] Zahlungsbenachrichtigung von Finom am 2026-07-28
@@ -592,6 +593,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-28 08:35] [2026-07-28-Prozessskizze-Materialliste.md] Seifert GmbH nutzt aktuell Spanflug zur Kalkulation von Frästeilen
 - [2026-07-28 08:23] Angebot für Kunde Zillmer: Pilotprojekt Kalkulationsagent (Recherche-Logik + Preisvergleich + Kalkulations-Anbindung) als Festpreis ab 12.000€ netto, danach laufende Kosten 220€/Monat (100€ Hosting-Basis + 120€ 1. Agent)
 - [2026-07-28 08:22] [2026-07-28-Prozessskizze-KI-Kalkulation.md] Zillmer Elektrotechnik – Lead für KI-gestützten Kalkulationsprozess bei Ausschreibungen technischer Leuchten
 - [2026-07-27 17:40] Seifert benötigt keine Kalkulationslösung für Einzelteile (hat bereits Spanflug), sondern eine Lösung für Baugruppenkalkulation. Spanflug erkennt bei geschweißten Baugruppen aus mehreren Einzelteilen die Zusammensetzung nicht, da es nur für einteilige Zerspanungsteile gebaut ist.
@@ -1313,6 +1315,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-07-28 08:35] [2026-07-28-Prozessskizze-Materialliste.md] Regelfall bei Seifert: geschweißte Baugruppen; benötigt automatisierte Gesamtliste mit Materialangaben und Zuschnittdetails
 - [2026-07-28 08:22] [2026-07-28-Prozessskizze-KI-Kalkulation.md] KI-Suchraum bewusst auf ca. 50 relevante Hersteller für technische Leuchten in Deutschland begrenzen – Ziel: Halluzinationen auf 0 reduzieren
 - [2026-07-19 16:52] [2026-06-15-Prozessia Abstimmung Messdokumente (1).md] KI-Assistent soll Messberichte automatisch verarbeiten und Vollständigkeitsprüfung durchführen
 - [2026-07-17 21:41] [9---Email-19f472fd-Infos-zur-WinForm-Sicht.md] Terminüberwachung_Bemerkung (nvarchar(300)): Textfeld soll bei jeder Terminaktualisierung mit kurzer Info ergänzt werden
