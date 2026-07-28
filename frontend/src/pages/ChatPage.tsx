@@ -194,11 +194,12 @@ export function ChatPage() {
     }
   }
 
-  // Datei-Anhang nur für die nächste Nachricht (Umsetzungsplan 2026-07-27) -
-  // anders als handleFileSelect oben: kein Wissens-Eintrag, der Text landet
-  // direkt im Prompt dieses einen Turns (siehe chat.py::_format_attachments).
-  // Ausnahme (2026-07-28): erkannte Gesprächstranskripte landen zusätzlich in
-  // der Inbox und tauchen dauerhaft in "Transkripte" auf (result.persisted).
+  // Datei-Anhang für die nächste Nachricht (Umsetzungsplan 2026-07-27): Text
+  // landet direkt im Prompt dieses einen Turns (siehe chat.py::_format_attachments).
+  // Seit 2026-07-28 ("jede Uploadfläche im System ist eine Inbox") landet die
+  // Datei ZUSÄTZLICH dauerhaft über die Inbox im Wissen/Vault (result.persisted) -
+  // bei Transkripten direkt im Meetings-Unterordner, taucht dann in
+  // "Transkripte" auf (result.is_transcript, nur für die Toast-Formulierung).
   async function handleChatAttach(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     e.target.value = "";
@@ -208,7 +209,11 @@ export function ChatPage() {
       const result = await chatAttach.upload(file);
       setPendingAttachments((prev) => [...prev, result]);
       if (result.persisted) {
-        toast.success(`„${result.filename}" als Transkript erkannt und in Transkripte einsortiert`);
+        toast.success(
+          result.is_transcript
+            ? `„${result.filename}" als Transkript erkannt und in Transkripte einsortiert`
+            : `„${result.filename}" zusätzlich im Wissen abgelegt`,
+        );
       }
     } catch (err) {
       toast.error(err instanceof ApiError ? err.message : "Datei konnte nicht gelesen werden");
@@ -318,7 +323,7 @@ export function ChatPage() {
             className="size-7 rounded-full text-muted-foreground hover:text-foreground"
             onClick={() => attachInputRef.current?.click()}
             disabled={attaching}
-            title="Datei an diese Nachricht anhängen (Transkripte werden zusätzlich in die Inbox einsortiert, andere Dateien nur für diese Anfrage)"
+            title="Datei an diese Nachricht anhängen (wird sofort für diese Anfrage genutzt UND dauerhaft im Wissen abgelegt)"
           >
             {attaching ? <Loader2 className="size-4 animate-spin" /> : <Paperclip className="size-4" />}
           </Button>

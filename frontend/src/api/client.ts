@@ -49,26 +49,30 @@ export const api = {
 export interface ChatAttachment {
   filename: string;
   text: string;
-  /** true, wenn die Datei zusätzlich als Gesprächstranskript erkannt und über
-   * die Inbox einsortiert wurde (siehe chat.py::chat_attach, 2026-07-28) -
-   * taucht dann dauerhaft in "Transkripte" auf, nicht nur in diesem Chat-Turn. */
+  /** true, wenn die Datei zusätzlich über die Inbox einsortiert wurde (siehe
+   * chat.py::chat_attach, 2026-07-28: "jede Uploadfläche ist eine Inbox") -
+   * taucht dann dauerhaft im Wissen/Vault auf, nicht nur in diesem Chat-Turn.
+   * Nur bei einem unerwarteten Fehler bei der Inbox-Verarbeitung false. */
   persisted?: boolean;
+  /** true, wenn zusätzlich als Gesprächstranskript erkannt wurde (landet dann
+   * im Meetings-Unterordner und taucht in "Transkripte" auf) - nur für eine
+   * genauere Toast-Formulierung. */
+  is_transcript?: boolean;
 }
 
 export interface ChatMessage {
   role: "user" | "assistant";
   content: string;
-  /** Datei-Anhänge nur für diesen Turn (Umsetzungsplan 2026-07-27) - anders
-   * als der bestehende Datei-Upload-Button (legt dauerhaft im Wissen/RAG ab).
-   * Text kommt vorab über POST /api/chat/attach (chatAttach.upload). */
+  /** Anhänge werden SOFORT in diesen einen Chat-Turn eingespeist UND
+   * dauerhaft über die Inbox einsortiert (Umsetzungsplan 2026-07-27, erweitert
+   * 2026-07-28). Text kommt vorab über POST /api/chat/attach (chatAttach.upload). */
   attachments?: ChatAttachment[];
 }
 
-/** Extrahiert Text aus einer Datei nur für diesen Chat-Turn (Umsetzungsplan
- * 2026-07-27) - speichert/indexiert grundsätzlich nichts dauerhaft, anders als
- * api.upload("/api/upload", ...). Ausnahme (2026-07-28): erkannte
- * Gesprächstranskripte werden zusätzlich über die Inbox einsortiert, siehe
- * ChatAttachment.persisted. */
+/** Extrahiert Text aus einer Datei für den aktuellen Chat-Turn UND sortiert sie
+ * dauerhaft über die Inbox ein (2026-07-28: "jede Uploadfläche im System ist
+ * eine Inbox", siehe ChatAttachment.persisted) - wie api.upload("/api/upload",
+ * ...), nur dass der Text zusätzlich sofort im Chat verfügbar ist. */
 export const chatAttach = {
   upload: (file: File) => api.upload<ChatAttachment>("/api/chat/attach", file),
 };

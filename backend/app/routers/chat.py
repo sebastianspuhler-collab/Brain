@@ -53,10 +53,10 @@ class ChatAttachment(BaseModel):
 class ChatMessage(BaseModel):
     role: str
     content: str
-    # Datei-Anhänge nur für diesen einen Turn (Umsetzungsplan 2026-07-27) -
-    # bewusst NICHT dasselbe wie /api/upload (das indexiert dauerhaft ins
-    # Wissen/RAG). Text kommt vom Frontend vorab über POST /api/chat/attach,
-    # wird hier nur noch in den Prompt eingebettet, siehe _stream_chat(_cli).
+    # Datei-Anhänge für diesen Turn (Umsetzungsplan 2026-07-27). Text kommt vom
+    # Frontend vorab über POST /api/chat/attach, wird hier nur noch in den
+    # Prompt eingebettet (siehe _stream_chat(_cli)) - die dauerhafte
+    # Inbox-Ablage passiert bereits serverseitig in chat_attach() selbst.
     attachments: list[ChatAttachment] | None = None
 
 
@@ -503,20 +503,18 @@ def chat(body: ChatRequest, user: str = Depends(get_current_user)):
 
 
 # ── Datei-Anhänge in Chat-Nachrichten (Umsetzungsplan 2026-07-27) ──────────
-# Grundsätzlich getrennt von /api/upload (inbox.py) - das legt Dateien dauerhaft
-# im Vault/RAG ab, hier geht es primär um Text-Extraktion für EINEN Chat-Turn,
-# ohne etwas zu speichern/indexieren. Nutzt dieselbe classify.extract_text()
-# wie die Inbox-Verarbeitung und dieselbe Bild-Transkription wie /api/upload
-# (claude_cli.describe_image bzw. Sonnet-Vision-Fallback).
-#
-# Ausnahme (Sebastian, 2026-07-28): Gesprächstranskripte, über diesen Weg
-# angehängt, sollen trotzdem "wieder über die Inbox einsortiert" werden und in
-# der Transkripte-Übersicht auftauchen - reine Text-Extraktion für den Chat-Turn
-# reichte ihm dafür nicht. Erkennung per classify.TRANSCRIPT_MARKERS (dieselben
-# Marker wie bei der regulären Inbox-Klassifizierung, siehe
-# classify.is_meeting_transcript()); trifft einer, wird die Originaldatei
-# zusätzlich in die Inbox kopiert und über run_inbox_and_reindex() verarbeitet.
-# Alle anderen Dateitypen bleiben wie bisher rein ephemer.
+# Ursprünglich bewusst getrennt von /api/upload (inbox.py): Text-Extraktion nur
+# für EINEN Chat-Turn, ohne etwas zu speichern/indexieren. Sebastian (2026-07-28,
+# nach dem Transkript-Fix unten): "generell ist jede Uploadfläche im System eine
+# Inbox" - jede angehängte Datei landet jetzt IMMER zusätzlich in der Inbox und
+# wird wie beim regulären Upload-Button verarbeitet (klassifiziert, einsortiert,
+# indiziert), nicht mehr nur erkannte Transkripte. Der Unterschied zu
+# /api/upload bleibt: hier wird der extrahierte Text zusätzlich SOFORT in den
+# laufenden Chat-Turn eingespeist (siehe _format_attachments unten), dort nicht.
+# Bild-Handling spiegelt /api/upload (inbox.py::upload) exakt: die Vision-
+# Transkription wird als "{stem}_vision.md" in die Inbox geschrieben statt des
+# rohen Bilds, weil classify.process_file() Bilder sonst nur verschiebt, ohne
+# eine lesbare Notiz mit dem OCR-Text zu erzeugen.
 ATTACH_MAX_BYTES = 15 * 1024 * 1024  # 15 MB
 ATTACH_MAX_CHARS = 20000
 _ATTACH_IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
@@ -527,9 +525,21 @@ _ATTACH_IMAGE_PROMPT = (
 )
 
 
-def _looks_like_transcript(filename: str, text: str) -> bool:
+def _is_transcript(filename: str, text: str) -> bool:
+    """Nur noch für die Toast-Formulierung im Frontend (persisted ist jetzt
+    für JEDEN Anhang true) - unterscheidet 'als Transkript erkannt' von
+    generischem 'im Wissen abgelegt'."""
     haystack = f"{filename}\n{text[:3000]}".lower()
     return any(marker in haystack for marker in classify.TRANSCRIPT_MARKERS)
+
+
+def _unique_inbox_path(settings, name: str) -> Path:
+    settings.inbox_dir.mkdir(parents=True, exist_ok=True)
+    path = settings.inbox_dir / name
+    if not path.exists():
+        return path
+    stem, suffix = Path(name).stem, Path(name).suffix
+    return settings.inbox_dir / f"{stem}-{datetime.now().strftime('%H%M%S')}{suffix}"
 
 
 @router.post("/chat/attach")
@@ -541,12 +551,13 @@ async def chat_attach(file: UploadFile, user: str = Depends(get_current_user)):
     filename = Path(file.filename).name
     suffix = Path(filename).suffix.lower()
     settings = get_settings()
+    is_image = suffix in _ATTACH_IMAGE_EXTS
 
     with tempfile.TemporaryDirectory() as tmpdir:
         tmp_path = Path(tmpdir) / filename
         tmp_path.write_bytes(body)
 
-        if suffix in _ATTACH_IMAGE_EXTS:
+        if is_image:
             try:
                 if settings.claude_engine == "cli":
                     text = claude_cli.describe_image(str(tmp_path), _ATTACH_IMAGE_PROMPT)
@@ -570,19 +581,24 @@ async def chat_attach(file: UploadFile, user: str = Depends(get_current_user)):
                 raise HTTPException(status_code=400, detail="Dateiformat wird nicht unterstützt")
 
     persisted = False
-    if suffix not in _ATTACH_IMAGE_EXTS and _looks_like_transcript(filename, text):
-        settings.inbox_dir.mkdir(parents=True, exist_ok=True)
-        inbox_path = settings.inbox_dir / filename
-        if inbox_path.exists():
-            inbox_path = settings.inbox_dir / f"{Path(filename).stem}-{datetime.now().strftime('%H%M%S')}{suffix}"
-        inbox_path.write_bytes(body)
-        try:
-            run_inbox_and_reindex()
-            persisted = True
-        except Exception:
-            pass  # Anhang bleibt trotzdem für diesen Chat-Turn nutzbar
+    try:
+        if is_image:
+            inbox_path = _unique_inbox_path(settings, f"{Path(filename).stem}_vision.md")
+            inbox_path.write_text(f"# {Path(filename).stem}\n\n{text}", encoding="utf-8")
+        else:
+            inbox_path = _unique_inbox_path(settings, filename)
+            inbox_path.write_bytes(body)
+        run_inbox_and_reindex()
+        persisted = True
+    except Exception:
+        pass  # Anhang bleibt trotzdem für diesen Chat-Turn nutzbar
 
-    return {"filename": filename, "text": text, "persisted": persisted}
+    return {
+        "filename": filename,
+        "text": text,
+        "persisted": persisted,
+        "is_transcript": _is_transcript(filename, text),
+    }
 
 
 # ── Chat-Session-Persistenz (Umsetzungsplan A2) ─────────────────────────────
