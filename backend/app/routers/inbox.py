@@ -10,8 +10,9 @@ from pydantic import BaseModel
 from app.config import get_settings
 from app.constants import Models
 from app.deps import get_current_user
-from app.services import classify, memory, rag
+from app.services import memory
 from app.services.anthropic_client import get_client, get_response_text
+from app.services.inbox_service import run_inbox_and_reindex
 
 router = APIRouter(prefix="/api", tags=["inbox"])
 
@@ -22,18 +23,9 @@ class RememberRequest(BaseModel):
     text: str
 
 
-def _run_inbox_and_reindex() -> dict:
-    result = classify.run_inbox()
-    new_files = rag.reindex_new_files()
-    for rel, content in new_files:
-        memory.learn_from_file(rel, content)
-    result["new_indexed"] = len(new_files)
-    return result
-
-
 @router.post("/inbox_process")
 def inbox_process(user: str = Depends(get_current_user)):
-    return _run_inbox_and_reindex()
+    return run_inbox_and_reindex()
 
 
 @router.post("/remember")
@@ -83,6 +75,6 @@ async def upload(file: UploadFile, user: str = Depends(get_current_user)):
         except Exception:
             pass  # Original weiterverarbeiten, falls Vision fehlschlägt
 
-    result = _run_inbox_and_reindex()
+    result = run_inbox_and_reindex()
     result["filename"] = filename
     return result

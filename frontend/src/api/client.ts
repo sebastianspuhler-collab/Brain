@@ -49,6 +49,10 @@ export const api = {
 export interface ChatAttachment {
   filename: string;
   text: string;
+  /** true, wenn die Datei zusätzlich als Gesprächstranskript erkannt und über
+   * die Inbox einsortiert wurde (siehe chat.py::chat_attach, 2026-07-28) -
+   * taucht dann dauerhaft in "Transkripte" auf, nicht nur in diesem Chat-Turn. */
+  persisted?: boolean;
 }
 
 export interface ChatMessage {
@@ -61,8 +65,10 @@ export interface ChatMessage {
 }
 
 /** Extrahiert Text aus einer Datei nur für diesen Chat-Turn (Umsetzungsplan
- * 2026-07-27) - speichert/indexiert nichts dauerhaft, anders als
- * api.upload("/api/upload", ...). */
+ * 2026-07-27) - speichert/indexiert grundsätzlich nichts dauerhaft, anders als
+ * api.upload("/api/upload", ...). Ausnahme (2026-07-28): erkannte
+ * Gesprächstranskripte werden zusätzlich über die Inbox einsortiert, siehe
+ * ChatAttachment.persisted. */
 export const chatAttach = {
   upload: (file: File) => api.upload<ChatAttachment>("/api/chat/attach", file),
 };

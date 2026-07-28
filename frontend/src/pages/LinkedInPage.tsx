@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { ArrowUp, BrainCircuit } from "lucide-react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { api, streamLinkedInChat, type ChatMessage } from "@/api/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -163,8 +164,8 @@ function LinkedInChat({
                 </div>
                 <div className="min-w-0 flex-1 pt-0.5">
                   <div className="mb-1 text-xs font-medium text-muted-foreground">Brain</div>
-                  <div className="prose prose-invert prose-sm max-w-none text-foreground">
-                    <ReactMarkdown>{m.content || (streaming && i === messages.length - 1 ? "…" : "")}</ReactMarkdown>
+                  <div className="prose dark:prose-invert prose-sm max-w-none text-foreground">
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{m.content || (streaming && i === messages.length - 1 ? "…" : "")}</ReactMarkdown>
                   </div>
                 </div>
               </div>

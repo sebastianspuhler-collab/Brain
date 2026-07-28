@@ -2,24 +2,24 @@
 tags:
   - endin
   - Angebot
-  - AG0032
   - KI-Agent
   - Beschaffung
-quelle: 19f93b0bdf-Angebot_AG0032_24.07.2026.pdf
+  - kaufmännische Abwicklung
+quelle: Angebot_endin_überarbeitet.pdf
 datum: 2026-07-24
 kategorie: Kunde
 ---
 
-# 19f93b0bdf-Angebot_AG0032_24.07.2026
+# Angebot_endin_überarbeitet
 
 ## Zusammenfassung
-Angebot AG0032 von Prozessia an endin GmbH (Weikersheim) vom 24.07.2026 für einen KI-Agenten zur kaufmännischen Abwicklung von Aufträgen: Schnittstellen zu E-Mail-Postfächern, Betrieb auf unternehmenseigenem Server, Empfang/Klassifizierung von Bestellungen (Service, Ersatzteile, Maschine) sowie Steuerungs-Dashboard. Gesamtbetrag: 3.451,00 € brutto (2.900,00 € netto zzgl. 19% USt.), gültig bis 24.08.2026.
+Angebot AG0032 vom 24.07.2026 von Prozessia an endin GmbH für einen KI-Agenten zur kaufmännischen Auftragsabwicklung: Schnittstellen zu E-Mail-Postfächern, Betrieb auf unternehmenseigenem Server, Empfang und Klassifizierung von Bestellungen (Service, Ersatzteile, Maschine) sowie ein Steuerungs-Dashboard. Gesamtbetrag 3.451,00 € brutto (2.900,00 € netto zzgl. 19% USt.), gültig bis 24.08.2026.
 
 ## Vollständiger Inhalt
 **Prozessia.**
 AI AGENCY
 
-# Angebot
+Angebot
 
 Angebotsnr.: AG0032
 Kundennr.: 10001

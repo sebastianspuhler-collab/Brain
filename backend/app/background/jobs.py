@@ -193,6 +193,13 @@ async def inbox_watcher_loop() -> None:
             inbox = settings.inbox_dir
             if not inbox.exists():
                 continue
+            # Der Cache muss hier mitgeprüft werden, nicht erst in run_inbox()
+            # (Sebastian, 2026-07-27): sonst gilt eine bereits verarbeitete, aber
+            # noch in _inbox/ liegende Datei alle 30 Sekunden erneut als "neu",
+            # run_inbox() läuft an, findet nichts zu tun und meldet "Inbox leer" -
+            # dauerhaft, im Log ununterscheidbar von echter Arbeit. Genau das lief
+            # hier seit dem 24.07. mit 112 Karteileichen im Ordner.
+            bereits_verarbeitet = classify._load_cache()
             neue = [
                 f for f in inbox.rglob("*")
                 if f.is_file()
@@ -202,6 +209,7 @@ async def inbox_watcher_loop() -> None:
                 and "_fehler" not in str(f)
                 and "node_modules" not in str(f)
                 and "Branding" not in str(f)
+                and str(f) not in bereits_verarbeitet
             ]
             if neue:
                 logger.info("Inbox-Watcher: %d neue Datei(en) -> verarbeite...", len(neue))

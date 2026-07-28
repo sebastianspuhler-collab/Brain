@@ -18,8 +18,15 @@ _agent/conversations/
 _agent/daily/
 _agent/logs/
 
-# ── Inbox (temporär, nicht committen) ────────────────────────────────────────
-_inbox/
+# ── Inbox (2026-07-27: bewusst NICHT mehr ignoriert) ─────────────────────────
+# _inbox/ war ignoriert, weil die Dateien nur temporär dort liegen. Seit das
+# Backend ausschließlich auf dem VPS läuft (siehe _agent/vault_sync.sh) war das
+# aber eine Sackgasse: was Sebastian lokal in _inbox/ ablegt, wurde nie
+# committet, kam nie auf den VPS und wurde deshalb auch nie einsortiert - die
+# Dateien lagen einfach für immer da (live: drei Meeting-Transkripte vom
+# 25./26.07. plus ein Tutorial-Transkript). Jetzt synchronisiert _inbox/ mit,
+# die Verarbeitung passiert auf dem VPS und das Ergebnis kommt zurück.
+# Medien/Archive bleiben über die globalen Regeln weiter unten ausgeschlossen.
 
 # ── RAG-Index ─────────────────────────────────────────────────────────────────
 # Wird bewusst NICHT ignoriert: der VPS hat zu wenig Luft, um das
@@ -42,6 +49,13 @@ _inbox/
 # fluten (live beobachtet: 104 Karteileichen, siehe Aufräumung 2026-07-24).
 _agent/logs/processed_cache.json
 _agent/downloaded_attachments.json
+
+# Altlast aus genau diesem Bug: 112 Anhänge, die der Backfill am 24.07. erneut
+# heruntergeladen hatte, obwohl sie laut processed_cache.json längst verarbeitet
+# waren. Lagen seitdem unbeweglich in _inbox/. Beim Freigeben von _inbox/ (oben)
+# wären sie sonst auf den VPS gewandert und dort ein zweites Mal einsortiert
+# worden. Bewusst nur beiseitegelegt, nicht gelöscht - Sebastian entscheidet.
+_agent/inbox_altlast_*/
 
 # ── Präsentationen (zu groß für Git, im RAG als Text erfasst) ────────────────
 *.pptx

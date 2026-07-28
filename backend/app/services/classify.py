@@ -26,6 +26,16 @@ SKIP_PREFIXES = ("README", "readme", "LICENSE", "license", "CHANGELOG",
                   "HISTORY", "History", "CONTRIBUTING", "contributing")
 IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".gif", ".mp4", ".mov", ".mp3"}
 
+# Textmarker, an denen ein Gesprächstranskript zuverlässig erkennbar ist -
+# Teams exportiert mit "...-Besprechungstranskript" im Kopf und "Transkription
+# gestartet/beendet" als Rahmen, Google Meet mit "New Record from Google Meet".
+TRANSCRIPT_MARKERS = (
+    "besprechungstranskript",
+    "transkription gestartet",
+    "meeting transcript",
+    "new record from google meet",
+)
+
 
 def _cache_path() -> Path:
     return get_settings().agent_dir / "logs" / "processed_cache.json"
@@ -354,6 +364,24 @@ def _append_decisions_log(entscheidungen: list, quelle: str, datum: str) -> None
             f.write(f"- {datum} | {quelle} | {entscheidung}\n")
 
 
+def is_meeting_transcript(filepath: Path, content: str, result: dict) -> bool:
+    """Erkennt ein Gesprächstranskript unabhängig davon, in welche Kategorie das
+    Modell die Datei einsortiert hat.
+
+    Hintergrund (Sebastian, 2026-07-27): die Transkripte-Seite listet ausschließlich
+    Notizen mit einem "Meetings"-Ordner im Pfad (files.py:list_meetings). Die
+    Ablageregeln im classify()-Prompt kennen Meetings/ aber nur unter Kunden/ -
+    Gespräche mit Interessenten landeten deshalb in Leads/[Lead]-Korrespondenz/
+    und tauchten in der Übersicht nie auf, obwohl sie korrekt eingelesen waren
+    (betraf u.a. Zillmer 21.07. und Seifert 23.07.). Zusätzlich blieben ihnen die
+    Teilnehmer-/Kernpunkte-/Zusagen-Abschnitte verwehrt, weil auch die an dieser
+    Ordnerbedingung hingen."""
+    haystack = f"{filepath.name}\n{content[:3000]}".lower()
+    if any(marker in haystack for marker in TRANSCRIPT_MARKERS):
+        return True
+    return any("transkript" in str(tag).lower() for tag in result.get("tags", []))
+
+
 def process_file(filepath: Path) -> tuple[bool, str]:
     settings = get_settings()
     if filepath.suffix.lower() in SKIP_EXTENSIONS:
@@ -367,12 +395,20 @@ def process_file(filepath: Path) -> tuple[bool, str]:
     if not result:
         return False, "API-Klassifizierung fehlgeschlagen"
 
-    zielordner = settings.vault_path / result.get("zielordner", "Memos")
+    # Transkripte immer in einen Meetings-Unterordner, egal ob Kunde, Lead oder
+    # Sales - sonst fehlen sie in der Transkripte-Übersicht (siehe
+    # is_meeting_transcript()). Hat das Modell bereits Meetings/ gewählt, bleibt
+    # der Pfad unverändert.
+    zielordner_rel = result.get("zielordner", "Memos")
+    ist_transkript = is_meeting_transcript(filepath, content, result)
+    if ist_transkript and "Meetings" not in Path(zielordner_rel).parts:
+        zielordner_rel = f"{zielordner_rel}/Meetings"
+        result["zielordner"] = zielordner_rel
+
+    zielordner = settings.vault_path / zielordner_rel
     zielordner.mkdir(parents=True, exist_ok=True)
 
-    meeting_data = None
-    if "/Meetings" in result.get("zielordner", ""):
-        meeting_data = extract_meeting_structure(filepath)
+    meeting_data = extract_meeting_structure(filepath) if ist_transkript else None
     datum = _resolve_datum(meeting_data, filepath)
 
     if filepath.suffix.lower() not in IMAGE_EXTS | {".zip"}:
@@ -381,7 +417,7 @@ def process_file(filepath: Path) -> tuple[bool, str]:
         notiz_path = zielordner / f"{datum}-{filepath.stem}.md"
 
         meeting_sections = ""
-        if "/Meetings" in result.get("zielordner", ""):
+        if ist_transkript:
             if meeting_data:
                 def _liste(items):
                     return "\n".join(f"- {i}" for i in items) if items else "- (keine)"

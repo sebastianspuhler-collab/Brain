@@ -2,6 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { ArrowUp, BookPlus, Bot, BrainCircuit, FileText, Loader2, Paperclip, X } from "lucide-react";
 import ReactMarkdown from "react-markdown";
+// GitHub-Flavored Markdown (2026-07-27): ohne dieses Plugin rendert react-markdown
+// nur CommonMark - Tabellen kamen als rohe Pipe-Zeilen durch, ebenso Durchstreichen
+// und Aufgabenlisten. Brain antwortet aber regelmäßig in Tabellenform.
+import remarkGfm from "remark-gfm";
 import { toast } from "sonner";
 import {
   agents as agentsApi,
@@ -193,6 +197,8 @@ export function ChatPage() {
   // Datei-Anhang nur für die nächste Nachricht (Umsetzungsplan 2026-07-27) -
   // anders als handleFileSelect oben: kein Wissens-Eintrag, der Text landet
   // direkt im Prompt dieses einen Turns (siehe chat.py::_format_attachments).
+  // Ausnahme (2026-07-28): erkannte Gesprächstranskripte landen zusätzlich in
+  // der Inbox und tauchen dauerhaft in "Transkripte" auf (result.persisted).
   async function handleChatAttach(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     e.target.value = "";
@@ -201,6 +207,9 @@ export function ChatPage() {
     try {
       const result = await chatAttach.upload(file);
       setPendingAttachments((prev) => [...prev, result]);
+      if (result.persisted) {
+        toast.success(`„${result.filename}" als Transkript erkannt und in Transkripte einsortiert`);
+      }
     } catch (err) {
       toast.error(err instanceof ApiError ? err.message : "Datei konnte nicht gelesen werden");
     } finally {
@@ -309,7 +318,7 @@ export function ChatPage() {
             className="size-7 rounded-full text-muted-foreground hover:text-foreground"
             onClick={() => attachInputRef.current?.click()}
             disabled={attaching}
-            title="Datei an diese Nachricht anhängen (nur für diese Anfrage, nicht im Wissen gespeichert)"
+            title="Datei an diese Nachricht anhängen (Transkripte werden zusätzlich in die Inbox einsortiert, andere Dateien nur für diese Anfrage)"
           >
             {attaching ? <Loader2 className="size-4 animate-spin" /> : <Paperclip className="size-4" />}
           </Button>
@@ -420,9 +429,15 @@ export function ChatPage() {
                 </div>
                 <div className="min-w-0 flex-1 pt-0.5">
                   <div className="mb-1 text-xs font-medium text-muted-foreground">Brain</div>
+                  {/* prose-invert nur im Dunkelmodus: seit der helle Modus der
+                      Standard ist (main.tsx, defaultTheme="light"), färbte die
+                      Invert-Palette Überschriften, Fettes, Listenpunkte, Code
+                      und Links fast weiß - auf hellem Grund unlesbar bzw.
+                      "verrückt". Fließtext blieb nur zufällig sichtbar, weil
+                      text-foreground danebensteht. */}
                   {!isThinking && (
-                    <div className="prose prose-invert prose-sm max-w-none text-foreground">
-                      <ReactMarkdown>{m.content}</ReactMarkdown>
+                    <div className="prose dark:prose-invert prose-sm max-w-none text-foreground">
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>{m.content}</ReactMarkdown>
                     </div>
                   )}
                   {!!m.sources?.length && (

@@ -156,10 +156,6 @@ for label, val in [
     ws.cell(row=r, column=1, value=label).font = Font(bold=True, size=12)
     ws.cell(row=r, column=2, value=val).font = Font(bold=True, size=12)
     r += 1
-r += 1
-ws.cell(row=r, column=1, value="HINWEIS: Melia-Hotel-Rechnung (Benito Ferrise, 82,99 EUR, 11.09.) ist noch offen -").font = Font(italic=True, color="808080")
-r += 1
-ws.cell(row=r, column=1, value="sobald gefunden, muss diese Gesamtrechnung neu berechnet werden.").font = Font(italic=True, color="808080")
 style_and_fit(ws, len(gesamt_headers))
 
 wb.save(OUTFILE)
