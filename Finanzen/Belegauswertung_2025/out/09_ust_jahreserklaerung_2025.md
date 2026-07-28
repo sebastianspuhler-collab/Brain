@@ -84,16 +84,25 @@ noch 133,97 € Differenz, weil ein Teil des Geschäftsjahres 2024 gar nicht in 
 Finom-basierten Auswertung erfasst ist — nach Herausrechnen der 2024er-Position bleibt nur
 noch die oben stehende, plausible 44,48-€-Differenz.)
 
+## Klarstellung 2026-07-28: nur eine Steuernummer
+
+Sebastian bestätigt: **es gibt nur eine Steuernummer und eine Adresse** für die gesamte
+Geschäftstätigkeit (Prozessia/WebWokr/Finom-Konto „Sebastian Spuhler, Mohamed Douioui GbR"
+sind alle dieselbe Firma unter derselben Steuernummer 040/163/12016). Die abweichende
+Steuernummer 040/276/11732 auf der WebWokr-Rechnungsvorlage (RE250005) ist damit endgültig
+als reiner Vorlagenfehler eingeordnet — **kein** Hinweis auf eine zweite Rechtsperson oder
+Unklarheit, welche Gesellschaft die Erklärung abgibt. Kein offener Punkt mehr.
+
 ## Weitere offene Punkte (aus der Belegprüfung, betreffen primär die EÜR, nicht die USt)
 
 - Drei privat bezahlte Rechnungen (Wix Domain, Wix Workspace, LinkedIn Sales Navigator,
-  zusammen 52,84 € Vorsteuer) lauten nicht auf die GbR, sondern auf Sebastian Spuhler privat
-  bzw. „WebWokr" — Vorsteuerabzug der Gesellschaft mit dem Steuerberater klären.
+  zusammen 52,84 € Vorsteuer) lauten auf Sebastian Spuhlers Privatadresse statt auf die
+  Firmenadresse — Vorsteuerabzug ist bei einer Personengesellschaft/Einzelunternehmer i. d. R.
+  unproblematisch (Einlage), aber formal sauberer wäre eine Rechnung auf den Firmennamen;
+  für künftige Bestellungen beachten.
 - Triathlon-Mietvertrag (11× 29,75 € brutto/Monat) weist keine USt aus, obwohl rechnerisch
   19 % aufgingen — mangels USt-Ausweis auf dem Beleg nicht geltend gemacht (möglich entgangene
   Vorsteuer: 52,25 €/Jahr).
-- Unklar, welche Gesellschaft (Prozessia GbR vs. „Sebastian Spuhler, Mohamed Douioui GbR")
-  die Erklärung für 2025 tatsächlich abgibt — Finom-Kontoinhaber ist die letztere.
-- WebWokr-Rechnungen tragen eine andere Steuernummer (040/276/11732) als Prozessia
-  (040/163/12016) — laut Sebastian dieselbe Firma, aber die Vorlage sollte beim
-  Steuerberater/für künftige Rechnungen korrigiert werden, um Verwechslungen zu vermeiden.
+- WebWokr-Rechnungen tragen eine andere Steuernummer (040/276/11732) als der Rest
+  (040/163/12016) — reiner Vorlagenfehler (siehe oben), für künftige Rechnungen korrigieren,
+  um Verwechslungen zu vermeiden.
