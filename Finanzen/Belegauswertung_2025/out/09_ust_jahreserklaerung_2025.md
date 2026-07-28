@@ -55,13 +55,34 @@ Betrifft v. a. Instantly/Apify-Ausgaben ohne deutschen USt-Ausweis (ca. 293,80 �
 | Datum | Vorgang | Betrag |
 |---|---|---:|
 | 28.07.2025 | Erstattung USt Q1+Q2 2025 (gemeinsame Erklärung) | +25,59 € |
-| 07.08.2025 | Erstattung USt Jahreserklärung 2024 | +93,27 € |
+| 07.08.2025 | Erstattung USt Jahreserklärung 2024 (gehört nicht zu 2025) | +93,27 € |
 | 09.10.2025 | Erstattung USt 3. Vj. 2025 | +155,10 € |
 | 03.01.2026 | Zahlung USt 4. Vj. 2025 | −860,73 € |
 
 Q1/2025 ist kein offener Punkt: Sebastian hat Q1 und Q2 2025 gemeinsam in einer Voranmeldung
 erklärt und gekennzeichnet — die Erstattung vom 28.07.2025 (25,59 €) ist bereits das Ergebnis
 von Q1+Q2 zusammen, deshalb gibt es keine separate Q1-Buchung.
+
+## Abgleich 2026-07-28: rechnerischer Saldo vs. tatsächlich gezahlt
+
+Auf Wunsch von Sebastian geprüft, ob Kz. 81/66 mit den tatsächlichen Finanzamt-Zahlungen
+zusammenpassen — reine Kontrollrechnung, **ohne** die 93,27 € von 2024 (die gehören nicht
+zu 2025):
+
+| | Betrag |
+|---|---:|
+| Tatsächlich ans Finanzamt gezahlt 2025 (netto: 860,73 € − 25,59 € − 155,10 €) | 680,04 € |
+| Rechnerische Jahres-USt 2025 (940,50 € − 215,98 €) | 724,52 € |
+| **Differenz** | **44,48 €** |
+
+Die Differenz ist klein und normal — sie erklärt sich durch die Zeitverschiebung zwischen
+Rechnungsdatum (Soll-Versteuerung in den Voranmeldungen) und Zahlungsdatum
+(Zufluss-/Abflussprinzip in der EÜR), z. B. bei der Martin-Veser-Anzahlung im Oktober vor der
+eigentlichen Rechnung. Kein Hinweis auf fehlende/falsche Vorsteuer — **215,98 € bleiben die
+korrekte Zahl** für Kz. 66. (Eine erste Kontrollrechnung inkl. der 2024er-Erstattung ergab
+noch 133,97 € Differenz, weil ein Teil des Geschäftsjahres 2024 gar nicht in dieser
+Finom-basierten Auswertung erfasst ist — nach Herausrechnen der 2024er-Position bleibt nur
+noch die oben stehende, plausible 44,48-€-Differenz.)
 
 ## Weitere offene Punkte (aus der Belegprüfung, betreffen primär die EÜR, nicht die USt)
 
