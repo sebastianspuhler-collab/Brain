@@ -145,22 +145,21 @@
     }
   },
   "endin": {
-    "input_hash": "f4cc14b895dcb8ba",
+    "input_hash": "6b3740fcb9ce075f",
     "ergebnis": {
       "status": "angebotsphase",
       "sicherheit": "hoch",
-      "begruendung": "Prozessia hat der endin GmbH mehrere aufeinander aufbauende Angebote unterbreitet, zuletzt AG0032 vom 24.07.2026 (2.900€ netto) als kleineres Teilpaket sowie AG0027 (18.000€ netto) und AG0026 (6.000€ netto), entstanden aus dem im Meeting 2026-07-09-Zwischenstand Angebot.md besprochenen Vorschlag, das Projekt in risikoärmere Pakete aufzuteilen.",
+      "begruendung": "Mehrere aktuelle Angebote (u.a. 2026-07-24-Angebot_endin_überarbeitet.md, AG0032, AG0027, AG0026) wurden erstellt und im Meeting 2026-07-24-Update Prozessia X Endin.md wurde ein reduziertes Startpaket besprochen, das Endin noch schriftlich als Angebot erhalten soll. Ein Vertragsabschluss liegt noch nicht vor, der Kunde möchte vor Bindung noch Referenzen prüfen.",
       "quellen": [
+        "2026-07-24-Angebot_endin_überarbeitet.md",
         "2026-07-24-19f93b0bdf-Angebot_AG0032_24.07.2026.md",
-        "2026-07-24-19f1c9e313-Angebot_AG0027_01.07.2026.md",
-        "2026-07-24-19f1906293-Angebot_AG0026_30.06.2026.md",
-        "2026-07-09-Zwischenstand Angebot.md"
+        "2026-07-24-Update Prozessia X Endin.md"
       ],
-      "warnsignal": "Angebot AG0026 läuft bereits am 28.07.2026 aus, es liegt noch keine Auftragsbestätigung vor.",
+      "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "endin GmbH",
-      "aktueller_stand": "Nach dem Zwischenstand-Meeting am 09.07.2026 wurden die Angebote in kleinere Pakete aufgeteilt (u.a. neues Angebot AG0032 vom 24.07.2026); Kunde prüft aktuell die vorliegenden Angebote, eine finale Entscheidung/Beauftragung steht noch aus."
+      "aktueller_stand": "Laut Meeting 2026-07-24-Update Prozessia X Endin.md wird aktuell ein reduziertes Startpaket (Postfach-Überwachung, Bestellkategorisierung, Dashboard) als schriftliches Angebot vorbereitet, während Endin vor der vertraglichen Bindung noch Referenzen prüfen möchte und ein Entscheidungstermin für den 17.09.2026 vereinbart wurde."
     }
   },
   "Copy of undefined": {
@@ -405,39 +404,40 @@
     }
   },
   "Zillmer-Elektrotechnik": {
-    "input_hash": "9d8e032ea9c9f4c1",
+    "input_hash": "528390020bc49786",
     "ergebnis": {
       "status": "erstgespraech",
       "sicherheit": "mittel",
-      "begruendung": "Laut 2026-07-21-Update Zillmer X Prozessia.md und 2026-07-14-Zillmer-Elektrotechnik.md wurden Erstgespräch und Folgetermin zur Vorstellung des KI-Beschaffungsagenten durchgeführt, ein konkretes Angebot ist jedoch noch nicht dokumentiert; die Prozessskizze vom 28.07.2026 deutet auf weitere Konkretisierung hin.",
+      "begruendung": "Laut 2026-07-21-Zillmer-Elektrotechnik.md fand am 14.07.2026 ein Erstgespräch statt, danach folgten am 21.07. und 28.07.2026 mehrere Update-Korrespondenzen sowie eine Prozessskizze-KI-Kalkulation.md, was auf eine vertiefte Angebotsvorbereitung hindeutet, jedoch ohne konkrete Angebots- oder Vertragsdokumente.",
       "quellen": [
-        "2026-07-21-Update Zillmer X Prozessia.md",
         "2026-07-21-Zillmer-Elektrotechnik.md",
-        "2026-07-28-Prozessskizze-KI-Kalkulation.md"
+        "2026-07-28-Prozessskizze-KI-Kalkulation.md",
+        "2026-07-28-Update Zillmer X Prozessia.md"
       ],
-      "warnsignal": null,
+      "warnsignal": "Kein bevorstehender Termin bekannt trotz laufender Aktivität.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Zillmer Elektrotechnik",
-      "aktueller_stand": "Nach zwei Gesprächen (14.07. und 21.07.2026) mit Dierk Biendarra wurde eine Prozessskizze zur KI-gestützten Kalkulation erstellt; nächster Schritt ist vermutlich die Ausarbeitung eines konkreten Angebots."
+      "aktueller_stand": "Nach dem Erstgespräch am 14.07.2026 laufen weitere Abstimmungen inkl. einer Prozessskizze zur KI-Kalkulation, ein konkretes Angebot liegt aber noch nicht vor."
     }
   },
   "Seifert-GmbH": {
-    "input_hash": "d6b6fbc1e1edd183",
+    "input_hash": "493bb438e438e227",
     "ergebnis": {
       "status": "erstgespraech",
-      "sicherheit": "hoch",
-      "begruendung": "Am 23.07.2026 fand laut Korrespondenz/2026-07-23-Stefan Seifert and Sebastian Spuhler.md ein Erstgespräch zum KI-Agenten-Potenzial statt, seither werden Beispieldokumente wie Korrespondenz/2026-07-27-19fa3698b1-6000017119.md und die Prozessskizze vom 28.07.2026 gesammelt, ein Angebot liegt aber noch nicht vor.",
+      "sicherheit": "mittel",
+      "begruendung": "Seit dem Erstgespräch am 2026-07-23 (2026-07-23-Seifert-GmbH.md) laufen konkrete Abstimmungen zu einer KI-Agent-Lösung für Material-/Zuschnittlisten, belegt durch Beispieldokumente wie die Anfrage 6000017119 und zugehörige Stücklisten sowie die Update- und Prozessskizze-Dateien vom 2026-07-28.",
       "quellen": [
-        "2026-07-23-Stefan Seifert and Sebastian Spuhler.md",
+        "2026-07-23-Seifert-GmbH.md",
         "2026-07-27-19fa3698b1-6000017119.md",
+        "2026-07-28-Update Seifert X Prozessia.md",
         "2026-07-28-Prozessskizze-Materialliste.md"
       ],
       "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Seifert GmbH",
-      "aktueller_stand": "Nach dem Erstgespräch am 23.07.2026 werden aktuell Beispielanfragen und Stücklisten von Seifert GmbH gesammelt, um eine KI-Lösung zur automatisierten Material-/Zuschnittlisten-Erstellung zu konzipieren."
+      "aktueller_stand": "Nach dem Erstgespräch werden aktuell Beispiel-Anfragen und Stücklisten analysiert, um eine Prozessskizze für eine automatisierte Material-/Zuschnittlisten-Erstellung zu entwickeln; noch kein Angebot erstellt."
     }
   },
   "Juchem": {

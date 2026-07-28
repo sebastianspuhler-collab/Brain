@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-07-28 13:32] [2026-07-21-Update Zillmer X Prozessia.md] 42–70 % der Mitarbeiter nutzen Schatten-KI – verstärkt Regulatorik-Dringlichkeit
+- [2026-07-28 13:32] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Bestehendes Tool Spanflug kalkuliert Fräszeiten aus PDF und 3D-Modell, scheitert aber bei geschweißten Baugruppen aus mehreren Einzelteilen
 - [2026-07-28 13:18] [2026-07-28-Update Seifert X Prozessia.md] Demo-Datenbasis: 16 Positionen aus Seifert-Anfrage vom 27.07. - Folgetermin zum Erstgespräch vom 23.07.2026
 - [2026-07-28 12:04] [Bessere Sprachqualität ab nächster Woche] Datenschutz-Verbesserung durch EU-Datenresidenz und Zero Data Retention
 - [2026-07-28 12:04] [Bessere Sprachqualität ab nächster Woche] Natürlichere Stimmen und deutlich verbesserte Aussprache von Zahlen (Telefonnummern, Preise, Termine)
@@ -783,6 +785,9 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-28 13:32] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Kernherausforderung: Automatisierte Einzelteilerkennung, da jeder Kunde Zeichnungen und Strukturen unterschiedlich gestaltet
+- [2026-07-28 13:32] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Schmerzpunkt: manuelle Erstellung einer Gesamtliste mit Material, Zuschnitten, Mengen und Positionszuordnung aus Anfragen, Zeichnungen und Stücklisten
+- [2026-07-28 13:32] [2026-07-24-Update Prozessia X Endin.md] Einstiegspaket für Endin: KI-Agent überwacht Outlook-Postfach, extrahiert und kategorisiert Bestellungen (Lohnverguss/Ersatzteile/Service), stellt Ergebnisse in Dashboard dar – bewusst OHNE ERP-Integration
 - [2026-07-28 13:18] [2026-07-28-Update Zillmer X Prozessia.md] KI-Agent-Prozess bei Zillmer: (1) Ausschreibung eingehend → (2) Hersteller eindeutig? → (3) Bei Unsicherheit: Recherche in ~50 definierten Herstellern → (4) Agent erstellt Preisanfragen (E-Mail-Anbindung) → (5) Günstigstes Angebot an Biendarra
 - [2026-07-28 13:18] [2026-07-28-Update Seifert X Prozessia.md] Human-in-the-Loop 'Warnung'-Funktion markiert unsichere Positionen (z.B. unleserliche Abbildungen) zur manuellen Prüfung - verhindert Halluzinationen
 - [2026-07-28 13:18] [2026-07-28-Update Seifert X Prozessia.md] Stücklistenagent-Demo: System extrahiert automatisch Positionsnummer, Material und relevante Daten aus hochgeladenen Stücklisten/Zeichnungen
@@ -1336,6 +1341,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-07-28 13:32] [2026-07-24-Update Prozessia X Endin.md] Endin bevorzugt On-Premise-Lösung, lehnt Cloud ab
 - [2026-07-28 13:18] [2026-07-28-Update Zillmer X Prozessia.md] Sicherheitsstufen-Ansatz: Start mit E-Mail-Entwürfen (Zillmer-Freigabe erforderlich), erst nach Vertrauensaufbau automatischer Versand an Hersteller
 - [2026-07-28 13:18] [2026-07-28-Update Seifert X Prozessia.md] Agent muss unterscheiden zwischen bereits zugeschnittenem Material und Material, das laut Zeichnung noch zugeschnitten werden muss (Bleche, Rollprofile, Stabmaterial)
 - [2026-07-28 08:35] [2026-07-28-Prozessskizze-Materialliste.md] Regelfall bei Seifert: geschweißte Baugruppen; benötigt automatisierte Gesamtliste mit Materialangaben und Zuschnittdetails
@@ -1386,6 +1392,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-07-28 13:32] [2026-07-24-Update Prozessia X Endin.md] Buhl-Unternehmer-Schnittstellen: Endin muss beim Anbieter klären, ob aktuelle Buhl-Abo-Version frei programmierbare Schnittstellen hat – Voraussetzung für spätere DATEV-Weiterführung
 - [2026-07-28 12:04] [Bessere Sprachqualität ab nächster Woche] Text-to-Speech-Anbieter wechselt von Eleven Labs zu Inworld AI zum 06.08.2026
 - [2026-07-28 08:25] Zillmer (Biendarra) hat laut Sebastian aktuell nicht so viel Fallaufkommen/Auftragsvolumen wie ursprünglich angenommen - Umfang ist geringer, da Biendarras Chef intern noch keine Priorität gesetzt hat und Ausschreibungen ohne Herstellerangabe nur 'einige Bereiche' betreffen, nicht den Regelfall. Tatsächlicher Fall-Umfang bei Zillmer vermutlich kleiner als bei Schaufler.
 - [2026-07-28 00:13] [2026-07-28.md] Inbox-Verarbeitung vom 2026-07-28 00:13: 2 Fehler aufgetreten, 0 Items verarbeitet
@@ -1461,6 +1468,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-13 19:09] [Personalkosten erstattet bekommen] Schulung des Teams in kundengewinnung und Tools (Clay, Claude, Close) finanziert über Fördergelder § 82 SGB III
 
 ## ENTSCHEIDUNG
+- [2026-07-28 13:32] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Empfehlung: klein anfangen und Autonomie des Agenten schrittweise erhöhen statt 0 auf 100; E-Mail-Automatisierung kein Fokus, Wert liegt im aufbereiteten Dokument
 - [2026-07-28 08:22] [2026-07-28-Prozessskizze-KI-Kalkulation.md] Direkter Preisvergleich mit Großhandel/Herstellern via KI – günstigster Anbieter wird automatisiert ermittelt
 - [2026-07-23 15:17] [2026-07-23-Email-19f8f1d8-Zugesagt-Update-Seifert-X-Prozessia.md] Seifert-GmbH hat Projekt 'Seifert X Prozessia' zugesagt – bestätigt am 2026-07-23
 - [2026-07-23 11:42] [2026-07-21-Email-19f840fe-Angenommen-Update-Zillmer-X-Prozessia.md] Zillmer-Elektrotechnik: Update akzeptiert (Bestätigung von Dierk Biendarra, 21. Juli 2026)
@@ -1468,3 +1476,9 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 
 ## ANFORDERUNGEN
 - [2026-07-24 03:21] [2026-07-24-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Komplette mechanische Anfertigung nach Zeichnungen mit Gravur, Prüf-, Härte- und Messprotokoll erforderlich
+
+## PREIS
+- [2026-07-28 13:32] [2026-07-24-Update Prozessia X Endin.md] Einstiegspaket max. 25% des Nettoangebots AG0027 (Umfang: Punkte 2.2, 2.3, anteilig 1.1/1.2, 5.1)
+
+## OFFEN
+- [2026-07-28 13:32] [2026-07-24-Update Prozessia X Endin.md] Kundenreferenzen: Endin möchte diese vor vertraglicher Bindung sprechen
