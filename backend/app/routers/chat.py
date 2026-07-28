@@ -5,6 +5,7 @@ import json
 import tempfile
 import threading
 from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime
 from pathlib import Path
 
 import httpx
@@ -19,6 +20,7 @@ from app.deps import get_current_user
 from app.services import context as context_service
 from app.services import agent_capabilities, agents_service, chat_sessions, classify, conversations, memory, rag, usage_service
 from app.services import claude_cli
+from app.services.inbox_service import run_inbox_and_reindex
 from app.services.anthropic_client import get_client, get_response_text
 from app.services.tools import TOOLS, _TASK_TOOL_NAMES, execute_tool
 
@@ -501,11 +503,20 @@ def chat(body: ChatRequest, user: str = Depends(get_current_user)):
 
 
 # ── Datei-Anhänge in Chat-Nachrichten (Umsetzungsplan 2026-07-27) ──────────
-# Bewusst getrennt von /api/upload (inbox.py) - das legt Dateien dauerhaft im
-# Vault/RAG ab, hier geht es nur um Text-Extraktion für EINEN Chat-Turn, ohne
-# irgendetwas zu speichern/indexieren. Nutzt dieselbe classify.extract_text()
+# Grundsätzlich getrennt von /api/upload (inbox.py) - das legt Dateien dauerhaft
+# im Vault/RAG ab, hier geht es primär um Text-Extraktion für EINEN Chat-Turn,
+# ohne etwas zu speichern/indexieren. Nutzt dieselbe classify.extract_text()
 # wie die Inbox-Verarbeitung und dieselbe Bild-Transkription wie /api/upload
-# (claude_cli.describe_image bzw. Sonnet-Vision-Fallback), aber rein temporär.
+# (claude_cli.describe_image bzw. Sonnet-Vision-Fallback).
+#
+# Ausnahme (Sebastian, 2026-07-28): Gesprächstranskripte, über diesen Weg
+# angehängt, sollen trotzdem "wieder über die Inbox einsortiert" werden und in
+# der Transkripte-Übersicht auftauchen - reine Text-Extraktion für den Chat-Turn
+# reichte ihm dafür nicht. Erkennung per classify.TRANSCRIPT_MARKERS (dieselben
+# Marker wie bei der regulären Inbox-Klassifizierung, siehe
+# classify.is_meeting_transcript()); trifft einer, wird die Originaldatei
+# zusätzlich in die Inbox kopiert und über run_inbox_and_reindex() verarbeitet.
+# Alle anderen Dateitypen bleiben wie bisher rein ephemer.
 ATTACH_MAX_BYTES = 15 * 1024 * 1024  # 15 MB
 ATTACH_MAX_CHARS = 20000
 _ATTACH_IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
@@ -514,6 +525,11 @@ _ATTACH_IMAGE_PROMPT = (
     "sauberen Markdown-Text. Nichts weglassen. Gib NUR den extrahierten Text zurück, "
     "keine Erklärung davor/danach."
 )
+
+
+def _looks_like_transcript(filename: str, text: str) -> bool:
+    haystack = f"{filename}\n{text[:3000]}".lower()
+    return any(marker in haystack for marker in classify.TRANSCRIPT_MARKERS)
 
 
 @router.post("/chat/attach")
@@ -553,7 +569,20 @@ async def chat_attach(file: UploadFile, user: str = Depends(get_current_user)):
             if text is None:
                 raise HTTPException(status_code=400, detail="Dateiformat wird nicht unterstützt")
 
-    return {"filename": filename, "text": text}
+    persisted = False
+    if suffix not in _ATTACH_IMAGE_EXTS and _looks_like_transcript(filename, text):
+        settings.inbox_dir.mkdir(parents=True, exist_ok=True)
+        inbox_path = settings.inbox_dir / filename
+        if inbox_path.exists():
+            inbox_path = settings.inbox_dir / f"{Path(filename).stem}-{datetime.now().strftime('%H%M%S')}{suffix}"
+        inbox_path.write_bytes(body)
+        try:
+            run_inbox_and_reindex()
+            persisted = True
+        except Exception:
+            pass  # Anhang bleibt trotzdem für diesen Chat-Turn nutzbar
+
+    return {"filename": filename, "text": text, "persisted": persisted}
 
 
 # ── Chat-Session-Persistenz (Umsetzungsplan A2) ─────────────────────────────

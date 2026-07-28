@@ -197,6 +197,8 @@ export function ChatPage() {
   // Datei-Anhang nur für die nächste Nachricht (Umsetzungsplan 2026-07-27) -
   // anders als handleFileSelect oben: kein Wissens-Eintrag, der Text landet
   // direkt im Prompt dieses einen Turns (siehe chat.py::_format_attachments).
+  // Ausnahme (2026-07-28): erkannte Gesprächstranskripte landen zusätzlich in
+  // der Inbox und tauchen dauerhaft in "Transkripte" auf (result.persisted).
   async function handleChatAttach(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     e.target.value = "";
@@ -205,6 +207,9 @@ export function ChatPage() {
     try {
       const result = await chatAttach.upload(file);
       setPendingAttachments((prev) => [...prev, result]);
+      if (result.persisted) {
+        toast.success(`„${result.filename}" als Transkript erkannt und in Transkripte einsortiert`);
+      }
     } catch (err) {
       toast.error(err instanceof ApiError ? err.message : "Datei konnte nicht gelesen werden");
     } finally {
@@ -313,7 +318,7 @@ export function ChatPage() {
             className="size-7 rounded-full text-muted-foreground hover:text-foreground"
             onClick={() => attachInputRef.current?.click()}
             disabled={attaching}
-            title="Datei an diese Nachricht anhängen (nur für diese Anfrage, nicht im Wissen gespeichert)"
+            title="Datei an diese Nachricht anhängen (Transkripte werden zusätzlich in die Inbox einsortiert, andere Dateien nur für diese Anfrage)"
           >
             {attaching ? <Loader2 className="size-4 animate-spin" /> : <Paperclip className="size-4" />}
           </Button>
