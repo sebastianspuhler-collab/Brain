@@ -29,6 +29,9 @@ interface Meeting {
   datum: string;
   zusammenfassung: string;
   url: string;
+  /** Serverseitig aus der .md gerenderter PDF-Download (2026-07-28) - Sebastian
+   * will lesbare Transkripte, keine rohe Markdown-Datei im Download. */
+  pdf_url: string;
 }
 
 const MONTHS = [
@@ -165,7 +168,7 @@ export function MeetingsPage() {
                   emptyLabel="Keine Transkripte an diesem Tag."
                   renderItem={(m) => (
                     <a
-                      href={`${API_BASE}${m.url}`}
+                      href={`${API_BASE}${m.pdf_url}`}
                       target="_blank"
                       rel="noreferrer"
                       className="flex flex-col gap-0.5 rounded-lg px-2 py-1.5 hover:bg-muted/50"
@@ -190,7 +193,7 @@ export function MeetingsPage() {
             {meetings.map((m) => (
               <a
                 key={m.path}
-                href={`${API_BASE}${m.url}`}
+                href={`${API_BASE}${m.pdf_url}`}
                 target="_blank"
                 rel="noreferrer"
                 className="flex flex-col gap-1 py-3 first:pt-0 last:pb-0 hover:bg-muted/40"

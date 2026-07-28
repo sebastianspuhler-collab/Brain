@@ -129,6 +129,7 @@ def list_meetings(user: str = Depends(get_current_user)):
             "datum": meta.get("datum", ""),
             "zusammenfassung": meta.get("zusammenfassung", ""),
             "url": "/api/files/download/" + str(rel).replace("\\", "/"),
+            "pdf_url": "/api/files/download-pdf/" + str(rel).replace("\\", "/"),
         })
     meetings.sort(key=lambda m: m["datum"], reverse=True)
     return {"meetings": meetings}
@@ -165,7 +166,11 @@ code { font-family: "DejaVu Sans Mono", monospace; background: #f2f2f2; }
 
 
 def _markdown_to_pdf(text: str) -> bytes:
-    html = md.markdown(text, extensions=["extra", "sane_lists"])
+    # YAML-Frontmatter ist fürs Lesen irrelevant (Tags/quelle/kategorie) - ohne
+    # Strip würde md.markdown() die rohen "---"/"key: value"-Zeilen als Text
+    # ausgeben statt sie zu verstehen.
+    body = re.sub(r"^---\n.*?\n---\n", "", text, count=1, flags=re.DOTALL)
+    html = md.markdown(body, extensions=["extra", "sane_lists"])
     full_html = f"<html><head><style>{_PDF_CSS}</style></head><body>{html}</body></html>"
     buffer = io.BytesIO()
     pisa.CreatePDF(src=full_html, dest=buffer, encoding="utf-8")
