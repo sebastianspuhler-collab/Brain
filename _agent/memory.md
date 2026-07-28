@@ -1,4 +1,8 @@
 ## KONTEXT
+- [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] Kontaktperson: Moritz Klüpfel (Arbeitsvorbereitung, Schnittstelle Produktion/Geschäftsführung/CAD, nicht direkt Einkauf)
+- [2026-07-28 14:15] [2026-06-08-Juchem.md] Datenschutz-Constraint: Mitarbeiter bei Juchem dürfen nur Microsoft Copilot nutzen, keine anderen Chatbots – bei Lösung beachten
+- [2026-07-28 14:15] [2026-06-09-Susanne Riedt (Huissel GmbH) X Prozessia.md] Frühe Sondierungsphase; Präsentation wurde während des Gesprächs gezeigt
+- [2026-07-28 14:15] [2026-06-09-Susanne Riedt (Huissel GmbH) X Prozessia.md] Erstgespräch vom 09.06.2026, Dauer 25 Minuten; Susanne Riedt nutzt bereits privat ChatGPT/Claude für Arbeitsaufgaben, aber unorganisiert
 - [2026-07-28 13:32] [2026-07-21-Update Zillmer X Prozessia.md] 42–70 % der Mitarbeiter nutzen Schatten-KI – verstärkt Regulatorik-Dringlichkeit
 - [2026-07-28 13:32] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Bestehendes Tool Spanflug kalkuliert Fräszeiten aus PDF und 3D-Modell, scheitert aber bei geschweißten Baugruppen aus mehreren Einzelteilen
 - [2026-07-28 13:18] [2026-07-28-Update Seifert X Prozessia.md] Demo-Datenbasis: 16 Positionen aus Seifert-Anfrage vom 27.07. - Folgetermin zum Erstgespräch vom 23.07.2026
@@ -604,6 +608,10 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] Lieferantenstruktur: 3 feste Aluminiumlieferanten + 10-15 Normteil-Unternehmen + Einzelbestellungen
+- [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] M.Reuss Werkzeugbau: ~45 Projektleiter bestellen dezentralisiert selbst nach Bedarf, keine zentrale Einkaufsabteilung
+- [2026-07-28 14:15] [2026-06-08-Juchem.md] Juchem: Lebensmittelindustrie mit Rezepturen, Standort Eppelborn (234 MA) + Großrosseln (1 MA), ERP-System Info LN
+- [2026-07-28 14:15] [2026-06-09-Susanne Riedt (Huissel GmbH) X Prozessia.md] Huissel GmbH, Kontaktperson: Susanne Riedt
 - [2026-07-28 12:04] [Bessere Sprachqualität ab nächster Woche] Vorgefertigter Text für Kundenkommunikation zum TTS-Wechsel wird bereitgestellt
 - [2026-07-28 08:35] [2026-07-28-Prozessskizze-Materialliste.md] Seifert GmbH nutzt aktuell Spanflug zur Kalkulation von Frästeilen
 - [2026-07-28 08:23] Angebot für Kunde Zillmer: Pilotprojekt Kalkulationsagent (Recherche-Logik + Preisvergleich + Kalkulations-Anbindung) als Festpreis ab 12.000€ netto, danach laufende Kosten 220€/Monat (100€ Hosting-Basis + 120€ 1. Agent)
@@ -785,6 +793,12 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] Kernherausforderung: Fehler in Auftragsbestätigungen werden regelmäßig übersehen
+- [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] ERP-System: BIOS 2000 (alle Bestellungen laufen darüber)
+- [2026-07-28 14:15] [2026-06-08-Juchem.md] Demo durchgeführt: AB-Prüfung, Eskalationsmechanismus, Lieferantenscore, Dokumentenablage über ERP-/Postfach-Adapter
+- [2026-07-28 14:15] [2026-06-09-Susanne Riedt (Huissel GmbH) X Prozessia.md] Anforderung: Datenschutzkonforme KI-Prozesslösungen für Einkauf; Klärung der Risiken (DSGVO, EU AI Act) beim privaten ChatGPT-Einsatz
+- [2026-07-28 14:15] [2026-06-09-Schnittstelle ProLeiS und Prozessia.md] Rechnung wurde an Kundenbuchhaltung (Schaufler) weitergeleitet; ursprünglich in lesbarem Format versendet
+- [2026-07-28 14:15] [2026-06-09-Schnittstelle ProLeiS und Prozessia.md] System Handbuch wurde an Schaufler versendet und erhalten
 - [2026-07-28 13:32] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Kernherausforderung: Automatisierte Einzelteilerkennung, da jeder Kunde Zeichnungen und Strukturen unterschiedlich gestaltet
 - [2026-07-28 13:32] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Schmerzpunkt: manuelle Erstellung einer Gesamtliste mit Material, Zuschnitten, Mengen und Positionszuordnung aus Anfragen, Zeichnungen und Stücklisten
 - [2026-07-28 13:32] [2026-07-24-Update Prozessia X Endin.md] Einstiegspaket für Endin: KI-Agent überwacht Outlook-Postfach, extrahiert und kategorisiert Bestellungen (Lohnverguss/Ersatzteile/Service), stellt Ergebnisse in Dashboard dar – bewusst OHNE ERP-Integration
@@ -1341,6 +1355,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-07-28 14:15] [2026-06-08-Juchem.md] Konkreter Bedarf: Lieferdokumente kommen oft erst mit Lieferung an oder müssen nachgefordert werden – automatische vorherige Anforderung durch Beschaffungsagent notwendig
 - [2026-07-28 13:32] [2026-07-24-Update Prozessia X Endin.md] Endin bevorzugt On-Premise-Lösung, lehnt Cloud ab
 - [2026-07-28 13:18] [2026-07-28-Update Zillmer X Prozessia.md] Sicherheitsstufen-Ansatz: Start mit E-Mail-Entwürfen (Zillmer-Freigabe erforderlich), erst nach Vertrauensaufbau automatischer Versand an Hersteller
 - [2026-07-28 13:18] [2026-07-28-Update Seifert X Prozessia.md] Agent muss unterscheiden zwischen bereits zugeschnittenem Material und Material, das laut Zeichnung noch zugeschnitten werden muss (Bleche, Rollprofile, Stabmaterial)
@@ -1468,6 +1483,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-13 19:09] [Personalkosten erstattet bekommen] Schulung des Teams in kundengewinnung und Tools (Clay, Claude, Close) finanziert über Fördergelder § 82 SGB III
 
 ## ENTSCHEIDUNG
+- [2026-07-28 14:15] [2026-06-08-Juchem.md] Kennenlerntreffen vor Ort geplant – finale Terminbestätigung von Juchem ausstehend
 - [2026-07-28 13:32] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Empfehlung: klein anfangen und Autonomie des Agenten schrittweise erhöhen statt 0 auf 100; E-Mail-Automatisierung kein Fokus, Wert liegt im aufbereiteten Dokument
 - [2026-07-28 08:22] [2026-07-28-Prozessskizze-KI-Kalkulation.md] Direkter Preisvergleich mit Großhandel/Herstellern via KI – günstigster Anbieter wird automatisiert ermittelt
 - [2026-07-23 15:17] [2026-07-23-Email-19f8f1d8-Zugesagt-Update-Seifert-X-Prozessia.md] Seifert-GmbH hat Projekt 'Seifert X Prozessia' zugesagt – bestätigt am 2026-07-23
