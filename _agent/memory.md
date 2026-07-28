@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-07-28 21:01] [2026-06-08-Meeting Thorsten Maas X Prozessia (2).md] Weitere Anwendungsfälle identifiziert: Stücklistenmanagement und Buchhaltung (analog Rezepturen bei Maas)
 - [2026-07-28 17:40] [AW: Kapazitätenplanung Stücklistenprojek] Beteiligte Personen: Juergen Mahler, Florian Knoblauch (im CC der Original-Email)
 - [2026-07-28 14:34] [2026-07-28-Seifert_GmbH_pitch_deck.md] Kernherausforderung: unterschiedliche Kunden-Zeichnungsformate und manueller Aufwand bei Material-/Zuschnittlisten
 - [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] Kontaktperson: Moritz Klüpfel (Arbeitsvorbereitung, Schnittstelle Produktion/Geschäftsführung/CAD, nicht direkt Einkauf)
@@ -610,6 +611,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-28 21:01] [decisions.md] Thorsten Maas' Unternehmen hat ab 2026-06-08 festgelegt: Mitarbeiter dürfen ausschließlich Copilot nutzen, nicht frei wählbare Chatbots wie ChatGPT
 - [2026-07-28 17:54] [2026-07-28-Email-19fa9a02-Action-required-security-vulnerabilities.md] Voigt_Salus hat kritische Sicherheitsvulnerabilitäten in Projekt stggglgcvisnvcertpau
 - [2026-07-28 17:54] [2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md] Siegfried Heinrich (CEO Schaufler Tooling GmbH) ist primärer Ansprechpartner, Tel. +49 170 2471808
 - [2026-07-28 17:40] [AW: Kapazitätenplanung Stücklistenprojek] Kundenwunsch: Einblick in Effizienz und Performance des Beschaffungsagenten vor Beginn des nächsten Projekts
@@ -798,6 +800,8 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-28 21:01] [2026-06-08-Meeting Thorsten Maas X Prozessia (2).md] Beschaffungsagent automatisiert: Bestellprozess bis Wareneingang; Dashboard mit Auftragsbestätigungen, Lieferanten-Scoring, Lieferungsübersicht
+- [2026-07-28 21:01] [2026-06-08-Meeting Thorsten Maas X Prozessia (2).md] Startprojekt geplant: Einkaufsautomation mit Anbindung ERP-System Infor LN, E-Mail- und Dokumentenmanagementsystem
 - [2026-07-28 17:54] [2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md] Kundenrequest: Klärung wer Support für Agent-Performance-Analyse übernimmt
 - [2026-07-28 17:54] [2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md] Stücklistenprojekt ist geplant, Freigabe hängt von Agent-Evaluierung ab
 - [2026-07-28 17:54] [2026-07-28-Email-19fa924d-AW-Integration-Einkäufermail.md] Agenda: Vorgänge und Daten der Woche 28.07.2026 mit Einkäufer besprechen
