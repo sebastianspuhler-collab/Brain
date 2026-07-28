@@ -20,7 +20,6 @@ from app.deps import get_current_user
 from app.services import context as context_service
 from app.services import agent_capabilities, agents_service, chat_sessions, classify, conversations, memory, rag, usage_service
 from app.services import claude_cli
-from app.services.inbox_service import run_inbox_and_reindex
 from app.services.anthropic_client import get_client, get_response_text
 from app.services.tools import TOOLS, _TASK_TOOL_NAMES, execute_tool
 
@@ -506,11 +505,23 @@ def chat(body: ChatRequest, user: str = Depends(get_current_user)):
 # Ursprünglich bewusst getrennt von /api/upload (inbox.py): Text-Extraktion nur
 # für EINEN Chat-Turn, ohne etwas zu speichern/indexieren. Sebastian (2026-07-28,
 # nach dem Transkript-Fix unten): "generell ist jede Uploadfläche im System eine
-# Inbox" - jede angehängte Datei landet jetzt IMMER zusätzlich in der Inbox und
-# wird wie beim regulären Upload-Button verarbeitet (klassifiziert, einsortiert,
-# indiziert), nicht mehr nur erkannte Transkripte. Der Unterschied zu
-# /api/upload bleibt: hier wird der extrahierte Text zusätzlich SOFORT in den
-# laufenden Chat-Turn eingespeist (siehe _format_attachments unten), dort nicht.
+# Inbox" - jede angehängte Datei landet jetzt zusätzlich in der Inbox. Der
+# Unterschied zu /api/upload bleibt: hier wird der extrahierte Text zusätzlich
+# SOFORT in den laufenden Chat-Turn eingespeist (siehe _format_attachments
+# unten), dort nicht.
+#
+# WICHTIG (Sebastian, 2026-07-28, Nachtrag): NICHT synchron klassifizieren -
+# ein erster Versuch rief hier direkt run_inbox_and_reindex() auf (LLM-Aufruf
+# für classify() + RAG-Reindex + memory.learn_from_file(), alles blockierend
+# im selben Request), das ließ jedes Anhängen im Chat spürbar lange hängen.
+# Stattdessen nur die Datei in die Inbox schreiben (schneller Disk-Write) und
+# der bereits laufende inbox_watcher_loop() (jobs.py, Poll alle 30s) übernimmt
+# die eigentliche Verarbeitung asynchron - exakt derselbe Weg wie bei jeder
+# anderen Datei, die in _inbox/ landet. Aus demselben Grund keine verlässliche
+# "ist das ein Transkript"-Aussage mehr im Response: die echte Klassifizierung
+# (inkl. is_meeting_transcript()) läuft ja erst später im Watcher, eine
+# Vorab-Einschätzung hier könnte dem Ergebnis widersprechen (z.B. bei einem
+# Pitch-Deck, das zufällig ähnliche Formulierungen wie ein Transkript enthält).
 # Bild-Handling spiegelt /api/upload (inbox.py::upload) exakt: die Vision-
 # Transkription wird als "{stem}_vision.md" in die Inbox geschrieben statt des
 # rohen Bilds, weil classify.process_file() Bilder sonst nur verschiebt, ohne
@@ -523,14 +534,6 @@ _ATTACH_IMAGE_PROMPT = (
     "sauberen Markdown-Text. Nichts weglassen. Gib NUR den extrahierten Text zurück, "
     "keine Erklärung davor/danach."
 )
-
-
-def _is_transcript(filename: str, text: str) -> bool:
-    """Nur noch für die Toast-Formulierung im Frontend (persisted ist jetzt
-    für JEDEN Anhang true) - unterscheidet 'als Transkript erkannt' von
-    generischem 'im Wissen abgelegt'."""
-    haystack = f"{filename}\n{text[:3000]}".lower()
-    return any(marker in haystack for marker in classify.TRANSCRIPT_MARKERS)
 
 
 def _unique_inbox_path(settings, name: str) -> Path:
@@ -588,17 +591,11 @@ async def chat_attach(file: UploadFile, user: str = Depends(get_current_user)):
         else:
             inbox_path = _unique_inbox_path(settings, filename)
             inbox_path.write_bytes(body)
-        run_inbox_and_reindex()
-        persisted = True
+        persisted = True  # liegt in _inbox/, inbox_watcher_loop() übernimmt den Rest
     except Exception:
         pass  # Anhang bleibt trotzdem für diesen Chat-Turn nutzbar
 
-    return {
-        "filename": filename,
-        "text": text,
-        "persisted": persisted,
-        "is_transcript": _is_transcript(filename, text),
-    }
+    return {"filename": filename, "text": text, "persisted": persisted}
 
 
 # ── Chat-Session-Persistenz (Umsetzungsplan A2) ─────────────────────────────

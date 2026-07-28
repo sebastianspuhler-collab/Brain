@@ -49,15 +49,13 @@ export const api = {
 export interface ChatAttachment {
   filename: string;
   text: string;
-  /** true, wenn die Datei zusätzlich über die Inbox einsortiert wurde (siehe
+  /** true, wenn die Datei zusätzlich in die Inbox geschrieben wurde (siehe
    * chat.py::chat_attach, 2026-07-28: "jede Uploadfläche ist eine Inbox") -
-   * taucht dann dauerhaft im Wissen/Vault auf, nicht nur in diesem Chat-Turn.
-   * Nur bei einem unerwarteten Fehler bei der Inbox-Verarbeitung false. */
+   * die eigentliche Einsortierung läuft asynchron über den bestehenden
+   * Inbox-Watcher (alle 30s), NICHT mehr synchron in diesem Request (das
+   * ließ das Anhängen spürbar hängen). Deshalb keine "ist das ein Transkript"-
+   * Aussage mehr hier - die steht erst nach der echten Klassifizierung fest. */
   persisted?: boolean;
-  /** true, wenn zusätzlich als Gesprächstranskript erkannt wurde (landet dann
-   * im Meetings-Unterordner und taucht in "Transkripte" auf) - nur für eine
-   * genauere Toast-Formulierung. */
-  is_transcript?: boolean;
 }
 
 export interface ChatMessage {

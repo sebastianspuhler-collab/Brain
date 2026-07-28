@@ -197,9 +197,11 @@ export function ChatPage() {
   // Datei-Anhang für die nächste Nachricht (Umsetzungsplan 2026-07-27): Text
   // landet direkt im Prompt dieses einen Turns (siehe chat.py::_format_attachments).
   // Seit 2026-07-28 ("jede Uploadfläche im System ist eine Inbox") landet die
-  // Datei ZUSÄTZLICH dauerhaft über die Inbox im Wissen/Vault (result.persisted) -
-  // bei Transkripten direkt im Meetings-Unterordner, taucht dann in
-  // "Transkripte" auf (result.is_transcript, nur für die Toast-Formulierung).
+  // Datei ZUSÄTZLICH in der Inbox (result.persisted) - Einsortierung passiert
+  // asynchron im Hintergrund (Inbox-Watcher, ~30s), nicht mehr synchron in
+  // diesem Request (hat das Anhängen sonst spürbar verlangsamt). Deshalb kein
+  // "als Transkript erkannt"-Toast mehr - die endgültige Einordnung steht bei
+  // der Antwort hier noch gar nicht fest.
   async function handleChatAttach(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     e.target.value = "";
@@ -209,11 +211,7 @@ export function ChatPage() {
       const result = await chatAttach.upload(file);
       setPendingAttachments((prev) => [...prev, result]);
       if (result.persisted) {
-        toast.success(
-          result.is_transcript
-            ? `„${result.filename}" als Transkript erkannt und in Transkripte einsortiert`
-            : `„${result.filename}" zusätzlich im Wissen abgelegt`,
-        );
+        toast.success(`„${result.filename}" wird ins Wissen übernommen`);
       }
     } catch (err) {
       toast.error(err instanceof ApiError ? err.message : "Datei konnte nicht gelesen werden");
