@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-07-28 07:08] [Wachstum systematisieren] Erfolgsbeispiele: DRIP-Wachstum von 200k auf über 450k pro Monat, notus-Wachstum von 40k auf 170k mit gleicher Lead-Anzahl
+- [2026-07-28 07:08] [Wachstum systematisieren] Levin Germann, Gründer & Geschäftsführer PREDICT PA GmbH (levin@predict-abilityos.com, Rosenthaler Str. 42-44, 10178 Berlin)
 - [2026-07-28 01:06] [2026-07-28-Email-19fa640b-Neue-Zahlung-von-SCHAUFLER-TOOLING-GMBH.md] Zahlungsbenachrichtigung von Finom am 2026-07-28
 - [2026-07-27 20:35] [2026-06-09-New Record from Google Meet (1).md] Meeting-Datum: 2026-06-09, Thema: Vertriebsskalierung und KI-Vertrieb
 - [2026-07-27 12:40] [Automatische Antwort: Kapazitätenplanung] Bei dringenden Angelegenheiten: Kontakt zu Antonia Häberle (antonia.haeberle@schaufler.de)
