@@ -86,22 +86,23 @@
     }
   },
   "Schaufler": {
-    "input_hash": "03cdc021d86af293",
+    "input_hash": "a8d0e9e5df612fc0",
     "ergebnis": {
       "status": "fulfillment",
       "sicherheit": "hoch",
-      "begruendung": "Laut SLA_Schaufler und AVV_Schaufler_Prozessia wurde der Beschaffungsagent bereits vertraglich beauftragt und ist in Betrieb; die Rechnungen RE260016 (Implementierung, Prototyp fertiggestellt) und RE260015 (Schnittstelle zu Winform) belegen laufende Umsetzungsarbeiten.",
+      "begruendung": "Der Beschaffungsagent wurde bereits implementiert und in Betrieb genommen, belegt durch SLA und AVV (2026-07-24-19f40a0d3d-SLA_Schaufler.md, 2026-07-24-19f40a0d3d-AVV_Schaufler_Prozessia.md) sowie Rechnungen für Einrichtung und Implementierung (2026-07-23-19f7aaa4f4-Rechnung_RE260015 und 2026-07-23-19f7aad092-Rechnung_RE260016). Der Zahlungseingang vom 2026-07-28 (2026-07-28-Email-19fa640b-Neue-Zahlung-von-SCHAUFLER-TOOLING-GMBH.md) bestätigt den laufenden, aktiven Kundenbetrieb.",
       "quellen": [
         "2026-07-24-19f40a0d3d-SLA_Schaufler .md",
-        "2026-07-23-19f40a0d3d-AVV_Schaufler_Prozessia.md",
+        "2026-07-24-19f40a0d3d-AVV_Schaufler_Prozessia.md",
+        "2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md",
         "2026-07-23-19f7aad092-Rechnung_RE260016_20.07.2026.md",
-        "2026-07-22-Rechnung Schnittstellen Winform.md"
+        "2026-07-28-Email-19fa640b-Neue-Zahlung-von-SCHAUFLER-TOOLING-GMBH.md"
       ],
       "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Schaufler Tooling GmbH & Co. KG",
-      "aktueller_stand": "Der Beschaffungsagent ist implementiert und wird aktuell an die Systeme Winform/Proleis angebunden; parallel werden Lieferantendaten (Top 100 Liste) gesammelt und die KI-Nutzungsrichtlinie gemäß EU-KI-Act finalisiert."
+      "aktueller_stand": "Der Beschaffungsagent ist implementiert und im produktiven Einsatz (SLA/AVV aktiv, Schnittstellen zu Winform eingerichtet, spätere Umstellung auf Proleis geplant), aktuell laufen reguläre Bestellungen und Zahlungen über das System."
     }
   },
   "TPG": {

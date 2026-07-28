@@ -592,6 +592,8 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-28 08:23] Angebot für Kunde Zillmer: Pilotprojekt Kalkulationsagent (Recherche-Logik + Preisvergleich + Kalkulations-Anbindung) als Festpreis ab 12.000€ netto, danach laufende Kosten 220€/Monat (100€ Hosting-Basis + 120€ 1. Agent)
+- [2026-07-28 08:22] [2026-07-28-Prozessskizze-KI-Kalkulation.md] Zillmer Elektrotechnik – Lead für KI-gestützten Kalkulationsprozess bei Ausschreibungen technischer Leuchten
 - [2026-07-27 17:40] Seifert benötigt keine Kalkulationslösung für Einzelteile (hat bereits Spanflug), sondern eine Lösung für Baugruppenkalkulation. Spanflug erkennt bei geschweißten Baugruppen aus mehreren Einzelteilen die Zusammensetzung nicht, da es nur für einteilige Zerspanungsteile gebaut ist.
 - [2026-07-27 12:11] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Seifert-GmbH: Stückliste für Artikel 83486122 'Fuß' eingereicht
 - [2026-07-27 12:10] [2026-07-27-19fa3698b1-6000017119.md] Grenzebach Maschinenbau GmbH, Albanusstraße 1, 86663 Asbach-Bäumenheim
@@ -766,6 +768,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-28 08:22] [2026-07-28-Prozessskizze-KI-Kalkulation.md] 5-Schritt-Ablauf: (1) Ausschreibung eingang, (2) Hersteller-Eindeutigkeit prüfen, (3) KI-Recherche wenn nötig, (4) Automatisierter Preisvergleich, (5) Preiseinspeisung in Kalkulation
 - [2026-07-27 20:35] [2026-06-09-New Record from Google Meet (1).md] KI-gestützte Cold-Outreach wird eingesetzt, persönlicher Kundenkontakt bleibt aber entscheidend und ist noch nicht vollständig automatisierbar
 - [2026-07-27 20:35] [2026-06-09-New Record from Google Meet (1).md] Vertriebsstrategie: Skalierung durch Handelsvertreter statt fest angestellte Vertriebler geplant
 - [2026-07-27 20:35] [2026-06-09-New Record from Google Meet (1).md] Industrie-, Werkzeugbau und Maschinenbau sind die stärksten Verkaufskanäle und Spezialisierungsbereiche der Agentur
@@ -1310,6 +1313,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-07-28 08:22] [2026-07-28-Prozessskizze-KI-Kalkulation.md] KI-Suchraum bewusst auf ca. 50 relevante Hersteller für technische Leuchten in Deutschland begrenzen – Ziel: Halluzinationen auf 0 reduzieren
 - [2026-07-19 16:52] [2026-06-15-Prozessia Abstimmung Messdokumente (1).md] KI-Assistent soll Messberichte automatisch verarbeiten und Vollständigkeitsprüfung durchführen
 - [2026-07-17 21:41] [9---Email-19f472fd-Infos-zur-WinForm-Sicht.md] Terminüberwachung_Bemerkung (nvarchar(300)): Textfeld soll bei jeder Terminaktualisierung mit kurzer Info ergänzt werden
 - [2026-07-17 21:40] [13---Email-19f5bf67-AW-Statusabfrage--AI-Agent-Beschaffung.md] Liste mit E-Mails aller ausgewählten Lieferanten wird für Integration von Anfang an benötigt
@@ -1356,6 +1360,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-07-28 08:25] Zillmer (Biendarra) hat laut Sebastian aktuell nicht so viel Fallaufkommen/Auftragsvolumen wie ursprünglich angenommen - Umfang ist geringer, da Biendarras Chef intern noch keine Priorität gesetzt hat und Ausschreibungen ohne Herstellerangabe nur 'einige Bereiche' betreffen, nicht den Regelfall. Tatsächlicher Fall-Umfang bei Zillmer vermutlich kleiner als bei Schaufler.
 - [2026-07-28 00:13] [2026-07-28.md] Inbox-Verarbeitung vom 2026-07-28 00:13: 2 Fehler aufgetreten, 0 Items verarbeitet
 - [2026-07-27 12:13] [2026-07-27-19fa3698b1-MATERIAL_IU485.md] Materialnummer IU485 (Quelle: 19fa3698b1-MATERIAL_IU485.pdf) benötigt Kontextklärung und Zuordnung zu Kundenprojekt
 - [2026-07-27 12:11] [2026-07-27-19fa3698b1-MATERIAL_2588573.md] Kundenbezug unklar - Material ohne Kontextinformationen
@@ -1417,6 +1422,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-13 12:22] Schaufler Tooling GmbH: Monatliches Hosting/Retainer ab Juli 2026 auf 280 € erhöht (vorher 220 €)
 
 ## PROJEKTSTATUS
+- [2026-07-28 08:22] [2026-07-28-Prozessskizze-KI-Kalkulation.md] Prozessskizze basiert auf Meeting Dierk Biendarra + Sebastian Spuhler vom 21.07.2026, Vorbereitung für Termin 28.07.2026, 11:00 Uhr
 - [2026-07-23 15:17] [2026-07-23-Email-19f8f1d8-Zugesagt-Update-Seifert-X-Prozessia.md] Lead Seifert-GmbH: Status Update-Projekt genehmigt, nächste Schritte ausstehend
 - [2026-07-01 14:21] [2026-07-01-AW-Unser-Gespraech-MTO-Days.md] Nachverfolgung erforderlich: Christian Spamer sollte Unterlagen zusammenstellen (Stand 1. Juli 2026: noch nicht eingegangen)
 
@@ -1428,6 +1434,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-13 19:09] [Personalkosten erstattet bekommen] Schulung des Teams in kundengewinnung und Tools (Clay, Claude, Close) finanziert über Fördergelder § 82 SGB III
 
 ## ENTSCHEIDUNG
+- [2026-07-28 08:22] [2026-07-28-Prozessskizze-KI-Kalkulation.md] Direkter Preisvergleich mit Großhandel/Herstellern via KI – günstigster Anbieter wird automatisiert ermittelt
 - [2026-07-23 15:17] [2026-07-23-Email-19f8f1d8-Zugesagt-Update-Seifert-X-Prozessia.md] Seifert-GmbH hat Projekt 'Seifert X Prozessia' zugesagt – bestätigt am 2026-07-23
 - [2026-07-23 11:42] [2026-07-21-Email-19f840fe-Angenommen-Update-Zillmer-X-Prozessia.md] Zillmer-Elektrotechnik: Update akzeptiert (Bestätigung von Dierk Biendarra, 21. Juli 2026)
 - [2026-07-17 21:42] [6---Email-19f38afa-AW-Offene-Punkte-Beschaffungsagent.md] Bestelldokument muss angepasst werden, damit Lieferanten wissen, dass bestellbezogene Daten an order@schaufler.de gehen (Verantwortung: Benjamin Schmohl)
