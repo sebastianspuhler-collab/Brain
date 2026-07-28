@@ -405,21 +405,21 @@
     }
   },
   "Zillmer-Elektrotechnik": {
-    "input_hash": "323a18c6251638bb",
+    "input_hash": "9d8e032ea9c9f4c1",
     "ergebnis": {
       "status": "erstgespraech",
       "sicherheit": "mittel",
-      "begruendung": "Nach dem Erstgespräch am 14.07.2026 (Leads/2026-07-21-Zillmer-Elektrotechnik.md) folgte ein weiteres Gespräch am 21.07.2026 (Korrespondenz/2026-07-21-Update Zillmer X Prozessia.md) sowie eine Prozessskizze zur KI-Kalkulation am 28.07.2026, es liegt jedoch noch kein Angebot oder Auftrag vor.",
+      "begruendung": "Laut 2026-07-21-Update Zillmer X Prozessia.md und 2026-07-14-Zillmer-Elektrotechnik.md wurden Erstgespräch und Folgetermin zur Vorstellung des KI-Beschaffungsagenten durchgeführt, ein konkretes Angebot ist jedoch noch nicht dokumentiert; die Prozessskizze vom 28.07.2026 deutet auf weitere Konkretisierung hin.",
       "quellen": [
-        "2026-07-21-Zillmer-Elektrotechnik.md",
         "2026-07-21-Update Zillmer X Prozessia.md",
+        "2026-07-21-Zillmer-Elektrotechnik.md",
         "2026-07-28-Prozessskizze-KI-Kalkulation.md"
       ],
       "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Zillmer Elektrotechnik",
-      "aktueller_stand": "Nach zwei Gesprächen und einer Prozessskizze zur KI-gestützten Kalkulation (Stand 28.07.2026) befindet sich Zillmer weiterhin in der Konzeptionsphase ohne konkretes Angebot."
+      "aktueller_stand": "Nach zwei Gesprächen (14.07. und 21.07.2026) mit Dierk Biendarra wurde eine Prozessskizze zur KI-gestützten Kalkulation erstellt; nächster Schritt ist vermutlich die Ausarbeitung eines konkreten Angebots."
     }
   },
   "Seifert-GmbH": {
