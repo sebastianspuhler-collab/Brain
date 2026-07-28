@@ -3,16 +3,18 @@ titel: "Zusammenfassung: Steuerprüfung Umsatzsteuer & Betriebsausgaben 2025"
 typ: referenz
 bezugsjahr: 2025
 erstellt: 2026-07-28
+status: final-abgeschlossen
 tags: [Umsatzsteuer, EÜR, Elster, Steuern, Buchhaltung, Pruefung]
 ---
 
 # Zusammenfassung: Steuerprüfung Umsatzsteuer & Betriebsausgaben 2025
 
-> Master-Dokument der Session vom 2026-07-28. Fasst alles zusammen, was zur
+> **Abgeschlossen am 2026-07-28.** Master-Dokument der Session. Fasst alles zusammen, was zur
 > USt-Jahreserklärung 2025 und den Betriebsausgaben (Anlage EÜR) geprüft, korrigiert
 > und final festgestellt wurde — inklusive der Fehlversuche, damit nachvollziehbar bleibt,
-> warum die Zahlen so sind, wie sie sind. Einzeldateien: `08_euer_ausgaben_zuordnung.md`
-> (Ausgaben-Detailliste), `09_ust_jahreserklaerung_2025.md` (Elster-Werte USt).
+> warum die Zahlen so sind, wie sie sind. Alle offenen Entscheidungspunkte sind von Sebastian
+> geklärt. Einzeldateien: `08_euer_ausgaben_zuordnung.md` (Ausgaben-Detailliste),
+> `09_ust_jahreserklaerung_2025.md` (finale Elster-Werte USt inkl. Vorauszahlungssoll).
 
 ## 1. Finale Zahlen 2025 (Stand nach vollständiger Einzelbeleg-Verifizierung aller 80 Buchungen)
 
@@ -27,7 +29,10 @@ tags: [Umsatzsteuer, EÜR, Elster, Steuern, Buchhaltung, Pruefung]
 | **Gewinn 2025 (Umsatz − Ausgaben + FA-Erstattung)** | **2.247,17 €** |
 | Gewinnanteil je Gesellschafter (2 Gesellschafter) | 986,61 € |
 
-**Für die USt-Jahreserklärung:** Kz. 81 = 4.950,00 €, Kz. 66 = 249,76 €.
+**Für die USt-Jahreserklärung:** Steuerpflichtige Umsätze (19 %) = 4.950,00 €, abziehbare
+Vorsteuer = 249,76 €, Vorauszahlungssoll 2025 = 680,04 € → verbleibende Restzahlung nur
+**10,70 €** (nicht 690,74 €, das ist die rechnerische Jahressteuer vor Abzug der bereits
+erklärten Vorauszahlungen). Details: `09_ust_jahreserklaerung_2025.md`.
 
 ## 2. Die 5 Umsatzbuchungen im Detail
 

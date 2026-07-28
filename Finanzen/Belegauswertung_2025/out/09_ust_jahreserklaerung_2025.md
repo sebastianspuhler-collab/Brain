@@ -1,121 +1,97 @@
 ---
-titel: "Umsatzsteuer-Jahreserklärung 2025 – Zusammenfassung für Elster"
+titel: "Umsatzsteuer-Jahreserklärung 2025 – finale Werte für Elster"
 typ: referenz
 bezugsjahr: 2025
 erstellt: 2026-07-28
+status: final
 tags: [Umsatzsteuer, Elster, Steuern, Buchhaltung]
 ---
 
-# Umsatzsteuer-Jahreserklärung 2025 – Werte für Elster
+# Umsatzsteuer-Jahreserklärung 2025 – finale Werte für Elster
 
-> Basis: Finom-Kontoauszüge (einziges Geschäftskonto) + Belegprüfung 2026-07-26/27/28,
-> siehe `08_euer_ausgaben_zuordnung.md` und Brain-Memory
-> [[project-euer-2025-finanzamt-zahlungen]] / [[project-euer-2025-ausgaben-korrekturen]].
+> **Abgeschlossen am 2026-07-28.** Basis: Finom-Kontoauszüge (einziges Geschäftskonto) +
+> vollständige Einzelbeleg-Verifizierung aller 80 Buchungen (75 Ausgaben, 5 Einnahmen).
+> Details und Herleitung: `00_zusammenfassung_steuerpruefung_2025.md`,
+> `08_euer_ausgaben_zuordnung.md`. Memory: [[project-euer-2025-finanzamt-zahlungen]],
+> [[project-euer-2025-ausgaben-korrekturen]].
 
-## Klarstellung 2026-07-28 zur Joel-Wagner/WebWokr-Buchung
+## Einzutragende Werte
 
-Die Buchung „Joel Wagner, 28.08.2025, 100,00 €" (RE250005) ist eine Ausgangsrechnung von
-**WebWokr an Joel Wagner** über eine Meta-Ads-Tracking-Sheet-Anpassung. Auf dem Belegvordruck
-steht eine andere Steuernummer (040/276/11732) als bei den übrigen Prozessia-Rechnungen
-(040/163/12016) — laut Sebastian (2026-07-28) ist das **eine Firma**, die Vorlage trägt nur
-eine veraltete/falsche Steuernummer. Die 100 € zählen daher normal als Umsatz. (Ein
-zwischenzeitlicher Versuch, diese Buchung als Ausgabe umzubuchen, wurde wieder verworfen —
-siehe [[project-euer-2025-ausgaben-korrekturen]].)
+| Feld in Elster (Wortlaut) | Betrag |
+|---|---:|
+| Steuerpflichtige Umsätze zum allgemeinen Steuersatz (19 %), netto | **4.950,00 €** |
+| Abziehbare Vorsteuerbeträge aus Rechnungen anderer Unternehmer | **249,76 €** |
+| Vorauszahlungssoll 2025 (Summe der bereits erklärten Voranmeldungen) | **680,04 €** |
 
-## Einzutragende Werte (Hauptvordruck USt-Erklärung) — Stand 2026-07-28 nach Einzelverifizierung
-
-| Kennzahl | Bezeichnung | Betrag |
-|---|---|---:|
-| **Kz. 81** | Steuerpflichtige Umsätze zum allgemeinen Steuersatz (19 %), netto | **4.950,00 €** |
-| **Kz. 66** | Abziehbare Vorsteuerbeträge aus Rechnungen anderer Unternehmer | **249,76 €** |
-
-Elster berechnet die Umsatzsteuer auf Kz. 81 automatisch (19 %):
+Rechnung dahinter:
 
 | | Betrag |
 |---|---:|
-| Umsatz netto (Kz. 81) | 4.950,00 € |
+| Umsatz netto | 4.950,00 € |
 | Umsatzsteuer darauf (19 %) | 940,50 € |
-| Vorsteuer (Kz. 66) | 249,76 € |
-| Rechnerische Jahres-USt 2025 | 690,74 € |
+| Vorsteuer | 249,76 € |
+| Rechnerische Jahressteuer 2025 | 690,74 € |
+| − Vorauszahlungssoll 2025 (bereits erklärt/gezahlt) | 680,04 € |
+| **= Restzahlung** | **10,70 €** |
 
-**Keine zusätzliche Zahllast:** Die 690,74 € sind eine rein rechnerische Kontrollgröße
-(Umsatz × 19 % minus Vorsteuer, für das ganze Jahr auf einmal), **keine noch offene Zahlung**.
-Sebastian hat 2025 quartalsweise korrekt per USt-Voranmeldung erklärt und bezahlt (Q1+Q2
-gemeinsam in einer Erklärung, dann Q3 und Q4 einzeln, inkl. 860,73 € am 03.01.2026 für
-Q4/2025) — die Jahreserklärung fasst das nur zusammen, sie erzeugt keine neue Schuld.
+**Nur die 10,70 € sind der tatsächlich noch zu zahlende Betrag** — nicht 690,74 €. Der Großteil
+der Jahressteuer wurde bereits über die vier Voranmeldungen 2025 (Q1+Q2 gemeinsam, Q3, Q4)
+beglichen.
 
-**Update 2026-07-28 (Einzelverifizierung aller 80 Buchungen):** Zwei belegbasierte Korrekturen
-gegenüber dem vorherigen Stand (215,98 €):
-- **+52,25 €**: Triathlon-Miete weist entgegen der bisherigen Annahme sehr wohl 19 % USt aus
-  (25,00 € netto + 4,75 € USt = 29,75 € brutto/Monat, 11 Monate) — war fälschlich mit 0 €
-  Vorsteuer geführt.
-- **−18,47 €**: PNL-Fintech-Rechnung (3OJ3-0005) weist niederländische USt aus (USt-IdNr.
-  NL859799189B01), keine deutsche — ausländische USt ist nicht als deutsche Vorsteuer
-  abzugsfähig (§ 15 UStG). Der volle Bruttobetrag (115,67 €) zählt stattdessen als Netto-
-  Betriebsausgabe.
-Netto: 215,98 + 52,25 − 18,47 = **249,76 €**. Details siehe
-`00_zusammenfassung_steuerpruefung_2025.md`.
+### Herleitung Vorauszahlungssoll 2025 (680,04 €)
+
+| Zeitraum | Erklärt | Betrag |
+|---|---|---:|
+| Q1+Q2 2025 (gemeinsame Voranmeldung) | Erstattung | −25,59 € |
+| Q3 2025 | Erstattung | −155,10 € |
+| Q4 2025 | Zahllast (gezahlt 03.01.2026) | +860,73 € |
+| **Netto Vorauszahlungssoll 2025** | | **680,04 €** |
+
+Die Erstattung vom 07.08.2025 (93,27 €) ist **nicht** enthalten — die betrifft die
+USt-Jahreserklärung 2024, nicht 2025.
 
 ## Reverse-Charge (§ 13b UStG)
 
-Betrifft v. a. Instantly/Apify-Ausgaben ohne deutschen USt-Ausweis (ca. 293,80 € netto 2025).
-**Bereits in den laufenden Voranmeldungen 2025 routinemäßig erfasst** — für die Jahreserklärung
-**nicht neu berechnen oder zusätzlich eintragen**, sonst Doppelzählung.
+Betrifft Instantly/Apify-Ausgaben ohne deutschen USt-Ausweis. Bereits in den laufenden
+Voranmeldungen 2025 routinemäßig erfasst — für die Jahreserklärung nicht neu berechnen oder
+zusätzlich eintragen, sonst Doppelzählung.
 
-## Tatsächliche Finanzamt-Kontobewegungen 2025/2026 (zur Kontrolle, nicht für Kz. 81/66)
+## Wie die 249,76 € Vorsteuer zustande kommen
 
-| Datum | Vorgang | Betrag |
-|---|---|---:|
-| 28.07.2025 | Erstattung USt Q1+Q2 2025 (gemeinsame Erklärung) | +25,59 € |
-| 07.08.2025 | Erstattung USt Jahreserklärung 2024 (gehört nicht zu 2025) | +93,27 € |
-| 09.10.2025 | Erstattung USt 3. Vj. 2025 | +155,10 € |
-| 03.01.2026 | Zahlung USt 4. Vj. 2025 | −860,73 € |
+Ausgangswert nach Belegprüfung (26./27.07.): 215,98 €. Zwei Korrekturen nach vollständiger
+Einzelverifizierung am 28.07., beide direkt an den Original-Rechnungen geprüft:
 
-Q1/2025 ist kein offener Punkt: Sebastian hat Q1 und Q2 2025 gemeinsam in einer Voranmeldung
-erklärt und gekennzeichnet — die Erstattung vom 28.07.2025 (25,59 €) ist bereits das Ergebnis
-von Q1+Q2 zusammen, deshalb gibt es keine separate Q1-Buchung.
+- **+52,25 €:** Triathlon-Miete (Vermieter Campus Saarbrücken) weist entgegen der bisherigen
+  Annahme ausdrücklich 19 % USt aus (25,00 € netto + 4,75 € USt = 29,75 € brutto/Monat,
+  11 Monate 2025) — war fälschlich mit 0 € Vorsteuer geführt.
+- **−18,47 €:** PNL-Fintech-Rechnung (3OJ3-0005, Finom-Jahresgebühr) weist niederländische USt
+  aus (USt-IdNr. NL859799189B01), keine deutsche — ausländische USt ist nach § 15 UStG nicht
+  als deutsche Vorsteuer abzugsfähig. Voller Bruttobetrag (115,67 €) zählt stattdessen als
+  Netto-Betriebsausgabe. Ursache: Prozessias eigene USt-IdNr. war bei Finom/PNL Fintech nicht
+  hinterlegt, daher keine Reverse-Charge-Behandlung durch den Anbieter. **To-do:** USt-IdNr. bei
+  Finom hinterlegen, damit künftige Jahresgebühren-Rechnungen korrekt per Reverse-Charge laufen.
 
-## Abgleich 2026-07-28: rechnerischer Saldo vs. tatsächlich gezahlt
+215,98 + 52,25 − 18,47 = **249,76 €**.
 
-Auf Wunsch von Sebastian geprüft, ob Kz. 81/66 mit den tatsächlichen Finanzamt-Zahlungen
-zusammenpassen — reine Kontrollrechnung, **ohne** die 93,27 € von 2024 (die gehören nicht
-zu 2025):
+## Am 2026-07-28 geprüft und bestätigt (kein weiterer Änderungsbedarf)
 
-| | Betrag |
-|---|---:|
-| Tatsächlich ans Finanzamt gezahlt 2025 (netto: 860,73 € − 25,59 € − 155,10 €) | 680,04 € |
-| Rechnerische Jahres-USt 2025 (940,50 € − 215,98 €) | 724,52 € |
-| **Differenz** | **44,48 €** |
+- **Q1/2025:** kein offener Punkt — mit Q2 gemeinsam in einer Voranmeldung erklärt, die
+  Erstattung vom 28.07.2025 (25,59 €) ist bereits das Ergebnis von Q1+Q2 zusammen.
+- **Steuernummer:** Prozessia/WebWokr/das Finom-Konto laufen alle unter einer einzigen
+  Steuernummer (040/163/12016) — die abweichende Nummer auf der WebWokr-Vorlage (RE250005,
+  040/276/11732) ist ein reiner Vorlagenfehler, kein Hinweis auf eine zweite Firma. Die
+  100,00 €-Buchung von RE250005 zählt normal als Umsatz.
+- **cyfire (450,00 €, 13.11.2025):** von Sebastian bestätigt netto, so mit dem Anwalt
+  vereinbart — bleibt wie erfasst (keine Vorsteuer, da keine Rechnung mit gesondertem
+  USt-Ausweis vorliegt).
+- **Apify (2× 39 USD, ca. 13 € mögliche Vorsteuer über OSS):** bewusst nicht als Vorsteuer
+  angesetzt (Abzugsfähigkeit bei OSS-Rechnungen rechtlich unklar).
+- **6 Instantly-Buchungen** mit auffälliger USD/EUR-Umrechnung: von Sebastian bestätigt korrekt
+  per Reverse-Charge gebucht, ergibt 0 € Vorsteuer — keine Änderung.
 
-Die Differenz ist klein und normal — sie erklärt sich durch die Zeitverschiebung zwischen
-Rechnungsdatum (Soll-Versteuerung in den Voranmeldungen) und Zahlungsdatum
-(Zufluss-/Abflussprinzip in der EÜR), z. B. bei der Martin-Veser-Anzahlung im Oktober vor der
-eigentlichen Rechnung. Kein Hinweis auf fehlende/falsche Vorsteuer — **215,98 € bleiben die
-korrekte Zahl** für Kz. 66. (Eine erste Kontrollrechnung inkl. der 2024er-Erstattung ergab
-noch 133,97 € Differenz, weil ein Teil des Geschäftsjahres 2024 gar nicht in dieser
-Finom-basierten Auswertung erfasst ist — nach Herausrechnen der 2024er-Position bleibt nur
-noch die oben stehende, plausible 44,48-€-Differenz.)
+## Für den Steuerberater vermerkt (nicht abgabekritisch)
 
-## Klarstellung 2026-07-28: nur eine Steuernummer
-
-Sebastian bestätigt: **es gibt nur eine Steuernummer und eine Adresse** für die gesamte
-Geschäftstätigkeit (Prozessia/WebWokr/Finom-Konto „Sebastian Spuhler, Mohamed Douioui GbR"
-sind alle dieselbe Firma unter derselben Steuernummer 040/163/12016). Die abweichende
-Steuernummer 040/276/11732 auf der WebWokr-Rechnungsvorlage (RE250005) ist damit endgültig
-als reiner Vorlagenfehler eingeordnet — **kein** Hinweis auf eine zweite Rechtsperson oder
-Unklarheit, welche Gesellschaft die Erklärung abgibt. Kein offener Punkt mehr.
-
-## Weitere offene Punkte (aus der Belegprüfung, betreffen primär die EÜR, nicht die USt)
-
-- Drei privat bezahlte Rechnungen (Wix Domain, Wix Workspace, LinkedIn Sales Navigator,
-  zusammen 52,84 € Vorsteuer) lauten auf Sebastian Spuhlers Privatadresse statt auf die
-  Firmenadresse — Vorsteuerabzug ist bei einer Personengesellschaft/Einzelunternehmer i. d. R.
-  unproblematisch (Einlage), aber formal sauberer wäre eine Rechnung auf den Firmennamen;
-  für künftige Bestellungen beachten.
-**Geklärt (2026-07-28, kein Handlungsbedarf mehr):**
-- **cyfire (450,00 €):** von Sebastian bestätigt **netto**, so mit dem Anwalt vereinbart — bleibt wie in der Pipeline erfasst (keine Vorsteuer, da keine gesondert ausgewiesene USt vorliegt).
-- **Apify (~13 € mögliche Vorsteuer):** bleibt bewusst draußen, wie entschieden.
-- **6 Instantly-Buchungen:** von Sebastian bestätigt korrekt per Reverse-Charge gebucht (ergibt 0 € Vorsteuer) — keine Änderung nötig.
-- WebWokr-Rechnungen tragen eine andere Steuernummer (040/276/11732) als der Rest
-  (040/163/12016) — reiner Vorlagenfehler (siehe oben), für künftige Rechnungen korrigieren,
-  um Verwechslungen zu vermeiden.
+- Drei privat per PayPal bezahlte Rechnungen (Wix Domain, Wix Workspace, LinkedIn Sales
+  Navigator, zusammen 52,84 € Vorsteuer) lauten auf Sebastian Spuhlers Privatadresse statt auf
+  die Firma — Vorsteuerabzug ist bei einer Personengesellschaft i. d. R. unproblematisch
+  (Einlage), aber formal sauberer wäre die Firmenadresse; für künftige Bestellungen beachten.
