@@ -1353,6 +1353,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-07-28 00:13] [2026-07-28.md] Inbox-Verarbeitung vom 2026-07-28 00:13: 2 Fehler aufgetreten, 0 Items verarbeitet
 - [2026-07-27 12:13] [2026-07-27-19fa3698b1-MATERIAL_IU485.md] Materialnummer IU485 (Quelle: 19fa3698b1-MATERIAL_IU485.pdf) benötigt Kontextklärung und Zuordnung zu Kundenprojekt
 - [2026-07-27 12:11] [2026-07-27-19fa3698b1-MATERIAL_2588573.md] Kundenbezug unklar - Material ohne Kontextinformationen
 - [2026-07-27 12:11] [2026-07-27-19fa3698b1-MATERIAL_2588569.md] Klärungsbedarf: Materialnummer 2588569 benötigt Kontextualisierung und Projektzuordnung
