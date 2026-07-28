@@ -1,0 +1,7 @@
+{
+  "_hinweis": "Manuelle Korrekturen fuer 2026, analog zu Belegauswertung_2025/korrekturen_2025.json. Werden von scripts/step4b_korrekturen.py idempotent auf out/04_merged.json angewendet. Reihenfolge: step4 -> step4b -> step5 -> step6 -> step7 -> step8.",
+  "beleg_korrekturen": [],
+  "tx_korrekturen": [],
+  "privat_bezahlte_ausgaben": [],
+  "offene_punkte": []
+}
