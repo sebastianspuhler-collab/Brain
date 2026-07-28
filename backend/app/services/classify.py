@@ -380,11 +380,19 @@ def is_meeting_transcript(filepath: Path, content: str, result: dict) -> bool:
     und tauchten in der Übersicht nie auf, obwohl sie korrekt eingelesen waren
     (betraf u.a. Zillmer 21.07. und Seifert 23.07.). Zusätzlich blieben ihnen die
     Teilnehmer-/Kernpunkte-/Zusagen-Abschnitte verwehrt, weil auch die an dieser
-    Ordnerbedingung hingen."""
+    Ordnerbedingung hingen.
+
+    Tag-Check bewusst als Whitelist exakter Tags, nicht als Substring-Match
+    (Sebastian, 2026-07-28): ein Pitch-Deck über ein Transkriptions-/Voice-
+    Produkt landete fälschlich hier, weil "transkript" auch in thematischen
+    Tags wie "Transkription" oder "Live-Transkription" steckt (ist sogar ein
+    Präfix davon) - das sagt nichts darüber aus, ob DIESES Dokument selbst ein
+    Transkript ist."""
     haystack = f"{filepath.name}\n{content[:3000]}".lower()
     if any(marker in haystack for marker in TRANSCRIPT_MARKERS):
         return True
-    return any("transkript" in str(tag).lower() for tag in result.get("tags", []))
+    exact_tags = {"transkript", "transkripte", "besprechungstranskript", "gesprächstranskript", "meeting-transkript"}
+    return any(str(tag).strip().lower() in exact_tags for tag in result.get("tags", []))
 
 
 def process_file(filepath: Path) -> tuple[bool, str]:

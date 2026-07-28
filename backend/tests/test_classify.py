@@ -57,3 +57,14 @@ def test_angebot_ist_kein_transkript():
         "Angebot über die Einrichtung eines Beschaffungsagenten",
         {"tags": ["Angebot", "Kunde"]},
     )
+
+
+def test_pitch_deck_ueber_transkriptions_produkt_ist_kein_transkript():
+    # Bug 2026-07-28: ein Pitch-Deck über ein Voice-/Transkriptions-Produkt
+    # landete fälschlich in Meetings/, weil "transkript" ein Präfix von
+    # "Transkription" ist und der alte Substring-Check das als Treffer wertete.
+    assert not is_meeting_transcript(
+        Path("Seifert_GmbH_pitch_deck.pptx"),
+        "Vorstellung unserer KI-Lösung mit Live-Transkription für Meetings",
+        {"tags": ["Pitch-Deck", "Transkription", "Lead"]},
+    )
