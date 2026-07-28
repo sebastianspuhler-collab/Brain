@@ -257,7 +257,12 @@ REGELN:
   Zweifel eher zu Memos/ oder zum bereits bestehenden Kunden einordnen als
   einen neuen Kundenordner zu erfinden.
 - Verträge die keinen Kunden zugeordnet werden können → Vertraege/
-- Leads → Leads/
+- Leads → Leads/[Lead-Name]-Korrespondenz/[Unterordner], NIE flach direkt in
+  Leads/ ablegen. Gleiche Unterordner-Logik wie bei Kunden oben (Meetings/,
+  Angebote/, Dokumente/ usw.). Existiert für diesen Lead schon ein
+  -Korrespondenz-Ordner in der Vault-Struktur unten, exakt den wiederverwenden
+  (Namen/Schreibweise übernehmen, nicht neu erfinden) - sonst
+  "Leads/[Lead-Name]-Korrespondenz/[Unterordner]" neu anlegen.
 - Finanzen → Finanzen/Rechnungen oder Finanzen/Angebote
 - Marketing → Marketing/[passender Unterordner]
 - Sales → Sales/[passender Unterordner]
