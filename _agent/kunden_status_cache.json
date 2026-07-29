@@ -89,23 +89,21 @@
     }
   },
   "Schaufler": {
-    "input_hash": "a8d0e9e5df612fc0",
+    "input_hash": "d20279adddffb0f4",
     "ergebnis": {
       "status": "fulfillment",
       "sicherheit": "hoch",
-      "begruendung": "Der Beschaffungsagent wurde bereits implementiert und in Betrieb genommen, belegt durch SLA und AVV (2026-07-24-19f40a0d3d-SLA_Schaufler.md, 2026-07-24-19f40a0d3d-AVV_Schaufler_Prozessia.md) sowie Rechnungen für Einrichtung und Implementierung (2026-07-23-19f7aaa4f4-Rechnung_RE260015 und 2026-07-23-19f7aad092-Rechnung_RE260016). Der Zahlungseingang vom 2026-07-28 (2026-07-28-Email-19fa640b-Neue-Zahlung-von-SCHAUFLER-TOOLING-GMBH.md) bestätigt den laufenden, aktiven Kundenbetrieb.",
+      "begruendung": "Der Beschaffungsagent für Schaufler Tooling GmbH & Co. KG ist laut 2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md live gegangen und wird nun evaluiert, zudem laufen bereits Rechnungen (2026-07-23-19f7aad092-Rechnung_RE260016_20.07.2026.md, 2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md) und ein SLA (2026-07-24-19f40a0d3d-SLA_Schaufler .md) für den laufenden Betrieb.",
       "quellen": [
-        "2026-07-24-19f40a0d3d-SLA_Schaufler .md",
-        "2026-07-24-19f40a0d3d-AVV_Schaufler_Prozessia.md",
-        "2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md",
+        "2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md",
         "2026-07-23-19f7aad092-Rechnung_RE260016_20.07.2026.md",
-        "2026-07-28-Email-19fa640b-Neue-Zahlung-von-SCHAUFLER-TOOLING-GMBH.md"
+        "2026-07-24-19f40a0d3d-SLA_Schaufler .md"
       ],
       "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Schaufler Tooling GmbH & Co. KG",
-      "aktueller_stand": "Der Beschaffungsagent ist implementiert und im produktiven Einsatz (SLA/AVV aktiv, Schnittstellen zu Winform eingerichtet, spätere Umstellung auf Proleis geplant), aktuell laufen reguläre Bestellungen und Zahlungen über das System."
+      "aktueller_stand": "Der Beschaffungsagent ist live, aktuell wird ein Termin zur Effizienzbewertung sowie zur Integration der Einkäufer-Eskalationsmails abgestimmt."
     }
   },
   "TPG": {
@@ -126,22 +124,21 @@
     }
   },
   "Voigt_Salus": {
-    "input_hash": "556a159a466f4b13",
+    "input_hash": "9dd69d91c3195572",
     "ergebnis": {
       "status": "fulfillment",
-      "sicherheit": "mittel",
-      "begruendung": "Die Dokumente wie Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md und KI-Agent-X-Voigt-Salus.md sowie die Kostenkalkulation Testphase.md zeigen, dass sich der Kunde in der aktiven Umsetzungsphase des KI-Agenten-Projekts befindet. Die mandatsuebersicht.md bestätigt zudem ein bestehendes Auftragsverhältnis als Kanzlei-Kunde.",
+      "sicherheit": "hoch",
+      "begruendung": "Aus 2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md und 2026-06-09-mandatsuebersicht.md geht hervor, dass der KI-Agent bereits eingerichtet und im Einsatz ist, der Kunde befindet sich also in der Umsetzungsphase (Fulfillment).",
       "quellen": [
         "2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md",
-        "2026-06-09-KI-Agent-X-Voigt-Salus.md",
-        "2026-06-09-Kostenkalkulation Testphase.md",
-        "2026-06-09-mandatsuebersicht.md"
+        "2026-06-09-mandatsuebersicht.md",
+        "2026-06-09-Voigt_Salus_Arbeitsalltag (1).md"
       ],
-      "warnsignal": "Seit dem 23.06. bis 21.07.2026 wiederholt kritische, ungelöste Security-Warnungen (RLS disabled, Daten öffentlich zugänglich) im Supabase-Projekt 'Voigtsalus' - deutet auf fehlende technische Nachbetreuung hin.",
+      "warnsignal": "Seit Wochen wiederkehrende, unbeantwortete kritische Supabase-Sicherheitswarnungen (RLS deaktiviert, sensible Daten öffentlich zugänglich) von 2026-06-23 bis 2026-07-28 deuten auf fehlendes technisches Follow-up hin.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Voigt Salus",
-      "aktueller_stand": "Der KI-Agent wurde onboarded und befindet sich in der Testphase/Umsetzung, jedoch bestehen seit Wochen ungelöste kritische Sicherheitslücken im zugehörigen Supabase-Projekt, die dringend behoben werden müssten."
+      "aktueller_stand": "Der Prozessia KI-Agent wurde bei Voigt Salus eingerichtet und läuft im produktiven Betrieb, jedoch bestehen seit Ende Juni wiederholt ungelöste kritische Sicherheitslücken in der Supabase-Datenbank, die dringend behoben werden müssten."
     }
   },
   "endin": {
@@ -422,22 +419,21 @@
     }
   },
   "Seifert-GmbH": {
-    "input_hash": "493bb438e438e227",
+    "input_hash": "ff8bcabd9a38c5a3",
     "ergebnis": {
       "status": "erstgespraech",
       "sicherheit": "mittel",
-      "begruendung": "Seit dem Erstgespräch am 2026-07-23 (2026-07-23-Seifert-GmbH.md) laufen konkrete Abstimmungen zu einer KI-Agent-Lösung für Material-/Zuschnittlisten, belegt durch Beispieldokumente wie die Anfrage 6000017119 und zugehörige Stücklisten sowie die Update- und Prozessskizze-Dateien vom 2026-07-28.",
+      "begruendung": "Am 2026-07-23 fand laut 2026-07-23-Seifert-GmbH.md das Erstgespräch statt, danach wurden in 2026-07-27-19fa3698b1-6000017119.md und den zugehörigen Stücklisten Beispieldokumente gesammelt sowie am 2026-07-28 eine Prozessskizze-Materialliste erstellt, was auf eine vertiefte Analysephase nach dem Erstkontakt hindeutet, aber noch kein konkretes Angebot belegt.",
       "quellen": [
         "2026-07-23-Seifert-GmbH.md",
         "2026-07-27-19fa3698b1-6000017119.md",
-        "2026-07-28-Update Seifert X Prozessia.md",
         "2026-07-28-Prozessskizze-Materialliste.md"
       ],
       "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Seifert GmbH",
-      "aktueller_stand": "Nach dem Erstgespräch werden aktuell Beispiel-Anfragen und Stücklisten analysiert, um eine Prozessskizze für eine automatisierte Material-/Zuschnittlisten-Erstellung zu entwickeln; noch kein Angebot erstellt."
+      "aktueller_stand": "Nach dem Erstgespräch wurden Beispiel-Fertigungsdokumente (Anfragen, Stücklisten) gesammelt und eine Prozessskizze für die geplante Material-/Zuschnittlisten-Lösung erarbeitet, nächster Schritt wäre die Angebotserstellung."
     }
   },
   "Juchem": {
