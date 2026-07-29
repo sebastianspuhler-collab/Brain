@@ -613,6 +613,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-29 09:44] Juchem (Ansprechpartner Maas, Einkauf): Größter konkreter Need laut Erstgespräch vom 08.06.2026 sind Lieferdokumente – diese kommen oft erst mit der Lieferung an oder müssen nachgefordert werden.
 - [2026-07-29 09:27] [TechJobs x WebWokr] Laura Greene, TechJobs (portugiesische Tech-Job-Plattform, KI-basierte CV-Analyse) - Akquisitionskontakt für WebWokr
 - [2026-07-29 09:25] Ayoub Falah (Morali GmbH) Mailadresse: a.falah@morali-gmbh.de
 - [2026-07-29 09:21] Ayoub Falah (Morali): Zwei-Wochen-Frist zur Rückmeldung nach Demo-Durchsicht ist am 29.07. abgelaufen, keine Reaktion erhalten – Follow-up ist jetzt fällig
