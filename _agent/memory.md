@@ -807,6 +807,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-29 15:13] Meeting-Notizen zu Kunden-/Lead-Gesprächen werden unter Leads/[Kunde]-Korrespondenz/Meetings/ abgelegt (nicht in Memos/), damit sie in der Transkripte-Übersicht der Web-App erscheinen - Beispiel: Leads/Juchem-Korrespondenz/Meetings/2026-07-29-Update Juchem X Prozessia.md
 - [2026-07-29 12:23] [AW: Vorgeschlagene Zeit: Update Beschaff] Update Beschaffungsagent Meeting: Terminfindung ausstehend - Alternativzeiten angeboten: Donnerstag 30. Juli 2026 mittags oder Freitag 31. Juli 2026 um 13 Uhr
 - [2026-07-29 12:23] [AW: Vorgeschlagene Zeit: Update Beschaff] Preisverhandlung mit Lieferant: Freitag 31. Juli 2026 um 10 Uhr (Benjamin Schmohl gebunden)
 - [2026-07-29 09:27] [TechJobs x WebWokr] Angebot: 15-Minuten-Demo zum reduzierten manuellen Recruiting-Screening und besserer Kandidaten-Matching
