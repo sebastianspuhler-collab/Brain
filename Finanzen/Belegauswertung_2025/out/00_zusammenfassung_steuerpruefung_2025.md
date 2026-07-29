@@ -16,18 +16,27 @@ tags: [Umsatzsteuer, EÜR, Elster, Steuern, Buchhaltung, Pruefung]
 > geklärt. Einzeldateien: `08_euer_ausgaben_zuordnung.md` (Ausgaben-Detailliste),
 > `09_ust_jahreserklaerung_2025.md` (finale Elster-Werte USt inkl. Vorauszahlungssoll).
 
-## 1. Finale Zahlen 2025 (Stand nach vollständiger Einzelbeleg-Verifizierung aller 80 Buchungen)
+## 1. Finale Zahlen 2025 (Stand nach vollständiger Einzelbeleg-Verifizierung aller 80 Buchungen,
+Finanzamt-USt-Erstattungen seit 2026-07-29 direkt als Betriebseinnahme in der Pipeline mitgezählt)
 
 | Kennzahl | Betrag |
 |---|---:|
-| Umsatz netto (5 Kundenrechnungen) | 4.950,00 € |
-| Umsatzsteuer auf Umsatz (19 %) | 940,50 € |
+| Umsatz netto (5 Kundenrechnungen + 3 Finanzamt-Erstattungen) | 5.223,96 € |
+| davon Kundenrechnungen | 4.950,00 € |
+| davon vom Finanzamt erstattete USt 2025 | 273,96 € |
+| Umsatzsteuer auf Umsatz (19 %, nur Kundenrechnungen) | 940,50 € |
 | Betriebsausgaben netto (75 Buchungen) | 2.976,79 € |
 | davon abziehbare Vorsteuer | 249,76 € |
-| Vom Finanzamt erstattete USt 2025 | 273,96 € |
 | An das Finanzamt gezahlte USt 2025 | 0,00 € |
-| **Gewinn 2025 (Umsatz − Ausgaben + FA-Erstattung)** | **2.247,17 €** |
-| Gewinnanteil je Gesellschafter (2 Gesellschafter) | 986,61 € |
+| **Gewinn 2025 (Umsatz netto − Ausgaben netto, FA-Erstattung bereits im Umsatz enthalten)** | **2.247,17 €** |
+| Gewinnanteil je Gesellschafter (2 Gesellschafter) | 1.123,59 € |
+
+> **Korrektur 2026-07-29:** Bis dahin wurde die Finanzamt-Erstattung nur als manueller Zuschlag
+> zum bereits berechneten Gewinn addiert, wobei der Gewinnanteil je Gesellschafter irrtümlich noch
+> vom Gewinn **vor** diesem Zuschlag (1.973,21 € / 2 = 986,61 €) berechnet wurde. Jetzt läuft die
+> Erstattung direkt durch die ganze Pipeline (step5–step8) als normale Betriebseinnahme, dadurch
+> ist auch der Gewinnanteil je Gesellschafter korrekt aus dem finalen Gewinn abgeleitet: 2.247,17 €
+> / 2 = **1.123,59 €** (vorher fälschlich 986,61 € ausgewiesen).
 
 **Für die USt-Jahreserklärung:** Steuerpflichtige Umsätze (19 %) = 4.950,00 €, abziehbare
 Vorsteuer = 249,76 €, Vorauszahlungssoll 2025 = 680,04 € → verbleibende Restzahlung nur
@@ -46,6 +55,9 @@ erklärten Vorauszahlungen). Details: `09_ust_jahreserklaerung_2025.md`.
 | **Summe** | | | **4.950,00 €** | **940,50 €** |
 
 Alle 5 Buchungen einzeln gegen die Original-Rechnungs-PDFs geprüft (siehe Abschnitt 6) — keine Abweichung.
+
+Dazu kommen auf der Einnahmenseite die 3 USt-Erstattungen vom Finanzamt (siehe Abschnitt 1),
+zusammen 273,96 € netto ohne USt — macht in Summe die 5.223,96 € Umsatz netto aus Abschnitt 1.
 
 ## 3. Betriebsausgaben nach EÜR-Feld (nach den Korrekturen aus Abschnitt 6)
 

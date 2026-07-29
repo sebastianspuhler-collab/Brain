@@ -108,31 +108,27 @@ A("| Datum | Partner | Netto | Beleg |")
 A("|---|---|---:|---|")
 E = {'nt': 0.0}
 for t in sorted(gewertet_ein, key=lambda x: x['zahlungsdatum']):
-    b = bel.get(t['beleg_ids'][0]) if t.get('beleg_ids') else None
-    n = (b.get('betrag_netto') if b else None) or round(t['betrag_brutto'] / (1 + USTSATZ), 2)
+    n, _, hat = netto_von(t)
     E['nt'] += n
-    hinweis = b['quellref'].split('/')[-1] if b else f"**fehlt** – Netto geschätzt aus {eur(t['betrag_brutto'])}"
+    if ist_fa_ust_erstattung(t):
+        hinweis = "Finom-Kontoauszug (Finanzamt-Erstattung, kein Beleg noetig)"
+    else:
+        b = bel.get(t['beleg_ids'][0]) if t.get('beleg_ids') else None
+        hinweis = b['quellref'].split('/')[-1] if b else f"**fehlt** – Netto geschätzt aus {eur(t['betrag_brutto'])}"
     A(f"| {t['zahlungsdatum']} | {t['gegenpartei'][:34]} | {eur(n)} | {hinweis} |")
-A(f"| 2025-07-28 | Finanzamt Saarlouis (Erstattung USt 2VJ/25) | {eur(25.59)} | Finom-Kontoauszug |")
-A(f"| 2025-08-07 | Finanzamt Saarlouis (Erstattung USt 2024) | {eur(93.27)} | Finom-Kontoauszug |")
-A(f"| 2025-10-09 | Finanzamt Saarlouis (Erstattung USt 3VJ/25) | {eur(155.10)} | Finom-Kontoauszug |")
-umsatz_gesamt = E['nt'] + FA_ERSTATTET_2025
-A(f"| | **Summe (inkl. Finanzamt-Erstattung)** | **{eur(umsatz_gesamt)}** | {len(gewertet_ein)+3} Buchungen |")
+umsatz_gesamt = E['nt']
+A(f"| | **Summe (inkl. Finanzamt-Erstattung)** | **{eur(umsatz_gesamt)}** | {len(gewertet_ein)} Buchungen |")
 
 # --- Gesamtrechnung: Betriebseinnahmen (inkl. FA-Erstattung) minus Betriebsausgaben ---------
 A("\n## Gesamtrechnung EÜR 2025\n")
-A("> Nutzerentscheidung 2026-07-27: Vereinnahmte USt und Vorsteuer werden NICHT separat aufaddiert")
-A("> (das waere Doppelzaehlung). Die tatsaechlich 2025 vom Finanzamt erhaltene Erstattung zaehlt")
-A("> direkt zu den Betriebseinnahmen (§ 11 EStG Zufluss-/Abflussprinzip).\n")
+A("> Nutzerentscheidung 2026-07-29: Die tatsaechlich 2025 vom Finanzamt erhaltene USt-Erstattung")
+A("> (§ 11 EStG Zufluss-/Abflussprinzip) zaehlt als volle Betriebseinnahme und ist bereits oben in")
+A("> den Betriebseinnahmen/im Umsatz netto MIT enthalten (keine separate Zuschlagsrechnung mehr).\n")
 A(f"| | Betrag |")
 A("|---|---:|")
-A(f"| Umsatz netto (Kunden) | {eur(E['nt'])} |")
-A(f"| Vom Finanzamt erstattete Umsatzsteuer 2025 | {eur(FA_ERSTATTET_2025)} |")
-A(f"| **Betriebseinnahmen gesamt** | **{eur(umsatz_gesamt)}** |")
-A(f"| Ausgaben netto | {eur(G['nt'])} |")
-A(f"| An das Finanzamt gezahlte Umsatzsteuer 2025 | {eur(FA_GEZAHLT_2025)} |")
-ausgaben_gesamt = G['nt'] + FA_GEZAHLT_2025
-A(f"| **Betriebsausgaben gesamt** | **{eur(ausgaben_gesamt)}** |")
+A(f"| Betriebseinnahmen gesamt (Kunden + Finanzamt-Erstattung {eur(FA_ERSTATTET_2025)}) | {eur(umsatz_gesamt)} |")
+A(f"| Betriebsausgaben gesamt | {eur(G['nt'])} |")
+ausgaben_gesamt = G['nt']
 finaler_gewinn = umsatz_gesamt - ausgaben_gesamt
 A(f"| **Gewinn 2025** | **{eur(finaler_gewinn)}** |")
 
@@ -160,8 +156,6 @@ for t in alle:
         continue
     g = ('Durchlaufposten Benito Ferrise' if t['tx_id'] in DURCHL
          else 'Nicht als geschäftlich eingestuft' if t['kategorie'] != 'GESCHAEFTLICH'
-         else 'Finanzamt (steuerneutral, gehört auf die Einnahmenseite)'
-              if 'finanzamt' in (t['gegenpartei'] or '').lower()
          else 'Bagatelle < 10 € ohne Beleg')
     raus[g][0] += t['betrag_brutto']; raus[g][1] += 1
 for g, (v, c) in sorted(raus.items(), key=lambda x: -x[1][0]):
