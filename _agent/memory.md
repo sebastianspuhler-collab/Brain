@@ -807,6 +807,8 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-29 15:32] Prozessschritt ABS (Auftragsbestätigung) bei Maas: Preis, Menge etc. werden verglichen; bei Abweichungen wird der Lieferant benachrichtigt.
+- [2026-07-29 15:28] Beschaffungsprozess Kunde Maas: 1. Agent holt Preisanfragen bei Lieferanten ein, 2. Einkäufer wählt Lieferant anhand Preise, 3. Bestellung erfolgt über Info LN, 4. Fehlende Auftragsbestätigungen werden nachverfolgt
 - [2026-07-29 15:13] Meeting-Notizen zu Kunden-/Lead-Gesprächen werden unter Leads/[Kunde]-Korrespondenz/Meetings/ abgelegt (nicht in Memos/), damit sie in der Transkripte-Übersicht der Web-App erscheinen - Beispiel: Leads/Juchem-Korrespondenz/Meetings/2026-07-29-Update Juchem X Prozessia.md
 - [2026-07-29 12:23] [AW: Vorgeschlagene Zeit: Update Beschaff] Update Beschaffungsagent Meeting: Terminfindung ausstehend - Alternativzeiten angeboten: Donnerstag 30. Juli 2026 mittags oder Freitag 31. Juli 2026 um 13 Uhr
 - [2026-07-29 12:23] [AW: Vorgeschlagene Zeit: Update Beschaff] Preisverhandlung mit Lieferant: Freitag 31. Juli 2026 um 10 Uhr (Benjamin Schmohl gebunden)
@@ -1435,6 +1437,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-07-29 15:32] Das ERP-System bei Maas heißt korrekt 'Infor' (nicht 'Info LN').
 - [2026-07-29 09:28] Lagermengen-Prognose macht Morali bereits selbst (nicht Teil des Prozessia-Angebotsumfangs) – laut Sebastian ist dieser Punkt zu prüfen/falsch zugeordnet.
 - [2026-07-28 13:32] [2026-07-24-Update Prozessia X Endin.md] Buhl-Unternehmer-Schnittstellen: Endin muss beim Anbieter klären, ob aktuelle Buhl-Abo-Version frei programmierbare Schnittstellen hat – Voraussetzung für spätere DATEV-Weiterführung
 - [2026-07-28 12:04] [Bessere Sprachqualität ab nächster Woche] Text-to-Speech-Anbieter wechselt von Eleven Labs zu Inworld AI zum 06.08.2026
