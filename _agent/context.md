@@ -5,6 +5,7 @@ updated: 2026-07-19
 # Aktueller Kontext
 
 ## Offene Aufgaben
+- [ ] Lead Morali: Follow-up bei Ayoub Falah, 2-Wochen-Frist (seit 14.07.) am 29.07. abgelaufen, keine Rückmeldung erhalten @Sebastian !status(in_progress)
 - [ ] Termin beim Steuerberater vereinbaren @Sebastian
 - [ ] Schaufler Wissensmanagement: Lösung für Jonas Röschs Anforderung (zentrale E-Mail-Ablage/Wissenssicherung, Shared Mailboxes mit 50GB-Limit) klären @Sebastian !status(in_progress)
 - [ ] sipgate mit Whisper über n8n verbinden, um Anruf-Transkripte automatisiert zu bekommen @Beide

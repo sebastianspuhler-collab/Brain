@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-07-29 09:20] [Lead Morali] Sebastian hat Ayoub Falah (Morali) ca. am 14.07.2026 zwei Wochen Zeit gegeben, sich nach Durchsicht der Demo zu melden – Frist ist am 29.07.2026 abgelaufen, Follow-up jetzt fällig
 - [2026-07-28 21:01] [2026-06-08-Meeting Thorsten Maas X Prozessia (2).md] Weitere Anwendungsfälle identifiziert: Stücklistenmanagement und Buchhaltung (analog Rezepturen bei Maas)
 - [2026-07-28 17:40] [AW: Kapazitätenplanung Stücklistenprojek] Beteiligte Personen: Juergen Mahler, Florian Knoblauch (im CC der Original-Email)
 - [2026-07-28 14:34] [2026-07-28-Seifert_GmbH_pitch_deck.md] Kernherausforderung: unterschiedliche Kunden-Zeichnungsformate und manueller Aufwand bei Material-/Zuschnittlisten
@@ -611,6 +612,8 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-29 09:21] Ayoub Falah (Morali): Zwei-Wochen-Frist zur Rückmeldung nach Demo-Durchsicht ist am 29.07. abgelaufen, keine Reaktion erhalten – Follow-up ist jetzt fällig
+- [2026-07-29 09:14] Schmidt-Hänsch: Bisher nur Erstgespräch am 21.07.2026 mit Sumit Bhawar (23:30 Min.). Unternehmen produziert Prozessrefraktometer und Dichtemesser, nutzt Sage 100 als ERP.
 - [2026-07-28 21:01] [decisions.md] Thorsten Maas' Unternehmen hat ab 2026-06-08 festgelegt: Mitarbeiter dürfen ausschließlich Copilot nutzen, nicht frei wählbare Chatbots wie ChatGPT
 - [2026-07-28 17:54] [2026-07-28-Email-19fa9a02-Action-required-security-vulnerabilities.md] Voigt_Salus hat kritische Sicherheitsvulnerabilitäten in Projekt stggglgcvisnvcertpau
 - [2026-07-28 17:54] [2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md] Siegfried Heinrich (CEO Schaufler Tooling GmbH) ist primärer Ansprechpartner, Tel. +49 170 2471808
