@@ -1372,6 +1372,7 @@ egeln, Prozesse.
 Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 
 ## REGEL
+- [2026-07-29 15:24] Sebastian möchte Dokumente/Zusammenfassungen (z.B. Meeting-Notizen) immer als PDF-Export erhalten, nicht nur als Markdown/Text.
 - [2026-07-12 17:52] [2026-07-12-Konzept_Meeting-CRM-Agent.md] Marktrecherche zeigt: wirtschaftlich wertvollster KI-Use-Case ist automatische Umwandlung unstrukturierter Gespräche in strukturierte CRM-Daten mit Ersparnis von 3–5 Minuten pro Gespräch (bei 500 Gesprächen/Monat = 25–40 Stunden); Firmen zahlen vier- bis fünfstellige Beträge dafür (2026-07-12)
 - [2026-07-01 14:23] In Kundenordner kommen nur echte Dateien/Dokumente – keine E-Mails oder sonstige Mail-Dateien.
 - [2026-06-29 14:35] Sebastian will keine Bruttowerte berechnet bekommen – ausschließlich Nettowerte verwenden
