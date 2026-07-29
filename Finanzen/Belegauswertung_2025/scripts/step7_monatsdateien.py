@@ -33,11 +33,16 @@ DURCHLAUFPOSTEN_TX_IDS = {
     "FINOM-ab4c797b9d8a034a", "FINOM-15f016a7977dc19d",  # Benito Ferrise 4760 EUR Rundlauf 2025-12-31
 }
 
+def ist_fa_ust_erstattung(t):
+    """USt-Erstattungen vom Finanzamt: keine USt-pflichtige Leistung, aber volle
+    Betriebseinnahme nach Zufluss-/Abflussprinzip (Nutzerentscheidung 2026-07-29)."""
+    return 'finanzamt' in (t['gegenpartei'] or '').lower()
+
 def ausschlussgrund(t, beleg):
     if t['tx_id'] in DURCHLAUFPOSTEN_TX_IDS:
         return "Durchlaufposten (Rundlauf-Buchung)"
-    if 'finanzamt' in (t['gegenpartei'] or '').lower():
-        return "Finanzamt (steuerneutral)"
+    if ist_fa_ust_erstattung(t):
+        return None
     if t['betrag_brutto'] < BAGATELLE_AUSSCHLUSS_GRENZE:
         # Bagatelle (< 10 EUR): mit Beleg+Netto zaehlt sie ganz normal mit, ohne
         # Beleg ist sie "egal" - komplett raus, keine Schaetzung (Nutzerentscheidung 2026-07-22).
@@ -86,7 +91,12 @@ for m in range(1, 13):
         beleg_datei = beleg['quellref'].split('/')[-1] if beleg else ""
         fehlt = beleg is None
         ausschluss = ausschlussgrund(t, beleg)
-        if fehlt:
+        if ist_fa_ust_erstattung(t):
+            # Volle Erstattung = Netto-Einnahme, keine USt darauf, kein Beleg noetig.
+            netto = t['betrag_brutto']
+            beleg_da = "N/A (Finanzamt-Erstattung, kein Beleg noetig)"
+            fehlt = False
+        elif fehlt:
             n_kein_beleg += 1
             # Kein Beleg vorhanden: trotzdem in der Nettorechnung erfassen, mit geschaetztem
             # Netto (Bruttobetrag der Bank-Buchung abzgl. angenommener 19% USt).

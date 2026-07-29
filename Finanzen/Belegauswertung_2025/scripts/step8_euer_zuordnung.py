@@ -10,7 +10,7 @@ import json, re, collections, sys
 
 BASE = "/Users/sesp01-user/vault/Prozessia-Brain/Finanzen/Belegauswertung_2025"
 sys.path.insert(0, f"{BASE}/scripts")
-from step5_auswertung import zaehlt_zur_wertung
+from step5_auswertung import zaehlt_zur_wertung, ist_fa_ust_erstattung
 
 USTSATZ = 0.19
 
@@ -29,9 +29,9 @@ def eur(x):
     return f"{x:,.2f} €".replace(',', 'X').replace('.', ',').replace('X', '.')
 
 # Tatsaechliche Finanzamt-Cashflows 2025 (aus Finom-Kontoauszug-Analyse 2026-07-26, siehe
-# project-euer-2025-finanzamt-zahlungen-Memory). Werden separat gefuehrt, weil Finanzamt-Buchungen
-# in zaehlt_zur_wertung() bewusst ausgeschlossen sind (kein normaler Umsatz/keine normale Ausgabe),
-# aber auf der Anlage EUER als eigene Zeilen (17/18 Einnahmen, 58 Ausgaben) noetig sind.
+# project-euer-2025-finanzamt-zahlungen-Memory). Zaehlen seit 2026-07-29 ganz normal ueber
+# zaehlt_zur_wertung()/netto_von() als Betriebseinnahme/-ausgabe mit (kein manueller Zuschlag
+# mehr noetig), werden hier nur noch fuer die separaten EUER-Zeilen 18/58 ausgewiesen.
 FA_ERSTATTET_2025 = 25.59 + 93.27 + 155.10   # Zeile 18: vom Finanzamt erstattete Umsatzsteuer
 FA_GEZAHLT_2025 = 0.0                          # Zeile 58: an das Finanzamt gezahlte Umsatzsteuer
 
@@ -45,6 +45,8 @@ gewertet_ein = [t for t in alle_ein if zaehlt_zur_wertung(t, bel)]
 
 def netto_von(t):
     """(netto, vorsteuer, beleg_vorhanden) - identisch zur Logik in step7."""
+    if ist_fa_ust_erstattung(t):
+        return (t['betrag_brutto'], None, True)
     b = bel.get(t['beleg_ids'][0]) if t.get('beleg_ids') else None
     if b:
         return (b.get('betrag_netto') or 0.0, b.get('ust_betrag'), True)

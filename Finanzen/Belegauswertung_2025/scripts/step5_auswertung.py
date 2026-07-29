@@ -13,13 +13,20 @@ DURCHLAUFPOSTEN_TX_IDS = {
     "FINOM-ab4c797b9d8a034a", "FINOM-15f016a7977dc19d",  # Benito Ferrise 4760 EUR Rundlauf 2025-12-31
 }
 
+def ist_fa_ust_erstattung(t):
+    """USt-Erstattungen vom Finanzamt sind keine umsatzsteuerpflichtigen Vorgaenge,
+    zaehlen aber nach dem Zufluss-/Abflussprinzip (§11 EStG) als volle Betriebseinnahme
+    (Nutzerentscheidung 2026-07-29, ersetzt die fruehere 'steuerneutral'-Ausklammerung
+    vom 2026-07-22)."""
+    return 'finanzamt' in (t['gegenpartei'] or '').lower()
+
 def zaehlt_zur_wertung(t, belege_by_id):
     if t['kategorie'] != 'GESCHAEFTLICH':
         return False
     if t['tx_id'] in DURCHLAUFPOSTEN_TX_IDS:
         return False
-    if 'finanzamt' in (t['gegenpartei'] or '').lower():
-        return False
+    if ist_fa_ust_erstattung(t):
+        return True
     if t['betrag_brutto'] < BAGATELLE_AUSSCHLUSS_GRENZE:
         # Bagatelle (< 10 EUR): nur reinnehmen, wenn ein echter Beleg mit Netto-Angabe
         # existiert (Nutzerentscheidung 2026-07-22). Ohne Beleg ist der Rest "egal" -
@@ -51,7 +58,8 @@ def main():
         beleg = belege_by_id.get(t['beleg_ids'][0]) if t.get('beleg_ids') else None
         # Fuer den Netto-Gewinn genuegt eine Netto-Angabe auf dem Beleg (USt-Betrag ist
         # eine separate Kennzahl und wird unabhaengig davon gezaehlt, wenn vorhanden).
-        has_netto = beleg and beleg.get('betrag_netto') is not None
+        fa_erstattung = ist_fa_ust_erstattung(t)
+        has_netto = (beleg and beleg.get('betrag_netto') is not None) or fa_erstattung
         has_ust = beleg and beleg.get('ust_betrag') is not None
 
         if t['status'] == 'PRUEFFALL':
@@ -59,7 +67,10 @@ def main():
 
         if t['richtung'] == 'AUSGANG':  # Geldeingang = Umsatz
             row['umsatz_brutto'] += t['betrag_brutto']
-            if has_netto:
+            if fa_erstattung:
+                # Volle Erstattung ist Netto-Einnahme, keine USt darauf (keine Lieferung/Leistung).
+                row['umsatz_netto'] += t['betrag_brutto']
+            elif has_netto:
                 row['umsatz_netto'] += beleg['betrag_netto']
             else:
                 row['brutto_ohne_aufteilung'] += t['betrag_brutto']
@@ -109,11 +120,12 @@ def main():
                         "'ergebnis_brutto' ist zur Einordnung danebengestellt. Kein echter steuerlicher "
                         "Gewinn (keine Abschreibungen/Abgrenzungen/Hinzurechnungen) -> Steuerberater konsultieren.")
     jahr['hinweis_ausschluesse'] = (
-        "Auf Wunsch des Nutzers (2026-07-22) zaehlen folgende Buchungen WEDER als Umsatz NOCH als "
-        "Ausgabe/Verlust (bleiben aber in den Rohlisten/Prueffaellen sichtbar): (1) Bagatellen < 10 EUR "
-        "brutto OHNE Beleg (mit Beleg zaehlen sie ganz normal mit), (2) alle Finanzamt-Transaktionen "
-        "(USt-Erstattungen/-Vorauszahlungen, steuerneutral), (3) die Benito-Ferrise-Rundlauf-Buchung "
-        "4760 EUR am 2025-12-31 (Durchlaufposten)."
+        "Auf Wunsch des Nutzers (2026-07-22) zaehlen folgende Buchungen NICHT als Umsatz/Ausgabe/Verlust "
+        "(bleiben aber in den Rohlisten/Prueffaellen sichtbar): (1) Bagatellen < 10 EUR brutto OHNE Beleg "
+        "(mit Beleg zaehlen sie ganz normal mit), (2) die Benito-Ferrise-Rundlauf-Buchung 4760 EUR am "
+        "2025-12-31 (Durchlaufposten). Finanzamt-USt-Erstattungen/-Zahlungen zaehlen seit Nutzerentscheidung "
+        "2026-07-29 dagegen als volle Betriebseinnahme/-ausgabe (Zufluss-/Abflussprinzip, §11 EStG) und "
+        "sind in umsatz_netto/ausgaben_netto MIT enthalten."
     )
 
     einlagen_entnahmen = [t for t in tx_all if t['kategorie'] == 'EINLAGE_ENTNAHME']
