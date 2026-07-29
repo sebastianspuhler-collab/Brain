@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-07-29 09:27] [TechJobs x WebWokr] Schmerz-Punkt identifiziert: Recruiting zeitaufwendig bei 5-Mann-Team mit mehreren parallelen offenen Positionen
 - [2026-07-29 09:20] [Lead Morali] Sebastian hat Ayoub Falah (Morali) ca. am 14.07.2026 zwei Wochen Zeit gegeben, sich nach Durchsicht der Demo zu melden – Frist ist am 29.07.2026 abgelaufen, Follow-up jetzt fällig
 - [2026-07-28 21:01] [2026-06-08-Meeting Thorsten Maas X Prozessia (2).md] Weitere Anwendungsfälle identifiziert: Stücklistenmanagement und Buchhaltung (analog Rezepturen bei Maas)
 - [2026-07-28 17:40] [AW: Kapazitätenplanung Stücklistenprojek] Beteiligte Personen: Juergen Mahler, Florian Knoblauch (im CC der Original-Email)
@@ -612,6 +613,8 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-29 09:27] [TechJobs x WebWokr] Laura Greene, TechJobs (portugiesische Tech-Job-Plattform, KI-basierte CV-Analyse) - Akquisitionskontakt für WebWokr
+- [2026-07-29 09:25] Ayoub Falah (Morali GmbH) Mailadresse: a.falah@morali-gmbh.de
 - [2026-07-29 09:21] Ayoub Falah (Morali): Zwei-Wochen-Frist zur Rückmeldung nach Demo-Durchsicht ist am 29.07. abgelaufen, keine Reaktion erhalten – Follow-up ist jetzt fällig
 - [2026-07-29 09:14] Schmidt-Hänsch: Bisher nur Erstgespräch am 21.07.2026 mit Sumit Bhawar (23:30 Min.). Unternehmen produziert Prozessrefraktometer und Dichtemesser, nutzt Sage 100 als ERP.
 - [2026-07-28 21:01] [decisions.md] Thorsten Maas' Unternehmen hat ab 2026-06-08 festgelegt: Mitarbeiter dürfen ausschließlich Copilot nutzen, nicht frei wählbare Chatbots wie ChatGPT
@@ -803,6 +806,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-29 09:27] [TechJobs x WebWokr] Angebot: 15-Minuten-Demo zum reduzierten manuellen Recruiting-Screening und besserer Kandidaten-Matching
 - [2026-07-28 21:01] [2026-06-08-Meeting Thorsten Maas X Prozessia (2).md] Beschaffungsagent automatisiert: Bestellprozess bis Wareneingang; Dashboard mit Auftragsbestätigungen, Lieferanten-Scoring, Lieferungsübersicht
 - [2026-07-28 21:01] [2026-06-08-Meeting Thorsten Maas X Prozessia (2).md] Startprojekt geplant: Einkaufsautomation mit Anbindung ERP-System Infor LN, E-Mail- und Dokumentenmanagementsystem
 - [2026-07-28 17:54] [2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md] Kundenrequest: Klärung wer Support für Agent-Performance-Analyse übernimmt
@@ -1426,6 +1430,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-07-29 09:28] Lagermengen-Prognose macht Morali bereits selbst (nicht Teil des Prozessia-Angebotsumfangs) – laut Sebastian ist dieser Punkt zu prüfen/falsch zugeordnet.
 - [2026-07-28 13:32] [2026-07-24-Update Prozessia X Endin.md] Buhl-Unternehmer-Schnittstellen: Endin muss beim Anbieter klären, ob aktuelle Buhl-Abo-Version frei programmierbare Schnittstellen hat – Voraussetzung für spätere DATEV-Weiterführung
 - [2026-07-28 12:04] [Bessere Sprachqualität ab nächster Woche] Text-to-Speech-Anbieter wechselt von Eleven Labs zu Inworld AI zum 06.08.2026
 - [2026-07-28 08:25] Zillmer (Biendarra) hat laut Sebastian aktuell nicht so viel Fallaufkommen/Auftragsvolumen wie ursprünglich angenommen - Umfang ist geringer, da Biendarras Chef intern noch keine Priorität gesetzt hat und Ausschreibungen ohne Herstellerangabe nur 'einige Bereiche' betreffen, nicht den Regelfall. Tatsächlicher Fall-Umfang bei Zillmer vermutlich kleiner als bei Schaufler.
