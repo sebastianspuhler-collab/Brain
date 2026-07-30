@@ -48,13 +48,20 @@
     }
   },
   "Lendner": {
-    "input_hash": "f31970a27281727d",
+    "input_hash": "ca8c4d3dfded8b2d",
     "ergebnis": {
       "status": "erstgespraech",
-      "sicherheit": "niedrig",
-      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
-      "quellen": [],
-      "warnsignal": null
+      "sicherheit": "mittel",
+      "begruendung": "Am 16.07.2026 fand ein Erstgespräch zwischen Sebastian Spuhler und Herrn Lendner (IMK GmbH) statt, in dem mögliche KI-Anwendungsfälle im Einkauf und der Arbeitsplanung besprochen wurden. Ein Folgetermin wurde laut 2026-07-30-Email-19fb2594-AW-Update-IMK-X-Prozessia.md kurzfristig abgesagt.",
+      "quellen": [
+        "2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler.md",
+        "2026-07-30-Email-19fb2594-AW-Update-IMK-X-Prozessia.md"
+      ],
+      "warnsignal": "Folgetermin nach dem Erstgespräch wurde kurzfristig abgesagt, kein neuer Termin bekannt.",
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "IMK GmbH (Christoph Lendner)",
+      "aktueller_stand": "Nach dem Erstgespräch vom 16.07.2026 sollte Lendner sich intern mit Herrn Biebl abstimmen, um Anwendungsfälle zu priorisieren; ein geplanter Folgetermin wurde am 30.07.2026 abgesagt."
     }
   },
   "Mundinger": {
