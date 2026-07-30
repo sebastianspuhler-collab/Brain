@@ -296,12 +296,13 @@ Antworte NUR als JSON, keine Erklärung."""
         return None
 
 
-def extract_meeting_structure(filepath: Path) -> dict | None:
+def extract_meeting_structure(content: str) -> dict | None:
     """Extrahiert Teilnehmer/Kernpunkte/Zusagen/Nächste Schritte aus einem
-    Meeting-Transkript. Liest die Datei mit größerem max_chars erneut ein,
-    damit auch spät im Gespräch genannte Zusagen/nächste Schritte erfasst
-    werden (die reguläre Klassifizierung kappt bei 3000 Zeichen)."""
-    content = extract_text(filepath, max_chars=20000)
+    Meeting-Transkript. Nimmt den bereits mit großem max_chars extrahierten
+    Volltext entgegen (siehe process_file()) statt die Datei ein zweites Mal
+    einzulesen - vorher wurde hier pro Transkript eine eigene, zusätzliche
+    Mistral-OCR-Extraktion ausgelöst, obwohl process_file() den Inhalt schon
+    hatte (Sebastian, 2026-07-30)."""
     if not content:
         return None
 
@@ -395,16 +396,37 @@ def is_meeting_transcript(filepath: Path, content: str, result: dict) -> bool:
     return any(str(tag).strip().lower() in exact_tags for tag in result.get("tags", []))
 
 
+def _extract_firma(zielordner_rel: str) -> str:
+    """Leitet den Kunden-/Firmennamen aus dem Zielordner ab (Kunden/[Firma]/...
+    bzw. Leads/[Lead]-Korrespondenz/...), damit Notizen die Zugehörigkeit
+    direkt im Frontmatter/Titel zeigen statt nur implizit über den Ordnerpfad
+    (Sebastian, 2026-07-30: Transkript-Überschriften sollen klar zeigen, zu
+    welcher Firma sie gehören)."""
+    parts = Path(zielordner_rel).parts
+    if len(parts) >= 2 and parts[0] == "Kunden":
+        return parts[1]
+    if len(parts) >= 2 and parts[0] == "Leads":
+        return re.sub(r"-Korrespondenz$", "", parts[1])
+    return ""
+
+
 def process_file(filepath: Path) -> tuple[bool, str]:
     settings = get_settings()
     if filepath.suffix.lower() in SKIP_EXTENSIONS:
         return False, "Code-Datei übersprungen"
 
-    content = extract_text(filepath)
+    # max_chars=20000 statt vormals 3000: der Volltext wird unten sowohl für die
+    # Meeting-Struktur als auch für die gespeicherte Notiz wiederverwendet - bei
+    # 3000 Zeichen (~500 Wörter) war bei jedem längeren Gespräch/Dokument der
+    # "Vollständiger Inhalt"-Abschnitt der Notiz nach wenigen Minuten Gespräch
+    # abgeschnitten (Sebastian, 2026-07-30: "nicht alles ablesbar"). Kostet
+    # keinen zusätzlichen API-Call: die Mistral-OCR-Antwort wird nur lokal
+    # weniger stark gekürzt, PyPDF2/docx/etc. lesen ohnehin lokal.
+    content = extract_text(filepath, max_chars=20000)
     if content is None:
         return False, "Extraktion fehlgeschlagen"
 
-    result = classify(filepath, content)
+    result = classify(filepath, content[:3000])
     if not result:
         return False, "API-Klassifizierung fehlgeschlagen"
 
@@ -420,8 +442,9 @@ def process_file(filepath: Path) -> tuple[bool, str]:
 
     zielordner = settings.vault_path / zielordner_rel
     zielordner.mkdir(parents=True, exist_ok=True)
+    firma = _extract_firma(zielordner_rel)
 
-    meeting_data = extract_meeting_structure(filepath) if ist_transkript else None
+    meeting_data = extract_meeting_structure(content) if ist_transkript else None
     datum = _resolve_datum(meeting_data, filepath)
 
     if filepath.suffix.lower() not in IMAGE_EXTS | {".zip"}:
@@ -452,6 +475,15 @@ def process_file(filepath: Path) -> tuple[bool, str]:
 """
                 _append_decisions_log(meeting_data.get("entscheidungen", []), filepath.name, datum)
 
+        # Firma/Teilnehmer explizit im Frontmatter und in der Überschrift, damit
+        # die Zugehörigkeit einer Notiz (v.a. bei Transkripten) auf einen Blick
+        # erkennbar ist, statt sich nur aus dem Ordnerpfad zu ergeben (Sebastian,
+        # 2026-07-30).
+        frontmatter_extra = f"firma: {firma}\n" if firma else ""
+        if meeting_data and meeting_data.get("teilnehmer"):
+            frontmatter_extra += f'teilnehmer: "{", ".join(meeting_data["teilnehmer"])}"\n'
+        titel_praefix = f"[{firma}] " if firma and ist_transkript else ""
+
         notiz_path.write_text(
             f"""---
 tags:
@@ -459,15 +491,15 @@ tags:
 quelle: {filepath.name}
 datum: {datum}
 kategorie: {result.get("kategorie", "")}
----
+{frontmatter_extra}---
 
-# {filepath.stem}
+# {titel_praefix}{filepath.stem}
 
 ## Zusammenfassung
 {result.get("zusammenfassung", "")}
 {meeting_sections}
 ## Vollständiger Inhalt
-{content[:6000]}
+{content}
 """,
             encoding="utf-8",
         )
