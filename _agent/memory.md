@@ -828,6 +828,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-30 09:29] [AW: Update IMK X Prozessia] Termin abgesagt durch Christoph Lendner (Projektleiter IMK GmbH) - Grund: beide nicht im Haus
 - [2026-07-30 09:14] [Unser Termin] Strategie-Session geplant: 60-90 Minuten Coaching zur Lösung identifizierter Herausforderungen
 - [2026-07-30 08:35] [2026-07-30.md] Beschaffungsagent-Lösung vorgestellt: Angebotsvergleich, AB-Prüfung, Lieferantenscore, Rechnungsprüfung
 - [2026-07-30 08:35] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler (1).md] Beschaffungsagent-Demo zeigt Funktionen: Auftragsbestätigungsprüfung, Angebotsvergleich, Lieferantenscoring, Rechnungsprüfung
