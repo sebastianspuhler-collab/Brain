@@ -1,0 +1,19 @@
+---
+type: email-korrespondenz
+lead: Coaching
+von: Alexander Heeg <support@agentur-consulting.de>
+betreff: Unser Termin
+datum: 2026-07-30
+datum_email: Thu, 30 Jul 2026 09:05:14 +0000 (UTC)
+---
+
+# Unser Termin
+
+**Von:** Alexander Heeg <support@agentur-consulting.de>
+**Datum:** Thu, 30 Jul 2026 09:05:14 +0000 (UTC)
+
+## Zusammenfassung
+Hallo, wie du vielleicht mitbekommen hast, bieten wir für alle Interessenten einen kostenlosen Coaching-Call bzw. ein Beratungsgespräch an. ( https://t.dripemail2.com/c/eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZXRvdXIiLCJpc3MiOiJtb25vbGl0aCIsInN1YiI6ImRldG91cl9saW5rIiwiaWF0IjoxNzg1NDAyNzI0LCJuYmYiOjE3ODU0MDI3MjQsImFjY291bnRfaWQiOiI5NjgyMzk1IiwiZGVsaXZlcnlfaWQiOiJhYXZxN3hsM2dmN21kam81d2IzMiIsInRva2VuIjoiYWF2cTd4bDNnZjdtZGpvNXdiMzIiLCJzZW5kX2F0IjoxNzg1NDAyMzE0LCJlbWFpbF9pZCI6MTIwMDY3MzksImVtYWlsYWJsZV90eXBlIjoiQnJvYWRjYXN0IiwiZW1haWxhYmxlX2lkIjo0ODE1NTk2LCJ1cmwiOiJodHRwczovL3d3dy5hZ2VudHVyLWNvbnN1bHRpbm…
+
+## Volltext
+Hallo, wie du vielleicht mitbekommen hast, bieten wir für alle Interessenten einen kostenlosen Coaching-Call bzw. ein Beratungsgespräch an. ( https://t.dripemail2.com/c/eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZXRvdXIiLCJpc3MiOiJtb25vbGl0aCIsInN1YiI6ImRldG91cl9saW5rIiwiaWF0IjoxNzg1NDAyNzI0LCJuYmYiOjE3ODU0MDI3MjQsImFjY291bnRfaWQiOiI5NjgyMzk1IiwiZGVsaXZlcnlfaWQiOiJhYXZxN3hsM2dmN21kam81d2IzMiIsInRva2VuIjoiYWF2cTd4bDNnZjdtZGpvNXdiMzIiLCJzZW5kX2F0IjoxNzg1NDAyMzE0LCJlbWFpbF9pZCI6MTIwMDY3MzksImVtYWlsYWJsZV90eXBlIjoiQnJvYWRjYXN0IiwiZW1haWxhYmxlX2lkIjo0ODE1NTk2LCJ1cmwiOiJodHRwczovL3d3dy5hZ2VudHVyLWNvbnN1bHRpbmcuZGUvc3RyYXRlZ2llLXNlc3Npb24_ZW1haWw9c2ViYXN0aWFuLnNwdWhsZXJAcHJvemVzc2lhLmRlJl9fcz1jYTcwaThwZzBma3NxNnY1YXNtYSJ9.BOcudaHlmP8DEk_yVAcwSPKmEG9oGgfMBTZVEbEur2Q ) Dies bedeutet, dass wir uns mit dir gemeinsam 60 - 90 Minuten zusammensetzen und besprechen, wie du folgenden Herausforderungen lösen kannst: * Wenig Auswahl an neuen Kunden, da die meisten über Empfehlungen kommen. * Teilweise zu viel Zeit & Aufwand pro Kunde, Stress im Tagesgeschäft. * Keine Planbarkeit & keine Skalierbarkeit - zu oft noch Zeit gegen Geld. Durch die Strategie, die wir dir zeigen und auf deine Bedürfnisse anpassen, wird es dann möglich sein, dass du: * Kontrollierbar & messbar die Kunden gewinnst, die wirklich zu dir passen und dich angemessen bezahlen. * Durch Zielgruppen-Besitzpartner, organischen Maßnahmen & Werbeanzeigen leicht skalierst ohne im Chaos des Tagesgeschäfts zu versinken. * Mit einfachen Prozessen die Qualität der Kundenergebnisse erhöhst und den Aufwand pro Kunde stark verringerst. Falls du also daran Interesse hast, such dir unter diesem Link hier einfach einen passenden Termin für dich raus. ( https://t.dripemail2.com/c/eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZXRvdXIiLCJpc3MiOiJtb25vbGl0aCIsInN1YiI6ImRldG91cl9saW5rIiwiaWF0IjoxNzg1NDAyNzI0LCJuYmYiOjE3ODU0MDI3MjQsImFjY291bnRfaWQiOiI5NjgyMzk1IiwiZGVsaXZlcnlfaWQiOiJhYXZxN3hsM2dmN21kam81d2IzMiIsInRva2VuIjoiYWF2cTd4bDNnZjdtZGpvNXdiMzIiLCJzZW5kX2F0IjoxNzg1NDAyMzE0LCJlbWFpbF9pZCI6MTIwMDY3MzksImVtYWlsYWJsZV90eXBlIjoiQnJvYWRjYXN0IiwiZW1haWxhYmxlX2lkIjo0ODE1NTk2LCJ1cmwiOiJodHRwczovL3d3dy5hZ2VudHVyLWNvbnN1bHRpbmcuZGUvc3RyYXRlZ2llLXNlc3Npb24_ZW1haWw9c2ViYXN0aWFuLnNwdWhsZXJAcHJvemVzc2lhLmRlJl9fcz1jYTcwaThwZzBma3NxNnY1YXNtYSJ9.BOcudaHlmP8DEk_yVAcwSPKmEG9oGgfMBTZVEbEur2Q ) Was sich nach dem Gespräch für dich verändern könnte: Du hast eine gelungene Positionierung, hebst dich von anderen Anbieter ab und kommst mit mehr Leichtigkeit an deine Wunschkunden. Dein Stress im Tagesgeschäft könnte sich reduzieren, deine Umsätze & Gewinne weiter erhöhen. Es könnte sich auch ein Gefühl der Freiheit in dir auslösen, weil du endlich die Umsätze machst, die du dir verdienst, hast, nur noch mit den Kunden arbeitest, die dir wirklich Freude bereiten und echte Ergebnisse für deine Kunden schaffst. Such dir hier also einfach einen Termin raus und lass uns gemeinsam schauen, was möglich ist. ( https://t.dripemail2.com/c/eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZX

@@ -1,4 +1,8 @@
 ## KONTEXT
+- [2026-07-30 09:15] Dauerangebot (ohne Ablaufdatum, im Gegensatz zu AG0024 das nur bis 24.06. galt): 220 € Verwaltungspauschale + 38,07 € Serverkosten (Hetzner CCX23) = 258,07 €/Monat netto, Serverkosten laut Schaufler_Hosting_Praesentation (4) bestätigt
+- [2026-07-30 09:14] [Unser Termin] Identifizierte Kundenwünsche/Herausforderungen: (1) Wenig Auswahl an neuen Kunden da die meisten über Empfehlungen kommen, (2) Teilweise zu viel Zeit (Text unvollständig)
+- [2026-07-30 09:14] [Unser Termin] Alexander Heeg (support@agentur-consulting.de) bietet kostenloses Coaching-Call/Beratungsgespräch an
+- [2026-07-30 09:07] Serverkosten (Hetzner) für Kunde Schaufler: 220 pro Monat zzgl. Server-Kosten; in der Präsentation wurde ursprünglich 3,80 oder ähnlich genannt
 - [2026-07-30 08:35] [2026-07-30.md] Folgetermin: 30.07.2026, 11:30 Uhr, Teams – 'Update IMK X Prozessia'
 - [2026-07-30 08:32] Das Transkript-Dokument 'Kunden/Lendner/Meetings/2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler.md' bricht bereits bei Minute 1:52 ab (mitten im Satz), obwohl das Meeting laut Kopfzeile 21:54 Minuten dauerte - Transkript ist unvollständig
 - [2026-07-30 08:18] [AW: Termin mit Herrn Jauch] Ansprechpartnerin: Olga Boldyrieva, Marketing and Business Development, Sarissa GmbH (o.boldyrieva@sarissa.de, +49 751 509 159-10)
@@ -823,6 +827,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-30 09:14] [Unser Termin] Strategie-Session geplant: 60-90 Minuten Coaching zur Lösung identifizierter Herausforderungen
 - [2026-07-30 08:35] [2026-07-30.md] Beschaffungsagent-Lösung vorgestellt: Angebotsvergleich, AB-Prüfung, Lieferantenscore, Rechnungsprüfung
 - [2026-07-30 08:35] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler (1).md] Beschaffungsagent-Demo zeigt Funktionen: Auftragsbestätigungsprüfung, Angebotsvergleich, Lieferantenscoring, Rechnungsprüfung
 - [2026-07-30 08:18] [AW: Termin mit Herrn Jauch] Olga Boldyrieva wird Anliegen mit Herrn Jauch (Geschäftsführer Sarissa GmbH) besprechen
