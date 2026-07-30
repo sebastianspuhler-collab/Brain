@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     fonts-dejavu-core \
     curl \
     ca-certificates \
+    libreoffice-writer \
     && rm -rf /var/lib/apt/lists/*
 
 # Node.js + Claude-Code-CLI (claude_engine=cli - Chat/LinkedIn/Vision über das

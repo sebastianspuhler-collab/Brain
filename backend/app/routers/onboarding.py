@@ -129,6 +129,22 @@ async def _run_onboarding(data: dict, files: list[tuple[str, bytes]], toggles: d
                     docx_bytes,
                     "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
                 )
+                # Zusätzlich als PDF hochladen (Sebastian, 2026-07-30) - eigener
+                # try/except, damit ein Konvertierungsfehler (z.B. LibreOffice
+                # fehlt noch im laufenden Image vor einem Redeploy) nicht die
+                # eigentliche AVV-Erstellung mitreißt, die DOCX bleibt so oder
+                # so das primäre, rechtsverbindliche Dokument.
+                try:
+                    pdf_bytes = await asyncio.to_thread(avv_service.docx_bytes_to_pdf_bytes, docx_bytes)
+                    await asyncio.to_thread(
+                        drive_service.upload_file,
+                        vertraege_folder,
+                        f"AVV_{kundenname}.pdf",
+                        pdf_bytes,
+                        "application/pdf",
+                    )
+                except avv_service.PdfConversionError as ex:
+                    yield _sse("avv_pdf", "error", message=str(ex))
             yield _sse("avv", "done")
         except Exception as ex:
             yield _sse("avv", "error", message=str(ex))
