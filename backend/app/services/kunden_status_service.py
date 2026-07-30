@@ -6,12 +6,18 @@ Liest alle bereits abgelegten Dokument-/Meeting-Zusammenfassungen eines Kunden
 (die classify.py beim Einsortieren schon per LLM extrahiert hat - hier keine
 neue Extraktion, nur Synthese) und leitet daraus einen begründeten Status ab.
 
-Zwei Sicherungen gegen Halluzination:
+Drei Sicherungen gegen Halluzination:
 1. Floor: harte Ordner-Fakten (Vertrag vorhanden -> mindestens "auftrag") sind
    ein Mindest-Status, den das LLM nie unterschreiten darf.
 2. Zitatzwang: jede Begründung muss sich auf konkrete Dateinamen stützen: die
    werden gegen die tatsächlich vorhandenen Dateien geprüft - erfundene
    Quellen senken die Sicherheit auf "niedrig" statt unbemerkt durchzugehen.
+3. anzeige_name-Vorrang: steht in den Dokumenten selbst ein explizites
+   "firma:"-Frontmatter-Feld (z.B. von classify.py beim Einsortieren
+   geschrieben), gewinnt dieser Wert immer gegen die freie LLM-Schätzung -
+   sonst wählte das Modell teils den Namen des Ansprechpartners aus dem
+   Fließtext statt der Firma (Sebastian, 2026-07-30, Beispiel "Mundinger" ->
+   fälschlich "Gert Mundinger").
 
 Ergebnis wird pro Kunde gecacht (_agent/kunden_status_cache.json) und nur bei
 geändertem Dateibestand, geänderter Notiz oder geändertem nächsten Termin neu
@@ -21,6 +27,7 @@ den Prompt ein, nicht nur als Anzeige-Text."""
 import hashlib
 import json
 import re
+from collections import Counter
 from pathlib import Path
 
 from app.config import get_settings
@@ -109,12 +116,14 @@ def _lies_dokument(f: Path, ordner: str) -> dict | None:
     m_datum = re.search(r"^datum:\s*(\d{4}-\d{2}-\d{2})", text, re.M)
     m_kat = re.search(r"^kategorie:\s*(.+)$", text, re.M)
     m_zus = re.search(r"## Zusammenfassung\n(.*?)(?:\n##|\Z)", text, re.S)
+    m_firma = re.search(r"^firma:\s*(.+)$", text, re.M)
     eintrag = {
         "datei": f.name,
         "ordner": ordner,
         "datum": m_datum.group(1) if m_datum else "",
         "kategorie": m_kat.group(1).strip() if m_kat else "",
         "zusammenfassung": m_zus.group(1).strip() if m_zus else "",
+        "firma": m_firma.group(1).strip() if m_firma else "",
     }
     if ordner == "Meetings":
         for feld, titel in _MEETING_FELDER:
@@ -273,6 +282,13 @@ Antworte NUR als JSON, keine Erklärung. Format:
     anzeige_name = result.get("anzeige_name")
     if not isinstance(anzeige_name, str) or not anzeige_name.strip():
         anzeige_name = kunde_name
+
+    # Explizites "firma:"-Feld aus den Dokumenten gewinnt immer gegen die freie
+    # LLM-Schätzung (siehe Moduldoc, Sicherung 3) - der häufigste nicht-leere
+    # Wert über alle Dokumente hinweg, falls vorhanden.
+    firma_werte = [d["firma"] for d in dokumente if d.get("firma")]
+    if firma_werte:
+        anzeige_name = Counter(firma_werte).most_common(1)[0][0]
 
     return {
         "status": status,
