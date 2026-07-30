@@ -89,21 +89,22 @@
     }
   },
   "Schaufler": {
-    "input_hash": "d20279adddffb0f4",
+    "input_hash": "e6a1d7743e80f3ff",
     "ergebnis": {
       "status": "fulfillment",
       "sicherheit": "hoch",
-      "begruendung": "Der Beschaffungsagent für Schaufler Tooling GmbH & Co. KG ist laut 2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md live gegangen und wird nun evaluiert, zudem laufen bereits Rechnungen (2026-07-23-19f7aad092-Rechnung_RE260016_20.07.2026.md, 2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md) und ein SLA (2026-07-24-19f40a0d3d-SLA_Schaufler .md) für den laufenden Betrieb.",
+      "begruendung": "Laut 2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md ist der Beschaffungsagent bereits live im Einsatz, und die Rechnungen RE260015/RE260016 sowie SLA/AVV belegen den laufenden Betrieb. Aktuelle E-Mails wie 2026-07-28-Email-19fa924d-AW-Integration-Einkäufermail.md und 2026-07-29-Email-19fad8ab zeigen laufende operative Abstimmungen zur Weiterentwicklung des Systems.",
       "quellen": [
         "2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md",
+        "2026-07-24-19f40a0d3d-SLA_Schaufler .md",
         "2026-07-23-19f7aad092-Rechnung_RE260016_20.07.2026.md",
-        "2026-07-24-19f40a0d3d-SLA_Schaufler .md"
+        "2026-07-28-Email-19fa924d-AW-Integration-Einkäufermail.md"
       ],
-      "warnsignal": null,
+      "warnsignal": "Geschäftsführer Siegfried Heinrich fordert vor Start des nächsten Projekts (Stücklistenprojekt) einen Effizienznachweis des Agenten ein.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Schaufler Tooling GmbH & Co. KG",
-      "aktueller_stand": "Der Beschaffungsagent ist live, aktuell wird ein Termin zur Effizienzbewertung sowie zur Integration der Einkäufer-Eskalationsmails abgestimmt."
+      "aktueller_stand": "Der Beschaffungsagent läuft produktiv, aktuell werden Kapazitäten für ein Stücklistenprojekt geklärt, die Einkäufer-Integration bei Eskalationen eingerichtet und ein Dashboard-Abgleich per Teams-Meeting vorbereitet."
     }
   },
   "TPG": {

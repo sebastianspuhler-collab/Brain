@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-07-30 08:18] [AW: Termin mit Herrn Jauch] Ansprechpartnerin: Olga Boldyrieva, Marketing and Business Development, Sarissa GmbH (o.boldyrieva@sarissa.de, +49 751 509 159-10)
 - [2026-07-30 07:13] [2026-07-30-19fb1d58d4-20260624 LV KG 440_SIBE.md] Datei für automatisierte Artikel-/Herstellerfindung bei Ausschreibungen geeignet
 - [2026-07-30 07:13] [2026-07-29-Email-19fad2e6-TechJobs-x-WebWokr.md] Angebot von TechJobs (portugiesische Tech-Job-Plattform): KI-gestützte Lebenslauffanalyse und schnellere Kandidaten-Matching für Tech-Rollen
 - [2026-07-30 07:13] [2026-07-29-Follow-up-Entwurf.md] Esma Tamer (BWL-Seite) war im Erstgespräch 14.07.2026, Email-Adresse fehlt noch – bei Versand hinzufügen
@@ -819,6 +820,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-30 08:18] [AW: Termin mit Herrn Jauch] Olga Boldyrieva wird Anliegen mit Herrn Jauch (Geschäftsführer Sarissa GmbH) besprechen
 - [2026-07-30 07:13] [2026-07-29.md] Empfehlung: Vor 04.08. bei Bhawar nachfragen, was mit Chef/IT-Abteilung geklärt wurde
 - [2026-07-30 07:13] [2026-07-29.md] Sebastian-Zusage: Übernimmt Server-Infrastruktur für Schmidt-Hänsch
 - [2026-07-30 07:13] [2026-07-30-19fb1d58d4-20260624 LV KG 440_SIBE.md] Leistungsverzeichnis Stand 24.06.2026 für Ausschreibung
