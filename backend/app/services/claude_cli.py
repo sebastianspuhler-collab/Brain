@@ -219,8 +219,11 @@ def spawn_process(
     vault = str(settings.vault_path)
     mcp_config = str(Path(vault) / ".mcp.json")
 
-    tools_value = tools if tools is not None else "Read,Write,Edit,Glob,Grep"
-    allowed_value = allowed_tools if allowed_tools is not None else "Read,Write,Edit,Glob,Grep,mcp__prozessia-tools__*"
+    # WebSearch (Sebastian, 2026-07-30: "muss auch selbst recherchieren
+    # können") - natives Claude-Code-Tool, läuft übers Abo wie alles andere
+    # hier, kein separater API-Key/Vendor nötig.
+    tools_value = tools if tools is not None else "Read,Write,Edit,Glob,Grep,WebSearch"
+    allowed_value = allowed_tools if allowed_tools is not None else "Read,Write,Edit,Glob,Grep,WebSearch,mcp__prozessia-tools__*"
 
     cmd = [
         CLAUDE_BIN, "-p",

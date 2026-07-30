@@ -18,6 +18,7 @@ Einschränkung der RAG-Suche (rag.search_with_sources())."""
 NATIVE_TOOL_GROUPS: dict[str, list[str]] = {
     "files_read": ["Read", "Glob", "Grep"],
     "files_write": ["Write", "Edit"],
+    "web_recherche": ["WebSearch"],
 }
 
 MCP_TOOL_GROUPS: dict[str, list[str]] = {
@@ -37,6 +38,7 @@ CAPABILITY_GROUPS: dict[str, list[str]] = {**NATIVE_TOOL_GROUPS, **MCP_TOOL_GROU
 CAPABILITY_LABELS: dict[str, str] = {
     "files_read": "Dateien lesen",
     "files_write": "Dateien schreiben",
+    "web_recherche": "Web-Recherche",
     "linkedin": "LinkedIn",
     "youtube": "YouTube",
     "email_anhaenge": "E-Mail/Anhänge",
