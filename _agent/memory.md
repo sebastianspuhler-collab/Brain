@@ -627,6 +627,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-30 09:18] Schaufler: SLA und AVV enthalten identisch geregelte Laufzeit – 12-monatige Mindestlaufzeit mit automatischer Verlängerung, basierend auf Angebot AG0024 und Bestellung BEST-PROZESSIA-127412 vom 15.06.2026; AVV-Laufzeit ist explizit an das SLA gekoppelt
 - [2026-07-30 08:35] [2026-07-30.md] IMK: 15-Mitarbeiter-Betrieb; Kontakte: Herr Lendner (Angebote, Kalkulation, Einkauf, Arbeitsplanung, Schweißerei), Herr Biebl
 - [2026-07-30 07:13] [2026-07-30-19fb1d58d4-20260624 LV KG 440_SIBE.md] Projekt SIBE - Kostengruppe 440 (Elektrotechnik)
 - [2026-07-30 07:13] [2026-07-30-19fb1d58d4-20260624 LV KG 440_Beleuchtung.md] Lead: Zillmer-Elektrotechnik – Projekt Beleuchtung
