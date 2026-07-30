@@ -1,4 +1,11 @@
 ## KONTEXT
+- [2026-07-30 07:13] [2026-07-30-19fb1d58d4-20260624 LV KG 440_SIBE.md] Datei für automatisierte Artikel-/Herstellerfindung bei Ausschreibungen geeignet
+- [2026-07-30 07:13] [2026-07-29-Email-19fad2e6-TechJobs-x-WebWokr.md] Angebot von TechJobs (portugiesische Tech-Job-Plattform): KI-gestützte Lebenslauffanalyse und schnellere Kandidaten-Matching für Tech-Rollen
+- [2026-07-30 07:13] [2026-07-29-Follow-up-Entwurf.md] Esma Tamer (BWL-Seite) war im Erstgespräch 14.07.2026, Email-Adresse fehlt noch – bei Versand hinzufügen
+- [2026-07-30 07:12] [2026-07-29-Update Juchem X Prozessia.md] Folgetermin 29.07.2026, 14:00-17:00 Uhr; Erstkontakt 08.06.2026
+- [2026-07-30 07:12] [2026-07-29-Email-19fad8ab-AW-Vorgeschlagene-Zeit-Update-Beschaffun.md] Email 29.07.2026 - Schmohl antwortet auf Spuhlers Anfrage zu 10:00 Uhr Termin mit Gegenvorschlägen
+- [2026-07-30 07:06] [Vorlagen zur Artikelfindung über KI-Agen] Zwei Anlagen aus Leistungsverzeichnis werden zur Analyse versendet
+- [2026-07-30 07:06] [Vorlagen zur Artikelfindung über KI-Agen] Problem: Leistungsverzeichnis enthält Beschreibungen technischer Leuchten ohne Herstellerangaben; manuelle Suche in EU-Markt mit vielen Herstellern kaum möglich
 - [2026-07-29 09:27] [TechJobs x WebWokr] Schmerz-Punkt identifiziert: Recruiting zeitaufwendig bei 5-Mann-Team mit mehreren parallelen offenen Positionen
 - [2026-07-29 09:20] [Lead Morali] Sebastian hat Ayoub Falah (Morali) ca. am 14.07.2026 zwei Wochen Zeit gegeben, sich nach Durchsicht der Demo zu melden – Frist ist am 29.07.2026 abgelaufen, Follow-up jetzt fällig
 - [2026-07-28 21:01] [2026-06-08-Meeting Thorsten Maas X Prozessia (2).md] Weitere Anwendungsfälle identifiziert: Stücklistenmanagement und Buchhaltung (analog Rezepturen bei Maas)
@@ -613,6 +620,11 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-30 07:13] [2026-07-30-19fb1d58d4-20260624 LV KG 440_SIBE.md] Projekt SIBE - Kostengruppe 440 (Elektrotechnik)
+- [2026-07-30 07:13] [2026-07-30-19fb1d58d4-20260624 LV KG 440_Beleuchtung.md] Lead: Zillmer-Elektrotechnik – Projekt Beleuchtung
+- [2026-07-30 07:13] [2026-07-29-Email-19fad2e6-TechJobs-x-WebWokr.md] WebWokr: 5-Mann-Team, arbeitet mit DSGVO-konformen Chatbots und KPI-Dashboards für KMUs
+- [2026-07-30 07:13] [2026-07-29-Follow-up-Entwurf.md] Ayoub Falah (a.falah@morali-gmbh.de) von Morali GmbH – Lead für Prozessia-Beschaffungsagent
+- [2026-07-30 07:12] [2026-07-29-Update Juchem X Prozessia.md] Thorsten Maas, Geschäftsführer Juchem Gruppe, Eppelborn
 - [2026-07-29 09:44] Juchem (Ansprechpartner Maas, Einkauf): Größter konkreter Need laut Erstgespräch vom 08.06.2026 sind Lieferdokumente – diese kommen oft erst mit der Lieferung an oder müssen nachgefordert werden.
 - [2026-07-29 09:27] [TechJobs x WebWokr] Laura Greene, TechJobs (portugiesische Tech-Job-Plattform, KI-basierte CV-Analyse) - Akquisitionskontakt für WebWokr
 - [2026-07-29 09:25] Ayoub Falah (Morali GmbH) Mailadresse: a.falah@morali-gmbh.de
@@ -807,6 +819,19 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-30 07:13] [2026-07-29.md] Empfehlung: Vor 04.08. bei Bhawar nachfragen, was mit Chef/IT-Abteilung geklärt wurde
+- [2026-07-30 07:13] [2026-07-29.md] Sebastian-Zusage: Übernimmt Server-Infrastruktur für Schmidt-Hänsch
+- [2026-07-30 07:13] [2026-07-30-19fb1d58d4-20260624 LV KG 440_SIBE.md] Leistungsverzeichnis Stand 24.06.2026 für Ausschreibung
+- [2026-07-30 07:13] [2026-07-30-19fb1d58d4-20260624 LV KG 440_Beleuchtung.md] Leistungsverzeichnis KG 440 (Beleuchtung) vom 24.06.2026 – Artikelfindung erforderlich
+- [2026-07-30 07:13] [2026-07-29-Email-19fad2e6-TechJobs-x-WebWokr.md] Recruiting-Engpass: mehrere Tech-Rollen gleichzeitig führen zu hohem manuellen Screening-Aufwand
+- [2026-07-30 07:13] [2026-07-29-Follow-up-Entwurf.md] Demo-Version seit ~2 Wochen bei Morali in Review, Feedback-Status unklar – Nachfass-Punkt
+- [2026-07-30 07:12] [2026-07-29-Update Juchem X Prozessia.md] Lieferantenauswahl: Einkäufer trifft Entscheidung basierend auf vom Agent bereitgestelltem Preisvergleich (Human-in-the-Loop)
+- [2026-07-30 07:12] [2026-07-29-Update Juchem X Prozessia.md] Prozessia-Agent soll kompletten End-to-End-Beschaffungsprozess bei Juchem abdecken, deutlich umfangreicher als Schaufler-Scope
+- [2026-07-30 07:12] [2026-07-29-Email-19fae497-Prozessia.md] Projekt Prozessia aktiv
+- [2026-07-30 07:12] [2026-07-29-Email-19fad8ab-AW-Vorgeschlagene-Zeit-Update-Beschaffun.md] Vorgeschlagene Termine für Spuhler-Schmohl Besprechung: 30.07.2026 mittags oder 31.07.2026 13:00 Uhr
+- [2026-07-30 07:12] [2026-07-29-Email-19fad8ab-AW-Vorgeschlagene-Zeit-Update-Beschaffun.md] Blocker: Schauflers Preisverhandlung mit Lieferant ist für Freitag 31.07.2026, 10:00 Uhr terminiert
+- [2026-07-30 07:12] [2026-07-29-Email-19fad8ab-AW-Vorgeschlagene-Zeit-Update-Beschaffun.md] Projekt 'Update Beschaffungsagent' - Terminabsprache zwischen Spuhler und Schmohl ausstehend
+- [2026-07-30 07:06] [Vorlagen zur Artikelfindung über KI-Agen] KI-Agent soll Artikel zur Artikelfindung identifizieren: basierend auf technischen Vorgaben ohne Fabrikat/Typ-Angaben soll der passende Hersteller und Typ ermittelt werden
 - [2026-07-29 15:32] Prozessschritt ABS (Auftragsbestätigung) bei Maas: Preis, Menge etc. werden verglichen; bei Abweichungen wird der Lieferant benachrichtigt.
 - [2026-07-29 15:28] Beschaffungsprozess Kunde Maas: 1. Agent holt Preisanfragen bei Lieferanten ein, 2. Einkäufer wählt Lieferant anhand Preise, 3. Bestellung erfolgt über Info LN, 4. Fehlende Auftragsbestätigungen werden nachverfolgt
 - [2026-07-29 15:13] Meeting-Notizen zu Kunden-/Lead-Gesprächen werden unter Leads/[Kunde]-Korrespondenz/Meetings/ abgelegt (nicht in Memos/), damit sie in der Transkripte-Übersicht der Web-App erscheinen - Beispiel: Leads/Juchem-Korrespondenz/Meetings/2026-07-29-Update Juchem X Prozessia.md
@@ -1385,6 +1410,9 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-07-30 07:13] [2026-07-29.md] Schmidt-Hänsch: Automatische Mahnung bei fehlenden Auftragsbestätigungen und Lieferverzugslisten
+- [2026-07-30 07:13] [2026-07-30-19fb1d58d4-20260624 LV KG 440_Beleuchtung.md] Technische Vorgaben zu Beleuchtungspositionen ohne konkrete Hersteller-/Typ-Angaben
+- [2026-07-30 07:12] [2026-07-29-Email-19fae497-Prozessia.md] Dashboard Abgleich erforderlich (Email vom 29.07.2026)
 - [2026-07-28 14:15] [2026-06-08-Juchem.md] Konkreter Bedarf: Lieferdokumente kommen oft erst mit Lieferung an oder müssen nachgefordert werden – automatische vorherige Anforderung durch Beschaffungsagent notwendig
 - [2026-07-28 13:32] [2026-07-24-Update Prozessia X Endin.md] Endin bevorzugt On-Premise-Lösung, lehnt Cloud ab
 - [2026-07-28 13:18] [2026-07-28-Update Zillmer X Prozessia.md] Sicherheitsstufen-Ansatz: Start mit E-Mail-Entwürfen (Zillmer-Freigabe erforderlich), erst nach Vertrauensaufbau automatischer Versand an Hersteller
