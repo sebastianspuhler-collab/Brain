@@ -21,7 +21,7 @@ from app.services import context as context_service
 from app.services import agent_capabilities, agents_service, chat_sessions, classify, conversations, memory, rag, usage_service
 from app.services import claude_cli
 from app.services.anthropic_client import get_client, get_response_text
-from app.services.tools import TOOLS, _TASK_TOOL_NAMES, execute_tool
+from app.services.tools import TOOLS, WEB_SEARCH_TOOL, _TASK_TOOL_NAMES, execute_tool
 
 MAX_TOOL_ITERATIONS = 8
 
@@ -213,7 +213,7 @@ def _stream_chat(
         for _iteration in range(MAX_TOOL_ITERATIONS):
             with get_client().messages.stream(
                 model=model, max_tokens=max_tok, system=system,
-                messages=current_messages, tools=TOOLS,
+                messages=current_messages, tools=[*TOOLS, WEB_SEARCH_TOOL],
             ) as stream:
                 for chunk in stream.text_stream:
                     all_text_parts.append(chunk)

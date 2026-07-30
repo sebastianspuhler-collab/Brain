@@ -12,6 +12,21 @@ from app.config import get_settings
 from app.services import carousel_service, classify, gmail_client, linkedin_service, memory, rag
 from app.services import search_service, tasks_service, vault_service, youtube_service
 
+# Server-seitiges Anthropic-Tool (Sebastian, 2026-07-30: "muss auch selbst
+# recherchieren können") - anders als die übrigen TOOLS unten wird dieses NICHT
+# über execute_tool() dispatcht: die Anthropic-API führt die Suche selbst aus
+# und liefert das Ergebnis direkt als server_tool_use/web_search_tool_result-
+# Content-Blöcke zurück, der Tool-Use-Loop in chat.py muss dafür nichts
+# Eigenes tun (die dortige Iteration überspringt Blöcke, die keine "tool_use"
+# sind, ohnehin schon). Bewusst als eigene Konstante statt Teil von TOOLS,
+# damit hier kein "name"-Konflikt mit einem client-seitigen Tool entstehen
+# kann und die Trennung client-/server-seitig im Code sichtbar bleibt.
+WEB_SEARCH_TOOL = {
+    "type": "web_search_20260318",
+    "name": "web_search",
+    "max_uses": 5,
+}
+
 TOOLS = [
     {
         "name": "read_file",
