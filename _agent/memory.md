@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-07-30 08:35] [2026-07-30.md] Folgetermin: 30.07.2026, 11:30 Uhr, Teams – 'Update IMK X Prozessia'
+- [2026-07-30 08:32] Das Transkript-Dokument 'Kunden/Lendner/Meetings/2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler.md' bricht bereits bei Minute 1:52 ab (mitten im Satz), obwohl das Meeting laut Kopfzeile 21:54 Minuten dauerte - Transkript ist unvollständig
 - [2026-07-30 08:18] [AW: Termin mit Herrn Jauch] Ansprechpartnerin: Olga Boldyrieva, Marketing and Business Development, Sarissa GmbH (o.boldyrieva@sarissa.de, +49 751 509 159-10)
 - [2026-07-30 07:13] [2026-07-30-19fb1d58d4-20260624 LV KG 440_SIBE.md] Datei für automatisierte Artikel-/Herstellerfindung bei Ausschreibungen geeignet
 - [2026-07-30 07:13] [2026-07-29-Email-19fad2e6-TechJobs-x-WebWokr.md] Angebot von TechJobs (portugiesische Tech-Job-Plattform): KI-gestützte Lebenslauffanalyse und schnellere Kandidaten-Matching für Tech-Rollen
@@ -621,6 +623,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-30 08:35] [2026-07-30.md] IMK: 15-Mitarbeiter-Betrieb; Kontakte: Herr Lendner (Angebote, Kalkulation, Einkauf, Arbeitsplanung, Schweißerei), Herr Biebl
 - [2026-07-30 07:13] [2026-07-30-19fb1d58d4-20260624 LV KG 440_SIBE.md] Projekt SIBE - Kostengruppe 440 (Elektrotechnik)
 - [2026-07-30 07:13] [2026-07-30-19fb1d58d4-20260624 LV KG 440_Beleuchtung.md] Lead: Zillmer-Elektrotechnik – Projekt Beleuchtung
 - [2026-07-30 07:13] [2026-07-29-Email-19fad2e6-TechJobs-x-WebWokr.md] WebWokr: 5-Mann-Team, arbeitet mit DSGVO-konformen Chatbots und KPI-Dashboards für KMUs
@@ -820,6 +823,8 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-07-30 08:35] [2026-07-30.md] Beschaffungsagent-Lösung vorgestellt: Angebotsvergleich, AB-Prüfung, Lieferantenscore, Rechnungsprüfung
+- [2026-07-30 08:35] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler (1).md] Beschaffungsagent-Demo zeigt Funktionen: Auftragsbestätigungsprüfung, Angebotsvergleich, Lieferantenscoring, Rechnungsprüfung
 - [2026-07-30 08:18] [AW: Termin mit Herrn Jauch] Olga Boldyrieva wird Anliegen mit Herrn Jauch (Geschäftsführer Sarissa GmbH) besprechen
 - [2026-07-30 07:13] [2026-07-29.md] Empfehlung: Vor 04.08. bei Bhawar nachfragen, was mit Chef/IT-Abteilung geklärt wurde
 - [2026-07-30 07:13] [2026-07-29.md] Sebastian-Zusage: Übernimmt Server-Infrastruktur für Schmidt-Hänsch
@@ -1412,6 +1417,8 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-07-30 08:35] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler (1).md] KI-gestützte Arbeitsplanerstellung, Kapazitätsplanung und Lieferterm-Management als weitere Anwendungsfälle identifiziert
+- [2026-07-30 08:35] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler (1).md] Anfrageprozess-Automatisierung: Material-/Lieferantenanfragen und Angebotsvergleich nach Preis/Lieferzeit sollen automatisiert werden
 - [2026-07-30 07:13] [2026-07-29.md] Schmidt-Hänsch: Automatische Mahnung bei fehlenden Auftragsbestätigungen und Lieferverzugslisten
 - [2026-07-30 07:13] [2026-07-30-19fb1d58d4-20260624 LV KG 440_Beleuchtung.md] Technische Vorgaben zu Beleuchtungspositionen ohne konkrete Hersteller-/Typ-Angaben
 - [2026-07-30 07:12] [2026-07-29-Email-19fae497-Prozessia.md] Dashboard Abgleich erforderlich (Email vom 29.07.2026)
