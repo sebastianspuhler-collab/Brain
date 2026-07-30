@@ -1,4 +1,7 @@
 ## KONTEXT
+- [2026-07-30 09:45] [2026-07-30-20260624 LV KG 440_SIBE.md] Dokumenttyp: Ausschreibung mit Anforderungskatalog für Sicherheitsbeleuchtungskomponenten
+- [2026-07-30 09:44] [2026-07-30-20260624 LV KG 440_Beleuchtung (1).md] Leistungsverzeichnis (LV) als Grundlage für KI-Agent-Verarbeitung bereitgestellt
+- [2026-07-30 09:42] [2026-07-30-Email-19fb2594-AW-Update-IMK-X-Prozessia.md] Grund der Absage: beide Parteien nicht im Haus
 - [2026-07-30 09:15] Dauerangebot (ohne Ablaufdatum, im Gegensatz zu AG0024 das nur bis 24.06. galt): 220 € Verwaltungspauschale + 38,07 € Serverkosten (Hetzner CCX23) = 258,07 €/Monat netto, Serverkosten laut Schaufler_Hosting_Praesentation (4) bestätigt
 - [2026-07-30 09:14] [Unser Termin] Identifizierte Kundenwünsche/Herausforderungen: (1) Wenig Auswahl an neuen Kunden da die meisten über Empfehlungen kommen, (2) Teilweise zu viel Zeit (Text unvollständig)
 - [2026-07-30 09:14] [Unser Termin] Alexander Heeg (support@agentur-consulting.de) bietet kostenloses Coaching-Call/Beratungsgespräch an
@@ -627,6 +630,10 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-07-30 09:45] [2026-07-30-20260624 LV KG 440_SIBE.md] Projekt: Zillmer-Elektrotechnik mit Leistungsverzeichnis für Gewerk KG 440 – Sicherheitsbeleuchtung (SIBE)
+- [2026-07-30 09:44] [2026-07-30-20260624 LV KG 440_Beleuchtung (1).md] Zillmer-Elektrotechnik: Ausschreibung Kostengruppe 440 Beleuchtung vom 24.06.2026
+- [2026-07-30 09:42] [2026-07-30-Email-19fb2594-AW-Update-IMK-X-Prozessia.md] Ansprechperson: Christoph Lendner, Projektleiter IMK GmbH
+- [2026-07-30 09:41] Dierk Biendarra (Zillmer-Elektrotechnik) sandte am 30.07.2026 um 07:02 Uhr eine Mail 'Vorlagen zur Artikelfindung über KI-Agent' mit zwei PDF-Anlagen (Mail-ID 19fb1d58d4f1f236).
 - [2026-07-30 09:18] Schaufler: SLA und AVV enthalten identisch geregelte Laufzeit – 12-monatige Mindestlaufzeit mit automatischer Verlängerung, basierend auf Angebot AG0024 und Bestellung BEST-PROZESSIA-127412 vom 15.06.2026; AVV-Laufzeit ist explizit an das SLA gekoppelt
 - [2026-07-30 08:35] [2026-07-30.md] IMK: 15-Mitarbeiter-Betrieb; Kontakte: Herr Lendner (Angebote, Kalkulation, Einkauf, Arbeitsplanung, Schweißerei), Herr Biebl
 - [2026-07-30 07:13] [2026-07-30-19fb1d58d4-20260624 LV KG 440_SIBE.md] Projekt SIBE - Kostengruppe 440 (Elektrotechnik)
