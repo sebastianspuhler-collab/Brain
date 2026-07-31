@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-07-31 11:32] [Prozessia] Kontakt: Benjamin Schmohl <benjamin.schmohl@schaufler.de>
 - [2026-07-30 09:45] [2026-07-30-20260624 LV KG 440_SIBE.md] Dokumenttyp: Ausschreibung mit Anforderungskatalog für Sicherheitsbeleuchtungskomponenten
 - [2026-07-30 09:44] [2026-07-30-20260624 LV KG 440_Beleuchtung (1).md] Leistungsverzeichnis (LV) als Grundlage für KI-Agent-Verarbeitung bereitgestellt
 - [2026-07-30 09:42] [2026-07-30-Email-19fb2594-AW-Update-IMK-X-Prozessia.md] Grund der Absage: beide Parteien nicht im Haus
