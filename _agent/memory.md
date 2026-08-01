@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-01 12:29] [2026-08-01-19fbd42301-5637373931.md] Reverse-Charge-Verfahren (0% USt.), Steuerschuldnerschaft liegt bei Prozessia
 - [2026-08-01 05:15] [09_ust_jahreserklaerung_2025.md] Dokumentation: 00_zusammenfassung_steuerpruefung_2025.md, 08_euer_ausgaben_zuordnung.md; Projects: project-euer-2025-finanzamt-zahlungen, project-euer-2025-ausgaben-korrekturen
 - [2026-08-01 05:15] [00_zusammenfassung_steuerpruefung_2025.md] Detaildateien: 08_euer_ausgaben_zuordnung.md (Ausgaben-Details), 09_ust_jahreserklaerung_2025.md (finale Elster-Werte USt)
 - [2026-08-01 05:15] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] Dienstleister sipgate GmbH: Telefonie-Provider, Support: team@support.sipgate.de
@@ -636,6 +637,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-01 12:29] [2026-08-01-19fbd42301-5637373931.md] Billing-Domäne: prozessia.de, Billing ID: 7361-1441-4101
 - [2026-08-01 05:15] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] Zahlungsart: Kreditkarte (4983XXXXXX7073, Inhaber Sebastian Spuhler)
 - [2026-08-01 05:15] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] sipgate-Kundennummer: 3988053
 - [2026-07-30 09:45] [2026-07-30-20260624 LV KG 440_SIBE.md] Projekt: Zillmer-Elektrotechnik mit Leistungsverzeichnis für Gewerk KG 440 – Sicherheitsbeleuchtung (SIBE)
@@ -843,6 +845,8 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-01 12:29] [2026-08-01-19fbd42301-5637373931.md] Automatische monatliche Rechnungsstellung durch Google Cloud EMEA Limited
+- [2026-08-01 12:29] [2026-08-01-19fbd42301-5637373931.md] Rechnung 5637373931 vom 31.07.2026 über 34,00 EUR netto (Juli 2026)
 - [2026-08-01 05:16] [2026-07-31-Email-19fb7eef-Prozessia.md] Projekt Prozessia: Dashboard-Abgleich erforderlich
 - [2026-08-01 05:16] [NOTIZEN.md] Step4–step8 codeseitig fertig angepasst (Pfade, Jahr, Konstanten), aber noch nicht durchgeführt – abhängig von Step2-Abschluss
 - [2026-08-01 05:16] [NOTIZEN.md] Step2 blockiert: Vorarbeit erforderlich – OCR/Textextraktion aller PDFs unter Finanzen/2026/* durchführen und in _local_text_raw.json + _ocr_results.json strukturieren
