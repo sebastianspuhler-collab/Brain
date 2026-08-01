@@ -1,4 +1,9 @@
 ## KONTEXT
+- [2026-08-01 05:15] [09_ust_jahreserklaerung_2025.md] Dokumentation: 00_zusammenfassung_steuerpruefung_2025.md, 08_euer_ausgaben_zuordnung.md; Projects: project-euer-2025-finanzamt-zahlungen, project-euer-2025-ausgaben-korrekturen
+- [2026-08-01 05:15] [00_zusammenfassung_steuerpruefung_2025.md] Detaildateien: 08_euer_ausgaben_zuordnung.md (Ausgaben-Details), 09_ust_jahreserklaerung_2025.md (finale Elster-Werte USt)
+- [2026-08-01 05:15] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] Dienstleister sipgate GmbH: Telefonie-Provider, Support: team@support.sipgate.de
+- [2026-08-01 05:14] [00_zusammenfassung_steuerpruefung_2025.md] Finanzamt-USt-Erstattungen 2025 (273,96 €) seit 2026-07-29 als Betriebseinnahme in Pipeline berücksichtigt
+- [2026-08-01 05:14] [00_zusammenfassung_steuerpruefung_2025.md] Umsatz netto 2025: 5.223,96 € (Kundenrechnungen 4.950,00 € + Finanzamt-Erstattungen 273,96 €)
 - [2026-07-31 11:32] [Prozessia] Kontakt: Benjamin Schmohl <benjamin.schmohl@schaufler.de>
 - [2026-07-30 09:45] [2026-07-30-20260624 LV KG 440_SIBE.md] Dokumenttyp: Ausschreibung mit Anforderungskatalog für Sicherheitsbeleuchtungskomponenten
 - [2026-07-30 09:44] [2026-07-30-20260624 LV KG 440_Beleuchtung (1).md] Leistungsverzeichnis (LV) als Grundlage für KI-Agent-Verarbeitung bereitgestellt
@@ -631,6 +636,8 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-01 05:15] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] Zahlungsart: Kreditkarte (4983XXXXXX7073, Inhaber Sebastian Spuhler)
+- [2026-08-01 05:15] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] sipgate-Kundennummer: 3988053
 - [2026-07-30 09:45] [2026-07-30-20260624 LV KG 440_SIBE.md] Projekt: Zillmer-Elektrotechnik mit Leistungsverzeichnis für Gewerk KG 440 – Sicherheitsbeleuchtung (SIBE)
 - [2026-07-30 09:44] [2026-07-30-20260624 LV KG 440_Beleuchtung (1).md] Zillmer-Elektrotechnik: Ausschreibung Kostengruppe 440 Beleuchtung vom 24.06.2026
 - [2026-07-30 09:42] [2026-07-30-Email-19fb2594-AW-Update-IMK-X-Prozessia.md] Ansprechperson: Christoph Lendner, Projektleiter IMK GmbH
@@ -836,6 +843,14 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-01 05:16] [2026-07-31-Email-19fb7eef-Prozessia.md] Projekt Prozessia: Dashboard-Abgleich erforderlich
+- [2026-08-01 05:16] [NOTIZEN.md] Step4–step8 codeseitig fertig angepasst (Pfade, Jahr, Konstanten), aber noch nicht durchgeführt – abhängig von Step2-Abschluss
+- [2026-08-01 05:16] [NOTIZEN.md] Step2 blockiert: Vorarbeit erforderlich – OCR/Textextraktion aller PDFs unter Finanzen/2026/* durchführen und in _local_text_raw.json + _ocr_results.json strukturieren
+- [2026-08-01 05:16] [NOTIZEN.md] 58 Buchungen als UNKLAR markiert und benötigen manuelle Prüfung: World Class Marketing LLC, Reisekosten (Hotels/Restaurants), diverse SaaS-Abos
+- [2026-08-01 05:16] [NOTIZEN.md] Belegauswertung 2026: Scaffold angelegt 2026-07-28, step1 erfolgreich – 188 Transaktionen (Jan–Jul) extrahiert: 27 Umsatz-Kandidaten, 161 Ausgaben-Kandidaten
+- [2026-08-01 05:15] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] Monatliches Abonnement: sipgate.de Telefonieguthaben à 105,00€ brutto (88,24€ netto + 19% USt)
+- [2026-08-01 05:15] [09_ust_jahreserklaerung_2025.md] Vollständige Einzelbeleg-Verifizierung aller 80 Buchungen abgeschlossen (75 Ausgaben, 5 Einnahmen)
+- [2026-08-01 05:15] [09_ust_jahreserklaerung_2025.md] Umsatzsteuer-Jahreserklärung 2025 finalisiert am 2026-07-28, Status: final
 - [2026-07-30 09:29] [AW: Update IMK X Prozessia] Termin abgesagt durch Christoph Lendner (Projektleiter IMK GmbH) - Grund: beide nicht im Haus
 - [2026-07-30 09:14] [Unser Termin] Strategie-Session geplant: 60-90 Minuten Coaching zur Lösung identifizierter Herausforderungen
 - [2026-07-30 08:35] [2026-07-30.md] Beschaffungsagent-Lösung vorgestellt: Angebotsvergleich, AB-Prüfung, Lieferantenscore, Rechnungsprüfung
@@ -1489,6 +1504,10 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-01 05:16] [NOTIZEN.md] Scaffold nutzt Lehren aus 2025er-Prüfung und gleiche Struktur wie Belegauswertung_2025, um gleiche Fehler zu vermeiden
+- [2026-08-01 05:15] [09_ust_jahreserklaerung_2025.md] Restzahlung Umsatzsteuer 2025: 10,70 € — NICHT 690,74 € (Großteil bereits über vier Voranmeldungen 2025 beglichen)
+- [2026-08-01 05:14] [00_zusammenfassung_steuerpruefung_2025.md] Umsatzsteuer-Zahlung an Finanzamt 2025: 0,00 € (keine Nachzahlung erforderlich)
+- [2026-08-01 05:14] [00_zusammenfassung_steuerpruefung_2025.md] Steuerprüfung Umsatzsteuer & Betriebsausgaben 2025 abgeschlossen am 2026-07-28; alle 80 Buchungen verifiziert, alle offenen Entscheidungspunkte geklärt
 - [2026-07-29 15:32] Das ERP-System bei Maas heißt korrekt 'Infor' (nicht 'Info LN').
 - [2026-07-29 09:28] Lagermengen-Prognose macht Morali bereits selbst (nicht Teil des Prozessia-Angebotsumfangs) – laut Sebastian ist dieser Punkt zu prüfen/falsch zugeordnet.
 - [2026-07-28 13:32] [2026-07-24-Update Prozessia X Endin.md] Buhl-Unternehmer-Schnittstellen: Endin muss beim Anbieter klären, ob aktuelle Buhl-Abo-Version frei programmierbare Schnittstellen hat – Voraussetzung für spätere DATEV-Weiterführung
@@ -1567,6 +1586,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-13 19:09] [Personalkosten erstattet bekommen] Schulung des Teams in kundengewinnung und Tools (Clay, Claude, Close) finanziert über Fördergelder § 82 SGB III
 
 ## ENTSCHEIDUNG
+- [2026-08-01 05:15] [09_ust_jahreserklaerung_2025.md] Elster-Eintragung erforderlich: Vorauszahlungssoll 2025 = 680,04 € (bereits über 4 Voranmeldungen Q1-Q4 gezahlt)
 - [2026-07-28 14:15] [2026-06-08-Juchem.md] Kennenlerntreffen vor Ort geplant – finale Terminbestätigung von Juchem ausstehend
 - [2026-07-28 13:32] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Empfehlung: klein anfangen und Autonomie des Agenten schrittweise erhöhen statt 0 auf 100; E-Mail-Automatisierung kein Fokus, Wert liegt im aufbereiteten Dokument
 - [2026-07-28 08:22] [2026-07-28-Prozessskizze-KI-Kalkulation.md] Direkter Preisvergleich mit Großhandel/Herstellern via KI – günstigster Anbieter wird automatisiert ermittelt
@@ -1579,6 +1599,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-24 03:21] [2026-07-24-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Komplette mechanische Anfertigung nach Zeichnungen mit Gravur, Prüf-, Härte- und Messprotokoll erforderlich
 
 ## PREIS
+- [2026-08-01 05:15] [09_ust_jahreserklaerung_2025.md] Steuerpflichtige Umsätze netto: 4.950,00 € (19 % Steuersatz); Abziehbare Vorsteuer: 249,76 €
 - [2026-07-28 13:32] [2026-07-24-Update Prozessia X Endin.md] Einstiegspaket max. 25% des Nettoangebots AG0027 (Umfang: Punkte 2.2, 2.3, anteilig 1.1/1.2, 5.1)
 
 ## OFFEN
