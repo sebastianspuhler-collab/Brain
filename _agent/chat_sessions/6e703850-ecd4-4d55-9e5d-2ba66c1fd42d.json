@@ -1,0 +1,19 @@
+{
+  "id": "6e703850-ecd4-4d55-9e5d-2ba66c1fd42d",
+  "title": "kannst du mir nichma erklären, wie der workflow bei zilmer a…",
+  "model": "claude-sonnet-5",
+  "created_at": "2026-08-02T17:26:26.657968+00:00",
+  "updated_at": "2026-08-02T17:27:54.000366+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "kannst du mir nichma erklären, wie der workflow bei zilmer aussiht?",
+      "attachments": null
+    },
+    {
+      "role": "assistant",
+      "content": "Jetzt hab ich's. Lass mich die relevanten Dateien lesen.Bei Zillmer Elektrotechnik (Lead, Ansprechpartner Dierk Biendarra, Kalkulation) geht's um einen KI-Agenten für den Ausschreibungs- und Einkaufsprozess. Der Ablauf, wie er im Meeting am 21.07. besprochen und am 28.07. von Biendarra final bestätigt wurde:\n\n1. **Ausschreibung geht ein** – z.B. für technische Leuchten, oft öffentliche Ausschreibungen ohne klare Herstellerangabe.\n2. **Prüfung Hersteller/Typ eindeutig?** Wenn ja, geht's direkt zur Preisanfrage.\n3. **Falls nicht eindeutig** (der Regelfall bei öffentlichen Ausschreibungen laut Biendarra): KI-Recherche innerhalb eines bewusst eingegrenzten Rahmens von rund 50 relevanten deutschen Herstellern für technische Leuchten – die Eingrenzung ist Absicht, um Halluzination praktisch auszuschließen (\"je spezifischer, desto sicherer das Ergebnis\", O-Ton Sebastian).\n4. **Automatisierter Preisvergleich**: Der Agent stellt eigenständig Preisanfragen an Großhandel/Hersteller per E-Mail-Postfach-Anbindung.\n5. **Einspeisung in die Kalkulation**: günstigstes Angebot fließt direkt in die Angebotskalkulation ein.\n6. **Bei Auftragserteilung**: Ergebnis (Hersteller, Typ, Preis) wird automatisch an die Projektbeteiligten weitergegeben.\n\nSicherheitsstufen-Ansatz dabei: Start mit E-Mail-**Entwürfen**, die Zillmer erst freigibt, automatischer Versand direkt an Hersteller kommt erst später nach Vertrauensaufbau.\n\nKontext zum Lead: Erstgespräch war am 14.07., Zillmer arbeitet mit dem ERP **PDS** und ist Teil eines Verbunds (HPM Handwerksgruppe Mecklenburg, ca. 150-155 Firmen) mit gemeinsamer Server-/EDV-Struktur – die Hosting-Entscheidung liegt deshalb nicht allein bei Biendarras Geschäftsführung, sondern muss vom Verbund/der IT mitgetragen werden. Die Geschäftsführung ist aktuell für 2-3 Wochen im Urlaub, Biendarra will Prozessskizze + Demo erst danach vorstellen. Nächste Schritte: Biendarra schickt Beispiel-Ausschreibungsunterlagen, Prozessia baut eine Demo daraus. Bei Projektstart rechnet ihr mit ca. 8 Wochen Laufzeit.\n\nZwei offene Punkte, die noch ungeklärt sind: wer die Ausschreibungen überhaupt an Zillmer schickt (Bauherr/GU/Planer?), und die technische PDS-Anbindung ist noch nicht vertieft worden.\n\nDer Folgetermin dazu steht bereits in deinem Kalender: **18.08.2026, 11:00 Uhr** (\"Update Zillmer X Prozesia\"). Das passt auch zu Biendarras zweiter E-Mail vom 30.07. mit den LV-Anlagen (KG 440 Beleuchtung/SIBE) – die hattest du laut Gedächtnis-Eintrag bereits als \"geeignet für automatisierte Artikel-/Herstellerfindung\" eingestuft, also genau das Testmaterial für die Demo. Solltest du also vor dem 18.08. noch aufbereiten."
+    }
+  ],
+  "agent_id": null
+}
