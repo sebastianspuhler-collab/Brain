@@ -637,6 +637,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-02 17:55] TPG-Packaging: Kai Winterscheid (Head of Purchasing) bestätigte in Mail vom 15.07., dass ERP-Team an Schnittstellen arbeitet und sich meldet, sobald Ressourcen für Prozessia verfügbar sind – aktive Integrationsarbeit, keine Segregation von Systemen.
 - [2026-08-01 12:29] [2026-08-01-19fbd42301-5637373931.md] Billing-Domäne: prozessia.de, Billing ID: 7361-1441-4101
 - [2026-08-01 05:15] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] Zahlungsart: Kreditkarte (4983XXXXXX7073, Inhaber Sebastian Spuhler)
 - [2026-08-01 05:15] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] sipgate-Kundennummer: 3988053

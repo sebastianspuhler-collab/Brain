@@ -3,7 +3,7 @@
   "title": "kannst du mir nichma erklären, wie der workflow bei zilmer a…",
   "model": "claude-sonnet-5",
   "created_at": "2026-08-02T17:26:26.657968+00:00",
-  "updated_at": "2026-08-02T17:54:54.383454+00:00",
+  "updated_at": "2026-08-02T17:56:12.890910+00:00",
   "messages": [
     {
       "role": "user",
@@ -29,6 +29,20 @@
       "role": "user",
       "content": "okay ist es also eine sgregation oder gibt es eine schntimmenge",
       "attachments": null
+    },
+    {
+      "role": "assistant",
+      "content": "Schnittstelle, keine Segregation. Bei TPG-Packaging bestätigt Kai Winterscheid (Head of Purchasing) in seiner Mail vom 15.07. wörtlich: \"Das ERP-Team arbeitet gerade an den Schnittstellen und meldet sich bei mir sobald Sie Ressourcen für uns haben.\" Das ist aktive Integrationsarbeit an einer Schnittstelle zwischen TPGs ERP und einem geplanten Prozessia-System – keine Trennung/Segregation von Systemen.\n\nWas dabei aber fehlt und offen bleibt: welches ERP-System TPG überhaupt einsetzt, keine Details zum Fortschritt der Schnittstellen-Arbeiten, kein konkreter neuer Analysetermin. Der ursprüngliche Kalendertermin \"Bedarfsanalyse TPG X Prozessia\" vom 27.07. war laut dieser Mail eigentlich schon vorher hinfällig – Kai wollte sich von sich aus wieder melden, sobald TPG so weit ist. Falls der nicht ohnehin schon verstrichen ist: check mal, ob der noch in deinem Kalender geistert, den siehst du aktuell nicht in der nächsten-14-Tage-Liste, also vermutlich schon gelöscht oder verstrichen.\n\n---\n*Notiert: TPG-Packaging: Kai Winterscheid (Head of Purchasing) bestätigte in Mail vom 15.07., dass ERP-Team an Schnittstellen arbeitet und sich meldet, sobald Ressourcen für Prozessia verfügbar sind – aktive Integrationsarbeit, keine Segregation von Systemen.*",
+      "attachments": null
+    },
+    {
+      "role": "user",
+      "content": "es geht um zillmer hallo",
+      "attachments": null
+    },
+    {
+      "role": "assistant",
+      "content": "Bin bei Zillmer – was brauchst du dazu? Aktueller Stand: nächster Termin ist der 18.08.2026, 11:00 Uhr (\"Update Zillmer X Prozesia\"), und Biendarra hat dir am 30.07. die zwei LV-Anlagen (KG 440 Beleuchtung + SIBE) für die Demo geschickt.\n\nZwei Sachen, die noch offen sind, falls dir das gerade fehlt: Wer die Ausschreibungen überhaupt an Zillmer schickt (Bauherr/GU/Planer – wurde im 21.07.-Meeting nicht geklärt), und die technische PDS-Anbindung wurde noch nicht vertieft. Sag mir, worauf du hinauswillst – Demo vorbereiten, Preisindikation, Mail an Biendarra?"
     }
   ],
   "agent_id": null
