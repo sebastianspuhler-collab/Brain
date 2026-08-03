@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-03 15:40] [fonio 3.5: +70 ultra-realistische Stimme] fonio 3.5 Update veröffentlicht: 70+ ultra-realistische Stimmen, automatische Kontakterstellung und Namensansprache, WhatsApp-Zusammenfassungen, Stora Integration, Blacklist-Funktion für blockierte Nummern
 - [2026-08-03 02:24] [2026-08-02.md] Workflow besprochen 21.07.2026, final bestätigt von Biendarra am 28.07.2026
 - [2026-08-03 02:23] [2026-08-03-19fc530f90-Rechnung_RE260018_03.08.2026.md] Support & Updates inklusive: technische Ansprechpartner, kleinere Anpassungen, Versionskontrolle & Rollouts
 - [2026-08-03 02:23] [2026-08-03-19fc530f90-Rechnung_RE260018_03.08.2026.md] Rechnung RE260018 vom 03.08.2026: 307,10€ Gesamtbetrag (258,07€ netto + 19% USt.), Zahlbar sofort
