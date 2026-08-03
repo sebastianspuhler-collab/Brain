@@ -640,6 +640,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-03 09:52] Angebot AG0033 für Juchem Gruppe (Kundennr. 10007, Ansprechpartner Thorsten Maas, Eppelborn): Beschaffungsagent-Angebot ohne Wartungspauschale, nur einmalige Bau-Position, Format wie bei Schaufler.
 - [2026-08-02 17:55] TPG-Packaging: Kai Winterscheid (Head of Purchasing) bestätigte in Mail vom 15.07., dass ERP-Team an Schnittstellen arbeitet und sich meldet, sobald Ressourcen für Prozessia verfügbar sind – aktive Integrationsarbeit, keine Segregation von Systemen.
 - [2026-08-01 12:29] [2026-08-01-19fbd42301-5637373931.md] Billing-Domäne: prozessia.de, Billing ID: 7361-1441-4101
 - [2026-08-01 05:15] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] Zahlungsart: Kreditkarte (4983XXXXXX7073, Inhaber Sebastian Spuhler)
@@ -1445,6 +1446,7 @@ egeln, Prozesse.
 Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 
 ## REGEL
+- [2026-08-03 09:54] Sebastian möchte Leistungsumfänge/Angebote im AG0024-Stil formatiert haben: keine ausformulierten Sätze, sondern Kategorien mit kurzen Stichwort-Bullets (z.B. 'Betrieb & Infrastruktur:', 'Support & Updates:', 'Reporting:')
 - [2026-07-29 15:24] Sebastian möchte Dokumente/Zusammenfassungen (z.B. Meeting-Notizen) immer als PDF-Export erhalten, nicht nur als Markdown/Text.
 - [2026-07-12 17:52] [2026-07-12-Konzept_Meeting-CRM-Agent.md] Marktrecherche zeigt: wirtschaftlich wertvollster KI-Use-Case ist automatische Umwandlung unstrukturierter Gespräche in strukturierte CRM-Daten mit Ersparnis von 3–5 Minuten pro Gespräch (bei 500 Gesprächen/Monat = 25–40 Stunden); Firmen zahlen vier- bis fünfstellige Beträge dafür (2026-07-12)
 - [2026-07-01 14:23] In Kundenordner kommen nur echte Dateien/Dokumente – keine E-Mails oder sonstige Mail-Dateien.
