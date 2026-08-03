@@ -1,0 +1,18 @@
+---
+tags:
+  - Handelsvertreter
+  - Kooperationsvertrag
+  - Lead-Vermittlung
+  - Vertriebspartner
+  - Vorlage
+quelle: Kooperationsvereinbarung_Prozessia (1).pdf
+datum: 2026-06-09
+kategorie: Vertrag
+---
+
+# Kooperationsvereinbarung_Prozessia (1)
+
+Kooperationsvereinbarung zwischen Prozessia GbR und einem (noch unbenannten) Kooperationspartner zur Vermittlung von Kundenkontakten (Leads) für KI-Produkte wie Prozessia Agent, Voice Agents, Beschaffungsagent und Stücklistenagent. Der Kooperationspartner agiert als selbstständiger Handelsvertreter ohne Abschlussvollmacht und ist für die Identifikation und Übergabe qualifizierter Leads zuständig. Es handelt sich um eine Vorlage, da Partnerdaten noch nicht ausgefüllt sind.
+
+## Vollständiger Inhalt
+ Kooperationsvereinbarung  zwischen  Sebastian Spuhler Mohamed Douioui GbR Campus Starterzentrum, Gebäude A1 1 66123 Saarbrücken vertreten durch die Geschaftsführung – nachfolgend „Prozessia“ genannt –  und  Name ____________________________________________________________________ Adresse _________________________________________________________________ Geburtsdatum ____________________________________________________________ – nachfolgend „Kooperationspartner“ genannt –  Gemeinsam auch „Vertragsparteien“ genannt.   § 1 Gegenstand des Vertrags (1) Gegenstand dieser Vereinbarung ist die Zusammenarbeit der Vertragsparteien zur Vermittlung von Kundenkontakten sowie zur allgemeinen Unterstützung der Geschaftstätigkeit von Prozessia durch den Kooperationspartner. (2) Prozessia bietet insbesondere folgende Leistungen an: • den Prozessia Agent (KI-Assistent für Unternehmen zur Arbeit mit Dokumenten, Wissen und internen Prozessen), • Voice Agents (telefonbasierte KI-Assistenten zur Annahme, Qualifizierung und Weiterleitung von Anrufen), • Beschaffungsagenten (KI-gesẗutzte Automatisierung von Einkaufs- und Lieferantenprozessen), • Stücklistenagenten (KI-gesẗutzte Erstellung, Prüfung und Verwaltung von Stücklisten), • sowie weitere KI-Agenten und Automatisierungslösungen für unternehmensinterne Prozesse, die Prozessia im Rahmen seiner Geschaftstätigkeit anbietet oder künftig entwickelt. (3) Der Kooperationspartner ist nicht zum Abschluss von Verträgen im Namen oder auf Rechnung von Prozessia berechtigt. Seine Tätigkeit beschränkt sich auf die Vermittlung und Weiterleitung potenzieller Kunden sowie vereinbarte Kooperationsleistungen. § 2 Stellung des Kooperationspartners (1) Der Kooperationspartner ist selbstständig tätig und nicht in die Arbeitsorganisation von Prozessia eingegliedert. (2) Es besteht kein Arbeitsverhältnis. Der Kooperationspartner unterliegt keinen Weisungen hinsichtlich Arbeitszeit, Arbeitsort oder Vorgehensweise. (3) Der Kooperationspartner trägt seine eigenen Steuern, Abgaben und Versicherungen selbst. § 3 Aufgaben des Kooperationspartners (1) Der Kooperationspartner identifiziert eigenverantwortlich potenzielle Kunden, die grundsätzlich für die Leistungen von Prozessia in Betracht kommen. (2) Der Kooperationspartner stellt den Erstkontakt zu geeigneten Entscheidern her und informiert diese in allgemeiner, nicht bindender Weise über die Leistungen von Prozessia.  (3) Der Kooperationspartner übermittelt qualifizierte Kontakte („Leads“) an Prozessia. Ein qualifizierter Lead umfasst mindestens: • den Namen des Unternehmens, • den Namen sowie die Kontaktdaten eines entscheidungsbefugten Ansprechpartners, • eine kurze Beschreibung des erkennbaren Bedarfs oder Anwendungsfalls. (4) Der Kooperationspartner begleitet den Kunden bis zur Übergabe an Prozessia als erster Ansprechpartner auf vertrieblicher Ebene. Die fachliche Beratung, Durchführung von Produktdemonstrationen, Angebotserstellung, Vertragsverhandlungen sowie die Umsetzung der Leistun
