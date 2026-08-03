@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-03 18:12] [Unterstützung bei Tracking, Datenanalyse] Fachliche Schwerpunkte: GA4, Google Tag Manager, Matomo, Server-Side Tracking, Looker Studio, BigQuery, KI-gestützte Workflows
+- [2026-08-03 18:12] [Unterstützung bei Tracking, Datenanalyse] Anna-Lena Eggensberger (annalena.eggensberger@gmail.com) bietet Services in Tracking, Datenanalyse und Automatisierung an
 - [2026-08-03 15:40] [fonio 3.5: +70 ultra-realistische Stimme] fonio 3.5 Update veröffentlicht: 70+ ultra-realistische Stimmen, automatische Kontakterstellung und Namensansprache, WhatsApp-Zusammenfassungen, Stora Integration, Blacklist-Funktion für blockierte Nummern
 - [2026-08-03 02:24] [2026-08-02.md] Workflow besprochen 21.07.2026, final bestätigt von Biendarra am 28.07.2026
 - [2026-08-03 02:23] [2026-08-03-19fc530f90-Rechnung_RE260018_03.08.2026.md] Support & Updates inklusive: technische Ansprechpartner, kleinere Anpassungen, Versionskontrolle & Rollouts
@@ -641,6 +643,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-03 18:12] [Unterstützung bei Tracking, Datenanalyse] Referenzkunden der letzten 4 Monate: Gardena, comdesk, Mathy, Hildegard Braukmann (Server-Side Tracking und Conversion-Tracking Implementierungen)
 - [2026-08-03 09:52] Angebot AG0033 für Juchem Gruppe (Kundennr. 10007, Ansprechpartner Thorsten Maas, Eppelborn): Beschaffungsagent-Angebot ohne Wartungspauschale, nur einmalige Bau-Position, Format wie bei Schaufler.
 - [2026-08-02 17:55] TPG-Packaging: Kai Winterscheid (Head of Purchasing) bestätigte in Mail vom 15.07., dass ERP-Team an Schnittstellen arbeitet und sich meldet, sobald Ressourcen für Prozessia verfügbar sind – aktive Integrationsarbeit, keine Segregation von Systemen.
 - [2026-08-01 12:29] [2026-08-01-19fbd42301-5637373931.md] Billing-Domäne: prozessia.de, Billing ID: 7361-1441-4101
