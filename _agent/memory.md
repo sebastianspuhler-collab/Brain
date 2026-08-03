@@ -1446,6 +1446,7 @@ egeln, Prozesse.
 Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 
 ## REGEL
+- [2026-08-03 09:56] Angebote müssen durchnummerierte Punkte (1., 2., 3. ...) für den Leistungsumfang enthalten, keine reinen Fett-Header ohne Nummerierung
 - [2026-08-03 09:54] Sebastian möchte Leistungsumfänge/Angebote im AG0024-Stil formatiert haben: keine ausformulierten Sätze, sondern Kategorien mit kurzen Stichwort-Bullets (z.B. 'Betrieb & Infrastruktur:', 'Support & Updates:', 'Reporting:')
 - [2026-07-29 15:24] Sebastian möchte Dokumente/Zusammenfassungen (z.B. Meeting-Notizen) immer als PDF-Export erhalten, nicht nur als Markdown/Text.
 - [2026-07-12 17:52] [2026-07-12-Konzept_Meeting-CRM-Agent.md] Marktrecherche zeigt: wirtschaftlich wertvollster KI-Use-Case ist automatische Umwandlung unstrukturierter Gespräche in strukturierte CRM-Daten mit Ersparnis von 3–5 Minuten pro Gespräch (bei 500 Gesprächen/Monat = 25–40 Stunden); Firmen zahlen vier- bis fünfstellige Beträge dafür (2026-07-12)
@@ -1515,6 +1516,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-03 10:04] Das gesuchte 10.000€-Angebot ist das Angebot zum Beschaffungsagenten (Kunde Schaufler), Angebot Nr. AG0018 vom 25.02.2026, Datei Angebot_Schaufler_final.md - nicht ein anderes Angebot.
 - [2026-08-01 05:16] [NOTIZEN.md] Scaffold nutzt Lehren aus 2025er-Prüfung und gleiche Struktur wie Belegauswertung_2025, um gleiche Fehler zu vermeiden
 - [2026-08-01 05:15] [09_ust_jahreserklaerung_2025.md] Restzahlung Umsatzsteuer 2025: 10,70 € — NICHT 690,74 € (Großteil bereits über vier Voranmeldungen 2025 beglichen)
 - [2026-08-01 05:14] [00_zusammenfassung_steuerpruefung_2025.md] Umsatzsteuer-Zahlung an Finanzamt 2025: 0,00 € (keine Nachzahlung erforderlich)
