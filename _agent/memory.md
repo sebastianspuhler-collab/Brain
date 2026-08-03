@@ -1,4 +1,7 @@
 ## KONTEXT
+- [2026-08-03 02:24] [2026-08-02.md] Workflow besprochen 21.07.2026, final bestätigt von Biendarra am 28.07.2026
+- [2026-08-03 02:23] [2026-08-03-19fc530f90-Rechnung_RE260018_03.08.2026.md] Support & Updates inklusive: technische Ansprechpartner, kleinere Anpassungen, Versionskontrolle & Rollouts
+- [2026-08-03 02:23] [2026-08-03-19fc530f90-Rechnung_RE260018_03.08.2026.md] Rechnung RE260018 vom 03.08.2026: 307,10€ Gesamtbetrag (258,07€ netto + 19% USt.), Zahlbar sofort
 - [2026-08-01 12:29] [2026-08-01-19fbd42301-5637373931.md] Reverse-Charge-Verfahren (0% USt.), Steuerschuldnerschaft liegt bei Prozessia
 - [2026-08-01 05:15] [09_ust_jahreserklaerung_2025.md] Dokumentation: 00_zusammenfassung_steuerpruefung_2025.md, 08_euer_ausgaben_zuordnung.md; Projects: project-euer-2025-finanzamt-zahlungen, project-euer-2025-ausgaben-korrekturen
 - [2026-08-01 05:15] [00_zusammenfassung_steuerpruefung_2025.md] Detaildateien: 08_euer_ausgaben_zuordnung.md (Ausgaben-Details), 09_ust_jahreserklaerung_2025.md (finale Elster-Werte USt)
@@ -846,6 +849,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-03 02:23] [2026-08-03-19fc530f90-Rechnung_RE260018_03.08.2026.md] Cloud-Server Betrieb & Management: Docker-Container-Überwachung, Security-Updates, SSL-Zertifikat-Erneuerung, automatische Backups, 24/7 Monitoring, KI-Agenten-Deployment inklusive
 - [2026-08-01 12:29] [2026-08-01-19fbd42301-5637373931.md] Automatische monatliche Rechnungsstellung durch Google Cloud EMEA Limited
 - [2026-08-01 12:29] [2026-08-01-19fbd42301-5637373931.md] Rechnung 5637373931 vom 31.07.2026 über 34,00 EUR netto (Juli 2026)
 - [2026-08-01 05:16] [2026-07-31-Email-19fb7eef-Prozessia.md] Projekt Prozessia: Dashboard-Abgleich erforderlich
@@ -1591,6 +1595,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-13 19:09] [Personalkosten erstattet bekommen] Schulung des Teams in kundengewinnung und Tools (Clay, Claude, Close) finanziert über Fördergelder § 82 SGB III
 
 ## ENTSCHEIDUNG
+- [2026-08-03 02:24] [2026-08-02.md] Sicherheitsansatz: E-Mail-Preisanfragen starten als Entwürfe (Zillmer-Freigabe erforderlich) vor Versand, nicht vollautomatisch
 - [2026-08-01 05:15] [09_ust_jahreserklaerung_2025.md] Elster-Eintragung erforderlich: Vorauszahlungssoll 2025 = 680,04 € (bereits über 4 Voranmeldungen Q1-Q4 gezahlt)
 - [2026-07-28 14:15] [2026-06-08-Juchem.md] Kennenlerntreffen vor Ort geplant – finale Terminbestätigung von Juchem ausstehend
 - [2026-07-28 13:32] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Empfehlung: klein anfangen und Autonomie des Agenten schrittweise erhöhen statt 0 auf 100; E-Mail-Automatisierung kein Fokus, Wert liegt im aufbereiteten Dokument
