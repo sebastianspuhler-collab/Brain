@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-04 12:36] [AW: Angeot Beschaffungsagent] Beschaffungsagent schafft wiederverwendbare Basisinfrastruktur für zukünftige KI-Anwendungen
 - [2026-08-04 07:50] [New Time Proposed: Prozessia X Schmidt-H] Kontaktperson: Sumit Bhawar, Einkauf/Purchaser, Schmidt + Haensch GmbH & Co., Berlin
 - [2026-08-03 18:12] [Unterstützung bei Tracking, Datenanalyse] Fachliche Schwerpunkte: GA4, Google Tag Manager, Matomo, Server-Side Tracking, Looker Studio, BigQuery, KI-gestützte Workflows
 - [2026-08-03 18:12] [Unterstützung bei Tracking, Datenanalyse] Anna-Lena Eggensberger (annalena.eggensberger@gmail.com) bietet Services in Tracking, Datenanalyse und Automatisierung an
@@ -644,6 +645,8 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-04 12:36] [AW: Angeot Beschaffungsagent] Kundenwunsch: Detailklärung erforderlich – welcher Investitionsanteil fließt in technische Plattform (Serverinfrastruktur, KI-Anbindung, Framework, Schnittstellen, Sicherheit) vs. fachliche Logik des Beschaffungsprozesses
+- [2026-08-04 12:36] [AW: Angeot Beschaffungsagent] Kundenwunsch: Aufteilung der 32.000€ Investition nachvollziehen (Basisarchitektur vs. spezifische Entwicklung des Beschaffungsagenten)
 - [2026-08-04 07:53] [2026-08-04-Email-19fcbc06-New-Time-Proposed-Prozessia-X-Schmidt-Hä.md] Kontaktperson: Sumit Bhawar (Einkauf/Purchaser), Schmidt-Haensch GmbH, s.bhawar@schmidt-haensch.de, +49 30 417072-74
 - [2026-08-04 01:45] [2026-08-04-19fca6c853-Hetzner_2026-08-04_084001046484.md] Kundennummer: K0631688826, Hetzner Online GmbH
 - [2026-08-03 18:12] [Unterstützung bei Tracking, Datenanalyse] Referenzkunden der letzten 4 Monate: Gardena, comdesk, Mathy, Hildegard Braukmann (Server-Side Tracking und Conversion-Tracking Implementierungen)
@@ -857,6 +860,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-04 12:36] [AW: Angeot Beschaffungsagent] Investitionsentscheidung für Beschaffungsagent läuft; entscheidende offene Frage: Kostenaufteilung der 32.000€
 - [2026-08-04 09:42] [Re: Wachstum systematisieren] Nächster Schritt: Levin fragt nach, ob Akquise-Automatisierung aktuell Thema bei WebWork ist
 - [2026-08-04 09:42] [Re: Wachstum systematisieren] Zusage: Schriftliche Umsatzgarantie ist möglich, je nach interner Struktur bei Prozessia
 - [2026-08-04 07:53] [2026-08-04-Email-19fcbc06-New-Time-Proposed-Prozessia-X-Schmidt-Hä.md] Geplante Besprechung Prozessia X Schmidt-Hänsch am 2026-08-04 wurde verschoben - Sumit Bhawar kann nicht teilnehmen
