@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-04 07:50] [New Time Proposed: Prozessia X Schmidt-H] Kontaktperson: Sumit Bhawar, Einkauf/Purchaser, Schmidt + Haensch GmbH & Co., Berlin
 - [2026-08-03 18:12] [Unterstützung bei Tracking, Datenanalyse] Fachliche Schwerpunkte: GA4, Google Tag Manager, Matomo, Server-Side Tracking, Looker Studio, BigQuery, KI-gestützte Workflows
 - [2026-08-03 18:12] [Unterstützung bei Tracking, Datenanalyse] Anna-Lena Eggensberger (annalena.eggensberger@gmail.com) bietet Services in Tracking, Datenanalyse und Automatisierung an
 - [2026-08-03 15:40] [fonio 3.5: +70 ultra-realistische Stimme] fonio 3.5 Update veröffentlicht: 70+ ultra-realistische Stimmen, automatische Kontakterstellung und Namensansprache, WhatsApp-Zusammenfassungen, Stora Integration, Blacklist-Funktion für blockierte Nummern
@@ -643,6 +644,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-04 07:53] [2026-08-04-Email-19fcbc06-New-Time-Proposed-Prozessia-X-Schmidt-Hä.md] Kontaktperson: Sumit Bhawar (Einkauf/Purchaser), Schmidt-Haensch GmbH, s.bhawar@schmidt-haensch.de, +49 30 417072-74
 - [2026-08-04 01:45] [2026-08-04-19fca6c853-Hetzner_2026-08-04_084001046484.md] Kundennummer: K0631688826, Hetzner Online GmbH
 - [2026-08-03 18:12] [Unterstützung bei Tracking, Datenanalyse] Referenzkunden der letzten 4 Monate: Gardena, comdesk, Mathy, Hildegard Braukmann (Server-Side Tracking und Conversion-Tracking Implementierungen)
 - [2026-08-03 09:52] Angebot AG0033 für Juchem Gruppe (Kundennr. 10007, Ansprechpartner Thorsten Maas, Eppelborn): Beschaffungsagent-Angebot ohne Wartungspauschale, nur einmalige Bau-Position, Format wie bei Schaufler.
@@ -855,6 +857,11 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-04 07:53] [2026-08-04-Email-19fcbc06-New-Time-Proposed-Prozessia-X-Schmidt-Hä.md] Geplante Besprechung Prozessia X Schmidt-Hänsch am 2026-08-04 wurde verschoben - Sumit Bhawar kann nicht teilnehmen
+- [2026-08-04 07:53] [2026-08-04-Email-19fcbbf7-RE-Prozessia-X-Schmidt-Hänsch.md] Geschäftsleitung von Schmidt-Hänsch hat noch keine Rückmeldung zum Projekt gegeben
+- [2026-08-04 07:50] [RE: Prozessia X Schmidt-Hänsch] Absage: Sumit Bhawar (Schmidt-Hänsch) kann nicht teilnehmen, da er mit wichtigem Projekt beschäftigt ist
+- [2026-08-04 07:50] [New Time Proposed: Prozessia X Schmidt-H] Nächste Schritte: Neuer Termin wird von Sumit Bhawar später vereinbart
+- [2026-08-04 07:50] [New Time Proposed: Prozessia X Schmidt-H] Sumit Bhawar (Einkauf, Schmidt + Haensch) sagt heutigen Termin (2026-08-04) ab - zu beschäftigt mit wichtigem Projekt
 - [2026-08-04 01:45] [2026-08-04-19fca6c853-Hetzner_2026-08-04_084001046484.md] Rechnung 084001046484 vom 04.08.2026: 12,72 € brutto (10,69 € netto + 19% USt.) für Leistungszeitraum 07/2026
 - [2026-08-03 02:23] [2026-08-03-19fc530f90-Rechnung_RE260018_03.08.2026.md] Cloud-Server Betrieb & Management: Docker-Container-Überwachung, Security-Updates, SSL-Zertifikat-Erneuerung, automatische Backups, 24/7 Monitoring, KI-Agenten-Deployment inklusive
 - [2026-08-01 12:29] [2026-08-01-19fbd42301-5637373931.md] Automatische monatliche Rechnungsstellung durch Google Cloud EMEA Limited
