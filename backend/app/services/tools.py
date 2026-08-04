@@ -243,6 +243,19 @@ TOOLS = [
         },
     },
     {
+        "name": "get_buffer_insights",
+        "description": (
+            "Zeigt Performance-Daten der letzten gesendeten LinkedIn-Posts direkt aus Buffer: "
+            "Impressions, Reach, Engagement-Rate %, Reactions (Likes), Kommentare, Shares pro Post. "
+            "Immer nutzen bei Fragen wie 'wie performen die Posts', 'Buffer-Zahlen', 'Insights', 'Likes', 'Reichweite' — "
+            "nie 'kann ich nicht einsehen' sagen, sondern dieses Tool nutzen."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {"n": {"type": "integer", "description": "Anzahl der letzten gesendeten Posts, Default 10"}},
+        },
+    },
+    {
         "name": "push_youtube_to_buffer",
         "description": "Pusht ein hochgeladenes YouTube-Video (mit gesetztem Titel) nach Buffer zur Veröffentlichung.",
         "input_schema": {
@@ -449,6 +462,11 @@ def execute_tool(name: str, tool_input: dict) -> tuple[str, bool]:
             result = youtube_service.generate_metadata(tool_input.get("filename", ""), tool_input.get("topic", ""))
             ok = result.get("ok")
             return (f"Titel: {result.get('title')}\nBeschreibung: {result.get('description')}" if ok else f"Fehler: {result.get('error', '?')}"), not ok
+
+        if name == "get_buffer_insights":
+            n = tool_input.get("n") or 10
+            text = linkedin_service.insights_text(n)
+            return text, text.startswith("Fehler")
 
         if name == "push_youtube_to_buffer":
             result = youtube_service.push_to_buffer(tool_input.get("filename", ""), tool_input.get("scheduled_at") or None)

@@ -146,6 +146,14 @@ def set_linkedin_direction(prompt: str) -> dict:
 
 
 @mcp.tool(description=(
+    "Zeigt Performance-Daten (Impressions, Reach, Engagement-Rate %, Reactions/Likes, Kommentare, Shares) "
+    "der letzten gesendeten Buffer-Posts, direkt aus der Buffer-API."
+))
+def get_buffer_insights(n: int = 10) -> str:
+    return linkedin_service.insights_text(n)
+
+
+@mcp.tool(description=(
     "Vollständige Karussell-Pipeline: Slides (Claude) -> KI-Bilder (gpt-image-1) -> PDF -> Cloudinary -> Buffer Document-Post. "
     "Entweder post_id (Karussell aus einem bestehenden, gespeicherten Post ableiten) oder hook (freies Thema) angeben. "
     "Datum optional, ohne Datum wird der nächste Di oder Fr 09:30 genommen."

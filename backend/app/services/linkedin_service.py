@@ -390,6 +390,18 @@ _LINKEDIN_CHAT_TOOLS = [
             "required": ["prompt"],
         },
     },
+    {
+        "name": "get_insights",
+        "description": (
+            "Zeigt Performance-Daten der letzten gesendeten Posts direkt aus Buffer: "
+            "Impressions, Reach, Engagement-Rate %, Reactions (Likes), Kommentare, Shares. "
+            "Immer nutzen bei Fragen zu Performance/Insights/Analytics/Likes/Reichweite der Posts."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {"n": {"type": "integer", "description": "Anzahl der letzten gesendeten Posts, Default 10"}},
+        },
+    },
 ]
 
 MAX_LINKEDIN_CHAT_ITERATIONS = 6
@@ -462,6 +474,10 @@ def _execute_linkedin_chat_tool(name: str, inp: dict) -> tuple[str, bool]:
             r = set_direction(inp.get("prompt", ""))
             return ("Richtung gesetzt." if r.get("ok") else f"Fehler: {r.get('error', '?')}"), not r.get("ok")
 
+        if name == "get_insights":
+            text = _format_insights_for_chat(inp.get("n") or 10)
+            return text, text.startswith("Fehler")
+
         return f"Unbekanntes Tool: {name}", True
     except Exception as e:
         return f"Tool-Fehler ({name}): {e}", True
@@ -491,6 +507,7 @@ Verfügbare Aktionen (bei Bedarf aufrufen, sonst direkt in Text antworten):
 - schedule_post (CLI: schedule_linkedin_post): bestehenden Post (per id) zu einem Zeitpunkt in Buffer einplanen (rechne relative Angaben wie "morgen" anhand des heutigen Datums oben um)
 - make_carousel (CLI: generate_carousel): Bild-Karussell erstellen (aus post_id oder freiem hook) und automatisch in Buffer einplanen
 - set_direction (CLI: set_linkedin_direction): Richtungsvorgabe für künftige Generierung setzen
+- get_insights (CLI: get_buffer_insights): Performance-Daten (Impressions, Reach, Engagement-Rate %, Reactions/Likes, Kommentare, Shares) der letzten gesendeten Posts live aus Buffer abrufen
 
 Regeln für Post-Texte (bei write_post/revise_post):
 - Max. 15 Wörter pro Satz, Leerzeile nach jeder 2. Zeile
@@ -1011,6 +1028,103 @@ mutation CreatePost($input: CreatePostInput!) {
     if errors and not pushed:
         return {"error": errors}
     return {"ok": True, "pushed": pushed, "errors": errors or None}
+
+
+_INSIGHTS_ORG_ID = "6a15c3685a233c9c16251245"
+
+_INSIGHTS_QUERY = """
+query PostsWithMetrics($orgId: OrganizationId!, $status: [PostStatus!], $first: Int) {
+  posts(input: { organizationId: $orgId, filter: { status: $status } }, first: $first) {
+    edges {
+      node {
+        id text sentAt
+        channel { id name }
+        metrics { type value }
+      }
+    }
+  }
+}"""
+
+
+def get_buffer_insights(n: int = 10) -> dict:
+    """Liest Performance-Daten (Impressions, Reach, Engagement-Rate %, Reactions,
+    Kommentare, Shares) der letzten n gesendeten Posts direkt aus der Buffer-
+    GraphQL-API (`posts { metrics { type value } }`, live per Introspection
+    verifiziert 2026-08-04) - Portierung von _agent/buffer_manager.py's
+    insights()-Befehl in den Chat-Tool-Loop, damit der Web-Chat dieselben
+    Zahlen sieht wie das CLI-Tool, statt auf Report-Mails angewiesen zu sein."""
+    settings = get_settings()
+    token = settings.buffer_api_token
+    if not token:
+        return {"error": "BUFFER_API_TOKEN nicht gesetzt"}
+
+    variables = {"orgId": _INSIGHTS_ORG_ID, "status": ["sent"], "first": max(n, 20)}
+    payload = json.dumps({"query": _INSIGHTS_QUERY, "variables": variables}).encode()
+    req = urllib.request.Request(
+        BUFFER_GRAPHQL, data=payload,
+        headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read())
+    except Exception as exc:
+        return {"error": str(exc)}
+    if data.get("errors"):
+        return {"error": data["errors"][0].get("message", "Unbekannter Fehler")}
+
+    edges = data.get("data", {}).get("posts", {}).get("edges", [])
+    posts = sorted((e["node"] for e in edges), key=lambda p: p.get("sentAt") or "", reverse=True)[:n]
+
+    channel_names = {
+        settings.buffer_channel_sebastian: "Sebastian",
+        settings.buffer_channel_prozessia: "Prozessia",
+    }
+    result = []
+    for p in posts:
+        m = {x["type"]: x["value"] for x in (p.get("metrics") or [])}
+        result.append({
+            "sent_at": p.get("sentAt"),
+            "channel": channel_names.get(p["channel"]["id"], p["channel"]["name"]),
+            "text_preview": (p.get("text") or "").replace("\n", " ")[:80],
+            "impressions": m.get("impressions"),
+            "reach": m.get("reach"),
+            "engagement_rate": m.get("engagementRate"),
+            "reactions": m.get("reactions"),
+            "comments": m.get("comments"),
+            "shares": m.get("shares"),
+        })
+    return {"ok": True, "posts": result}
+
+
+def _format_insights_for_chat(n: int = 10) -> str:
+    result = get_buffer_insights(n)
+    if not result.get("ok"):
+        return f"Fehler beim Abruf der Buffer-Insights: {result.get('error', '?')}"
+    posts = result.get("posts", [])
+    if not posts:
+        return "(keine gesendeten Posts mit Daten gefunden)"
+    lines = []
+    for p in posts:
+        stats = []
+        if p.get("impressions") is not None:
+            stats.append(f"{p['impressions']:g} Impr.")
+        if p.get("reach") is not None:
+            stats.append(f"{p['reach']:g} Reach")
+        if p.get("engagement_rate") is not None:
+            stats.append(f"{p['engagement_rate']:.1f}% Eng.")
+        stats.append(f"{p.get('reactions') or 0:g} Reactions")
+        if p.get("comments"):
+            stats.append(f"{p['comments']:g} Kommentare")
+        if p.get("shares"):
+            stats.append(f"{p['shares']:g} Shares")
+        sent = (p.get("sent_at") or "")[:16].replace("T", " ")
+        lines.append(f"- {sent} | {p['channel']} | " + ", ".join(stats) + f" | {p['text_preview']}…")
+    return "\n".join(lines)
+
+
+def insights_text(n: int = 10) -> str:
+    return _format_insights_for_chat(n)
 
 
 def buffer_edit_post(buffer_post_ids: list[str], text: str, due_at: str | None = None) -> dict:
