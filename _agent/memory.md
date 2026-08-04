@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-04 20:54] [Re: New Qualifications for Air Condition] Referenzbeispiel: Klimaanlagenbetrieb in Texas erhielt 150.000 USD Kreditlinie (2026)
+- [2026-08-04 20:54] [Re: New Qualifications for Air Condition] Marketing-E-Mail von Approvd (Kreditangebote für Klimaanlagenbetriebe) - nicht relevant für Prozessia GbR
 - [2026-08-04 12:36] [AW: Angeot Beschaffungsagent] Beschaffungsagent schafft wiederverwendbare Basisinfrastruktur für zukünftige KI-Anwendungen
 - [2026-08-04 07:50] [New Time Proposed: Prozessia X Schmidt-H] Kontaktperson: Sumit Bhawar, Einkauf/Purchaser, Schmidt + Haensch GmbH & Co., Berlin
 - [2026-08-03 18:12] [Unterstützung bei Tracking, Datenanalyse] Fachliche Schwerpunkte: GA4, Google Tag Manager, Matomo, Server-Side Tracking, Looker Studio, BigQuery, KI-gestützte Workflows
@@ -645,6 +647,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-04 20:54] [Re: New Qualifications for Air Condition] Kontaktperson: Ruby Reed, VP bei Approvd, Email: ruby.b@approvdasset.com
 - [2026-08-04 12:36] [AW: Angeot Beschaffungsagent] Kundenwunsch: Detailklärung erforderlich – welcher Investitionsanteil fließt in technische Plattform (Serverinfrastruktur, KI-Anbindung, Framework, Schnittstellen, Sicherheit) vs. fachliche Logik des Beschaffungsprozesses
 - [2026-08-04 12:36] [AW: Angeot Beschaffungsagent] Kundenwunsch: Aufteilung der 32.000€ Investition nachvollziehen (Basisarchitektur vs. spezifische Entwicklung des Beschaffungsagenten)
 - [2026-08-04 07:53] [2026-08-04-Email-19fcbc06-New-Time-Proposed-Prozessia-X-Schmidt-Hä.md] Kontaktperson: Sumit Bhawar (Einkauf/Purchaser), Schmidt-Haensch GmbH, s.bhawar@schmidt-haensch.de, +49 30 417072-74
