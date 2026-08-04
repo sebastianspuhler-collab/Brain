@@ -860,6 +860,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-04 14:28] LinkedIn Content-Recherche-Strategie erstellt und doppelt verankert: als Dokument unter Marketing/LinkedIn/2026-08-04-Content-Recherche-Strategie.md und als aktive Direction via set_linkedin_direction, die ab sofort jede generate_linkedin_ideas-Generierung beeinflusst
 - [2026-08-04 12:36] [AW: Angeot Beschaffungsagent] Investitionsentscheidung für Beschaffungsagent läuft; entscheidende offene Frage: Kostenaufteilung der 32.000€
 - [2026-08-04 09:42] [Re: Wachstum systematisieren] Nächster Schritt: Levin fragt nach, ob Akquise-Automatisierung aktuell Thema bei WebWork ist
 - [2026-08-04 09:42] [Re: Wachstum systematisieren] Zusage: Schriftliche Umsatzgarantie ist möglich, je nach interner Struktur bei Prozessia

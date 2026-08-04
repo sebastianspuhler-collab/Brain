@@ -3,7 +3,7 @@
   "title": "Maas Thorsten 11:52 (vor 11 Minuten) an mich  Sehr geehrter …",
   "model": "claude-sonnet-5",
   "created_at": "2026-08-04T10:05:28.602536+00:00",
-  "updated_at": "2026-08-04T10:05:46.178959+00:00",
+  "updated_at": "2026-08-04T14:30:43.791767+00:00",
   "messages": [
     {
       "role": "user",
@@ -12,7 +12,27 @@
     },
     {
       "role": "assistant",
-      "content": "You've hit your session limit · resets 12:10pm (UTC)"
+      "content": "You've hit your session limit · resets 12:10pm (UTC)",
+      "attachments": null
+    },
+    {
+      "role": "user",
+      "content": "wir ahben ja die LinkedIn automatisierung, jetzt müssen wir auch nich eine strategie heruasfinden, schrieb mir eine strategie für claude, der nach videos, tipps un anderen sachen sucht, damit wir die perfekte wachstums- und contentstrategie haben, die so wenig zewit wie möglich kostet, er muss alles recherhcieren, was reichweite brign t",
+      "attachments": null
+    },
+    {
+      "role": "assistant",
+      "content": "Strategie steht und ist doppelt verankert: als Dokument unter `Marketing/LinkedIn/2026-08-04-Content-Recherche-Strategie.md` und als aktive Direction (`set_linkedin_direction`), die ab sofort jede `generate_linkedin_ideas`-Generierung beeinflusst.\n\nStichpunkte, was drinsteckt (Quellen: Skill-Sprinters, Oktopost, Morphica, Growleads, Socialinsider – Stand 08/2026):\n\n**Recherche-Routine für Claude** – vor jeder Ideen-Runde checkt Claude selbstständig vier Dinge und speist sie als Fokus ein statt generisch zu generieren: (1) aktuelle Zahlen/Trends zu KI im Mittelstand/Einkauf, (2) was vergleichbare B2B-KI-Anbieter gerade erfolgreich posten, (3) monatlich ob sich Algorithmus-Empfehlungen geändert haben, (4) aktuelle Anlässe (EDIH-Events, EU AI Act-Fristen, Webinare) zum Andocken.\n\n**Was laut Daten wirklich zieht:**\n- Karussells sind mit Abstand das stärkste Format – bis zu 45,85 % Engagement, Dokument-Carousels ~600 % mehr als reine Text-Posts. Bei euch heißt das: Ideen mit Karussell-Potenzial künftig konsequent über `generate_carousel` produzieren statt als Text.\n- Kommentare wiegen 3-5x mehr als Likes – der einzige Punkt, den kein Tool automatisieren kann. Dein Job bleibt: in den ersten 60 Minuten nach Veröffentlichung selbst kommentieren/antworten. Alles andere übernimmt Claude.\n- Externe Links im Post kosten ~60 % Reichweite – falls ein Link nötig ist, gehört er in den ersten Kommentar, nie in den Haupttext.\n- Video (<90 Sek., mit Untertiteln) ist die einzige komplette Lücke in eurem aktuellen Mix (nur Typ A Text und B Karussell). Das wäre der nächste Ausbauschritt, aber dafür bräuchtet ihr eine eigene Produktionsroute – die YouTube/NotebookLM-Pipeline ist aktuell nicht für kurze LinkedIn-Feed-Videos gedacht.\n- Freitag 09:30 ist laut Benchmarks leicht unterdurchschnittlich – Di+Do statt Di+Fr wäre datenbasiert minimal stärker, falls du den Rhythmus mal anpassen willst.\n\nZeitaufwand für dich bleibt minimal: Recherche, Ideen, Texte, Karussells laufen komplett bei Claude, du gibst nur frei und kommentierst kurz nach dem Posten.\n\nNebenbei: Die Antwort an Thorsten Maas (Juchem) von 11:52 hast du noch nicht besprochen – die 5 Fragenblöcke (Technik/Aufwand, Betriebskosten, Zukunftsfähigkeit, Skalierbarkeit/Plattform-Argument, Erfolgskriterien) warten noch auf gemeinsames Durchgehen, das hattest du ja parallel angestoßen bevor die Session abbrach. Sag Bescheid, wenn wir da direkt weitermachen sollen.\n\n---\n*Notiert: LinkedIn Content-Recherche-Strategie erstellt und doppelt verankert: als Dokument unter Marketing/LinkedIn/2026-08-04-Content-Recherche-Strategie.md und als aktive Direction via set_linkedin_direction, die ab sofort jede generate_linkedin_ideas-Generierung beeinflusst*",
+      "attachments": null
+    },
+    {
+      "role": "user",
+      "content": "ich brauche die strategie, du ollst mir einen Promot an claude machen",
+      "attachments": null
+    },
+    {
+      "role": "assistant",
+      "content": "Hier der fertige Recherche-Prompt, den du direkt in ein separates Claude-Fenster (Claude.ai mit Web-Suche) einfügen kannst, um die wöchentliche LinkedIn-Recherche für Prozessia laufen zu lassen:\n\n---\n\n```\nDu bist ein B2B-LinkedIn-Wachstumsstratege und Recherche-Analyst für Prozessia,\nein deutsches KI-Softwareunternehmen aus Saarbrücken. Prozessia baut KI-Agenten\n(Beschaffungsagent, Stücklistenagent, KI-Chatbot, KI-Schulungen) für\ninhabergeführte, produzierende Mittelständler mit 20-80 Mitarbeitenden in\nDeutschland – Branchen: Werkzeugbau, Lohnfertigung, Elektrotechnik, Kunststoff,\nMetallbau. Zielpersonen: Geschäftsführer und Einkaufsleiter.\n\nRecherchiere aktiv im Web (nutze Suche, keine Vermutungen) und liefere mir am\nEnde einen strukturierten Report mit vier Blöcken:\n\n1. TREND-CHECK ZIELBRANCHE\nSuche aktuelle Studien, Statistiken und News (max. 4-8 Wochen alt) zu:\nKI-Einsatz im deutschen/europäischen Mittelstand, speziell Einkauf/Beschaffung,\nWerkzeugbau, Lohnfertigung, Elektrotechnik. Ich brauche konkrete Zahlen\n(Prozentsätze, Studienergebnisse, Umfragen), keine generischen Aussagen.\nNenne jeweils Quelle und Datum.\n\n2. KONKURRENZ-/VORBILD-SCAN\nSuche nach LinkedIn-Content von vergleichbaren B2B-/Industrie-KI-Anbietern\n(z.B. Mittelstand-KI-Beratungen, Procurement-Tech-Startups, Manufacturing-SaaS\nim DACH-Raum). Analysiere: Welche Hooks, Formate und Themen bekommen sichtbar\nviel Engagement? Ich will keine Kopien, sondern erkennbare Muster\n(z.B. \"Zahlen-Hooks funktionieren\", \"Vorher-Nachher-Storys performen\").\n\n3. FORMAT- & ALGORITHMUS-CHECK (nur einmal im Monat nötig, aktuellen Monat\nprüfen)\nSuche nach aktuellen Aussagen/Analysen zu LinkedIn-Algorithmus-Änderungen 2026,\ninsbesondere zu B2B-Content, Dwell-Time, Karussell-/Dokument-Posts,\nKommentar-Gewichtung und Video-Performance. Was hat sich in den letzten 4-8\nWochen verändert?\n\n4. EVENT-/ANLASS-CHECK\nSuche nach aktuellen und in den nächsten 2-3 Wochen anstehenden Events,\nWebinaren, Fristen oder Anlässen mit Bezug zu KI im Mittelstand in Deutschland\n(z.B. EDIH Saarland, Mittelstand-Digital Zentren, EU AI Act-Fristen, Messen wie\nAMB, Blechexpo, Control). An welchen könnte ein LinkedIn-Post inhaltlich\nandocken?\n\nAUSGABEFORMAT:\nFasse alle vier Blöcke in prägnanten Stichpunkten zusammen (keine Fließtexte),\nmaximal 6-8 Punkte pro Block, jeweils mit Quelle/Datum wo möglich. Am Ende\neinen einzigen zusammenfassenden Absatz: \"FOKUS FÜR DIESE WOCHE\" – 3-4 Sätze,\ndie ich 1:1 als focus-Parameter für eine Content-Ideen-Generierung nutzen kann.\n```\n\n---\n\nKontext dazu: Das ist exakt die Recherche-Routine aus `Marketing/LinkedIn/2026-08-04-Content-Recherche-Strategie.md`, nur als eigenständiger Prompt für ein separates Claude-Fenster, falls du die Recherche manuell anstoßen willst, statt dass ich sie hier direkt über WebSearch fahre. Wenn du willst, kann ich die vier Recherche-Punkte auch direkt jetzt hier mit meinem WebSearch-Tool durchlaufen und dir die Ergebnisse gleich als `focus` in `generate_linkedin_ideas` einspeisen – dann sparst du dir den Umweg über ein zweites Claude-Fenster.\n\nKurzer Reminder: Die Antwort an Thorsten Maas mit den 5 Fragenblöcken (Technik, Betriebskosten, Zukunftsfähigkeit, Skalierbarkeit, Erfolgskriterien) liegt immer noch unbeantwortet – das wird für Juchem gerade zur eigentlichen Kaufentscheidung, sollte nicht zu lange liegen bleiben."
     }
   ],
   "agent_id": null
