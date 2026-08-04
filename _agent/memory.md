@@ -1522,6 +1522,8 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-04 07:15] [AW: Demoversion Zilmer] Firmenname wird mit Doppel-L geschrieben: 'Zillmer' (nicht 'Zilmer')
+- [2026-08-04 07:15] [AW: Demoversion Zilmer] Link zur Demoversion funktioniert nicht - muss überprüft und neu zugesendet werden
 - [2026-08-04 01:45] [2026-08-04-19fca6c853-Hetzner_2026-08-04_084001046484.md] Verzugsregelung: Automatischer Verzug nach 30 Tagen ohne Zahlungseingang (ab 03.09.2026)
 - [2026-08-03 10:04] Das gesuchte 10.000€-Angebot ist das Angebot zum Beschaffungsagenten (Kunde Schaufler), Angebot Nr. AG0018 vom 25.02.2026, Datei Angebot_Schaufler_final.md - nicht ein anderes Angebot.
 - [2026-08-01 05:16] [NOTIZEN.md] Scaffold nutzt Lehren aus 2025er-Prüfung und gleiche Struktur wie Belegauswertung_2025, um gleiche Fehler zu vermeiden
