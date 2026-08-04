@@ -10,6 +10,7 @@ Befehle:
   python3 _agent/buffer_manager.py push [datei]    # Posts aus JSON → Buffer
   python3 _agent/buffer_manager.py delete <id>     # Post löschen
   python3 _agent/buffer_manager.py edit <id> [text] [datum]  # Post bearbeiten
+  python3 _agent/buffer_manager.py insights [n]    # Analytics (Impressions, Reach, Eng.-Rate %) der letzten n gesendeten Posts
 """
 
 import os, sys, json, requests
@@ -80,6 +81,21 @@ query Posts($orgId: OrganizationId!, $status: [PostStatus!]) {
       node {
         id text status dueAt sentAt
         channel { id name }
+      }
+    }
+  }
+}
+"""
+
+INSIGHTS_QUERY = """
+query PostsWithMetrics($orgId: OrganizationId!, $status: [PostStatus!], $first: Int) {
+  posts(input: { organizationId: $orgId, filter: { status: $status } }, first: $first) {
+    edges {
+      node {
+        id text sentAt
+        channel { id name }
+        metricsUpdatedAt
+        metrics { name type unit value }
       }
     }
   }
@@ -168,6 +184,46 @@ def cmd_sent(token, n=10):
         kanal = CHANNELS.get(p["channel"]["id"], p["channel"]["name"])
         print(f"{fmt_date(p.get('sentAt')):<18} {kanal:<12} {p['id']:<26} {fmt_text(p['text'], 44)}")
     print(f"{'─'*90}\n")
+
+
+def cmd_insights(token, n=10):
+    data = gql(token, INSIGHTS_QUERY, {"orgId": ORG_ID, "status": ["sent"], "first": max(n, 50)})
+    posts = [e["node"] for e in data.get("posts", {}).get("edges", [])]
+    posts = sorted(posts, key=lambda x: x.get("sentAt") or "", reverse=True)[:n]
+    if not posts:
+        print("Keine gesendeten Posts gefunden.")
+        return
+
+    print(f"\n{'─'*110}")
+    print(f"{'BUFFER INSIGHTS (letzte ' + str(n) + ' gesendete Posts)':^110}")
+    print(f"{'─'*110}")
+    print(f"{'Gesendet':<18} {'Kanal':<14} {'Impr.':>7} {'Reach':>7} {'Eng.%':>7} {'React.':>7} {'Komm.':>6} {'Shares':>7} {'Text'}")
+    print(f"{'─'*110}")
+    for p in posts:
+        kanal = CHANNELS.get(p["channel"]["id"], p["channel"]["name"])
+        m = {x["type"]: x["value"] for x in (p.get("metrics") or [])}
+
+        def fmt_num(v, pct=False):
+            if v is None:
+                return "—"
+            return f"{v:.1f}%" if pct else f"{v:g}"
+
+        print(
+            f"{fmt_date(p.get('sentAt')):<18} {kanal:<14} "
+            f"{fmt_num(m.get('impressions')):>7} {fmt_num(m.get('reach')):>7} "
+            f"{fmt_num(m.get('engagementRate'), pct=True):>7} {fmt_num(m.get('reactions')):>7} "
+            f"{fmt_num(m.get('comments')):>6} {fmt_num(m.get('shares')):>7} "
+            f"{fmt_text(p['text'], 30)}"
+        )
+    print(f"{'─'*110}")
+
+    with_impressions = [p for p in posts if any(x["type"] == "impressions" for x in (p.get("metrics") or []))]
+    if with_impressions:
+        avg_eng = sum(
+            next((x["value"] for x in p["metrics"] if x["type"] == "engagementRate"), 0) for p in with_impressions
+        ) / len(with_impressions)
+        print(f"Ø Engagement-Rate (Posts mit Impressions-Daten): {avg_eng:.2f}%")
+    print()
 
 
 def cmd_drafts(token):
@@ -307,6 +363,9 @@ def main():
     elif args[0] == "sent":
         n = int(args[1]) if len(args) > 1 else 10
         cmd_sent(token, n)
+    elif args[0] == "insights":
+        n = int(args[1]) if len(args) > 1 else 10
+        cmd_insights(token, n)
     elif args[0] == "drafts":
         cmd_drafts(token)
     elif args[0] == "ideas":

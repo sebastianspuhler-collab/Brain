@@ -28,6 +28,14 @@ query Posts($orgId: OrganizationId!, $status: [PostStatus!]) {
 }
 """
 
+INSIGHTS_QUERY = """
+query PostsWithMetrics($orgId: OrganizationId!, $status: [PostStatus!], $first: Int) {
+  posts(input: { organizationId: $orgId, filter: { status: $status } }, first: $first) {
+    edges { node { id sentAt channel { id name } metrics { type value } } }
+  }
+}
+"""
+
 IDEAS_QUERY = """
 query Ideas($orgId: OrganizationId!) {
   ideas(input: { organizationId: $orgId }) {
@@ -123,7 +131,32 @@ def run():
         else:
             lines.append("_Keine Ideen vorhanden._")
 
-        lines.append(f"\n---\n_Buffer Manager: `python3 _agent/buffer_manager.py [status|sent|drafts|ideas|push|delete|edit]`_")
+        # Insights (letzte 5 gesendete Posts mit Metriken)
+        data4 = gql(token, INSIGHTS_QUERY, {"orgId": ORG_ID, "status": ["sent"], "first": 20})
+        metric_posts = [e["node"] for e in data4.get("posts", {}).get("edges", [])]
+        metric_posts = sorted(metric_posts, key=lambda x: x.get("sentAt") or "", reverse=True)[:5]
+
+        lines.append("\n## Insights (letzte 5 gesendete Posts)")
+        if metric_posts:
+            for p in metric_posts:
+                kanal = CHANNELS.get(p["channel"]["id"], p["channel"]["name"])
+                m = {x["type"]: x["value"] for x in (p.get("metrics") or [])}
+                impr = m.get("impressions")
+                reach = m.get("reach")
+                eng = m.get("engagementRate")
+                parts = []
+                if impr is not None:
+                    parts.append(f"{impr:g} Impr.")
+                if reach is not None:
+                    parts.append(f"{reach:g} Reach")
+                if eng is not None:
+                    parts.append(f"{eng:.1f}% Eng.")
+                stats = ", ".join(parts) if parts else "keine Metriken"
+                lines.append(f"- **{fmt_date(p.get('sentAt'))}** | {kanal} | {stats}")
+        else:
+            lines.append("_Keine Insights verfügbar._")
+
+        lines.append(f"\n---\n_Buffer Manager: `python3 _agent/buffer_manager.py [status|sent|drafts|ideas|push|delete|edit|insights]`_")
 
     except Exception as e:
         lines.append(f"\n**FEHLER beim Buffer-Abruf:** {e}")

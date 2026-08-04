@@ -44,6 +44,9 @@ Kanäle: Sebastian (6a25d2578f1d11f9b260c5ee) | Prozessia (6a25d2578f1d11f9b260c
 
 - "Was ist geplant?" / "Buffer Status" → python3 _agent/buffer_manager.py status
 - "Was wurde gepostet?" → python3 _agent/buffer_manager.py sent [n]
+- "Wie performen die Posts?" / "Insights/Analytics" → python3 _agent/buffer_manager.py insights [n]
+  (Impressions, Reach, Engagement-Rate %, Reactions, Comments, Shares pro Post — direkt aus
+  Buffer GraphQL `posts { metrics { ... } }`, kein Umweg über Report-Mails nötig)
 - "Zeig Entwürfe" → python3 _agent/buffer_manager.py drafts
 - "Zeig Ideen" → python3 _agent/buffer_manager.py ideas
 - "Posts pushen" → python3 _agent/buffer_manager.py push [Marketing/LinkedIn/beitraege-*.json]
