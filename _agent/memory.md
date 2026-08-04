@@ -643,6 +643,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-04 01:45] [2026-08-04-19fca6c853-Hetzner_2026-08-04_084001046484.md] Kundennummer: K0631688826, Hetzner Online GmbH
 - [2026-08-03 18:12] [Unterstützung bei Tracking, Datenanalyse] Referenzkunden der letzten 4 Monate: Gardena, comdesk, Mathy, Hildegard Braukmann (Server-Side Tracking und Conversion-Tracking Implementierungen)
 - [2026-08-03 09:52] Angebot AG0033 für Juchem Gruppe (Kundennr. 10007, Ansprechpartner Thorsten Maas, Eppelborn): Beschaffungsagent-Angebot ohne Wartungspauschale, nur einmalige Bau-Position, Format wie bei Schaufler.
 - [2026-08-02 17:55] TPG-Packaging: Kai Winterscheid (Head of Purchasing) bestätigte in Mail vom 15.07., dass ERP-Team an Schnittstellen arbeitet und sich meldet, sobald Ressourcen für Prozessia verfügbar sind – aktive Integrationsarbeit, keine Segregation von Systemen.
@@ -854,6 +855,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-04 01:45] [2026-08-04-19fca6c853-Hetzner_2026-08-04_084001046484.md] Rechnung 084001046484 vom 04.08.2026: 12,72 € brutto (10,69 € netto + 19% USt.) für Leistungszeitraum 07/2026
 - [2026-08-03 02:23] [2026-08-03-19fc530f90-Rechnung_RE260018_03.08.2026.md] Cloud-Server Betrieb & Management: Docker-Container-Überwachung, Security-Updates, SSL-Zertifikat-Erneuerung, automatische Backups, 24/7 Monitoring, KI-Agenten-Deployment inklusive
 - [2026-08-01 12:29] [2026-08-01-19fbd42301-5637373931.md] Automatische monatliche Rechnungsstellung durch Google Cloud EMEA Limited
 - [2026-08-01 12:29] [2026-08-01-19fbd42301-5637373931.md] Rechnung 5637373931 vom 31.07.2026 über 34,00 EUR netto (Juli 2026)
@@ -1520,6 +1522,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-04 01:45] [2026-08-04-19fca6c853-Hetzner_2026-08-04_084001046484.md] Verzugsregelung: Automatischer Verzug nach 30 Tagen ohne Zahlungseingang (ab 03.09.2026)
 - [2026-08-03 10:04] Das gesuchte 10.000€-Angebot ist das Angebot zum Beschaffungsagenten (Kunde Schaufler), Angebot Nr. AG0018 vom 25.02.2026, Datei Angebot_Schaufler_final.md - nicht ein anderes Angebot.
 - [2026-08-01 05:16] [NOTIZEN.md] Scaffold nutzt Lehren aus 2025er-Prüfung und gleiche Struktur wie Belegauswertung_2025, um gleiche Fehler zu vermeiden
 - [2026-08-01 05:15] [09_ust_jahreserklaerung_2025.md] Restzahlung Umsatzsteuer 2025: 10,70 € — NICHT 690,74 € (Großteil bereits über vier Voranmeldungen 2025 beglichen)
