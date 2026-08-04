@@ -857,6 +857,8 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-04 09:42] [Re: Wachstum systematisieren] Nächster Schritt: Levin fragt nach, ob Akquise-Automatisierung aktuell Thema bei WebWork ist
+- [2026-08-04 09:42] [Re: Wachstum systematisieren] Zusage: Schriftliche Umsatzgarantie ist möglich, je nach interner Struktur bei Prozessia
 - [2026-08-04 07:53] [2026-08-04-Email-19fcbc06-New-Time-Proposed-Prozessia-X-Schmidt-Hä.md] Geplante Besprechung Prozessia X Schmidt-Hänsch am 2026-08-04 wurde verschoben - Sumit Bhawar kann nicht teilnehmen
 - [2026-08-04 07:53] [2026-08-04-Email-19fcbbf7-RE-Prozessia-X-Schmidt-Hänsch.md] Geschäftsleitung von Schmidt-Hänsch hat noch keine Rückmeldung zum Projekt gegeben
 - [2026-08-04 07:50] [RE: Prozessia X Schmidt-Hänsch] Absage: Sumit Bhawar (Schmidt-Hänsch) kann nicht teilnehmen, da er mit wichtigem Projekt beschäftigt ist
