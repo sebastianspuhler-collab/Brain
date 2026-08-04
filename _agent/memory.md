@@ -1492,6 +1492,8 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-12 18:52] [CREDENTIALS.md] Google Workspace Credentials erforderlich für: Gmail-Emails auslesen, Google Drive Dateiablage, Sheets-Datenverarbeitung
 
 ## KUNDENWUNSCH
+- [2026-08-04 09:53] [AW: Angeot Beschaffungsagent] Transparenz zu laufenden Betriebskosten erforderlich (Server, Infrastruktur, KI-Token-Verbrauch, Lizenzen, Wartung, Support, Updates)
+- [2026-08-04 09:53] [AW: Angeot Beschaffungsagent] Technische Architektur und Implementierungsaufwand erforderlich (Systemumgebung, Infor LN Anbindung, Schnittstellen, Technologien, KI-Modelle, Zertifikat- und Dokumentenmanagement)
 - [2026-07-16 06:04] [Kompletten Salesfunnel mit KI erstellen] Interessent soll Zeit für diese Termine reservieren
 - [2026-07-14 08:43] [AgentPowers x WebWokr] Elizabeth schlägt vor, damit schnellere Piloten in 2 bis 3 Tagen für Kunden zu liefern
 - [2026-07-13 22:08] [👀 Das sehen die meisten erst im Call] ProviPanda signalisiert begrenzte Verfügbarkeit von Demo-Slots und drängt zur zeitnahen Buchung
