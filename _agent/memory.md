@@ -1084,6 +1084,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-05 09:02] [Fwd: Formenplanung] Formenplanung für GGH und Steuergeräte von Joerg Schwindling (ZF Group, Global Commodity Casting SCPCE2) zugesandt am 05.08.2026
 - [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider.md] Leistungen des Partners: Lead-Generierung, Erstkontakt, Übergabe qualifizierter Kontakte an Prozessia
 - [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider (1).md] Vertriebspartner Segschneider darf keine Verträge im Namen von Prozessia abschließen, nur Kundenkontakte vermitteln
 - [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_HOS_Elias_Haghverdi-1.md] Vereinbarung regelt Rechte, Pflichten und Vergütung beider Vertragsparteien
