@@ -1,4 +1,8 @@
 ## KONTEXT
+- [2026-08-05 13:21] [Automatische Antwort: Unser Gespräch] Notfallkontakte: 043171799-0 (Kiel), 041017099-0 (Pinneberg)
+- [2026-08-05 13:21] [Automatische Antwort: Unser Gespräch] Anfragen-Kontakte: vertrieb-ki@hoedtke.de (Kiel), vertrieb-pi@hoedtke.de (Pinneberg)
+- [2026-08-05 13:21] [Automatische Antwort: Unser Gespräch] Bestellungen-Kontakte: bestellung-ki@hoedtke.de (Kiel), bestellung-pi@hoedtke.de (Pinneberg)
+- [2026-08-05 13:21] [Automatische Antwort: Unser Gespräch] Lana Kruckow (hoedtke.de) ist bis einschließlich 25.08.2026 im Urlaub und nicht erreichbar
 - [2026-08-05 10:08] [Re: ISO 27001 bei Prozessia] Geschäftsnutzen: Deepslate konnte nach ISO 27001 schneller größere Kunden gewinnen und Umsatz signifikant steigern
 - [2026-08-05 10:08] [Re: ISO 27001 bei Prozessia] Marktsituation: Größere Unternehmen erwarten ISO 27001 Zertifizierungen von ihren Partnern für Audit-/Compliance-Sicherheit
 - [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider.md] Prozessia GbR: vertreten durch Sebastian Spuhler und Mohamed Douioui, Campus Starterzentrum Saarbrücken
