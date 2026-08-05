@@ -1,4 +1,7 @@
 ## KONTEXT
+- [2026-08-05 05:07] [Request# 28824206 | [ACTION REQUIRED] Yo] Ansprechpartner: Jed Enel (Onboarding & Compliance, Twilio)
+- [2026-08-05 05:07] [Request# 28824206 | [ACTION REQUIRED] Yo] Bundle SID: BU6b3e48b819e258269f5e87416b09cda1
+- [2026-08-05 05:07] [Request# 28824206 | [ACTION REQUIRED] Yo] Account SID: ACa756b2b60f3dba0995621f130b4caa60
 - [2026-08-04 20:54] [Re: New Qualifications for Air Condition] Referenzbeispiel: Klimaanlagenbetrieb in Texas erhielt 150.000 USD Kreditlinie (2026)
 - [2026-08-04 20:54] [Re: New Qualifications for Air Condition] Marketing-E-Mail von Approvd (Kreditangebote für Klimaanlagenbetriebe) - nicht relevant für Prozessia GbR
 - [2026-08-04 12:36] [AW: Angeot Beschaffungsagent] Beschaffungsagent schafft wiederverwendbare Basisinfrastruktur für zukünftige KI-Anwendungen
@@ -863,6 +866,8 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-05 05:07] [Request# 28824206 | [ACTION REQUIRED] Yo] Erforderliche Korrektionen müssen über Twilio Console-Link durchgeführt werden
+- [2026-08-05 05:07] [Twilio Business Profile - Additional inf] Nächste Schritte: Business Profile aktualisieren oder Support unter trusthub-verify@twilio.com kontaktieren
 - [2026-08-04 14:28] LinkedIn Content-Recherche-Strategie erstellt und doppelt verankert: als Dokument unter Marketing/LinkedIn/2026-08-04-Content-Recherche-Strategie.md und als aktive Direction via set_linkedin_direction, die ab sofort jede generate_linkedin_ideas-Generierung beeinflusst
 - [2026-08-04 12:36] [AW: Angeot Beschaffungsagent] Investitionsentscheidung für Beschaffungsagent läuft; entscheidende offene Frage: Kostenaufteilung der 32.000€
 - [2026-08-04 09:42] [Re: Wachstum systematisieren] Nächster Schritt: Levin fragt nach, ob Akquise-Automatisierung aktuell Thema bei WebWork ist
@@ -1541,6 +1546,9 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-05 05:07] [Request# 28824206 | [ACTION REQUIRED] Yo] Trust Hub Business Profile für Prozessia wurde abgelehnt – Grund: fehlende und/oder ungenaue Informationen (4. August 2026)
+- [2026-08-05 05:07] [Twilio Business Profile - Additional inf] Bereitgestellte Business ID konnte nicht verifiziert werden oder ist abgelaufen (Error 18602)
+- [2026-08-05 05:07] [Twilio Business Profile - Additional inf] Twilio Business Profile Verifizierung abgelehnt - Business Name stimmt nicht mit Website SSL Certificate überein (Error 18601)
 - [2026-08-04 07:15] [AW: Demoversion Zilmer] Firmenname wird mit Doppel-L geschrieben: 'Zillmer' (nicht 'Zilmer')
 - [2026-08-04 07:15] [AW: Demoversion Zilmer] Link zur Demoversion funktioniert nicht - muss überprüft und neu zugesendet werden
 - [2026-08-04 01:45] [2026-08-04-19fca6c853-Hetzner_2026-08-04_084001046484.md] Verzugsregelung: Automatischer Verzug nach 30 Tagen ohne Zahlungseingang (ab 03.09.2026)
