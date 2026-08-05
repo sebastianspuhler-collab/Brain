@@ -788,6 +788,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-05 14:00] Kunde Schaufler: Lastenheft enthält offene Punkte, die vor verbindlicher Kalkulation geklärt werden müssen - fehlendes Mengengerüst (Positionen/Dokumente/Nutzer), unklare Genauigkeitsziele für KI-Extraktion, unklare Cloud/On-Premise-Definition (Air-Gap vs. kontrollierter Internetzugang) und unklarer Freigabeprozess (roh→konsolidiert→normalisiert→freigegeben)
 - [2026-08-05 10:08] [Re: ISO 27001 bei Prozessia] Linus Dangmann (Risk & Compliance, Secfix GmbH München) erkundigt sich nach ISO 27001 Zertifizierungsbedarf bei Prozessia
 - [2026-08-05 08:32] [2026-06-25-Vertriebsvereinbarung_Geginat (1).md] Vertriebspartner Geginat: Lead-Vermittlung für KI-Produkte, provisionsbasierte Vergütung für qualifizierte weitergeleitete Leads
 - [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider.md] Segschneider ist Vertriebspartner für Lead-Generierung und Kundenkontaktsvermittlung
