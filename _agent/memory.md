@@ -1,4 +1,7 @@
 ## KONTEXT
+- [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider.md] Prozessia GbR: vertreten durch Sebastian Spuhler und Mohamed Douioui, Campus Starterzentrum Saarbrücken
+- [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider.md] Vertriebsvereinbarung mit Segschneider unterzeichnet am 2026-06-09
+- [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_HOS_Elias_Haghverdi-1.md] Vertriebsvereinbarung zwischen Home of Solar GmbH und Elias Haghverdi vom 09.06.2026
 - [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_Geginat .md] Vertragsdatum: 2026-06-09, Dokumenttyp: Vertriebsvereinbarung zur Lead-Vermittlung und Kooperation
 - [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_Adrian_Mueller (1).md] Vertragsdatum: 2026-06-09
 - [2026-08-05 08:30] [2026-06-09-Vertriebsvereinbarung Handelsvertreter.md] Vertriebspartner ist selbstständig tätig (nicht angestellt)
@@ -779,6 +782,9 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-05 08:32] [2026-06-25-Vertriebsvereinbarung_Geginat (1).md] Vertriebspartner Geginat: Lead-Vermittlung für KI-Produkte, provisionsbasierte Vergütung für qualifizierte weitergeleitete Leads
+- [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider.md] Segschneider ist Vertriebspartner für Lead-Generierung und Kundenkontaktsvermittlung
+- [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_HOS_Elias_Haghverdi-1.md] Geschäftsführer Home of Solar: Jean Marcel Toussaint & Patric Blohm
 - [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_Geginat.md] Geginat vermittelt qualifizierte Kundenkontakte (Leads) an Prozessia gegen Provision, ohne Abschlussvollmacht
 - [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_Geginat .md] Vertriebspartner: Geginat – selbstständig tätig zur Identifikation und Weiterleitung qualifizierter Leads an Prozessia
 - [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_Adrian_Mueller (1).md] Adrian Müller (geb. 19.11.1987, Wermelskirchen) als Vertriebspartner/Handelsvertreter
@@ -1078,6 +1084,10 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider.md] Leistungen des Partners: Lead-Generierung, Erstkontakt, Übergabe qualifizierter Kontakte an Prozessia
+- [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider (1).md] Vertriebspartner Segschneider darf keine Verträge im Namen von Prozessia abschließen, nur Kundenkontakte vermitteln
+- [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_HOS_Elias_Haghverdi-1.md] Vereinbarung regelt Rechte, Pflichten und Vergütung beider Vertragsparteien
+- [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_HOS_Elias_Haghverdi-1.md] Elias Haghverdi als Vertriebspartner vermittelt Dach-/Freiflächen für Photovoltaikanlagen und Privatanleger im Bereich erneuerbare Energien
 - [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_Geginat .md] Prozessia bietet KI-Produkte an, insbesondere den Prozessia Agent (KI-Assistent)
 - [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_Adrian_Mueller (1).md] Adrian Müller: nicht weisungsgebunden, nicht abschlussbefugt
 - [2026-08-05 08:30] [2026-06-09-Vertriebsvereinbarung Handelsvertreter.md] Provision entsteht erst nach Vertragsabschluss UND vollständigem Zahlungseingang der Setup-Gebühr
@@ -1885,6 +1895,8 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-05 08:32] [2026-06-25-Vertriebsvereinbarung_Geginat (1).md] Vertrag vom 2026-06-25 mit Geginat: Vertriebspartner-Namenfelder und Adressdaten unvollständig
+- [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider (1).md] Vertriebspartner-Angaben (Name, Adresse) in Vertrag noch nicht ausgefüllt (Blanko-Felder)
 - [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung.md] Vertriebspartner-Daten unvollständig: Name, Adresse und Geburtsdatum fehlen im Dokument
 - [2026-08-05 08:29] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokument ist Vorlage: Partnerdaten (Name, Adresse, Geburtsdatum) noch nicht ausgefüllt
 - [2026-08-05 08:27] [2026-06-09-Beschaffungsagent_Prozessia.md] Kritische Probleme: manuelle Belegverarbeitung (10–15 Stunden täglich), Rechnungsvolumen-Überfluss, späte Erkennung von Lieferverzögerungen gefährdet Produktionstermine
