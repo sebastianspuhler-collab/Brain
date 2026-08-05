@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-05 10:08] [Re: ISO 27001 bei Prozessia] Geschäftsnutzen: Deepslate konnte nach ISO 27001 schneller größere Kunden gewinnen und Umsatz signifikant steigern
+- [2026-08-05 10:08] [Re: ISO 27001 bei Prozessia] Marktsituation: Größere Unternehmen erwarten ISO 27001 Zertifizierungen von ihren Partnern für Audit-/Compliance-Sicherheit
 - [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider.md] Prozessia GbR: vertreten durch Sebastian Spuhler und Mohamed Douioui, Campus Starterzentrum Saarbrücken
 - [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider.md] Vertriebsvereinbarung mit Segschneider unterzeichnet am 2026-06-09
 - [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_HOS_Elias_Haghverdi-1.md] Vertriebsvereinbarung zwischen Home of Solar GmbH und Elias Haghverdi vom 09.06.2026
@@ -782,6 +784,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-05 10:08] [Re: ISO 27001 bei Prozessia] Linus Dangmann (Risk & Compliance, Secfix GmbH München) erkundigt sich nach ISO 27001 Zertifizierungsbedarf bei Prozessia
 - [2026-08-05 08:32] [2026-06-25-Vertriebsvereinbarung_Geginat (1).md] Vertriebspartner Geginat: Lead-Vermittlung für KI-Produkte, provisionsbasierte Vergütung für qualifizierte weitergeleitete Leads
 - [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider.md] Segschneider ist Vertriebspartner für Lead-Generierung und Kundenkontaktsvermittlung
 - [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_HOS_Elias_Haghverdi-1.md] Geschäftsführer Home of Solar: Jean Marcel Toussaint & Patric Blohm
@@ -1084,6 +1087,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-05 10:08] [Re: ISO 27001 bei Prozessia] Nächster Schritt: Klärung erforderlich, wie die ISO 27001 Situation bei Prozessia und deren Kunden aussieht
 - [2026-08-05 09:02] [Fwd: Formenplanung] Formenplanung für GGH und Steuergeräte von Joerg Schwindling (ZF Group, Global Commodity Casting SCPCE2) zugesandt am 05.08.2026
 - [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider.md] Leistungen des Partners: Lead-Generierung, Erstkontakt, Übergabe qualifizierter Kontakte an Prozessia
 - [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider (1).md] Vertriebspartner Segschneider darf keine Verträge im Namen von Prozessia abschließen, nur Kundenkontakte vermitteln
