@@ -1,4 +1,37 @@
 ## KONTEXT
+- [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_Geginat .md] Vertragsdatum: 2026-06-09, Dokumenttyp: Vertriebsvereinbarung zur Lead-Vermittlung und Kooperation
+- [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_Adrian_Mueller (1).md] Vertragsdatum: 2026-06-09
+- [2026-08-05 08:30] [2026-06-09-Vertriebsvereinbarung Handelsvertreter.md] Vertriebspartner ist selbstständig tätig (nicht angestellt)
+- [2026-08-05 08:30] [2026-06-09-Kooperationsvereinbarung_Prozessia (4).md] Prozessia bietet den Prozessia Agent (KI-Assistent für Unternehmen) als Leistung an
+- [2026-08-05 08:30] [2026-06-09-Kooperationsvereinbarung_Prozessia (4) (1).md] Prozessia-Sitz: Campus Starterzentrum, Gebäude A1, 66123 Saarbrücken
+- [2026-08-05 08:29] [2026-07-20-Wissensmanagement_Prozessia.md] Ab 02.08.2026 (EU AI Act) besteht gesetzliche Nachweispflicht für KI-Einsatz in Betrieben
+- [2026-08-05 08:29] [2026-06-09-prozessia_Beschaffungsagent_Marketing.md] DSGVO-konforme lokale Datenhaltung mit nahtloser ERP-Integration
+- [2026-08-05 08:28] [2026-06-09-Prozessia_Agent_Produktbeschreibung_LANG_FINAL.md] Betrieb datenschutzkonform in der EU; Kundendaten werden nicht zum Training von Sprachmodellen verwendet
+- [2026-08-05 08:28] [2026-06-09-Prozessia_Agent_Produktbeschreibung_LANG_FINAL.md] Personalisierung nach Rollen/Abteilungen und kundenspezifische Workflows sind im Leistungsumfang enthalten
+- [2026-08-05 08:28] [2026-06-09-Prozessia.md] Kampagnenziel: Terminbuchung für 30-minütiges Erstgespräch zum KI-Beschaffungsagenten
+- [2026-08-05 08:28] [2026-06-09-Prozessia — Unternehmenspräsentation.md] Kritisches Risiko: Konstruktionsdaten/Stücklisten in US-Clouds sind existenzbedrohend für Maschinenbauer
+- [2026-08-05 08:26] [2026-06-09-🚗 Mehr Servicequalität für Automobile Görres mit KI-Telefonagent 🤖 – Prozessia.md] Verkaufspräsentation/Lead-Pitch vom 09.06.2026
+- [2026-08-05 08:26] [2026-06-09-🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia.md] Lead-Status: Pitch-Dokument vom 2026-06-09, noch mit unfertigen Platzhaltern ({{USE_CASES}})
+- [2026-08-05 08:26] [2026-06-09-🚗 Effizienter Service im Autohaus mit KI-Voice-Agent 🎙️ – Prozessia.md] Dokument-Status: Unvollständiges Vertriebstemplate mit nicht gefülltem Platzhalter ({{USE_CASES}}), erstellt 2026-06-09
+- [2026-08-05 08:26] [2026-06-09-🚗 Effizienter Service im Autohaus mit KI-Voice-Agent 🎙️ – Prozessia.md] Hochaufkommen-Zeiten in Autohäusern: morgens, montags, nach Verkaufsaktionen
+- [2026-08-05 08:26] [2026-06-09-🚗 Effiziente Telefonentlastung für Ihr Autohaus 🚗 – Prozessia.md] Kernfunktionen: 24/7-Erreichbarkeit und automatisierte Terminbuchung
+- [2026-08-05 08:25] [2026-06-09-🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.md] Kundeanfragen fokussieren auf Fahrzeugverfügbarkeit, Terminkoordination und Service
+- [2026-08-05 08:25] [2026-06-09-🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.md] Stoßzeiten mit erhöhtem Anrufvolumen: montags und während Aktionen
+- [2026-08-05 08:25] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus – mit Prozessia Voice Agent 🚗 – Prozessia.md] Autohäuser erleben Telefonspitzen zu Stoßzeiten (morgens und montags) mit hohem Koordinationsaufwand
+- [2026-08-05 08:24] [2026-06-09-📞 Effiziente Telefonbetreuung mit dem Prozessia Voice Agent für AM Autoservice 🚗 – Prozessia.md] Dokument vom 2026-06-09, Vertriebsdokument/Sales-Unterlage mit unbefülltem Platzhalter ({{USE_CASES}})
+- [2026-08-05 08:24] [2026-06-09-📞 Effiziente Telefonbetreuung mit dem Prozessia Voice Agent für AM Autoservice 🚗 – Prozessia.md] Herausforderung: Viele Anrufe während Stoßzeiten (Morgen, nach Aktionen) für Service-Termine
+- [2026-08-05 08:24] [2026-06-09-📞 Effiziente Anrufsteuerung im Autohaus mit KI-Voice-Agent 🚗 – Prozessia.md] Voice-Agent-Lösung für Autohäuser: Automatisierte Anrufsteuerung, Terminbuchung, 24/7-Erreichbarkeit, adressiert Spitzenlastzeiten (z.B. Montagmorgen)
+- [2026-08-05 08:23] [2026-06-09-Werbeagenturen.md] Dokumentdatum: 2026-06-09, Kategorie: Sales, Quelle: Werbeagenturen.pdf
+- [2026-08-05 08:23] [2026-06-09-Werbeagenturen.md] Dokumentzweck: Vertriebsmaterial für Präsentationen und Verkaufsgespräche mit Werbeagenturen
+- [2026-08-05 08:23] [2026-06-09-Serienbrief_2.md] Zielaction: 30-minütiger Gesprächstermin via Calendly-Buchung
+- [2026-08-05 08:23] [2026-06-09-Serienbrief_2.md] Serienbriefkampagne 2026-06-09 für Fertigungs-/Automatisierungsbranche (Zielunternehmen: Siempelkamp, STEIN Automation)
+- [2026-08-05 08:23] [2026-06-09-Schaufler_Hosting_Praesentation (1).md] Hosting-Partner Hetzner: deutsche Rechenzentren, DSGVO-konform, ISO-zertifiziert, seit 1997 etabliert
+- [2026-08-05 08:22] [2026-06-09-Report Immobilienmarkler.md] Marketingmaterial mit KI-Lösungsbausteinen: Zentrales CRM, automatisierte Kommunikation, digitale Objektverwaltung, automatische Reports
+- [2026-08-05 08:22] [2026-06-09-Prozessia_Voice_Agents_Produktbeschreibung_LANG_FINAL_CLEAN.md] Produktstand: 19.12.2025 (Dokumentationsdatum: 09.06.2026)
+- [2026-08-05 08:22] [2026-06-09-Prozessia_Voice_Agents_Produktbeschreibung_LANG_FINAL_CLEAN.md] Voice Agents-Kernfunktion: KI-gestützte Anrufbearbeitung mit strukturierter Erfassung und intelligentem Routing zur Prozessstandardisierung
+- [2026-08-05 08:22] [2026-06-09-Prozessia_Voice_Agents_Produktbeschreibung_LANG_FINAL_CLEAN.md] Prozessia ist offizieller Fonio-Partner (Österreich), Fonio arbeitet DSGVO-konform
+- [2026-08-05 08:22] [2026-06-09-Prozessia_Serienbrief_FINAL_vorlage.md] Kampagnenziel: 30-minütiges Beratungsgespräch zur KI-Lösung im Einkauf vereinbaren
+- [2026-08-05 08:21] [2026-06-09-Prozessia_Landingpage_Brief_v2.md] Gesetzliche KI-Kompetenzpflicht nach EU AI Act Artikel 4 gilt seit Februar 2025
 - [2026-08-05 08:21] [2026-06-09-Prozessia_Flyer_Messe.md] Implementierung: KI-Lösung in wenigen Wochen realisierbar; deutsche Serverinfrastruktur; DSGVO-konform und EU-AI-Act-ready
 - [2026-08-05 08:21] [2026-06-09-Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.pptx.md] Verkaufsposition: Kosteneinsparung + Datensicherheit + Kontrolle vs. ChatGPT Enterprise
 - [2026-08-05 08:21] [2026-06-09-Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.md] Drei Hauptherausforderungen adressiert: Kosten, Datenschutz, fehlende Systemintegration
@@ -746,6 +779,23 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_Geginat.md] Geginat vermittelt qualifizierte Kundenkontakte (Leads) an Prozessia gegen Provision, ohne Abschlussvollmacht
+- [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_Geginat .md] Vertriebspartner: Geginat – selbstständig tätig zur Identifikation und Weiterleitung qualifizierter Leads an Prozessia
+- [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_Adrian_Mueller (1).md] Adrian Müller (geb. 19.11.1987, Wermelskirchen) als Vertriebspartner/Handelsvertreter
+- [2026-08-05 08:29] [2026-07-20-Wissensmanagement_Prozessia.md] 114.000 Mittelständler geben jährlich auf – Hauptgrund: nicht dokumentiertes Erfahrungswissen des Inhabers
+- [2026-08-05 08:29] [2026-07-20-Wissensmanagement_Prozessia.md] Zielgruppe: Industrieller Mittelstand (Maschinenbau, Elektrotechnik, Werkzeugbau, Zulieferindustrie)
+- [2026-08-05 08:27] [2026-06-09-Beschaffungsagent_Prozessia.md] Zielgruppen: Industriekunden in Elektrotechnik, Pharma, Maschinenbau, Werkzeugbau
+- [2026-08-05 08:26] [2026-06-09-🚗 Mehr Servicequalität für Automobile Görres mit KI-Telefonagent 🤖 – Prozessia.md] Automobile Görres in Wadgassen – Neukunde Automobilhandel mit Vertrieb, Gebrauchtwagen und Meister-Werkstatt
+- [2026-08-05 08:26] [2026-06-09-🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia.md] Markenunabhängiger Spezialist für hochwertige Gebrauchtwagen mit ca. 1.800 Fahrzeugen täglich im Angebot
+- [2026-08-05 08:26] [2026-06-09-🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia.md] Autohaus Royal GmbH, Berlin-Schöneberg; weitere Standorte: Airport BER, Ludwigsfelde
+- [2026-08-05 08:25] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Kundenproblem: Hohe Anrufvolumina zu Stoßzeiten (Montag, Aktionen), lange Wartezeiten, überlastetes Telefonteam
+- [2026-08-05 08:24] [2026-06-09-📞 Effiziente Telefonbetreuung mit dem Prozessia Voice Agent für AM Autoservice 🚗 – Prozessia.md] Öffnungszeiten: Montag-Freitag 09:00-18:00 Uhr
+- [2026-08-05 08:24] [2026-06-09-📞 Effiziente Telefonbetreuung mit dem Prozessia Voice Agent für AM Autoservice 🚗 – Prozessia.md] AM Autoservice: Kfz-Werkstatt in Saarbrücken, gegründet 2010, Leistungen: Reparaturen, TÜV-Service, Klima-Service
+- [2026-08-05 08:23] [2026-06-09-Serienbrief_2.md] Referenzkunde: Werkzeugbauer Baden-Württemberg, 60+ Mitarbeiter, Serienteile Automobilindustrie, erzielt 11.000 € monatliche Einsparungen durch KI-Beschaffungsagenten
+- [2026-08-05 08:23] [2026-06-09-Schaufler_Hosting_Praesentation (4).md] Schaufler: KI-Hosting- und Wartungsmodell (Einrichtung, Betrieb, Skalierung)
+- [2026-08-05 08:22] [2026-06-09-Report Recruiting.md] Zielmarkt: Recruiting-Agenturen mit Prozessoptimierungsbedarf
+- [2026-08-05 08:22] [2026-06-09-Report Immobilienmarkler.md] Zielkundensegment: Immobilienunternehmen und Immobilienmakler als potenzielle Neukunden
+- [2026-08-05 08:22] [2026-06-09-Prozessia_Serienbrief_FINAL_vorlage.md] Zielkunde: Zimmermann Formen- und Werkzeugbau GmbH, Ansprechpartner Herr Rohleder, Blaumühlenweg 5, 35075 Gladenbach
 - [2026-08-05 08:21] [2026-06-09-Prozessia_Flyer_Messe.md] Prozessia-Messflyer vom 09.06.2026 – Sebastian Spuhler als Kontaktperson für Terminvereinbarungen benannt
 - [2026-08-05 08:20] [2026-06-09-KI-Agent-X-Voigt-Salus.md] Investitionskosten für Setup des KI-Agenten X: ca. 7.000 €
 - [2026-08-05 08:20] [2026-06-09-Der-digitale-Kanzlei-Assistent (1).md] Zielmarkt: Moderne Rechtskanzleien zur Optimierung von Verwaltungsprozessen
@@ -1028,6 +1078,47 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_Geginat .md] Prozessia bietet KI-Produkte an, insbesondere den Prozessia Agent (KI-Assistent)
+- [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_Adrian_Mueller (1).md] Adrian Müller: nicht weisungsgebunden, nicht abschlussbefugt
+- [2026-08-05 08:30] [2026-06-09-Vertriebsvereinbarung Handelsvertreter.md] Provision entsteht erst nach Vertragsabschluss UND vollständigem Zahlungseingang der Setup-Gebühr
+- [2026-08-05 08:30] [2026-06-09-Vertriebsvereinbarung (1).md] Provisionsauslöser: Vertragsabschluss + vollständiger Zahlungseingang der Setup-Gebühr
+- [2026-08-05 08:30] [2026-06-09-Kooperationsvereinbarung_Prozessia (4).md] Aufgabe Vertriebspartner: Identifikation und Vermittlung qualifizierter Leads an Prozessia sowie allgemeine Geschäftsunterstützung
+- [2026-08-05 08:30] [2026-06-09-Kooperationsvereinbarung_Prozessia (4) (1).md] Aufgabe: Vermittlung qualifizierter Leads mit Kontaktdaten und Bedarfsbeschreibung
+- [2026-08-05 08:30] [2026-06-09-Kooperationsvereinbarung_Prozessia (2).md] Kooperationspartner ist selbstständig tätig, nicht abschlussberechtigt und vermittelt qualifizierte Leads an Prozessia
+- [2026-08-05 08:29] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Kooperationspartner fungiert als selbstständiger Handelsvertreter ohne Abschlussvollmacht, verantwortlich für Identifikation und Übergabe qualifizierter Leads
+- [2026-08-05 08:29] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Zweck: Vermittlung von Kundenkontakten (Leads) für KI-Produkte: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
+- [2026-08-05 08:29] [2026-07-20-Wissensmanagement_Prozessia.md] Prozessia-Lösung sichert zentral: Lieferantenkonditionen, technisches Konstruktionswissen, Stücklisten
+- [2026-08-05 08:29] [2026-06-09-prozessia_Beschaffungsagent_Marketing.md] System nutzt Ampellogik und Lieferanten-Scoring-System zur Transparenzverbesserung
+- [2026-08-05 08:29] [2026-06-09-Präsentation_Beschaffungsagent_Prozessia.md] Alleinstellungsmerkmale: DSGVO-Konformität, ERP-Integration, Ampel-Scoring-System
+- [2026-08-05 08:29] [2026-06-09-Präsentation_Beschaffungsagent_Prozessia.md] Automatisiert manuelle Nachverfolgung (Einkäufer aktuell 60% Zeit mit Telefon & E-Mail)
+- [2026-08-05 08:29] [2026-06-09-Präsentation_Beschaffungsagent_Prozessia.md] Beschaffungsagent reduziert Beschaffungskosten um bis zu 80%
+- [2026-08-05 08:28] [2026-06-09-Prozessia.md] Nachgewiesene Kostenersparnis: 11.000 € monatlich durch optimierten Einkaufsprozess
+- [2026-08-05 08:28] [2026-06-09-Prozessia — Unternehmenspräsentation.md] Prozessia-Portfolio: Beschaffungsagent, Stücklistenagent, KI-Chatbot, Schulungen, Server-Hosting in Deutschland
+- [2026-08-05 08:27] [2026-06-09-Beschaffungsagent_Prozessia.md] Vier Kernmodule: Rechnungsverarbeitung, Auftragsbestätigung, Lieferterminverfolgung, Versand & Dokumentation
+- [2026-08-05 08:27] [2026-06-25-messberichte-angebot-argumentation.md] WinForm-/MSSQL-Anbindung: Preisargumentation basiert auf fehlender Standard-API, hohem Testaufwand und Sicherheitsanforderungen
+- [2026-08-05 08:27] [2026-06-25-messberichte-angebot-argumentation.md] 2FA-Authentifizierung bei mehreren Lieferanten erforderlich – ohne zusätzlichen RPA-Aufwand nicht automatisierbar
+- [2026-08-05 08:27] [2026-06-09-🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.md] Automatisierbare Anruftypen: Werkstatt-Service, Probefahrten, Rückrufbitten, Verfügbarkeitsanfragen für Fahrzeuge
+- [2026-08-05 08:26] [2026-06-09-🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia.md] Problem: Hohes Telefonaufkommen; Öffnungszeiten Montag–Samstag
+- [2026-08-05 08:25] [2026-06-09-🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.md] Anforderungen: Automatisierung von Service-Terminen, Probefahrten und Rückrufen via Voice Agent
+- [2026-08-05 08:25] [2026-06-09-🚗 Effiziente Kundenbetreuung im Autohaus – mit Prozessia Voice Agent 📞 – Prozessia.md] Voice Agent automatisiert: Serviceterminalfragen, Werkstatttermine, Probefahrten, Rückrufe, Verfügbarkeitsabfragen
+- [2026-08-05 08:25] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus – mit Prozessia Voice Agent 🚗 – Prozessia.md] Voice Agent entlastet Autohaus-Teams bei der Verwaltung von Rückrufwünschen und Serviceanfragen
+- [2026-08-05 08:25] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Anwendungsfälle: Service-Terminbuchungen, Werkstatt-Anfragen, Probefahrten-Reservierungen, automatisiertes Rückrufmanagement
+- [2026-08-05 08:24] [2026-06-09-📞 Effiziente Anrufentlastung im Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] 24/7-Erreichbarkeit ohne Personalaufwand; strukturierte Anrufverwaltung zur Entlastung des Teams
+- [2026-08-05 08:24] [2026-06-09-📞 Effiziente Anrufentlastung im Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Automatisierte Funktionen: Terminbuchung, Rückruferfassung, Bearbeitung von Service-/Werkstatt-/Probefahrt-Anfragen, Fahrzeugverfügbarkeits-Abfragen
+- [2026-08-05 08:23] [2026-06-09-Werbeagenturen.md] Lösungsbausteine: CRM-Automatisierung, automatisierte Projektstart-Workflows, Kampagnen-Dashboards, digitale Abrechnung
+- [2026-08-05 08:23] [2026-06-09-Werbeagenturen.md] Hauptkundenschmerzen: Zersplitterte Kundenkommunikation, manuelle Angebots-/Projektstarts, aufwendiges Reporting, ineffiziente Abrechnung
+- [2026-08-05 08:23] [2026-06-09-Template Autohäuser.md] Template dient als wiederverwendbare Vertriebsunterlage zur Kundenakquise in der Automobilbranche
+- [2026-08-05 08:23] [2026-06-09-Template Autohäuser.md] Voice-Agent-Präsentationstemplate für Autohäuser existiert (erstellt 2026-06-09)
+- [2026-08-05 08:23] [2026-06-09-Schaufler_Hosting_Praesentation (4).md] Sprachmodell: Azure OpenAI empfohlen
+- [2026-08-05 08:23] [2026-06-09-Schaufler_Hosting_Praesentation (4).md] Hosting-Partner: Hetzner (DSGVO-konform, ISO-zertifiziert, deutsche Rechenzentren)
+- [2026-08-05 08:23] [2026-06-09-Schaufler_Hosting_Praesentation (1).md] Preismodell: monatliche Pauschale plus Kosten für Server und Sprachmodell
+- [2026-08-05 08:22] [2026-06-09-Report Recruiting.md] Kernherausforderungen: dezentralisierte Bewerberverwaltung (E-Mail, LinkedIn, Jobportale), manuelle Kommunikation, langsame Kundenabstimmung, fehlende KPI-Transparenz (Time-to-Hire, Cost-per-Hire)
+- [2026-08-05 08:22] [2026-06-09-Report Immobilienmarkler.md] Kernproblem: Fehlende automatische Kennzahlen-Auswertung (Besichtigungsquote, Vermarktungsdauer, Abschlussrate)
+- [2026-08-05 08:22] [2026-06-09-Prozessia_Voice_Agents_Produktbeschreibung_LANG_FINAL_CLEAN.md] Bestehende Telefonnummern können importiert werden (z.B. via Twilio), abhängig von Setup und Provider
+- [2026-08-05 08:22] [2026-06-09-Prozessia_Serienbrief_FINAL_vorlage.md] Produktlösung: KI-Beschaffungsagent speziell für Werkzeugbaubranche; eliminiert Nachfassen, Dokumentenprüfung und manuelle Datenabgleiche
+- [2026-08-05 08:21] [2026-06-09-Prozessia_Landingpage_Brief_v2.md] Deliverable für Teilnehmer: Persönlicher 90-Tage-Umsetzungsplan (konkret, priorisiert, sofort umsetzbar)
+- [2026-08-05 08:21] [2026-06-09-Prozessia_Landingpage_Brief_v2.md] Einziger Call-to-Action: Kostenloses 15-Minuten-Vorgespräch
+- [2026-08-05 08:21] [2026-06-09-Prozessia_Landingpage_Brief_v2.md] Workshop-Format: Eintägiger KI-Workshop mit Grundlagen, EU AI Act, DSGVO, Live-Demo und Maschinenbau-Use-Cases
 - [2026-08-05 08:21] [2026-06-09-Prozessia_Flyer_Messe.md] Stücklistenagent: Automatisierte Stücklistenprüfung und Abweichungserkennung in Stunden statt Tagen; lückenlose Dokumentation
 - [2026-08-05 08:21] [2026-06-09-Prozessia_Flyer_Messe.md] Beschaffungsagent: Automatisiert Auftragsbestätigungsprüfung, Lieferterminüberwachung, automatische Lieferantenkommunikation bei Abweichungen
 - [2026-08-05 08:21] [2026-06-09-Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.md] Prozessia KI-Agent als EU-gehostete, datenschutzkonforme Alternative positioniert
@@ -1794,6 +1885,13 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung.md] Vertriebspartner-Daten unvollständig: Name, Adresse und Geburtsdatum fehlen im Dokument
+- [2026-08-05 08:29] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokument ist Vorlage: Partnerdaten (Name, Adresse, Geburtsdatum) noch nicht ausgefüllt
+- [2026-08-05 08:27] [2026-06-09-Beschaffungsagent_Prozessia.md] Kritische Probleme: manuelle Belegverarbeitung (10–15 Stunden täglich), Rechnungsvolumen-Überfluss, späte Erkennung von Lieferverzögerungen gefährdet Produktionstermine
+- [2026-08-05 08:27] [2026-06-09-🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.md] Pitch-Dokument enthält ungefüllten Platzhalter für konkrete Use Cases – Ergänzung erforderlich
+- [2026-08-05 08:26] [2026-06-09-🚗 Effizienter Service im Autohaus mit KI-Voice-Agent 🎙️ – Prozessia.md] Datei-Ende abgeschnitten/unvollständig – Text bricht bei 'Universität des Sa' ab
+- [2026-08-05 08:25] [2026-06-09-🚗 Effiziente Kundenbetreuung im Autohaus – mit Prozessia Voice Agent 📞 – Prozessia.md] Dokumentation unvollständig: Platzhalter für konkrete Use Cases noch nicht ausgefüllt
+- [2026-08-05 08:24] [2026-06-09-📞 Effiziente Anrufsteuerung im Autohaus mit KI-Voice-Agent 🚗 – Prozessia.md] Marketingdokument 'KI-Voice-Agent Autohaus' vom 2026-06-09 enthält unfüllten Platzhalter {{USE_CASES}} – fertigstellen erforderlich
 - [2026-08-05 08:11] [2026-06-09-Copy of undefined.md] Dokument unvollständig: {{USE_CASES}} Platzhalter noch nicht gefüllt
 - [2026-08-05 08:04] [2026-07-27-19fa3698b1-MATERIAL_2672654.md] Prüffall: Material benötigt Zuordnung oder ergänzende Kontextinformationen zur eindeutigen Klassifizierung
 - [2026-08-05 08:03] [2026-07-27-19fa3698b1-Grenzebach-Anfrage 6000017119.md] Datei erfodert Reparse oder manuelles Öffnen zur Extraktion der Anfrageinhalte
@@ -1914,3 +2012,6 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 
 ## CUSTOMER_DATA
 - [2026-08-05 08:15] [2026-06-09-advertising_extern.md] Verfügbare Datenfelder: Vorname, Nachname, E-Mail, Titel, Organisation, Website, Stadt, Bundesland
+
+## PREISE
+- [2026-08-05 08:23] [2026-06-09-Schaufler_Hosting_Praesentation (4).md] Monatliche Gesamtkosten: 558,07 € (Servicepauschale 400 €, Server 38,07 €, KI-Modell 120 €)
