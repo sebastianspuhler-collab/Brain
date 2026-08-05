@@ -1,4 +1,16 @@
 ## KONTEXT
+- [2026-08-05 08:01] [2026-06-09-Prozessia_Intern_Schaufler_Hosting.md] Dokument: Vertrauliches internes Hosting-Konzept Schaufler (April 2026, Quelle 2026-06-09), enthält Kosten- und Gewinnmargeninformationen
+- [2026-08-05 08:01] [2026-06-09-Prozessia-X-Schaufler Beschafungsagent.md] Prozessia-Kernkompetenz: KI-gestützte Prozessautomatisierung, Chatbots und intelligente Automatisierungslösungen
+- [2026-08-05 08:00] [2026-08-05-Email-19fd0e77-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Email vom 2026-08-05 als Antwort zu Testreihen-Ergebnissen des Stücklistenprojekts
+- [2026-08-05 08:00] [2026-08-13-Schauenberg.md] Teilnehmer: Sascha Haller (Sascha-haller@sb-it.com)
+- [2026-08-05 08:00] [2026-07-14-Prozessia X Morali.md] Sebastian erläuterte EU-gehostete Sprachmodelle über Microsoft mit AVV-Vertrag als Unterscheidung zu öffentlichen Chatbots
+- [2026-08-05 07:59] [2026-07-02-M.Reuss X Prozessia.md] Nächster Meilenstein: Moritz klärt intern mit Geschäftsführung (Klärungsbedarf unvollständig dokumentiert)
+- [2026-08-05 07:59] [2026-07-29-Update Juchem X Prozessia.md] Follow-up Treffen: 29.07.2026, 14:00–17:00 Uhr (nach Erstgespräch 08.06.2026)
+- [2026-08-05 07:59] [2026-06-08-Juchem.md] Demo des Beschaffungsagenten gezeigt: AB-Prüfung, Eskalationsmechanismus, Lieferantenscore, Dokumentenablage über ERP-/Postfach-Adapter
+- [2026-08-05 07:58] [2026-06-09-Susanne Riedt (Huissel GmbH) X Prozessia.md] Frühe Sondierungsphase, Erstgespräch vom 06.01.2026, 25 Minuten
+- [2026-08-05 07:58] [2026-06-09-Susanne Riedt (Huissel GmbH) X Prozessia.md] Kernthema: Datenschutzrisiken bei privatem KI-Einsatz (DSGVO, EU AI Act Compliance)
+- [2026-08-05 07:58] [2026-07-19-Präsentation-Esterer Giesserei-V20_Deutsch.md] Eigentümer seit 2008: Topol GmbH (zuvor Tochter der Esterer AG)
+- [2026-08-05 07:55] [AW: Ergebnisse Testreihe Stücklistenproj] Lastenheft für KI-gestützte Stücklistendatenerfassung übermittelt; Anforderungen zur Prüfung eingereicht
 - [2026-08-05 05:07] [Request# 28824206 | [ACTION REQUIRED] Yo] Ansprechpartner: Jed Enel (Onboarding & Compliance, Twilio)
 - [2026-08-05 05:07] [Request# 28824206 | [ACTION REQUIRED] Yo] Bundle SID: BU6b3e48b819e258269f5e87416b09cda1
 - [2026-08-05 05:07] [Request# 28824206 | [ACTION REQUIRED] Yo] Account SID: ACa756b2b60f3dba0995621f130b4caa60
@@ -650,6 +662,19 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-05 08:01] [2026-06-09-Prozessia_Intern_Schaufler_Hosting.md] Schaufler: Hosting-Pauschale 460 €/Monat für KI-Anwendungen, Gesamtkosten ca. 548 €/Monat
+- [2026-08-05 08:00] [2026-08-13-Schauenberg.md] Schauenberg - neuer potenzieller Kunde
+- [2026-08-05 08:00] [2026-07-14-Prozessia X Morali.md] Morali hat dynamische Preisberechnung (B2B, variable Preise) abgeschlossen; Lagermengen-Prognose im Einkauf noch nicht fertiggestellt
+- [2026-08-05 07:59] [2026-07-02-M.Reuss X Prozessia.md] M.Reuss: Werkzeugbau-Unternehmen mit ca. 45 Projektleitern, die dezentral über ERP-System BIOS 2000 bestellen; keine zentrale Einkaufsabteilung
+- [2026-08-05 07:58] [2026-08-24-Grohe.md] Kontaktperson: daniel.hettich@grohe-technology.de
+- [2026-08-05 07:58] [2026-07-19-Präsentation-Giesserei Wurzen-V3_Deutsch.md] Systemlieferant für Gusskomponenten, strategische Partnerschaft mit Esterer Gießerei GmbH (Altötting)
+- [2026-08-05 07:58] [2026-07-19-Präsentation-Giesserei Wurzen-V3_Deutsch.md] Werkstoffe: Grau- und Sphäroguss; Leistungen: Konstruktionsberatung, Gießprozess-Simulation, eigener Modellbau
+- [2026-08-05 07:58] [2026-07-19-Präsentation-Giesserei Wurzen-V3_Deutsch.md] Lead-Kontakt: Messebesuch CastForge Stuttgart (2026-07-19); zugehörige Präsentation Esterer Giesserei-V20
+- [2026-08-05 07:58] [2026-07-19-Präsentation-Giesserei Wurzen-V3_Deutsch.md] Gießerei Wurzen GmbH, Standort Wurzen (Sachsen); seit 2018 eigenständig unter Topol GmbH (vorher Esterer Gießerei Werk Wurzen GmbH ab 1991)
+- [2026-08-05 07:58] [2026-07-19-Präsentation-Esterer Giesserei-V20_Deutsch.md] Kooperationspartner: Gießerei Wurzen GmbH
+- [2026-08-05 07:58] [2026-07-19-Präsentation-Esterer Giesserei-V20_Deutsch.md] Kernkompetenz: Hohe Flexibilität bei Losgrößen und Werkstofflegierungen
+- [2026-08-05 07:58] [2026-07-19-Präsentation-Esterer Giesserei-V20_Deutsch.md] Esterer Gießerei GmbH in Altötting: 80 Mitarbeiter, Systemlieferant für Gusskomponenten
+- [2026-08-05 07:55] [AW: Ergebnisse Testreihe Stücklistenproj] Marvin Wiegner (Konstruktion/Design, Schaufler Tooling GmbH & Co. KG, Laichingen) ist Ansprechpartner
 - [2026-08-04 20:54] [Re: New Qualifications for Air Condition] Kontaktperson: Ruby Reed, VP bei Approvd, Email: ruby.b@approvdasset.com
 - [2026-08-04 12:36] [AW: Angeot Beschaffungsagent] Kundenwunsch: Detailklärung erforderlich – welcher Investitionsanteil fließt in technische Plattform (Serverinfrastruktur, KI-Anbindung, Framework, Schnittstellen, Sicherheit) vs. fachliche Logik des Beschaffungsprozesses
 - [2026-08-04 12:36] [AW: Angeot Beschaffungsagent] Kundenwunsch: Aufteilung der 32.000€ Investition nachvollziehen (Basisarchitektur vs. spezifische Entwicklung des Beschaffungsagenten)
@@ -866,6 +891,20 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-05 08:01] [2026-06-09-Prozessia_Intern_Schaufler_Hosting.md] Betrieb: Server läuft dauerhaft, kein direkter Kundenzugriff, Prozessia verwaltet vollständig, geplante Wartungsfenster
+- [2026-08-05 08:01] [2026-06-09-Prozessia_Intern_Schaufler_Hosting.md] Infrastruktur: Hetzner CCX23 (4 vCPU AMD, 16GB RAM, 160GB NVMe SSD), deutsches Rechenzentrum, 38,07 €/Monat
+- [2026-08-05 08:01] [2026-06-09-Prozessia-X-Schaufler Beschafungsagent.md] Identifizierte Geschäftspotenziale: Automatisierungspotenzial, verbesserte Terminverlässlichkeit, Prozesstransparenz, datengestützte Entscheidungen
+- [2026-08-05 08:01] [2026-06-09-Prozessia-X-Schaufler Beschafungsagent.md] Vier Automatisierungsmodule: (1) Auftragsbestätigungsverarbeitung, (2) Lieferterminüberwachung, (3) Versanddokumente/Tracking, (4) interaktive Kommunikationsschnittstelle
+- [2026-08-05 08:01] [2026-06-09-Beschaffungsagent_Schaufler_Final4.md] Kernfunktionen: Lieferanten-Scoring, Lieferungsüberwachung, Audit-sicheres Protokoll, revisionssichere Ablage
+- [2026-08-05 08:00] [2026-08-05-Email-19fd0e77-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Nächster Schritt: Angebotserstellung. Marvin Wiegner verfügbar für inhaltliche Rückfragen und kurzfristige Termin-Abstimmung vor Angebotserstellung
+- [2026-08-05 08:00] [2026-08-05-19fd0e772e-KI-gestützte Stücklistendatenerfassung_Lastenheft.md] Projekt mit MVP-Abgrenzung; definiert Sollprozess, Statusmodell, Benutzer-/Berechtigungskonzept, Datenintegration und funktionale Anforderungen
+- [2026-08-05 08:00] [2026-07-14-Prozessia X Morali.md] Datenschutz bei KI-Sprachmodellen ist kritisches Anforderungskriterium; Ayoub Falah fragte explizit nach Datenfluss-Handling
+- [2026-08-05 08:00] [2026-07-29-Follow-up-Entwurf.md] Anforderungsabklärung: Einkaufs-Engpässe in ABs, Lieferterminen oder Lieferantenbewertung identifizieren
+- [2026-08-05 07:59] [2026-07-29-Update Juchem X Prozessia.md] Scope: kompletter End-to-End-Beschaffungsprozess – deutlich umfangreicher als aktueller Schaufler-Scope
+- [2026-08-05 07:58] [2026-07-19-Präsentation-Giesserei Wurzen-V3_Deutsch.md] Produktionskapazitäten: Handformguss 0,1-4.500 kg, Losgrößen 1-50 Stück, ca. 1.300 t Guss/Jahr
+- [2026-08-05 07:58] [2026-07-19-Präsentation-Esterer Giesserei-V20_Deutsch.md] Produktionskapazität: Vier Mittelfrequenz-Induktionsöfen
+- [2026-08-05 07:55] [AW: Ergebnisse Testreihe Stücklistenproj] Rückfragenmöglichkeit vor Angebotserstellung; kurzfristige Termine einrichtbar
+- [2026-08-05 07:55] [AW: Ergebnisse Testreihe Stücklistenproj] Angebotserstellung für Stücklistenprojekt erwartet
 - [2026-08-05 05:07] [Request# 28824206 | [ACTION REQUIRED] Yo] Erforderliche Korrektionen müssen über Twilio Console-Link durchgeführt werden
 - [2026-08-05 05:07] [Twilio Business Profile - Additional inf] Nächste Schritte: Business Profile aktualisieren oder Support unter trusthub-verify@twilio.com kontaktieren
 - [2026-08-04 14:28] LinkedIn Content-Recherche-Strategie erstellt und doppelt verankert: als Dokument unter Marketing/LinkedIn/2026-08-04-Content-Recherche-Strategie.md und als aktive Direction via set_linkedin_direction, die ab sofort jede generate_linkedin_ideas-Generierung beeinflusst
@@ -1546,6 +1585,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-05 08:00] [2026-07-29-Follow-up-Entwurf.md] Lagermengen-Prognose in v2 (29.07.2026) entfernt – Morali baut intern selbst, kein Cross-Sell-Ansatz
 - [2026-08-05 05:07] [Request# 28824206 | [ACTION REQUIRED] Yo] Trust Hub Business Profile für Prozessia wurde abgelehnt – Grund: fehlende und/oder ungenaue Informationen (4. August 2026)
 - [2026-08-05 05:07] [Twilio Business Profile - Additional inf] Bereitgestellte Business ID konnte nicht verifiziert werden oder ist abgelaufen (Error 18602)
 - [2026-08-05 05:07] [Twilio Business Profile - Additional inf] Twilio Business Profile Verifizierung abgelehnt - Business Name stimmt nicht mit Website SSL Certificate überein (Error 18601)
@@ -1645,6 +1685,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-17 21:42] [6---Email-19f38afa-AW-Offene-Punkte-Beschaffungsagent.md] Bestelldokument muss angepasst werden, damit Lieferanten wissen, dass bestellbezogene Daten an order@schaufler.de gehen (Verantwortung: Benjamin Schmohl)
 
 ## ANFORDERUNGEN
+- [2026-08-05 08:01] [2026-06-09-Prozessia-X-Schaufler Beschafungsagent.md] Primäre Ziele bei Schaufler: Reduktion manueller Tätigkeiten und Steigerung der Prozesstransparenz im Beschaffungsmanagement
 - [2026-07-28 17:54] [2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md] Kunde (Siegfried Heinrich) fordert Analyse der Effizienz und Performance des Beschaffungsagenten vor nächstem Projekt
 - [2026-07-24 03:21] [2026-07-24-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Komplette mechanische Anfertigung nach Zeichnungen mit Gravur, Prüf-, Härte- und Messprotokoll erforderlich
 
