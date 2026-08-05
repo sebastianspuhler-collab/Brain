@@ -1,4 +1,55 @@
 ## KONTEXT
+- [2026-08-05 08:21] [2026-06-09-Prozessia_Flyer_Messe.md] Implementierung: KI-Lösung in wenigen Wochen realisierbar; deutsche Serverinfrastruktur; DSGVO-konform und EU-AI-Act-ready
+- [2026-08-05 08:21] [2026-06-09-Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.pptx.md] Verkaufsposition: Kosteneinsparung + Datensicherheit + Kontrolle vs. ChatGPT Enterprise
+- [2026-08-05 08:21] [2026-06-09-Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.md] Drei Hauptherausforderungen adressiert: Kosten, Datenschutz, fehlende Systemintegration
+- [2026-08-05 08:21] [2026-06-09-Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.md] Kernproblem: Mandantendaten auf US-Servern gefährden anwaltliche Verschwiegenheitspflicht
+- [2026-08-05 08:21] [2026-06-09-Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.md] ChatGPT Enterprise kostet 30 € pro Mitarbeiter/Monat (18.000 €/Jahr für 50er-Kanzlei)
+- [2026-08-05 08:20] [2026-06-09-Gamma Presentation (1).md] Workflow-Dokumentation vom 09.06.2026, kategorisiert als Sales-Tool, JSON-Export verfügbar
+- [2026-08-05 08:20] [2026-06-09-Der-digitale-Kanzlei-Assistent (1).md] DSGVO-konform mit EU-Hosting; Datenschutz nach höchstem Standard
+- [2026-08-05 08:20] [2026-06-09-DE_Partner_Deck.md] Demo-Nummer für Kundentests verfügbar: +49 308 379 3172
+- [2026-08-05 08:20] [2026-06-09-DE_Partner_Deck.md] Fonio ist ein KI-Telefonassistent speziell für deutschsprachigen DACH-Raum mit eigener KI-Entwicklung, nicht lizenziert
+- [2026-08-05 08:20] [2026-06-09-Cocomin-KI-Agent .md] Cocomin-KI-Agent: Verkaufspräsentation für automatisierte, DSGVO-konforme Kundenkommunikation zur Kundenbindung zwischen Terminen (Datum: 2026-06-09)
+- [2026-08-05 08:19] [2026-06-09-Campus Starterzentrum.md] Kampagnendatum: 2026-06-09; Ansprechpartner bei Siempelkamp: Herr Rehling
+- [2026-08-05 08:19] [2026-06-09-Campus Starterzentrum.md] Social Proof: Werkzeugbauer aus Baden-Württemberg (60+ Mitarbeiter, Serienteile für Automobilindustrie) erzielt 11.000€ Monatseinsparung durch optimierten Einkaufsprozess
+- [2026-08-05 08:19] [2026-06-09-2026-arbeiten-Unternehmen-mit-KI-Agenten-Die-Frage-ist-nur-mit-wem.md] Vertriebsmessaging: KI ersetzt ineffiziente Arbeit, nicht Menschen (wichtig für Kundenakquisition)
+- [2026-08-05 08:19] [2026-06-09-2026-arbeiten-Unternehmen-mit-KI-Agenten-Die-Frage-ist-nur-mit-wem.md] Kernpositionierung: '2026 arbeiten Unternehmen mit KI-Agenten. Die Frage ist nur: mit wem.' (Wettbewerbsmessage)
+- [2026-08-05 08:19] [2026-06-09-2026-arbeiten-Unternehmen-mit-KI-Agenten-Die-Frage-ist-nur-mit-wem.md] Prozessia differenziert sich durch EU-Hosting und Datenschutz-Fokus als Alleinstellungsmerkmale
+- [2026-08-05 08:19] [2026-08-04-Content-Recherche-Strategie.md] Ziel: Maximale Reichweite/Wachstum mit minimalem Aufwand für Sebastian (Claude: Recherche+Texterstellung, Sebastian: Freigabe+5 Min. Engagement)
+- [2026-08-05 08:19] [2026-08-04-Content-Recherche-Strategie.md] Relevante Ereignisse für Content-Anlässe: EDIH-Veranstaltungen, EU AI Act-Fristen, Messen, Webinare
+- [2026-08-05 08:18] [2026-06-27-Bildschirmfoto 2026-06-27 um 13.05.52_vision.md] Starttermin Outsourcing: noch offen
+- [2026-08-05 08:18] [2026-06-26-jobs_icp.md] ICP-Score: 5 (maximale Relevanz) - qualifizierter Lead für Beschaffungsagent
+- [2026-08-05 08:17] [2026-06-09-services_intern.md] Fokus auf Entscheidungsträger: Sales Manager mit teilweise parallelen Rollen (Product Owner, ECM-Verantwortung)
+- [2026-08-05 08:17] [2026-06-09-services_intern.md] Datenquelle: services_intern.csv, Import-Datum: 2026-06-09
+- [2026-08-05 08:17] [2026-06-09-retail_extern.md] Geografische Abdeckung: Berlin, Hamburg, Bayern, Nordrhein-Westfalen, Rheinland-Pfalz, Hessen
+- [2026-08-05 08:17] [2026-06-09-real_estate&consum_extern.md] Leadquelle: externe Leaddatenbank für Real Estate und Consumer Services (ca. 20 Kontakte), importiert 2026-06-09
+- [2026-08-05 08:17] [2026-06-09-leads_out_with_icebreakers.md] Spalte für deutschsprachige Icebreaker-Texte ist größtenteils noch leer und ausfüllungsbedürftig
+- [2026-08-05 08:16] [2026-06-09-leads.md] Datenquelle: Automatisierter Import mit vollständigen Kontaktdaten (Name, E-Mail, Website, Standort)
+- [2026-08-05 08:16] [2026-06-09-financial_intern.md] Geografische Abdeckung: Deutschland (Bundesländer: Hesse, Bavaria, North Rhine-Westphalia, Baden-Württemberg)
+- [2026-08-05 08:15] [2026-06-09-coaching_final.md] Daten verfügbar: Email, LinkedIn-Profile, Websites, Personennamen, individualisierte Call-to-Actions für 40+ Kontakte
+- [2026-08-05 08:15] [2026-06-09-coaching_final.md] Neue Lead-Liste 'coaching_final' vom 2026-06-09: personalisierte Cold-Outreach für KI-Agenten-Akquise in Professional Training & Coaching
+- [2026-08-05 08:15] [2026-06-09-cleaned_leads.md] Datenquelle: cleaned_leads.xlsx, Bereinigung abgeschlossen: 2026-06-09
+- [2026-08-05 08:15] [2026-06-09-cleaned_leads.md] Bereinigte Lead-Datenbank für KI-Schulungsangebote in der Weiterbildungs- und Beratungsbranche (professional training & coaching, management consulting)
+- [2026-08-05 08:15] [2026-06-09-advertising_extern.md] Tags: Leads, Marketing & Advertising, Leaddatenbank, Sales Manager, Deutschland
+- [2026-08-05 08:15] [2026-06-09-advertising_extern.md] Lead-Datenbank advertising_extern.csv vom 2026-06-09: ~19 Kontakte aus Marketing & Advertising sowie Online Media Branche
+- [2026-08-05 08:14] [2026-06-09-Untitled document.md] WebWokr bietet auch individuelle Automatisierungslösungen mit Analyse bestehender Prozesse (Dokument unvollständig)
+- [2026-08-05 08:14] [2026-06-09-Untitled document.md] WebWokr Kontakt: info@webwokr.de | www.webwokr.de | Campus Starterzentrum Gebäude A1 1, 66123 Saarbrücken
+- [2026-08-05 08:14] [2026-06-09-Untitled document.md] WebWokr GbR (Saarbrücken) ist Wettbewerber/Kooperationspartner von Prozessia im Marktsegment Webdesign und KI-Automatisierung
+- [2026-08-05 08:14] [2026-06-09-Recruiting.md] Liste vom 2026-06-09; Branchenschwerpunkt: Staffing & Recruiting sowie Human Resources
+- [2026-08-05 08:14] [2026-06-09-Recruitement.md] Konkrete Kontakte identifiziert: Zero to One Search (München), Kooku Recruiting (Berlin), Wonderland Recruitment Services (Konstanz)
+- [2026-08-05 08:14] [2026-06-09-Recruitement.md] Datei enthält Kontaktliste von Recruiting- und HR-Agenturen aus DACH-Raum als potenzielle Akquisekontakte für Prozessia GbR
+- [2026-08-05 08:13] [2026-06-09-Recruiing_final.md] Lead-Liste erstellt am 2026-06-09, Quelle: Recruiing_final.csv
+- [2026-08-05 08:13] [2026-06-09-Recruiing_final.md] Angebot: KI-Recruiting-Agent zur Automatisierung repetitiver Aufgaben und Koordination
+- [2026-08-05 08:13] [2026-06-09-Prozessia_Lieferantenbewerbung_Windhoff.md] Zielbranche: produzierende Industrieunternehmen (Einkaufsabteilungen)
+- [2026-08-05 08:13] [2026-06-09-Prozessia_Lieferantenbewerbung_Windhoff.md] Outbound-Akquiseschreiben vom April 2025 mit Demo-Termin-Angebot
+- [2026-08-05 08:13] [2026-06-09-Prozessia_Leads_NurNeu (1).md] Prozessia Lead-Datenbank: 11 neue, unbearbeitete Leads (Nr. 60-70) aus Werkzeugbau, Stanztechnik, Metallverarbeitung; Status 'Neu – offen'; Stand 2026-06-09
+- [2026-08-05 08:12] [2026-06-09-Prozessia_Leads_Komplett_v5.md] Datei vom 2026-06-09 (Version v5), Quelle: Prozessia_Leads_Komplett_v5.xlsx
+- [2026-08-05 08:12] [2026-06-09-Prozessia_Leads_Komplett_v5.md] Leaddatenbank enthält 16+ verifizierte B2B-Kontakte aus Werkzeugbau, Stanz-/Umformtechnik und Kunststofftechnik
+- [2026-08-05 08:12] [2026-06-09-Marketing an Advertising.md] Datensätze enthalten: Kontaktdaten, Email-Status, Seniority-Level, Technologie-Profile, Funding-Informationen und Keywords
+- [2026-08-05 08:12] [2026-06-09-Leads_1.md] Datenquelle: Leads_1.xlsx aus Drive-Bereich Industrie
+- [2026-08-05 08:12] [2026-06-09-Leads_1.md] Alle erfassten Leads mit Status 'Kontaktiert' gekennzeichnet
+- [2026-08-05 08:12] [2026-06-09-Leads_1.md] Lead-Kontaktliste mit 5 verifizierten B2B-Firmenkontakten aus Werkzeugbau, Stanztechnik und Kunststoff, Datum 2026-06-09
+- [2026-08-05 08:11] [2026-06-09-Immobilien_neu.md] Datenerstellung: 2026-06-09, Quelle: Immobilien_neu.xlsx
+- [2026-08-05 08:11] [2026-06-09-Immobilien_neu.md] Geographische Verteilung: 6 deutsche Städte (Willingen, Dresden, Essen, Leipzig, Ulm, Laboe) + Cambridge
 - [2026-08-05 08:11] [2026-06-09-Immobilien_final.md] Lead-Kampagne für Immobilienbranche (Hausverwaltungen, Family Offices, Immobilien-AGs) vom 2026-06-09
 - [2026-08-05 08:11] [2026-06-09-Immobilien.md] Kontakte stammen aus deutschen Städten (Willingen, Dresden, Essen, Leipzig, Ulm, Laboe) sowie Cambridge; Quelle: Immobilien.csv vom 2026-06-09
 - [2026-08-05 08:11] [2026-06-09-Coaching.md] Lead-Liste 'Professional Training & Coaching' aus Coaching.xlsx (2026-06-09) mit Kontakten aus Düsseldorf, Hünfeld, Berlin, Rüdersdorf und Dubai
@@ -695,6 +746,37 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-05 08:21] [2026-06-09-Prozessia_Flyer_Messe.md] Prozessia-Messflyer vom 09.06.2026 – Sebastian Spuhler als Kontaktperson für Terminvereinbarungen benannt
+- [2026-08-05 08:20] [2026-06-09-KI-Agent-X-Voigt-Salus.md] Investitionskosten für Setup des KI-Agenten X: ca. 7.000 €
+- [2026-08-05 08:20] [2026-06-09-Der-digitale-Kanzlei-Assistent (1).md] Zielmarkt: Moderne Rechtskanzleien zur Optimierung von Verwaltungsprozessen
+- [2026-08-05 08:19] [2026-06-09-Campus Starterzentrum.md] Zielkunden der Direct-Mail-Akquise: Siempelkamp Transport Systems GmbH (Altenkamp 11, 33758 Schloß Holte-Stukenbrock) und STEIN Automation GmbH & Co. KG
+- [2026-08-05 08:19] [2026-06-09-2026-arbeiten-Unternehmen-mit-KI-Agenten-Die-Frage-ist-nur-mit-wem.md] Akquisitionszielgruppe: Unternehmen mit Problemen wie verteiltes Wissen, langsame Abstimmungen, manuelle Prozesse
+- [2026-08-05 08:19] [2026-08-04-Content-Recherche-Strategie.md] Zielgruppe Prozessia: KI im Mittelstand, Branchen Einkauf/Beschaffung, Werkzeugbau, Lohnfertigung, Elektrotechnik
+- [2026-08-05 08:18] [Bildschirmfoto 2026-06-27 um 13.07.15_vision.md] Verkaufskanal: eBay, Payment-Provider: PayPal, Verkaufsländer: Deutschland, EU, Schweiz, Tunesien, USA, Mexiko
+- [2026-08-05 08:18] [Bildschirmfoto 2026-06-27 um 13.05.52_vision.md] Ansprechpartner: Herr Hoof, Position: Geschäftsführender Gesellschafter
+- [2026-08-05 08:18] [2026-06-27-Bildschirmfoto 2026-06-27 um 13.07.15_vision.md] Potentieller Buchhaltungs-Outsourcing-Kunde mit eBay-Verkäufen und PayPal-Zahlungsabwicklung
+- [2026-08-05 08:18] [2026-06-26-jobs_icp.md] Connect Perso GmbH, Meerbusch (NW, DE) - Stellenanzeige für Technischer Einkäufer
+- [2026-08-05 08:17] [2026-06-09-test.md] Website: http://www.buhr-team.com
+- [2026-08-05 08:17] [2026-06-09-test.md] E-Mail: s.berg@buhr-team.com
+- [2026-08-05 08:17] [2026-06-09-services_intern.md] Lead-Datenbank mit ca. 18 Kontakten: Sales Manager und Product Owners aus IT-Dienstleistungsbranche (deutsche Städte: Berlin, Hamburg, München, Köln, Hanover, Oberhausen)
+- [2026-08-05 08:17] [2026-06-09-retail_extern.md] Lead-Datenbank: 20 Kontakte aus Einzelhandel, Apparel und Textilien importiert am 2026-06-09 (retail_extern.csv)
+- [2026-08-05 08:17] [2026-06-09-leads_out_with_icebreakers.md] Leads aus deutschen Städten: Düsseldorf, Berlin, Much mit entsprechenden Organisationen und LinkedIn-Profilen
+- [2026-08-05 08:16] [2026-06-09-leads.md] Zielgruppe: Autohäuser und KFZ-Betriebe, primär Saarland mit Ausweitung auf weitere deutsche Bundesländer
+- [2026-08-05 08:16] [2026-06-09-financial_intern.md] Verfügbare Kontaktdaten pro Person: Name, E-Mail, Unternehmen, Titel, Standort, Website-URL
+- [2026-08-05 08:16] [2026-06-09-financial_intern.md] Zielgruppe: Überwiegend Owner und Sales Manager aus deutschen Finanzunternehmen
+- [2026-08-05 08:16] [2026-06-09-financial_intern.md] Leaddatenbank 'financial_intern' mit ca. 19 Kontakten aus Finanzdienstleistungsbranche (Financial Services)
+- [2026-08-05 08:15] [2026-06-09-cleaned_leads.md] Konkrete Leads: BUHR & TEAM AG (Düsseldorf), RAS Training und Beratung (Hünfeld), [dwp] die wirtschaftspsychologen (Berlin), Feel Good Consulting GmbH (Rüdersdorf)
+- [2026-08-05 08:15] [2026-06-09-cleaned_leads.md] Leads aus deutschsprachigem Raum mit vollständigen Kontaktdaten: E-Mail, Firmenname, Standort, Website, LinkedIn-Profile
+- [2026-08-05 08:15] [2026-06-09-advertising_extern.md] Geografischer Fokus: Deutschland (Hannover, München, Hamburg, Düsseldorf, Frankfurt, etc.)
+- [2026-08-05 08:13] [2026-06-09-Recruiing_final.md] Lead 2: Mathias Mengel, Kooku Recruiting GmbH (Human Resources), mathias@kooku.de
+- [2026-08-05 08:13] [2026-06-09-Recruiing_final.md] Lead 1: Marat Yakupov, Zero to One Search (Recruitment Agency), one@elbanana.com
+- [2026-08-05 08:13] [2026-06-09-Prozessia_Zielunternehmen.md] Siebenwurst Werkzeugbau GmbH (Zwickau, Sachsen) – Familienunternehmen, ~190 MA, 10-50 Mio. € Umsatz
+- [2026-08-05 08:13] [2026-06-09-Prozessia_Zielunternehmen.md] POLAR-FORM Werkzeugbau GmbH (Lahr/Schwarzwald, BW) – Geschäftsführer Dieter Göppert, inhabergeführt, ~80-120 MA
+- [2026-08-05 08:13] [2026-06-09-Prozessia_Lieferantenbewerbung_Windhoff.md] WINDHOFF Bahn- und Anlagentechnik GmbH, Ansprechpartner: Herr Wächter, Saarbrücken – neuer Lead, kein Bestandskunde
+- [2026-08-05 08:13] [2026-06-09-Prozessia_Leads_NurNeu (1).md] Stehling Stanztechnik GmbH (Velbert, 30-49 MA): Stanz-, Biege-, Tiefziehteile, Priorität Mittel, Relevanz ★★★☆☆, Familienunternehmen 3. Gen.
+- [2026-08-05 08:13] [2026-06-09-Prozessia_Leads_NurNeu (1).md] Werkzeugbau-Stanzerei Walter Götz GmbH (Balingen, 50 MA): Werkzeuge + Blechteile, PRIORITÄT HOCH, Relevanz ★★★★☆, Familienunternehmen 100+ Jahre, ISO 9001
+- [2026-08-05 08:12] [2026-06-09-Marketing an Advertising.md] Lead-Beispiel: Alycia Bloemer, Growth Manager bei Boksi.com, Hamburg
+- [2026-08-05 08:12] [2026-06-09-Leads_1.md] 5 Firmenkontakte: Kölle GmbH (100–199 MA), Klaus Baier GmbH & Co. KG (50–100 MA), Sixt GmbH (ca. 100 MA), POLAR-FORM GmbH (ca. 70 MA), SCHROEDER + BAUER
 - [2026-08-05 08:11] [2026-06-09-Immobilien_final.md] Website: https://www.ziesel-hausverwaltung.de | LinkedIn: http://www.linkedin.com/in/christian-ziesel-379a17211
 - [2026-08-05 08:11] [2026-06-09-Immobilien.md] Konkrete Ansprechpartner identifiziert: Bastiaan Taselaar (UplandParcs), Chris Lange (COMENTS), Thorsten Roesner (JUNO Immobilien), Michael Klemmer (VICUS GROUP AG), Patrick Schuler (Schuler Immobilien GmbH)
 - [2026-08-05 08:11] [2026-06-09-Immobilien.md] 17 Kontakte aus der Immobilienbranche (real estate) für Kaltakquise mit E-Mail, LinkedIn-Profilen und Firmendaten vorhanden
@@ -946,6 +1028,40 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-05 08:21] [2026-06-09-Prozessia_Flyer_Messe.md] Stücklistenagent: Automatisierte Stücklistenprüfung und Abweichungserkennung in Stunden statt Tagen; lückenlose Dokumentation
+- [2026-08-05 08:21] [2026-06-09-Prozessia_Flyer_Messe.md] Beschaffungsagent: Automatisiert Auftragsbestätigungsprüfung, Lieferterminüberwachung, automatische Lieferantenkommunikation bei Abweichungen
+- [2026-08-05 08:21] [2026-06-09-Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.md] Prozessia KI-Agent als EU-gehostete, datenschutzkonforme Alternative positioniert
+- [2026-08-05 08:20] [2026-06-09-Gamma Presentation (1).md] n8n-Workflow für automatische Gamma-Präsentationsgenerierung via Web-Formular (Eingabe: Präsentationstitel + Beschreibung) - funktionsfähig
+- [2026-08-05 08:20] [2026-06-09-Der-digitale-Kanzlei-Assistent (1).md] Maßgeschneiderter KI-Chatbot trainiert auf internen Kanzleidokumenten und Organisationswissen; individuelle Login-Daten pro Mitarbeiter
+- [2026-08-05 08:20] [2026-06-09-Der-digitale-Kanzlei-Assistent (1).md] Kernfunktionen: Dokumentenrecherche, automatische Texterstellung (E-Mails, Schriftsätze, Briefe), Textanalyse/Zusammenfassung, interne FAQ
+- [2026-08-05 08:20] [2026-06-09-Der-digitale-Kanzlei-Assistent (1).md] Digitaler Kanzlei-Assistent: Setup-Gebühr 6.000 € (einmalig), monatliche Gebühr 1.000 €
+- [2026-08-05 08:20] [2026-06-09-DE_Partner_Deck.md] Einrichtungsprozess: (1) Stimme wählen, (2) Inhalte & Verhalten definieren, (3) KI testen & Telefonnummer aktivieren
+- [2026-08-05 08:20] [2026-06-09-Cocomin-KI-Agent .md] Kernfeatures: (1) Intelligente automatische Kundenfragen-Beantwortung, (2) Kontinuierliche Kontaktpflege, (3) Wissenstransfer von Methoden/Materialien
+- [2026-08-05 08:19] [2026-06-09-Case Studies – Webwokr.md] Cocomin: KI-Chatbot-Lösung entwickelt
+- [2026-08-05 08:19] [2026-06-09-Case Studies – Webwokr.md] Deutsche Glasfaser Saarlouis: KI-Leistungsbewertung implementiert
+- [2026-08-05 08:19] [2026-06-09-Case Studies – Webwokr.md] Adrise Marketing: Onboarding-Automatisierung für neue Kunden (Problem: zeitaufwendig und fehleranfällig)
+- [2026-08-05 08:19] [2026-06-09-Campus Starterzentrum.md] Call-to-Action: Einladung zu 30-minütiger Beratung; Absender: Geschäftsführer Sebastian Spuhler
+- [2026-08-05 08:19] [2026-06-09-2026-arbeiten-Unternehmen-mit-KI-Agenten-Die-Frage-ist-nur-mit-wem.md] Leistungsversprechen: 70% effizientere Abläufe, 10x schnellere Abfragen durch KI-Agenten
+- [2026-08-05 08:19] [2026-08-04-Content-Recherche-Strategie.md] Priorisierung: Konkrete Zahlen/Statistiken > generische Aussagen; Muster von erfolgreichen B2B-/Industrie-KI-Anbietern erkennen (nicht kopieren)
+- [2026-08-05 08:19] [2026-08-04-Content-Recherche-Strategie.md] Wöchentliche Recherche-Routine: Jeden Montag vor generate_linkedin_ideas vier Punkte recherchieren (Trend-Check Zielbranche, Konkurrenz-Scan, Format-Trend-Check 1x/Monat, Event-/Anlass-Check) via WebSearch und als focus-Parameter einspeisen
+- [2026-08-05 08:18] [2026-06-26-jobs_icp.md] Systematische Lead-Identifikation: Excel-basiertes Job-Scraping für Einkaufspositionen zur Beschaffungsagent-Lösung
+- [2026-08-05 08:18] [2026-06-26-jobs_icp.md] Jobanzeige vom 2026-06-17 auf Indeed veröffentlicht - aktuelle Lead-Qualifizierungsdatei vom 2026-06-26
+- [2026-08-05 08:17] [2026-06-09-leads_out_with_icebreakers.md] 14 Lead-Datensätze aus Professional Training & Coaching und Management Consulting mit Kontaktdaten verfügbar
+- [2026-08-05 08:16] [2026-06-09-leads.md] Lead-List-Erfassung: 2026-06-09
+- [2026-08-05 08:16] [2026-06-09-leads.md] Projekt Voice Agents für Automobilbranche: Lead-Generierungskampagne (Kaltakquise) mit Excel-Kontaktdatenliste initiiert
+- [2026-08-05 08:15] [2026-06-09-coaching_final.md] Individualisierte deutsche Eisbrecher-Texte basierend auf Unternehmenskontext (Mentoring-Programme, Trainingsabläufe) + spezifische CTAs
+- [2026-08-05 08:15] [2026-06-09-cleaned_leads.md] Lead-Set gezielt für B2B KI-Schulungsangebote in Coaching- und Beratungsbranche aufbereitet
+- [2026-08-05 08:14] [2026-06-09-Untitled document.md] WebWokr Leistungsportfolio: Terminbuchungs-Chatbots, intelligente E-Mail-Automatisierung/Kategorisierung, Webdesign mit SEO-Fokus
+- [2026-08-05 08:14] [2026-06-09-Recruiting.md] Kontaktdaten verfügbar: E-Mail-Adressen, Firmennamen, Städte, Websites und LinkedIn-Profile für Kaltakquise
+- [2026-08-05 08:14] [2026-06-09-Recruitement.md] Zielgruppe für KI-Lösungen: Staffing & Recruiting sowie Human Resources Unternehmen als Vermittler oder Kooperationspartner
+- [2026-08-05 08:13] [2026-06-09-Recruiing_final.md] Cold-Outreach-Kampagne mit 5 personalisierten Kaltakquise-Kontakten aus Recruiting- und HR-Branche
+- [2026-08-05 08:13] [2026-06-09-Prozessia_Lieferantenbewerbung_Windhoff.md] Einsparversprechen: 60–80 % Reduktion manueller Aufwand im operativen Einkauf
+- [2026-08-05 08:13] [2026-06-09-Prozessia_Lieferantenbewerbung_Windhoff.md] KI-gestützter Beschaffungsagent: automatische Überprüfung von Auftragsbestätigungen, Lieferterminal-Überwachung, Abweichungserkennung
+- [2026-08-05 08:13] [2026-06-09-Prozessia_Leads_NurNeu (1).md] Akquise-Priorisierung: Walter Götz als höchste Priorität (HOCH) identifiziert; Datensatz ermöglicht segmentierte Kaltakquise nach Branche und Unternehmensgröße
+- [2026-08-05 08:12] [2026-06-09-Marketing an Advertising.md] Zweck: Cold-Lead-Akquise für Marketing & Advertising Sektor via importierte Leaddatenbank
+- [2026-08-05 08:12] [2026-06-09-Marketing an Advertising.md] Apollo CSV-Export mit Lead-Datensätzen aus Marketing & Advertising vom 2026-06-09 in Prozessia-Vault aufgenommen
+- [2026-08-05 08:12] [2026-06-09-Listen.md] Listen erstellt 2026-06-09 aus Quelle Listen.xlsx, gehört zu Fonio-Projekt
+- [2026-08-05 08:12] [2026-06-09-Leads_1.md] Alle Einträge wurden gegen Impressumsangaben verifiziert oder korrigiert
 - [2026-08-05 08:11] [2026-06-09-Immobilien_final.md] CSV-Datei mit vorbereiteten Cold-Outreach-Kontakten, personalisierten E-Mail-Daten und Icebreaker-Texten für automatisierte Akquise
 - [2026-08-05 08:11] [2026-06-09-Immobilien.md] Liste für Lead-Generierung und Kaltansprache in der Immobilienbranche vorgesehen
 - [2026-08-05 08:11] [2026-06-09-Copy of undefined.md] Typische Kundenanfragen: Fahrzeugverfügbarkeit, Service-Termine buchen, Probefahrten vereinbaren
@@ -1611,6 +1727,10 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-08-05 08:21] [2026-06-09-Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.pptx.md] Kernanforderungen: anwaltliche Verschwiegenheitspflicht, sichere Mandantendaten-Verwaltung, Vermeidung US-Server
+- [2026-08-05 08:20] [2026-06-09-DE_Partner_Deck.md] Lösung muss DSGVO-konform sein; Hosting und Datenverarbeitung ausschließlich in der EU
+- [2026-08-05 08:20] [2026-06-09-Cocomin-KI-Agent .md] 100% DSGVO-Konformität erforderlich, auf EU-Servern gehostet, deutsches Qualitätsbewusstsein
+- [2026-08-05 08:15] [2026-06-09-coaching_final.md] KI-Agenten-Wertproposition: Übernahme von Routineaufgaben (Abstimmung, Koordination, Rückfragen) zur Entlastung von Trainern/Coachs
 - [2026-08-05 08:08] [2026-07-28-Prozessskizze-KI-Kalkulation.md] Spezifischer Suchraum = sicheres Ergebnis (O-Ton Sebastian Spuhler); Eingliederung ist kritischer Erfolgsfaktor
 - [2026-08-05 08:08] [2026-07-28-Zillmer_KI_Kalkulationsprozess.md] Kalkulationsergebnisse müssen bei Auftragserteilung an alle Beteiligten weitergegeben werden
 - [2026-08-05 08:06] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] KI-Agent soll automatisiert Material-/Zuschnittlisten für geschweißte Baugruppen mit mehreren Einzelteilen erstellen (Spanflug-Tool scheitert hier)
@@ -1787,3 +1907,10 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 
 ## OFFEN
 - [2026-07-28 13:32] [2026-07-24-Update Prozessia X Endin.md] Kundenreferenzen: Endin möchte diese vor vertraglicher Bindung sprechen
+
+## KUNDENDATEN
+- [2026-08-05 08:12] [2026-06-09-Listen.md] Autohäuser-Liste: Gebr. Schumann (Hyundai), Audi Zentrum, Stellantis &You, Hedin Automotive, Autohaus Bunk und weitere
+- [2026-08-05 08:12] [2026-06-09-Listen.md] Lead-Listen Saarbrücken: 26 Autohäuser und Fahrzeughändler + 4 Hausverwaltungen/Immobilienunternehmen
+
+## CUSTOMER_DATA
+- [2026-08-05 08:15] [2026-06-09-advertising_extern.md] Verfügbare Datenfelder: Vorname, Nachname, E-Mail, Titel, Organisation, Website, Stadt, Bundesland
