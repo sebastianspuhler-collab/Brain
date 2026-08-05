@@ -1,4 +1,37 @@
 ## KONTEXT
+- [2026-08-05 08:11] [2026-06-09-Immobilien_final.md] Lead-Kampagne für Immobilienbranche (Hausverwaltungen, Family Offices, Immobilien-AGs) vom 2026-06-09
+- [2026-08-05 08:11] [2026-06-09-Immobilien.md] Kontakte stammen aus deutschen Städten (Willingen, Dresden, Essen, Leipzig, Ulm, Laboe) sowie Cambridge; Quelle: Immobilien.csv vom 2026-06-09
+- [2026-08-05 08:11] [2026-06-09-Coaching.md] Lead-Liste 'Professional Training & Coaching' aus Coaching.xlsx (2026-06-09) mit Kontakten aus Düsseldorf, Hünfeld, Berlin, Rüdersdorf und Dubai
+- [2026-08-05 08:11] [2026-06-09-Briefe.md] Datenbank-Datum: 2026-06-09; Quelle: Briefe.xlsx mit Kontaktdaten (Anrede, Name, Unternehmen, Adresse)
+- [2026-08-05 08:10] [2026-07-21-Update Zillmer X Prozessia.md] Fehlerreduktion durch Begrenzung auf ~50 relevante Leuchtenhersteller + exakte Systemprompt-Definition (nicht generische ChatGPT/Claude-Nutzung)
+- [2026-08-05 08:10] [2026-07-14-Zillmer-Elektrotechnik-Erstgespraech.md] Folgetermin vereinbart für 21.07.2026
+- [2026-08-05 08:10] [2026-07-14-Zillmer-Elektrotechnik-Erstgespraech.md] Zillmer ist Mitglied der Handwerksgruppe Mecklenburg (H.P.M., 155 Firmen, bundesweit + Österreich), die bereits KI zur Ausschreibungssuche nutzt
+- [2026-08-05 08:09] [2026-07-30-19fb1d58d4-20260624 LV KG 440_SIBE.md] Stand: 24.06.2026
+- [2026-08-05 08:09] [2026-07-30-19fb1d58d4-20260624 LV KG 440_Beleuchtung.md] Status: Lead – technische Vorgaben liegen vor, Produktbestimmung steht aus
+- [2026-08-05 08:09] [2026-07-30-19fb1d58d4-20260624 LV KG 440_Beleuchtung.md] Dokument-ID: 19fb1d58d4-20260624, Dateiaufnahme: 2026-07-30
+- [2026-08-05 08:08] [2026-07-28-Zillmer_KI_Kalkulationsprozess.md] Dateistand: 2026-07-28 | Kategorie: Lead | Quelle: Zillmer_KI_Kalkulationsprozess.pdf
+- [2026-08-05 08:08] [2026-08-04-Email-19fcdab7-Action-required-security-vulnerabilities.md] Probleme erkannt am 03 Aug 2026; Notiz vom Supabase-System am 04 Aug 2026
+- [2026-08-05 08:07] [2026-07-21-Email-19f8394e-AW-Unser-Termin.md] Kunde befindet sich vor Urlaubszeit, daher keine Verfügbarkeit bis August
+- [2026-08-05 08:07] [2026-07-28-Update Seifert X Prozessia.md] Prototyp-Demo erfolgreich gezeigt 28.07.2026; Folgetermin zum Erstgespräch vom 23.07.2026; Sebastian bestätigt Abbildung der Anforderung
+- [2026-08-05 08:06] [2026-07-28-Seifert_GmbH_pitch_deck.md] Pitch-Präsentation vom 2026-07-28
+- [2026-08-05 08:06] [2026-07-28-Seifert_GmbH_pitch_deck.md] Hauptherausforderung: unterschiedliche Kunden-Zeichnungsformate erfordern manuellen Aufwand bei Material-/Zuschnittlisten
+- [2026-08-05 08:06] [2026-07-28-Prozessskizze-Materialliste.md] Basis: Erstgespräch 23.07.2026 mit Stefan Seifert; Prozessskizze vom 28.07.2026
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Bearbeitungsdatum: 20.07.2026 | Quelle-ID: 19fa3698b1
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Werkstoffvorgaben: S235, S355J2H | Unterstücklisten für Komponenten definiert
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83479898.md] Kategorie Lead - mehrstufige BOM-Struktur für automatisierte Zuschnittlisten-Erstellung relevant
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-MATERIAL_IU485.md] Material-Nummer: IU485 (Präfix GB) dokumentiert am 2026-07-27
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-MATERIAL_83493383.md] Material-Dokument 83493383 liegt nur als Fragment vor; Vollständige Stückliste/Kontext fehlt
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-MATERIAL_83486122.md] Materialnummer aus Materialstamm/Stückliste, Datum 2026-07-27
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-MATERIAL_83480037.md] GB Materialnummer 83480037 referenziert; Kontext und Zuordnung unklar
+- [2026-08-05 08:04] [2026-07-27-19fa3698b1-MATERIAL_83479898.md] GB-Materialnummer 83479898 für Seifert-GmbH identifiziert (2026-07-27)
+- [2026-08-05 08:04] [2026-07-27-19fa3698b1-MATERIAL_2663011.md] GB-Materialnummer 2663011 identifiziert
+- [2026-08-05 08:03] [2026-07-27-19fa3698b1-MATERIAL_2588573.md] GB-Materialnummer 2588573 existiert für Seifert-GmbH, Kundenbezug unklar
+- [2026-08-05 08:03] [2026-07-27-19fa3698b1-MATERIAL_2588569.md] Dokument vom 2026-07-27: Rohdaten-Fragment, Zuordnung zu Seifert-GmbH unklar
+- [2026-08-05 08:03] [2026-07-27-19fa3698b1-Grenzebach-Anfrage 6000017119.md] Anfrage-Eingangsdatum: 2026-07-27
+- [2026-08-05 08:03] [2026-07-27-19fa3698b1-6000017119.md] Liefertermin: 07.09.2026
+- [2026-08-05 08:02] [2026-07-23-Seifert-GmbH.md] Transkript/Dokumentation des Gesprächs steht noch aus
+- [2026-08-05 08:02] [2026-06-09-Schaufler_Hosting_Praesentation (4).md] Infrastruktur: Hetzner (dedizierter Server, Deutschland) + Azure OpenAI als Sprachmodell
+- [2026-08-05 08:01] [2026-06-09-Schaufler_Hosting.md] Infrastruktur-Leistungen im Vertrag enthalten
 - [2026-08-05 08:01] [2026-06-09-Prozessia_Intern_Schaufler_Hosting.md] Dokument: Vertrauliches internes Hosting-Konzept Schaufler (April 2026, Quelle 2026-06-09), enthält Kosten- und Gewinnmargeninformationen
 - [2026-08-05 08:01] [2026-06-09-Prozessia-X-Schaufler Beschafungsagent.md] Prozessia-Kernkompetenz: KI-gestützte Prozessautomatisierung, Chatbots und intelligente Automatisierungslösungen
 - [2026-08-05 08:00] [2026-08-05-Email-19fd0e77-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Email vom 2026-08-05 als Antwort zu Testreihen-Ergebnissen des Stücklistenprojekts
@@ -662,6 +695,28 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-05 08:11] [2026-06-09-Immobilien_final.md] Website: https://www.ziesel-hausverwaltung.de | LinkedIn: http://www.linkedin.com/in/christian-ziesel-379a17211
+- [2026-08-05 08:11] [2026-06-09-Immobilien.md] Konkrete Ansprechpartner identifiziert: Bastiaan Taselaar (UplandParcs), Chris Lange (COMENTS), Thorsten Roesner (JUNO Immobilien), Michael Klemmer (VICUS GROUP AG), Patrick Schuler (Schuler Immobilien GmbH)
+- [2026-08-05 08:11] [2026-06-09-Immobilien.md] 17 Kontakte aus der Immobilienbranche (real estate) für Kaltakquise mit E-Mail, LinkedIn-Profilen und Firmendaten vorhanden
+- [2026-08-05 08:11] [2026-06-09-Copy of undefined.md] Autohaus Royal GmbH: 3 Standorte (Berlin Schöneberg, Airport BER Schönefeld, Ludwigsfelde), ca. 1.800 Fahrzeuge, Services: Verkauf, Leasing, Fahrzeuglieferung
+- [2026-08-05 08:11] [2026-06-09-Coaching.md] Ein Eintrag 'KI Schulungen' hat direkten Bezug zu KI-Schulungsthemen – hohe Relevanz für Prozessia GbR als KI-Agentur
+- [2026-08-05 08:11] [2026-06-09-Briefe.md] Zielgruppe: mittelständische Fertigungsbetriebe aus Werkzeug-, Stanz-, Kunststoff- und Umformtechnikbranche in Deutschland
+- [2026-08-05 08:09] [2026-07-30-19fb1d58d4-20260624 LV KG 440_SIBE.md] Zillmer-Elektrotechnik
+- [2026-08-05 08:07] [2026-07-20-Sundh-Schaltanlagen.md] Kontaktperson: Boris Tetzlaff, E-Mail: b.tetzlaff@sundhschaltanlagen.de
+- [2026-08-05 08:07] [2026-07-28-Update Seifert X Prozessia.md] Anforderung Seifert (Anschlussfrage): Unterscheidung zwischen zugeschnittenem Material und noch zu schneidendem Material (Bleche, Rollprofile, Stabmaterial zusammenfassen)
+- [2026-08-05 08:07] [2026-07-28-Update Seifert X Prozessia.md] Seifert-GmbH: Demo-Anfrage mit 16 Positionen (Stücklisten + Zeichnungen); Referenzkunde: Gerhard Rau, Grenzbach
+- [2026-08-05 08:06] [2026-07-28-Prozessskizze-Materialliste.md] Seifert GmbH: Regelfall sind geschweißte Baugruppen aus mehreren Einzelteilen, nicht einteilige Zerspanungsteile
+- [2026-08-05 08:06] [2026-07-27-Email-19fa3698-Beispiel-Anfrage-für-KI.md] Seifert GmbH (Stefan Seifert, stefan.seifert@seifert-gmbh.com) leitet regelmäßig Kundenanfragen weiter
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83479898.md] Seifert-GmbH, Ansprechpartner Stefan Seifert
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-MATERIAL_83493383.md] Seifert-GmbH: Materialnummer GB-83493383 in Verwendung
+- [2026-08-05 08:04] [2026-07-27-19fa3698b1-MATERIAL_2663013.md] Seifert-GmbH: GB-Materialnummer 2663013 relevant für Beschaffung/Bestellung
+- [2026-08-05 08:03] [2026-07-27-19fa3698b1-Grenzebach-Anfrage 6000017119.md] Grenzebach hat Anfrage mit Referenznummer 6000017119 eingereicht
+- [2026-08-05 08:03] [2026-07-27-19fa3698b1-6000017119.md] Anfragsteller: Grenzebach Maschinenbau GmbH (Albanusstraße 1, 86663 Asbach-Bäumenheim); Auftragnehmer: Seifert GmbH (Schützenstr. 18, 89429 Bachhagel)
+- [2026-08-05 08:02] [2026-07-21-Schmidt-Hänsch.md] Kontaktperson: s.bhawar@schmidt-haensch.de
+- [2026-08-05 08:02] [2026-07-21-Schmidt-Hänsch.md] Schmidt-Hänsch: Neuer potentieller Kunde (Lead-Status)
+- [2026-08-05 08:02] [2026-06-09-Schaufler_Hosting_Praesentation (4).md] Anforderungen erfüllt: DSGVO-konform (Daten in EU), ISO-zertifizierte Rechenzentren, dedizierter Server 24/7
+- [2026-08-05 08:02] [2026-06-09-Schaufler_Hosting_Praesentation (4).md] Gesamtkosten: 558,07 €/Monat für Hosting, Wartung und Sprachmodell
+- [2026-08-05 08:01] [2026-06-09-Schaufler_Hosting.md] Schaufler: Hosting-Vertrag vorhanden
 - [2026-08-05 08:01] [2026-06-09-Prozessia_Intern_Schaufler_Hosting.md] Schaufler: Hosting-Pauschale 460 €/Monat für KI-Anwendungen, Gesamtkosten ca. 548 €/Monat
 - [2026-08-05 08:00] [2026-08-13-Schauenberg.md] Schauenberg - neuer potenzieller Kunde
 - [2026-08-05 08:00] [2026-07-14-Prozessia X Morali.md] Morali hat dynamische Preisberechnung (B2B, variable Preise) abgeschlossen; Lagermengen-Prognose im Einkauf noch nicht fertiggestellt
@@ -891,6 +946,36 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-05 08:11] [2026-06-09-Immobilien_final.md] CSV-Datei mit vorbereiteten Cold-Outreach-Kontakten, personalisierten E-Mail-Daten und Icebreaker-Texten für automatisierte Akquise
+- [2026-08-05 08:11] [2026-06-09-Immobilien.md] Liste für Lead-Generierung und Kaltansprache in der Immobilienbranche vorgesehen
+- [2026-08-05 08:11] [2026-06-09-Copy of undefined.md] Typische Kundenanfragen: Fahrzeugverfügbarkeit, Service-Termine buchen, Probefahrten vereinbaren
+- [2026-08-05 08:11] [2026-06-09-Copy of undefined.md] Hohe Anrufdichte in Verkaufs- und Serviceteam; Stoßzeiten morgens und nach Aktionen
+- [2026-08-05 08:11] [2026-06-09-Coaching.md] Lead-Quelle für Outreach in Coaching- und Trainingsbranche mit vollständigen Kontaktdaten (E-Mail, LinkedIn, Website)
+- [2026-08-05 08:11] [2026-06-09-Briefe.md] Campaign-Typ: Lead-Generierung durch strukturierte Serienbriefe mit vordefinierten Ansprechpartnern
+- [2026-08-05 08:11] [2026-06-09-Briefe.md] Leaddatenbank mit über 30 potenziellen Kunden für Serienbriefversand und Akquisekampagnen
+- [2026-08-05 08:10] [2026-07-28-Update Zillmer X Prozessia.md] Sicherheitsstufen-Ansatz: Phase 1 E-Mail-Entwürfe zur Freigabe durch Zillmer, Phase 2 (nach Vertrauensaufbau) automatischer Versand an Hersteller/Großhandel
+- [2026-08-05 08:10] [2026-07-28-Update Zillmer X Prozessia.md] Prozessskizze (von Biendarra bestätigt): (1) Ausschreibung eingang, (2) Hersteller eindeutig → direkter Preisvergleich; (3) Hersteller unklar → Agent recherchiert in ~50 definierten Herstellern, (4) Preisanfragen automatisch per E-Mail, (5) Günstigstes Angebot/Übersicht an Beteiligte
+- [2026-08-05 08:10] [2026-07-21-Update Zillmer X Prozessia.md] Workflow: KI recherchiert Hersteller/Leuchtentypen → Anfragen an Großhandel/Hersteller → Preisvergleich → Weitergabe günstigster Anbieter an Beauftragte
+- [2026-08-05 08:09] [2026-07-30-19fb1d58d4-20260624 LV KG 440_Beleuchtung.md] Artikelfindung erforderlich: Hersteller- und Typ-Ermittlung für Beleuchtungspositionen ohne konkrete Fabrikat-/Typ-Angaben
+- [2026-08-05 08:08] [2026-07-28-Prozessskizze-KI-Kalkulation.md] KI-Recherche: Suchraum bewusst auf ~50 relevante Hersteller (technische Leuchten, Deutschland) eingegrenzt; Ziel: Halluzinations-Risiko praktisch auf 0
+- [2026-08-05 08:08] [2026-07-28-Zillmer_KI_Kalkulationsprozess.md] Automatisierter Preisvergleich durch Anfragen an Großhandel/Hersteller, Ergebnisse direkt in Kalkulation eingespielt
+- [2026-08-05 08:08] [2026-07-28-Zillmer_KI_Kalkulationsprozess.md] KI-gestützter Workflow: Bei uneindeutigen Hersteller-/Typangaben (z.B. technische Leuchten) wird KI-Recherche unter ca. 50 deutschen Herstellern durchgeführt
+- [2026-08-05 08:08] [2026-08-04-Email-19fcdab7-Action-required-security-vulnerabilities.md] Zweites kritisches Problem: Sensitive Daten sind öffentlich zugänglich
+- [2026-08-05 08:07] [2026-07-28-Update Seifert X Prozessia.md] Warnung-Funktion implementiert: Bei Unsicherheit (unleserliche Bilder, unklar Werte) Position zur manuellen Prüfung freigeben – Human-in-the-Loop gegen Halluzinationen
+- [2026-08-05 08:07] [2026-07-28-Update Seifert X Prozessia.md] Stücklistenagent: Hochgeladene Dokumente zusammenfassen, automatisch Positionsnummer, Material und relevante Daten pro Position extrahieren
+- [2026-08-05 08:06] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Kritische Herausforderung: Jeder Kunde strukturiert Zeichnungen unterschiedlich - automatische Einzelteil-Erkennung ist Kernproblem
+- [2026-08-05 08:06] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Hauptschmerzpunkt: Manuelle Erstellung von Gesamtlisten (Material, Zuschnitte, Mengen, Positionszuordnung) aus Anfrage, Zeichnungen und Stückliste
+- [2026-08-05 08:06] [2026-07-28-Prozessskizze-Materialliste.md] Aktuell Spanflug für Frästeile-Kalkulation: PDF + 3D-Modell → Fräszeit, Bohrungen, Werkzeuge, Werktage. Funktioniert bei einzelnen Teilen, nicht bei Baugruppen
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Position 0001: 2 ST Komponente 2588569 (Zeichnung 11689796)
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Stückliste (BOM) Fertigung allgemein mit Komponenten: 2588569 (Platte), 2670270 (Seitenprofil) | Zeichnung 21135351.MI
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-MATERIAL_IU485.md] Überprüfung erforderlich: Datei muss validiert und korrekt zugeordnet werden
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-MATERIAL_83493383.md] Dateistand 2026-07-27: Dokumentation unvollständig; Kundenzuordnung unklar
+- [2026-08-05 08:03] [2026-07-27-19fa3698b1-Grenzebach-Anfrage 6000017119.md] Status: unverarbeitet - E-Mail-Inhalt nicht extrahierbar (.eml-Format)
+- [2026-08-05 08:03] [2026-07-27-19fa3698b1-6000017119.md] Status: Lead; Dokument dient als Beispiel für automatisierte Material-/Zuschnittlisten-Erstellung
+- [2026-08-05 08:02] [2026-06-09-Schaufler_Hosting_Praesentation.md] Infrastruktur-Design ermöglicht flexible Skalierung: neue KI-Agenten jederzeit deploybar ohne Infrastruktur-Neuinvestitionen
+- [2026-08-05 08:02] [2026-06-09-Schaufler_Hosting_Praesentation.md] Prozessia-Leistungen: Setup, Konfiguration, Sicherheit, Dauerbetrieb, Monitoring, Updates, Wartungsfenster
+- [2026-08-05 08:02] [2026-06-09-Schaufler_Hosting_Praesentation (4).md] Leistungen: Server-Setup/Sicherheit/Konfiguration, dauerhafter Betrieb/Monitoring/Updates, skalierbare KI-Agenten-Deployments ohne Infrastruktur-Neuaufbau
+- [2026-08-05 08:01] [2026-06-09-Schaufler_Hosting.md] Vertragsdatum: 2026-06-09
 - [2026-08-05 08:01] [2026-06-09-Prozessia_Intern_Schaufler_Hosting.md] Betrieb: Server läuft dauerhaft, kein direkter Kundenzugriff, Prozessia verwaltet vollständig, geplante Wartungsfenster
 - [2026-08-05 08:01] [2026-06-09-Prozessia_Intern_Schaufler_Hosting.md] Infrastruktur: Hetzner CCX23 (4 vCPU AMD, 16GB RAM, 160GB NVMe SSD), deutsches Rechenzentrum, 38,07 €/Monat
 - [2026-08-05 08:01] [2026-06-09-Prozessia-X-Schaufler Beschafungsagent.md] Identifizierte Geschäftspotenziale: Automatisierungspotenzial, verbesserte Terminverlässlichkeit, Prozesstransparenz, datengestützte Entscheidungen
@@ -1526,6 +1611,10 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-08-05 08:08] [2026-07-28-Prozessskizze-KI-Kalkulation.md] Spezifischer Suchraum = sicheres Ergebnis (O-Ton Sebastian Spuhler); Eingliederung ist kritischer Erfolgsfaktor
+- [2026-08-05 08:08] [2026-07-28-Zillmer_KI_Kalkulationsprozess.md] Kalkulationsergebnisse müssen bei Auftragserteilung an alle Beteiligten weitergegeben werden
+- [2026-08-05 08:06] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] KI-Agent soll automatisiert Material-/Zuschnittlisten für geschweißte Baugruppen mit mehreren Einzelteilen erstellen (Spanflug-Tool scheitert hier)
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83479898.md] KI-Agent zur automatisierten Material-/Zuschnittslisten-Erstellung für geschweißte Baugruppen
 - [2026-07-30 08:35] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler (1).md] KI-gestützte Arbeitsplanerstellung, Kapazitätsplanung und Lieferterm-Management als weitere Anwendungsfälle identifiziert
 - [2026-07-30 08:35] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler (1).md] Anfrageprozess-Automatisierung: Material-/Lieferantenanfragen und Angebotsvergleich nach Preis/Lieferzeit sollen automatisiert werden
 - [2026-07-30 07:13] [2026-07-29.md] Schmidt-Hänsch: Automatische Mahnung bei fehlenden Auftragsbestätigungen und Lieferverzugslisten
@@ -1585,6 +1674,9 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-05 08:11] [2026-06-09-Copy of undefined.md] Dokument unvollständig: {{USE_CASES}} Platzhalter noch nicht gefüllt
+- [2026-08-05 08:04] [2026-07-27-19fa3698b1-MATERIAL_2672654.md] Prüffall: Material benötigt Zuordnung oder ergänzende Kontextinformationen zur eindeutigen Klassifizierung
+- [2026-08-05 08:03] [2026-07-27-19fa3698b1-Grenzebach-Anfrage 6000017119.md] Datei erfodert Reparse oder manuelles Öffnen zur Extraktion der Anfrageinhalte
 - [2026-08-05 08:00] [2026-07-29-Follow-up-Entwurf.md] Lagermengen-Prognose in v2 (29.07.2026) entfernt – Morali baut intern selbst, kein Cross-Sell-Ansatz
 - [2026-08-05 05:07] [Request# 28824206 | [ACTION REQUIRED] Yo] Trust Hub Business Profile für Prozessia wurde abgelehnt – Grund: fehlende und/oder ungenaue Informationen (4. August 2026)
 - [2026-08-05 05:07] [Twilio Business Profile - Additional inf] Bereitgestellte Business ID konnte nicht verifiziert werden oder ist abgelaufen (Error 18602)
