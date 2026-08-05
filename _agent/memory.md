@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-05 20:04] [2026-08-05.md] Stücklistengröße: einstellig bis niedrig zweistellige Positionsanzahl, Gewichtsspanne 1–44 kg pro Baugruppe
 - [2026-08-05 13:21] [Automatische Antwort: Unser Gespräch] Notfallkontakte: 043171799-0 (Kiel), 041017099-0 (Pinneberg)
 - [2026-08-05 13:21] [Automatische Antwort: Unser Gespräch] Anfragen-Kontakte: vertrieb-ki@hoedtke.de (Kiel), vertrieb-pi@hoedtke.de (Pinneberg)
 - [2026-08-05 13:21] [Automatische Antwort: Unser Gespräch] Bestellungen-Kontakte: bestellung-ki@hoedtke.de (Kiel), bestellung-pi@hoedtke.de (Pinneberg)
@@ -788,6 +789,8 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-05 20:04] [2026-08-05.md] Anfragenummer 6000017119 mit 4 Positionen: Halter 83493383 (0,368 kg), Fuß 83486122 (83,908 kg), Fuß 83479898, Schwinge 83480037
+- [2026-08-05 20:03] [Kalender-Erstgespräch] Silas Rupp - Termin 'Silas Rupp and Sebastian Spuhler' am 2026-08-10 mit Silas Rupp
 - [2026-08-05 14:00] Kunde Schaufler: Lastenheft enthält offene Punkte, die vor verbindlicher Kalkulation geklärt werden müssen - fehlendes Mengengerüst (Positionen/Dokumente/Nutzer), unklare Genauigkeitsziele für KI-Extraktion, unklare Cloud/On-Premise-Definition (Air-Gap vs. kontrollierter Internetzugang) und unklarer Freigabeprozess (roh→konsolidiert→normalisiert→freigegeben)
 - [2026-08-05 10:08] [Re: ISO 27001 bei Prozessia] Linus Dangmann (Risk & Compliance, Secfix GmbH München) erkundigt sich nach ISO 27001 Zertifizierungsbedarf bei Prozessia
 - [2026-08-05 08:32] [2026-06-25-Vertriebsvereinbarung_Geginat (1).md] Vertriebspartner Geginat: Lead-Vermittlung für KI-Produkte, provisionsbasierte Vergütung für qualifizierte weitergeleitete Leads
@@ -1092,6 +1095,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-05 20:04] [2026-08-05.md] PoC Stücklistenagent (29.05.2026): 18 Beispieldateien mit Ampel-Bewertung pro Kunde (Grün/Gelb/Rot)
 - [2026-08-05 10:08] [Re: ISO 27001 bei Prozessia] Nächster Schritt: Klärung erforderlich, wie die ISO 27001 Situation bei Prozessia und deren Kunden aussieht
 - [2026-08-05 09:02] [Fwd: Formenplanung] Formenplanung für GGH und Steuergeräte von Joerg Schwindling (ZF Group, Global Commodity Casting SCPCE2) zugesandt am 05.08.2026
 - [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider.md] Leistungen des Partners: Lead-Generierung, Erstkontakt, Übergabe qualifizierter Kontakte an Prozessia
@@ -1905,6 +1909,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-05 20:04] [2026-08-05.md] Datensätze für Anfragenummer 6000017119 verteilt: Seifert-GmbH und Produkte/Stuecklistenagent Ordner (nicht vollständig bei Schaufler)
 - [2026-08-05 08:32] [2026-06-25-Vertriebsvereinbarung_Geginat (1).md] Vertrag vom 2026-06-25 mit Geginat: Vertriebspartner-Namenfelder und Adressdaten unvollständig
 - [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider (1).md] Vertriebspartner-Angaben (Name, Adresse) in Vertrag noch nicht ausgefüllt (Blanko-Felder)
 - [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung.md] Vertriebspartner-Daten unvollständig: Name, Adresse und Geburtsdatum fehlen im Dokument
