@@ -1,4 +1,8 @@
 ## KONTEXT
+- [2026-08-06 21:13] [2026-08-26-Inductohead.md] Status: Aus Kalendertermin erkannter Lead, Transkript und weitere Dokumentation ausstehend
+- [2026-08-06 21:13] [2026-08-24-Schmidt-Hänsch.md] Status: Kalendertermin ohne bisheriges Transkript/Material
+- [2026-08-06 21:13] [2026-08-06-Finom_payment_06082026.md] End-to-end ID: e8cd75516ab14651b575884a74712c98 (für Nachverfolgung)
+- [2026-08-06 21:13] [2026-08-06-Finom_payment_06082026.md] Abschluss: 06.08.2026 20:09 Uhr; Ausführung: 06.08.2026 20:08 Uhr
 - [2026-08-06 15:37] [AGB & AVV Änderungen] Alte AGB-Fassung gültig bis: Stand 18.06.2026
 - [2026-08-06 15:37] [AGB & AVV Änderungen] Gültige AGB-Fassung: Stand 18.06.2026; AVV-Fassung: Stand 19.06.2026 (veraltet)
 - [2026-08-06 15:37] [AGB & AVV Änderungen] Matthias von fonio (hallo@update.fonio.info) teilt Änderungen an AGB und Auftragsverarbeitungsvereinbarung (AVV) mit
@@ -797,6 +801,14 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-06 21:13] [2026-08-26-Inductohead.md] Ansprechpartner: allmendinger@inductoheat.eu (Inductoheat)
+- [2026-08-06 21:13] [2026-08-26-Inductohead.md] Neuer Lead: Inductohead
+- [2026-08-06 21:13] [2026-08-24-Schmidt-Hänsch.md] Ansprechpartner: s.bhawar@schmidt-haensch.de
+- [2026-08-06 21:13] [2026-08-24-Schmidt-Hänsch.md] Neuer Lead: Schmidt-Hänsch
+- [2026-08-06 21:13] [2026-08-11-TopDown.md] Ansprechpartner: Dominik Nussbaumer (dominik.nussbaumer@topdown-cf.com)
+- [2026-08-06 21:12] [Kalender-Erstgespräch] Inductohead - Termin 'Prozessia X Inductohead' am 2026-08-26 mit allmendinger@inductoheat.eu
+- [2026-08-06 21:11] [Kalender-Erstgespräch] Inductohead - Termin 'Prozessia X Inductohead' am 2026-08-26 mit allmendinger@inductoheat.eu
+- [2026-08-06 21:11] [Kalender-Erstgespräch] Schmidt-Hänsch - Termin 'Prozessia X Schmidt-Hänsch' am 2026-08-24 mit s.bhawar@schmidt-haensch.de
 - [2026-08-06 21:10] [Kalender-Erstgespräch] TopDown - Termin 'Prozessia X TopDown' am 2026-08-11 mit dominik.nussbaumer@topdown-cf.com
 - [2026-08-06 09:21] [AW: Update IMK X Prozessia] IMK GmbH lehnt Projekt ab - kein Interesse nach Rücksprache mit Geschäftsführung
 - [2026-08-05 20:04] [2026-08-05.md] Anfragenummer 6000017119 mit 4 Positionen: Halter 83493383 (0,368 kg), Fuß 83486122 (83,908 kg), Fuß 83479898, Schwinge 83480037
@@ -1105,6 +1117,9 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-06 21:13] [2026-08-24-Schmidt-Hänsch.md] Erstgespräch geplant: 2026-08-24
+- [2026-08-06 21:13] [2026-08-11-TopDown.md] Erstes Gespräch (Kalender-Erstgespräch) mit TopDown geplant am 2026-08-11
+- [2026-08-06 21:13] [2026-08-06-Finom_payment_06082026.md] Privatentnahme von 1.000,00 EUR durch Gesellschafter am 06.08.2026 durchgeführt
 - [2026-08-06 18:40] To-Do 'Netzwerk ausbauen' für Montag, 10.08.2026 in context.md eingetragen
 - [2026-08-06 15:37] [AGB & AVV Änderungen] Drei neue ergänzende Vertragsdokumente werden mit Wirksamkeit zum 06.08.2026 eingeführt
 - [2026-08-06 11:35] [2026-08-06.md] Auswertung und Einordnung der Formenplanungsdokumente von ZF angefordert
