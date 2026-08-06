@@ -3,7 +3,7 @@
   "title": "kannst du fpür mich dei Formenplanung auswerten, von zf die …",
   "model": "claude-sonnet-5",
   "created_at": "2026-08-06T11:20:47.595022+00:00",
-  "updated_at": "2026-08-06T11:25:12.378077+00:00",
+  "updated_at": "2026-08-06T11:53:29.157002+00:00",
   "messages": [
     {
       "role": "user",
@@ -19,6 +19,15 @@
       "role": "user",
       "content": "weiter",
       "attachments": null
+    },
+    {
+      "role": "user",
+      "content": "mach bitte jetzt weiter",
+      "attachments": null
+    },
+    {
+      "role": "assistant",
+      "content": "Jetzt ist das Bild vollständig – und die Verbindung ist der eigentliche Clou hier.\n\n**Was inhaltlich drinsteht:**\n\nDokument 1 (\"8HP-Steuerteile-Formenplanung Juli 2025\", Köberle/Schwindling/Wehberg, SCAA4) behandelt die Werkzeugplanung für die Steuerteile (Ventilgehäuse + Ventilplatte, immer als Satz) der ZF-Achtgang-Automatik 8HP. Gesamtvolumen 2025: 7.306.166 Stück (-275.211 ggü. letzter Planung), 2026: 6.876.014 Stück (+131.937). Der rote Faden: ZF verlagert Fertigung weg vom bisherigen Lieferanten AE Group hin zu ZF Guss und aktiviert/reaktiviert dafür den eigenen Standort **\"Nürnberg\"** als neuen bzw. zusätzlichen Lieferanten – für praktisch jede Teilefamilie (2.Gen, 3.Gen, 4.Gen FCA) mit ausgewiesenen Werkzeugbestellungen und Kosten (z. B. 220.000 € Druckgussform Kanalplatte, 295.000 € Ventilgehäuse, 310.000 € Erstform). Zusätzlich wird KSM als \"Second Source\" aufgebaut (2026: 420.000 Stück) und Trimet gibt Kapazität zurück an ZF Guss.\n\nDokument 2 (\"8HP-Großguss-Formenplanung September 2025\", Schwindling/Wehberg) behandelt die Getriebegehäuse (Großguss) – und hier läuft **die komplette Fertigung bereits über NRG = ZF Nürnberg**: 2.776.296 Stück 2025, 2.625.323 Stück 2026, dominiert von BMW (64,47% → 66,76% Anteil, das sind rund 1,79 bzw. 1,75 Mio. Stück), dahinter JLR (12,45%), Audi (8,94%→10,33%), FCA (rückläufig von 8,94% auf 4,40%). Auffällig: ZF Nürnberg lehnt laut Folie 8 grundsätzlich Komplettformen ab (\"nur Bestückungen zugelassen\"), Detailplanungen werden dort nicht mehr vorgenommen, und es gibt mehrere offene Punkte wie eine defekte Form mit 32.500 Resthub ohne Kompensationsangebot.\n\n**Die eigentliche Einordnung:** Das hier sind keine beliebigen ZF-Interna, die dir zufällig zugespielt wurden. Sie gehören exakt zu `Kunden/Schaufler/Übernahme/Schaufler X ZF Nürnberg.pdf` – dem vertraulichen Entwurf, in dem Schaufler Tooling die schrittweise Übernahme des Werkzeugbaus der ZF Nürnberg plant: 100 Mio. € Umsatzziel, 36 Monate Gesamtlaufzeit, 14 Monate Vertrauensphase, mit der Empfehlung \"Freigabe der Vertrauensphase, Mandat zur Verhandlung mit der ZF\". Joerg Schwindling (ZF Werkzeugmanagement) hat dir am 05.08. genau die Kapazitäts- und Volumendaten geschickt, die das Fundament für diese Verhandlung liefern. Die Zahlen aus den beiden Formenplanungs-PDFs sind der belastbare Beleg für das 100-Mio.-€-Ziel: Allein der Großguss-Anteil, der schon komplett bei Nürnberg liegt, entspricht bei ~2,6-2,8 Mio. Gehäusen/Jahr und den Steuerteil-Volumina, die zusätzlich nach Nürnberg wandern, einer Größenordnung, die diese Zielmarke plausibel macht.\n\n**Einordnung/Ablage:** Ich würde beide PDFs (plus die Duplikate) aus `_inbox/_fehler/` nicht ins allgemeine Marketing/Finanzen einsortieren, sondern zu `Kunden/Schaufler/Übernahme/` legen – als Due-Diligence-Unterlage zur Übernahme-Strategie, direkt neben dem Pitch-Deck. Die Duplikate (jeweils zweimal fast identisch benannt) kann ich bereinigen, wenn du bestätigst, dass ich löschen darf. Die Pipeline ist übrigens deshalb gescheitert, weil beide PDFs fast nur aus Diagrammen/Screenshot-Tabellen bestehen statt aus Fließtext – das ist kein Fehler, den man beheben muss, das sind einfach Chart-lastige ZF-Reports, die Texterkennung liefert da wenig brauchbares.\n\nZwei Dinge fallen mir dabei auf, die du im Blick haben solltest: Erstens widersprechen sich die Aussagen leicht – die Übernahme-Folie sagt \"bereits belastbares Vertrauensverhältnis besteht\", aber die Formenplanung selbst zeigt an mehreren Stellen ungelöste Reibungspunkte mit Nürnberg (Komplettform-Ablehnung, fehlende Rahmen, defekte Form ohne Kompensation, keine Detailplanung mehr) – das würde ich vor der Verhandlung als Realitätscheck gegen das Pitch-Narrativ halten. Zweitens: Das läuft parallel zum viel größeren Schaufler-Stücklistenprojekt (307-317 PT, das wir eben durchgegangen sind) – zwei große strategische Schaufler-Themen gleichzeitig, beide unbeantwortet in Richtung Marvin Wiegner offen."
     }
   ],
   "agent_id": null
