@@ -48,20 +48,21 @@
     }
   },
   "Lendner": {
-    "input_hash": "ca8c4d3dfded8b2d",
+    "input_hash": "144db66af83c58cf",
     "ergebnis": {
       "status": "erstgespraech",
-      "sicherheit": "mittel",
-      "begruendung": "Am 16.07.2026 fand ein Erstgespräch zwischen Sebastian Spuhler und Herrn Lendner (IMK GmbH) statt, in dem mögliche KI-Anwendungsfälle im Einkauf und der Arbeitsplanung besprochen wurden. Ein Folgetermin wurde laut 2026-07-30-Email-19fb2594-AW-Update-IMK-X-Prozessia.md kurzfristig abgesagt.",
+      "sicherheit": "hoch",
+      "begruendung": "Nach dem Erstgespräch am 16.07.2026 (Meetings-Dateien) wurden zwei Folgetermine abgesagt (2026-07-30-Email und 2026-08-06-Email), letztere mit expliziter Absage: 'Wir haben kein Interesse'.",
       "quellen": [
-        "2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler.md",
-        "2026-07-30-Email-19fb2594-AW-Update-IMK-X-Prozessia.md"
+        "2026-08-06-Email-19fd65ce-AW-Update-IMK-X-Prozessia.md",
+        "2026-07-30-Email-19fb2594-AW-Update-IMK-X-Prozessia.md",
+        "2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler.md"
       ],
-      "warnsignal": "Folgetermin nach dem Erstgespräch wurde kurzfristig abgesagt, kein neuer Termin bekannt.",
+      "warnsignal": "Kunde hat expliziten Terminabsage mit klarer Absage 'kein Interesse' geäußert - Projekt vermutlich beendet.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "IMK GmbH (Christoph Lendner)",
-      "aktueller_stand": "Nach dem Erstgespräch vom 16.07.2026 sollte Lendner sich intern mit Herrn Biebl abstimmen, um Anwendungsfälle zu priorisieren; ein geplanter Folgetermin wurde am 30.07.2026 abgesagt."
+      "aktueller_stand": "Nach dem Erstgespräch am 16.07.2026 wurde der Folgetermin zweimal abgesagt, zuletzt am 06.08.2026 mit expliziter Absage aufgrund fehlenden Interesses seitens des Kunden."
     }
   },
   "Mundinger": {
@@ -96,22 +97,22 @@
     }
   },
   "Schaufler": {
-    "input_hash": "e6a1d7743e80f3ff",
+    "input_hash": "b552cc92b07dbc26",
     "ergebnis": {
       "status": "fulfillment",
       "sicherheit": "hoch",
-      "begruendung": "Laut 2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md ist der Beschaffungsagent bereits live im Einsatz, und die Rechnungen RE260015/RE260016 sowie SLA/AVV belegen den laufenden Betrieb. Aktuelle E-Mails wie 2026-07-28-Email-19fa924d-AW-Integration-Einkäufermail.md und 2026-07-29-Email-19fad8ab zeigen laufende operative Abstimmungen zur Weiterentwicklung des Systems.",
+      "begruendung": "Der Beschaffungsagent ist laut 2026-07-24-19f40a0d3d-SLA_Schaufler .md und 2026-07-24-19f40a0d3d-AVV_Schaufler_Prozessia.md im aktiven Betrieb (SLA über 12 Monate), zusätzlich wurde per 2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md die Einrichtung der Winform-Schnittstelle abgerechnet und laufende Dashboard-Abgleiche finden statt (2026-07-31-Email-19fb7eef-Prozessia.md).",
       "quellen": [
-        "2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md",
         "2026-07-24-19f40a0d3d-SLA_Schaufler .md",
-        "2026-07-23-19f7aad092-Rechnung_RE260016_20.07.2026.md",
-        "2026-07-28-Email-19fa924d-AW-Integration-Einkäufermail.md"
+        "2026-07-24-19f40a0d3d-AVV_Schaufler_Prozessia.md",
+        "2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md",
+        "2026-07-31-Email-19fb7eef-Prozessia.md"
       ],
-      "warnsignal": "Geschäftsführer Siegfried Heinrich fordert vor Start des nächsten Projekts (Stücklistenprojekt) einen Effizienznachweis des Agenten ein.",
+      "warnsignal": "Geschäftsführer Siegfried Heinrich fragt in 2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md kritisch nach Effizienznachweis des laufenden Agenten, bevor ein neues Projekt gestartet wird.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
-      "anzeige_name": "Schaufler Tooling GmbH & Co. KG",
-      "aktueller_stand": "Der Beschaffungsagent läuft produktiv, aktuell werden Kapazitäten für ein Stücklistenprojekt geklärt, die Einkäufer-Integration bei Eskalationen eingerichtet und ein Dashboard-Abgleich per Teams-Meeting vorbereitet."
+      "anzeige_name": "Schaufler",
+      "aktueller_stand": "Der Beschaffungsagent läuft produktiv unter SLA/AVV mit laufender Betreuung (Dashboard-Abgleiche, Einkäufer-Integration), parallel wurde für ein neues Projekt zur KI-gestützten Stücklistendatenerfassung am 2026-08-05 ein Lastenheft übergeben, auf dessen Basis Prozessia ein Angebot erstellen soll."
     }
   },
   "TPG": {
@@ -132,39 +133,39 @@
     }
   },
   "Voigt_Salus": {
-    "input_hash": "9dd69d91c3195572",
+    "input_hash": "83a617301a9636c3",
     "ergebnis": {
       "status": "fulfillment",
-      "sicherheit": "hoch",
-      "begruendung": "Aus 2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md und 2026-06-09-mandatsuebersicht.md geht hervor, dass der KI-Agent bereits eingerichtet und im Einsatz ist, der Kunde befindet sich also in der Umsetzungsphase (Fulfillment).",
+      "sicherheit": "mittel",
+      "begruendung": "Aus 2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md und 2026-06-09-mandatsuebersicht.md geht hervor, dass der KI-Agent bereits eingerichtet und im produktiven Einsatz ist, was auf die Fulfillment-Phase hindeutet.",
       "quellen": [
         "2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md",
         "2026-06-09-mandatsuebersicht.md",
-        "2026-06-09-Voigt_Salus_Arbeitsalltag (1).md"
+        "2026-08-04-Email-19fcdab7-Action-required-security-vulnerabilities.md"
       ],
-      "warnsignal": "Seit Wochen wiederkehrende, unbeantwortete kritische Supabase-Sicherheitswarnungen (RLS deaktiviert, sensible Daten öffentlich zugänglich) von 2026-06-23 bis 2026-07-28 deuten auf fehlendes technisches Follow-up hin.",
+      "warnsignal": "Seit mindestens 2026-06-23 wiederholen sich wöchentlich automatische Sicherheitswarnungen (z.B. 2026-08-04-Email-19fcdab7) zu kritischen RLS-Lücken im Supabase-Projekt 'Voigtsalus', die offenbar nicht behoben wurden.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
-      "anzeige_name": "Voigt Salus",
-      "aktueller_stand": "Der Prozessia KI-Agent wurde bei Voigt Salus eingerichtet und läuft im produktiven Betrieb, jedoch bestehen seit Ende Juni wiederholt ungelöste kritische Sicherheitslücken in der Supabase-Datenbank, die dringend behoben werden müssten."
+      "anzeige_name": "Voigt_Salus",
+      "aktueller_stand": "Der KI-Agent wurde onboardet und ist im Einsatz, jedoch bestehen seit Wochen unbehobene kritische Sicherheitslücken (Row-Level Security deaktiviert) im zugehörigen Supabase-Projekt, die dringend adressiert werden müssten."
     }
   },
   "endin": {
-    "input_hash": "6b3740fcb9ce075f",
+    "input_hash": "b18c251229f0fa2a",
     "ergebnis": {
       "status": "angebotsphase",
       "sicherheit": "hoch",
-      "begruendung": "Mehrere aktuelle Angebote (u.a. 2026-07-24-Angebot_endin_überarbeitet.md, AG0032, AG0027, AG0026) wurden erstellt und im Meeting 2026-07-24-Update Prozessia X Endin.md wurde ein reduziertes Startpaket besprochen, das Endin noch schriftlich als Angebot erhalten soll. Ein Vertragsabschluss liegt noch nicht vor, der Kunde möchte vor Bindung noch Referenzen prüfen.",
+      "begruendung": "Mehrere Angebote (AG0026, AG0027, AG0032) wurden erstellt und im Meeting '2026-07-24-Update Prozessia X Endin.md' wurde ein reduziertes Startpaket vereinbart, das noch schriftlich angeboten werden soll. Ein konkreter Folgetermin am 17.09.2026 zur Entscheidung über das Startpaket ist bereits fixiert.",
       "quellen": [
         "2026-07-24-Angebot_endin_überarbeitet.md",
-        "2026-07-24-19f93b0bdf-Angebot_AG0032_24.07.2026.md",
-        "2026-07-24-Update Prozessia X Endin.md"
+        "2026-07-24-Update Prozessia X Endin.md",
+        "2026-07-24-19f93b0bdf-Angebot_AG0032_24.07.2026.md"
       ],
       "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "endin GmbH",
-      "aktueller_stand": "Laut Meeting 2026-07-24-Update Prozessia X Endin.md wird aktuell ein reduziertes Startpaket (Postfach-Überwachung, Bestellkategorisierung, Dashboard) als schriftliches Angebot vorbereitet, während Endin vor der vertraglichen Bindung noch Referenzen prüfen möchte und ein Entscheidungstermin für den 17.09.2026 vereinbart wurde."
+      "aktueller_stand": "Nach mehreren Angeboten wurde ein reduziertes Startpaket (Postfach-Überwachung, Bestellkategorisierung, Dashboard) vereinbart; Entscheidung fällt beim Folgetermin am 17.09.2026, zudem sollen ein Testdatensatz ausgewertet und eine Referenz vermittelt werden."
     }
   },
   "Copy of undefined": {
@@ -409,53 +410,56 @@
     }
   },
   "Zillmer-Elektrotechnik": {
-    "input_hash": "528390020bc49786",
+    "input_hash": "d98a9582c9bf2b0f",
     "ergebnis": {
-      "status": "erstgespraech",
-      "sicherheit": "mittel",
-      "begruendung": "Laut 2026-07-21-Zillmer-Elektrotechnik.md fand am 14.07.2026 ein Erstgespräch statt, danach folgten am 21.07. und 28.07.2026 mehrere Update-Korrespondenzen sowie eine Prozessskizze-KI-Kalkulation.md, was auf eine vertiefte Angebotsvorbereitung hindeutet, jedoch ohne konkrete Angebots- oder Vertragsdokumente.",
+      "status": "angebotsphase",
+      "sicherheit": "hoch",
+      "begruendung": "Nach dem Erstgespräch (2026-07-14-Zillmer-Elektrotechnik-Erstgespraech.md) und dem Folgetermin (2026-07-21-Update Zillmer X Prozessia.md) mit Zusage einer Produkt-/Projektskizze inkl. Kostenvoranschlag liegt inzwischen die Prozessskizze (2026-07-28-Prozessskizze-KI-Kalkulation.md) sowie mehrere LV-Dokumente (2026-07-30-...LV KG 440...) als konkrete Arbeitsgrundlage vor.",
       "quellen": [
-        "2026-07-21-Zillmer-Elektrotechnik.md",
+        "2026-07-14-Zillmer-Elektrotechnik-Erstgespraech.md",
+        "2026-07-21-Update Zillmer X Prozessia.md",
         "2026-07-28-Prozessskizze-KI-Kalkulation.md",
-        "2026-07-28-Update Zillmer X Prozessia.md"
+        "2026-07-30-20260624 LV KG 440_SIBE.md"
       ],
-      "warnsignal": "Kein bevorstehender Termin bekannt trotz laufender Aktivität.",
+      "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
-      "anzeige_name": "Zillmer Elektrotechnik",
-      "aktueller_stand": "Nach dem Erstgespräch am 14.07.2026 laufen weitere Abstimmungen inkl. einer Prozessskizze zur KI-Kalkulation, ein konkretes Angebot liegt aber noch nicht vor."
+      "anzeige_name": "Zillmer-Elektrotechnik",
+      "aktueller_stand": "Prozessia hat eine Prozessskizze zur KI-Kalkulation erstellt und arbeitet anhand der von Zillmer bereitgestellten Leistungsverzeichnisse (LV KG 440) an der konkreten Artikelfindungs-Lösung für die Angebotsphase."
     }
   },
   "Seifert-GmbH": {
-    "input_hash": "ff8bcabd9a38c5a3",
+    "input_hash": "e0f34912d303ed27",
     "ergebnis": {
       "status": "erstgespraech",
-      "sicherheit": "mittel",
-      "begruendung": "Am 2026-07-23 fand laut 2026-07-23-Seifert-GmbH.md das Erstgespräch statt, danach wurden in 2026-07-27-19fa3698b1-6000017119.md und den zugehörigen Stücklisten Beispieldokumente gesammelt sowie am 2026-07-28 eine Prozessskizze-Materialliste erstellt, was auf eine vertiefte Analysephase nach dem Erstkontakt hindeutet, aber noch kein konkretes Angebot belegt.",
+      "sicherheit": "hoch",
+      "begruendung": "Am 28.07.2026 wurde laut Meetings/2026-07-28-Update Seifert X Prozessia.md bereits eine Demo mit Beispieldaten von Seifert präsentiert, ein konkretes Preismodell (vierstelliger Bereich) genannt, aber noch kein Angebot oder Auftrag fixiert. Seifert will laut diesem Meeting erst intern besprechen, wie die Anfrage strukturiert werden soll - es fehlt ein konkreter Folgetermin.",
       "quellen": [
-        "2026-07-23-Seifert-GmbH.md",
-        "2026-07-27-19fa3698b1-6000017119.md",
-        "2026-07-28-Prozessskizze-Materialliste.md"
+        "2026-07-28-Update Seifert X Prozessia.md",
+        "2026-07-23-Stefan Seifert and Sebastian Spuhler.md"
       ],
-      "warnsignal": null,
+      "warnsignal": "Nach dem Demo-Meeting vom 28.07.2026 wurde kein Folgetermin vereinbart und Seifert wollte erst intern klären - seitdem (Stand 06.08.2026) keine weitere Aktivität dokumentiert.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Seifert GmbH",
-      "aktueller_stand": "Nach dem Erstgespräch wurden Beispiel-Fertigungsdokumente (Anfragen, Stücklisten) gesammelt und eine Prozessskizze für die geplante Material-/Zuschnittlisten-Lösung erarbeitet, nächster Schritt wäre die Angebotserstellung."
+      "aktueller_stand": "Nach erfolgreicher Demo mit echten Kundendaten (Grenzebach-Anfrage) am 28.07.2026 wartet Prozessia auf internes Feedback von Seifert zur Strukturierung der Anfrage, bevor ein Angebot für ein größeres Trainingsprojekt folgen kann."
     }
   },
   "Juchem": {
-    "input_hash": "983b856882efb8df",
+    "input_hash": "b1e3e4b9892c32a4",
     "ergebnis": {
-      "status": "erstgespraech",
-      "sicherheit": "niedrig",
-      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
-      "quellen": [],
-      "warnsignal": null,
+      "status": "angebotsphase",
+      "sicherheit": "mittel",
+      "begruendung": "Laut 2026-07-29-Update Juchem X Prozessia.md wurde der komplette Beschaffungsprozess besprochen und soll nun in ein detailliertes individuelles Angebot überführt werden; laut 2026-06-08-Juchem.md gab es zuvor bereits ein Erstgespräch mit Bedarfsklärung.",
+      "quellen": [
+        "2026-07-29-Update Juchem X Prozessia.md",
+        "2026-06-08-Juchem.md"
+      ],
+      "warnsignal": "Kein Transkript des Termins vom 29.07. vorhanden und noch kein konkretes Angebot erstellt, Einkaufsseite bislang nicht direkt eingebunden.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Juchem",
-      "aktueller_stand": ""
+      "aktueller_stand": "Nach dem Folgetermin am 29.07.2026 wird der besprochene End-to-End-Prozess in ein individuelles, umfangreicheres Angebot (voraussichtlich Pilotprojekt-Festpreis) überführt, wobei Einkaufsseite und Info-LN-Schnittstelle noch final geklärt werden müssen."
     }
   },
   "Schauenberg": {
@@ -473,20 +477,21 @@
     }
   },
   "Schmidt-Haensch": {
-    "input_hash": "8150b6d17e229203",
+    "input_hash": "1eb933e10ecaae48",
     "ergebnis": {
       "status": "erstgespraech",
       "sicherheit": "mittel",
-      "begruendung": "Beide Dateien vom 21.07.2026 (2026-07-21-Prozessia X Schmidt-Hänsch.md und 2026-07-21-Prozessia X Schmidt-Hänsch (1).md) belegen ein Erstgespräch mit Vorstellung des KI-Beschaffungsagenten, es liegt jedoch noch kein Angebot vor.",
+      "begruendung": "Nach dem Erstgespräch am 2026-07-21 (Meetings/2026-07-21-Prozessia X Schmidt-Hänsch.md) sollte laut Zusage ein Folgetermin in 1-1,5 Wochen stattfinden, dieser wurde jedoch zweimal vom Kunden abgesagt (2026-08-04-Email-19fcbc06-New-Time-Proposed-Prozessia-X-Schmidt-Hä.md und 2026-08-04-Email-19fcbbf7-RE-Prozessia-X-Schmidt-Hänsch.md), da noch keine interne Rückmeldung der Geschäftsleitung vorliegt.",
       "quellen": [
         "2026-07-21-Prozessia X Schmidt-Hänsch.md",
-        "2026-07-21-Prozessia X Schmidt-Hänsch (1).md"
+        "2026-08-04-Email-19fcbc06-New-Time-Proposed-Prozessia-X-Schmidt-Hä.md",
+        "2026-08-04-Email-19fcbbf7-RE-Prozessia-X-Schmidt-Hänsch.md"
       ],
-      "warnsignal": "Folgetermin sollte laut Zusage in 1-1,5 Wochen stattfinden, ist aber laut Chronologie noch nicht terminiert.",
+      "warnsignal": "Folgetermin wurde zweimal kurzfristig abgesagt und es gibt noch keine interne Freigabe der Geschäftsleitung - Prozess stockt seit über zwei Wochen.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
-      "anzeige_name": "Schmidt-Hänsch",
-      "aktueller_stand": "Nach dem Erstgespräch klärt Sumit Bhawar intern mit Chef und IT-Abteilung Freigabe und Server-Infrastruktur, ein Folgetermin in 1-1,5 Wochen wurde zugesagt."
+      "anzeige_name": "Schmidt-Haensch",
+      "aktueller_stand": "Kunde prüft intern mit Geschäftsleitung und IT die Freigabe/Machbarkeit; ein neuer Termin nach zwei Absagen (04.08.2026) steht noch aus."
     }
   },
   "Grohe": {
@@ -503,6 +508,102 @@
       "relevanz_begruendung": "",
       "anzeige_name": "Grohe",
       "aktueller_stand": "Erstgespräch Prozessia X Grohe ist für 2026-08-24 um 11:00 Uhr terminiert, Inhalte liegen noch nicht vor."
+    }
+  },
+  "Esterer-Giesserei": {
+    "input_hash": "bbf14cee4bb44085",
+    "ergebnis": {
+      "status": "neuer_kontakt",
+      "sicherheit": "mittel",
+      "begruendung": "Es liegt lediglich eine Firmenpräsentation der Esterer Gießerei GmbH vor (2026-07-19-Präsentation-Esterer Giesserei-V20_Deutsch.md), die als Lead-Material dient, aber keine Hinweise auf ein Erstgespräch oder Angebot enthält.",
+      "quellen": [
+        "2026-07-19-Präsentation-Esterer Giesserei-V20_Deutsch.md"
+      ],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Esterer Gießerei GmbH",
+      "aktueller_stand": "Es liegt eine Firmenpräsentation als Lead-Material vor; ein weiterer Kontakt oder Termin ist noch nicht dokumentiert."
+    }
+  },
+  "Giesserei-Wurzen": {
+    "input_hash": "b8d68798c9f947e6",
+    "ergebnis": {
+      "status": "neuer_kontakt",
+      "sicherheit": "mittel",
+      "begruendung": "Der Kontakt entstand über einen Messebesuch auf der CastForge in Stuttgart, dokumentiert durch die Firmenpräsentation 2026-07-19-Präsentation-Giesserei Wurzen-V3_Deutsch.md; darüber hinaus liegt keine weitere Korrespondenz oder ein Termin vor.",
+      "quellen": [
+        "2026-07-19-Präsentation-Giesserei Wurzen-V3_Deutsch.md"
+      ],
+      "warnsignal": "Seit dem Messekontakt gibt es keine weitere Korrespondenz oder geplanten Termin - Follow-up steht noch aus.",
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Gießerei Wurzen GmbH",
+      "aktueller_stand": "Erster Kontakt über Messebesuch (CastForge Stuttgart) mit Zusendung der Firmenpräsentation; nächster Schritt wäre ein Follow-up zur Vereinbarung eines Erstgesprächs."
+    }
+  },
+  "Huissel": {
+    "input_hash": "655dee451785ab52",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "mittel",
+      "begruendung": "Am 09.06.2026 fand laut Datei 2026-06-09-Susanne Riedt (Huissel GmbH) X Prozessia.md ein Erstgespräch mit der Huissel GmbH statt, seitdem liegen keine weiteren Unterlagen vor.",
+      "quellen": [
+        "2026-06-09-Susanne Riedt (Huissel GmbH) X Prozessia.md"
+      ],
+      "warnsignal": "Seit dem Erstgespräch im Juni 2026 ist keine weitere Aktivität oder Follow-up dokumentiert.",
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Huissel GmbH",
+      "aktueller_stand": "Nach dem Erstgespräch am 09.06.2026 mit Susanne Riedt steht ein Follow-up bzw. die nächsten Schritte noch aus."
+    }
+  },
+  "M.Reuss": {
+    "input_hash": "5b9c4294b7196647",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "mittel",
+      "begruendung": "Laut 2026-07-02-M.Reuss X Prozessia.md fand ein reines Sondierungsgespräch statt, bei dem keine Entscheidung getroffen wurde und noch keine Präsentation oder Demoversion verschickt wurde.",
+      "quellen": [
+        "2026-07-02-M.Reuss X Prozessia.md"
+      ],
+      "warnsignal": "Der für die Folgewoche angedachte Termin ist noch nicht final bestätigt und es liegt kein aktuellerer Kontakt vor.",
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "M.Reuss",
+      "aktueller_stand": "Nach dem Erstgespräch am 02.07.2026 klärt Moritz Klüpfel intern die Investitionsbereitschaft, ein Folgetermin ist angedacht aber noch nicht bestätigt."
+    }
+  },
+  "Morali": {
+    "input_hash": "72c6464210f5c836",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "mittel",
+      "begruendung": "Laut 2026-07-14-Prozessia X Morali.md fand ein Erstgespräch mit Live-Demo statt, wobei Ayoub Falah kritisch nach Datenschutz fragte und sich die Demoversion selbst anschauen wollte statt einen festen Termin zu vereinbaren.",
+      "quellen": [
+        "2026-07-14-Prozessia X Morali.md"
+      ],
+      "warnsignal": "Kein fester Folgetermin vereinbart, Kunde meldet sich nur proaktiv - Risiko der Funkstille ohne aktives Nachfassen von Prozessia.",
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Morali",
+      "aktueller_stand": "Ayoub Falah prüft eigenständig die zugesandte Demoversion und will sich danach direkt oder über Esma Tamer bei Sebastian melden."
+    }
+  },
+  "Silas-Rupp": {
+    "input_hash": "2175e6c2b2f76126",
+    "ergebnis": {
+      "status": "neuer_kontakt",
+      "sicherheit": "mittel",
+      "begruendung": "Laut 2026-08-10-Silas-Rupp.md handelt es sich um ein automatisch erkanntes Erstgespräch mit einem neuen potenziellen Kunden, ein Transkript liegt noch nicht vor.",
+      "quellen": [
+        "2026-08-10-Silas-Rupp.md"
+      ],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Silas Rupp",
+      "aktueller_stand": "Erstgespräch mit Silas Rupp ist für 2026-08-10 um 16:30 mit Sebastian Spuhler angesetzt, Ergebnis liegt noch nicht vor."
     }
   }
 }
