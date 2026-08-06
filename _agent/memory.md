@@ -1104,6 +1104,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-06 18:40] To-Do 'Netzwerk ausbauen' für Montag, 10.08.2026 in context.md eingetragen
 - [2026-08-06 15:37] [AGB & AVV Änderungen] Drei neue ergänzende Vertragsdokumente werden mit Wirksamkeit zum 06.08.2026 eingeführt
 - [2026-08-06 11:35] [2026-08-06.md] Auswertung und Einordnung der Formenplanungsdokumente von ZF angefordert
 - [2026-08-06 09:27] [2026-08-06-Email-19fd65ce-AW-Update-IMK-X-Prozessia.md] Termin wird abgesagt
