@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-06 09:27] [2026-08-06-Email-19fd65ce-AW-Update-IMK-X-Prozessia.md] Absage erfolgt nach Absprache mit Geschäftsführer Manuel Biebl
 - [2026-08-06 07:55] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Grundlagen: Lastenheft v. 05.08.2026 (M. Wiegner), Umsetzungsplan v. 05.08.2026 (Teil 2-3)
 - [2026-08-05 20:04] [2026-08-05.md] Stücklistengröße: einstellig bis niedrig zweistellige Positionsanzahl, Gewichtsspanne 1–44 kg pro Baugruppe
 - [2026-08-05 13:21] [Automatische Antwort: Unser Gespräch] Notfallkontakte: 043171799-0 (Kiel), 041017099-0 (Pinneberg)
@@ -1097,6 +1098,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-06 09:27] [2026-08-06-Email-19fd65ce-AW-Update-IMK-X-Prozessia.md] Termin wird abgesagt
 - [2026-08-06 09:21] [AW: Update IMK X Prozessia] Terminabsage erforderlich
 - [2026-08-06 07:55] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Abnahme und Auslieferung erfolgen erst nach Migration auf gpt-oss-120b (MIG-Tickets, Teil D)
 - [2026-08-06 07:55] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Blockierender Klärungspunkt: Verarbeitung realer Schaufler-Konstruktionsdaten über Azure OpenAI erfordert Genehmigung (Teil 1.2)
