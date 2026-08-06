@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-06 12:05] KORREKTUR: Die beiden ZF-Formenplanungs-PDFs (Steuerteile Juli 2025 + Großguss September 2025) haben KEINEN Bezug zur Schaufler-Übernahmestrategie (Kunden/Schaufler/Übernahme/). Sie sind Ausgangsmaterial für einen KI-Podcast (vermutlich via NotebookLM-Pipeline, siehe YouTube-Workflow), der die Inhalte automatisiert aufbereiten soll. Nicht als Übernahme-Due-Diligence einordnen/ablegen.
+- [2026-08-06 11:53] Dokument '8HP-Steuerteile-Formenplanung Juli 2025' (Köberle/Schwindling/Wehberg, SCAA4) behandelt Werkzeugplanung für Steuerteile (Ventilgehäuse + Ventilplatte, immer als Satz) der ZF-Achtgang-Automatik 8HP. Gesamtvolumen 2025: 7.306.166 Stück (-275.211 gegenüber letzter Planung).
 - [2026-08-06 11:35] [2026-08-06.md] Anfrage eingereicht am 2026-08-06, 11:20 Uhr
 - [2026-08-06 09:27] [2026-08-06-Email-19fd65ce-AW-Update-IMK-X-Prozessia.md] Absage erfolgt nach Absprache mit Geschäftsführer Manuel Biebl
 - [2026-08-06 07:55] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Grundlagen: Lastenheft v. 05.08.2026 (M. Wiegner), Umsetzungsplan v. 05.08.2026 (Teil 2-3)
