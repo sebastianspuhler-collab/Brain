@@ -182,9 +182,7 @@ def _drain_stderr(proc: subprocess.Popen, tail: deque) -> None:
 
 
 def _terminate(wp: WarmProcess) -> None:
-    if wp.proc.poll() is None:
-        wp.proc.kill()
-    try:
-        wp.proc.wait(timeout=2)
-    except Exception:
-        pass
+    # Gemeinsamer Pfad mit stream_chat()'s Cleanup (claude_cli.py) - killt die
+    # ganze Prozessgruppe (inkl. des MCP-Servers, der schon beim Vorwaermen
+    # sofort mitstartet) und wartet danach immer, damit kein Zombie bleibt.
+    claude_cli.terminate_process_tree(wp.proc)

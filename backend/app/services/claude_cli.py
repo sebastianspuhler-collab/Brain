@@ -33,6 +33,7 @@ Stand 2026-07-23, live gegen einen echten CLAUDE_CODE_OAUTH_TOKEN verifiziert
 """
 import json
 import os
+import signal
 import subprocess
 import time
 from collections.abc import Iterator
@@ -41,6 +42,44 @@ from pathlib import Path
 from app.config import get_settings
 
 CLAUDE_BIN = "claude"
+
+
+def terminate_process_tree(proc: subprocess.Popen, timeout: float = 3.0) -> None:
+    """Beendet proc UND seine komplette Prozessgruppe (MCP-Server-, Subagenten-
+    und Tool-Kindprozesse wie `git`, die `claude -p` selbst startet) und wartet
+    IMMER danach auf ihn, damit kein Zombie zurückbleibt.
+
+    Bug (2026-08-06, gefunden nach Support-Anfrage "Verbindung bricht ab"):
+    der bisherige Cleanup war `if proc.poll() is None: proc.kill()` - das
+    killt nur den direkten Kindprozess UND ruft nie proc.wait() danach auf,
+    also wird der Zombie nie eingesammelt. Nach einer Woche Chat-Betrieb
+    waren so ~4.750 Zombie-Prozesse (fast der komplette Container-Prozesstisch)
+    aufgelaufen, dazu mehrere GB RAM in verwaisten, weiterlaufenden
+    MCP-Server-/Subagenten-Prozessen - das degradiert den einzigen
+    Uvicorn-Worker so weit, dass neue Verbindungen abbrechen/hängen.
+    Fix: spawn_process() startet jetzt mit start_new_session=True (eigene
+    Prozessgruppe), damit os.killpg() den kompletten Baum trifft statt nur
+    proc selbst - und wait() danach reap't ihn tatsächlich."""
+    if proc.poll() is not None:
+        return
+    try:
+        pgid = os.getpgid(proc.pid)
+        os.killpg(pgid, signal.SIGTERM)
+    except (ProcessLookupError, PermissionError):
+        pass
+    try:
+        proc.wait(timeout=timeout)
+        return
+    except subprocess.TimeoutExpired:
+        pass
+    try:
+        os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+    except (ProcessLookupError, PermissionError):
+        pass
+    try:
+        proc.wait(timeout=timeout)
+    except subprocess.TimeoutExpired:
+        pass  # SIGKILL kann nicht blockiert werden - sollte praktisch nie passieren
 
 
 def ensure_mcp_approval() -> None:
@@ -244,6 +283,11 @@ def spawn_process(
     return subprocess.Popen(
         cmd, env=_subprocess_env(), cwd=vault,
         stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, bufsize=1,
+        # Eigene Prozessgruppe (Session-Leader) - noetig, damit
+        # terminate_process_tree() per os.killpg() den kompletten von `claude`
+        # gestarteten Baum (MCP-Server, Subagenten, git-Aufrufe) auf einen
+        # Schlag beenden kann statt nur diesen einen Prozess.
+        start_new_session=True,
     )
 
 
@@ -366,5 +410,4 @@ def stream_chat(
             stderr = "".join(warm.stderr_tail) if warm is not None else proc.stderr.read()
             raise ClaudeCliError(f"claude -p exit {proc.returncode}: {stderr[:500]}")
     finally:
-        if proc.poll() is None:
-            proc.kill()
+        terminate_process_tree(proc)

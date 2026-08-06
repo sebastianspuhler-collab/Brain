@@ -9,6 +9,20 @@ services:
       - ${VAULT_PATH}:/vault
       - ./backend/users.json:/run/secrets/users.json:ro
     restart: unless-stopped
+    # Echter PID-1-Reaper (tini) statt Uvicorn/Python selbst als PID 1
+    # (Umsetzungsplan 2026-08-06, nach Zombie-Prozess-Leck durch abgebrochene
+    # claude-Subprozesse, siehe claude_cli.py:terminate_process_tree()).
+    # Uvicorn ruft nie waitpid() fuer Prozesse auf, die es nicht selbst
+    # gestartet hat - verwaiste Enkel-Prozesse (MCP-Server, Subagenten), die
+    # auf PID 1 reparented werden, blieben ohne tini fuer immer Zombies.
+    init: true
+    # Sicherheitsnetz: begrenzt den Schaden eines kuenftigen, heute noch
+    # unbekannten Leaks. Normalbetrieb liegt weit darunter - bei Ueberschreiten
+    # killt der Kernel den Container hart, "restart: unless-stopped" startet
+    # ihn automatisch sauber neu, statt dass der Host schleichend
+    # (ueber Tage, wie am 2026-08-06 beobachtet) in Mitleidenschaft gezogen wird.
+    mem_limit: 4g
+    pids_limit: 2000
     networks:
       - default
       # Schmale Brücke NUR zum dev-agent-Container (Umsetzungsplan 2026-07-25,
