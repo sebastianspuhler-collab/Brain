@@ -797,6 +797,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-06 21:10] [Kalender-Erstgespräch] TopDown - Termin 'Prozessia X TopDown' am 2026-08-11 mit dominik.nussbaumer@topdown-cf.com
 - [2026-08-06 09:21] [AW: Update IMK X Prozessia] IMK GmbH lehnt Projekt ab - kein Interesse nach Rücksprache mit Geschäftsführung
 - [2026-08-05 20:04] [2026-08-05.md] Anfragenummer 6000017119 mit 4 Positionen: Halter 83493383 (0,368 kg), Fuß 83486122 (83,908 kg), Fuß 83479898, Schwinge 83480037
 - [2026-08-05 20:03] [Kalender-Erstgespräch] Silas Rupp - Termin 'Silas Rupp and Sebastian Spuhler' am 2026-08-10 mit Silas Rupp
