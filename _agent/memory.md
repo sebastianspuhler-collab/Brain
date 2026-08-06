@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-06 07:55] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Grundlagen: Lastenheft v. 05.08.2026 (M. Wiegner), Umsetzungsplan v. 05.08.2026 (Teil 2-3)
 - [2026-08-05 20:04] [2026-08-05.md] Stücklistengröße: einstellig bis niedrig zweistellige Positionsanzahl, Gewichtsspanne 1–44 kg pro Baugruppe
 - [2026-08-05 13:21] [Automatische Antwort: Unser Gespräch] Notfallkontakte: 043171799-0 (Kiel), 041017099-0 (Pinneberg)
 - [2026-08-05 13:21] [Automatische Antwort: Unser Gespräch] Anfragen-Kontakte: vertrieb-ki@hoedtke.de (Kiel), vertrieb-pi@hoedtke.de (Pinneberg)
@@ -1095,6 +1096,9 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-06 07:55] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Abnahme und Auslieferung erfolgen erst nach Migration auf gpt-oss-120b (MIG-Tickets, Teil D)
+- [2026-08-06 07:55] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Blockierender Klärungspunkt: Verarbeitung realer Schaufler-Konstruktionsdaten über Azure OpenAI erfordert Genehmigung (Teil 1.2)
+- [2026-08-06 07:55] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Zwei-Phasen-Modellstrategie verbindlich: Phase 1 mit Azure OpenAI (Adapter-Pattern), Phase 2 Migration zu gpt-oss-120b @ vLLM on-premise vor Auslieferung
 - [2026-08-05 20:04] [2026-08-05.md] PoC Stücklistenagent (29.05.2026): 18 Beispieldateien mit Ampel-Bewertung pro Kunde (Grün/Gelb/Rot)
 - [2026-08-05 10:08] [Re: ISO 27001 bei Prozessia] Nächster Schritt: Klärung erforderlich, wie die ISO 27001 Situation bei Prozessia und deren Kunden aussieht
 - [2026-08-05 09:02] [Fwd: Formenplanung] Formenplanung für GGH und Steuergeräte von Joerg Schwindling (ZF Group, Global Commodity Casting SCPCE2) zugesandt am 05.08.2026
