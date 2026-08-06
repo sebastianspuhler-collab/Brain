@@ -25,11 +25,16 @@ Finanzamt-USt-Erstattungen seit 2026-07-29 direkt als Betriebseinnahme in der Pi
 | davon Kundenrechnungen | 4.950,00 € |
 | davon vom Finanzamt erstattete USt 2025 | 273,96 € |
 | Umsatzsteuer auf Umsatz (19 %, nur Kundenrechnungen) | 940,50 € |
-| Betriebsausgaben netto (75 Buchungen) | 2.976,79 € |
+| Betriebsausgaben netto (75 Buchungen) | 2.958,32 € |
 | davon abziehbare Vorsteuer | 249,76 € |
 | An das Finanzamt gezahlte USt 2025 | 0,00 € |
-| **Gewinn 2025 (Umsatz netto − Ausgaben netto, FA-Erstattung bereits im Umsatz enthalten)** | **2.247,17 €** |
-| Gewinnanteil je Gesellschafter (2 Gesellschafter) | 1.123,59 € |
+| **Gewinn 2025 (Umsatz netto − Ausgaben netto, FA-Erstattung bereits im Umsatz enthalten)** | **2.265,64 €** |
+| Gewinnanteil je Gesellschafter (2 Gesellschafter) | 1.132,82 € |
+
+> **Update 2026-08-06:** Sebastian hat sich bei der PNL-Fintech-Rechnung (3OJ3-0005, Abschnitt 6)
+> bewusst gegen die fachlich korrekte Verbuchung entschieden — siehe Update-Block am Ende von
+> Abschnitt 6. Dadurch sinken die Betriebsausgaben um 18,47 € und der Gewinn steigt um 18,47 €
+> gegenüber dem Stand vom 2026-07-28 (damals 2.976,79 € Ausgaben / 2.247,17 € Gewinn).
 
 > **Korrektur 2026-07-29:** Bis dahin wurde die Finanzamt-Erstattung nur als manueller Zuschlag
 > zum bereits berechneten Gewinn addiert, wobei der Gewinnanteil je Gesellschafter irrtümlich noch
@@ -64,12 +69,12 @@ zusammen 273,96 € netto ohne USt — macht in Summe die 5.223,96 € Umsatz ne
 | Feld | Netto | Vorsteuer | Anzahl Buchungen |
 |---|---:|---:|---:|
 | Werbekosten | 1.117,69 € | 45,79 € | 33 |
-| Rechts- und Steuerberatung, Buchführung | 792,14 € | 43,02 € | 15 |
+| Rechts- und Steuerberatung, Buchführung | 773,67 € | 43,02 € | 15 |
 | Laufende IT-Kosten | 626,97 € | 93,12 € | 14 |
 | Miete/Pacht für Geschäftsräume | 275,00 € | 52,25 € | 11 |
 | Übernachtungs- und Reisekosten | 82,99 € | 0,00 € | 1 |
 | Fortbildungskosten | 82,00 € | 15,58 € | 1 |
-| **Summe** | **2.976,79 €** | **249,76 €** | **75** |
+| **Summe** | **2.958,32 €** | **249,76 €** | **75** |
 
 Davon 3 Buchungen (52,84 € Vorsteuer) privat per PayPal bezahlt, nicht über das Finom-Geschäftskonto: Wix Domain webwokr.de (2,84 €), Wix Google Workspace (31,00 €), LinkedIn Sales Navigator (19,00 €) — zählen als Betriebsausgabe **und** Einlage.
 
@@ -97,6 +102,11 @@ Details je Buchung: siehe `08_euer_ausgaben_zuordnung.md`.
 2. **WebWokr-Rechnungsvorlage** trägt eine falsche/veraltete Steuernummer (040/276/11732 statt 040/163/12016) — für künftige Rechnungen korrigieren.
 3. **Restdifferenz 10,70 €** zwischen rechnerischer und tatsächlich gezahlter USt 2025 — nach den Korrekturen sehr klein, plausibel durch Rechnungs-/Zahlungsdatum-Verschiebung, kein Handlungsbedarf.
 4. **Fehlende Digistore24-Buchung** vom 12.08.2025 (0,84 €/0,16 €, "Erst 1€"-Testbetrag) — Beleg liegt vor, ist aber nicht verbucht; unwesentlich, der Vollständigkeit halber erwähnt.
+5. **PNL Fintech (3OJ3-0005), bewusste 18,47-€-Lücke zum Kontoauszug (seit 2026-08-06):** Sebastian
+   hat sich entschieden, nur 97,20 € statt der vollen, laut Finom-Kontoauszug abgeflossenen
+   115,67 € als Betriebsausgabe zu verbuchen (Details in Abschnitt 6, Update 2026-08-06). Das ist
+   eine bewusste Entscheidung, keine Ungenauigkeit — aber falls ein Steuerberater oder das
+   Finanzamt nachfragt, warum 18,47 € Kontobewegung nicht in der EÜR auftauchen, ist das der Grund.
 
 ## 6. Einzeltransaktions-Verifizierung (2026-07-28)
 
@@ -114,8 +124,10 @@ zweifelsfrei zu klären.
 zwei Positionen brauchten inhaltliche Korrektur:
 - **cyfire (450,00 €):** unvollständig belegt, nur Zahlungsbeleg — offener Punkt 2 oben, bewusst
   unverändert gelassen bis die echte Rechnung vorliegt.
-- **PNL Fintech (3OJ3-0005):** korrigiert, siehe unten. Neue Kategoriesumme: 792,14 €/43,02 €
-  (vorher 773,67 €/61,49 €).
+- **PNL Fintech (3OJ3-0005):** korrigiert, siehe unten. Kategoriesumme nach der fachlich
+  korrekten Korrektur vom 2026-07-28 war 792,14 €/43,02 € (vorher 773,67 €/61,49 €) — seit dem
+  Update vom 2026-08-06 (siehe Ende von Abschnitt 6) wieder **773,67 €/43,02 €**, da Sebastian
+  sich bewusst gegen den vollen Bruttoansatz entschieden hat.
 
 **Laufende IT-Kosten (14 Buchungen):** Summe rechnerisch bestätigt (626,97 €/93,12 €), alle Belege
 korrekt. Auffälligkeit: Apify-Vorsteuer nicht angesetzt (offener Punkt 3 oben, Nutzerentscheidung).
@@ -150,5 +162,17 @@ Beide Korrekturen wurden am 2026-07-28 durch direktes Lesen der Original-PDF-Rec
 verifiziert (nicht nur aus Agenten-Berichten übernommen) und in `korrekturen_2025.json` +
 Pipeline-Neulauf umgesetzt.
 
-**Netto-Effekt: Vorsteuer 215,98 € → 249,76 € (+52,25 − 18,47), Ausgaben netto 2.958,32 € →
-2.976,79 € (+18,47), Gewinn 2.265,64 € → 2.247,17 € (−18,47).**
+**Netto-Effekt (Stand 2026-07-28): Vorsteuer 215,98 € → 249,76 € (+52,25 − 18,47), Ausgaben netto
+2.958,32 € → 2.976,79 € (+18,47), Gewinn 2.265,64 € → 2.247,17 € (−18,47).**
+
+> **Update 2026-08-06 — PNL Fintech bewusst NICHT zum vollen Bruttobetrag verbucht:**
+> Sebastian wurde ausdrücklich zweimal darauf hingewiesen, dass (a) nur 97,20 € statt 115,67 €
+> als Ausgabe anzusetzen mehr Steuer bedeutet (niedrigere Ausgabe → höherer Gewinn) und (b) dass
+> dadurch 18,47 €, die laut Finom-Kontoauszug real abgeflossen sind, in der EÜR nicht mehr als
+> Ausgabe auftauchen — eine Diskrepanz zum Kontoauszug, die bei einer Prüfung auffallen könnte.
+> Sebastian hat sich danach bewusst dafür entschieden ("ich möchte verschenken"), nur die
+> 97,20 € Netto laut Rechnung zu verbuchen; die restlichen 18,47 € bleiben unverbucht/unerklärt.
+> Damit gilt wieder der Stand vor der PNL-Fintech-Korrektur vom 2026-07-28: Ausgaben netto
+> **2.958,32 €**, Vorsteuer weiterhin **249,76 €** (diese Rechnung hatte ohnehin 0,00 € Vorsteuer),
+> Gewinn **2.265,64 €**, Gewinnanteil je Gesellschafter **1.132,82 €**. Siehe Begründung/Entscheidung
+> in `Belegauswertung_2025/korrekturen_2025.json` (Eintrag PNL Fintech 3OJ3-0005).

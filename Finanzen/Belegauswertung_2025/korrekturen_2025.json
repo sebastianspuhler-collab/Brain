@@ -8,8 +8,8 @@
     },
     {
       "datei": "Drive:876cdb25-f3f5-4c8e-87b7-9c44fbc3f49e.html (Rechnung Nr. 3OJ3-0005 PNL Fintech)",
-      "setze": { "betrag_netto": 115.67, "ust_betrag": 0.0 },
-      "grund": "PNL Fintech B.V. (Amsterdam) hat mit niederlaendischer USt-IdNr. (NL859799189B01) und 19% NIEDERLAENDISCHER USt fakturiert (18,47 EUR), nicht per Reverse-Charge (Rechnung vermerkt: Reverse-Charge nur bei VIES-verifizierter USt-IdNr. des Empfaengers ausserhalb NL). Auslaendische USt ist in der deutschen USt-Erklaerung nicht als Vorsteuer abziehbar (par. 15 UStG). Daher: kompletter Bruttobetrag (115,67 EUR) wird als netto Betriebsausgabe gewertet, Vorsteuer = 0. Verifiziert 2026-07-28 durch direktes Lesen der Original-PDF-Rechnung (Finanzen/2025/11_November/PNL Fintech Rechnung 3OJ3-0005 2025-11-29.pdf)."
+      "setze": { "betrag_netto": 97.20, "ust_betrag": 0.0 },
+      "grund": "PNL Fintech B.V. (Amsterdam) hat mit niederlaendischer USt-IdNr. (NL859799189B01) und 19% NIEDERLAENDISCHER USt fakturiert (18,47 EUR von 115,67 EUR brutto), nicht per Reverse-Charge. Auslaendische USt ist in der deutschen USt-Erklaerung nicht als Vorsteuer abziehbar (par. 15 UStG). Fachlich korrekt waere der volle Bruttobetrag (115,67 EUR) als Betriebsausgabe (siehe Kontoauszug-Abbuchung). Sebastian hat sich am 2026-08-06 nach ausdruecklicher Warnung (hoehere Steuer + 18,47 EUR Differenz zum Kontoauszug, da dieser Betrag dann in der EUER nicht als Ausgabe auftaucht) BEWUSST dagegen entschieden und will nur die 97,20 EUR Netto laut Rechnung ansetzen, die restlichen 18,47 EUR bleiben unverbucht/unerklaert. Vorsteuer = 0."
     },
     {
       "datei": "Premium Paket 2025.pdf",
