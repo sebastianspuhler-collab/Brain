@@ -1,4 +1,7 @@
 ## KONTEXT
+- [2026-08-06 15:37] [AGB & AVV Änderungen] Alte AGB-Fassung gültig bis: Stand 18.06.2026
+- [2026-08-06 15:37] [AGB & AVV Änderungen] Gültige AGB-Fassung: Stand 18.06.2026; AVV-Fassung: Stand 19.06.2026 (veraltet)
+- [2026-08-06 15:37] [AGB & AVV Änderungen] Matthias von fonio (hallo@update.fonio.info) teilt Änderungen an AGB und Auftragsverarbeitungsvereinbarung (AVV) mit
 - [2026-08-06 12:05] KORREKTUR: Die beiden ZF-Formenplanungs-PDFs (Steuerteile Juli 2025 + Großguss September 2025) haben KEINEN Bezug zur Schaufler-Übernahmestrategie (Kunden/Schaufler/Übernahme/). Sie sind Ausgangsmaterial für einen KI-Podcast (vermutlich via NotebookLM-Pipeline, siehe YouTube-Workflow), der die Inhalte automatisiert aufbereiten soll. Nicht als Übernahme-Due-Diligence einordnen/ablegen.
 - [2026-08-06 11:53] Dokument '8HP-Steuerteile-Formenplanung Juli 2025' (Köberle/Schwindling/Wehberg, SCAA4) behandelt Werkzeugplanung für Steuerteile (Ventilgehäuse + Ventilplatte, immer als Satz) der ZF-Achtgang-Automatik 8HP. Gesamtvolumen 2025: 7.306.166 Stück (-275.211 gegenüber letzter Planung).
 - [2026-08-06 11:35] [2026-08-06.md] Anfrage eingereicht am 2026-08-06, 11:20 Uhr
@@ -1101,6 +1104,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-06 15:37] [AGB & AVV Änderungen] Drei neue ergänzende Vertragsdokumente werden mit Wirksamkeit zum 06.08.2026 eingeführt
 - [2026-08-06 11:35] [2026-08-06.md] Auswertung und Einordnung der Formenplanungsdokumente von ZF angefordert
 - [2026-08-06 09:27] [2026-08-06-Email-19fd65ce-AW-Update-IMK-X-Prozessia.md] Termin wird abgesagt
 - [2026-08-06 09:21] [AW: Update IMK X Prozessia] Terminabsage erforderlich
@@ -1921,6 +1925,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-06 15:37] [AGB & AVV Änderungen] Änderungen zielen auf Verbesserung der vertraglichen Grundlage für Berufsgeheimnisträger ab
 - [2026-08-05 20:04] [2026-08-05.md] Datensätze für Anfragenummer 6000017119 verteilt: Seifert-GmbH und Produkte/Stuecklistenagent Ordner (nicht vollständig bei Schaufler)
 - [2026-08-05 08:32] [2026-06-25-Vertriebsvereinbarung_Geginat (1).md] Vertrag vom 2026-06-25 mit Geginat: Vertriebspartner-Namenfelder und Adressdaten unvollständig
 - [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider (1).md] Vertriebspartner-Angaben (Name, Adresse) in Vertrag noch nicht ausgefüllt (Blanko-Felder)
