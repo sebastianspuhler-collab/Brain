@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-06 11:35] [2026-08-06.md] Anfrage eingereicht am 2026-08-06, 11:20 Uhr
 - [2026-08-06 09:27] [2026-08-06-Email-19fd65ce-AW-Update-IMK-X-Prozessia.md] Absage erfolgt nach Absprache mit Geschäftsführer Manuel Biebl
 - [2026-08-06 07:55] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Grundlagen: Lastenheft v. 05.08.2026 (M. Wiegner), Umsetzungsplan v. 05.08.2026 (Teil 2-3)
 - [2026-08-05 20:04] [2026-08-05.md] Stücklistengröße: einstellig bis niedrig zweistellige Positionsanzahl, Gewichtsspanne 1–44 kg pro Baugruppe
@@ -1098,6 +1099,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-06 11:35] [2026-08-06.md] Auswertung und Einordnung der Formenplanungsdokumente von ZF angefordert
 - [2026-08-06 09:27] [2026-08-06-Email-19fd65ce-AW-Update-IMK-X-Prozessia.md] Termin wird abgesagt
 - [2026-08-06 09:21] [AW: Update IMK X Prozessia] Terminabsage erforderlich
 - [2026-08-06 07:55] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Abnahme und Auslieferung erfolgen erst nach Migration auf gpt-oss-120b (MIG-Tickets, Teil D)
