@@ -790,6 +790,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-06 09:21] [AW: Update IMK X Prozessia] IMK GmbH lehnt Projekt ab - kein Interesse nach Rücksprache mit Geschäftsführung
 - [2026-08-05 20:04] [2026-08-05.md] Anfragenummer 6000017119 mit 4 Positionen: Halter 83493383 (0,368 kg), Fuß 83486122 (83,908 kg), Fuß 83479898, Schwinge 83480037
 - [2026-08-05 20:03] [Kalender-Erstgespräch] Silas Rupp - Termin 'Silas Rupp and Sebastian Spuhler' am 2026-08-10 mit Silas Rupp
 - [2026-08-05 14:00] Kunde Schaufler: Lastenheft enthält offene Punkte, die vor verbindlicher Kalkulation geklärt werden müssen - fehlendes Mengengerüst (Positionen/Dokumente/Nutzer), unklare Genauigkeitsziele für KI-Extraktion, unklare Cloud/On-Premise-Definition (Air-Gap vs. kontrollierter Internetzugang) und unklarer Freigabeprozess (roh→konsolidiert→normalisiert→freigegeben)
@@ -1096,6 +1097,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-06 09:21] [AW: Update IMK X Prozessia] Terminabsage erforderlich
 - [2026-08-06 07:55] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Abnahme und Auslieferung erfolgen erst nach Migration auf gpt-oss-120b (MIG-Tickets, Teil D)
 - [2026-08-06 07:55] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Blockierender Klärungspunkt: Verarbeitung realer Schaufler-Konstruktionsdaten über Azure OpenAI erfordert Genehmigung (Teil 1.2)
 - [2026-08-06 07:55] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Zwei-Phasen-Modellstrategie verbindlich: Phase 1 mit Azure OpenAI (Adapter-Pattern), Phase 2 Migration zu gpt-oss-120b @ vLLM on-premise vor Auslieferung
