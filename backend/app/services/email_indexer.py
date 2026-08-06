@@ -6,7 +6,7 @@ import threading
 from email.utils import parsedate_to_datetime
 
 from app.config import get_settings
-from app.services import classify, gmail_client, memory, rag
+from app.services import classify, email_lead_service, gmail_client, memory, rag
 
 
 def _date_slug(date: str) -> str:
@@ -229,6 +229,11 @@ def index_new_emails(deep: bool = False) -> int:
             lead = _match_lead(sender, subject, body)
             if lead:
                 _write_lead_correspondence(lead, eid, sender, subject, date, body)
+            else:
+                # Weder bestehender Kunde noch bestehender Lead - könnte ein
+                # komplett neuer Interessent sein (email_lead_service.py,
+                # E-Mail-Gegenstück zu calendar_lead_service.py).
+                email_lead_service.consider_new_lead(eid, sender, subject, date, body)
 
         if memory.is_important_email(sender, subject, body):
             threading.Thread(

@@ -289,7 +289,7 @@ export function ChatPage() {
   );
 
   const inputBar = (
-    <div className="flex flex-col rounded-3xl border border-border bg-card/60 shadow-lg backdrop-blur-sm transition focus-within:border-ring/50">
+    <div className="flex flex-col rounded-3xl border border-border bg-card shadow-sm backdrop-blur-sm transition focus-within:border-ring/40 focus-within:shadow-md">
       {pendingAttachments.length > 0 && (
         <div className="flex flex-wrap gap-1.5 px-4 pt-3">
           {pendingAttachments.map((a) => (
@@ -318,7 +318,7 @@ export function ChatPage() {
         placeholder="Nachricht an Brain…"
         rows={1}
         disabled={streaming}
-        className="min-h-[48px] max-h-52 resize-none border-0 bg-transparent px-4 py-3.5 text-sm shadow-none focus-visible:ring-0"
+        className="min-h-[48px] max-h-52 resize-none border-0 bg-transparent px-4 py-3.5 text-[15px] shadow-none focus-visible:ring-0"
       />
       <div className="flex items-center justify-between px-2 pb-2">
         <div className="flex items-center gap-1">
@@ -410,13 +410,13 @@ export function ChatPage() {
   return (
     <div className="mx-auto flex h-[calc(100vh-6.5rem)] w-full max-w-3xl flex-col">
       <div className="flex-1 overflow-y-auto">
-        <div className="flex flex-col gap-6 px-1 py-4">
+        <div className="flex flex-col gap-8 px-1 py-6">
           {messages.map((m, i) => {
             const isThinking = streaming && i === messages.length - 1 && !m.content;
             return m.role === "user" ? (
               <div key={i} className="flex flex-col items-end gap-1.5">
                 {!!m.attachments?.length && (
-                  <div className="flex max-w-[80%] flex-wrap justify-end gap-1.5">
+                  <div className="flex max-w-[75%] flex-wrap justify-end gap-1.5">
                     {m.attachments.map((a) => (
                       <span
                         key={a.filename}
@@ -428,52 +428,57 @@ export function ChatPage() {
                     ))}
                   </div>
                 )}
-                <div className="max-w-[80%] rounded-3xl rounded-br-md bg-muted px-4 py-2 text-sm text-foreground">
+                <div className="max-w-[75%] rounded-3xl rounded-br-lg bg-muted px-4 py-2.5 text-[15px] leading-relaxed text-foreground">
                   {m.content}
                 </div>
               </div>
             ) : (
-              <div key={i} className="flex gap-3">
-                <div className="relative flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
-                  {isThinking && (
-                    <>
-                      <span className="absolute inset-0 rounded-full border border-primary animate-[brain-pulse_1.6s_ease-out_infinite]" />
+              // Kein Avatar/Label mehr pro Antwort (Redesign 2026-08-06, an
+              // claude.ai angelehnt: dort trägt keine einzelne Nachricht eine
+              // wiederholte Absender-Kennung, die Ausrichtung allein signalisiert
+              // die Rolle - Nutzer rechts als Bubble, Brain links als Fließtext).
+              <div key={i} className="min-w-0">
+                {isThinking ? (
+                  <div className="flex items-center gap-1.5 py-1.5" aria-label="Brain denkt nach">
+                    <span className="size-1.5 rounded-full bg-muted-foreground/60 animate-[thinking-dot_1.1s_ease-in-out_infinite]" />
+                    <span
+                      className="size-1.5 rounded-full bg-muted-foreground/60 animate-[thinking-dot_1.1s_ease-in-out_infinite]"
+                      style={{ animationDelay: "0.15s" }}
+                    />
+                    <span
+                      className="size-1.5 rounded-full bg-muted-foreground/60 animate-[thinking-dot_1.1s_ease-in-out_infinite]"
+                      style={{ animationDelay: "0.3s" }}
+                    />
+                  </div>
+                ) : (
+                  // prose-invert nur im Dunkelmodus: seit der helle Modus der
+                  // Standard ist (main.tsx, defaultTheme="light"), färbte die
+                  // Invert-Palette Überschriften, Fettes, Listenpunkte, Code
+                  // und Links fast weiß - auf hellem Grund unlesbar bzw.
+                  // "verrückt". Fließtext blieb nur zufällig sichtbar, weil
+                  // text-foreground danebensteht.
+                  <div
+                    className="prose dark:prose-invert prose-base max-w-none leading-relaxed text-foreground
+                      prose-headings:font-medium prose-pre:rounded-xl prose-pre:border prose-pre:border-border
+                      prose-pre:bg-muted/60 prose-code:before:content-none prose-code:after:content-none"
+                  >
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{m.content}</ReactMarkdown>
+                  </div>
+                )}
+                {!!m.sources?.length && (
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {m.sources.map((s) => (
                       <span
-                        className="absolute inset-0 rounded-full border border-primary animate-[brain-pulse_1.6s_ease-out_infinite]"
-                        style={{ animationDelay: "0.8s" }}
-                      />
-                    </>
-                  )}
-                  <BrainCircuit className="relative size-3.5" />
-                </div>
-                <div className="min-w-0 flex-1 pt-0.5">
-                  <div className="mb-1 text-xs font-medium text-muted-foreground">Brain</div>
-                  {/* prose-invert nur im Dunkelmodus: seit der helle Modus der
-                      Standard ist (main.tsx, defaultTheme="light"), färbte die
-                      Invert-Palette Überschriften, Fettes, Listenpunkte, Code
-                      und Links fast weiß - auf hellem Grund unlesbar bzw.
-                      "verrückt". Fließtext blieb nur zufällig sichtbar, weil
-                      text-foreground danebensteht. */}
-                  {!isThinking && (
-                    <div className="prose dark:prose-invert prose-sm max-w-none text-foreground">
-                      <ReactMarkdown remarkPlugins={[remarkGfm]}>{m.content}</ReactMarkdown>
-                    </div>
-                  )}
-                  {!!m.sources?.length && (
-                    <div className="mt-2 flex flex-wrap gap-1.5">
-                      {m.sources.map((s) => (
-                        <span
-                          key={s.path}
-                          title={s.path}
-                          className="inline-flex max-w-56 items-center gap-1 truncate rounded-full border border-border bg-muted/60 px-2 py-0.5 text-[11px] text-muted-foreground"
-                        >
-                          <FileText className="size-3 shrink-0" />
-                          <span className="truncate">{s.path.split("/").pop()}</span>
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </div>
+                        key={s.path}
+                        title={s.path}
+                        className="inline-flex max-w-56 items-center gap-1 truncate rounded-full border border-border bg-muted/60 px-2 py-0.5 text-[11px] text-muted-foreground"
+                      >
+                        <FileText className="size-3 shrink-0" />
+                        <span className="truncate">{s.path.split("/").pop()}</span>
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             );
           })}

@@ -88,7 +88,15 @@ def _is_known(firma: str, known: set[str]) -> bool:
     return any(k and (k in needle or needle in k) for k in known)
 
 
-def _classify_event(event: dict, external: list[dict]) -> dict | None:
+def _classify_event(event: dict, external: list[dict]) -> dict | bool:
+    """Gibt bei Erfolg IMMER ein dict zurück (auch wenn kein Erstgespräch), und
+    nur bei einem gescheiterten LLM-Call (Timeout/Rate-Limit/kaputte Antwort)
+    False. Diese Unterscheidung ist entscheidend für scan_for_new_leads(): nur
+    ein echtes Ergebnis darf die Termin-ID dauerhaft als "erledigt" cachen -
+    ein Fehlschlag muss beim nächsten Zyklus erneut versucht werden, sonst
+    gilt ein Termin für immer als geprüft, obwohl er nie wirklich beurteilt
+    wurde (live beobachtet: genau das ließ den TopDown-Erstgespräch-Termin
+    2026-08 spurlos verschwinden, siehe Umsetzungsplan-Notiz dazu)."""
     attendee_str = ", ".join(f"{a['name']} <{a['address']}>" for a in external)
     location = event.get("location", {})
     ort = location.get("displayName", "") if isinstance(location, dict) else ""
@@ -113,11 +121,13 @@ Wenn nein oder unklar: {{"ist_erstgespraech": false}}"""
         text = complete_json(prompt, model=Models.HAIKU, max_tokens=200).strip()
         match = re.search(r"\{.*\}", text, re.DOTALL)
         if not match:
-            return None
-        data = json.loads(match.group())
-        return data if data.get("ist_erstgespraech") else None
+            # Antwort kam an, war aber nicht auswertbar - kein verlässliches
+            # Ergebnis, also wie ein Fehlschlag behandeln statt stillschweigend
+            # als "kein Erstgespräch" zu werten.
+            return False
+        return json.loads(match.group())
     except Exception:
-        return None
+        return False
 
 
 def _write_lead_stub(firma: str, event: dict, external: list[dict]) -> None:
@@ -177,14 +187,23 @@ def scan_for_new_leads() -> list[str]:
         eid = event.get("id", "")
         if not eid or eid in cache:
             continue
-        cache.add(eid)
 
         external = _external_attendees(event)
         if not external:
+            # Keine externen Teilnehmer ist ein rein aus dem Termin selbst
+            # ablesbarer, dauerhaft gültiger Fakt (kein LLM-Urteil, das später
+            # anders ausfallen könnte) - sicher sofort cachebar.
+            cache.add(eid)
             continue
 
         result = _classify_event(event, external)
-        if not result:
+        if result is False:
+            # Klassifizierung fehlgeschlagen (Timeout/Rate-Limit/kaputte
+            # Antwort) - NICHT cachen, damit der nächste 30-Minuten-Zyklus es
+            # erneut versucht statt den Termin für immer zu vergessen.
+            continue
+        cache.add(eid)
+        if not result.get("ist_erstgespraech"):
             continue
         firma = result.get("firma", "").strip()
         if not firma or _is_known(firma, known):

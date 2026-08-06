@@ -182,17 +182,19 @@
   }
 }
 
-/* Pulsierender Ring ums Brain-Icon, solange auf die erste Antwort gewartet wird
-   (ChatPage.tsx, ThinkingIndicator-Ring) - zwei versetzte Ringe statt Spinner,
-   wirkt wie ein auslaufender Nervenimpuls statt wie ein Ladebalken. */
-@keyframes brain-pulse {
-  0% {
-    transform: scale(0.9);
-    opacity: 0.6;
-  }
+/* Drei versetzt pulsierende Punkte, solange auf die erste Antwort gewartet wird
+   (ChatPage.tsx) - an claude.ai angelehnt: kein Icon/Ring mehr, nur ein
+   dezenter Platzhalter genau dort, wo der Antworttext gleich erscheint. */
+@keyframes thinking-dot {
+  0%,
+  60%,
   100% {
-    transform: scale(1.9);
-    opacity: 0;
+    transform: scale(0.85);
+    opacity: 0.4;
+  }
+  30% {
+    transform: scale(1.15);
+    opacity: 1;
   }
 }
 
