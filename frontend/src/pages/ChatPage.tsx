@@ -68,6 +68,12 @@ export function ChatPage() {
   const bottomRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const attachInputRef = useRef<HTMLInputElement>(null);
+  // Session-ID, die send() gerade erst selbst per crypto.randomUUID() erzeugt hat
+  // (siehe send() unten) - der Lade-Effekt darf für genau diese ID keinen Fetch
+  // auslösen, sonst überschreibt die (noch unvollständige) Server-Antwort die
+  // optimistisch gesetzte Denkanimation für einen sichtbaren Moment mit dem
+  // "Chat wird geladen…"-Vollbild (Race Condition, seit 2026-08-06 gemeldet).
+  const skipNextSessionLoadRef = useRef<string | null>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -89,6 +95,15 @@ export function ChatPage() {
   useEffect(() => {
     if (!sessionId) {
       setMessages([]);
+      return;
+    }
+    if (skipNextSessionLoadRef.current === sessionId) {
+      // Diese Session-ID kommt gerade eben aus send() in diesem Tab - die
+      // optimistisch gesetzten Nachrichten sind bereits aktuell, ein Reload
+      // vom Server würde sie nur kurzzeitig durch einen unvollständigen Stand
+      // ersetzen (die Session wird serverseitig erst während des Streamens
+      // gespeichert, siehe chat.py::_stream_chat).
+      skipNextSessionLoadRef.current = null;
       return;
     }
     let cancelled = false;
@@ -126,6 +141,7 @@ export function ChatPage() {
     let activeSessionId = sessionId;
     if (!activeSessionId) {
       activeSessionId = crypto.randomUUID();
+      skipNextSessionLoadRef.current = activeSessionId;
       setSearchParams({ session: activeSessionId }, { replace: true });
     }
 

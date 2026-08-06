@@ -1,5 +1,6 @@
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 export interface DonutSegment {
   label: string;
@@ -13,6 +14,18 @@ export interface DonutSegment {
 // ResponsiveContainer, Summe in der Donut-Mitte, Legende daneben. --ad-*-Tokens
 // durch Brains eigene --chart-*-Tokens ersetzt (Umsetzungsplan 2026-07-26).
 const PALETTE = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--chart-4)", "var(--chart-5)"];
+
+// Kompakte Darstellung für die Donut-Mitte (Design-Bug, 2026-08-06 gemeldet):
+// der volle Wert (z.B. sechsstellige Token-Summen) war als "text-xl font-mono"
+// breiter als der freie Innenkreis (~84px bei innerRadius={42}) und überlappte
+// sichtbar den Ring. Die exakte Zahl bleibt über den title-Tooltip erhalten.
+function formatCompact(value: number): string {
+  const abs = Math.abs(value);
+  if (abs >= 1_000_000) return `${(value / 1_000_000).toFixed(abs % 1_000_000 === 0 ? 0 : 1)}M`;
+  if (abs >= 10_000) return `${Math.round(value / 1_000)}k`;
+  if (abs >= 1_000) return `${(value / 1_000).toFixed(1)}k`;
+  return String(value);
+}
 
 export function DonutStat({
   title,
@@ -43,9 +56,19 @@ export function DonutStat({
               </Pie>
             </PieChart>
           </ResponsiveContainer>
-          <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
-            <span className="font-mono text-xl font-semibold text-foreground">{total}</span>
-            <span className="text-[10px] text-muted-foreground">{totalLabel}</span>
+          <div
+            className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-3 text-center"
+            title={total.toLocaleString("de-DE")}
+          >
+            <span
+              className={cn(
+                "font-mono font-semibold leading-none text-foreground",
+                String(total).length >= 6 ? "text-base" : "text-xl",
+              )}
+            >
+              {formatCompact(total)}
+            </span>
+            <span className="mt-1 text-[10px] text-muted-foreground">{totalLabel}</span>
           </div>
         </div>
         <ul className="flex-1 space-y-1.5">
