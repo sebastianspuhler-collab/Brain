@@ -1,0 +1,25 @@
+{
+  "id": "7ff44660-cf7c-44d7-ab44-0a8a51d016bd",
+  "title": "kannst du fpür mich dei Formenplanung auswerten, von zf die …",
+  "model": "claude-sonnet-5",
+  "created_at": "2026-08-06T11:20:47.595022+00:00",
+  "updated_at": "2026-08-06T11:25:12.378077+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "kannst du fpür mich dei Formenplanung auswerten, von zf die i9ch hochgeladen habe, was verstehst du in diesne Dokumneten und wie ordnest du sie ein?",
+      "attachments": null
+    },
+    {
+      "role": "assistant",
+      "content": "Das Dokument liegt bislang unverarbeitet in `_inbox/_fehler/19fd125690-250725_07_2025_Formenplanung Steuerteile - sent_ZF GUSS.pdf` – die automatische Pipeline ist an der Chart-Lastigkeit gescheitert,",
+      "attachments": null
+    },
+    {
+      "role": "user",
+      "content": "weiter",
+      "attachments": null
+    }
+  ],
+  "agent_id": null
+}
