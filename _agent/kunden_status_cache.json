@@ -155,17 +155,17 @@
     "ergebnis": {
       "status": "angebotsphase",
       "sicherheit": "hoch",
-      "begruendung": "Mehrere Angebote (AG0026, AG0027, AG0032) wurden erstellt und im Meeting '2026-07-24-Update Prozessia X Endin.md' wurde ein reduziertes Startpaket vereinbart, das noch schriftlich angeboten werden soll. Ein konkreter Folgetermin am 17.09.2026 zur Entscheidung über das Startpaket ist bereits fixiert.",
+      "begruendung": "Mehrere Angebote (u.a. AG0026, AG0027, AG0032) wurden erstellt, im Meeting '2026-07-24-Update Prozessia X Endin.md' einigte man sich auf ein risikoarmes Einstiegspaket statt des Gesamtprojekts, eine Entscheidung steht laut diesem Meeting erst zum Folgetermin an.",
       "quellen": [
         "2026-07-24-Angebot_endin_überarbeitet.md",
-        "2026-07-24-Update Prozessia X Endin.md",
-        "2026-07-24-19f93b0bdf-Angebot_AG0032_24.07.2026.md"
+        "2026-07-24-19f93b0bdf-Angebot_AG0032_24.07.2026.md",
+        "2026-07-24-Update Prozessia X Endin.md"
       ],
-      "warnsignal": null,
+      "warnsignal": "Entscheidung über das Startpaket ist erst für den 17.09.2026 terminiert - relativ lange Wartezeit bis zur Auftragsentscheidung.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "endin GmbH",
-      "aktueller_stand": "Nach mehreren Angeboten wurde ein reduziertes Startpaket (Postfach-Überwachung, Bestellkategorisierung, Dashboard) vereinbart; Entscheidung fällt beim Folgetermin am 17.09.2026, zudem sollen ein Testdatensatz ausgewertet und eine Referenz vermittelt werden."
+      "aktueller_stand": "Nach mehreren Angebotsversionen wurde im Meeting am 24.07.2026 ein reduziertes Startpaket (Postfach-Überwachung, Bestellkategorisierung, Dashboard) vereinbart; Prozessia soll einen Testdatensatz auswerten und ein schriftliches Angebot senden, endgültige Entscheidung fällt beim Folgetermin am 17.09.2026."
     }
   },
   "Copy of undefined": {
@@ -414,9 +414,8 @@
     "ergebnis": {
       "status": "angebotsphase",
       "sicherheit": "hoch",
-      "begruendung": "Nach dem Erstgespräch (2026-07-14-Zillmer-Elektrotechnik-Erstgespraech.md) und dem Folgetermin (2026-07-21-Update Zillmer X Prozessia.md) mit Zusage einer Produkt-/Projektskizze inkl. Kostenvoranschlag liegt inzwischen die Prozessskizze (2026-07-28-Prozessskizze-KI-Kalkulation.md) sowie mehrere LV-Dokumente (2026-07-30-...LV KG 440...) als konkrete Arbeitsgrundlage vor.",
+      "begruendung": "Laut Meeting 2026-07-21-Update Zillmer X Prozessia.md hat Dierk Biendarra zugesagt, eine echte Ausschreibung als PDF zu schicken, woraufhin Sebastian eine Produktskizze mit Kostenvoranschlag erstellen sollte; dies zeigt sich konkret in den am 2026-07-30 abgelegten LV-Dokumenten (z.B. 2026-07-30-20260624 LV KG 440_SIBE.md) sowie in 2026-07-28-Prozessskizze-KI-Kalkulation.md.",
       "quellen": [
-        "2026-07-14-Zillmer-Elektrotechnik-Erstgespraech.md",
         "2026-07-21-Update Zillmer X Prozessia.md",
         "2026-07-28-Prozessskizze-KI-Kalkulation.md",
         "2026-07-30-20260624 LV KG 440_SIBE.md"
@@ -425,7 +424,7 @@
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Zillmer-Elektrotechnik",
-      "aktueller_stand": "Prozessia hat eine Prozessskizze zur KI-Kalkulation erstellt und arbeitet anhand der von Zillmer bereitgestellten Leistungsverzeichnisse (LV KG 440) an der konkreten Artikelfindungs-Lösung für die Angebotsphase."
+      "aktueller_stand": "Zillmer hat Leistungsverzeichnisse (LVs) für die KI-gestützte Artikel-/Herstellerfindung übermittelt, auf deren Basis Prozessia aktuell eine Produktskizze samt Kostenvoranschlag erarbeitet."
     }
   },
   "Seifert-GmbH": {
@@ -595,7 +594,7 @@
     "ergebnis": {
       "status": "neuer_kontakt",
       "sicherheit": "mittel",
-      "begruendung": "Laut 2026-08-10-Silas-Rupp.md handelt es sich um ein automatisch erkanntes Erstgespräch mit einem neuen potenziellen Kunden, ein Transkript liegt noch nicht vor.",
+      "begruendung": "Die Datei 2026-08-10-Silas-Rupp.md dokumentiert lediglich ein automatisch erkanntes, noch bevorstehendes Erstgespräch zwischen Silas Rupp und Sebastian Spuhler, ein Transkript oder weiteres Material liegt noch nicht vor.",
       "quellen": [
         "2026-08-10-Silas-Rupp.md"
       ],
@@ -603,7 +602,7 @@
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Silas Rupp",
-      "aktueller_stand": "Erstgespräch mit Silas Rupp ist für 2026-08-10 um 16:30 mit Sebastian Spuhler angesetzt, Ergebnis liegt noch nicht vor."
+      "aktueller_stand": "Erstgespräch mit Silas Rupp ist für 2026-08-10 um 16:30 Uhr geplant, Ergebnis steht noch aus."
     }
   }
 }
