@@ -238,7 +238,7 @@ export function MeetingsPage() {
                 href={`${API_BASE}${m.pdf_url}`}
                 target="_blank"
                 rel="noreferrer"
-                className="flex flex-col gap-1 py-3 first:pt-0 last:pb-0 hover:bg-muted/40"
+                className="group flex flex-col gap-1 py-3 first:pt-0 last:pb-0 hover:bg-muted/40"
               >
                 <div className="flex items-center gap-2">
                   <span className="whitespace-nowrap text-xs font-medium text-muted-foreground">
@@ -246,6 +246,15 @@ export function MeetingsPage() {
                   </span>
                   {m.kunde && <StatusPill variant="info">{m.kunde}</StatusPill>}
                   <span className="truncate text-sm font-medium text-foreground">{m.name}</span>
+                  <Button
+                    variant="ghost"
+                    size="icon-sm"
+                    className="ml-auto size-7 shrink-0 opacity-0 group-hover:opacity-100"
+                    title="Volltext groß anzeigen"
+                    onClick={(e) => expand(e, m)}
+                  >
+                    <Maximize2 className="size-4" />
+                  </Button>
                 </div>
                 {m.zusammenfassung && (
                   <p className="line-clamp-2 text-xs text-muted-foreground">{m.zusammenfassung}</p>
@@ -255,6 +264,31 @@ export function MeetingsPage() {
           </div>
         )}
       </CardContent>
+
+      <Dialog open={openMeeting !== null} onOpenChange={(open) => !open && setOpenMeeting(null)}>
+        <DialogContent className="max-w-3xl">
+          {openMeeting && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-lg">{openMeeting.name}</DialogTitle>
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  {formatDatum(openMeeting.datum)}
+                  {openMeeting.kunde && <StatusPill variant="info">{openMeeting.kunde}</StatusPill>}
+                </div>
+              </DialogHeader>
+              <DialogBody>
+                {fulltextLoading ? (
+                  <Skeleton className="h-40 w-full" />
+                ) : (
+                  <p className="whitespace-pre-wrap text-base leading-relaxed text-foreground">
+                    {fulltext || "Kein Inhalt gefunden."}
+                  </p>
+                )}
+              </DialogBody>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </Card>
   );
 }
