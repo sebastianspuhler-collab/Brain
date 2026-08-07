@@ -86,21 +86,5 @@
     "overrides": {
       "anzeige_name": "WINDHOFF Bahn- und Anlagentechnik GmbH"
     }
-  },
-  "Präsentation-Esterer Giesserei-V20_Deutsch": {
-    "archiviert": false,
-    "status_override": null,
-    "notiz": "",
-    "overrides": {
-      "anzeige_name": "Esterer Giesserei"
-    }
-  },
-  "Präsentation-Giesserei Wurzen-V3_Deutsch": {
-    "archiviert": false,
-    "status_override": null,
-    "notiz": "",
-    "overrides": {
-      "anzeige_name": "Giesserei Wurzen"
-    }
   }
 }

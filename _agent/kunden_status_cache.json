@@ -350,34 +350,6 @@
       "aktueller_stand": ""
     }
   },
-  "Präsentation-Esterer Giesserei-V20_Deutsch": {
-    "input_hash": "bbf14cee4bb44085",
-    "ergebnis": {
-      "status": "erstgespraech",
-      "sicherheit": "niedrig",
-      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
-      "quellen": [],
-      "warnsignal": null,
-      "ist_relevant": true,
-      "relevanz_begruendung": "",
-      "anzeige_name": "Präsentation-Esterer Giesserei-V20_Deutsch",
-      "aktueller_stand": ""
-    }
-  },
-  "Präsentation-Giesserei Wurzen-V3_Deutsch": {
-    "input_hash": "b8d68798c9f947e6",
-    "ergebnis": {
-      "status": "erstgespraech",
-      "sicherheit": "niedrig",
-      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
-      "quellen": [],
-      "warnsignal": null,
-      "ist_relevant": true,
-      "relevanz_begruendung": "",
-      "anzeige_name": "Präsentation-Giesserei Wurzen-V3_Deutsch",
-      "aktueller_stand": ""
-    }
-  },
   "Sundh-Schaltanlagen": {
     "input_hash": "95abab921e9c4a36",
     "ergebnis": {
@@ -507,38 +479,6 @@
       "relevanz_begruendung": "",
       "anzeige_name": "Grohe",
       "aktueller_stand": "Erstgespräch Prozessia X Grohe ist für 2026-08-24 um 11:00 Uhr terminiert, Inhalte liegen noch nicht vor."
-    }
-  },
-  "Esterer-Giesserei": {
-    "input_hash": "bbf14cee4bb44085",
-    "ergebnis": {
-      "status": "neuer_kontakt",
-      "sicherheit": "mittel",
-      "begruendung": "Es liegt lediglich eine Firmenpräsentation der Esterer Gießerei GmbH vor (2026-07-19-Präsentation-Esterer Giesserei-V20_Deutsch.md), die als Lead-Material dient, aber keine Hinweise auf ein Erstgespräch oder Angebot enthält.",
-      "quellen": [
-        "2026-07-19-Präsentation-Esterer Giesserei-V20_Deutsch.md"
-      ],
-      "warnsignal": null,
-      "ist_relevant": true,
-      "relevanz_begruendung": "",
-      "anzeige_name": "Esterer Gießerei GmbH",
-      "aktueller_stand": "Es liegt eine Firmenpräsentation als Lead-Material vor; ein weiterer Kontakt oder Termin ist noch nicht dokumentiert."
-    }
-  },
-  "Giesserei-Wurzen": {
-    "input_hash": "b8d68798c9f947e6",
-    "ergebnis": {
-      "status": "neuer_kontakt",
-      "sicherheit": "mittel",
-      "begruendung": "Der Kontakt entstand über einen Messebesuch auf der CastForge in Stuttgart, dokumentiert durch die Firmenpräsentation 2026-07-19-Präsentation-Giesserei Wurzen-V3_Deutsch.md; darüber hinaus liegt keine weitere Korrespondenz oder ein Termin vor.",
-      "quellen": [
-        "2026-07-19-Präsentation-Giesserei Wurzen-V3_Deutsch.md"
-      ],
-      "warnsignal": "Seit dem Messekontakt gibt es keine weitere Korrespondenz oder geplanten Termin - Follow-up steht noch aus.",
-      "ist_relevant": true,
-      "relevanz_begruendung": "",
-      "anzeige_name": "Gießerei Wurzen GmbH",
-      "aktueller_stand": "Erster Kontakt über Messebesuch (CastForge Stuttgart) mit Zusendung der Firmenpräsentation; nächster Schritt wäre ein Follow-up zur Vereinbarung eines Erstgesprächs."
     }
   },
   "Huissel": {
