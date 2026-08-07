@@ -97,22 +97,21 @@
     }
   },
   "Schaufler": {
-    "input_hash": "b552cc92b07dbc26",
+    "input_hash": "c35651d1d6a6349d",
     "ergebnis": {
       "status": "fulfillment",
       "sicherheit": "hoch",
-      "begruendung": "Der Beschaffungsagent ist laut 2026-07-24-19f40a0d3d-SLA_Schaufler .md und 2026-07-24-19f40a0d3d-AVV_Schaufler_Prozessia.md im aktiven Betrieb (SLA über 12 Monate), zusätzlich wurde per 2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md die Einrichtung der Winform-Schnittstelle abgerechnet und laufende Dashboard-Abgleiche finden statt (2026-07-31-Email-19fb7eef-Prozessia.md).",
+      "begruendung": "Der Beschaffungsagent ist laut Email 2026-07-28-Email-19fa9cf0 bereits live und wird gemäß SLA_Schaufler sowie AVV_Schaufler_Prozessia betrieben; aktuell werden noch technische Details wie die Mail.Send-Berechtigung für agent@schaufler.de konfiguriert (siehe 2026-08-07-Email-19fdb7ed und Folgeemails).",
       "quellen": [
         "2026-07-24-19f40a0d3d-SLA_Schaufler .md",
-        "2026-07-24-19f40a0d3d-AVV_Schaufler_Prozessia.md",
-        "2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md",
-        "2026-07-31-Email-19fb7eef-Prozessia.md"
+        "2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md",
+        "2026-08-07-Email-19fdb7ed-AW-Beschaffungsagent--MailSend-Berechtig.md"
       ],
-      "warnsignal": "Geschäftsführer Siegfried Heinrich fragt in 2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md kritisch nach Effizienznachweis des laufenden Agenten, bevor ein neues Projekt gestartet wird.",
+      "warnsignal": "Geschäftsführer Siegfried Heinrich fragt am 28.07. explizit nach Effizienz-Nachweisen zum Agenten, eine dokumentierte Antwort dazu fehlt in der Chronologie.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Schaufler",
-      "aktueller_stand": "Der Beschaffungsagent läuft produktiv unter SLA/AVV mit laufender Betreuung (Dashboard-Abgleiche, Einkäufer-Integration), parallel wurde für ein neues Projekt zur KI-gestützten Stücklistendatenerfassung am 2026-08-05 ein Lastenheft übergeben, auf dessen Basis Prozessia ein Angebot erstellen soll."
+      "aktueller_stand": "Der Beschaffungsagent läuft produktiv, aktuell wird die technische IT-Berechtigung für automatisierte Eskalationsmails final eingerichtet, während parallel ein neues Projekt zur KI-gestützten Stücklistendatenerfassung mit Lastenheft (05.08.) und Entwicklungsplan (06.08.) in der Angebotsphase vorbereitet wird."
     }
   },
   "TPG": {

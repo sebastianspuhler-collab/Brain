@@ -1119,6 +1119,10 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-07 09:18] [AW: Beschaffungsagent – Mail.Send-Berech] Nächster Schritt: Berechtigung anschalten – Anfrage vom 7. August 2026 11:00 Uhr gestellt, Bestätigung ausstehend
+- [2026-08-07 09:18] [AW: Beschaffungsagent – Mail.Send-Berech] KI-Agent (Beschaffungsagent) benötigt Mail.Send-Berechtigung für order@schaufler.de (App-Registrierung) zum Versand von E-Mails an Einkäufer, angefordert am 7. August 2026
+- [2026-08-07 09:13] [AW: Beschaffungsagent – Mail.Send-Berech] Mail.Send-Berechtigung für order@schaufler.de (App-Registrierung) ist konfiguriert: agent@schaufler.de darf als order@schaufler.de senden
+- [2026-08-07 09:13] [AW: Beschaffungsagent – Mail.Send-Berech] KI-Agent soll implementiert werden, um automatisiert E-Mails an Einkäufer zu versenden (7. August 2026)
 - [2026-08-06 21:13] [2026-08-24-Schmidt-Hänsch.md] Erstgespräch geplant: 2026-08-24
 - [2026-08-06 21:13] [2026-08-11-TopDown.md] Erstes Gespräch (Kalender-Erstgespräch) mit TopDown geplant am 2026-08-11
 - [2026-08-06 21:13] [2026-08-06-Finom_payment_06082026.md] Privatentnahme von 1.000,00 EUR durch Gesellschafter am 06.08.2026 durchgeführt
