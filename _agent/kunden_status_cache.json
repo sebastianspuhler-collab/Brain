@@ -368,17 +368,19 @@
     }
   },
   "Schmidt-Hänsch": {
-    "input_hash": "c327d8923dd2292b",
+    "input_hash": "171d1bf767077aa9",
     "ergebnis": {
       "status": "neuer_kontakt",
-      "sicherheit": "niedrig",
-      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
-      "quellen": [],
+      "sicherheit": "mittel",
+      "begruendung": "Die Datei 2026-08-24-Schmidt-Hänsch.md zeigt einen automatisch erkannten Kalendertermin für ein Erstgespräch, es liegt jedoch noch kein Transkript oder weiteres Dokument vor.",
+      "quellen": [
+        "2026-08-24-Schmidt-Hänsch.md"
+      ],
       "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Schmidt-Hänsch",
-      "aktueller_stand": ""
+      "aktueller_stand": "Erstgespräch mit Prozessia ist für den 2026-08-24 um 13:00 Uhr terminiert, weiteres Material steht noch aus."
     }
   },
   "Zillmer-Elektrotechnik": {
@@ -543,6 +545,38 @@
       "relevanz_begruendung": "",
       "anzeige_name": "Silas Rupp",
       "aktueller_stand": "Erstgespräch mit Silas Rupp ist für 2026-08-10 um 16:30 Uhr geplant, Ergebnis steht noch aus."
+    }
+  },
+  "TopDown": {
+    "input_hash": "a0bab92d240ff282",
+    "ergebnis": {
+      "status": "neuer_kontakt",
+      "sicherheit": "niedrig",
+      "begruendung": "Die Datei 2026-08-11-TopDown.md ist ein automatisch erkannter Kalendertermin für ein Erstgespräch mit TopDown, es liegt noch kein Transkript oder weiteres Material vor.",
+      "quellen": [
+        "2026-08-11-TopDown.md"
+      ],
+      "warnsignal": "Erstgespräch steht noch bevor (2026-08-11), Ergebnis daher noch unbekannt.",
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "TopDown",
+      "aktueller_stand": "Erstgespräch mit Prozessia ist für 2026-08-11 um 09:30 terminiert, Ergebnis liegt noch nicht vor."
+    }
+  },
+  "Inductohead": {
+    "input_hash": "d4225adf03b8c3a8",
+    "ergebnis": {
+      "status": "neuer_kontakt",
+      "sicherheit": "mittel",
+      "begruendung": "Die Datei 2026-08-26-Inductohead.md dokumentiert lediglich einen automatisch erkannten Kalendertermin für ein Erstgespräch, ein Transkript oder weitere Unterlagen liegen noch nicht vor.",
+      "quellen": [
+        "2026-08-26-Inductohead.md"
+      ],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Inductohead",
+      "aktueller_stand": "Erstgespräch Prozessia X Inductohead ist für den 2026-08-26 um 09:30 Uhr terminiert, weiteres Material steht noch aus."
     }
   }
 }
