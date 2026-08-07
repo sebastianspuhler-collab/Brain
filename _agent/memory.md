@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-07 09:29] [2026-08-07-Email-19fdb825-AW-Beschaffungsagent--MailSend-Berechtig.md] Kontaktperson: Jonas Rösch, IT-Administration (jonas.roesch@schaufler.de, +49 7333 9608 38)
+- [2026-08-07 09:29] [2026-08-07-Email-19fdb815-AW-Beschaffungsagent--MailSend-Berechtig.md] Datum der Anforderung: 2026-08-07
 - [2026-08-07 06:09] [Request #28824206: How would you rate th] Account SID: ACa756b2b60f3dba0995621f130b4caa60, Bundle SID: BU6b3e48b819e258269f5e87416b09cda1
 - [2026-08-07 06:09] [Request #28824206: How would you rate th] Support-Ticket #28824206 für Prozessia bearbeitet durch Jed Enel am 4. Aug 2026, 22:07 PDT
 - [2026-08-06 21:13] [2026-08-26-Inductohead.md] Status: Aus Kalendertermin erkannter Lead, Transkript und weitere Dokumentation ausstehend
@@ -1881,6 +1883,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-08-07 09:29] [2026-08-07-Email-19fdb831-AW-Beschaffungsagent--MailSend-Berechtig.md] Klärungsbedarf: Einschränkung der Mail.Send-Berechtigung auf spezifische Mailboxen gewünscht
 - [2026-08-05 08:21] [2026-06-09-Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.pptx.md] Kernanforderungen: anwaltliche Verschwiegenheitspflicht, sichere Mandantendaten-Verwaltung, Vermeidung US-Server
 - [2026-08-05 08:20] [2026-06-09-DE_Partner_Deck.md] Lösung muss DSGVO-konform sein; Hosting und Datenverarbeitung ausschließlich in der EU
 - [2026-08-05 08:20] [2026-06-09-Cocomin-KI-Agent .md] 100% DSGVO-Konformität erforderlich, auf EU-Servern gehostet, deutsches Qualitätsbewusstsein
