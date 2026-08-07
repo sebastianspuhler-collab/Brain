@@ -1,9 +1,10 @@
 import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Calendar as CalendarIcon, ChevronLeft, ChevronRight, List } from "lucide-react";
+import { Calendar as CalendarIcon, ChevronLeft, ChevronRight, List, Maximize2 } from "lucide-react";
 import { api } from "@/api/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Dialog, DialogBody, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
@@ -45,6 +46,30 @@ function formatDatum(datum: string): string {
   return `${d}.${m}.${y}`;
 }
 
+function encodePath(path: string): string {
+  return path.split("/").map(encodeURIComponent).join("/");
+}
+
+/** Rohe Markdown-Notiz ohne YAML-Frontmatter - für die groß lesbare
+ * Volltext-Ansicht zählt der Inhalt, nicht die Metadaten obendrüber. */
+function stripFrontmatter(text: string): string {
+  return text.replace(/^---\n[\s\S]*?\n---\n/, "").trim();
+}
+
+function useMeetingFulltext(path: string | null) {
+  return useQuery({
+    queryKey: ["meeting-fulltext", path],
+    queryFn: async () => {
+      const res = await fetch(`${API_BASE}/api/files/download/${encodePath(path as string)}`, {
+        credentials: "include",
+      });
+      if (!res.ok) throw new Error("Transkript konnte nicht geladen werden");
+      return stripFrontmatter(await res.text());
+    },
+    enabled: path !== null,
+  });
+}
+
 export function MeetingsPage() {
   const { data, isLoading } = useQuery({
     queryKey: ["meetings"],
@@ -57,6 +82,14 @@ export function MeetingsPage() {
     const now = new Date();
     return new Date(now.getFullYear(), now.getMonth(), 1);
   });
+  const [openMeeting, setOpenMeeting] = useState<Meeting | null>(null);
+  const { data: fulltext, isLoading: fulltextLoading } = useMeetingFulltext(openMeeting?.path ?? null);
+
+  function expand(e: React.MouseEvent, m: Meeting) {
+    e.preventDefault();
+    e.stopPropagation();
+    setOpenMeeting(m);
+  }
 
   const kunden = useMemo(() => {
     const set = new Set((data?.meetings ?? []).map((m) => m.kunde).filter(Boolean) as string[]);
@@ -171,11 +204,20 @@ export function MeetingsPage() {
                       href={`${API_BASE}${m.pdf_url}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex flex-col gap-0.5 rounded-lg px-2 py-1.5 hover:bg-muted/50"
+                      className="group flex flex-col gap-0.5 rounded-lg px-2 py-1.5 hover:bg-muted/50"
                     >
                       <div className="flex items-center gap-1.5">
                         {m.kunde && <StatusPill variant="info">{m.kunde}</StatusPill>}
                         <span className="truncate text-sm font-medium text-foreground">{m.name}</span>
+                        <Button
+                          variant="ghost"
+                          size="icon-sm"
+                          className="ml-auto size-6 opacity-0 group-hover:opacity-100"
+                          title="Volltext groß anzeigen"
+                          onClick={(e) => expand(e, m)}
+                        >
+                          <Maximize2 className="size-3.5" />
+                        </Button>
                       </div>
                       {m.zusammenfassung && (
                         <p className="line-clamp-2 text-xs text-muted-foreground">{m.zusammenfassung}</p>

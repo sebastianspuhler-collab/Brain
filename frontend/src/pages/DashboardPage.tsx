@@ -1,10 +1,11 @@
 import { Fragment, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { Archive, ArchiveRestore, Pencil, RefreshCw, TriangleAlert } from "lucide-react";
+import { Archive, ArchiveRestore, Maximize2, Pencil, RefreshCw, TriangleAlert } from "lucide-react";
 import { api } from "@/api/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Dialog, DialogBody, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -219,6 +220,7 @@ export function DashboardPage() {
   const [statusDraft, setStatusDraft] = useState("");
   const [nameDraft, setNameDraft] = useState("");
   const [standDraft, setStandDraft] = useState("");
+  const [detail, setDetail] = useState<Eintrag | null>(null);
 
   const { data: kundenData, isLoading: kundenLoading } = useQuery({
     queryKey: ["dashboard-kunden-status", zeigeArchivierte, zeigeIrrelevante],
@@ -453,7 +455,11 @@ export function DashboardPage() {
                           "–"
                         )}
                       </TableCell>
-                      <TableCell className="max-w-52 truncate text-muted-foreground" title={e.aktueller_stand}>
+                      <TableCell
+                        className="max-w-52 cursor-pointer truncate text-muted-foreground hover:text-foreground hover:underline"
+                        title={e.aktueller_stand}
+                        onClick={() => setDetail(e)}
+                      >
                         {e.aktueller_stand || "–"}
                       </TableCell>
                       <TableCell className="tabular-nums">
@@ -462,6 +468,14 @@ export function DashboardPage() {
                       <TableCell className="tabular-nums">{e.offene_aufgaben || "–"}</TableCell>
                       <TableCell>
                         <div className="flex items-center gap-1">
+                          <Button
+                            variant="ghost"
+                            size="icon-sm"
+                            onClick={() => setDetail(e)}
+                            title="Alles zu diesem Eintrag groß anzeigen"
+                          >
+                            <Maximize2 className="size-4" />
+                          </Button>
                           <Button
                             variant="ghost"
                             size="icon-sm"
@@ -552,6 +566,86 @@ export function DashboardPage() {
           )}
         </CardContent>
       </Card>
+
+      <Dialog open={detail !== null} onOpenChange={(open) => !open && setDetail(null)}>
+        <DialogContent className="max-w-2xl">
+          {detail && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-lg">
+                  {detail.anzeige_name}
+                  {detail.typ === "lead" && (
+                    <span className="ml-2 text-sm font-normal text-muted-foreground">· Interessent</span>
+                  )}
+                </DialogTitle>
+              </DialogHeader>
+              <DialogBody className="flex flex-col gap-5 text-base leading-relaxed">
+                <div className="flex flex-wrap items-center gap-2">
+                  <StatusPill variant={STATUS_VARIANT[detail.status]}>
+                    {STATUS_LABEL[detail.status]}
+                    {detail.status !== detail.status_automatisch && " *"}
+                  </StatusPill>
+                  <span className="text-sm text-muted-foreground">{SICHERHEIT_LABEL[detail.sicherheit]}</span>
+                </div>
+                {detail.warnsignal && (
+                  <div className="flex items-start gap-2 rounded-lg border border-amber-600/30 bg-amber-600/10 p-3 text-amber-800 dark:text-amber-300">
+                    <TriangleAlert className="mt-0.5 size-4 shrink-0" />
+                    <p>{detail.warnsignal}</p>
+                  </div>
+                )}
+                {!detail.ist_relevant && (
+                  <div className="rounded-lg border border-destructive/30 bg-destructive/10 p-3 text-destructive">
+                    ⚠ wahrscheinlich kein echter Kunde
+                    {detail.relevanz_begruendung ? `: ${detail.relevanz_begruendung}` : ""}
+                  </div>
+                )}
+                {detail.aktueller_stand && (
+                  <div>
+                    <p className="mb-1 text-xs font-medium tracking-wide text-muted-foreground uppercase">
+                      Aktueller Stand
+                    </p>
+                    <p>{detail.aktueller_stand}</p>
+                  </div>
+                )}
+                {detail.begruendung && (
+                  <div>
+                    <p className="mb-1 text-xs font-medium tracking-wide text-muted-foreground uppercase">
+                      Begründung
+                    </p>
+                    <p>{detail.begruendung}</p>
+                  </div>
+                )}
+                {detail.notiz && (
+                  <div>
+                    <p className="mb-1 text-xs font-medium tracking-wide text-muted-foreground uppercase">Notiz</p>
+                    <p>{detail.notiz}</p>
+                  </div>
+                )}
+                {detail.naechster_termin && (
+                  <div>
+                    <p className="mb-1 text-xs font-medium tracking-wide text-muted-foreground uppercase">
+                      Nächster Termin
+                    </p>
+                    <p>
+                      {formatTermin(detail.naechster_termin.start)} – {detail.naechster_termin.titel}
+                    </p>
+                  </div>
+                )}
+                {detail.quellen.length > 0 && (
+                  <div>
+                    <p className="mb-1 text-xs font-medium tracking-wide text-muted-foreground uppercase">Quellen</p>
+                    <ul className="list-inside list-disc text-sm text-muted-foreground">
+                      {detail.quellen.map((q) => (
+                        <li key={q}>{q}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </DialogBody>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
