@@ -1,0 +1,19 @@
+{
+  "id": "48253eb9-a8c8-4437-9153-a9c6e175170c",
+  "title": "welche termine und aufgaben stehe umfassend nächste WOche an…",
+  "model": "claude-sonnet-5",
+  "created_at": "2026-08-09T19:03:18.252022+00:00",
+  "updated_at": "2026-08-09T19:03:27.657105+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "welche termine und aufgaben stehe umfassend nächste WOche an?",
+      "attachments": null
+    },
+    {
+      "role": "assistant",
+      "content": "You've hit your weekly limit · resets 10pm (UTC)"
+    }
+  ],
+  "agent_id": null
+}
