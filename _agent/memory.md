@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-10 07:04] [2026-08-10-Email-19fea422-Automatische-Antwort-Bericht-Beschaffung.md] Eingeschränkter E-Mail-Zugriff während Abwesenheit erwartet
 - [2026-08-10 06:01] [Automatische Antwort: Bericht Beschaffun] Stellvertretende Kontakte bei dringenden Fragen: Christoph Nagel-Knospe (+49 7333/9608-813) und Benjamin Schmohl (+49 7333/9608-640)
 - [2026-08-10 06:01] [Automatische Antwort: Bericht Beschaffun] Florian Knoblauch (Leiter Materialwirtschaft Global, Schäufler) ist bis 17. August 2026 abwesend
 - [2026-08-10 05:08] [2026-08-09.md] Weekly Limit bei Brain-API erreicht; Reset um 22:00 UTC am 2026-08-09
@@ -1124,6 +1125,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-10 07:04] [2026-08-10-Email-19fea422-Automatische-Antwort-Bericht-Beschaffung.md] Anfrage betraf: Bericht Beschaffungsagent
 - [2026-08-07 09:18] [AW: Beschaffungsagent – Mail.Send-Berech] Nächster Schritt: Berechtigung anschalten – Anfrage vom 7. August 2026 11:00 Uhr gestellt, Bestätigung ausstehend
 - [2026-08-07 09:18] [AW: Beschaffungsagent – Mail.Send-Berech] KI-Agent (Beschaffungsagent) benötigt Mail.Send-Berechtigung für order@schaufler.de (App-Registrierung) zum Versand von E-Mails an Einkäufer, angefordert am 7. August 2026
 - [2026-08-07 09:13] [AW: Beschaffungsagent – Mail.Send-Berech] Mail.Send-Berechtigung für order@schaufler.de (App-Registrierung) ist konfiguriert: agent@schaufler.de darf als order@schaufler.de senden
