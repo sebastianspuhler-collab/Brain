@@ -1,14 +1,19 @@
 ---
-updated: 2026-07-19
+updated: 2026-08-10
 ---
 
 # Aktueller Kontext
 
 ## Offene Aufgaben
-- [ ] Netzwerk ausbauen (Montag, 10.08.2026) @Sebastian
-- [ ] Schaufler Wissensmanagement: Lösung für Jonas Röschs Anforderung (zentrale E-Mail-Ablage/Wissenssicherung, Shared Mailboxes mit 50GB-Limit) klären @Sebastian !status(in_progress)
-- [ ] Martin Veser Projekt: langfristige Planung aufsetzen (Gesamtvernetzung der Instrumente PZ/OT/QZ/QP/PBP/GEW/Bau per KI) – Scope/Aufgabenstellung mit Veser noch klären, ist laut seiner Mail selbst noch offen @Beide
-- [ ] Schaufler: Lastenheft bezüglich Stücklisten abwarten/nachfassen – Stücklistenagent hängt daran @Beide !status(in_progress)
+- [ ] LinkedIn: 3 Videos diese Woche posten @Sebastian !status(in_progress)
+- [ ] YouTube: 3 Videos diese Woche erstellen/veröffentlichen @Amin !status(in_progress)
+- [ ] Termin mit Schaufler wegen Stücklistenprojekt vereinbaren (Anschluss an Lastenheft v. 05.08., Angebot/nächste Schritte) @Beide
+- [ ] Beschaffungsagent überwachen und Bericht für Schaufler vorbereiten @Amin !status(in_progress)
+- [ ] Webseite fertigstellen @Amin
+- [ ] Whitepapers fertigstellen @Amin !status(in_progress)
+- [ ] Close-Migration weiterführen @Sebastian
+- [ ] Kevin (neuer Vertriebler) einarbeiten/einführen @Sebastian
+- [ ] Netzwerkaufbau und Terminsuche fortsetzen @Sebastian
 
 ## Laufende Projekte
 - Schaufler Tooling: Beschaffungsagent live (220€/Mon). Nächster Schritt: Lexoffice-Angebot

@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-10 08:19] Sebastians Wochenaufgaben: LinkedIn 3 Videos posten, Close-Migration, Kevin einführen, Netzwerkaufbau
 - [2026-08-10 07:04] [2026-08-10-Email-19fea422-Automatische-Antwort-Bericht-Beschaffung.md] Eingeschränkter E-Mail-Zugriff während Abwesenheit erwartet
 - [2026-08-10 06:01] [Automatische Antwort: Bericht Beschaffun] Stellvertretende Kontakte bei dringenden Fragen: Christoph Nagel-Knospe (+49 7333/9608-813) und Benjamin Schmohl (+49 7333/9608-640)
 - [2026-08-10 06:01] [Automatische Antwort: Bericht Beschaffun] Florian Knoblauch (Leiter Materialwirtschaft Global, Schäufler) ist bis 17. August 2026 abwesend
@@ -809,6 +810,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-10 08:18] Martin Veser: Thema ist geklärt/abgeschlossen.
 - [2026-08-06 21:13] [2026-08-26-Inductohead.md] Ansprechpartner: allmendinger@inductoheat.eu (Inductoheat)
 - [2026-08-06 21:13] [2026-08-26-Inductohead.md] Neuer Lead: Inductohead
 - [2026-08-06 21:13] [2026-08-24-Schmidt-Hänsch.md] Ansprechpartner: s.bhawar@schmidt-haensch.de
@@ -1125,6 +1127,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-10 08:18] Aktuelle Wochenaufgaben (neu aufgesetzt, alte Aufgaben wie Schaufler Wissensmanagement, Martin Veser-Scope, Lastenheft-Nachfassen entfallen): Sebastian macht LinkedIn (3 Videos posten), Close-Migration weiterführen, Kevin (neuer Vertriebler) einführen, Netzwerkaufbau/Terminsuche. Amin macht LinkedIn (3 Posts), überwacht Beschaffungsagent und bereitet Bericht vor, macht Webseite fertig und Whitepapers. Gemeinsam: Termin wegen Stücklistenprojekt vereinbaren.
 - [2026-08-10 07:04] [2026-08-10-Email-19fea422-Automatische-Antwort-Bericht-Beschaffung.md] Anfrage betraf: Bericht Beschaffungsagent
 - [2026-08-07 09:18] [AW: Beschaffungsagent – Mail.Send-Berech] Nächster Schritt: Berechtigung anschalten – Anfrage vom 7. August 2026 11:00 Uhr gestellt, Bestätigung ausstehend
 - [2026-08-07 09:18] [AW: Beschaffungsagent – Mail.Send-Berech] KI-Agent (Beschaffungsagent) benötigt Mail.Send-Berechtigung für order@schaufler.de (App-Registrierung) zum Versand von E-Mails an Einkäufer, angefordert am 7. August 2026
@@ -1956,6 +1959,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-10 08:19] Amins Wochenaufgabe ist YouTube: 3 Videos erstellen/veröffentlichen, nicht LinkedIn-Posts
 - [2026-08-06 15:37] [AGB & AVV Änderungen] Änderungen zielen auf Verbesserung der vertraglichen Grundlage für Berufsgeheimnisträger ab
 - [2026-08-05 20:04] [2026-08-05.md] Datensätze für Anfragenummer 6000017119 verteilt: Seifert-GmbH und Produkte/Stuecklistenagent Ordner (nicht vollständig bei Schaufler)
 - [2026-08-05 08:32] [2026-06-25-Vertriebsvereinbarung_Geginat (1).md] Vertrag vom 2026-06-25 mit Geginat: Vertriebspartner-Namenfelder und Adressdaten unvollständig
