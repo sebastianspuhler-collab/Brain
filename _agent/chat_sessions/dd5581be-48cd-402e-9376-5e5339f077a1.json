@@ -1,0 +1,25 @@
+{
+  "id": "dd5581be-48cd-402e-9376-5e5339f077a1",
+  "title": "okay, kannst du mir zusammenfassen, wleche aufgaben und Term…",
+  "model": "claude-sonnet-5",
+  "created_at": "2026-08-10T08:07:21.439786+00:00",
+  "updated_at": "2026-08-10T08:16:57.412901+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "okay, kannst du mir zusammenfassen, wleche aufgaben und Termine diese WOche anstehen, dann arbeiten wir geminsame einen Plan aus",
+      "attachments": null
+    },
+    {
+      "role": "assistant",
+      "content": "Diese Woche (10.–16.08.) sieht der Kalender so aus:\n\n**Termine:**\n- **Heute, Mo 10.08., 10:00** – Arbeit (Block)\n- **Heute, Mo 10.08., 16:30** – Silas Rupp & Sebastian Spuhler (Teams/Calendly) – das ist der neue Lead, siehe Leads/2026-08-10-Silas-Rupp.md\n- **Di 11.08., 09:30** – Prozessia x TopDown (Teams) – ebenfalls neuer Eintrag in Leads/2026-08-11-TopDown.md\n- **Di 11.08., 14:30** – Update Seifert x Prozessia (Teams)\n- **Mi 12.08., 09:30** – Zahnarzt\n- **Do 13.08., 09:00** – Prozessia x Schauenberg (Teams)\n\nNächste Woche schon in Sicht: 17.08. Meeting Montag, 18.08. Update Zillmer.\n\n**Offene Aufgaben aus context.md (alle ohne festes Datum, aber laufend):**\n- Netzwerk ausbauen (für heute, 10.08., eingetragen)\n- Schaufler Wissensmanagement: Jonas Röschs Anforderung zu zentraler E-Mail-Ablage/Shared Mailboxes (50GB-Limit) klären – in Bearbeitung\n- Martin Veser Projekt: langfristige Planung/Scope noch offen\n- Schaufler Lastenheft Stücklisten abwarten/nachfassen – Stücklistenagent hängt daran\n\n**Was mir dabei auffällt und was in den Plan sollte:**\n1. Der Schaufler-Kontakt Florian Knoblauch (Materialwirtschaft) ist bis 17.08. abwesend – bei dringenden Fragen sind Christoph Nagel-Knospe und Benjamin Schmohl die Vertretung. Falls du zum Beschaffungsagent-Bericht nachfassen wolltest, geht das aktuell nur über die beiden.\n2. Bei Jonas Rösch (IT-Administration Schaufler) hängt ein offener Faden: Er hat die Mail.Send-Berechtigung zwar aktiviert (07.08.), fragt aber noch, ob sie sich auf einzelne Mailboxen einschränken lässt – das ist noch unbeantwortet und blockiert vermutlich technisch weiter, sollte diese Woche geklärt werden.\n3. Der Entwicklungsplan MVP-Stufe 1 Schaufler (06.08.) hat einen blockierenden offenen Punkt: Verarbeitung realer Schaufler-Konstruktionsdaten über Azure OpenAI erfordert laut Umsetzungsplan noch eine Klärung – passt direkt zur offenen Aufgabe \"Lastenheft/Stücklistenagent abwarten\".\n4. Zwei neue Leads sind nur aus dem Kalender erkannt (Silas Rupp heute, TopDown morgen) und haben laut Vault-Status noch kein Transkript/keine Vorbereitung hinterlegt – lohnt sich, vor den Terminen kurz zu checken, was das für Firmen/Anfragen sind.\n\nSag mir, worauf du beim Plan Priorität legen willst – z.B. zuerst die zwei neuen Lead-Termine heute/morgen vorbereiten, oder zuerst Jonas Rösch bei Schaufler eine Antwort schicken?",
+      "attachments": null
+    },
+    {
+      "role": "user",
+      "content": "okay, martin veser ist geklärt, was ich nur noch habe, ist , dass LinkedIn system, von meiner seite aus, von amins seote aus, diese woche drei videos vpn mir drei posts, von unserer Seote aus, termin machen wegen dem Stücklistenprojekt, das ist für beide, amin überwach den beschaffungsagenten und bereotet den bereicht vor, dazu macht Amin die webseite fertig und die whitepapers, ich führe die close migration weiter und führe Kevin den neuen vertriebler ein,  und ich amche den netzwrkaufbau und termisnsuche weiter, alle augaben, die ich jetzt nicht genannt habe fallen weg, du definierst jetzt die aufgaben unter aufgaben",
+      "attachments": null
+    }
+  ],
+  "agent_id": null
+}
