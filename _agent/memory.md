@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-10 05:08] [2026-08-09.md] Weekly Limit bei Brain-API erreicht; Reset um 22:00 UTC am 2026-08-09
 - [2026-08-07 09:29] [2026-08-07-Email-19fdb825-AW-Beschaffungsagent--MailSend-Berechtig.md] Kontaktperson: Jonas Rösch, IT-Administration (jonas.roesch@schaufler.de, +49 7333 9608 38)
 - [2026-08-07 09:29] [2026-08-07-Email-19fdb815-AW-Beschaffungsagent--MailSend-Berechtig.md] Datum der Anforderung: 2026-08-07
 - [2026-08-07 06:09] [Request #28824206: How would you rate th] Account SID: ACa756b2b60f3dba0995621f130b4caa60, Bundle SID: BU6b3e48b819e258269f5e87416b09cda1
