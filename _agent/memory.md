@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-10 09:36] [2026-08-10-Email-19feaf7a-Schaufler-Beschaffungsagent--128455.md] Abweichung wurde in Ausschreibung/Bestellung (AB) identifiziert und vom Lieferanten mit 150€ bestätigt
 - [2026-08-10 09:20] [Schaufler Beschaffungsagent | 128455] Benjamin Schmohl (Schaufler, benjamin.schmohl@schaufler.de) meldet Fehler und bittet um Überprüfung und ggf. Anpassung durch Prozessia
 - [2026-08-10 08:19] Sebastians Wochenaufgaben: LinkedIn 3 Videos posten, Close-Migration, Kevin einführen, Netzwerkaufbau
 - [2026-08-10 07:04] [2026-08-10-Email-19fea422-Automatische-Antwort-Bericht-Beschaffung.md] Eingeschränkter E-Mail-Zugriff während Abwesenheit erwartet
@@ -1128,6 +1129,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-10 09:36] [2026-08-10-Email-19feaf7a-Schaufler-Beschaffungsagent--128455.md] Schaufler Beschaffungsagent 128455: Agent prüft aktuell nur Einzelpreise und nicht Gesamtpreis von Bauteilen
 - [2026-08-10 09:20] [Schaufler Beschaffungsagent | 128455] Schaufler Beschaffungsagent (Ticket 128455) vergleicht Einzelpreise (z.B. 4,99/kg) statt Gesamtpreise bei Beschaffungsentscheidungen
 - [2026-08-10 08:18] Aktuelle Wochenaufgaben (neu aufgesetzt, alte Aufgaben wie Schaufler Wissensmanagement, Martin Veser-Scope, Lastenheft-Nachfassen entfallen): Sebastian macht LinkedIn (3 Videos posten), Close-Migration weiterführen, Kevin (neuer Vertriebler) einführen, Netzwerkaufbau/Terminsuche. Amin macht LinkedIn (3 Posts), überwacht Beschaffungsagent und bereitet Bericht vor, macht Webseite fertig und Whitepapers. Gemeinsam: Termin wegen Stücklistenprojekt vereinbaren.
 - [2026-08-10 07:04] [2026-08-10-Email-19fea422-Automatische-Antwort-Bericht-Beschaffung.md] Anfrage betraf: Bericht Beschaffungsagent
