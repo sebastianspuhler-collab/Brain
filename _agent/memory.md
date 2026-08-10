@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-10 06:01] [Automatische Antwort: Bericht Beschaffun] Stellvertretende Kontakte bei dringenden Fragen: Christoph Nagel-Knospe (+49 7333/9608-813) und Benjamin Schmohl (+49 7333/9608-640)
+- [2026-08-10 06:01] [Automatische Antwort: Bericht Beschaffun] Florian Knoblauch (Leiter Materialwirtschaft Global, Schäufler) ist bis 17. August 2026 abwesend
 - [2026-08-10 05:08] [2026-08-09.md] Weekly Limit bei Brain-API erreicht; Reset um 22:00 UTC am 2026-08-09
 - [2026-08-07 09:29] [2026-08-07-Email-19fdb825-AW-Beschaffungsagent--MailSend-Berechtig.md] Kontaktperson: Jonas Rösch, IT-Administration (jonas.roesch@schaufler.de, +49 7333 9608 38)
 - [2026-08-07 09:29] [2026-08-07-Email-19fdb815-AW-Beschaffungsagent--MailSend-Berechtig.md] Datum der Anforderung: 2026-08-07
