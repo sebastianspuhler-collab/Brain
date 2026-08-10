@@ -812,6 +812,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-10 09:37] [2026-08-10.md] TopDown - neuer Lead (Prozessia x TopDown), Termin Di 11.08. 09:30
 - [2026-08-10 08:18] Martin Veser: Thema ist geklärt/abgeschlossen.
 - [2026-08-06 21:13] [2026-08-26-Inductohead.md] Ansprechpartner: allmendinger@inductoheat.eu (Inductoheat)
 - [2026-08-06 21:13] [2026-08-26-Inductohead.md] Neuer Lead: Inductohead
