@@ -57,8 +57,58 @@ SKIP_DIRS = {
     # (gefunden 2026-07-17 beim Reindexieren nach dem TPG-Fund).
     "backend", "frontend", "services", "mcp-vnc", ".claude", ".venv",
 }
-CHUNK_SIZE = 800
-CHUNK_OVERLAP = 100
+
+# Pfad-Präfixe innerhalb von _agent/, die NICHT in den Index gehören
+# (ergänzt 2026-08-11). Gemessen vor dem Fix: 865 von 1760 Chunks (49 %) kamen
+# aus _agent/, davon 108 aus Gesprächslogs, Tagesprotokollen und
+# logs/inbox_log.md - also aus den Protokollen des Systems über sich selbst.
+# Die konkurrierten bei jeder Suche mit echten Kunden-Dokumenten (288 Chunks).
+#
+# Bewusst als Präfix-Liste und nicht als Ordnername in SKIP_DIRS: SKIP_DIRS
+# prüft jeden Pfadbestandteil, ein Ordner "logs" oder "daily" irgendwo unter
+# Kunden/ würde dadurch mit ausgeschlossen.
+#
+# NICHT ausgeschlossen und bewusst weiter indexiert:
+# - _agent/memory.md, prozessia.md, context.md, decisions.md: kuratiertes Wissen
+# - _agent/email_cache/: von email_indexer.py absichtlich als durchsuchbarer
+#   Mail-Korpus angelegt (siehe email_indexer.py:216-246), kein Müll
+SKIP_PATH_PREFIXES = (
+    "_agent/conversations/",
+    "_agent/daily/",
+    "_agent/logs/",
+    "_agent/chat_sessions/",
+    "_agent/inbox_altlast_",
+    "_agent/templates/",
+)
+
+
+def _should_index(rel_path: str) -> bool:
+    """Ob eine Vault-relative .md-Datei in den Index gehört. Gemeinsame Regel für
+    Vollaufbau und inkrementelles Nachziehen - vorher prüfte nur der Vollaufbau
+    SKIP_DIRS, wodurch beide Pfade unterschiedliche Korpora aufbauen konnten."""
+    normalized = rel_path.replace("\\", "/")
+    if any(normalized.startswith(p) for p in SKIP_PATH_PREFIXES):
+        return False
+    return not any(part in SKIP_DIRS for part in Path(normalized).parts)
+# Chunk-Größe in WÖRTERN (_chunk_text arbeitet auf text.split()).
+#
+# Korrigiert 2026-08-11: stand vorher auf 800/100. Das Embedding-Modell oben hat
+# laut seiner sentence_bert_config.json aber max_seq_length=128 Tokens, und
+# deutscher Vault-Text braucht mit diesem Tokenizer im Median 2,09 Tokens pro
+# Wort (nachgemessen über die vorhandenen Index-Chunks). Ein 800-Wort-Chunk
+# entsprach damit ~1670 Tokens, von denen das Modell die ersten 128 eingebettet
+# hat - rund 93 % jedes Chunks landeten stillschweigend NICHT im Vektor. Die
+# semantische Hälfte der Hybrid-Suche war dadurch praktisch blind; nur BM25
+# (rein lexikalisch, sieht den vollen Chunk-Text) hat noch zuverlässig getroffen.
+# 55 Wörter ≈ 115 Tokens lassen Luft für Sonderzeichen und Zahlen.
+CHUNK_SIZE = 55
+CHUNK_OVERLAP = 12
+# Wie viele Nachbar-Chunks derselben Datei beim Treffer mitgeliefert werden.
+# Die Chunks sind jetzt bewusst klein (gut für die Einbettung), als Kontext für
+# das Sprachmodell wären 55 Wörter aber zu wenig - Standard-Muster "klein
+# einbetten, groß ausliefern". Wird zur Suchzeit aus _meta zusammengesetzt,
+# statt den Text pro Chunk mehrfach zu speichern.
+CONTEXT_NEIGHBOURS = 2
 RRF_K = 60  # Standardkonstante für Reciprocal Rank Fusion (üblicher Literaturwert)
 
 _STOPWORDS = {
@@ -344,22 +394,12 @@ def add_document(rel_path: str, content: str) -> None:
 
 
 def _add_document_impl(rel_path: str, content: str) -> None:
-    try:
-        import numpy as np
-        import faiss as _faiss
-
-        settings = get_settings()
-        text = content[:1500]
-        vec = _model.encode([text]).astype(np.float32)
-        _index.add(vec)
-        _meta.append({"path": rel_path, "content": text})
-        _faiss.write_index(_index, str(settings.rag_index_path))
-        settings.rag_meta_path.write_text(
-            json.dumps(_meta, ensure_ascii=False), encoding="utf-8"
-        )
-        _rebuild_bm25()
-    except Exception:
-        pass
+    """Einzeldatei-Variante. Delegiert bewusst an die Batch-Implementierung,
+    damit es nur EINE Chunking-/Einbettungs-Logik gibt - vorher hatte diese
+    Funktion ihre eigene Kopie mit denselben zwei Fehlern (kein Chunking,
+    [:1500]-Kürzung, zusätzlich ohne normalize_embeddings, was bei IndexFlatIP
+    die Ähnlichkeitswerte verzerrt)."""
+    _add_documents_batch_impl([(rel_path, content)])
 
 
 def add_documents_batch(items: list[tuple[str, str]]) -> None:
@@ -382,16 +422,35 @@ def add_documents_batch(items: list[tuple[str, str]]) -> None:
 
 
 def _add_documents_batch_impl(items: list[tuple[str, str]]) -> None:
+    """Fügt Dateien mit derselben Chunking-Logik hinzu wie der Vollaufbau.
+
+    Korrigiert 2026-08-11: vorher wurde hier pro Datei EIN Vektor aus den ersten
+    1500 Zeichen erzeugt - ohne Chunking, unabhängig von der Dateilänge. Alles
+    ab Zeichen 1501 war damit unauffindbar. Betroffen waren 667 der 1760
+    Index-Einträge (38 %), darunter 156 Kunden-Dokumente und 24 Verträge, also
+    genau die Dateien, bei denen die Details weiter hinten stehen. Ein Vertrag
+    war nur über seine erste Seite durchsuchbar.
+    Der Vollaufbau (_build_full_index_impl) hat es die ganze Zeit richtig
+    gemacht - die beiden Pfade bauten unterschiedliche Indizes auf."""
     import numpy as np
     import faiss as _faiss
 
     settings = get_settings()
     for rel_path, content in items:
         try:
-            text = content[:1500]
-            vec = _model.encode([text]).astype(np.float32)
-            _index.add(vec)
-            _meta.append({"path": rel_path, "content": text})
+            mtime = (settings.vault_path / rel_path).stat().st_mtime
+        except Exception:
+            mtime = 0.0
+        try:
+            chunks = _chunk_text(content)
+            if not chunks:
+                continue
+            vecs = _model.encode(
+                chunks, batch_size=64, convert_to_numpy=True, normalize_embeddings=True
+            ).astype(np.float32)
+            _index.add(vecs)
+            for i, chunk in enumerate(chunks):
+                _meta.append({"path": rel_path, "chunk_index": i, "content": chunk, "mtime": mtime})
         except Exception:
             continue
     try:
@@ -461,22 +520,27 @@ def _build_full_index_impl() -> dict:
 
     docs = []
     for md in sorted(settings.vault_path.rglob("*.md")):
-        if any(part in SKIP_DIRS for part in md.parts):
+        rel = str(md.relative_to(settings.vault_path))
+        if not _should_index(rel):
             continue
         try:
             text = md.read_text(encoding="utf-8", errors="ignore").strip()
             if text:
-                docs.append((str(md.relative_to(settings.vault_path)), text))
+                docs.append((rel, text, md.stat().st_mtime))
         except Exception:
             pass
 
     all_chunks: list[str] = []
     metadata: list[dict] = []
-    for rel_path, text in docs:
+    for rel_path, text, mtime in docs:
         chunks = _chunk_text(text)
         for i, chunk in enumerate(chunks):
             all_chunks.append(chunk)
-            metadata.append({"path": rel_path, "chunk_index": i, "content": chunk[:1500]})
+            # content ungekürzt: die Chunks sind jetzt klein (CHUNK_SIZE Wörter),
+            # das frühere [:1500] hätte nichts mehr abgeschnitten, verschleierte
+            # aber, dass Chunk-Text und eingebetteter Text identisch sein müssen -
+            # BM25 arbeitet auf genau diesem Feld.
+            metadata.append({"path": rel_path, "chunk_index": i, "content": chunk, "mtime": mtime})
 
     embeddings = model.encode(
         all_chunks, batch_size=64, convert_to_numpy=True, normalize_embeddings=True
