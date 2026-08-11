@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-11 08:13] [Zugesagt: Prozessia X TopDown] Neuer Kontakt: Dominik Nussbaumer, TopDown CF (topdown-cf.com)
 - [2026-08-11 07:27] [Prozessia x ESF] Neue Kontaktperson: Lukas Grünbeck von East Side Fab e.V. (l.gruenbeck@eastsidefab.de)
 - [2026-08-11 06:37] [2026-08-11-Email-19fef82c-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Marvin Wiegner (Konstruktion Schaufler) hat CAD-Schulung diese Woche 8:30-17:00 Uhr - Terminslots nur vor/nach Schulungszeit verfügbar
 - [2026-08-11 06:32] [AW: Ergebnisse Testreihe Stücklistenproj] Stücklistenprojekt - Lastenheft vom 6. Aug 2026
@@ -1137,6 +1138,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-11 08:13] [Zugesagt: Prozessia X TopDown] Dominik Nussbaumer (TopDown, topdown-cf.com) hat das Projekt/die Zusammenarbeit Prozessia X TopDown zugesagt
 - [2026-08-11 07:27] [Prozessia x ESF] Erstes Kennenlernen mit East Side Fab e.V. über Microsoft Teams vereinbart
 - [2026-08-11 06:36] [Kennenlernen Prozessia x ESF] Sebastian soll vor dem Termin sein Anliegen mitteilen (Innovationsprojekt, Kennenlernen, etc.) zur Vorbereitung
 - [2026-08-11 06:36] [Kennenlernen Prozessia x ESF] Neuer Termin vorgeschlagen: Donnerstag, 13.08.2026 zwischen 10:00 und 15:00 Uhr
