@@ -154,17 +154,27 @@ def get_buffer_insights(n: int = 10) -> str:
 
 
 @mcp.tool(description=(
-    "Vollständige Karussell-Pipeline: Slides (Claude) -> KI-Bilder (gpt-image-1) -> PDF -> Cloudinary -> Buffer Document-Post. "
+    "Vollständige Karussell-Pipeline: Slides + Begleittext (Claude) -> Hintergrundbild (gpt-image-1) -> PDF -> Cloudinary -> Buffer Document-Post. "
     "Entweder post_id (Karussell aus einem bestehenden, gespeicherten Post ableiten) oder hook (freies Thema) angeben. "
-    "Datum optional, ohne Datum wird der nächste Di oder Fr 09:30 genommen."
+    "saeule: Wissensmanagement, Compliance, Einkauf oder KI-Nutzung. "
+    "variante: 'schwarz' oder 'weiss' — Farblogik der Serie, pro Post-Serie konsistent halten. "
+    "Datum optional, ohne Datum wird der nächste Di oder Do 09:30 genommen."
 ))
-def generate_carousel(hook: str = "", branche: str = "Alle", saeule: str = "Wissen", due_date: str = "", post_id: str = "") -> dict:
+def generate_carousel(hook: str = "", branche: str = "Alle", saeule: str = "Einkauf", due_date: str = "",
+                      post_id: str = "", variante: str = carousel_service.DEFAULT_VARIANTE) -> dict:
     due_at = f"{due_date}T09:30:00+02:00" if due_date and re.match(r"\d{4}-\d{2}-\d{2}", due_date) else None
     if post_id:
-        return linkedin_service.make_carousel_from_post(post_id, branche=branche or "Alle", saeule=saeule or "Wissen", due_at=due_at)
+        return linkedin_service.make_carousel_from_post(
+            post_id, branche=branche or "Alle", saeule=saeule or "Einkauf", due_at=due_at, variante=variante
+        )
     if not hook:
         return {"ok": False, "error": "Weder hook noch post_id angegeben."}
-    return carousel_service.generate_carousel(hook, branche or "Alle", saeule or "Wissen", due_at=due_at)
+    # Über linkedin_service statt direkt über carousel_service, damit das
+    # Ergebnis auch hier in karusselle.json landet und im Dashboard sichtbar
+    # wird - der direkte Aufruf umging _save_carousel_record().
+    return linkedin_service.make_carousel(
+        hook, branche=branche or "Alle", saeule=saeule or "Einkauf", due_at=due_at, variante=variante
+    )
 
 
 @mcp.tool(description="Zeigt hochgeladene NotebookLM-Videos in der YouTube-Pipeline mit Status (Titel gesetzt? schon in Buffer gepusht?).")

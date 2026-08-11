@@ -248,18 +248,26 @@ def _save_carousel_record(hook: str, branche: str, result: dict, source_post_id:
     _karusselle_path().write_text(json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def make_carousel(hook: str, branche: str = "Alle", saeule: str = "Wissen",
-                   due_at: str | None = None, source_post_id: str | None = None) -> dict:
-    """Erstellt ein eigenständiges Karussell (Slides -> Bilder -> PDF ->
-    Cloudinary -> Buffer) aus einem Hook/Thema und merkt das Ergebnis dauerhaft."""
-    result = carousel_service.generate_carousel(hook=hook, branche=branche or "Alle", saeule=saeule, due_at=due_at)
+def make_carousel(hook: str, branche: str = "Alle", saeule: str = "Einkauf",
+                   due_at: str | None = None, variante: str = carousel_service.DEFAULT_VARIANTE,
+                   source_post_id: str | None = None) -> dict:
+    """Erstellt ein eigenständiges Karussell (Slides -> Bild -> PDF ->
+    Cloudinary -> Buffer) aus einem Hook/Thema und merkt das Ergebnis dauerhaft.
+
+    variante steuert die Farblogik der Serie ("schwarz" oder "weiss", siehe
+    Strategie §6) - laut Strategie pro Post-Serie konsistent zu wählen, nicht
+    pro Einzelpost zu mischen."""
+    result = carousel_service.generate_carousel(
+        hook=hook, branche=branche or "Alle", saeule=saeule, due_at=due_at, variante=variante
+    )
     if result.get("ok"):
         _save_carousel_record(hook, branche or "Alle", result, source_post_id=source_post_id)
     return result
 
 
-def make_carousel_from_post(post_id: str, branche: str = "Alle", saeule: str = "Wissen",
-                             due_at: str | None = None) -> dict:
+def make_carousel_from_post(post_id: str, branche: str = "Alle", saeule: str = "Einkauf",
+                             due_at: str | None = None,
+                             variante: str = carousel_service.DEFAULT_VARIANTE) -> dict:
     """Erstellt aus einem bestehenden Text-Post ein eigenständiges Karussell -
     läuft unabhängig vom Text-Post als eigener Buffer-Beitrag, der Text-Post
     bleibt unverändert."""
@@ -271,7 +279,8 @@ def make_carousel_from_post(post_id: str, branche: str = "Alle", saeule: str = "
         hook = post["text"].strip().split("\n")[0].strip()
     if not hook:
         return {"ok": False, "error": "Kein Thema/Hook für das Karussell gefunden"}
-    return make_carousel(hook, branche=branche, saeule=saeule, due_at=due_at or post.get("termin"), source_post_id=post_id)
+    return make_carousel(hook, branche=branche, saeule=saeule, due_at=due_at or post.get("termin"),
+                         variante=variante, source_post_id=post_id)
 
 
 def _format_ideas_for_chat() -> str:
@@ -374,7 +383,9 @@ _LINKEDIN_CHAT_TOOLS = [
             "properties": {
                 "post_id": {"type": "string", "description": "Optional: bestehenden Post als Grundlage nehmen."},
                 "hook": {"type": "string", "description": "Optional: freier Hook/Thema, falls kein post_id angegeben."},
-                "branche": {"type": "string", "enum": ["Werkzeugbau", "Maschinenbau", "Lohnfertiger", "Elektrotechnik", "Allgemein"]},
+                "branche": {"type": "string", "enum": ["Werkzeugbau", "Lohnfertigung", "Elektrotechnik", "Kunststoff", "Metallbau", "Allgemein"]},
+                "saeule": {"type": "string", "enum": ["Wissensmanagement", "Compliance", "Einkauf", "KI-Nutzung"]},
+                "variante": {"type": "string", "enum": ["schwarz", "weiss"], "description": "Farblogik der Serie: schwarzer oder weißer Hintergrund. Pro Post-Serie konsistent halten, Default schwarz."},
                 "datum": {"type": "string", "description": "YYYY-MM-DD, optional."},
                 "uhrzeit": {"type": "string", "description": "HH:MM, optional, nur zusammen mit datum."},
             },
@@ -459,10 +470,12 @@ def _execute_linkedin_chat_tool(name: str, inp: dict) -> tuple[str, bool]:
                     due_at = None
             post_id = inp.get("post_id")
             branche = inp.get("branche") or "Alle"
+            saeule = inp.get("saeule") or "Einkauf"
+            variante = inp.get("variante") or carousel_service.DEFAULT_VARIANTE
             if post_id:
-                r = make_carousel_from_post(post_id, branche=branche, due_at=due_at)
+                r = make_carousel_from_post(post_id, branche=branche, saeule=saeule, due_at=due_at, variante=variante)
             elif inp.get("hook"):
-                r = make_carousel(inp["hook"], branche=branche, due_at=due_at)
+                r = make_carousel(inp["hook"], branche=branche, saeule=saeule, due_at=due_at, variante=variante)
             else:
                 return "Weder post_id noch hook angegeben.", True
             if r.get("ok"):
@@ -509,11 +522,18 @@ Verfügbare Aktionen (bei Bedarf aufrufen, sonst direkt in Text antworten):
 - set_direction (CLI: set_linkedin_direction): Richtungsvorgabe für künftige Generierung setzen
 - get_insights (CLI: get_buffer_insights): Performance-Daten (Impressions, Reach, Engagement-Rate %, Reactions/Likes, Kommentare, Shares) der letzten gesendeten Posts live aus Buffer abrufen
 
-Regeln für Post-Texte (bei write_post/revise_post):
+Regeln für Post-Texte (bei write_post/revise_post), vollständig in Marketing/LinkedIn/STRATEGIE.md:
+- Claim it, Show it, Aim it: klare Aussage, eigene Zahl, an eine konkrete Person gerichtet
+- Aufbau: Problem-Einstieg, 2–3 Zahlen, Ergebnis-Zeile als **Ergebnis: ...**, optional
+  Fachsystem/Norm, kurzer Einordnungs-Absatz, Erfahrungsfrage, 3–5 Hashtags
 - Max. 15 Wörter pro Satz, Leerzeile nach jeder 2. Zeile
-- Max. 3 Hashtags am Ende
-- 0 Emojis außer max. 1 ganz am Ende
+- 3–5 Hashtags am Ende, breit (#KI, #Mittelstand) plus spezifisch (#Werkzeugbau, #Beschaffung)
+- 0 Emojis außer max. 1 ganz am Ende, keine Links im Text
+- Erfundene Beispiele nur mit erfundenem Firmennamen und als typisches Szenario gerahmt
 - Keine Wörter: innovativ, nachhaltig, ganzheitlich, Lösung, Transformation
+- Keine generischen Zustimmungsfragen, kein Hedging, keine performte Bescheidenheit
+- Zielgruppe: Geschäftsführer/Einkaufsleiter, produzierende Mittelständler 20–80 MA,
+  Werkzeugbau/Lohnfertigung/Elektrotechnik/Kunststoff/Metallbau — Nische nie verwässern
 
 Sei proaktiv: wenn Sebastian z.B. "schreib mir einen Post über X" sagt, ruf direkt den write_post-Tool auf statt nachzufragen.
 Frag nur nach, wenn eine Aktion sonst mehrdeutig wäre (z.B. welcher Post gemeint ist).
@@ -690,14 +710,14 @@ _GENERATE_IDEAS_TOOL = {
                     "type": "object",
                     "properties": {
                         "typ": {"type": "string", "enum": ["A", "B", "C"]},
-                        "kategorie": {"type": "string", "enum": ["Einkauf", "Industrie", "Compliance", "KI-Tipp", "Kundenstory", "Wissensmanagement"]},
+                        "kategorie": {"type": "string", "enum": ["Wissensmanagement", "Compliance", "Einkauf", "KI-Nutzung"]},
                         "titel": {"type": "string", "description": "Max 60 Zeichen."},
                         "hook": {"type": "string", "description": "Erste Zeile, max 80 Zeichen, stoppt den Scroll."},
                         "kern_botschaft": {"type": "string", "description": "Was der Leser mitnimmt."},
-                        "branche": {"type": "string", "enum": ["Werkzeugbau", "Maschinenbau", "Lohnfertiger", "Elektrotechnik", "Allgemein"]},
-                        "zielgruppe_spezifisch": {"type": "string", "description": "z.B. 'Einkaufsleiter, 45 MA, Werkzeugbau'."},
-                        "format_empfehlung": {"type": "string", "enum": ["Text", "Karussell", "Liste"]},
-                        "cta_vorschlag": {"type": "string", "description": "Eine spezifische Frage für Kommentare - kein Engagement-Bait."},
+                        "branche": {"type": "string", "enum": ["Werkzeugbau", "Lohnfertigung", "Elektrotechnik", "Kunststoff", "Metallbau", "Allgemein"]},
+                        "zielgruppe_spezifisch": {"type": "string", "description": "Die konkrete Person laut Aim-Regel, z.B. 'Einkaufsleiter mit Ausschreibung ohne Herstellerangabe, 45 MA, Werkzeugbau'."},
+                        "format_empfehlung": {"type": "string", "enum": ["Karussell", "Text", "Liste"]},
+                        "cta_vorschlag": {"type": "string", "description": "Eine Frage, die nur mit echter Berufserfahrung beantwortbar ist - keine generische Zustimmungsfrage, kein Engagement-Bait."},
                     },
                     "required": ["typ", "kategorie", "titel", "hook", "kern_botschaft", "branche", "zielgruppe_spezifisch", "format_empfehlung", "cta_vorschlag"],
                 },
@@ -711,35 +731,56 @@ _GENERATE_IDEAS_TOOL = {
 def generate_ideas(focus: str = "") -> dict:
     current_direction = _current_direction()
     prompt = f"""Du bist LinkedIn-Content-Stratege für Prozessia.
+Maßgeblich ist die Content-Strategie in Marketing/LinkedIn/STRATEGIE.md, hier die Kurzfassung.
 
-Zielgruppe: Einkaufsleiter und Geschäftsführer in produzierenden Betrieben, 20–80 MA, DACH.
-Prozessia automatisiert Beschaffungsprozesse und Stücklistenprüfung — keine Beratung, konkrete Agenten die Arbeit abnehmen.
-Themen insgesamt: KI-Beschaffung, Automatisierung, EU AI Act & KI-Compliance, KI-Wissensmanagement, Produktivität im Mittelstand, allgemeine KI-Tipps für Entscheider — nicht nur das Kernprodukt, sondern die ganze Bandbreite dessen was die Zielgruppe zu KI im Betrieb wissen muss.
+ZIELGRUPPE (eng halten):
+Geschäftsführer und Einkaufsleiter in inhabergeführten, produzierenden Mittelständlern,
+20–80 Mitarbeitende, Deutschland. Branchen: Werkzeugbau, Lohnfertigung, Elektrotechnik,
+Kunststoff, Metallbau.
+
+POSITIONIERUNG: Generische KI-Agenturen sprechen "den Mittelstand" allgemein an.
+Prozessias Fertigungs-Nische ist das Kernargument — sie muss in jeder Idee spürbar sein.
+Produkte, um die sich der Content dreht: Beschaffungsagent, Stücklistenagent (BOM-Mapper),
+KI-Chatbot, KI-Schulungen.
 
 {f"Richtungsvorgabe: {current_direction}" if current_direction else ""}
 {f"Zusätzlicher Fokus: {focus}" if focus else ""}
 
 Jede Idee bekommt EINEN dieser drei Post-Typen:
 - Typ A – Schmerz-Post: Ich-Perspektive, konkreter Alltags-Schmerz der Zielgruppe, keine Lösung im ersten Satz
-- Typ B – Carousel/Dokument-Post: Framework, Checkliste oder Schritt-für-Schritt (3–7 Punkte)
-- Typ C – Story-Post: anonymes Vorher/Nachher eines Kunden mit konkreten Zahlen (Zeit, Geld, Aufwand)
+- Typ B – Karussell/Dokument-Post: Framework, Checkliste oder Schritt-für-Schritt (3–7 Punkte)
+- Typ C – Story-Post: anonymes Vorher/Nachher mit konkreten Zahlen (Zeit, Geld, Aufwand)
 
-Jede Idee bekommt außerdem GENAU EINE Kategorie (Themen-Säule), für Mischung sorgen — NICHT alle 10 aus derselben Kategorie:
-- Einkauf: konkrete Beschaffungs-/Stücklisten-Schmerzpunkte (Prozessias Kernprodukt)
-- Industrie: allgemeinere Produktions-/Mittelstandsthemen, nicht zwingend Beschaffung
-- Compliance: EU AI Act, Datenschutz, Haftung bei KI-Einsatz, Schatten-KI-Risiko durch unkontrollierten Wissensabfluss (Mitarbeiter kopieren Firmenwissen/Kundendaten in ChatGPT & Co.) — sachlich, keine Panikmache
-- KI-Tipp: praktische, sofort umsetzbare KI-Tipps für Entscheider (Prompts, Tools, Workflows)
-- Kundenstory: anonymisiertes Vorher/Nachher
-- Wissensmanagement: Spezialwissen erfahrener Mitarbeiter geht verloren, wenn Fachkräfte in Rente gehen (Verrentungswelle im Mittelstand) oder Wissen nur in Köpfen/E-Mails/verstreuten Dokumenten steckt statt durchsuchbar zu sein; Zeitverlust durch tägliche Informationssuche; einfache ChatGPT-Uploads/Markdown-Ordner skalieren nicht auf echtes Firmenwissen — bewusste Brücke zu Compliance (unkontrollierter Wissensabfluss über Schatten-KI)
+Jede Idee bekommt GENAU EINE der vier Themen-Säulen:
+- Wissensmanagement: Firmenwissen sichern, KI-gestützte Dokumentation, Corporate-Wissen strukturieren.
+  Konkret: Spezialwissen geht mit der Verrentungswelle verloren; Wissen steckt in Köpfen, E-Mails und
+  verstreuten Dateien statt durchsuchbar zu sein; ChatGPT-Uploads skalieren nicht auf echtes Firmenwissen.
+- Compliance: EU-KI-Verordnung, Transparenzpflichten für KI-Systeme (z.B. Chatbots), DSGVO-Konformität,
+  Schatten-KI als unkontrollierter Wissensabfluss — sachlich, keine Panikmache.
+- Einkauf: Ausschreibungsprozesse, Kalkulation, Lieferantenmanagement, Long-Tail-Spend.
+- KI-Nutzung: Adoption, Hürden, Praxisbeispiele, Stücklisten-/BOM-Automatisierung.
 
-Ziel-Verteilung über die 10 Ideen: mindestens 2× Einkauf, mindestens 2× Compliance, mindestens 2× KI-Tipp, mindestens 1× Wissensmanagement, Rest frei gemischt aus Industrie/Kundenstory/Einkauf.
+Ziel-Verteilung über die 10 Ideen: mindestens 2× je Säule, Rest frei.
+Den Themen-Fingerprint über Wochen halten — kein abrupter Themenwechsel.
 
 Generiere GENAU 10 Ideen: 4× Typ A, 3× Typ B, 3× Typ C.
+Format-Priorität: Dokument-Karussell vor Text vor Video. Mindestens die Hälfte der Ideen
+soll Karussell-Potenzial haben (format_empfehlung "Karussell").
 
-VERBOTEN für jeden Hook und Post:
-- Statistik oder Prozentzahl als erster Satz
-- Wörter: innovativ, nachhaltig, ganzheitlich, Lösungen, Transformation
+CLAIM IT, SHOW IT, AIM IT — gilt für jede Idee:
+- Claim: eine klare Aussage, keine Frage als These, kein Hedging.
+- Show: eine eigene Zahl oder konkrete Beobachtung, kein nacherzähltes fremdes Framework.
+- Aim: an eine konkrete Person gerichtet (Feld zielgruppe_spezifisch), nicht an "alle Unternehmen".
+
+VERBOTEN für jeden Hook und jede Idee:
+- Statistik oder Prozentzahl als allererster Satz
+- Wörter: innovativ, nachhaltig, ganzheitlich, Transformation, revolutionieren, disruptiv, zukunftsfähig
+- Superlative ohne Beleg, performte Bescheidenheit, Hedging
+- Generische Zustimmungsfragen als CTA ("Stimmt ihr zu?", "Wer kennt das?")
 - Engagement-Bait ("Teile diesen Post", "Tag jemanden")
+- Echte Kundennamen — anonymisierte Beispiele bekommen erfundene Firmennamen
+  (z.B. "Elektro Nordstern GmbH", "Nordmetall Fertigung GmbH") und werden als typisches
+  Szenario gerahmt, nie als verifizierbares reales Kundenergebnis.
 
 PFLICHT für jeden Hook:
 - Stoppt den Scroll innerhalb von 3 Sekunden
@@ -752,7 +793,7 @@ PFLICHT für jeden Hook:
             json_prompt = prompt + """
 
 Antworte NUR mit einem JSON-Objekt in genau diesem Format, kein Markdown, keine Erklärung davor/danach:
-{"ideen": [{"typ": "A|B|C", "kategorie": "Einkauf|Industrie|Compliance|KI-Tipp|Kundenstory|Wissensmanagement", "titel": "...", "hook": "...", "kern_botschaft": "...", "branche": "Werkzeugbau|Maschinenbau|Lohnfertiger|Elektrotechnik|Allgemein", "zielgruppe_spezifisch": "...", "format_empfehlung": "Text|Karussell|Liste", "cta_vorschlag": "..."}] (genau 10 Einträge)}"""
+{"ideen": [{"typ": "A|B|C", "kategorie": "Wissensmanagement|Compliance|Einkauf|KI-Nutzung", "titel": "...", "hook": "...", "kern_botschaft": "...", "branche": "Werkzeugbau|Lohnfertigung|Elektrotechnik|Kunststoff|Metallbau|Allgemein", "zielgruppe_spezifisch": "...", "format_empfehlung": "Karussell|Text|Liste", "cta_vorschlag": "..."}] (genau 10 Einträge)}"""
             raw = claude_cli.run_json(json_prompt, model=Models.SONNET, max_budget_usd=1.00, timeout=240).strip()
             raw = raw.replace("```json", "").replace("```", "").strip()
             data = json.loads(raw)
@@ -821,30 +862,59 @@ _GENERATE_POSTS_TOOL = {
 def generate_posts(spec: str) -> dict:
     current_direction = _current_direction()
     prompt = f"""Du bist LinkedIn-Texter für Prozessia.
+Maßgeblich ist die Content-Strategie in Marketing/LinkedIn/STRATEGIE.md, hier die Kurzfassung.
 
-Zielgruppe: Einkaufsleiter und Geschäftsführer in produzierenden Betrieben, 20–80 MA, DACH.
-Prozessia automatisiert Beschaffungsprozesse und Stücklistenprüfung — konkrete Agenten, keine Beratung.
-Themen insgesamt breiter als nur das Produkt: KI-Beschaffung, EU AI Act & KI-Compliance, KI-Wissensmanagement (inkl. Schatten-KI-Risiko als Brücke zu Compliance), allgemeine KI-Tipps für Entscheider, Produktivität im Mittelstand — Mischung, nicht nur Beschaffungsagent-Werbung.
+ZIELGRUPPE (eng halten):
+Geschäftsführer und Einkaufsleiter in inhabergeführten, produzierenden Mittelständlern,
+20–80 Mitarbeitende, Deutschland. Branchen: Werkzeugbau, Lohnfertigung, Elektrotechnik,
+Kunststoff, Metallbau. Die Fertigungs-Nische ist das Kernargument der Positionierung und
+muss in jedem Post spürbar sein — nie zu "der Mittelstand" allgemein verwässern.
+
+Produkte: Beschaffungsagent, Stücklistenagent (BOM-Mapper), KI-Chatbot, KI-Schulungen.
+Themen-Säulen: Wissensmanagement, Compliance (EU-KI-Verordnung, DSGVO), Einkauf/Beschaffung,
+allgemeine KI-Nutzung im Mittelstand.
 
 {f"Richtungsvorgabe: {current_direction}" if current_direction else ""}
 
 POST-TYPEN (steht in der Spezifikation):
 - Typ A – Schmerz-Post: Ich-Perspektive, Alltags-Schmerz der Zielgruppe, keine KI-Lösung im ersten Satz
 - Typ B – Karussell/Dokument: Framework, Checkliste oder Schritt-für-Schritt mit 3–7 nummerierten Punkten
-- Typ C – Story-Post: anonymes Vorher/Nachher eines Kunden, konkrete Zahlen (Stunden, €, Prozent)
+- Typ C – Story-Post: anonymes Vorher/Nachher, konkrete Zahlen (Stunden, €, Prozent)
+
+CLAIM IT, SHOW IT, AIM IT — ausnahmslos in jedem Post:
+- Claim: eine klare Aussage. Keine Frage als These, kein "könnte sein", kein "korrigiert mich".
+- Show: eine eigene Zahl oder konkrete Beobachtung, kein nacherzähltes fremdes Framework.
+- Aim: an eine konkrete Person gerichtet (z.B. "Einkaufsleiter mit Ausschreibung ohne
+  Herstellerangabe"), nicht an "alle Unternehmen".
+
+AUFBAU DES POST-TEXTES (in dieser Reihenfolge):
+1. Kurze Einleitung oder Frage, die das Problem umreißt
+2. 2–3 konkrete Zahlen oder Fakten
+3. Eine Ergebnis-Zeile, allein auf einer Zeile, im Format: **Ergebnis: ...**
+4. Optional ein Satz mit einem bekannten Fachsystem oder einer Norm (SAP, proALPHA, ERP,
+   branchenübliche Normen) — nur wenn es inhaltlich trägt
+5. Kurzer Einordnungs-Absatz, 2–3 Sätze
+6. Abschlussfrage, die die Aussage stützt und nur mit echter Berufserfahrung beantwortbar ist
+7. 3–5 Hashtags
 
 FORMAT-REGELN (ausnahmslos):
-- Max. 15 Wörter pro Satz
-- Leerzeile nach jeder 2. Zeile (nicht nach jeder Zeile)
-- Max. 3 Hashtags, immer am Ende
-- VERBOTENE Hashtags: #KI, #AI, #Innovation, #Digitalisierung, #Mittelstand, #Automation (zu groß, zu allgemein)
-- Erlaubte Hashtags: #Einkauf, #Beschaffung, #Produktion, #Werkzeugbau, #Lohnfertigung, #ERP, #EUAIAct, #KICompliance, #Wissensmanagement
+- Max. 15 Wörter pro Satz, Leerzeile nach jeder 2. Zeile
+- 3–5 Hashtags am Ende, Mischung aus breit (#KI, #Mittelstand) und spezifisch
+  (#Werkzeugbau, #Beschaffung, #Wissensmanagement, #Lohnfertigung, #Stückliste, #EUAIAct)
+- Nur die Ergebnis-Zeile wird mit **...** markiert, sonst keine Fett-Markierung
 - 0 Emojis, außer maximal 1 in der letzten Zeile (optional)
 - Links NIEMALS im Post-Text — nur als separater Kommentar
 
+TON: Deutsch, direkt, nüchtern-konkret. Aussagen werden getroffen, nicht zur Diskussion gestellt.
+
 VERBOTENE WÖRTER: innovativ, nachhaltig, ganzheitlich, Lösung, Transformation, revolutionieren, disruptiv, zukunftsfähig
-VERBOTENE NAMEN: konkrete Firmennamen von Kunden (anonymisieren)
-VERBOTEN: "In der heutigen Zeit", "Die KI wird", Statistiken als erster Satz, Engagement-Bait
+BEISPIELE: erfundene Beispiele sind erlaubt, wenn sie mitreißend sind — aber immer mit
+erfundenem Firmennamen (z.B. "Elektro Nordstern GmbH", "Nordmetall Fertigung GmbH"), niemals
+mit echtem Kundennamen, und immer als typisches Szenario gerahmt, nie als verifizierbares
+reales Kundenergebnis (sonst irreführende Werbung).
+VERBOTEN: "In der heutigen Zeit", "Die KI wird", Statistik als allererster Satz,
+Engagement-Bait, generische Zustimmungsfragen ("Stimmt ihr zu?", "Wer kennt das?"),
+performte Bescheidenheit, Superlative ohne Beleg.
 
 ERSTE ZEILE (Hook):
 - Stoppt den Scroll in 3 Sekunden
@@ -943,11 +1013,18 @@ def push_latest_to_buffer() -> dict:
 
 
 def buffer_push(text: str, scheduled_at: str | None = None) -> dict:
-    """Pusht einen Post auf beide Buffer-Kanäle (Sebastian + Prozessia) via GraphQL."""
+    """Pusht einen Post auf beide Buffer-Kanäle (Sebastian + Prozessia) via GraphQL.
+
+    **Ergebnis: ...** wird hier erst beim Push in Unicode-Fettschrift übersetzt
+    (siehe carousel_service._linkedin_bold). Gespeichert bleibt der Text mit
+    **-Markierung, damit er im Dashboard weiter normal editierbar ist —
+    Unicode-Bold ließe sich dort nur mühsam wieder ändern."""
     settings = get_settings()
     token = settings.buffer_api_token
     if not token:
         return {"error": "BUFFER_API_TOKEN nicht gesetzt"}
+
+    text = carousel_service._linkedin_bold(text)
 
     channels = [settings.buffer_channel_sebastian, settings.buffer_channel_prozessia]
     pushed = []
@@ -1137,6 +1214,8 @@ def buffer_edit_post(buffer_post_ids: list[str], text: str, due_at: str | None =
     token = settings.buffer_api_token
     if not token:
         return {"error": "BUFFER_API_TOKEN nicht gesetzt"}
+
+    text = carousel_service._linkedin_bold(text)
 
     mutation = """
 mutation EditPost($input: EditPostInput!) {
