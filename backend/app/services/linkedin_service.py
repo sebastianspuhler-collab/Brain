@@ -269,7 +269,8 @@ def make_carousel(hook: str, branche: str = "Alle", saeule: str = "Einkauf",
 
 def make_carousel_from_post(post_id: str, branche: str = "Alle", saeule: str = "Einkauf",
                              due_at: str | None = None,
-                             variante: str = carousel_service.DEFAULT_VARIANTE) -> dict:
+                             variante: str = carousel_service.DEFAULT_VARIANTE,
+                             draft: bool = False) -> dict:
     """Erstellt aus einem bestehenden Text-Post ein eigenständiges Karussell -
     läuft unabhängig vom Text-Post als eigener Buffer-Beitrag, der Text-Post
     bleibt unverändert."""
@@ -282,7 +283,7 @@ def make_carousel_from_post(post_id: str, branche: str = "Alle", saeule: str = "
     if not hook:
         return {"ok": False, "error": "Kein Thema/Hook für das Karussell gefunden"}
     return make_carousel(hook, branche=branche, saeule=saeule, due_at=due_at or post.get("termin"),
-                         variante=variante, source_post_id=post_id)
+                         variante=variante, draft=draft, source_post_id=post_id)
 
 
 def _format_ideas_for_chat() -> str:
@@ -390,6 +391,7 @@ _LINKEDIN_CHAT_TOOLS = [
                 "variante": {"type": "string", "enum": ["schwarz", "weiss"], "description": "Farblogik der Serie: schwarzer oder weißer Hintergrund. Pro Post-Serie konsistent halten, Default schwarz."},
                 "datum": {"type": "string", "description": "YYYY-MM-DD, optional."},
                 "uhrzeit": {"type": "string", "description": "HH:MM, optional, nur zusammen mit datum."},
+                "entwurf": {"type": "boolean", "description": "true = landet als Buffer-Entwurf (status draft, wird nie automatisch veröffentlicht) statt eingeplant zu werden - für Testläufe/Review, bevor ein neues Thema wirklich raus geht."},
             },
             "required": [],
         },
@@ -474,15 +476,27 @@ def _execute_linkedin_chat_tool(name: str, inp: dict) -> tuple[str, bool]:
             branche = inp.get("branche") or "Alle"
             saeule = inp.get("saeule") or "Einkauf"
             variante = inp.get("variante") or carousel_service.DEFAULT_VARIANTE
+            entwurf = bool(inp.get("entwurf"))
             if post_id:
-                r = make_carousel_from_post(post_id, branche=branche, saeule=saeule, due_at=due_at, variante=variante)
+                r = make_carousel_from_post(post_id, branche=branche, saeule=saeule, due_at=due_at, variante=variante, draft=entwurf)
             elif inp.get("hook"):
-                r = make_carousel(inp["hook"], branche=branche, saeule=saeule, due_at=due_at, variante=variante)
+                r = make_carousel(inp["hook"], branche=branche, saeule=saeule, due_at=due_at, variante=variante, draft=entwurf)
             else:
                 return "Weder post_id noch hook angegeben.", True
             if r.get("ok"):
                 titles = " | ".join((r.get("slide_titles") or [])[:3])
-                return f"Karussell fertig — {r.get('slides', 0)} Slides, {r.get('anzahl_gepusht', 0)}x eingeplant. {titles}", False
+                # thumb_url/pdf_url im Klartext mitgeben, nicht nur im Rückgabe-
+                # Dict versteckt - der Chat-System-Prompt weist das Modell an,
+                # das Bild als Markdown ![...](url) in seine Antwort zu
+                # übernehmen, damit Sebastian den Entwurf direkt im Chat sieht
+                # statt erst in den Karusselle-Tab wechseln zu müssen.
+                bild_zeile = f"\nVorschau-Bild-URL: {r['thumb_url']}" if r.get("thumb_url") else ""
+                pdf_zeile = f"\nPDF-URL: {r['pdf_url']}" if r.get("pdf_url") else ""
+                return (
+                    f"Karussell fertig — {r.get('slides', 0)} Slides, {r.get('anzahl_gepusht', 0)}x als "
+                    f"{'Entwurf' if r.get('draft') else 'geplanter Post'} in Buffer. {titles}"
+                    f"{bild_zeile}{pdf_zeile}"
+                ), False
             return f"Karussell-Fehler: {r.get('error', '?')}", True
 
         if name == "set_direction":
@@ -520,7 +534,11 @@ Verfügbare Aktionen (bei Bedarf aufrufen, sonst direkt in Text antworten):
 - write_post (CLI: write_linkedin_post_draft): Post-Text aus einer Idee/einem Thema schreiben und als Entwurf speichern - pusht NICHT automatisch
 - revise_post (CLI: revise_linkedin_post): Text eines bestehenden Posts (per id) überarbeiten
 - schedule_post (CLI: schedule_linkedin_post): bestehenden Post (per id) zu einem Zeitpunkt in Buffer einplanen (rechne relative Angaben wie "morgen" anhand des heutigen Datums oben um)
-- make_carousel (CLI: generate_carousel): Bild-Karussell erstellen (aus post_id oder freiem hook) und automatisch in Buffer einplanen
+- make_carousel (CLI: generate_carousel): Bild-Karussell erstellen (aus post_id oder freiem hook) und automatisch in Buffer einplanen.
+  WICHTIG: Das Tool-Ergebnis enthält eine Vorschau-Bild-URL (thumb_url) - binde die IMMER unverändert als
+  Markdown-Bild in deine Antwort ein: ![Karussell-Vorschau](URL). Der Chat rendert das direkt als Bild,
+  Sebastian muss dafür nicht extra in den Karusselle-Tab wechseln. Die PDF-URL zusätzlich als normalen
+  Markdown-Link anhängen, z.B. [Vollständiges PDF](URL).
 - set_direction (CLI: set_linkedin_direction): Richtungsvorgabe für künftige Generierung setzen
 - get_insights (CLI: get_buffer_insights): Performance-Daten (Impressions, Reach, Engagement-Rate %, Reactions/Likes, Kommentare, Shares) der letzten gesendeten Posts live aus Buffer abrufen
 
