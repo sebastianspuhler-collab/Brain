@@ -21,12 +21,22 @@ Wolfgang Lang (GuidedBuying.com), Referenzbilder in Marketing/LinkedIn/
   fett hervorgehobene Kernbegriffe/Zahlen mitten im Satz,
 - schmale, rotierte Domain-Signatur unten links.
 Geändert wurde nur die Farblogik (Lang: Hellblau): schwarzer oder weißer
-Hintergrund je Serie, Schrift in der Gegenfarbe, Lila (#6B3FA0–#8B5CF6) nur als
+Hintergrund je Serie, Schrift in der Gegenfarbe, Lila (#534AB7–#B088FF) nur als
 sparsamer Akzent (Regel-Strich, Seitenzähler, Kernzahl) — deutlich unter den
 in der Strategie erlaubten 10–15 % Bildfläche.
 Typografie: Poppins (Black für Headlines, Light/SemiBold für Fließtext) aus
 Marketing/Branding/fonts/. Der Vault ist in den Container gemountet, die Fonts
 brauchen also keinen Docker-Rebuild. Fällt auf DejaVu zurück, falls sie fehlen.
+
+Farb-Update (2026-08-11, vierte Iteration): Lila, Weiß und Schwarzton 1:1 aus dem
+finalen LinkedIn-Banner (Marketing/LinkedIn/Neuer Ordner/) gemessen (Pixel-Sampling
+der Headline "Fortschritt durch sichere KI."), statt der bis dahin generischen
+Tailwind-Violet-Töne. #B088FF/#534AB7 sind identisch mit C_PURPLE_LIGHT/C_PURPLE aus
+frontend/src/index.css — die Karussell-Farben sind damit erstmals pixelgenau mit dem
+Rest der Marke UND dem Banner konsistent, nicht nur "im erlaubten Bereich".
+Das Foto-Fallback (_accent_glow, greift nur wenn kein Hintergrundfoto generiert werden
+konnte) rotiert jetzt über vier Positionsvarianten statt immer denselben Verlauf zu
+zeichnen — sonst sähen alle Karussells ohne Foto identisch aus.
 """
 import hashlib
 import io
@@ -50,17 +60,19 @@ BUFFER_GRAPHQL = "https://api.buffer.com/graphql"
 SIZE = 1080
 PAD = 76
 
-# Markenlila laut Strategie §7 — nur als Akzent, nie als Fläche.
-PURPLE = (139, 92, 246)       # #8B5CF6
-PURPLE_DEEP = (107, 63, 160)  # #6B3FA0
+# Markenlila laut Strategie §7 — nur als Akzent, nie als Fläche. Exakt aus dem
+# finalen Banner gemessen, identisch zu C_PURPLE_LIGHT/C_PURPLE in
+# frontend/src/index.css.
+PURPLE = (176, 136, 255)      # #B088FF
+PURPLE_DEEP = (83, 74, 183)   # #534AB7
 
 # Zwei Serien-Varianten (Strategie §6: "pro Post-Serie konsistent wählbar").
 # wash_alpha steuert, wie stark das Hintergrundfoto durchscheint.
 VARIANTEN = {
     "schwarz": {
-        "base": (10, 10, 10),
+        "base": (10, 10, 10),       # #0A0A0A — exakt der Schwarzton aus dem Banner
         "text": (255, 255, 255),
-        "muted": (176, 176, 186),
+        "muted": (185, 184, 190),   # exakt aus der Banner-Unterzeile gemessen
         "wash_alpha": 0.82,
         "logo": "Logo-removebg-preview.png",
         # Helle Logo-Variante: cremefarben mit fertigem Alpha-Kanal. Kein
@@ -212,47 +224,65 @@ def _draw_logo(img, draw, variante: dict, logo):
     draw.text((PAD + 3, PAD + 52), "A I   A G E N C Y", font=sub, fill=variante["muted"])
 
 
-def _background(variante: dict, photo_bytes: bytes | None):
+# Vier Positionen für den Lila-Schimmer im Foto-Fallback (siehe _accent_glow).
+# Ohne Rotation sah jedes Karussell ohne generiertes Hintergrundfoto exakt
+# gleich aus (immer derselbe Verlauf unten rechts) — das hier gibt sichtbar
+# unterschiedliche Ergebnisse, ausgewählt über einen stabilen Hash des Themas,
+# statt einer festen Position oder echtem Zufall (reproduzierbar bei erneutem
+# Rendern desselben Themas).
+GLOW_POSITIONS = [
+    ((0.55, 0.62), (1.25, 1.32)),    # unten rechts (Original)
+    ((-0.25, 0.60), (0.45, 1.30)),   # unten links
+    ((0.55, -0.32), (1.25, 0.38)),   # oben rechts
+    ((-0.25, -0.32), (0.45, 0.38)),  # oben links
+]
+
+
+def _background(variante: dict, photo_bytes: bytes | None, seed: str = ""):
     """Hintergrundfoto unter flächigem Wash — die Optik des Vorbilds, nur in
     Schwarz bzw. Weiß statt Langs Hellblau. Ohne Foto bleibt eine ruhige
-    Fläche mit dezentem Lila-Verlauf in einer Ecke."""
+    Fläche mit dezentem Lila-Verlauf, dessen Position über `seed` rotiert."""
     from PIL import Image
 
     base = Image.new("RGB", (SIZE, SIZE), variante["base"])
     if not photo_bytes:
-        return _accent_glow(base, variante)
+        return _accent_glow(base, variante, seed)
     try:
         photo = Image.open(io.BytesIO(photo_bytes)).convert("RGB").resize((SIZE, SIZE), Image.LANCZOS)
     except Exception:
         logger.exception("Hintergrundfoto nicht lesbar")
-        return _accent_glow(base, variante)
+        return _accent_glow(base, variante, seed)
     wash = Image.new("RGBA", (SIZE, SIZE), (*variante["base"], int(variante["wash_alpha"] * 255)))
     canvas = photo.convert("RGBA")
     canvas.alpha_composite(wash)
     return canvas.convert("RGB")
 
 
-def _accent_glow(base, variante: dict):
-    """Dezenter Lila-Schimmer unten rechts als Ersatz für das Foto. Bewusst
-    schwach — Lila ist laut Strategie Akzent, nicht Fläche."""
+def _accent_glow(base, variante: dict, seed: str = ""):
+    """Dezenter Lila-Schimmer als Ersatz für das Foto, Position rotiert über
+    GLOW_POSITIONS (siehe dort). Bewusst schwach — Lila ist laut Strategie
+    Akzent, nicht Fläche."""
     from PIL import Image, ImageDraw, ImageFilter
+
+    idx = int(hashlib.sha1(seed.encode()).hexdigest(), 16) % len(GLOW_POSITIONS) if seed else 0
+    (x0, y0), (x1, y1) = GLOW_POSITIONS[idx]
 
     glow = Image.new("RGB", (SIZE, SIZE), variante["base"])
     ImageDraw.Draw(glow).ellipse(
-        [(SIZE * 0.55, SIZE * 0.62), (SIZE * 1.25, SIZE * 1.32)], fill=PURPLE_DEEP
+        [(SIZE * x0, SIZE * y0), (SIZE * x1, SIZE * y1)], fill=PURPLE_DEEP
     )
     glow = glow.filter(ImageFilter.GaussianBlur(180))
     return Image.blend(base, glow, 0.30)
 
 
-def _render_slides(slides: list, photo_bytes: bytes | None = None, variante_name: str = DEFAULT_VARIANTE) -> list:
+def _render_slides(slides: list, photo_bytes: bytes | None = None, variante_name: str = DEFAULT_VARIANTE, seed: str = "") -> list:
     """Rendert alle Slides im Prozessia-Karussell-Design (Strategie §6).
     Aufbau je Slide: Logo oben links, Seitenzähler oben rechts, Lila-Regel,
     Headline, Fließtext mit Fett-Hervorhebungen, rotierte Domain unten links."""
     from PIL import ImageDraw
 
     variante = VARIANTEN.get(variante_name, VARIANTEN[DEFAULT_VARIANTE])
-    background = _background(variante, photo_bytes)
+    background = _background(variante, photo_bytes, seed)
     logo = _load_logo(variante, target_h=54)
     max_w = SIZE - PAD * 2
     total = len(slides)
@@ -575,7 +605,7 @@ def generate_carousel(hook: str, branche: str = "Alle", saeule: str = "Einkauf",
         photo = _generate_photo(settings.openai_api_key, hook, variante)
 
         log(f"[3/6] Rendere Slides (1080x1080, Variante {variante})...")
-        rendered = _render_slides(slides, photo, variante_name=variante)
+        rendered = _render_slides(slides, photo, variante_name=variante, seed=f"{hook}-{due_at}")
 
         log("[4/6] Erstelle PDF...")
         pdf_bytes = _make_pdf(rendered)
