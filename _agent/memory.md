@@ -1,4 +1,7 @@
 ## KONTEXT
+- [2026-08-11 08:25] [2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md] Projektbezeichnung: Prozessia x ESF
+- [2026-08-11 08:24] [2026-08-11-East-Side-Fab-eV.md] Status: Noch kein Gespräch/Dokument vorhanden - reine E-Mail-Anfrage
+- [2026-08-11 08:24] [2026-08-11-East-Side-Fab-eV.md] Erstkontakt via E-Mail am 2026-08-11, Betreff: 'Prozessia x ESF'
 - [2026-08-11 08:13] [Zugesagt: Prozessia X TopDown] Neuer Kontakt: Dominik Nussbaumer, TopDown CF (topdown-cf.com)
 - [2026-08-11 07:27] [Prozessia x ESF] Neue Kontaktperson: Lukas Grünbeck von East Side Fab e.V. (l.gruenbeck@eastsidefab.de)
 - [2026-08-11 06:37] [2026-08-11-Email-19fef82c-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Marvin Wiegner (Konstruktion Schaufler) hat CAD-Schulung diese Woche 8:30-17:00 Uhr - Terminslots nur vor/nach Schulungszeit verfügbar
@@ -816,6 +819,9 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-11 08:25] TopDown: Eingangsrechnungsprozess laut Geschäftsführer 'Steinzeit' – Rechnungen kommen per Mail, werden manuell im ERP Job Manager erfasst und ausgedruckt.
+- [2026-08-11 08:25] Erstgespräch mit Lead TopDown (Kontakt: Dominik Nussbaumer) am 2026-08-11, 07:32 Uhr, 38 Min. Meeting-Notiz unter Leads/TopDown-Korrespondenz/Meetings/2026-08-11-Prozessia X TopDown.md.
+- [2026-08-11 08:25] [2026-08-11-Email-19fefdff-Zugesagt-Prozessia-X-TopDown.md] Kunde: TopDown, Kontaktperson: Dominik Nussbaumer (Dominik.Nussbaumer@topdown-cf.com)
 - [2026-08-11 07:27] [E-Mail-Erstkontakt] East Side Fab e.V. - Mail 'Prozessia x ESF' von "Lukas Grünbeck - East Side Fab e.V." <l.gruenbeck@eastsidefab.de> am Tue, 11 Aug 2026 07:24:45 +0000
 - [2026-08-11 06:37] [2026-08-11-Email-19fef82c-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Schaufler, Kontakt: Marvin Wiegner, Konstruktion/Design, +49 7333 9608 33, marvin.wiegner@schaufler.de
 - [2026-08-11 06:36] [Kennenlernen Prozessia x ESF] Ansprechpartner: Lukas Grünbeck (Innovation & Projects, East Side Fab e.V., l.gruenbeck@eastsidefab.de, +49 681 84491731)
@@ -1138,6 +1144,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-11 08:25] [2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md] Erstes Kennenlernen / Initial Meeting zwischen Prozessia und East Side Fab e.V. geplant
 - [2026-08-11 08:13] [Zugesagt: Prozessia X TopDown] Dominik Nussbaumer (TopDown, topdown-cf.com) hat das Projekt/die Zusammenarbeit Prozessia X TopDown zugesagt
 - [2026-08-11 07:27] [Prozessia x ESF] Erstes Kennenlernen mit East Side Fab e.V. über Microsoft Teams vereinbart
 - [2026-08-11 06:36] [Kennenlernen Prozessia x ESF] Sebastian soll vor dem Termin sein Anliegen mitteilen (Innovationsprojekt, Kennenlernen, etc.) zur Vorbereitung
