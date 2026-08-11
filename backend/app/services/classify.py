@@ -4,6 +4,7 @@ damit der Chat-Endpoint (/api/inbox_process) es direkt callen kann statt einen
 neuen Python-Prozess zu starten.
 """
 import json
+import logging
 import re
 import shutil
 from datetime import date, datetime
@@ -23,7 +24,12 @@ SKIP_NAMES = {
     "tsconfig.json", "tsdoc-metadata.json", "openai",
 }
 SKIP_PREFIXES = ("README", "readme", "LICENSE", "license", "CHANGELOG",
-                  "HISTORY", "History", "CONTRIBUTING", "contributing")
+                  "HISTORY", "History", "CONTRIBUTING", "contributing",
+                  # Word/Excel-Sperrdateien ("~$Bericht.docx") - enthalten
+                  # keinen Dokumentinhalt und scheiterten deshalb immer.
+                  "~$")
+logger = logging.getLogger("brain.classify")
+
 IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".gif", ".mp4", ".mov", ".mp3"}
 
 # Textmarker, an denen ein Gesprächstranskript zuverlässig erkennbar ist -
@@ -107,7 +113,27 @@ def extract_text(filepath: Path, max_chars: int = 3000) -> str | None:
             from docx import Document
 
             doc = Document(filepath)
-            return " ".join(p.text for p in doc.paragraphs)[:max_chars]
+            # Absätze UND Tabellenzellen (korrigiert 2026-08-11): python-docx
+            # liefert über doc.paragraphs ausschließlich Fließtext-Absätze,
+            # alles in Tabellen bleibt unsichtbar. Transkript-Exporte (Notta &
+            # Co.) legen Sprecher/Zeitstempel/Text aber typischerweise als
+            # Tabelle an - für solche Dateien kam hier ein praktisch leerer
+            # String heraus, die anschließende Klassifizierung bekam nichts zu
+            # sehen und die Datei landete in _inbox/_fehler/.
+            parts = [p.text for p in doc.paragraphs]
+            for table in doc.tables:
+                # row.cells gibt verbundene Zellen einmal pro überspanntem
+                # Feld zurück; über die zugrundeliegende XML-Zelle
+                # deduplizieren, sonst steht ihr Text mehrfach im Extrakt.
+                seen_cells: set[int] = set()
+                for row in table.rows:
+                    for cell in row.cells:
+                        marker = id(cell._tc)
+                        if marker in seen_cells:
+                            continue
+                        seen_cells.add(marker)
+                        parts.append(cell.text)
+            return " ".join(t for t in parts if t and t.strip())[:max_chars]
         if suffix in (".xlsx", ".xls"):
             import openpyxl
 
@@ -426,6 +452,19 @@ def process_file(filepath: Path) -> tuple[bool, str]:
     if content is None:
         return False, "Extraktion fehlgeschlagen"
 
+    # Leerer Extrakt separat behandeln (2026-08-11): vorher lief ein leerer
+    # String weiter in classify(), das Modell bekam nichts zu klassifizieren
+    # und die Datei landete mit der irreführenden Meldung
+    # "API-Klassifizierung fehlgeschlagen" in _fehler/ - die eigentliche
+    # Ursache (nichts extrahierbar) war aus dem Log nicht mehr ablesbar.
+    # Bei PDFs ist das fast immer ein Scan ohne Textebene: dann greift die
+    # Mistral-OCR-Vorstufe in extract_text() nur, wenn MISTRAL_API_KEY gesetzt
+    # ist, sonst liefert der PyPDF2-Fallback leeren Text.
+    if not content.strip():
+        if filepath.suffix.lower() == ".pdf" and not settings.mistral_api_key:
+            return False, "Kein Text extrahierbar (vermutlich Scan) - MISTRAL_API_KEY nicht gesetzt, OCR übersprungen"
+        return False, f"Kein Text extrahierbar aus {filepath.suffix or 'Datei ohne Endung'}"
+
     result = classify(filepath, content[:3000])
     if not result:
         return False, "API-Klassifizierung fehlgeschlagen"
@@ -527,12 +566,29 @@ kategorie: {result.get("kategorie", "")}
     return True, result.get("zielordner", "")
 
 
+def _archive_source(datei: Path, ziel_ordner: Path) -> None:
+    """Verschiebt eine erfolgreich einsortierte Quelldatei nach _verarbeitet/.
+    Bei Namenskollision wird durchnummeriert, damit nie eine Datei überschrieben
+    wird (gleiche Anhänge kommen über Mail-Weiterleitungen mehrfach rein)."""
+    ziel = ziel_ordner / datei.name
+    zaehler = 1
+    while ziel.exists():
+        ziel = ziel_ordner / f"{datei.stem}({zaehler}){datei.suffix}"
+        zaehler += 1
+    try:
+        shutil.move(str(datei), str(ziel))
+    except Exception:
+        logger.warning("Konnte %s nicht nach _verarbeitet/ verschieben", datei.name, exc_info=True)
+
+
 def run_inbox() -> dict:
     """Verarbeitet alle neuen Dateien in _inbox/. Entspricht heartbeat.py:run()."""
     settings = get_settings()
     fehler_path = settings.inbox_dir / "_fehler"
+    verarbeitet_path = settings.inbox_dir / "_verarbeitet"
     daily_path = settings.agent_dir / "daily"
     fehler_path.mkdir(parents=True, exist_ok=True)
+    verarbeitet_path.mkdir(parents=True, exist_ok=True)
     daily_path.mkdir(parents=True, exist_ok=True)
 
     dateien = [
@@ -544,6 +600,7 @@ def run_inbox() -> dict:
         and not any(f.name.startswith(p) for p in SKIP_PREFIXES)
         and "node_modules" not in str(f)
         and "_fehler" not in str(f)
+        and "_verarbeitet" not in str(f)
     ]
 
     cache = _load_cache()
@@ -565,6 +622,15 @@ def run_inbox() -> dict:
             _save_cache(cache)
             processed += 1
             log_lines.append(f"{datei.name} -> {info}")
+            # Quelldatei nach _verarbeitet/ wegräumen (2026-08-11). Vorher blieb
+            # sie nach erfolgreicher Einsortierung in _inbox/ liegen und wurde
+            # nur über den Cache stillgelegt. Dadurch war am Ordner nicht mehr
+            # ablesbar, was noch offen ist: zuletzt lagen 141 Dateien in _inbox,
+            # 95 davon längst verarbeitet. Genau das Karteileichen-Problem, das
+            # im Kommentar in background/jobs.py für den 24.07. beschrieben ist.
+            # Bewusst verschieben statt löschen - das Original bleibt erhalten
+            # (Vault-Regel: nie ohne Sebastians Bestätigung löschen).
+            _archive_source(datei, verarbeitet_path)
         else:
             errors += 1
             log_lines.append(f"{datei.name}: FEHLER {info}")

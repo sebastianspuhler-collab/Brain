@@ -24,6 +24,10 @@ CALENDAR_LEAD_POLL_SECONDS = 1800  # alle 30 Minuten - Kalender ändert sich sel
 ATTACHMENT_POLL_SECONDS = 900  # alle 15 Minuten - Anhänge sind seltener als neue Mails
 _SKIP_EXT = {".js", ".ts", ".map", ".css", ".lock", ".yml", ".yaml"}
 _SKIP_NAMES = {".DS_Store", "Thumbs.db"}
+# Word/Excel legen beim Öffnen einer Datei eine Sperrdatei "~$name.docx" daneben.
+# Die enthält keinen Dokumentinhalt, scheiterte deshalb zwangsläufig an der
+# Klassifizierung und landete in _inbox/_fehler/ (dort lagen 2 davon, 2026-08-11).
+_SKIP_PREFIXES = ("~$",)
 
 # Gemeinsamer Gmail-Rate-Limit-Cooldown (2026-07-25): email_indexer_loop UND
 # attachment_backfill_loop rufen unabhängig voneinander Gmail auf. Ohne diesen
@@ -206,6 +210,7 @@ async def inbox_watcher_loop() -> None:
                 and f.suffix.lower() not in _SKIP_EXT
                 and f.name not in _SKIP_NAMES
                 and not f.name.startswith(".")
+                and not f.name.startswith(_SKIP_PREFIXES)
                 and "_fehler" not in str(f)
                 and "node_modules" not in str(f)
                 and "Branding" not in str(f)

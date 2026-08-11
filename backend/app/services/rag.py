@@ -191,6 +191,49 @@ def _tokenize(text: str) -> list[str]:
     return re.findall(r"[a-zA-ZäöüÄÖÜß0-9]+", text.lower())
 
 
+def _passage_with_context(idx: int) -> str:
+    """Liefert den getroffenen Chunk plus seine direkten Nachbarn aus derselben
+    Datei.
+
+    Korrigiert 2026-08-11: der Suchpfad hat vorher für JEDEN Treffer die ersten
+    1500 Zeichen der Datei vom Datenträger gelesen - unabhängig davon, welcher
+    Chunk getroffen hatte. Das Retrieval fand also die richtige Datei, übergab
+    dem Sprachmodell aber deren Anfang statt der passenden Stelle. Bei langen
+    Meeting-Notizen und Verträgen bekam das Modell damit zuverlässig den
+    Kopfbereich zu sehen und antwortete, die gesuchte Information stehe nicht
+    im Dokument - obwohl sie weiter unten stand.
+
+    Nachbarn werden hier zusammengesetzt statt pro Chunk gespeichert, damit der
+    Text nicht mehrfach in _meta liegt."""
+    if not _meta or idx >= len(_meta):
+        return ""
+    hit = _meta[idx]
+    if not isinstance(hit, dict):
+        return str(hit)
+    path = hit.get("path", "")
+    chunk_index = hit.get("chunk_index")
+    if chunk_index is None:
+        return hit.get("content", "")
+
+    wanted = range(chunk_index - CONTEXT_NEIGHBOURS, chunk_index + CONTEXT_NEIGHBOURS + 1)
+    parts: list[tuple[int, str]] = []
+    # Nachbarn liegen durch den Aufbau direkt neben idx, deshalb nur ein enges
+    # Fenster absuchen statt über alle Chunks zu iterieren.
+    lo = max(0, idx - CONTEXT_NEIGHBOURS * 2)
+    hi = min(len(_meta), idx + CONTEXT_NEIGHBOURS * 2 + 1)
+    for j in range(lo, hi):
+        n = _meta[j]
+        if not isinstance(n, dict) or n.get("path") != path:
+            continue
+        ci = n.get("chunk_index")
+        if ci in wanted:
+            parts.append((ci, n.get("content", "")))
+    if not parts:
+        return hit.get("content", "")
+    parts.sort(key=lambda x: x[0])
+    return " ".join(text for _, text in parts)
+
+
 def _rebuild_bm25() -> None:
     """Baut den BM25-Stichwortindex über _meta[*]['content'] neu auf (Hybrid Search,
     Umsetzungsplan-Memo 2026-07-16 Punkt C2). Läuft immer schon auf dem Worker-
@@ -326,7 +369,6 @@ def _search_impl(
     try:
         import numpy as np
 
-        settings = get_settings()
         queries = [query] + _extract_entities(query)
 
         # Bei aktivem Ordner-Filter (eigene Agenten, Punkt D2) reicht ein Top-k
@@ -363,10 +405,7 @@ def _search_impl(
                 path = m.get("path", "") if isinstance(m, dict) else str(m)
                 if path_prefixes and not any(path.startswith(p) for p in path_prefixes):
                     continue
-                try:
-                    content = (settings.vault_path / path).read_text(encoding="utf-8", errors="ignore")[:1500]
-                except Exception:
-                    content = m.get("content", "") if isinstance(m, dict) else ""
+                content = _passage_with_context(idx)
                 if not content:
                     continue
                 if "Kunden/" in path:
@@ -463,29 +502,81 @@ def _add_documents_batch_impl(items: list[tuple[str, str]]) -> None:
         pass
 
 
-def reindex_new_files() -> list[tuple[str, str]]:
-    """Findet .md-Dateien im Vault, die noch nicht im Index sind, fügt sie hinzu.
+def _remove_paths_impl(paths: set[str]) -> int:
+    """Entfernt alle Chunks der angegebenen Dateien aus FAISS und _meta.
 
-    Gibt (rel_path, content) für neu hinzugefügte Dateien zurück, damit der Aufrufer
-    z.B. auto-memory-Extraktion darauf anstoßen kann.
+    IndexFlatIP unterstützt remove_ids und rückt die verbleibenden Vektoren
+    lückenlos auf. _meta ist die Parallelliste dazu, muss also exakt dieselben
+    Positionen in derselben Reihenfolge verlieren, sonst zeigen Vektor und
+    Metadatum danach auf verschiedene Dokumente."""
+    if _index is None or _meta is None or not paths:
+        return 0
+    import faiss as _faiss
+    import numpy as np
+
+    doomed = [i for i, m in enumerate(_meta) if (m.get("path") if isinstance(m, dict) else str(m)) in paths]
+    if not doomed:
+        return 0
+    _index.remove_ids(np.array(doomed, dtype=np.int64))
+    for i in reversed(doomed):
+        _meta.pop(i)
+    return len(doomed)
+
+
+def reindex_new_files() -> list[tuple[str, str]]:
+    """Zieht den Index gegen den Vault nach: neue UND geänderte .md-Dateien.
+
+    Korrigiert 2026-08-11: vorher wurde jede Datei übersprungen, deren Pfad
+    schon im Index stand ("if rel in existing: continue"). Eine bestehende Datei
+    wurde damit NIE aktualisiert - der Index behielt ihren Stand vom letzten
+    Vollaufbau dauerhaft bei. Konkret hier beobachtet: _agent/memory.md war am
+    07.08. zuletzt geändert, der Index stammte vom 06.08. und enthielt eine
+    entsprechend veraltete Fassung. Jede nachträglich ergänzte Notiz, jedes
+    aktualisierte Angebot blieb dem RAG unsichtbar.
+    Erkennung über die Änderungszeit, die seit demselben Datum in jedem
+    Index-Eintrag mitgespeichert wird. Einträge ohne mtime stammen aus einem
+    Index vor diesem Fix und gelten als veraltet, damit sie einmalig
+    nachgezogen werden.
+
+    Gibt (rel_path, content) für neu aufgenommene Dateien zurück, damit der
+    Aufrufer z.B. die Auto-Memory-Extraktion darauf anstoßen kann.
     """
     if _meta is None or _model is None:
         return []
     settings = get_settings()
-    existing = {(m.get("path", "") if isinstance(m, dict) else str(m)) for m in _meta}
-    new_files: list[tuple[str, str]] = []
-    for md_file in sorted(settings.vault_path.rglob("*.md")):
-        if any(skip in md_file.parts for skip in SKIP_DIRS):
+
+    indexed_mtime: dict[str, float] = {}
+    for m in _meta:
+        if not isinstance(m, dict):
             continue
+        path = m.get("path", "")
+        # Fehlende mtime -> 0.0, gilt damit immer als veraltet.
+        indexed_mtime[path] = min(indexed_mtime.get(path, float("inf")), m.get("mtime", 0.0))
+
+    new_files: list[tuple[str, str]] = []
+    changed: set[str] = set()
+    for md_file in sorted(settings.vault_path.rglob("*.md")):
         rel = str(md_file.relative_to(settings.vault_path))
-        if rel in existing:
+        if not _should_index(rel):
             continue
         try:
-            content = md_file.read_text(encoding="utf-8", errors="ignore")[:1500]
+            mtime = md_file.stat().st_mtime
+            known = indexed_mtime.get(rel)
+            if known is not None and mtime <= known:
+                continue
+            # Volltext statt der früheren [:1500]-Kürzung - die war der zweite
+            # Grund, warum inkrementell aufgenommene Dateien nur mit ihrem
+            # Anfang im Index landeten.
+            content = md_file.read_text(encoding="utf-8", errors="ignore")
             if len(content) > 50:
+                if known is not None:
+                    changed.add(rel)
                 new_files.append((rel, content))
         except Exception:
             pass
+
+    if changed:
+        _run_on_worker(_remove_paths_impl, changed)
     # Ein Rutsch statt einem add_document()-Aufruf pro Datei - siehe
     # add_documents_batch() für die Begründung (Inbox-Watcher kann mehrere
     # Dateien auf einmal finden, jede einzeln wäre ein eigener BM25-Rebuild).
