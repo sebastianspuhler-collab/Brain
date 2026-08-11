@@ -181,6 +181,11 @@ router.post('/karussell/generieren', async (req, res) => {
       branche: idee.branche,
       saeule: idee.saeule,
       slides: slidesWithBilder,
+      // Begleittext nach der Caption-Struktur aus Marketing/LinkedIn/
+      // STRATEGIE.md §4 - wird mitgeneriert und vom Backend direkt als
+      // Post-Text verwendet, statt dort aus Slide-Titeln zusammengebaut zu
+      // werden.
+      caption: karussellDaten.caption || '',
       status: 'Entwurf',
     };
 

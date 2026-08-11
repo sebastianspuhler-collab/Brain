@@ -63,6 +63,10 @@ VARIANTEN = {
         "muted": (176, 176, 186),
         "wash_alpha": 0.82,
         "logo": "Logo-removebg-preview.png",
+        # Helle Logo-Variante: cremefarben mit fertigem Alpha-Kanal. Kein
+        # Weiß-Keying — die Wortmarke selbst liegt nahe an Weiß und würde
+        # dabei ausradiert.
+        "logo_key_white": False,
     },
     "weiss": {
         "base": (255, 255, 255),
@@ -70,6 +74,8 @@ VARIANTEN = {
         "muted": (92, 92, 104),
         "wash_alpha": 0.88,
         "logo": "Logo_converted.png",
+        # Dunkle Logo-Variante: schwarz auf weißer Fläche, ohne Alpha.
+        "logo_key_white": True,
     },
 }
 DEFAULT_VARIANTE = "schwarz"
@@ -168,7 +174,7 @@ def _fit_headline(draw, text, max_w, max_lines, start_size, min_size):
 def _load_logo(variante: dict, target_h: int):
     """Lädt das echte Logo-File (Strategie §6: "eigenes Logo-File als Referenz
     nutzen, nicht neu generieren"). Die dunkle Variante liegt als Schwarz-auf-
-    Weiß-PNG ohne Alpha vor, deshalb wird Weiß hier zu Transparenz gekeyt.
+    Weiß-PNG ohne Alpha vor, dort wird Weiß zu Transparenz gekeyt.
     Gibt None zurück, wenn das File fehlt — dann zeichnet _draw_logo() die
     Wortmarke als Text. Relevant, weil *.png im Vault-Repo gitignored ist und
     das File auf dem VPS fehlen kann."""
@@ -179,14 +185,13 @@ def _load_logo(variante: dict, target_h: int):
         return None
     try:
         logo = Image.open(path).convert("RGBA")
-        # Weiß/near-weiß transparent machen (betrifft nur die dunkle Variante,
-        # die helle hat bereits Alpha).
-        pixels = logo.load()
-        for px in range(logo.width):
-            for py in range(logo.height):
-                r, g, b, a = pixels[px, py]
-                if r > 244 and g > 244 and b > 244:
-                    pixels[px, py] = (r, g, b, 0)
+        if variante.get("logo_key_white"):
+            pixels = logo.load()
+            for px in range(logo.width):
+                for py in range(logo.height):
+                    r, g, b, a = pixels[px, py]
+                    if r > 244 and g > 244 and b > 244:
+                        pixels[px, py] = (r, g, b, 0)
         logo = logo.crop(logo.getbbox() or (0, 0, logo.width, logo.height))
         ratio = target_h / logo.height
         return logo.resize((max(1, int(logo.width * ratio)), target_h), Image.LANCZOS)
@@ -282,7 +287,7 @@ def _render_slides(slides: list, photo_bytes: bytes | None = None, variante_name
         )
 
         if slide.get("untertitel"):
-            y += 18
+            y += 26
             sub_font = _font(34, "semibold")
             sub_lines = _layout_rich(draw, _tokenize_rich(slide["untertitel"]), max_w, sub_font, sub_font)
             y = _draw_rich(
@@ -391,6 +396,34 @@ def _fallback_caption(slides: list) -> str:
     )
 
 
+def _linkedin_bold(text: str) -> str:
+    """Wandelt **fett**-Markierungen in Unicode-Fettbuchstaben um.
+
+    LinkedIn-Beiträge sind reiner Text ohne Markdown - die in Strategie §4
+    geforderte "fett hervorgehobene Ergebnis-Zeile" geht dort nur über
+    Unicode-Sans-Bold. Ohne diese Umwandlung stünden im Post sichtbare
+    Sternchen. Bewusst nur auf die Ergebnis-Zeile angewandt (die Content-Engine
+    markiert auch nur diese): Unicode-Bold ist für Screenreader schlecht
+    lesbar und in der LinkedIn-Suche nicht auffindbar, taugt also nur als
+    sparsames Stilmittel.
+    Umlaute und ß haben keine Unicode-Bold-Entsprechung und bleiben unverändert.
+    """
+    def convert(match):
+        out = []
+        for ch in match.group(1):
+            if "A" <= ch <= "Z":
+                out.append(chr(0x1D5D4 + ord(ch) - ord("A")))
+            elif "a" <= ch <= "z":
+                out.append(chr(0x1D5EE + ord(ch) - ord("a")))
+            elif "0" <= ch <= "9":
+                out.append(chr(0x1D7EC + ord(ch) - ord("0")))
+            else:
+                out.append(ch)
+        return "".join(out)
+
+    return re.sub(r"\*\*(.+?)\*\*", convert, text, flags=re.DOTALL)
+
+
 def _make_pdf(rendered_slides: list) -> bytes:
     buf = io.BytesIO()
     rendered_slides[0].save(
@@ -421,7 +454,7 @@ def _cloudinary_upload(settings, file_bytes: bytes, resource_type: str, public_i
 
 def _push_carousel_to_buffer(settings, slides: list, caption: str, pdf_url: str, thumb_url: str, due_at: str) -> list:
     hook = slides[0]["titel"]
-    post_text = caption or _fallback_caption(slides)
+    post_text = _linkedin_bold(caption or _fallback_caption(slides))
     # Buffer-Schema live per Introspection verifiziert (2026-07-25, siehe
     # linkedin_service.buffer_push()): createPost liefert PostActionPayload,
     # ein UNION aus PostActionSuccess und diversen Fehlertypen - braucht
