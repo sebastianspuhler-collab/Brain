@@ -97,21 +97,22 @@
     }
   },
   "Schaufler": {
-    "input_hash": "c35651d1d6a6349d",
+    "input_hash": "2f8dbb3214de8b61",
     "ergebnis": {
       "status": "fulfillment",
       "sicherheit": "hoch",
-      "begruendung": "Der Beschaffungsagent ist laut Email 2026-07-28-Email-19fa9cf0 bereits live und wird gemäß SLA_Schaufler sowie AVV_Schaufler_Prozessia betrieben; aktuell werden noch technische Details wie die Mail.Send-Berechtigung für agent@schaufler.de konfiguriert (siehe 2026-08-07-Email-19fdb7ed und Folgeemails).",
+      "begruendung": "Der Beschaffungsagent ist bei Schaufler produktiv im Einsatz, wie der Wochenreport (2026-08-11-Beschaffungsagent-Wochenreport-31.07-07.08.2026) mit 54 verarbeiteten Auftragsbestätigungen und Eskalationsstatistiken zeigt, zudem gibt es laufende Betreuung durch Bug-Meldungen (2026-08-10-Email-19feaf7a) und IT-Berechtigungsklärungen (2026-08-07-Email-19fdb7ed). Parallel läuft bereits ein neues Projekt zur KI-gestützten Stücklistendatenerfassung in der Angebots-/Konzeptphase (Lastenheft und Entwicklungsplan vom 05./06.08.2026).",
       "quellen": [
-        "2026-07-24-19f40a0d3d-SLA_Schaufler .md",
-        "2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md",
-        "2026-08-07-Email-19fdb7ed-AW-Beschaffungsagent--MailSend-Berechtig.md"
+        "2026-08-11-Beschaffungsagent-Wochenreport-31.07-07.08.2026 (1).md",
+        "2026-08-10-Email-19feaf7a-Schaufler-Beschaffungsagent--128455.md",
+        "2026-08-07-Email-19fdb7ed-AW-Beschaffungsagent--MailSend-Berechtig.md",
+        "2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md"
       ],
-      "warnsignal": "Geschäftsführer Siegfried Heinrich fragt am 28.07. explizit nach Effizienz-Nachweisen zum Agenten, eine dokumentierte Antwort dazu fehlt in der Chronologie.",
+      "warnsignal": "24 von 54 Auftragsbestätigungen im Wochenreport haben Rot-Status, u.a. wegen 68 überfälliger Lieferungen und eines gemeldeten Rechenfehlers bei Einzelpreisen (2026-08-10-Email-19feaf7a).",
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Schaufler",
-      "aktueller_stand": "Der Beschaffungsagent läuft produktiv, aktuell wird die technische IT-Berechtigung für automatisierte Eskalationsmails final eingerichtet, während parallel ein neues Projekt zur KI-gestützten Stücklistendatenerfassung mit Lastenheft (05.08.) und Entwicklungsplan (06.08.) in der Angebotsphase vorbereitet wird."
+      "aktueller_stand": "Der Beschaffungsagent läuft produktiv mit wöchentlichem Reporting, während parallel ein Folgeprojekt zur Stücklistendatenerfassung anhand des Lastenhefts vorbereitet wird und aktuell offene Rückfragen dazu in einem Call diese Woche geklärt werden sollen (2026-08-11-Email-19fef82c)."
     }
   },
   "TPG": {
@@ -401,20 +402,20 @@
     }
   },
   "Seifert-GmbH": {
-    "input_hash": "e0f34912d303ed27",
+    "input_hash": "f3b9a16de5de0a5a",
     "ergebnis": {
       "status": "erstgespraech",
-      "sicherheit": "hoch",
-      "begruendung": "Am 28.07.2026 wurde laut Meetings/2026-07-28-Update Seifert X Prozessia.md bereits eine Demo mit Beispieldaten von Seifert präsentiert, ein konkretes Preismodell (vierstelliger Bereich) genannt, aber noch kein Angebot oder Auftrag fixiert. Seifert will laut diesem Meeting erst intern besprechen, wie die Anfrage strukturiert werden soll - es fehlt ein konkreter Folgetermin.",
+      "sicherheit": "mittel",
+      "begruendung": "Am 28.07.2026 wurde im Meeting 2026-07-28-Update Seifert X Prozessia.md eine Demo gezeigt und ein Preis (vierstelliger Bereich) genannt, ein konkretes Angebot oder Auftrag liegt aber laut Chronologie noch nicht vor. Seifert wollte intern besprechen, wie die Anfrage strukturiert werden soll, ein Folgetermin ist offen.",
       "quellen": [
         "2026-07-28-Update Seifert X Prozessia.md",
         "2026-07-23-Stefan Seifert and Sebastian Spuhler.md"
       ],
-      "warnsignal": "Nach dem Demo-Meeting vom 28.07.2026 wurde kein Folgetermin vereinbart und Seifert wollte erst intern klären - seitdem (Stand 06.08.2026) keine weitere Aktivität dokumentiert.",
+      "warnsignal": "Nach dem Meeting vom 28.07.2026 kein konkreter Folgetermin vereinbart, seither keine erkennbare Rückmeldung von Seifert bis 11.08.2026.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Seifert GmbH",
-      "aktueller_stand": "Nach erfolgreicher Demo mit echten Kundendaten (Grenzebach-Anfrage) am 28.07.2026 wartet Prozessia auf internes Feedback von Seifert zur Strukturierung der Anfrage, bevor ein Angebot für ein größeres Trainingsprojekt folgen kann."
+      "aktueller_stand": "Demo der KI-Lösung zur automatisierten Material-/Zuschnittlisten-Erstellung wurde gezeigt, Preis im vierstelligen Bereich genannt; Seifert bespricht intern die weitere Strukturierung, ein Folgetermin oder Angebot steht noch aus."
     }
   },
   "Juchem": {
@@ -531,35 +532,36 @@
     }
   },
   "Silas-Rupp": {
-    "input_hash": "2175e6c2b2f76126",
+    "input_hash": "c1ce0c55e49f3f4b",
     "ergebnis": {
       "status": "neuer_kontakt",
-      "sicherheit": "mittel",
-      "begruendung": "Die Datei 2026-08-10-Silas-Rupp.md dokumentiert lediglich ein automatisch erkanntes, noch bevorstehendes Erstgespräch zwischen Silas Rupp und Sebastian Spuhler, ein Transkript oder weiteres Material liegt noch nicht vor.",
+      "sicherheit": "niedrig",
+      "begruendung": "Die Datei 2026-08-10-Silas-Rupp.md ist ein automatisch aus einem Kalendertermin erkannter Lead ohne Transkript oder weitere Dokumente.",
       "quellen": [
         "2026-08-10-Silas-Rupp.md"
+      ],
+      "warnsignal": "Noch kein Meeting-Mitschrieb oder Follow-up vorhanden, obwohl das Erstgespräch bereits stattgefunden haben soll.",
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Silas-Rupp",
+      "aktueller_stand": "Erstgespräch mit neuem potenziellen Kunden wurde terminiert bzw. erkannt, weiteres Material steht noch aus."
+    }
+  },
+  "TopDown": {
+    "input_hash": "0ef2a107e9a72961",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "mittel",
+      "begruendung": "Der Lead 2026-08-11-TopDown.md dokumentiert ein automatisch erkanntes Erstgespräch mit einem neuen potenziellen Kunden, und die zugesagte E-Mail 2026-08-11-Email-19fefdff-Zugesagt-Prozessia-X-TopDown.md bestätigt einen vereinbarten Termin am 2026-08-14.",
+      "quellen": [
+        "2026-08-11-TopDown.md",
+        "2026-08-11-Email-19fefdff-Zugesagt-Prozessia-X-TopDown.md"
       ],
       "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
-      "anzeige_name": "Silas Rupp",
-      "aktueller_stand": "Erstgespräch mit Silas Rupp ist für 2026-08-10 um 16:30 Uhr geplant, Ergebnis steht noch aus."
-    }
-  },
-  "TopDown": {
-    "input_hash": "a0bab92d240ff282",
-    "ergebnis": {
-      "status": "neuer_kontakt",
-      "sicherheit": "niedrig",
-      "begruendung": "Die Datei 2026-08-11-TopDown.md ist ein automatisch erkannter Kalendertermin für ein Erstgespräch mit TopDown, es liegt noch kein Transkript oder weiteres Material vor.",
-      "quellen": [
-        "2026-08-11-TopDown.md"
-      ],
-      "warnsignal": "Erstgespräch steht noch bevor (2026-08-11), Ergebnis daher noch unbekannt.",
-      "ist_relevant": true,
-      "relevanz_begruendung": "",
       "anzeige_name": "TopDown",
-      "aktueller_stand": "Erstgespräch mit Prozessia ist für 2026-08-11 um 09:30 terminiert, Ergebnis liegt noch nicht vor."
+      "aktueller_stand": "Erstgespräch mit TopDown ist für den 2026-08-14 vereinbart, Inhalte liegen noch nicht vor."
     }
   },
   "Inductohead": {
@@ -576,6 +578,23 @@
       "relevanz_begruendung": "",
       "anzeige_name": "Inductohead",
       "aktueller_stand": "Erstgespräch Prozessia X Inductohead ist für den 2026-08-26 um 09:30 Uhr terminiert, weiteres Material steht noch aus."
+    }
+  },
+  "East-Side-Fab-eV": {
+    "input_hash": "406ddfe72ca6be24",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "mittel",
+      "begruendung": "Die E-Mail 2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md enthält eine Terminseinladung für ein erstes Kennenlernen per Teams, was über den reinen Lead-Status aus 2026-08-11-East-Side-Fab-eV.md hinausgeht.",
+      "quellen": [
+        "2026-08-11-East-Side-Fab-eV.md",
+        "2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md"
+      ],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "East Side Fab",
+      "aktueller_stand": "Ein erstes Kennenlerngespräch per Teams wurde vereinbart, konkreter Termin ist aber noch nicht bestätigt."
     }
   }
 }

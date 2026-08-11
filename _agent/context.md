@@ -8,9 +8,9 @@ updated: 2026-08-10
 - [ ] LinkedIn: 3 Videos diese Woche posten @Sebastian !status(in_progress)
 - [ ] YouTube: 3 Videos diese Woche erstellen/veröffentlichen @Amin !status(in_progress)
 - [ ] Termin mit Schaufler wegen Stücklistenprojekt vereinbaren (Anschluss an Lastenheft v. 05.08., Angebot/nächste Schritte) @Beide
-- [ ] Beschaffungsagent überwachen und Bericht für Schaufler vorbereiten @Amin !status(in_progress)
-- [ ] Webseite fertigstellen @Amin
-- [ ] Whitepapers fertigstellen @Amin !status(in_progress)
+- [x] Beschaffungsagent überwachen und Bericht für Schaufler vorbereiten @Amin !status(in_progress)
+- [ ] Webseite fertigstellen @Amin !status(in_progress)
+- [x] Whitepapers fertigstellen @Amin !status(in_progress)
 - [ ] Close-Migration weiterführen @Sebastian
 - [ ] Kevin (neuer Vertriebler) einarbeiten/einführen @Sebastian
 - [ ] Netzwerkaufbau und Terminsuche fortsetzen @Sebastian
