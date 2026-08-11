@@ -1848,6 +1848,7 @@ egeln, Prozesse.
 Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 
 ## REGEL
+- [2026-08-11 16:05] Kein eigener "-Korrespondenz"-Ordner mehr unter Leads/ fuer Firmen mit mehreren Dokumenten (Meetings/Angebote/Dokumente) - die gehoeren ab dem zweiten Dokument sofort nach Kunden/[Firmenname]/, exakt wie echte Kunden, unabhaengig vom Vertragsstatus. Existiert schon ein Kunden/[Name]/-Ordner, IMMER den wiederverwenden statt einen Parallelordner anzulegen. Leads/ bleibt nur fuer ganz frische Einzelkontakte ohne zweites Dokument (flache Datei Leads/[Datum]-[Name].md).
 - [2026-08-03 09:56] Angebote müssen durchnummerierte Punkte (1., 2., 3. ...) für den Leistungsumfang enthalten, keine reinen Fett-Header ohne Nummerierung
 - [2026-08-03 09:54] Sebastian möchte Leistungsumfänge/Angebote im AG0024-Stil formatiert haben: keine ausformulierten Sätze, sondern Kategorien mit kurzen Stichwort-Bullets (z.B. 'Betrieb & Infrastruktur:', 'Support & Updates:', 'Reporting:')
 - [2026-07-29 15:24] Sebastian möchte Dokumente/Zusammenfassungen (z.B. Meeting-Notizen) immer als PDF-Export erhalten, nicht nur als Markdown/Text.

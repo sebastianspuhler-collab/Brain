@@ -283,12 +283,23 @@ REGELN:
   Zweifel eher zu Memos/ oder zum bereits bestehenden Kunden einordnen als
   einen neuen Kundenordner zu erfinden.
 - Verträge die keinen Kunden zugeordnet werden können → Vertraege/
-- Leads → Leads/[Lead-Name]-Korrespondenz/[Unterordner], NIE flach direkt in
-  Leads/ ablegen. Gleiche Unterordner-Logik wie bei Kunden oben (Meetings/,
-  Angebote/, Dokumente/ usw.). Existiert für diesen Lead schon ein
-  -Korrespondenz-Ordner in der Vault-Struktur unten, exakt den wiederverwenden
-  (Namen/Schreibweise übernehmen, nicht neu erfinden) - sonst
-  "Leads/[Lead-Name]-Korrespondenz/[Unterordner]" neu anlegen.
+- Leads/Interessenten (noch kein Kunde, aber eine echte, mehrteilige
+  Geschäftsbeziehung mit Meetings/Angeboten/Dokumenten): GENAUSO wie
+  Kundendokumente behandeln → "Kunden/[Firmenname]/[Unterordner]", exakt
+  dieselbe Unterordner-Logik wie oben. Es gibt KEINEN separaten
+  "-Korrespondenz"-Ordner und KEINE Sonderbehandlung mehr für Leads mit
+  mehreren Dokumenten - ob ein Vertrag schon unterschrieben ist oder nicht,
+  entscheidet sich am Inhalt der Dokumente selbst (Status-Auswertung), nicht
+  an einer eigenen Ordner-Hierarchie. Existiert in der Vault-Struktur unten
+  schon ein Kunden/[Name]/-Ordner (auch bei anderer Schreibweise erkennbar
+  ähnlich), IMMER diesen wiederverwenden statt einen neuen/parallelen Ordner
+  anzulegen - das war die Hauptfehlerquelle für Dubletten.
+  NUR ein ganz frisch erkannter Erstkontakt ohne inhaltliche Substanz (z.B.
+  ein einzelner Kalendereintrag ohne Meeting-Notiz/Angebot/Dokument) bleibt
+  eine flache Einzeldatei: "Leads/[Datum]-[Lead-Name].md", noch kein eigener
+  Ordner. Sobald ein zweites Dokument zu diesem Lead dazukommt, wird daraus
+  sofort ein "Kunden/[Firmenname]/"-Ordner (nicht "Leads/[Name]/") - dorthin
+  auch die bereits bestehende Einzeldatei verschieben/zusammenführen.
 - Finanzen → Finanzen/Rechnungen oder Finanzen/Angebote
 - Marketing → Marketing/[passender Unterordner]
 - Sales → Sales/[passender Unterordner]
@@ -423,11 +434,16 @@ def is_meeting_transcript(filepath: Path, content: str, result: dict) -> bool:
 
 
 def _extract_firma(zielordner_rel: str) -> str:
-    """Leitet den Kunden-/Firmennamen aus dem Zielordner ab (Kunden/[Firma]/...
-    bzw. Leads/[Lead]-Korrespondenz/...), damit Notizen die Zugehörigkeit
-    direkt im Frontmatter/Titel zeigen statt nur implizit über den Ordnerpfad
-    (Sebastian, 2026-07-30: Transkript-Überschriften sollen klar zeigen, zu
-    welcher Firma sie gehören)."""
+    """Leitet den Kunden-/Firmennamen aus dem Zielordner ab (Kunden/[Firma]/...),
+    damit Notizen die Zugehörigkeit direkt im Frontmatter/Titel zeigen statt nur
+    implizit über den Ordnerpfad (Sebastian, 2026-07-30: Transkript-Überschriften
+    sollen klar zeigen, zu welcher Firma sie gehören).
+
+    Das "-Korrespondenz"-Suffix unter Leads/ ist seit 2026-08-11 kein aktives
+    Muster mehr (siehe classify()-Prompt) - die re.sub bleibt trotzdem stehen,
+    rein für den Restbestand älterer Leads-Ordner, die diese Benennung noch
+    tragen (harmlos: greift nur, wenn der Ordnername tatsächlich auf
+    "-Korrespondenz" endet, sonst No-Op)."""
     parts = Path(zielordner_rel).parts
     if len(parts) >= 2 and parts[0] == "Kunden":
         return parts[1]
