@@ -499,6 +499,17 @@ def process_file(filepath: Path) -> tuple[bool, str]:
     zielordner.mkdir(parents=True, exist_ok=True)
     firma = _extract_firma(zielordner_rel)
 
+    # Jedes Dokument mit Original+Notiz bekommt sofort einen eigenen
+    # Unterordner statt flach im Zielordner zu landen (Sebastian, 2026-08-11:
+    # Kunden/Schaufler/Dokumente/ war auf ~110 lose Dateien angewachsen,
+    # dadurch faktisch unbrowsbar). Bilder/Zips bleiben flach (kein Notiz-
+    # Pendant, ein eigener Unterordner für eine einzelne Bilddatei wäre selbst
+    # nur Unordnung, siehe reorganize_folder() unten für dieselbe Regel
+    # rückwirkend auf bestehende, schon vollgelaufene Ordner).
+    if filepath.suffix.lower() not in IMAGE_EXTS | {".zip"}:
+        zielordner = zielordner / _dokument_ordnername(filepath.stem)
+        zielordner.mkdir(parents=True, exist_ok=True)
+
     meeting_data = extract_meeting_structure(content) if ist_transkript else None
     datum = _resolve_datum(meeting_data, filepath)
 
