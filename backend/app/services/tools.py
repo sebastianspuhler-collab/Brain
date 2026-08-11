@@ -146,6 +146,25 @@ TOOLS = [
         },
     },
     {
+        "name": "create_gmail_draft",
+        "description": (
+            "Legt einen Gmail-Entwurf direkt im Postfach an (nicht senden). "
+            "Der gmail.compose-Scope ist vorhanden - niemals 'kein Schreibzugriff' behaupten, "
+            "sondern dieses Tool nutzen. Fehlt eine E-Mail-Adresse, vorher search_emails oder "
+            "search_meetings nutzen, um sie im Vault zu finden, statt den Nutzer zu fragen."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "to": {"type": "string", "description": "Empfänger-E-Mail-Adresse"},
+                "subject": {"type": "string"},
+                "body": {"type": "string", "description": "Reiner Text, keine HTML-Formatierung"},
+                "cc": {"type": "string", "description": "Optional"},
+            },
+            "required": ["to", "subject", "body"],
+        },
+    },
+    {
         "name": "task_add",
         "description": "Fügt eine neue offene Aufgabe in der Sidebar hinzu (context.md). Sidebar aktualisiert sich sofort.",
         "input_schema": {
@@ -390,6 +409,20 @@ def execute_tool(name: str, tool_input: dict) -> tuple[str, bool]:
                 f"{files_info}\n\nDateien liegen in _inbox/ und wurden einsortiert.",
                 False,
             )
+
+        if name == "create_gmail_draft":
+            if not gmail_client.is_authenticated():
+                return "Gmail nicht verbunden (fehlende/abgelaufene Zugangsdaten).", True
+            try:
+                result = gmail_client.create_draft(
+                    tool_input.get("to", ""),
+                    tool_input.get("subject", ""),
+                    tool_input.get("body", ""),
+                    cc=tool_input.get("cc") or None,
+                )
+                return result["message"], False
+            except Exception as e:
+                return f"Fehler beim Anlegen des Entwurfs: {e}", True
 
         if name == "task_add":
             result = tasks_service.add_task(tool_input.get("text", ""))

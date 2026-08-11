@@ -144,6 +144,31 @@ def send_email(to, subject, body, cc=None):
     return f"Mail gesendet an {to_str}"
 
 
+def create_draft(to, subject, body, cc=None):
+    """Legt einen Gmail-Entwurf an (users.drafts.create), statt die Mail direkt
+    zu senden - Gegenstück zu send_email(), gleicher MIME-Aufbau.
+
+    Ergänzt 2026-08-11: der gmail.compose-Scope steht in SCOPES bereits seit
+    Auth-Einrichtung, und _agent/gmail_token.json hat ihn auch tatsächlich
+    gewährt bekommen (per Introspection auf dem Token-File geprüft) - das
+    Fehlen dieser Funktion war ein reiner Code-Lücke, keine fehlende
+    Berechtigung. Der Chat hat deshalb wiederholt (u.a. 2026-06-27 beim
+    Mundinger-Fall) fälschlich "kein Schreibzugriff" gemeldet, obwohl der
+    Zugriff die ganze Zeit vorhanden war."""
+    svc = get_service()
+    msg = MIMEMultipart()
+    msg["To"] = to if isinstance(to, str) else ", ".join(to)
+    msg["Subject"] = subject
+    if cc:
+        msg["Cc"] = cc if isinstance(cc, str) else ", ".join(cc)
+    msg.attach(MIMEText(body, "plain", "utf-8"))
+
+    raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
+    draft = svc.users().drafts().create(userId="me", body={"message": {"raw": raw}}).execute()
+    to_str = to if isinstance(to, str) else ", ".join(to)
+    return {"draft_id": draft.get("id"), "message": f"Entwurf an {to_str} angelegt"}
+
+
 def reply_email(message_id, thread_id, to, orig_subject, orig_message_id, orig_references, body):
     svc = get_service()
     msg = MIMEMultipart()
