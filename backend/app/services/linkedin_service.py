@@ -1226,6 +1226,217 @@ def insights_text(n: int = 10) -> str:
     return _format_insights_for_chat(n)
 
 
+_POSTS_QUERY = """
+query Posts($orgId: OrganizationId!, $status: [PostStatus!]) {
+  posts(input: { organizationId: $orgId, filter: { status: $status } }) {
+    edges {
+      node {
+        id text status dueAt sentAt
+        channel { id name }
+      }
+    }
+  }
+}"""
+
+
+def _query_buffer_posts(status: list[str]) -> dict:
+    """Live-Query gegen Buffer (nicht die lokale beitraege-*.json) - Portierung
+    von _agent/buffer_manager.py's status()/drafts()-Befehlen in den Chat-Tool-
+    Loop. list_posts zeigt nur lokal generierte Posts; das hier zeigt den
+    tatsächlichen Buffer-Stand, inkl. Posts, die z.B. manuell in Buffer selbst
+    angelegt wurden."""
+    settings = get_settings()
+    token = settings.buffer_api_token
+    if not token:
+        return {"error": "BUFFER_API_TOKEN nicht gesetzt"}
+    variables = {"orgId": _INSIGHTS_ORG_ID, "status": status}
+    payload = json.dumps({"query": _POSTS_QUERY, "variables": variables}).encode()
+    req = urllib.request.Request(
+        BUFFER_GRAPHQL, data=payload,
+        headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read())
+    except Exception as exc:
+        return {"error": str(exc)}
+    if data.get("errors"):
+        return {"error": data["errors"][0].get("message", "Unbekannter Fehler")}
+
+    channel_names = {
+        settings.buffer_channel_sebastian: "Sebastian",
+        settings.buffer_channel_prozessia: "Prozessia",
+    }
+    edges = data.get("data", {}).get("posts", {}).get("edges", [])
+    posts = []
+    for e in edges:
+        n = e["node"]
+        posts.append({
+            "id": n["id"],
+            "status": n.get("status"),
+            "due_at": n.get("dueAt"),
+            "sent_at": n.get("sentAt"),
+            "channel": channel_names.get(n["channel"]["id"], n["channel"]["name"]),
+            "text_preview": (n.get("text") or "").replace("\n", " ")[:100],
+        })
+    posts.sort(key=lambda p: p.get("due_at") or p.get("sent_at") or "")
+    return {"ok": True, "posts": posts}
+
+
+def get_buffer_status() -> dict:
+    """Was ist aktuell in Buffer geplant oder als Entwurf? Live-Abfrage,
+    Pendant zu `_agent/buffer_manager.py status`."""
+    return _query_buffer_posts(["scheduled", "draft"])
+
+
+def get_buffer_drafts() -> dict:
+    """Nur die Buffer-Entwürfe (status draft) - Pendant zu
+    `_agent/buffer_manager.py drafts`. Nicht zu verwechseln mit lokal
+    geschriebenen, noch nicht gepushten Posts (list_posts)."""
+    return _query_buffer_posts(["draft"])
+
+
+def _format_buffer_posts_for_chat(result: dict) -> str:
+    if not result.get("ok"):
+        return f"Fehler: {result.get('error', '?')}"
+    posts = result.get("posts", [])
+    if not posts:
+        return "(keine)"
+    lines = []
+    for p in posts:
+        zeitpunkt = (p.get("due_at") or p.get("sent_at") or "")[:16].replace("T", " ")
+        lines.append(f"- id={p['id']} | {p['status']} | {zeitpunkt} | {p['channel']} | {p['text_preview']}…")
+    return "\n".join(lines)
+
+
+_IDEAS_QUERY = """
+query Ideas($orgId: OrganizationId!) {
+  ideas(input: { organizationId: $orgId }) {
+    edges {
+      node {
+        id
+        content { title text date }
+        createdAt
+      }
+    }
+  }
+}"""
+
+
+def get_buffer_ideas() -> dict:
+    """Buffer-eigenes Ideas-Feature (organisationsweit in Buffer gespeicherte
+    Content-Ideen) - NICHT dasselbe wie die lokal generierten Ideen aus
+    ideen-*.json (list_ideas/generate_ideas). Pendant zu
+    `_agent/buffer_manager.py ideas`."""
+    settings = get_settings()
+    token = settings.buffer_api_token
+    if not token:
+        return {"error": "BUFFER_API_TOKEN nicht gesetzt"}
+    payload = json.dumps({"query": _IDEAS_QUERY, "variables": {"orgId": _INSIGHTS_ORG_ID}}).encode()
+    req = urllib.request.Request(
+        BUFFER_GRAPHQL, data=payload,
+        headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read())
+    except Exception as exc:
+        return {"error": str(exc)}
+    if data.get("errors"):
+        return {"error": data["errors"][0].get("message", "Unbekannter Fehler")}
+
+    edges = data.get("data", {}).get("ideas", {}).get("edges", [])
+    ideas = []
+    for e in edges:
+        n = e["node"]
+        c = n.get("content") or {}
+        ideas.append({
+            "id": n["id"],
+            "title": c.get("title") or (c.get("text") or "")[:60],
+            "date": c.get("date"),
+            "created_at": n.get("createdAt"),
+        })
+    return {"ok": True, "ideas": ideas}
+
+
+def _format_buffer_ideas_for_chat(result: dict) -> str:
+    if not result.get("ok"):
+        return f"Fehler: {result.get('error', '?')}"
+    ideas = result.get("ideas", [])
+    if not ideas:
+        return "(keine)"
+    lines = []
+    for i in ideas:
+        created = datetime.fromtimestamp(i["created_at"]).strftime("%d.%m.") if i.get("created_at") else ""
+        lines.append(f"- id={i['id'][:12]}… | {i['title']} | {i.get('date') or f'erstellt {created}'}")
+    return "\n".join(lines)
+
+
+_DELETE_MUTATION = """
+mutation DeletePost($id: PostId!) {
+  deletePost(input: { id: $id }) {
+    ... on DeletePostSuccess { id }
+  }
+}"""
+
+
+def delete_buffer_post(buffer_post_id: str) -> dict:
+    """Löscht einen Post direkt in Buffer per Buffer-Post-ID (siehe
+    get_buffer_status/get_buffer_insights für die IDs) - Pendant zu
+    `_agent/buffer_manager.py delete <id>`. Rührt keine lokale
+    beitraege-*.json an, da eine gelöschte Buffer-ID nicht mehr zurückverfolgt
+    werden muss."""
+    settings = get_settings()
+    token = settings.buffer_api_token
+    if not token:
+        return {"error": "BUFFER_API_TOKEN nicht gesetzt"}
+    payload = json.dumps({"query": _DELETE_MUTATION, "variables": {"id": buffer_post_id}}).encode()
+    req = urllib.request.Request(
+        BUFFER_GRAPHQL, data=payload,
+        headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read())
+    except Exception as exc:
+        return {"error": str(exc)}
+    if data.get("errors"):
+        return {"error": data["errors"][0].get("message", "Unbekannter Fehler")}
+    r = data.get("data", {}).get("deletePost") or {}
+    if r.get("id"):
+        cache.invalidate("buffer_status")
+        return {"ok": True, "id": r["id"]}
+    return {"error": "Löschen fehlgeschlagen (unbekannte Antwort)"}
+
+
+def reschedule_post(post_id: str, datum: str, uhrzeit: str) -> dict:
+    """Verschiebt einen bereits gepushten, lokal gespeicherten Post (per id,
+    siehe list_posts) auf einen neuen Termin - sowohl in Buffer
+    (buffer_edit_post) als auch lokal (termin-Feld). Für noch nicht gepushte
+    Posts stattdessen schedule_post nutzen. Ohne dieses Tool ließ sich der
+    Termin eines schon geplanten Posts über den Chat gar nicht mehr ändern -
+    revise_post aktualisiert nur den Text, nicht das Datum."""
+    post = get_post(post_id)
+    if not post:
+        return {"error": f"Post {post_id} nicht gefunden"}
+    buffer_ids = [b for b in (post.get("buffer_post_ids") or []) if b]
+    if not buffer_ids:
+        return {"error": "Post ist noch nicht in Buffer eingeplant - schedule_post nutzen, nicht reschedule_post."}
+    try:
+        scheduled_at = _to_iso_berlin(datum, uhrzeit)
+    except Exception:
+        return {"error": "Ungültiges Datum/Uhrzeit-Format, bitte YYYY-MM-DD und HH:MM verwenden."}
+    result = buffer_edit_post(buffer_ids, post.get("text", ""), due_at=scheduled_at)
+    if result.get("ok"):
+        _save_post_fields(post_id, termin=scheduled_at)
+        cache.invalidate("li_posts")
+        cache.invalidate("buffer_status")
+    return result
+
+
 def buffer_edit_post(buffer_post_ids: list[str], text: str, due_at: str | None = None) -> dict:
     """Aktualisiert bereits in Buffer angelegte Posts (per editPost-Mutation)
     - für Textänderungen NACH dem Push, die sonst nur lokal gespeichert
