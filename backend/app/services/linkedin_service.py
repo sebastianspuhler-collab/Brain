@@ -535,6 +535,8 @@ Verfügbare Aktionen (bei Bedarf aufrufen, sonst direkt in Text antworten):
 - revise_post (CLI: revise_linkedin_post): Text eines bestehenden Posts (per id) überarbeiten
 - schedule_post (CLI: schedule_linkedin_post): bestehenden Post (per id) zu einem Zeitpunkt in Buffer einplanen (rechne relative Angaben wie "morgen" anhand des heutigen Datums oben um)
 - make_carousel (CLI: generate_carousel): Bild-Karussell erstellen (aus post_id oder freiem hook) und automatisch in Buffer einplanen.
+  entwurf=true, wenn Sebastian testen/vorher sehen will, bevor es raus geht - landet dann als Buffer-Entwurf
+  (nie automatisch veröffentlicht) statt eingeplant zu werden.
   WICHTIG: Das Tool-Ergebnis enthält eine Vorschau-Bild-URL (thumb_url) - binde die IMMER unverändert als
   Markdown-Bild in deine Antwort ein: ![Karussell-Vorschau](URL). Der Chat rendert das direkt als Bild,
   Sebastian muss dafür nicht extra in den Karusselle-Tab wechseln. Die PDF-URL zusätzlich als normalen
