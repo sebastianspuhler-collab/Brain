@@ -249,7 +249,7 @@ def _render_slides(slides: list, photo_bytes: bytes | None = None, variante_name
     """Rendert alle Slides im Prozessia-Karussell-Design (Strategie §6).
     Aufbau je Slide: Logo oben links, Seitenzähler oben rechts, Lila-Regel,
     Headline, Fließtext mit Fett-Hervorhebungen, rotierte Domain unten links."""
-    from PIL import Image, ImageDraw
+    from PIL import ImageDraw
 
     variante = VARIANTEN.get(variante_name, VARIANTEN[DEFAULT_VARIANTE])
     background = _background(variante, photo_bytes)
@@ -528,7 +528,7 @@ def _next_carousel_slot(now: datetime | None = None) -> str:
     return (now + timedelta(days=7)).strftime("%Y-%m-%dT09:30:00+02:00")
 
 
-def generate_carousel(hook: str, branche: str = "Alle", saeule: str = "Wissen",
+def generate_carousel(hook: str, branche: str = "Alle", saeule: str = "Einkauf",
                        due_at: str | None = None, variante: str = DEFAULT_VARIANTE,
                        progress_fn=None) -> dict:
     """Vollständige Karussell-Pipeline: Slides + Caption -> ein Hintergrundfoto
