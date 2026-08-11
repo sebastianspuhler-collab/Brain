@@ -1,4 +1,35 @@
 ## KONTEXT
+- [2026-08-11 17:41] [2026-06-09-Seriendruck2_Seriendruck_FINAL.md] Kampagnendatum: 2026-06-09; Quelle: Seriendruck2_Seriendruck_FINAL.xlsx
+- [2026-08-11 17:41] [2026-06-09-Listen.md] Kontaktdaten vorhanden: z.B. Hedin Automotive Saarland GmbH (+49 681 93587702); einige Handler als Vertragshändler klassifiziert (Audi Zentrum, Stellantis &You)
+- [2026-08-11 17:41] [2026-06-09-Listen.md] Zielmarkt: Autohändler im Raum Saarbrücken; Zielprodukt: Voice-Agent-Lösungen
+- [2026-08-11 17:41] [2026-06-09-Cold_Call_Leitfaden_Prozessia_v5 (5).md] Cold Call Leitfaden Prozessia Version 5 gültig ab Juni 2026 (Auszug vom 2026-06-09)
+- [2026-08-11 17:40] [kpi-tracking.md] Buffer liefert automatisch: Impressions, Reach, Engagement-Rate %, Reactions, Kommentare, Shares pro Post.
+- [2026-08-11 17:39] [STRATEGIE.md] Content organisiert in 4 Themen-Säulen; erste: Wissensmanagement (Wissenssicherung im Unternehmen)
+- [2026-08-11 17:39] [2026-08-26-Inductoheat.md] Quelle: Automatische Erkennung aus Kalender
+- [2026-08-11 17:39] [2026-07-19-Workflow Ersatzteile.md] Workflow-Diagramm dokumentiert vom 2026-07-19
+- [2026-08-11 17:38] [2026-07-19-Wareneingang 2025.08.08.md] Dokumentdatum: 19.07.2026; Prozessdatum: 08.08.2025
+- [2026-08-11 17:38] [2026-07-19-Wareneingang 2025.08.08.md] Teil der vierteiligen Potenzialanalyse 'Endin X Prozessia'
+- [2026-08-11 17:38] [2026-07-19-Prozess Lohnverguß 2022.07.20.md] Dokumentation durch Screenshot ohne zusätzlichen Textinhalt; Dokument eingescannt: 2026-07-19
+- [2026-08-11 17:38] [2026-07-19-Prozess Kleinauftrag 2022.07.15.md] Dokument in Vault aufgenommen: 2026-07-19
+- [2026-08-11 17:38] [2026-07-24-19f17dfce8-Workflow Ersatzteile.md] Prozess standardisiert für Kleinaufträge/Ersatzteile in der Endin-Auftragsabwicklung
+- [2026-08-11 17:38] [2026-07-23-19f17dfce8-Wareneingang 2025.08.08.md] Potenzialanalyse umfasst 4 Prozessdokumentationen
+- [2026-08-11 17:37] [2026-07-24-19f17dfce8-Prozess Lohnverguß 2022.07.20.md] Abteilungen im Prozess: Vertrieb, Projektleitung, Konstruktion, Einkauf & Logistik, Software, Fertigung, Lager & Versand
+- [2026-08-11 17:37] [2026-07-23-19f17dfce8-Prozess Kleinauftrag 2022.07.15.md] Prozessdiagramm vom 11.7.2022, bereitgestellt von Cyril Dietz
+- [2026-08-11 17:37] [2026-07-24-Angebot_endin_überarbeitet.md] Angebotsnummer AG0032, Datum 24.07.2026, gültig bis 24.08.2026
+- [2026-08-11 17:36] [2026-07-19-Angebot_AG0027_01.07.2026.md] Angebotsnummer AG0027, gültig bis 29.07.2026
+- [2026-08-11 17:35] [2026-06-09-klageschrift_entwurf_arbeitsrecht.md] Kunde Voigt Salus; Dokumentdatum: 2026-06-09; Zuständiges Gericht: Arbeitsgericht Saarbrücken, Franz-Josef-Röder-Str. 15, 66119 Saarbrücken
+- [2026-08-11 17:35] [2026-06-09-Voigt_Salus_Arbeitsalltag (1).md] Anwaltskanzlei Voigt Salus (RA Voigt, RA Salus) verwaltet Akten in Arbeitsrecht, Baurecht, Verkehrsrecht, Vertragsrecht
+- [2026-08-11 17:34] [2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md] Datenschutz und Datenhoheit des Kunden sind zentral - Kanzlei behält vollständige Kontrolle über eigene Daten, Prozessia arbeitet nur im technischen Bereich
+- [2026-08-11 17:34] [2026-06-09-Kostenkalkulation Testphase.md] Input-Aufteilung: 70% Uncached (1.512.000 Tokens) + 30% Cached (648.000 Tokens)
+- [2026-08-11 17:34] [2026-06-09-Kostenkalkulation Testphase.md] Gesamtkosten konservativ kalkuliert: 4,20 USD pro Mitarbeiter pro Monat
+- [2026-08-11 17:33] [2026-06-09-KI-Agent-X-Voigt-Salus.md] DSGVO-konform, sicher gehostet in Deutschland/EU
+- [2026-08-11 17:33] [2026-06-09-KI-Agent-X-Voigt-Salus.md] Setup-Kosten ca. 7.000 €; monatliches Betriebsmodell mit Wartung und Support
+- [2026-08-11 17:33] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Stückliste (BOM) Datum: 27.07.2026, Zeichnungsnummer 21135351.MI 00, Bearbeitet 20.07.2026
+- [2026-08-11 17:33] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83479898.md] Dokumentdatum: 2026-07-27 – Lead-Kategorie: Potentiell hochrelevant für automatisierungslösung im Fertigungssektor
+- [2026-08-11 17:33] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83479898.md] Zeichnungsnummer: 11946823.MI 00 – Gesamtgewicht: 18.075,976 kg – Längswert: 2.016 mm
+- [2026-08-11 17:32] [2026-07-27-19fa3698b1-MATERIAL_IU485.md] Materialnummer am 2026-07-27 dokumentiert, Quelle: 19fa3698b1-MATERIAL_IU485.pdf
+- [2026-08-11 17:32] [2026-07-27-19fa3698b1-MATERIAL_83493383.md] Dokument ist Fragment einer Stückliste/Materialliste ohne erkennbaren Kontext
+- [2026-08-11 17:32] [2026-07-27-19fa3698b1-MATERIAL_83486122.md] GB Materialnummer 83486122 für Seifert-GmbH - Herkunft und Verwendungskontext unklar
 - [2026-08-11 12:00] [2026-08-11-Email-19ff0a71-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Verfügbare Termine mit Marvin Wiegner (Schaufler): 11.08., 12.08. oder 14.08. jeweils um 17:00 Uhr
 - [2026-08-11 08:52] Bug in backend/app/services/classify.py: docx-Extraktion liest nur doc.paragraphs, wodurch Notta-Transkripte (die z.B. Tabellen nutzen) nicht vollständig/korrekt extrahiert werden - Ursache für Klassifizierungsfehler.
 - [2026-08-11 08:25] [2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md] Projektbezeichnung: Prozessia x ESF
@@ -821,6 +852,24 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-11 17:41] [2026-06-09-Seriendruck_KOMPLETT_FINAL (1).md] Kontakt Dennis Richter (Siebenwurst Werkzeugbau GmbH, 03758143173) als erreichbar qualifiziert
+- [2026-08-11 17:41] [2026-06-09-Seriendruck_KOMPLETT_FINAL (1).md] Kontaktliste mit ca. 32 Unternehmen aus Werkzeugbau, Stanztechnik und Kunststofftechnik mit Ansprechpartnern, Adressen und Telefonnummern
+- [2026-08-11 17:41] [2026-06-09-Seriendruck2_Seriendruck_FINAL.md] Alle Kontakte sind potenzielle Neukunden ohne Überschneidung mit Bestandskunden
+- [2026-08-11 17:39] [STRATEGIE.md] Zielunternehmen: inhabergeführte, produzierende Mittelständler mit 20–80 Mitarbeitern in Deutschland (Werkzeugbau, Lohnfertigung, Elektrotechnik, Kunststoff, Metallbau)
+- [2026-08-11 17:39] [2026-08-26-Inductoheat.md] Kontaktperson: allmendinger@inductoheat.eu
+- [2026-08-11 17:39] [2026-08-26-Inductoheat.md] Neuer Lead: Inductoheat
+- [2026-08-11 17:38] [2026-07-19-Prozess Lohnverguß 2022.07.20.md] Fachprozess-Dokument aus Lohnfertigungs-/Produktionsumfeld
+- [2026-08-11 17:38] [2026-07-19-Prozess Kleinauftrag 2022.07.15.md] Kunde/Projekt: Endin
+- [2026-08-11 17:36] [2026-07-24-19f93b0bdf-Angebot_AG0032_24.07.2026.md] endin GmbH, Weikersheim (Kundennr. 10001)
+- [2026-08-11 17:35] [2026-07-24-19f1906293-Angebot_AG0026_30.06.2026.md] Kunde: endin GmbH, Kundennr. 10001
+- [2026-08-11 17:35] [2026-06-09-Voigt_Salus_Arbeitsalltag (1).md] Anna Schmidt: Mandantin mit arbeitsrechtlichen Streitigkeiten
+- [2026-08-11 17:35] [2026-06-09-Voigt_Salus_Arbeitsalltag (1).md] HealthCare Plus GmbH Dauermandat für Arbeits- und Medizinrecht
+- [2026-08-11 17:35] [2026-06-09-Voigt_Salus_Arbeitsalltag (1).md] BauTech AG: mehrere Bauprozesse mit höherem Gegenstandswert
+- [2026-08-11 17:35] [2026-06-09-Voigt_Salus_Arbeitsalltag (1).md] Müller GmbH ist Stammmandant seit 2018
+- [2026-08-11 17:34] [2026-06-09-Präsentation_ Datenschutz .md] Voigt Salus (Kanzlei): Evaluierung zwischen ChatGPT Business/Enterprise und maßgeschneidertem Kanzlei-Assistent auf Azure-Basis
+- [2026-08-11 17:34] [2026-06-09-Kostenkalkulation Testphase.md] Voigt Salus Testphase: Pilotprojekt über 1 Monat mit 1 Mitarbeiter (ca. 4 Wochen / 20 Arbeitstage)
+- [2026-08-11 17:33] [2026-06-09-KI-Agent-X-Voigt-Salus (2).md] Voigt Salus ist eine Kanzlei, Kunde für KI-Agent X
+- [2026-08-11 17:33] [2026-08-11-Prozessia X TopDown.md] TopDown: Automotive-Zulieferer, ~20 Mitarbeitende, Standorte Verwaltung/Salzgitter/Eisenstadt, TSAX-zertifiziert. Kontakt: Dominik Nussbaumer (IT-Projektmanager, dominik.nussbaumer@topdown-cf.com)
 - [2026-08-11 11:50] [2026-08-11-Prozessia X TopDown.md] TopDown (topdown-cf.com) – Automobilzulieferer/-dienstleister, TISAX-zertifiziert; Kontakt: Dominik Nussbaumer (dominik.nussbaumer@topdown-cf.com)
 - [2026-08-11 11:50] [2026-08-11-Beschaffungsagent-Wochenreport-31.07-07.08.2026 (1).md] Top-Lieferanten nach AB-Volumen: Aura Tools (8), Dauphin/Diginorm/Dolezych/Härterei Technotherm (je 6 ABs)
 - [2026-08-11 08:25] TopDown: Eingangsrechnungsprozess laut Geschäftsführer 'Steinzeit' – Rechnungen kommen per Mail, werden manuell im ERP Job Manager erfasst und ausgedruckt.
@@ -1148,6 +1197,55 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-11 17:41] [2026-06-09-Seriendruck_KOMPLETT_FINAL (1).md] Cold-Call-Kampagne mit Vertriebsstatus: 'will Präsi' (POLAR-FORM, Wiesmayer), 'termin' (Klaus Baier GmbH), 'nochmal anrufen' (SCHROEDER+BAUER), 'ja' (Siebenwurst), 'nein' (Kölle, Sixt)
+- [2026-08-11 17:41] [2026-06-09-Listen.md] Datenquellen für Liste: Mobile.de, AutoScout24, Websites, Telefon-Recherche
+- [2026-08-11 17:41] [2026-06-09-Listen.md] Akquiseliste mit 26 Autohändlern in Saarbrücken für Cold-Call-Kampagnen zu Voice-Agent-Lösungen kompiliert (Datum: 2026-06-09)
+- [2026-08-11 17:41] [2026-06-09-Cold_Call_Leitfaden_Prozessia_v5 (5).md] CRM-Pflege erfolgt in Twenty
+- [2026-08-11 17:41] [2026-06-09-Cold_Call_Leitfaden_Prozessia_v5 (5).md] Gatekeeper-Überwindung: Priorität auf vorhandenem Brief basierend (Standardfall)
+- [2026-08-11 17:41] [2026-06-09-Cold_Call_Leitfaden_Prozessia_v5 (5).md] Drei Argumentationsvarianten für Setter: Effizienz, FOMO, Haftung - Variante konsequent durchziehen, nicht mischen
+- [2026-08-11 17:40] [kpi-tracking.md] Wöchentliche Auswertung montags (5 Min): (1) Buffer-Insights abrufen, (2) drei manuellen KPIs nachtragen, (3) besten Post der Vorwoche nach Saves-Zahl bestimmen.
+- [2026-08-11 17:40] [kpi-tracking.md] LinkedIn-Tracking: Drei Primär-Kennzahlen (Saves/Post, Profilaufrufe/Woche, DMs/Anfragen) müssen wöchentlich manuell aus LinkedIn-Analytics eingetragen werden — Buffer liefert diese nicht automatisch.
+- [2026-08-11 17:39] [bild-prompts.md] Bild-Prompts müssen Referenzdateien anhängen: Logo-Varianten, Schrift-Screenshot, finales Banner-Muster
+- [2026-08-11 17:39] [STRATEGIE.md] Status: Verbindliche Grundlage für gesamte LinkedIn-Pipeline. Überschreibt widersprechende Inhalte in anderen Dateien.
+- [2026-08-11 17:39] [2026-08-26-Inductoheat.md] Erstgespräch geplant am 2026-08-26
+- [2026-08-11 17:39] [2026-07-19-Workflow Ersatzteile.md] Workflow Ersatzteile regelt Ablauf zwischen Bereichen Einkauf und Werkstatt
+- [2026-08-11 17:38] [2026-07-19-Wareneingang 2025.08.08.md] Wareneingang-Workflow mit Prozessdiagramm und Legende vorhanden
+- [2026-08-11 17:38] [2026-07-19-Prozess Lohnverguß 2022.07.20.md] Prozessname: Lohnverguß-Aufzug, Prozessdatum: 20.07.2022
+- [2026-08-11 17:38] [2026-07-19-Prozess Kleinauftrag 2022.07.15.md] Prozess 'Kleinauftrag' dokumentiert am 11.7.2022, regelt die Abwicklung von Kleinaufträgen
+- [2026-08-11 17:38] [2026-07-24-19f17dfce8-Workflow Ersatzteile.md] Interner Auftrag wird angelegt mit Laufzettel und Auftragsliste vor Lieferzusammenstellung
+- [2026-08-11 17:38] [2026-07-24-19f17dfce8-Workflow Ersatzteile.md] Teillieferungen sind optional im Workflow mit separatem Lieferschein und Teilversand
+- [2026-08-11 17:38] [2026-07-24-19f17dfce8-Workflow Ersatzteile.md] Lagerprüfung ist kritischer Entscheidungspunkt: Bei Vollbestand direkter Versand, sonst Fehlmengenbeauftragung
+- [2026-08-11 17:38] [2026-07-23-19f17dfce8-Wareneingang 2025.08.08.md] Wareneingang-Prozess dokumentiert vom 08.08.2025
+- [2026-08-11 17:37] [2026-07-24-19f17dfce8-Prozess Lohnverguß 2022.07.20.md] Entscheidungsgateways: Konstruktion nötig?, Beschaffung nötig?, Fertigung nötig?, Montage nötig?, Software nötig?
+- [2026-08-11 17:37] [2026-07-24-19f17dfce8-Prozess Lohnverguß 2022.07.20.md] Prozessablauf: Auftragsklärung → Ressourcenplanung → Konstruktion → Beschaffung → Fertigung → Montage → Versand
+- [2026-08-11 17:37] [2026-07-23-19f17dfce8-Prozess Kleinauftrag 2022.07.15.md] Diagramm mit Legende zu verwendeten Symbolen für Prozessdarstellung dokumentiert
+- [2026-08-11 17:37] [2026-07-23-19f17dfce8-Prozess Kleinauftrag 2022.07.15.md] Prozeß Kleinauftrag regelt Abwicklung von Kleinaufträgen und Ersatzteilen
+- [2026-08-11 17:36] [2026-07-19-Angebot_AG0026_30.06.2026.md] Agent prüft & strukturiert Lieferschein- und Rechnungsinhalte
+- [2026-08-11 17:36] [2026-07-19-Angebot_AG0026_30.06.2026.md] Beschaffungsagent: automatische Bestellverarbeitung, Klassifizierung (Service/Ersatzteile/Maschine), Export-Begleitdokumente inkl. Tunesien-Sonderfall
+- [2026-08-11 17:36] [2026-07-24-19f93b0bdf-Angebot_AG0032_24.07.2026.md] Anforderungen: E-Mail-Schnittstellen, unternehmenseigener Server, Bestellungsklassifizierung (Service/Ersatzteile/Maschine), Steuerungs-Dashboard
+- [2026-08-11 17:36] [2026-07-24-19f93b0bdf-Angebot_AG0032_24.07.2026.md] Angebotsnr. AG0032 vom 24.07.2026, gültig bis 24.08.2026
+- [2026-08-11 17:36] [2026-07-23-19f37a9ec1-Angebot_AG0027_01.07.2026.md] KI-Agent kaufmännische Auftragsabwicklung mit DATEV-Integration, Schnittstellen zu Buhl Unternehmer 365 und E-Mail-Postfächern auf unternehmenseigenem Server
+- [2026-08-11 17:35] [2026-07-24-19f1906293-Angebot_AG0026_30.06.2026.md] Deadline für Annahmeerklärung: 28.07.2026
+- [2026-08-11 17:35] [2026-07-23-19f1906293-Angebot_AG0026_30.06.2026.md] Agent liest eingehende Bestellungen automatisch per E-Mail, strukturiert Daten (Artikel, Mengen, Angebotsbezug) und klassifiziert nach Service/Ersatzteile/Maschine
+- [2026-08-11 17:35] [2026-06-09-klageschrift_entwurf_arbeitsrecht.md] Schadensersatzforderung: Mindestens 12.500,00 EUR; Klägerin: Müller GmbH, Beklagter: Thomas Becker
+- [2026-08-11 17:35] [2026-06-09-klageschrift_entwurf_arbeitsrecht.md] Außerordentliche Kündigung: 30.09.2025; Arbeitsverhältnis seit 01.03.2020 als Teamleiter Vertrieb
+- [2026-08-11 17:35] [2026-06-09-klageschrift_entwurf_arbeitsrecht.md] Arbeitsrechtssache Müller GmbH ./. Thomas Becker vor Arbeitsgericht Saarbrücken; Grund: Kundenabwerbung und Weiterleitung zu Konkurrenzunternehmen
+- [2026-08-11 17:35] [2026-06-09-kanzlei_memo_intern.md] Nächste Schritte: Test-User im Microsoft-Tenant, Anbindung Outlook/Kalender an KI-System, Workflow-Dokumentation für interne Schulung
+- [2026-08-11 17:35] [2026-06-09-kanzlei_memo_intern.md] KI-System soll Fristenübersichten automatisch aus Akten generieren
+- [2026-08-11 17:35] [2026-06-09-kanzlei_memo_intern.md] Vier-Augen-Prinzip erforderlich: KI-generierte Schriftsätze dürfen nur nach Freigabe versendet werden; mandantensensible Daten bleiben im Microsoft-Tenant der Kanzlei
+- [2026-08-11 17:35] [2026-06-09-kanzlei_memo_intern.md] Zwei Pilotmandate definiert: Müller GmbH (Arbeitsrecht - automatisierte Klageentwürfe) und TechnoLogix AG (IT-Recht - Vertragsanalyse/Klauselvergleich)
+- [2026-08-11 17:34] [2026-06-09-Präsentation_ Datenschutz .md] Kanzlei-Assistent bietet RAG (Kanzlei-Dokumente, Richtlinien & Vorlagen), Integration mit Microsoft-Konto/Outlook/Teams, Onboarding-Funktion
+- [2026-08-11 17:34] [2026-06-09-Präsentation_ Datenschutz .md] Datenschutz-Anforderung: EU-Datenhaltung erforderlich; ChatGPT-Verarbeitung außerhalb EU mit US Cloud Act-Risiken
+- [2026-08-11 17:34] [2026-06-09-Kostenkalkulation Testphase.md] Pro Anfrage durchschnittlich: 1.800 Tokens Input + 900 Tokens Output
+- [2026-08-11 17:34] [2026-06-09-Kostenkalkulation Testphase.md] Chat-Nutzung (GPT-4.1 mini): 60 Anfragen pro Tag = 1.200 Anfragen pro Monat
+- [2026-08-11 17:33] [2026-06-09-KI-Agent-X-Voigt-Salus (2).md] Funktionen: Dokumentenanalyse, E-Mail-Unterstützung, Onboarding, Terminverwaltung mit individuellen Login-Daten pro Mitarbeiter
+- [2026-08-11 17:33] [2026-06-09-KI-Agent-X-Voigt-Salus (2).md] Integration: vollständig in Microsoft Teams und Outlook
+- [2026-08-11 17:33] [2026-08-11-Email-19ff1b48-Action-required-security-vulnerabilities.md] KRITISCHE Sicherheitsverletzung: Tabellen öffentlich zugänglich, Row-Level Security deaktiviert
+- [2026-08-11 17:33] [2026-08-11-Prozessia X TopDown.md] Ist-Zustand: E-Mail-Eingang → manuelle ERP-Erfassung → Papierausdruck mit Belegnummern → physische Freigaberunde → Zahlung → monatliche Weitergabe an Steuerberater (DATEV-Export, kein eigenes Buchhaltungsprogramm)
+- [2026-08-11 17:33] [2026-08-11-Prozessia X TopDown.md] Anwendungsfall: KI-gestützte Automatisierung der Eingangsrechnungsverarbeitung (aktuell vollständig papierbasiert und manuell)
+- [2026-08-11 17:33] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Werkstoffe: S235, S355J2H; Komponenten: 2588569 (Platte), 2670270 (Seitenprofil), Hohlprofil
+- [2026-08-11 17:33] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83479898.md] Baugruppe 'Fuß' (Artikel 83479898): mehrstufige BOM mit S235-Platten und S355J2H-Profilen (Seitenprofile, Hohlprofile) für geschweißte Konstruktionen
+- [2026-08-11 17:32] [2026-07-27-19fa3698b1-MATERIAL_IU485.md] Status: unklar/zu prüfen - Zuordnung zu bestehendem Projekt nicht erkennbar
 - [2026-08-11 12:00] [2026-08-11-Email-19ff0a71-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Stücklistenprojekt: Besprechung der Testreihen-Ergebnisse erforderlich
 - [2026-08-11 11:52] [AW: Ergebnisse Testreihe Stücklistenproj] Verfügbare Terminoptionen: 11.08.2026 (Dienstag), 12.08.2026 (Mittwoch) oder 14.08.2026 (Donnerstag), jeweils 17:00 Uhr
 - [2026-08-11 11:50] [2026-08-11-Prozessia X TopDown.md] Monatsabschluss: Alle Belege + Kontoauszüge werden gebündelt an Steuerberater versendet; kein eigenes Buchhaltungsprogramm im Einsatz
@@ -1929,6 +2027,13 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-08-11 17:40] [kpi-tracking.md] Erfolgreiches Post-Thema/Säule in Folgewoche verdoppeln, nicht durch neues Thema ersetzen.
+- [2026-08-11 17:40] [kpi-tracking.md] Best-Post-Bestimmung nach Saves-Zahl vornehmen, nicht nach Likes — diese KPI hat Vorrang.
+- [2026-08-11 17:39] [bild-prompts.md] LinkedIn-Profil-Banner: 1584×396px, Headline 'Fortschritt durch sichere KI.' in Weiß
+- [2026-08-11 17:39] [bild-prompts.md] Typografie: Bold, rounded display grotesque, sentence case (kein ALL CAPS), nur deutscher Text, tight letter spacing
+- [2026-08-11 17:39] [bild-prompts.md] Marken-Farbschema: Schwarz-Weiß-Basis + Purple-Akzent (#6B3FA0 bis #8B5CF6) max 10–15% der Bildfläche
+- [2026-08-11 17:39] [bild-prompts.md] Nano Banana Pro: mindestens 6 Bild-Prompts pro Monat (1 Banner + 1 Cover-Bild je Wochenpost + 1 Zitat-Vorlage)
+- [2026-08-11 17:33] [2026-06-09-KI-Agent-X-Voigt-Salus (2).md] DSGVO-Konformität gefordert und implementiert
 - [2026-08-11 11:50] [2026-08-11-Prozessia X TopDown.md] Schnittstelle zu DATEV-Export bereits von Prozessia umgesetzt; Wareneingang-Abgleich mit Rechnung erforderlich (Parameter-Matching)
 - [2026-08-07 09:29] [2026-08-07-Email-19fdb831-AW-Beschaffungsagent--MailSend-Berechtig.md] Klärungsbedarf: Einschränkung der Mail.Send-Berechtigung auf spezifische Mailboxen gewünscht
 - [2026-08-05 08:21] [2026-06-09-Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.pptx.md] Kernanforderungen: anwaltliche Verschwiegenheitspflicht, sichere Mandantendaten-Verwaltung, Vermeidung US-Server
@@ -1998,6 +2103,10 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-11 17:39] [STRATEGIE.md] Positionierung: Prozessias Kernargument ist klare Fertigungs-Nische – nicht verwässern mit generischem Mittelstand-Ansatz wie Konkurrenten
+- [2026-08-11 17:37] [2026-07-24-Angebot_endin_überarbeitet.md] Angebotsgültigkeit endet 24.08.2026 – Entscheidung erforderlich
+- [2026-08-11 17:35] [2026-06-09-klageschrift_entwurf_arbeitsrecht.md] Klageschrift-Entwurf befindet sich im internen Abstimmungsstadium und muss vor Einreichung geprüft werden
+- [2026-08-11 17:32] [2026-07-27-19fa3698b1-MATERIAL_IU485.md] Material IU485 ist isoliert ohne Projekt- oder Kundenbezug - Überprüfung erforderlich
 - [2026-08-11 11:52] [AW: Ergebnisse Testreihe Stücklistenproj] Freitag 15.08.2026 Abend nicht verfügbar für Marvin Wiegner
 - [2026-08-11 11:50] [2026-08-11-Beschaffungsagent-Wochenreport-31.07-07.08.2026 (1).md] 68 überfällige Lieferungen erfordern Lieferantenmanagement-Eskalation
 - [2026-08-11 06:36] [Kennenlernen Prozessia x ESF] Ursprünglicher Termin heute kann Lukas Grünbeck nicht wahrnehmen (Auswärtstermin)
@@ -2095,6 +2204,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-13 12:22] Schaufler Tooling GmbH: Monatliches Hosting/Retainer ab Juli 2026 auf 280 € erhöht (vorher 220 €)
 
 ## PROJEKTSTATUS
+- [2026-08-11 17:33] [2026-08-11-Prozessia X TopDown.md] Sehr positives Erstgespräch; Dominik bat aktiv um Angebot zur internen Geschäftsführungspräsentation
 - [2026-07-28 08:22] [2026-07-28-Prozessskizze-KI-Kalkulation.md] Prozessskizze basiert auf Meeting Dierk Biendarra + Sebastian Spuhler vom 21.07.2026, Vorbereitung für Termin 28.07.2026, 11:00 Uhr
 - [2026-07-23 15:17] [2026-07-23-Email-19f8f1d8-Zugesagt-Update-Seifert-X-Prozessia.md] Lead Seifert-GmbH: Status Update-Projekt genehmigt, nächste Schritte ausstehend
 - [2026-07-01 14:21] [2026-07-01-AW-Unser-Gespraech-MTO-Days.md] Nachverfolgung erforderlich: Christian Spamer sollte Unterlagen zusammenstellen (Stand 1. Juli 2026: noch nicht eingegangen)
@@ -2107,6 +2217,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-13 19:09] [Personalkosten erstattet bekommen] Schulung des Teams in kundengewinnung und Tools (Clay, Claude, Close) finanziert über Fördergelder § 82 SGB III
 
 ## ENTSCHEIDUNG
+- [2026-08-11 17:34] [2026-06-09-Präsentation_ Datenschutz.md] Prozessia-Lösung als EU-konforme, kostengünstigere Alternative zu ChatGPT positioniert
 - [2026-08-03 02:24] [2026-08-02.md] Sicherheitsansatz: E-Mail-Preisanfragen starten als Entwürfe (Zillmer-Freigabe erforderlich) vor Versand, nicht vollautomatisch
 - [2026-08-01 05:15] [09_ust_jahreserklaerung_2025.md] Elster-Eintragung erforderlich: Vorauszahlungssoll 2025 = 680,04 € (bereits über 4 Voranmeldungen Q1-Q4 gezahlt)
 - [2026-07-28 14:15] [2026-06-08-Juchem.md] Kennenlerntreffen vor Ort geplant – finale Terminbestätigung von Juchem ausstehend
@@ -2117,6 +2228,9 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-17 21:42] [6---Email-19f38afa-AW-Offene-Punkte-Beschaffungsagent.md] Bestelldokument muss angepasst werden, damit Lieferanten wissen, dass bestellbezogene Daten an order@schaufler.de gehen (Verantwortung: Benjamin Schmohl)
 
 ## ANFORDERUNGEN
+- [2026-08-11 17:34] [2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md] Abteilungsbezogene KI-Modelle und Workflows müssen konfiguriert werden
+- [2026-08-11 17:34] [2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md] Azure OpenAI-Einrichtung und Verbindung von Dokumentenquellen erforderlich
+- [2026-08-11 17:34] [2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md] Prozessia KI-Agent erfordert VPS-Server mit Installation von: Automatisierungsplattform, Vektordatenbank, RAG-Struktur und Schnittstellen/Module
 - [2026-08-05 08:01] [2026-06-09-Prozessia-X-Schaufler Beschafungsagent.md] Primäre Ziele bei Schaufler: Reduktion manueller Tätigkeiten und Steigerung der Prozesstransparenz im Beschaffungsmanagement
 - [2026-07-28 17:54] [2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md] Kunde (Siegfried Heinrich) fordert Analyse der Effizienz und Performance des Beschaffungsagenten vor nächstem Projekt
 - [2026-07-24 03:21] [2026-07-24-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Komplette mechanische Anfertigung nach Zeichnungen mit Gravur, Prüf-, Härte- und Messprotokoll erforderlich
@@ -2137,3 +2251,6 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 
 ## PREISE
 - [2026-08-05 08:23] [2026-06-09-Schaufler_Hosting_Praesentation (4).md] Monatliche Gesamtkosten: 558,07 € (Servicepauschale 400 €, Server 38,07 €, KI-Modell 120 €)
+
+## CONTERXT
+- [2026-08-11 17:34] [2026-06-09-Präsentation_ Datenschutz .md] Präsentation vom 2026-06-09 als Verkaufsunterstützung zur KI-Tool-Entscheidung für Voigt Salus
