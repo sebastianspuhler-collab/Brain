@@ -22,6 +22,7 @@ EMAIL_POLL_SECONDS = 300
 GIT_SYNC_SECONDS   = 600  # alle 10 Minuten git pull
 CALENDAR_LEAD_POLL_SECONDS = 1800  # alle 30 Minuten - Kalender ändert sich seltener als Mails
 ATTACHMENT_POLL_SECONDS = 900  # alle 15 Minuten - Anhänge sind seltener als neue Mails
+REORGANIZE_POLL_SECONDS = 1800  # alle 30 Minuten - reines Aufräumen, nicht zeitkritisch
 _SKIP_EXT = {".js", ".ts", ".map", ".css", ".lock", ".yml", ".yaml"}
 _SKIP_NAMES = {".DS_Store", "Thumbs.db"}
 # Word/Excel legen beim Öffnen einer Datei eine Sperrdatei "~$name.docx" daneben.
@@ -357,3 +358,29 @@ async def attachment_backfill_loop() -> None:
             logger.exception("Attachment-Backfill Fehler")
             _note_gmail_error(exc)
         await asyncio.sleep(ATTACHMENT_POLL_SECONDS)
+
+
+async def vault_reorganize_loop() -> None:
+    """Bündelt lose Notiz+Original-Paare in vollgelaufenen Kunden-/Leads-/
+    Sales-Unterordnern automatisch in eigene Dokument-Ordner (Sebastian,
+    2026-08-11: Kunden/Schaufler/Dokumente/ war auf ~110 lose Dateien
+    angewachsen und dadurch faktisch unbrowsbar - "das System muss das
+    automatisch neu sortieren"). process_file() legt diese Struktur seit
+    demselben Tag für NEUE Dateien direkt an; dieser Loop holt bestehende,
+    schon vollgelaufene Ordner nach und hält künftig neu wachsende Ordner
+    laufend aufgeräumt, ohne dass Sebastian das manuell anstoßen muss.
+    classify.reorganize_folder() ist idempotent - ein Durchlauf ohne etwas
+    zu tun ist die Regel, nicht die Ausnahme, sobald einmal aufgeräumt."""
+    await asyncio.sleep(120)  # nach RAG-Laden und den anderen Loops starten
+    while True:
+        try:
+            ergebnisse = await asyncio.to_thread(classify.reorganize_vault)
+            if ergebnisse:
+                gesamt = sum(e["verschoben"] for e in ergebnisse)
+                logger.info(
+                    "Vault-Aufräumen: %d Datei(en) in %d Ordner(n) neu einsortiert",
+                    gesamt, len(ergebnisse),
+                )
+        except Exception:
+            logger.exception("Vault-Reorganize Fehler")
+        await asyncio.sleep(REORGANIZE_POLL_SECONDS)

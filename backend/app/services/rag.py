@@ -523,6 +523,17 @@ def _remove_paths_impl(paths: set[str]) -> int:
     return len(doomed)
 
 
+def remove_paths(paths: set[str]) -> int:
+    """Öffentlicher Wrapper um _remove_paths_impl() für Aufrufer außerhalb
+    dieses Moduls (classify.py:reorganize_vault() - wenn Dateien innerhalb
+    des Vaults verschoben werden, z.B. beim Aufräumen vollgelaufener Ordner,
+    müssen ihre alten Pfade aus dem Index raus, sonst verweisen Suchtreffer
+    auf nicht mehr existierende Dateien)."""
+    if _index is None or _meta is None or not paths:
+        return 0
+    return _run_on_worker(_remove_paths_impl, paths)
+
+
 def reindex_new_files() -> list[tuple[str, str]]:
     """Zieht den Index gegen den Vault nach: neue UND geänderte .md-Dateien.
 
