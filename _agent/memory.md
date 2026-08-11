@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-11 06:37] [2026-08-11-Email-19fef82c-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Marvin Wiegner (Konstruktion Schaufler) hat CAD-Schulung diese Woche 8:30-17:00 Uhr - Terminslots nur vor/nach Schulungszeit verfügbar
+- [2026-08-11 06:32] [AW: Ergebnisse Testreihe Stücklistenproj] Stücklistenprojekt - Lastenheft vom 6. Aug 2026
 - [2026-08-10 09:36] [2026-08-10-Email-19feaf7a-Schaufler-Beschaffungsagent--128455.md] Abweichung wurde in Ausschreibung/Bestellung (AB) identifiziert und vom Lieferanten mit 150€ bestätigt
 - [2026-08-10 09:20] [Schaufler Beschaffungsagent | 128455] Benjamin Schmohl (Schaufler, benjamin.schmohl@schaufler.de) meldet Fehler und bittet um Überprüfung und ggf. Anpassung durch Prozessia
 - [2026-08-10 08:19] Sebastians Wochenaufgaben: LinkedIn 3 Videos posten, Close-Migration, Kevin einführen, Netzwerkaufbau
@@ -812,6 +814,9 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-11 06:37] [2026-08-11-Email-19fef82c-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Schaufler, Kontakt: Marvin Wiegner, Konstruktion/Design, +49 7333 9608 33, marvin.wiegner@schaufler.de
+- [2026-08-11 06:36] [Kennenlernen Prozessia x ESF] Ansprechpartner: Lukas Grünbeck (Innovation & Projects, East Side Fab e.V., l.gruenbeck@eastsidefab.de, +49 681 84491731)
+- [2026-08-11 06:32] [AW: Ergebnisse Testreihe Stücklistenproj] Marvin Wiegner (schaufler.de, Konstruktion/Design Office), marvin.wiegner@schaufler.de, +49 7333 9608 33
 - [2026-08-10 09:37] [2026-08-10.md] TopDown - neuer Lead (Prozessia x TopDown), Termin Di 11.08. 09:30
 - [2026-08-10 08:18] Martin Veser: Thema ist geklärt/abgeschlossen.
 - [2026-08-06 21:13] [2026-08-26-Inductohead.md] Ansprechpartner: allmendinger@inductoheat.eu (Inductoheat)
@@ -1130,6 +1135,11 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-11 06:36] [Kennenlernen Prozessia x ESF] Sebastian soll vor dem Termin sein Anliegen mitteilen (Innovationsprojekt, Kennenlernen, etc.) zur Vorbereitung
+- [2026-08-11 06:36] [Kennenlernen Prozessia x ESF] Neuer Termin vorgeschlagen: Donnerstag, 13.08.2026 zwischen 10:00 und 15:00 Uhr
+- [2026-08-11 06:32] [AW: Ergebnisse Testreihe Stücklistenproj] Verfügbarkeit Marvin Wiegner: CAD-Schulung diese Woche 8:30-17:00 Uhr, Termin vor oder danach möglich
+- [2026-08-11 06:32] [AW: Ergebnisse Testreihe Stücklistenproj] Telefonkonferenz für diese Woche (ab 10. Aug 2026) zur Besprechung offener Punkte geplant
+- [2026-08-11 06:32] [AW: Ergebnisse Testreihe Stücklistenproj] Technische Prüfung des Lastenhefts läuft bei Prozessia
 - [2026-08-10 09:36] [2026-08-10-Email-19feaf7a-Schaufler-Beschaffungsagent--128455.md] Schaufler Beschaffungsagent 128455: Agent prüft aktuell nur Einzelpreise und nicht Gesamtpreis von Bauteilen
 - [2026-08-10 09:20] [Schaufler Beschaffungsagent | 128455] Schaufler Beschaffungsagent (Ticket 128455) vergleicht Einzelpreise (z.B. 4,99/kg) statt Gesamtpreise bei Beschaffungsentscheidungen
 - [2026-08-10 08:18] Aktuelle Wochenaufgaben (neu aufgesetzt, alte Aufgaben wie Schaufler Wissensmanagement, Martin Veser-Scope, Lastenheft-Nachfassen entfallen): Sebastian macht LinkedIn (3 Videos posten), Close-Migration weiterführen, Kevin (neuer Vertriebler) einführen, Netzwerkaufbau/Terminsuche. Amin macht LinkedIn (3 Posts), überwacht Beschaffungsagent und bereitet Bericht vor, macht Webseite fertig und Whitepapers. Gemeinsam: Termin wegen Stücklistenprojekt vereinbaren.
@@ -1964,6 +1974,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-11 06:36] [Kennenlernen Prozessia x ESF] Ursprünglicher Termin heute kann Lukas Grünbeck nicht wahrnehmen (Auswärtstermin)
 - [2026-08-10 09:20] [Schaufler Beschaffungsagent | 128455] Anpassung erforderlich: Agent muss Gesamtpreis (vom Lieferanten bestätigt, z.B. 150€) statt Einzelpreis als Vergleichskriterium verwenden
 - [2026-08-10 08:19] Amins Wochenaufgabe ist YouTube: 3 Videos erstellen/veröffentlichen, nicht LinkedIn-Posts
 - [2026-08-06 15:37] [AGB & AVV Änderungen] Änderungen zielen auf Verbesserung der vertraglichen Grundlage für Berufsgeheimnisträger ab
