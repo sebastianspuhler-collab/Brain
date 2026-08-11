@@ -820,6 +820,8 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-11 11:50] [2026-08-11-Prozessia X TopDown.md] TopDown (topdown-cf.com) – Automobilzulieferer/-dienstleister, TISAX-zertifiziert; Kontakt: Dominik Nussbaumer (dominik.nussbaumer@topdown-cf.com)
+- [2026-08-11 11:50] [2026-08-11-Beschaffungsagent-Wochenreport-31.07-07.08.2026 (1).md] Top-Lieferanten nach AB-Volumen: Aura Tools (8), Dauphin/Diginorm/Dolezych/Härterei Technotherm (je 6 ABs)
 - [2026-08-11 08:25] TopDown: Eingangsrechnungsprozess laut Geschäftsführer 'Steinzeit' – Rechnungen kommen per Mail, werden manuell im ERP Job Manager erfasst und ausgedruckt.
 - [2026-08-11 08:25] Erstgespräch mit Lead TopDown (Kontakt: Dominik Nussbaumer) am 2026-08-11, 07:32 Uhr, 38 Min. Meeting-Notiz unter Leads/TopDown-Korrespondenz/Meetings/2026-08-11-Prozessia X TopDown.md.
 - [2026-08-11 08:25] [2026-08-11-Email-19fefdff-Zugesagt-Prozessia-X-TopDown.md] Kunde: TopDown, Kontaktperson: Dominik Nussbaumer (Dominik.Nussbaumer@topdown-cf.com)
@@ -1145,6 +1147,12 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-11 11:52] [AW: Ergebnisse Testreihe Stücklistenproj] Verfügbare Terminoptionen: 11.08.2026 (Dienstag), 12.08.2026 (Mittwoch) oder 14.08.2026 (Donnerstag), jeweils 17:00 Uhr
+- [2026-08-11 11:50] [2026-08-11-Prozessia X TopDown.md] Monatsabschluss: Alle Belege + Kontoauszüge werden gebündelt an Steuerberater versendet; kein eigenes Buchhaltungsprogramm im Einsatz
+- [2026-08-11 11:50] [2026-08-11-Prozessia X TopDown.md] Aktueller Eingangsrechnungsprozess: E-Mail → manuelle Erfassung in GlobeManager → Ausdruck → physische Freigaberunde (Projektleiter) → Zahlung → Steuerablage
+- [2026-08-11 11:50] [2026-08-11-Beschaffungsagent-Wochenreport-31.07-07.08.2026 (1).md] Bestätigungsquote 83% (258 von 311 Positionen bestätigt)
+- [2026-08-11 11:50] [2026-08-11-Beschaffungsagent-Wochenreport-31.07-07.08.2026 (1).md] Ampel-Scoring kritisch: 24 Rot / 20 Gelb / 10 Grün bei 54 Auftragsbestätigungen
+- [2026-08-11 11:50] [2026-08-11-Beschaffungsagent-Wochenreport-31.07-07.08.2026 (1).md] 103 Eskalationen Positionsebene für Schaufler (31.07–07.08.2026): 68 überfällige Lieferungen, 18 Preisabweichungen, 9 Mengenabweichungen, 8 Terminabweichungen
 - [2026-08-11 08:25] [2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md] Erstes Kennenlernen / Initial Meeting zwischen Prozessia und East Side Fab e.V. geplant
 - [2026-08-11 08:13] [Zugesagt: Prozessia X TopDown] Dominik Nussbaumer (TopDown, topdown-cf.com) hat das Projekt/die Zusammenarbeit Prozessia X TopDown zugesagt
 - [2026-08-11 07:27] [Prozessia x ESF] Erstes Kennenlernen mit East Side Fab e.V. über Microsoft Teams vereinbart
@@ -1919,6 +1927,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-08-11 11:50] [2026-08-11-Prozessia X TopDown.md] Schnittstelle zu DATEV-Export bereits von Prozessia umgesetzt; Wareneingang-Abgleich mit Rechnung erforderlich (Parameter-Matching)
 - [2026-08-07 09:29] [2026-08-07-Email-19fdb831-AW-Beschaffungsagent--MailSend-Berechtig.md] Klärungsbedarf: Einschränkung der Mail.Send-Berechtigung auf spezifische Mailboxen gewünscht
 - [2026-08-05 08:21] [2026-06-09-Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.pptx.md] Kernanforderungen: anwaltliche Verschwiegenheitspflicht, sichere Mandantendaten-Verwaltung, Vermeidung US-Server
 - [2026-08-05 08:20] [2026-06-09-DE_Partner_Deck.md] Lösung muss DSGVO-konform sein; Hosting und Datenverarbeitung ausschließlich in der EU
@@ -1987,6 +1996,8 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-11 11:52] [AW: Ergebnisse Testreihe Stücklistenproj] Freitag 15.08.2026 Abend nicht verfügbar für Marvin Wiegner
+- [2026-08-11 11:50] [2026-08-11-Beschaffungsagent-Wochenreport-31.07-07.08.2026 (1).md] 68 überfällige Lieferungen erfordern Lieferantenmanagement-Eskalation
 - [2026-08-11 06:36] [Kennenlernen Prozessia x ESF] Ursprünglicher Termin heute kann Lukas Grünbeck nicht wahrnehmen (Auswärtstermin)
 - [2026-08-10 09:20] [Schaufler Beschaffungsagent | 128455] Anpassung erforderlich: Agent muss Gesamtpreis (vom Lieferanten bestätigt, z.B. 150€) statt Einzelpreis als Vergleichskriterium verwenden
 - [2026-08-10 08:19] Amins Wochenaufgabe ist YouTube: 3 Videos erstellen/veröffentlichen, nicht LinkedIn-Posts
