@@ -645,5 +645,14 @@ def run_inbox() -> dict:
         f.write(f"\n## Inbox-Verarbeitung {datetime.now().strftime('%H:%M')}\n")
         f.write(f"- Verarbeitet: {processed}\n")
         f.write(f"- Fehler: {errors}\n")
+        # Grund pro Datei mitschreiben (2026-08-11): log_lines wurde bisher nur
+        # als Rückgabewert weitergereicht und nirgends persistiert - im Log
+        # standen ausschließlich Zählerstände. Bei den Läufen mit 51-53 Fehlern
+        # ließ sich hinterher nicht mehr feststellen, woran die Dateien
+        # gescheitert sind; nachträglich getestet waren 64 der 65 PDFs in
+        # _fehler/ problemlos lesbar, der Fehler lag also nicht bei der
+        # Extraktion. Ohne diese Zeilen bleibt so etwas unauffindbar.
+        for line in log_lines:
+            f.write(f"  - {line}\n")
 
     return {"processed": processed, "errors": errors, "output": "\n".join(log_lines)}
