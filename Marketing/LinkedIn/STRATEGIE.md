@@ -132,9 +132,13 @@ Fokus plötzlich wechseln, verlieren temporär Reichweite.
 - Statt Langs Hellblau: **schwarzer ODER weißer Hintergrund**, pro Post-Serie konsistent
   (Parameter `variante`: `schwarz` | `weiss`, Default schwarz)
 - Schrift jeweils in der Gegenfarbe
-- Dezente Lila/Violett-Akzente (#6B3FA0–#8B5CF6): Regel-Strich über der Headline,
-  Seitenzähler, Untertitel. Deutlich unter den erlaubten 10–15 % Bildfläche.
+- Dezente Lila/Violett-Akzente (#534AB7–#B088FF, 2026-08-11 pixelgenau aus dem finalen
+  Banner nachgemessen — identisch zu C_PURPLE/C_PURPLE_LIGHT in frontend/src/index.css):
+  Regel-Strich über der Headline, Seitenzähler, Untertitel. Deutlich unter den
+  erlaubten 10–15 % Bildfläche.
 - Logo „Prozessia." oben links aus dem eigenen Logo-File, nicht neu generiert
+- Hintergrund ohne generiertes Foto (Fallback): Lila-Schimmer rotiert über vier
+  Positionen (Hash des Themas), damit nicht jedes Karussell ohne Foto identisch aussieht
 
 > **Beobachtung zur Seitenzahl:** Das „X Seiten"-Label im Vorbild steht nicht im Bild — das
 > blendet LinkedIn bei Dokument-Posts selbst ein. Der Renderer setzt trotzdem einen eigenen
@@ -143,8 +147,10 @@ Fokus plötzlich wechseln, verlieren temporär Reichweite.
 
 ## 7. Bild-/Markenidentität
 
-- **Farbschema:** Schwarz + Weiß als Basis, Lila/Violett (#6B3FA0–#8B5CF6) als sparsamer
-  dritter Akzent — angelehnt an die Schriftfarbe auf prozessia.de
+- **Farbschema:** Schwarz (#0A0A0A) + Weiß (#FFFFFF) als Basis, Lila/Violett
+  (#534AB7 dunkel, #B088FF hell) als sparsamer dritter Akzent — alle drei Werte
+  2026-08-11 per Pixel-Sampling exakt aus dem finalen Banner übernommen, identisch zur
+  Schriftfarbe auf prozessia.de (C_DARK/C_PURPLE/C_PURPLE_LIGHT, siehe frontend/src/index.css)
 - **Typografie Headlines:** fette, rundliche Display-Grotesk mit „aufgeblasenem" Charakter,
   normale Groß-/Kleinschreibung statt Versalien, enger Buchstabenabstand.
   Umgesetzt mit **Poppins Black** (in der Marken-Vorgabe als zulässige Variante genannt,

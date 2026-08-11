@@ -23,7 +23,7 @@ Textuelle Beschreibung allein streut zu stark. Diese Dateien als Referenzbilder 
 ## Feste Marken-Klausel (an jeden Prompt anhängen)
 
 > Color scheme: pure black and white as the base, with a single restrained purple accent
-> (#6B3FA0 to #8B5CF6) covering no more than 10–15% of the image. Headline typography: bold,
+> (#534AB7 to #B088FF) covering no more than 10–15% of the image. Headline typography: bold,
 > rounded display grotesque with an inflated character, sentence case (never all caps), tight
 > letter spacing. German text only, spelled exactly as given. Use the attached logo file as-is,
 > do not redraw or reinterpret it. No stock-photo gloss, no generic AI-tech clichés
@@ -62,7 +62,7 @@ Für die weiße Serie: `black wash` → `white wash at roughly 88% opacity`, Sch
 
 ```
 Square 1080x1080 quote card. Pure white background, no photograph. Large quotation mark
-set in purple (#8B5CF6) in the upper left, oversized and partially cropped by the edge.
+set in purple (#B088FF) in the upper left, oversized and partially cropped by the edge.
 Quote text in black, bold rounded display grotesque, sentence case, left aligned, centred
 vertically: "<ZITAT>". Beneath it, small and in a lighter weight: "Sebastian Spuhler,
 Prozessia". Prozessia logo top right, from the attached file. Generous white space.
