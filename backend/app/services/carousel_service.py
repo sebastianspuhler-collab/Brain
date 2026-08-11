@@ -452,7 +452,9 @@ def _cloudinary_upload(settings, file_bytes: bytes, resource_type: str, public_i
     return resp.json()["secure_url"]
 
 
-def _push_carousel_to_buffer(settings, slides: list, caption: str, pdf_url: str, thumb_url: str, due_at: str) -> list:
+def _push_carousel_to_buffer(
+    settings, slides: list, caption: str, pdf_url: str, thumb_url: str, due_at: str, draft: bool = False,
+) -> list:
     hook = slides[0]["titel"]
     post_text = _linkedin_bold(caption or _fallback_caption(slides))
     # Buffer-Schema live per Introspection verifiziert (2026-07-25, siehe
@@ -464,6 +466,14 @@ def _push_carousel_to_buffer(settings, slides: list, caption: str, pdf_url: str,
     # validierte serverseitig nie (GRAPHQL_VALIDATION_FAILED, kein "data"-Feld
     # in der Antwort), wurde hier aber mangels Prüfung auf ein oberstes
     # "errors"-Feld fälschlich als Erfolg mit leerer post_id gewertet.
+    #
+    # draft (2026-08-11, für Testläufe): saveToDraft=true - live per
+    # Introspection auf CreatePostInput bestätigtes Feld ("If true, saves the
+    # post as a draft instead of scheduling it. Post status will be 'draft'
+    # ... will not be published until explicitly scheduled"). Damit landet ein
+    # Testkarussell sichtbar in Buffer, ohne je automatisch zu veröffentlichen
+    # - mode/schedulingType bleiben Pflichtfelder, ihr Wert ist bei
+    # saveToDraft=true aber irrelevant (kein Scheduling findet statt).
     mutation = """
 mutation CreatePost($input: CreatePostInput!) {
   createPost(input: $input) {
@@ -489,7 +499,8 @@ mutation CreatePost($input: CreatePostInput!) {
                 "text": post_text,
                 "mode": "customScheduled" if due_at else "addToQueue",
                 "schedulingType": "automatic",
-                **({"dueAt": due_at} if due_at else {}),
+                **({"dueAt": due_at} if due_at and not draft else {}),
+                **({"saveToDraft": True} if draft else {}),
                 "assets": [{"document": {"url": pdf_url, "title": hook, "thumbnailUrl": thumb_url}}],
             }
         }
@@ -530,9 +541,13 @@ def _next_carousel_slot(now: datetime | None = None) -> str:
 
 def generate_carousel(hook: str, branche: str = "Alle", saeule: str = "Einkauf",
                        due_at: str | None = None, variante: str = DEFAULT_VARIANTE,
-                       progress_fn=None) -> dict:
+                       draft: bool = False, progress_fn=None) -> dict:
     """Vollständige Karussell-Pipeline: Slides + Caption -> ein Hintergrundfoto
-    -> Rendering -> PDF -> Cloudinary -> Buffer."""
+    -> Rendering -> PDF -> Cloudinary -> Buffer.
+
+    draft=True (2026-08-11, für Testläufe/Review): landet über Buffers
+    saveToDraft-Feld als echter Entwurf (Status "draft"), wird NIE automatisch
+    veröffentlicht - sichtbar in Buffer, aber ungefährlich."""
     settings = get_settings()
 
     def log(msg: str):
@@ -573,8 +588,8 @@ def generate_carousel(hook: str, branche: str = "Alle", saeule: str = "Einkauf",
         thumb_url = _cloudinary_upload(settings, thumb_buf.getvalue(), "image", f"{date_slug}-thumb", folder)
         pdf_url = _cloudinary_upload(settings, pdf_bytes, "raw", f"{date_slug}-karussell", folder)
 
-        log("[6/6] Pushe nach Buffer...")
-        results = _push_carousel_to_buffer(settings, slides, caption, pdf_url, thumb_url, due_at)
+        log("[6/6] Pushe nach Buffer" + (" (als Entwurf)" if draft else "") + "...")
+        results = _push_carousel_to_buffer(settings, slides, caption, pdf_url, thumb_url, due_at, draft=draft)
         ok_count = sum(1 for r in results if r["ok"])
 
         return {
@@ -586,6 +601,7 @@ def generate_carousel(hook: str, branche: str = "Alle", saeule: str = "Einkauf",
             "pdf_url": pdf_url,
             "thumb_url": thumb_url,
             "due_at": due_at,
+            "draft": draft,
             "buffer": results,
             "anzahl_gepusht": ok_count,
         }

@@ -250,15 +250,17 @@ def _save_carousel_record(hook: str, branche: str, result: dict, source_post_id:
 
 def make_carousel(hook: str, branche: str = "Alle", saeule: str = "Einkauf",
                    due_at: str | None = None, variante: str = carousel_service.DEFAULT_VARIANTE,
-                   source_post_id: str | None = None) -> dict:
+                   draft: bool = False, source_post_id: str | None = None) -> dict:
     """Erstellt ein eigenständiges Karussell (Slides -> Bild -> PDF ->
     Cloudinary -> Buffer) aus einem Hook/Thema und merkt das Ergebnis dauerhaft.
 
     variante steuert die Farblogik der Serie ("schwarz" oder "weiss", siehe
     Strategie §6) - laut Strategie pro Post-Serie konsistent zu wählen, nicht
-    pro Einzelpost zu mischen."""
+    pro Einzelpost zu mischen. draft=True landet als echter Buffer-Entwurf
+    (nie automatisch veröffentlicht) - für Testläufe/Review vor dem ersten
+    echten Einsatz eines neuen Themas/einer neuen Variante."""
     result = carousel_service.generate_carousel(
-        hook=hook, branche=branche or "Alle", saeule=saeule, due_at=due_at, variante=variante
+        hook=hook, branche=branche or "Alle", saeule=saeule, due_at=due_at, variante=variante, draft=draft
     )
     if result.get("ok"):
         _save_carousel_record(hook, branche or "Alle", result, source_post_id=source_post_id)
