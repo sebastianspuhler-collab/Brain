@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-11 07:27] [Prozessia x ESF] Neue Kontaktperson: Lukas Grünbeck von East Side Fab e.V. (l.gruenbeck@eastsidefab.de)
 - [2026-08-11 06:37] [2026-08-11-Email-19fef82c-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Marvin Wiegner (Konstruktion Schaufler) hat CAD-Schulung diese Woche 8:30-17:00 Uhr - Terminslots nur vor/nach Schulungszeit verfügbar
 - [2026-08-11 06:32] [AW: Ergebnisse Testreihe Stücklistenproj] Stücklistenprojekt - Lastenheft vom 6. Aug 2026
 - [2026-08-10 09:36] [2026-08-10-Email-19feaf7a-Schaufler-Beschaffungsagent--128455.md] Abweichung wurde in Ausschreibung/Bestellung (AB) identifiziert und vom Lieferanten mit 150€ bestätigt
@@ -814,6 +815,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-11 07:27] [E-Mail-Erstkontakt] East Side Fab e.V. - Mail 'Prozessia x ESF' von "Lukas Grünbeck - East Side Fab e.V." <l.gruenbeck@eastsidefab.de> am Tue, 11 Aug 2026 07:24:45 +0000
 - [2026-08-11 06:37] [2026-08-11-Email-19fef82c-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Schaufler, Kontakt: Marvin Wiegner, Konstruktion/Design, +49 7333 9608 33, marvin.wiegner@schaufler.de
 - [2026-08-11 06:36] [Kennenlernen Prozessia x ESF] Ansprechpartner: Lukas Grünbeck (Innovation & Projects, East Side Fab e.V., l.gruenbeck@eastsidefab.de, +49 681 84491731)
 - [2026-08-11 06:32] [AW: Ergebnisse Testreihe Stücklistenproj] Marvin Wiegner (schaufler.de, Konstruktion/Design Office), marvin.wiegner@schaufler.de, +49 7333 9608 33
@@ -1135,6 +1137,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-11 07:27] [Prozessia x ESF] Erstes Kennenlernen mit East Side Fab e.V. über Microsoft Teams vereinbart
 - [2026-08-11 06:36] [Kennenlernen Prozessia x ESF] Sebastian soll vor dem Termin sein Anliegen mitteilen (Innovationsprojekt, Kennenlernen, etc.) zur Vorbereitung
 - [2026-08-11 06:36] [Kennenlernen Prozessia x ESF] Neuer Termin vorgeschlagen: Donnerstag, 13.08.2026 zwischen 10:00 und 15:00 Uhr
 - [2026-08-11 06:32] [AW: Ergebnisse Testreihe Stücklistenproj] Verfügbarkeit Marvin Wiegner: CAD-Schulung diese Woche 8:30-17:00 Uhr, Termin vor oder danach möglich
