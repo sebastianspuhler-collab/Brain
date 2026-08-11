@@ -148,7 +148,8 @@ TOOLS = [
     {
         "name": "create_gmail_draft",
         "description": (
-            "Legt einen Gmail-Entwurf direkt im Postfach an (nicht senden). "
+            "Legt einen Gmail-Entwurf direkt im Postfach an (nicht senden). Übernimmt automatisch "
+            "Sebastians echte Gmail-Signatur - selbst KEINE Signatur/Grußformel in body schreiben. "
             "Der gmail.compose-Scope ist vorhanden - niemals 'kein Schreibzugriff' behaupten, "
             "sondern dieses Tool nutzen. Fehlt eine E-Mail-Adresse, vorher search_emails oder "
             "search_meetings nutzen, um sie im Vault zu finden, statt den Nutzer zu fragen."

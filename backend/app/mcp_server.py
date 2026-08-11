@@ -86,6 +86,21 @@ def download_attachment(message_id: str) -> dict:
         return {"ok": False, "error": str(e)}
 
 
+@mcp.tool(description=(
+    "Legt einen Gmail-Entwurf direkt im Postfach an (nicht senden). Übernimmt automatisch "
+    "Sebastians echte Gmail-Signatur. Niemals 'kein Schreibzugriff' behaupten - dieses Tool nutzen. "
+    "Fehlt eine E-Mail-Adresse, vorher search_emails nutzen, um sie im Vault zu finden."
+))
+def create_gmail_draft(to: str, subject: str, body: str, cc: str = "") -> dict:
+    if not gmail_client.is_authenticated():
+        return {"ok": False, "error": "Gmail nicht verbunden"}
+    try:
+        result = gmail_client.create_draft(to, subject, body, cc=cc or None)
+        return {"ok": True, **result}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+
 @mcp.tool(description="Pusht die neueste generierte beitraege-*.json (LinkedIn-Posts) sofort nach Buffer, für beide Kanäle (Sebastian + Prozessia).")
 def push_to_buffer() -> dict:
     return linkedin_service.push_latest_to_buffer()
