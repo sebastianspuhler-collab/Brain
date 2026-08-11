@@ -1,0 +1,19 @@
+{
+  "id": "3fda1ac9-0954-4800-83ca-75cd62a26517",
+  "title": "Wann ist der Termin mit marvin woegner",
+  "model": "claude-sonnet-5",
+  "created_at": "2026-08-11T21:11:12.434464+00:00",
+  "updated_at": "2026-08-11T21:11:47.534278+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Wann ist der Termin mit marvin woegner",
+      "attachments": null
+    },
+    {
+      "role": "assistant",
+      "content": "Der Termin ist auf **morgen, Mittwoch 12.08.2026 um 17:00 Uhr** (\"Rückfragen Lastenheft\", Teams-Meeting) – steht so in deinem Kalender, und Marvin hat um 12:19 Uhr heute mit \"Zugesagt: Rückfragen Lastenheft\" bestätigt.\n\nZur Einordnung: Aus seiner Mail von 11:48 Uhr ging hervor, dass er heute, morgen oder Donnerstag 17 Uhr könnte (Freitag fiel wegen einer privaten Verpflichtung raus) – du habt euch offenbar auf morgen 17 Uhr geeinigt, das ist jetzt fix im Kalender und von ihm zugesagt.\n\nPasst inhaltlich zur offenen Aufgabe \"Termin mit Schaufler wegen Stücklistenprojekt vereinbaren\" aus deiner Wochenliste – die kannst du damit als erledigt markieren, soll ich das in context.md abhaken?"
+    }
+  ],
+  "agent_id": null
+}
