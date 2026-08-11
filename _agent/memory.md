@@ -1,4 +1,21 @@
 ## KONTEXT
+- [2026-08-11 17:47] [2026-06-09-prozessia_Beschaffungsagent_Marketing.md] Kernmodule des Agenten: Ampellogik, Lieferanten-Scoring, Echtzeit-Bestellstatus, ERP-Integration, Datenschutz
+- [2026-08-11 17:46] [2026-06-09-Vertriebsvereinbarung_Segschneider (1).md] Vereinbarung betrifft Prozessia KI-Produkte (Prozessia Agent) und Automatisierungslösungen
+- [2026-08-11 17:46] [2026-06-09-Vertriebsvereinbarung_HOS_Elias_Haghverdi-1.md] Vereinbarungsdatum: 2026-06-09
+- [2026-08-11 17:45] [2026-06-09-Vertriebsvereinbarung_Adrian_Mueller (1).md] Vertragsdatum: 2026-06-09; Prozessia-Adresse: Campus Starterzentrum Gebäude A1 1, 66123 Saarbrücken
+- [2026-08-11 17:44] [2026-06-09-Prozessia-Voice-Agents (1).md] Funktionalität: Verarbeitet eingehende und ausgehende Anrufe selbstständig mit KI-gesteuerten Rückfragen
+- [2026-08-11 17:44] [2026-06-09-Prozessia-Voice-Agents (1).md] Kostenmodell: Einmalige Setup-Kosten 1.000–2.000 €, Laufzeitpreis 0,15 € pro Minute
+- [2026-08-11 17:44] [2026-06-09-Prozessia-Voice-Agents (1).md] Prozessia Voice Agent: Telefonbasierter KI-Assistent für Anrufannahme, Qualifizierung, Routing und Terminmanagement
+- [2026-08-11 17:44] [2026-06-09-Prozessia-KI-Losungen-fur-moderne-Unternehmen (1).md] Standort: Universität des Saarlandes – Schwerpunkt auf Innovation und höchste Qualitätsstandards
+- [2026-08-11 17:44] [2026-06-09-Prozessia-Informationen-fur-Vertriebspartner (1).md] Prozessia-Fokus: Effizienzsteigerung, zentrale Wissensbündelung und Entlastung von Teams in operativen Prozessen
+- [2026-08-11 17:44] [2026-06-09-Prozessia-Agent-Funktions-und-Datenschutzubersicht (1).md] Einsatzgebiet: Unterstützung von Mitarbeitenden bei Arbeitsprozessen durch schnellen Zugriff auf interne Unternehmensdokumente
+- [2026-08-11 17:43] [2026-06-25-Prozessia Karrieresystem.md] Regelwerk Stand Juni 2026: Leadership-Pfad fokussiert auf Teamaufbau, Verkäufer-Pfad auf persönliche Verkaufsleistung
+- [2026-08-11 17:43] [2026-06-09-Preismodell - Basismodell.md] Dokumentversion: 2026-06-09, Basismodell als Präsentationsunterlage für Handelsvertreter
+- [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
+- [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
+- [2026-08-11 17:42] [2026-06-09-Copy of fonio Public Partner Angebotsvorlage.md] Kontakt für Endkunden-Demo: +43 720 224117
+- [2026-08-11 17:42] [2026-06-09-Copy of fonio Public Partner Angebotsvorlage.md] Partner-Referral-Option in Angebotsvorlage integriert
+- [2026-08-11 17:42] [2026-06-09-Copy of fonio Public Partner Angebotsvorlage.md] Preismodell besteht aus Setup-Gebühr, Pay-per-Use-Abrechnung und Wartungsgebühr
 - [2026-08-11 17:41] [2026-06-09-Seriendruck2_Seriendruck_FINAL.md] Kampagnendatum: 2026-06-09; Quelle: Seriendruck2_Seriendruck_FINAL.xlsx
 - [2026-08-11 17:41] [2026-06-09-Listen.md] Kontaktdaten vorhanden: z.B. Hedin Automotive Saarland GmbH (+49 681 93587702); einige Handler als Vertragshändler klassifiziert (Audi Zentrum, Stellantis &You)
 - [2026-08-11 17:41] [2026-06-09-Listen.md] Zielmarkt: Autohändler im Raum Saarbrücken; Zielprodukt: Voice-Agent-Lösungen
@@ -852,6 +869,13 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-11 17:44] [2026-06-09-Prozessia-Voice-Agents (1).md] Zielgruppe: Handelsvertreter als Vertriebsunterlage; Anwendungsfall: Professionelle Anrufbearbeitung für Teams
+- [2026-08-11 17:44] [2026-06-09-Prozessia-KI-Losungen-fur-moderne-Unternehmen (1).md] Adressierte Probleme: ineffiziente Prozesse, Herausforderungen bei der Digitalisierung
+- [2026-08-11 17:44] [2026-06-09-Prozessia-KI-Losungen-fur-moderne-Unternehmen (1).md] Zielmarkt: kleine und mittelständische Unternehmen (KMU)
+- [2026-08-11 17:44] [2026-06-09-Prozessia-Informationen-fur-Vertriebspartner (1).md] Zwei Produktlinien: Prozessia Agent (KI für interne Prozesse/Dokumentenmanagement) und Voice Agents (Telefon-KI für externe Kommunikation)
+- [2026-08-11 17:43] [2026-06-09-Preismodell - Basismodell.md] Zielgruppe: Anwaltskanzleien
+- [2026-08-11 17:42] [2026-06-09-werbe_final.md] Astrid Saminejad (Lovemark PR) - astrid@lovemark-pr.com - Marketing & Advertising - Zielgruppe für KI-Agent
+- [2026-08-11 17:42] [2026-06-09-werbe_final.md] Marko Tadic (Mr.M) - tadic.marko@mrm-style.com - Marketing & Advertising - Zielgruppe für KI-Agent
 - [2026-08-11 17:41] [2026-06-09-Seriendruck_KOMPLETT_FINAL (1).md] Kontakt Dennis Richter (Siebenwurst Werkzeugbau GmbH, 03758143173) als erreichbar qualifiziert
 - [2026-08-11 17:41] [2026-06-09-Seriendruck_KOMPLETT_FINAL (1).md] Kontaktliste mit ca. 32 Unternehmen aus Werkzeugbau, Stanztechnik und Kunststofftechnik mit Ansprechpartnern, Adressen und Telefonnummern
 - [2026-08-11 17:41] [2026-06-09-Seriendruck2_Seriendruck_FINAL.md] Alle Kontakte sind potenzielle Neukunden ohne Überschneidung mit Bestandskunden
@@ -1197,6 +1221,33 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-11 17:47] [2026-06-09-prozessia_Beschaffungsagent_Marketing.md] Erkannte Probleme: Lieferverzögerungen, hoher Dokumentenaufwand, fehlende Lieferanten-KPIs und Transparenz
+- [2026-08-11 17:47] [2026-06-09-prozessia_Beschaffungsagent_Marketing.md] Status Quo: Einkäufer verbringen bis zu 60% ihrer Zeit mit manueller Verfolgung per Telefon & E-Mail
+- [2026-08-11 17:46] [2026-06-09-Vertriebsvereinbarung_Segschneider (1).md] Vertriebspartner vermittelt qualifizierte Leads, darf aber KEINE Verträge im Namen von Prozessia abschließen
+- [2026-08-11 17:46] [2026-06-09-Vertriebsvereinbarung_Segschneider.md] Prozessia-Leistung: Prozessia Agent (KI-Lösung)
+- [2026-08-11 17:46] [2026-06-09-Vertriebsvereinbarung_Segschneider.md] Aufgaben des Vertriebspartners: Lead-Generierung, Erstkontakt mit Kunden, Übergabe qualifizierter Kontakte an Prozessia
+- [2026-08-11 17:46] [2026-06-25-Vertriebsvereinbarung_Geginat (1).md] Vertriebspartner hat keine Abschlussvollmacht
+- [2026-08-11 17:46] [2026-06-25-Vertriebsvereinbarung_Geginat (1).md] Vergütung provisionsbasiert auf qualifizierten, weitergeleiteten Leads
+- [2026-08-11 17:45] [2026-06-09-Vertriebsvereinbarung_Geginat .md] Vertriebspartner Geginat: Selbstständig tätig, qualifiziert potenzielle Kunden und vermittelt Leads an Prozessia
+- [2026-08-11 17:45] [2026-06-09-Prozessia_Voice_Agents_Produktbeschreibung_LANG_FINAL_CLEAN.md] Kernfunktionalität: KI-Telefonassistenten für Anrufbearbeitung, strukturierte Erfassung, intelligentes Routing und Prozessstandardisierung
+- [2026-08-11 17:44] [2026-06-09-Prozessia_Agent_Produktbeschreibung_LANG_FINAL.md] Kernfunktionen: Recherche, Wissensabfrage (RAG), Formulierungshilfe, Texterstellung
+- [2026-08-11 17:44] [2026-06-09-Prozessia-Voice-Agents (1).md] Kernfunktionen: Anrufannahme mit Qualifizierung, Dokumentation, strukturierte Weiterleitung, Rückruflisten-Erstellung, automatische SMS Follow-ups (Terminbestätigungen, Links, Anforderungen)
+- [2026-08-11 17:44] [2026-06-09-Prozessia-KI-Losungen-fur-moderne-Unternehmen (1).md] Kernkompetenzen: Automatisierung von Geschäftsprozessen, intelligente KI-Assistenten, Telefon-KI-Systeme
+- [2026-08-11 17:44] [2026-06-09-Prozessia-Informationen-fur-Vertriebspartner (1).md] Zielgruppe ist frei wählbar durch den Vertriebspartner
+- [2026-08-11 17:43] [2026-06-25-Prozessia Karrieresystem.md] Override-Regelung: (Rang-% übergeordneter Partner − Rang-% direkter Partner) × Umsatz direkter Partner, max. 10% pro direktem Partner
+- [2026-08-11 17:43] [2026-06-25-Prozessia Karrieresystem.md] Verkäufer-Pfad Volumen-Boni: +3% ab 80.000€, weitere +4% ab 180.000€ (insgesamt +7%)
+- [2026-08-11 17:43] [2026-06-25-Prozessia Karrieresystem.md] Ab 80.000€ Eigenvolumen: Partner wählt zwischen Verkäufer-Pfad oder Leadership-Pfad (gegenseitig ausschließlich)
+- [2026-08-11 17:43] [2026-06-09-Preismodell - Basismodell.md] Leistungen: DSGVO-konformer RAG-Agent, persönliche Mitarbeiter-Bots, bis zu 5 spezialisierte KI-Modelle (Steuerrecht, Kommunikation, Schriftsatz, Recherche, Mandanten-Kommunikation)
+- [2026-08-11 17:43] [2026-06-09-Preismodell - Basismodell.md] Monatliche Retainer-Kosten: 250–1.000 € + variable Nutzungskosten (Azure OpenAI, VPS-Server)
+- [2026-08-11 17:43] [2026-06-09-Preismodell - Basismodell.md] Preismodell Stufe A - Setup-Gebühren: 3.000–9.000 € einmalig
+- [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (2).md] Vertrag regelt Aufgaben, Stellung und Pflichten des Kooperationspartners für Vertriebsunterstützung und Kundenkontakt-Vermittlung
+- [2026-08-11 17:42] [2026-06-09-Copy of fonio Public Partner Angebotsvorlage.md] Leistungsumfang: Setup, Konfiguration, Anpassungen, Testphase und laufende Partner-Betreuung
+- [2026-08-11 17:42] [2026-06-09-werbe_final.md] Lösungspositionierung: KI-Agent zur Entlastung bei Reporting und permanenten Status-Updates
+- [2026-08-11 17:42] [2026-06-09-werbe_final.md] Identifizierte Schmerzpunkte: Reporting, Koordination, Status-Updates, enge Abstimmungen erforderlich
+- [2026-08-11 17:42] [2026-06-09-Untitled document.md] Kernregel: AUSSCHLIESSLICH Formulierungen verwenden, die im Kontext exakt vorkommen oder eindeutig daraus ableitbar sind – KEINE erfundenen Programme, Methoden oder Claims
+- [2026-08-11 17:42] [2026-06-09-Untitled document.md] Kontext-Validierungslogik: Fall A = verwertbarer Kontext (echte Aussagen zu Haltung, Anspruch, Wirkung, Führung, Teams, Kunden, Programme, Methoden)
+- [2026-08-11 17:42] [2026-06-09-Untitled document.md] Eingabedaten: Email, Branche, Organisationsname, Website-URL, Vorname, Nachname, LinkedIn-URL des Leads
+- [2026-08-11 17:42] [2026-06-09-Untitled document.md] n8n-Workflow-Template für personalisierten KI-gestützten Icebreaker-Generator zur automatisierten Kaltakquise mit deutscher Ausgabe
 - [2026-08-11 17:41] [2026-06-09-Seriendruck_KOMPLETT_FINAL (1).md] Cold-Call-Kampagne mit Vertriebsstatus: 'will Präsi' (POLAR-FORM, Wiesmayer), 'termin' (Klaus Baier GmbH), 'nochmal anrufen' (SCHROEDER+BAUER), 'ja' (Siebenwurst), 'nein' (Kölle, Sixt)
 - [2026-08-11 17:41] [2026-06-09-Listen.md] Datenquellen für Liste: Mobile.de, AutoScout24, Websites, Telefon-Recherche
 - [2026-08-11 17:41] [2026-06-09-Listen.md] Akquiseliste mit 26 Autohändlern in Saarbrücken für Cold-Call-Kampagnen zu Voice-Agent-Lösungen kompiliert (Datum: 2026-06-09)
@@ -2103,6 +2154,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-11 17:46] [2026-06-09-Vertriebsvereinbarung_Geginat.md] Vertriebspartner-Name (Geginat) noch nicht namentlich in den Vertrag eingetragen – ausstehend
 - [2026-08-11 17:39] [STRATEGIE.md] Positionierung: Prozessias Kernargument ist klare Fertigungs-Nische – nicht verwässern mit generischem Mittelstand-Ansatz wie Konkurrenten
 - [2026-08-11 17:37] [2026-07-24-Angebot_endin_überarbeitet.md] Angebotsgültigkeit endet 24.08.2026 – Entscheidung erforderlich
 - [2026-08-11 17:35] [2026-06-09-klageschrift_entwurf_arbeitsrecht.md] Klageschrift-Entwurf befindet sich im internen Abstimmungsstadium und muss vor Einreichung geprüft werden
