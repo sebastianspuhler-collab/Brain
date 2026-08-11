@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-11 12:00] [2026-08-11-Email-19ff0a71-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Verfügbare Termine mit Marvin Wiegner (Schaufler): 11.08., 12.08. oder 14.08. jeweils um 17:00 Uhr
 - [2026-08-11 08:52] Bug in backend/app/services/classify.py: docx-Extraktion liest nur doc.paragraphs, wodurch Notta-Transkripte (die z.B. Tabellen nutzen) nicht vollständig/korrekt extrahiert werden - Ursache für Klassifizierungsfehler.
 - [2026-08-11 08:25] [2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md] Projektbezeichnung: Prozessia x ESF
 - [2026-08-11 08:24] [2026-08-11-East-Side-Fab-eV.md] Status: Noch kein Gespräch/Dokument vorhanden - reine E-Mail-Anfrage
@@ -1147,6 +1148,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-11 12:00] [2026-08-11-Email-19ff0a71-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Stücklistenprojekt: Besprechung der Testreihen-Ergebnisse erforderlich
 - [2026-08-11 11:52] [AW: Ergebnisse Testreihe Stücklistenproj] Verfügbare Terminoptionen: 11.08.2026 (Dienstag), 12.08.2026 (Mittwoch) oder 14.08.2026 (Donnerstag), jeweils 17:00 Uhr
 - [2026-08-11 11:50] [2026-08-11-Prozessia X TopDown.md] Monatsabschluss: Alle Belege + Kontoauszüge werden gebündelt an Steuerberater versendet; kein eigenes Buchhaltungsprogramm im Einsatz
 - [2026-08-11 11:50] [2026-08-11-Prozessia X TopDown.md] Aktueller Eingangsrechnungsprozess: E-Mail → manuelle Erfassung in GlobeManager → Ausdruck → physische Freigaberunde (Projektleiter) → Zahlung → Steuerablage
