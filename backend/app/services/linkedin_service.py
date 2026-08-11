@@ -704,17 +704,17 @@ def set_direction(prompt: str) -> dict:
 
 
 def _next_posting_slot(after: datetime | None = None) -> str:
-    """Nächster erlaubter Slot: Dienstag–Donnerstag, 07:00 oder 12:00 Uhr (Berlin)."""
+    """Nächster erlaubter Slot: Dienstag ODER Donnerstag, 09:30 Uhr Berlin
+    (Strategie §5 - verbindlich, war vorher fälschlich Di/Mi/Do 07:00 oder
+    12:00). Identische Logik zu carousel_service._next_carousel_slot(), hier
+    mit `after` erweitert: ein Post-Batch bekommt so fortlaufend verschiedene
+    Slots statt mehrere Posts auf denselben Tag/dieselbe Uhrzeit zu legen."""
     now = after or datetime.now()
-    candidate = (now + timedelta(hours=2)).replace(minute=0, second=0, microsecond=0)
-    for _ in range(42):
-        if candidate.weekday() in (1, 2, 3):
-            for hour in (7, 12):
-                slot = candidate.replace(hour=hour, minute=0)
-                if slot > now + timedelta(hours=2):
-                    return slot.strftime("%Y-%m-%dT%H:00:00+02:00")
-        candidate = (candidate + timedelta(days=1)).replace(hour=0)
-    return (now + timedelta(days=2)).strftime("%Y-%m-%dT07:00:00+02:00")
+    for d in range(1, 15):
+        candidate = (now + timedelta(days=d)).replace(hour=9, minute=30, second=0, microsecond=0)
+        if candidate.weekday() in (1, 3):  # Dienstag=1, Donnerstag=3
+            return candidate.strftime("%Y-%m-%dT%H:%M:%S+02:00")
+    return (now + timedelta(days=14)).strftime("%Y-%m-%dT09:30:00+02:00")
 
 
 _GENERATE_IDEAS_TOOL = {
@@ -981,7 +981,7 @@ Antworte NUR mit einem JSON-Objekt in genau diesem Format, kein Markdown, keine 
         last_slot = None
         for p in posts:
             slot = _next_posting_slot(after=last_slot)
-            last_slot = datetime.fromisoformat(slot.replace("+02:00", "")) + timedelta(hours=1)
+            last_slot = datetime.fromisoformat(slot.replace("+02:00", ""))
             post_id = uuid.uuid4().hex[:8]
             p["id"] = post_id
             stored_posts.append({

@@ -56,7 +56,7 @@ Kanäle: Sebastian (6a25d2578f1d11f9b260c5ee) | Prozessia (6a25d2578f1d11f9b260c
 - "Post löschen [id]" → python3 _agent/buffer_manager.py delete <post_id>
 - "Post bearbeiten [id]" → python3 _agent/buffer_manager.py edit <post_id> "<text>" "<datum>"
 - Posts generieren → lies Marketing/LinkedIn/ideen-*.json, schreib beitraege-DATUM.json, dann push
-- Posting-Rhythmus: Dienstag + Freitag, 09:30 Uhr Berlin
+- Posting-Rhythmus: Dienstag + Donnerstag, 09:30 Uhr Berlin (siehe Marketing/LinkedIn/STRATEGIE.md §5)
 - Immer beide Kanäle bespielen (Sebastian + Prozessia)
 - KEIN [SCHEDULE_BUFFER] Signal mehr verwenden — immer direkt python3 _agent/buffer_manager.py push aufrufen
 
