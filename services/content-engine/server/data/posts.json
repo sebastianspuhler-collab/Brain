@@ -1,0 +1,71 @@
+[
+  {
+    "id": "f16a4566-2be9-45c2-9056-cbf9028ca04b",
+    "hook": "Wenn der einzige Experte für eine Maschine in Rente geht",
+    "format": "KARUSSELL",
+    "branche": "Allgemein",
+    "saeule": "Wissensmanagement",
+    "slides": [
+      {
+        "nummer": 1,
+        "typ": "hook",
+        "titel": "Der letzte, der die Maschine versteht",
+        "untertitel": "In sechs Monaten geht er in Rente. Das Wissen geht mit.",
+        "text": "",
+        "bild": null
+      },
+      {
+        "nummer": 2,
+        "typ": "problem",
+        "titel": "So läuft es heute",
+        "untertitel": "",
+        "text": "Ein Werkzeugmacher kennt die Macke der alten Erodiermaschine seit 20 Jahren.\n\nWelche Einstellung bei welchem Material. Wann sie klemmt. Wie man sie umgeht.\n\nSteht nirgends. Nie aufgeschrieben. Nur im Kopf.",
+        "bild": null
+      },
+      {
+        "nummer": 3,
+        "typ": "zahlen",
+        "titel": "Die Zahlen dahinter",
+        "untertitel": "Was Wissensverlust wirklich bedeutet",
+        "text": "In Betrieben mit 20-80 Mitarbeitenden verlassen jedes Jahr im Schnitt **2-3 Mitarbeitende** mit über 15 Jahren Betriebszugehörigkeit das Unternehmen.\n\nEinarbeitung eines Nachfolgers auf vergleichbares Niveau: oft über 12 Monate.",
+        "bild": null
+      },
+      {
+        "nummer": 4,
+        "typ": "vertiefung",
+        "titel": "Warum es niemand aufschreibt",
+        "untertitel": "",
+        "text": "Nicht aus Sturheit. Aus Zeitmangel.\n\nWer den Auftrag heute fertigen muss, dokumentiert nicht nebenbei ein Handbuch.\n\nWissen bleibt mündlich, weil Schreiben immer die zweite Priorität ist. Bis es zu spät ist.",
+        "bild": null
+      },
+      {
+        "nummer": 5,
+        "typ": "vertiefung",
+        "titel": "Was der Verlust wirklich kostet",
+        "untertitel": "",
+        "text": "Nicht nur Einarbeitungszeit.\n\nFehlerhafte Losgrößen, falsche Toleranzen, Ausschuss – weil der Nachfolger die stillen Regeln nicht kennt.\n\nWir sehen das bei fast jedem Kunden: Das teuerste Wissen ist das, das nie gefragt wurde.",
+        "bild": null
+      },
+      {
+        "nummer": 6,
+        "typ": "vertiefung",
+        "titel": "Was heute anders geht",
+        "untertitel": "",
+        "text": "Ein firmeneigener KI-Chatbot sammelt, was in Köpfen, E-Mails und alten Notizen steckt.\n\nFragt man ihn nach der Erodiermaschine, antwortet er mit dem Wissen, das sonst nur eine Person hatte.\n\nDSGVO-konform, in Deutschland gehostet.",
+        "bild": null
+      },
+      {
+        "nummer": 7,
+        "typ": "cta",
+        "titel": "Fangen Sie heute an",
+        "untertitel": "",
+        "text": "Fragen Sie diese Woche: Wer bei uns geht in den nächsten drei Jahren in Rente?\n\nSchreiben Sie danach auf, was diese Person kann, was sonst niemand kann.\n\nDas ist der erste Schritt.",
+        "bild": null
+      }
+    ],
+    "caption": "Wer in Ihrem Betrieb weiß eigentlich, warum die alte Erodiermaschine bei bestimmten Materialien klemmt – und wie man das umgeht?\n\nOft nur eine Person. Meist die, die am längsten dabei ist.\n\nIn Betrieben mit 20-80 Mitarbeitenden verlassen jährlich im Schnitt 2-3 Mitarbeitende mit über 15 Jahren Betriebszugehörigkeit das Unternehmen. Die Einarbeitung eines Nachfolgers auf vergleichbares Niveau dauert oft über 12 Monate.\n\n**Ergebnis: Wissen, das nie aufgeschrieben wurde, ist beim nächsten Renteneintritt weg – nicht schrittweise, sondern sofort.**\n\nEin ERP-System wie proALPHA oder Abas verwaltet Stücklisten und Aufträge. Es speichert aber nicht, warum ein Werkzeugmacher eine Maschine auf eine bestimmte Art bedient.\n\nGenau diese Lücke sehen wir bei fast jedem Kunden: Prozesswissen steckt in Köpfen, nicht in Systemen. Ein firmeneigener, DSGVO-konformer KI-Chatbot macht dieses Wissen abrufbar, bevor es geht.\n\nWelche Maschine oder welchen Prozess in Ihrem Betrieb versteht wirklich nur eine einzige Person?\n\n#Wissensmanagement #Mittelstand #Werkzeugbau #KI #Fachkräftemangel",
+    "status": "Entwurf",
+    "erstelltAm": "2026-08-11T14:49:18.266Z",
+    "aktualisiertAm": "2026-08-11T14:49:18.266Z"
+  }
+]
