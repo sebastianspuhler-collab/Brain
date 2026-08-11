@@ -3,7 +3,7 @@
   "title": "nanalyisre das transkript",
   "model": "claude-sonnet-5",
   "created_at": "2026-08-11T08:24:35.344943+00:00",
-  "updated_at": "2026-08-11T08:28:13.499891+00:00",
+  "updated_at": "2026-08-11T08:34:03.281900+00:00",
   "messages": [
     {
       "role": "user",
@@ -27,7 +27,23 @@
     },
     {
       "role": "assistant",
-      "content": "Kurz gesagt: Nein, \"Job Manager\" ist mir nicht als etabliertes ERP-Markenprodukt bekannt – und das ist genau der Haken an der Sache, nicht nur meine Wissenslücke.\n\nIch hab gerade gezielt nachrecherchiert (Auftragsverwaltung/Job-Shop-ERP für Automotive-Zulieferer, deutsche und internationale Anbieter): Die bekannten Systeme in dem Marktsegment heißen anders – COBUS ConCept, ORDAT, FEPA/PLANAT, Kieselstein ERP, international Global Shop Solutions, JobBOSS, E2 Shop Tech, Jobscope. Keines davon läuft unter dem Namen \"Job Manager\". Das spricht dafür, dass es entweder ein sehr kleiner/regionaler Anbieter ist, eine Individualentwicklung bei TopDown, oder – und das ist der eigentliche Punkt – dass der Name im Transkript schlicht falsch erfasst wurde. In deiner eigenen Meeting-Notiz (Leads/TopDown-Korrespondenz/Meetings/2026-08-11-Prozessia X TopDown.md, Zeile 17) steht ja bereits dein/Amins Hinweis: \"im Transkript als 'Globe Manager' transkribiert, vermutlich Fehlhörung\". Auch \"Globe Manager\" liefert keinen Treffer bei mir.\n\nZum Vergleich: Bei Endin (Cyril Dietz, 30.06.) wusstet ihr wenigstens die Ausgangsbasis (\"Buhl Unternehmer 365 auf microtech-Basis mit GraphQL-API\") – bei TopDown habt ihr aktuell nicht mal einen sicheren Produktnamen. Bevor du oder ich hier weiter in eine Richtung recherchieren, würde ich das nicht raten, sondern Dominik in der Zusammenfassungsmail (die ohnehin noch aussteht, siehe meine Analyse eben) direkt nach dem exakten ERP-Namen und ob es dazu eine dokumentierte API/Schnittstelle gibt fragen – sonst verbrennst du Zeit auf Basis eines möglicherweise falschen Namens, und die technische Machbarkeit der Anbindung ist ja ohnehin der offene Punkt aus dem Transkript.\n\nSoll ich dir direkt einen Entwurf für diese Zusammenfassungs-/Nachfassmail an Dominik schreiben – inkl. der Frage nach ERP-Name, Schnittstelle und Mitarbeiterzahl, die im Transkript ja auch abgebrochen ist?"
+      "content": "Kurz gesagt: Nein, \"Job Manager\" ist mir nicht als etabliertes ERP-Markenprodukt bekannt – und das ist genau der Haken an der Sache, nicht nur meine Wissenslücke.\n\nIch hab gerade gezielt nachrecherchiert (Auftragsverwaltung/Job-Shop-ERP für Automotive-Zulieferer, deutsche und internationale Anbieter): Die bekannten Systeme in dem Marktsegment heißen anders – COBUS ConCept, ORDAT, FEPA/PLANAT, Kieselstein ERP, international Global Shop Solutions, JobBOSS, E2 Shop Tech, Jobscope. Keines davon läuft unter dem Namen \"Job Manager\". Das spricht dafür, dass es entweder ein sehr kleiner/regionaler Anbieter ist, eine Individualentwicklung bei TopDown, oder – und das ist der eigentliche Punkt – dass der Name im Transkript schlicht falsch erfasst wurde. In deiner eigenen Meeting-Notiz (Leads/TopDown-Korrespondenz/Meetings/2026-08-11-Prozessia X TopDown.md, Zeile 17) steht ja bereits dein/Amins Hinweis: \"im Transkript als 'Globe Manager' transkribiert, vermutlich Fehlhörung\". Auch \"Globe Manager\" liefert keinen Treffer bei mir.\n\nZum Vergleich: Bei Endin (Cyril Dietz, 30.06.) wusstet ihr wenigstens die Ausgangsbasis (\"Buhl Unternehmer 365 auf microtech-Basis mit GraphQL-API\") – bei TopDown habt ihr aktuell nicht mal einen sicheren Produktnamen. Bevor du oder ich hier weiter in eine Richtung recherchieren, würde ich das nicht raten, sondern Dominik in der Zusammenfassungsmail (die ohnehin noch aussteht, siehe meine Analyse eben) direkt nach dem exakten ERP-Namen und ob es dazu eine dokumentierte API/Schnittstelle gibt fragen – sonst verbrennst du Zeit auf Basis eines möglicherweise falschen Namens, und die technische Machbarkeit der Anbindung ist ja ohnehin der offene Punkt aus dem Transkript.\n\nSoll ich dir direkt einen Entwurf für diese Zusammenfassungs-/Nachfassmail an Dominik schreiben – inkl. der Frage nach ERP-Name, Schnittstelle und Mitarbeiterzahl, die im Transkript ja auch abgebrochen ist?",
+      "attachments": null
+    },
+    {
+      "role": "user",
+      "content": "okay, das wude flasch trankribiert, das ERp-System heißt globemanager oder so, mal mir den prozess bitte mal auf",
+      "attachments": null
+    },
+    {
+      "role": "assistant",
+      "content": "Notiert: das ERP heißt **GlobeManager**, nicht \"Job Manager\" – hab die Meeting-Notiz entsprechend korrigiert. Danke fürs Klarstellen, damit ist die vorherige Fehlspur (falsche Herstellersuche) vom Tisch.\n\nDen Prozess hab ich direkt als Flowchart in die Meeting-Notiz (Leads/TopDown-Korrespondenz/Meetings/2026-08-11-Prozessia X TopDown.md) eingebaut, Mermaid-Diagramm plus Kurzerklärung. Ablauf in Kurzform:\n\nE-Mail-Eingang (invoice@topdown.com) → Agent klassifiziert (ist das überhaupt eine Rechnung?) → formale Prüfung (Betrag, Bestellbezug, Wareneingangsabgleich) → bei Abweichung Eskalation an Projektleiter, sonst direkt weiter → Freigabe Ja/Nein (ersetzt die heutige Zettel-Runde) → bei Ja automatische Übertragung ins GlobeManager via Schnittstelle → Zahlung ausgelöst → optional automatisierte Übergabe an Steuerberater/DATEV → Ablage.\n\nDas ist strukturell exakt euer Beschaffungsagent-Schema bei Schaufler (AB → Abgleich → Eskalation → ERP-Buchung), nur mit Eingangsrechnung statt Auftragsbestätigung als Trigger – lässt sich also vermutlich zu großen Teilen aus dem bestehenden Code wiederverwenden, nicht bei null anfangen.\n\nEin Punkt bleibt offen und den löst das Diagramm nicht: Ob GlobeManager überhaupt eine dokumentierte Schnittstelle/API für den automatischen Schreibzugriff (Schritt \"Automatische Übertragung\") hergibt, wisst ihr laut Transkript noch nicht – das ist der technische Knackpunkt vor jedem Angebot. Lohnt sich, das zusammen mit der noch offenen Zusammenfassungsmail an Dominik zu klären, sonst steht das Diagramm auf einer ungeprüften Annahme.",
+      "attachments": null
+    },
+    {
+      "role": "user",
+      "content": "ja, aber es ging doch am anfang des prozesses  um einkategorierung, ob es eine eareningangsrechnung ist, was wurde dazu gesgat?",
+      "attachments": null
     }
   ],
   "agent_id": null

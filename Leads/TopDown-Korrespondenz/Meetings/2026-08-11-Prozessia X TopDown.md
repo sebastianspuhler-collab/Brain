@@ -14,7 +14,7 @@ quelle: Transkript "Prozessia X TopDown" (38 Min., 07:32 Uhr), Teilnehmer Sebast
 
 ## Ausgangslage: Eingangsrechnungsprozess ("Steinzeit" laut Geschäftsführer)
 - Rechnungen kommen klassisch per E-Mail ins Postfach
-- Manuelle Erfassung im ERP-System **Job Manager** (im Transkript als "Globe Manager" transkribiert, vermutlich Fehlhörung)
+- Manuelle Erfassung im ERP-System **GlobeManager** (Korrektur Sebastian 11.08.: ursprünglich als "Job Manager"/"Globe Manager" transkribiert – korrekter Name ist GlobeManager)
 - Zettel werden ausgedruckt, mit Belegnummern beschriftet, physisch durch Freigaberunde gereicht (Projektleiter prüft, gibt Ja/Nein + Anmerkung, geht zurück)
 - Nach Freigabe: Zahlung, danach Ablage für Steuerberater
 - Am Monatsende gehen alle Belege + Kontoauszüge gesammelt an den Steuerberater
@@ -25,7 +25,7 @@ quelle: Transkript "Prozessia X TopDown" (38 Min., 07:32 Uhr), Teilnehmer Sebast
 1. Agent überwacht Buchhaltungs-Postfach (Beispiel genannt: invoice@topdown.com)
 2. Klassifiziert eingehende Mails als Rechnung
 3. Prüft formale Kriterien: Betrag korrekt, entspricht Bestellung, Abgleich mit Wareneingang
-4. Überträgt automatisiert und ohne manuellen Zwischenschritt die Daten ins ERP (Job Manager) via Schnittstelle
+4. Überträgt automatisiert und ohne manuellen Zwischenschritt die Daten ins ERP (GlobeManager) via Schnittstelle
 5. Optional weiterer Schritt: automatisierte Übergabe an Steuerberater/DATEV
 6. Menschliche Freigabe bleibt bewusst im Prozess – Agent macht Vorprüfung, mit der Zeit kann die Prüfquote/Automatisierungsgrad gesteigert werden
 
@@ -39,4 +39,36 @@ quelle: Transkript "Prozessia X TopDown" (38 Min., 07:32 Uhr), Teilnehmer Sebast
 ## Offene Punkte / Stand am Transkriptende
 - Sebastian fragte nach Serverinfrastruktur bei TopDown – Antwort "relativ überschaubar" wird nicht mehr vollständig erfasst, Transkript bricht ab
 - Kein konkretes Angebot, kein Folgetermin im sichtbaren Transkriptteil vereinbart
-- ERP-Schnittstelle Job Manager (bzw. "Globe Manager") noch nicht auf technische Machbarkeit geprüft – müsste vor Angebot geklärt werden
+- ERP-Schnittstelle GlobeManager noch nicht auf technische Machbarkeit geprüft (API/Dokumentation unbekannt) – müsste vor Angebot geklärt werden
+
+## Prozessvisualisierung: Rechnungsautomatisierung TopDown (Beschaffungsagent-Analogie)
+
+```mermaid
+flowchart TD
+    A[Rechnung kommt per E-Mail<br/>ins Postfach invoice@topdown.com] --> B[Agent klassifiziert:<br/>Ist das eine Rechnung?]
+    B -->|Nein| B1[Weiterleitung/Ignorieren]
+    B -->|Ja| C[Formale Prüfung:<br/>Betrag korrekt?<br/>Entspricht Bestellung?<br/>Abgleich mit Wareneingang]
+    C -->|Abweichung erkannt| D[Eskalation an Projektleiter<br/>mit Anmerkung]
+    D --> E{Freigabe durch<br/>Projektleiter: Ja/Nein}
+    C -->|Passt| E
+    E -->|Nein| D2[Rückmeldung/Klärung<br/>mit Lieferant]
+    E -->|Ja| F[Automatische Übertragung<br/>ins ERP GlobeManager<br/>via Schnittstelle]
+    F --> G[Zahlung ausgelöst]
+    G --> H[Optional: automatisierte<br/>Übergabe an Steuerberater/DATEV]
+    H --> I[Ablage/Archivierung]
+
+    style A fill:#e8f0fe
+    style F fill:#fff3cd
+    style E fill:#d4edda
+    style H fill:#f8d7da
+```
+
+**Kernpunkte des Prozesses:**
+1. **Postfach-Überwachung** – Agent liest eingehende Mails an das Rechnungspostfach automatisch mit
+2. **Klassifikation** – erkennt, ob es sich überhaupt um eine Rechnung handelt
+3. **Formale Prüfung** – Betrag, Bestellbezug, Wareneingangsabgleich (Parameter-Matching, laut Dominik bereits im ERP dokumentiert)
+4. **Mensch bleibt im Loop** – Freigaberunde (aktuell Papier/Zettel) wird digital abgebildet, Projektleiter prüft weiter Ja/Nein
+5. **ERP-Anbindung** – automatische Übertragung nach Freigabe in GlobeManager statt manueller Erfassung/Ausdruck (technische Machbarkeit noch offen, keine bekannte API-Doku)
+6. **DATEV-Anschluss** – optional am Ende der Kette, Schnittstelle hat Prozessia laut Sebastian bereits anderswo umgesetzt
+
+Damit deckt sich der Prozess 1:1 mit dem etablierten Beschaffungsagent-Muster bei Schaufler (Auftragsbestätigung → Abgleich → Eskalation → ERP-Buchung), nur mit Rechnung statt AB als Auslöser.
