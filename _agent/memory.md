@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-11 08:52] Bug in backend/app/services/classify.py: docx-Extraktion liest nur doc.paragraphs, wodurch Notta-Transkripte (die z.B. Tabellen nutzen) nicht vollständig/korrekt extrahiert werden - Ursache für Klassifizierungsfehler.
 - [2026-08-11 08:25] [2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md] Projektbezeichnung: Prozessia x ESF
 - [2026-08-11 08:24] [2026-08-11-East-Side-Fab-eV.md] Status: Noch kein Gespräch/Dokument vorhanden - reine E-Mail-Anfrage
 - [2026-08-11 08:24] [2026-08-11-East-Side-Fab-eV.md] Erstkontakt via E-Mail am 2026-08-11, Betreff: 'Prozessia x ESF'
