@@ -169,6 +169,46 @@ def get_buffer_insights(n: int = 10) -> str:
 
 
 @mcp.tool(description=(
+    "Live-Abfrage direkt aus Buffer: was ist aktuell wirklich geplant oder als Entwurf hinterlegt (beide "
+    "Kanäle). Anders als list_linkedin_posts (nur lokal generierte Posts) - zeigt den echten Buffer-Stand."
+))
+def get_buffer_status() -> str:
+    return linkedin_service._format_buffer_posts_for_chat(linkedin_service.get_buffer_status())
+
+
+@mcp.tool(description="Zeigt nur die Buffer-Entwürfe (status draft), live aus Buffer.")
+def get_buffer_drafts() -> str:
+    return linkedin_service._format_buffer_posts_for_chat(linkedin_service.get_buffer_drafts())
+
+
+@mcp.tool(description=(
+    "Zeigt Buffers eigenes, organisationsweites Ideas-Feature - NICHT dieselben Ideen wie "
+    "list_linkedin_ideas (das liest die generierten ideen-*.json). Nur auf explizite Nachfrage nach "
+    "'Buffer-Ideen' nutzen."
+))
+def get_buffer_ideas() -> str:
+    return linkedin_service._format_buffer_ideas_for_chat(linkedin_service.get_buffer_ideas())
+
+
+@mcp.tool(description="Löscht einen Post direkt in Buffer, per Buffer-Post-ID (aus get_buffer_status/get_buffer_insights, nicht die lokale Post-id).")
+def delete_buffer_post(buffer_post_id: str) -> dict:
+    return linkedin_service.delete_buffer_post(buffer_post_id)
+
+
+@mcp.tool(description=(
+    "Ändert Datum/Uhrzeit eines bereits in Buffer eingeplanten LinkedIn-Posts (per lokaler id, siehe "
+    "list_linkedin_posts). Für noch nicht eingeplante Posts stattdessen schedule_linkedin_post nutzen."
+))
+def reschedule_linkedin_post(post_id: str, datum: str, uhrzeit: str) -> dict:
+    return linkedin_service.reschedule_post(post_id, datum, uhrzeit)
+
+
+@mcp.tool(description="Zeigt die bisher erstellten LinkedIn-Karusselle (Hook, Branche, Slide-Anzahl, Push-Status).")
+def list_linkedin_carousels() -> str:
+    return linkedin_service._format_carousels_for_chat()
+
+
+@mcp.tool(description=(
     "Vollständige Karussell-Pipeline: Slides + Begleittext (Claude) -> Hintergrundbild (gpt-image-1) -> PDF -> Cloudinary -> Buffer Document-Post. "
     "Entweder post_id (Karussell aus einem bestehenden, gespeicherten Post ableiten) oder hook (freies Thema) angeben. "
     "saeule: Wissensmanagement, Compliance, Einkauf oder KI-Nutzung. "

@@ -226,6 +226,17 @@ def get_carousels() -> dict:
     return {"karusselle": _load_karusselle()}
 
 
+def _format_carousels_for_chat() -> str:
+    karusselle = get_carousels().get("karusselle", [])
+    if not karusselle:
+        return "(noch keine Karusselle erstellt)"
+    lines = []
+    for c in karusselle:
+        status = f"{c['anzahl_gepusht']}x gepusht" if c.get("anzahl_gepusht") else "nicht gepusht"
+        lines.append(f"- id={c['id']} | {c.get('hook', '')} | {c.get('branche', '')} | {len(c.get('slide_titles') or [])} Slides | {status}")
+    return "\n".join(lines)
+
+
 def _save_carousel_record(hook: str, branche: str, result: dict, source_post_id: str | None = None) -> None:
     """Merkt ein erzeugtes Karussell dauerhaft (Thumbnail + PDF-Link), damit es
     im Dashboard sichtbar bleibt statt nur einmalig im Chat aufzutauchen -
@@ -417,10 +428,67 @@ _LINKEDIN_CHAT_TOOLS = [
             "properties": {"n": {"type": "integer", "description": "Anzahl der letzten gesendeten Posts, Default 10"}},
         },
     },
+    {
+        "name": "get_buffer_status",
+        "description": (
+            "Live-Abfrage direkt aus Buffer: was ist aktuell wirklich geplant oder als Entwurf hinterlegt "
+            "(beide Kanäle). Zeigt den tatsächlichen Buffer-Stand, nicht nur die lokal generierten Posts "
+            "(dafür list_posts). Nutzen bei 'Was ist geplant?'/'Buffer Status'."
+        ),
+        "input_schema": {"type": "object", "properties": {}},
+    },
+    {
+        "name": "get_buffer_drafts",
+        "description": "Zeigt nur die Buffer-Entwürfe (status draft), live aus Buffer. Nutzen bei 'Zeig Entwürfe'.",
+        "input_schema": {"type": "object", "properties": {}},
+    },
+    {
+        "name": "get_buffer_ideas",
+        "description": (
+            "Zeigt Buffers eigenes, organisationsweites Ideas-Feature - NICHT dieselben Ideen wie list_ideas "
+            "(das liest die hier im Chat generierten ideen-*.json). Nur nutzen, wenn Sebastian explizit nach "
+            "'Buffer-Ideen' fragt, nicht als Ersatz für list_ideas."
+        ),
+        "input_schema": {"type": "object", "properties": {}},
+    },
+    {
+        "name": "delete_post",
+        "description": "Löscht einen Post direkt in Buffer, per Buffer-Post-ID (siehe get_buffer_status/get_insights für die ID, nicht die lokale Post-id).",
+        "input_schema": {
+            "type": "object",
+            "properties": {"buffer_post_id": {"type": "string"}},
+            "required": ["buffer_post_id"],
+        },
+    },
+    {
+        "name": "reschedule_post",
+        "description": (
+            "Ändert Datum/Uhrzeit eines bereits in Buffer eingeplanten Posts (per lokaler id, siehe list_posts). "
+            "Für noch nicht eingeplante Posts stattdessen schedule_post nutzen - reschedule_post schlägt fehl, "
+            "wenn der Post noch nicht gepusht wurde."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "post_id": {"type": "string"},
+                "datum": {"type": "string", "description": "YYYY-MM-DD"},
+                "uhrzeit": {"type": "string", "description": "HH:MM, 24h, Berliner Zeit."},
+            },
+            "required": ["post_id", "datum", "uhrzeit"],
+        },
+    },
+    {
+        "name": "list_carousels",
+        "description": "Zeigt die bisher erstellten Karusselle (Hook, Branche, Slide-Anzahl, Push-Status).",
+        "input_schema": {"type": "object", "properties": {}},
+    },
 ]
 
 MAX_LINKEDIN_CHAT_ITERATIONS = 6
-_LINKEDIN_STATE_CHANGING_TOOLS = {"generate_ideas", "write_post", "revise_post", "schedule_post", "make_carousel", "set_direction"}
+_LINKEDIN_STATE_CHANGING_TOOLS = {
+    "generate_ideas", "write_post", "revise_post", "schedule_post", "make_carousel", "set_direction",
+    "delete_post", "reschedule_post",
+}
 
 
 def _execute_linkedin_chat_tool(name: str, inp: dict) -> tuple[str, bool]:
@@ -507,6 +575,29 @@ def _execute_linkedin_chat_tool(name: str, inp: dict) -> tuple[str, bool]:
             text = _format_insights_for_chat(inp.get("n") or 10)
             return text, text.startswith("Fehler")
 
+        if name == "get_buffer_status":
+            r = get_buffer_status()
+            return _format_buffer_posts_for_chat(r), not r.get("ok")
+
+        if name == "get_buffer_drafts":
+            r = get_buffer_drafts()
+            return _format_buffer_posts_for_chat(r), not r.get("ok")
+
+        if name == "get_buffer_ideas":
+            r = get_buffer_ideas()
+            return _format_buffer_ideas_for_chat(r), not r.get("ok")
+
+        if name == "delete_post":
+            r = delete_buffer_post(inp.get("buffer_post_id", ""))
+            return (f"Post {r.get('id')} gelöscht." if r.get("ok") else f"Fehler: {r.get('error', '?')}"), not r.get("ok")
+
+        if name == "reschedule_post":
+            r = reschedule_post(inp.get("post_id", ""), inp.get("datum", ""), inp.get("uhrzeit", ""))
+            return (f"Neuer Termin gesetzt." if r.get("ok") else f"Fehler: {r.get('error', '?')}"), not r.get("ok")
+
+        if name == "list_carousels":
+            return _format_carousels_for_chat(), False
+
         return f"Unbekanntes Tool: {name}", True
     except Exception as e:
         return f"Tool-Fehler ({name}): {e}", True
@@ -543,6 +634,12 @@ Verfügbare Aktionen (bei Bedarf aufrufen, sonst direkt in Text antworten):
   Markdown-Link anhängen, z.B. [Vollständiges PDF](URL).
 - set_direction (CLI: set_linkedin_direction): Richtungsvorgabe für künftige Generierung setzen
 - get_insights (CLI: get_buffer_insights): Performance-Daten (Impressions, Reach, Engagement-Rate %, Reactions/Likes, Kommentare, Shares) der letzten gesendeten Posts live aus Buffer abrufen
+- get_buffer_status (CLI: get_buffer_status): live aus Buffer, was tatsächlich geplant/als Entwurf hinterlegt ist (anders als list_posts, das nur lokal generierte Posts zeigt)
+- get_buffer_drafts (CLI: get_buffer_drafts): nur die Buffer-Entwürfe live abrufen
+- get_buffer_ideas (CLI: get_buffer_ideas): Buffers eigenes Ideas-Feature - nur auf explizite Nachfrage nach "Buffer-Ideen", nicht als Ersatz für list_ideas
+- delete_post (CLI: delete_buffer_post): einen Post direkt in Buffer löschen (Buffer-Post-ID aus get_buffer_status/get_insights, nicht die lokale id)
+- reschedule_post (CLI: reschedule_linkedin_post): Termin eines bereits eingeplanten Posts ändern (lokale id aus list_posts) - für noch nicht gepushte Posts stattdessen schedule_post
+- list_carousels (CLI: list_linkedin_carousels): bisher erstellte Karusselle anzeigen
 
 Regeln für Post-Texte (bei write_post/revise_post), vollständig in Marketing/LinkedIn/STRATEGIE.md:
 - Claim it, Show it, Aim it: klare Aussage, eigene Zahl, an eine konkrete Person gerichtet
@@ -569,6 +666,8 @@ _LINKEDIN_STATE_CHANGING_MCP_TOOLS = {
     "mcp__prozessia-tools__schedule_linkedin_post",
     "mcp__prozessia-tools__generate_carousel",
     "mcp__prozessia-tools__set_linkedin_direction",
+    "mcp__prozessia-tools__delete_buffer_post",
+    "mcp__prozessia-tools__reschedule_linkedin_post",
 }
 
 
