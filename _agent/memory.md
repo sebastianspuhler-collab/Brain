@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-12 21:10] [memory.md] Marketing/LinkedIn/STRATEGIE.md ist verbindliches Referenzdokument mit Priorität bei inhaltlichen Widersprüchen
 - [2026-08-12 20:13] [brain-direction.md] Referenzdokument: Marketing/LinkedIn/STRATEGIE.md hat verbindliche Priorität bei inhaltlichen Widersprüchen
 - [2026-08-12 20:13] [bild-prompts.md] Profil-Banner-Specs: 1584 × 396 Pixel, schwarzer Hintergrund, Headline 'Fortschritt durch sichere KI.' in Weiß, bold rounded display grotesque, Satz-case
 - [2026-08-12 20:12] [CLAUDE.md] Abhängigkeit: STRATEGIE.md ist verbindlich und gewinnt bei Widerspruch zu anderen Richtlinien
@@ -881,6 +882,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-12 21:12] [memory.md] Sebastian Spuhler LinkedIn-Profil ID: 6a25d2578f1d11f9b260c5ee; Prozessia-Seite ID: 6a25d2578f1d11f9b260c5ef
 - [2026-08-12 20:14] [context.md] Juchem: Nach Meeting 29.07. (kompletter Beschaffungsprozess besprochen) – nächster Schritt: Angebot erstellen
 - [2026-08-12 20:14] [context.md] Schaufler Tooling: Beschaffungsagent live, 220€/Mon, nächster Schritt: Lexoffice-Angebot
 - [2026-08-12 20:12] [2026-08-26-Inductoheat.md] Kontaktperson: allmendinger@inductoheat.eu
@@ -2118,6 +2120,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-08-12 21:12] [memory.md] Startprojekt: Konkreten Anwendungsfall definieren (z.B. Einkauf) mit klarem Scope und iterativem Ansatz
 - [2026-08-12 20:13] [bild-prompts.md] Marken-Klausel (verpflichtend für alle Prompts): Farbschema Schwarz/Weiß mit Purple-Akzent (#534AB7–#B088FF, max 10–15%), bold rounded display grotesque, deutsche Texte nur, Logo unverändert, keine AI-Klischees (keine glowing brains, circuit boards, robot hands)
 - [2026-08-12 20:10] [2026-06-09-Digitaler-Beschaffungsagent-fur-Schaufler.md] Geschäftliche Vorteile: Drastische Reduktion manueller E-Mail-Bearbeitung, Planungssicherheit, durchgängige Transparenz im Beschaffungsprozess
 - [2026-08-12 20:10] [CLAUDE.md] Dateien niemals ohne explizite Bestätigung von Sebastian löschen
@@ -2302,6 +2305,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-13 12:22] Schaufler Tooling GmbH: Monatliches Hosting/Retainer ab Juli 2026 auf 280 € erhöht (vorher 220 €)
 
 ## PROJEKTSTATUS
+- [2026-08-12 21:12] [memory.md] Meeting 2026-08-11 abgeschlossen (Compliance/Referenzen besprochen); nächster Schritt: Angebotserstellung
 - [2026-08-11 17:33] [2026-08-11-Prozessia X TopDown.md] Sehr positives Erstgespräch; Dominik bat aktiv um Angebot zur internen Geschäftsführungspräsentation
 - [2026-07-28 08:22] [2026-07-28-Prozessskizze-KI-Kalkulation.md] Prozessskizze basiert auf Meeting Dierk Biendarra + Sebastian Spuhler vom 21.07.2026, Vorbereitung für Termin 28.07.2026, 11:00 Uhr
 - [2026-07-23 15:17] [2026-07-23-Email-19f8f1d8-Zugesagt-Update-Seifert-X-Prozessia.md] Lead Seifert-GmbH: Status Update-Projekt genehmigt, nächste Schritte ausstehend
