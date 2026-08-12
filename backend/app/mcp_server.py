@@ -155,6 +155,15 @@ def schedule_linkedin_post(post_id: str, datum: str, uhrzeit: str) -> dict:
     return linkedin_service.schedule_post(post_id, datum, uhrzeit)
 
 
+@mcp.tool(description=(
+    "Pusht einen bestehenden, gespeicherten LinkedIn-Post (per id) OHNE Termin als echten Buffer-Entwurf "
+    "(beide Kanäle) - wird nie automatisch veröffentlicht. Nutzen statt schedule_linkedin_post, wenn mehrere "
+    "Posts nur zum Durchschauen/Auswählen in Buffer liegen sollen, nicht fest eingeplant werden sollen."
+))
+def draft_linkedin_post(post_id: str) -> dict:
+    return linkedin_service.draft_post(post_id)
+
+
 @mcp.tool(description="Setzt die Richtungsvorgabe, die künftige LinkedIn-Ideen-/Post-Generierung beeinflusst.")
 def set_linkedin_direction(prompt: str) -> dict:
     return linkedin_service.set_direction(prompt)

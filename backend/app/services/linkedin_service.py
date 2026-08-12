@@ -341,14 +341,17 @@ def _merge_local_and_buffer_posts() -> list[dict]:
         matched_ids.update(buffer_ids)
         if live:
             status, due = live[0].get("status"), live[0].get("due_at")
+            has_media = any(l.get("has_media") for l in live)
         else:
             status = "gesendet" if p.get("pushed") else "offen"
             due = p.get("termin")
+            has_media = False
         merged.append({
             "id": p.get("id"),
             "text_preview": (p.get("idee") or p.get("text") or "")[:100],
             "status": status,
             "due": due,
+            "has_media": has_media,
             "source": "lokal",
         })
 
@@ -357,9 +360,10 @@ def _merge_local_and_buffer_posts() -> list[dict]:
         if b["id"] in matched_ids:
             continue
         key = (b.get("text_preview"), b.get("due_at"))
-        g = grouped.setdefault(key, {"buffer_ids": [], "channels": [], "status": b.get("status"), "due": b.get("due_at"), "text_preview": b.get("text_preview")})
+        g = grouped.setdefault(key, {"buffer_ids": [], "channels": [], "status": b.get("status"), "due": b.get("due_at"), "text_preview": b.get("text_preview"), "has_media": False})
         g["buffer_ids"].append(b["id"])
         g["channels"].append(b.get("channel"))
+        g["has_media"] = g["has_media"] or b.get("has_media", False)
     for g in grouped.values():
         merged.append({
             "id": None,
@@ -367,6 +371,7 @@ def _merge_local_and_buffer_posts() -> list[dict]:
             "text_preview": g["text_preview"],
             "status": g["status"],
             "due": g["due"],
+            "has_media": g["has_media"],
             "source": "buffer",
         })
     return merged
@@ -380,11 +385,19 @@ def _format_posts_for_chat() -> str:
     for p in posts:
         due = (p.get("due") or "")[:16].replace("T", " ")
         status_label = _BUFFER_STATUS_LABEL.get(p["status"], p["status"] or "offen")
+        medien = " 🖼️KARUSSELL" if p.get("has_media") else ""
         if p["source"] == "buffer":
-            id_part = f"buffer_ids={','.join(p['buffer_ids'])} (nur in Buffer, nicht hier generiert - für Text-/Terminänderung delete_post + write_post nutzen)"
+            hinweis = (
+                "ACHTUNG KARUSSELL: NIE delete_post+write_post nutzen, das PDF geht dabei verloren und ist "
+                "nicht wiederherstellbar (genau das ist am 12.08.2026 passiert) - Textänderungen an "
+                "Karussell-Posts sind hier nicht unterstützt, bei Bedarf Sebastian fragen"
+                if p.get("has_media") else
+                "nur in Buffer, nicht hier generiert - für Text-/Terminänderung delete_post + write_post nutzen"
+            )
+            id_part = f"buffer_ids={','.join(p['buffer_ids'])} ({hinweis})"
         else:
             id_part = f"id={p['id']}"
-        lines.append(f"- {id_part} | {due} | {status_label} | {p['text_preview']}")
+        lines.append(f"- {id_part} | {due} | {status_label}{medien} | {p['text_preview']}")
     return "\n".join(lines)
 
 
@@ -405,6 +418,12 @@ def schedule_post(post_id: str, datum: str, uhrzeit: str) -> dict:
     except Exception:
         return {"error": "Ungültiges Datum/Uhrzeit-Format, bitte YYYY-MM-DD und HH:MM verwenden."}
     return push_post_to_buffer(post_id, scheduled_at)
+
+
+def draft_post(post_id: str) -> dict:
+    """MCP-/Chat-Tool-Variante von draft_post - pusht ohne Termin als echten
+    Buffer-Entwurf (kein automatisches Veröffentlichen)."""
+    return push_post_to_buffer(post_id, scheduled_at=None, draft=True)
 
 
 _LINKEDIN_CHAT_TOOLS = [
@@ -1495,6 +1514,7 @@ def _query_buffer_posts(status: list[str]) -> dict:
             "sent_at": n.get("sentAt"),
             "channel": channel_names.get(n["channel"]["id"], n["channel"]["name"]),
             "text_preview": (n.get("text") or "").replace("\n", " ")[:100],
+            "has_media": bool(n.get("assets")),
         })
     posts.sort(key=lambda p: p.get("due_at") or p.get("sent_at") or "")
     return {"ok": True, "posts": posts}
