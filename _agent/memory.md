@@ -918,6 +918,8 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-08-06 21:11] [Kalender-Erstgespräch] Inductohead - Termin 'Prozessia X Inductohead' am 2026-08-26 mit allmendinger@inductoheat.eu
 - [2026-08-06 21:11] [Kalender-Erstgespräch] Schmidt-Hänsch - Termin 'Prozessia X Schmidt-Hänsch' am 2026-08-24 mit s.bhawar@schmidt-haensch.de
 - [2026-08-06 21:10] [Kalender-Erstgespräch] TopDown - Termin 'Prozessia X TopDown' am 2026-08-11 mit dominik.nussbaumer@topdown-cf.com
+- [2026-08-07 13:50] [Kalender-Erstgespräch] Inductoheat - Termin 'Prozessia X Inductohead' am 2026-08-26 mit allmendinger@inductoheat.eu
+- [2026-08-07 13:48] [Kalender-Erstgespräch] TopDown - Termin 'Prozessia X TopDown' am 2026-08-11 mit dominik.nussbaumer@topdown-cf.com
 - [2026-08-06 09:21] [AW: Update IMK X Prozessia] IMK GmbH lehnt Projekt ab - kein Interesse nach Rücksprache mit Geschäftsführung
 - [2026-08-05 20:04] [2026-08-05.md] Anfragenummer 6000017119 mit 4 Positionen: Halter 83493383 (0,368 kg), Fuß 83486122 (83,908 kg), Fuß 83479898, Schwinge 83480037
 - [2026-08-05 20:03] [Kalender-Erstgespräch] Silas Rupp - Termin 'Silas Rupp and Sebastian Spuhler' am 2026-08-10 mit Silas Rupp
@@ -2071,6 +2073,7 @@ egeln, Prozesse.
 Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 
 ## REGEL
+- [2026-08-11 16:05] Kein eigener "-Korrespondenz"-Ordner mehr unter Leads/ fuer Firmen mit mehreren Dokumenten (Meetings/Angebote/Dokumente) - die gehoeren ab dem zweiten Dokument sofort nach Kunden/[Firmenname]/, exakt wie echte Kunden, unabhaengig vom Vertragsstatus. Existiert schon ein Kunden/[Name]/-Ordner, IMMER den wiederverwenden statt einen Parallelordner anzulegen. Leads/ bleibt nur fuer ganz frische Einzelkontakte ohne zweites Dokument (flache Datei Leads/[Datum]-[Name].md).
 - [2026-08-03 09:56] Angebote müssen durchnummerierte Punkte (1., 2., 3. ...) für den Leistungsumfang enthalten, keine reinen Fett-Header ohne Nummerierung
 - [2026-08-03 09:54] Sebastian möchte Leistungsumfänge/Angebote im AG0024-Stil formatiert haben: keine ausformulierten Sätze, sondern Kategorien mit kurzen Stichwort-Bullets (z.B. 'Betrieb & Infrastruktur:', 'Support & Updates:', 'Reporting:')
 - [2026-07-29 15:24] Sebastian möchte Dokumente/Zusammenfassungen (z.B. Meeting-Notizen) immer als PDF-Export erhalten, nicht nur als Markdown/Text.

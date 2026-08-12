@@ -30,6 +30,33 @@ CHANNELS = {
 POST_KEYS = ["montag", "dienstag", "mittwoch", "donnerstag", "freitag"]
 
 
+def _normalize_posts(data: dict) -> list:
+    """Liest Posts aus einer beitraege-*.json, egal ob altes Format
+    (Wochentag als Key) oder neues Format (Liste mit stabiler id pro Post,
+    seit mindestens beitraege-2026-07-25.json aktiv). 1:1 dieselbe Logik wie
+    backend/app/services/linkedin_service.py:_normalize_posts() - ohne diese
+    kannte `push` nur noch die Wochentag-Keys und fand in aktuellen Dateien
+    nie Posts ("Keine gültigen Posts in der Datei."), ohne dass das auffiel."""
+    if isinstance(data.get("posts"), list):
+        return data["posts"]
+    posts = []
+    datum = data.get("generiert_am", "")[:10]
+    for key in POST_KEYS:
+        p = data.get(key)
+        if not p:
+            continue
+        posts.append({
+            "id": f"{datum}-{key}",
+            "tag": key.capitalize(),
+            "datum": datum,
+            "termin": p.get("termin", ""),
+            "idee": p.get("idee", ""),
+            "typ": p.get("typ", ""),
+            "text": p.get("text", ""),
+        })
+    return posts
+
+
 def load_token():
     t = os.environ.get("BUFFER_API_TOKEN")
     if t:
@@ -122,7 +149,9 @@ mutation CreatePost($input: CreatePostInput!) {
     ... on PostActionSuccess { post { id status dueAt } }
     ... on InvalidInputError { message }
     ... on UnauthorizedError { message }
+    ... on NotFoundError { message }
     ... on UnexpectedError { message }
+    ... on RestProxyError { message }
     ... on LimitReachedError { message }
   }
 }
@@ -134,7 +163,9 @@ mutation EditPost($input: EditPostInput!) {
     ... on PostActionSuccess { post { id status dueAt text } }
     ... on InvalidInputError { message }
     ... on UnauthorizedError { message }
+    ... on NotFoundError { message }
     ... on UnexpectedError { message }
+    ... on RestProxyError { message }
   }
 }
 """
@@ -273,55 +304,61 @@ def cmd_push(token, json_path=None):
 
     data = json.loads(json_path.read_text(encoding="utf-8"))
     kanaele = data.get("kanaele") or list(CHANNELS.keys())
-    planungen = list(data.get("planungen") or [])
-    gepusht = {p.get("key") for p in planungen if p.get("erfolg")}
+    posts = _normalize_posts(data)
 
-    posts = []
-    for key in POST_KEYS:
-        entry = data.get(key)
-        if not entry:
+    to_push = []
+    for post in posts:
+        text = (post.get("text") or "").strip()
+        if not text or text.startswith("{") or text.startswith("```"):
             continue
-        text = (entry.get("text") or "").strip()
-        termin = entry.get("termin", "")
-        if not text or text.startswith("{") or text.startswith("```") or not termin:
-            continue
-        posts.append({"key": key, "text": text, "termin": termin})
+        to_push.append(post)
 
-    if not posts:
+    if not to_push:
         print("Keine gültigen Posts in der Datei.")
         return
 
-    print(f"Lade: {json_path.name} → {len(posts)} Post(s)\n")
-    for post in posts:
-        if post["key"] in gepusht:
-            print(f"  {post['key']}: bereits gepusht — übersprungen.")
+    print(f"Lade: {json_path.name} → {len(to_push)} Post(s)\n")
+    for post in to_push:
+        label = post.get("id") or post.get("idee") or "?"
+        if post.get("pushed"):
+            print(f"  {label}: bereits gepusht — übersprungen.")
             continue
-        print(f"  {post['key']} ({post['termin'][:10]}):")
+        termin = post.get("termin", "")
+        print(f"  {label} ({termin[:10] if termin else 'kein Termin, Buffer-Queue'}):")
+        buffer_ids = list(post.get("buffer_post_ids") or [])
+        any_ok = False
         for channel_id in kanaele:
             result = gql(token, CREATE_MUTATION, {"input": {
                 "channelId": channel_id,
                 "text": post["text"],
                 "schedulingType": "automatic",
-                "mode": "customScheduled",
-                "dueAt": post["termin"],
+                "mode": "customScheduled" if termin else "addToQueue",
+                **({"dueAt": termin} if termin else {}),
                 "assets": [],
                 "saveToDraft": False,
             }})
             r = result.get("createPost", {})
             if "post" in r:
                 p = r["post"]
-                planungen.append({"key": post["key"], "channel": channel_id, "erfolg": True,
-                                   "postId": p["id"], "dueAt": p["dueAt"], "status": p["status"]})
+                buffer_ids.append(p["id"])
+                any_ok = True
                 print(f"    ✓ {CHANNELS.get(channel_id, channel_id)} → {p['id']}")
             else:
                 err = r.get("message", "Fehler")
-                planungen.append({"key": post["key"], "channel": channel_id, "erfolg": False, "fehler": err})
                 print(f"    ✗ {CHANNELS.get(channel_id, channel_id)} → {err}")
+        if any_ok:
+            post["pushed"] = True
+            post["buffer_post_ids"] = buffer_ids
 
-    data["planungen"] = planungen
+    # Immer im neuen id-basierten Format zurückschreiben (dieselbe Migration
+    # wie linkedin_service._save_post_fields()), damit Web-App und CLI
+    # denselben Push-Status (post["pushed"]/post["buffer_post_ids"]) sehen.
+    data["posts"] = posts
+    for key in POST_KEYS:
+        data.pop(key, None)
     json_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    ok = sum(1 for p in planungen if p.get("erfolg"))
-    print(f"\nFertig: {ok} Posts in Buffer.\n")
+    ok = sum(1 for p in posts if p.get("pushed"))
+    print(f"\nFertig: {ok} von {len(posts)} Posts in Buffer.\n")
 
 
 def cmd_delete(token, post_id):

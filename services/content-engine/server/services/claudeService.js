@@ -59,56 +59,76 @@ function runClaudeCli(prompt, systemPrompt, { maxBudgetUsd = 1.0, timeoutMs = 12
   });
 }
 
-// Vollständiger System Prompt mit Prozessia Kontext - wird bei JEDEM Call mitgeschickt
-const PROZESSIA_SYSTEM_PROMPT = `Du bist der Content Stratege von Prozessia - einem deutschen KI-Unternehmen das Beschaffungsagenten, Chatbots und Voice Agents für den Mittelstand entwickelt.
+// Vollständiger System Prompt mit Prozessia Kontext - wird bei JEDEM Call mitgeschickt.
+//
+// Stand 2026-08-11: umgestellt auf die Content-Strategie in
+// Marketing/LinkedIn/STRATEGIE.md. Vorher stand hier eine veraltete
+// Positionierung (Automotive/Pharma/Bau, 50-500 Mitarbeiter, "Voice Agents",
+// Säulen Schmerz/Wissen/Beweis/Meinung), die weder zur Zielgruppe noch zum
+// Produktportfolio passte und auch den Regeln im Backend widersprach.
+const PROZESSIA_SYSTEM_PROMPT = `Du bist der Content-Stratege von Prozessia - einer deutschen KI-Agentur aus Saarbrücken, die KI-Agenten und KI-Wissenssysteme für produzierende Mittelständler baut.
 
-DEIN AUFTRAG: Erstelle LinkedIn Content der Einkaufsleiter und Geschäftsführer in Automotive, Pharma, Bau und Maschinenbau anspricht und Vertrauen in Prozessia aufbaut.
+DEIN AUFTRAG: LinkedIn-Content für Geschäftsführer und Einkaufsleiter in inhabergeführten, produzierenden Mittelständlern mit 20-80 Mitarbeitenden in Deutschland.
+
+ZIELGRUPPE (eng halten, nicht verwässern):
+- Branchen: Werkzeugbau, Lohnfertigung, Elektrotechnik, Kunststoff, Metallbau
+- Personen: Geschäftsführer und Einkaufsleiter
+- Größe: 20-80 Mitarbeitende, inhabergeführt, Deutschland
+
+POSITIONIERUNG - das wichtigste Unterscheidungsmerkmal:
+Generische KI-Agenturen sprechen "den Mittelstand" allgemein an, ohne Branchen-Nische.
+Prozessias Fertigungs-Nische ist das Kernargument. Jeder Post muss nach Fertigung
+klingen - nach Werkzeugbau, Stücklisten, Ausschreibungen, Maschinen, Zeichnungen -
+nicht nach allgemeiner Digitalisierungsberatung.
+
+PRODUKTE (Content dreht sich um diese vier):
+1. Beschaffungsagent: Ausschreibung, Angebotsvergleich, Lieferantenkommunikation
+2. Stücklistenagent (BOM-Mapper): Stücklisten/Zeichnungen automatisch abgleichen und zuordnen
+3. KI-Chatbot: firmenwissenbasiert, DSGVO-konform, EU-gehostet
+4. KI-Schulungen: u.a. EU-KI-Verordnung, praktischer KI-Einsatz im Betrieb
+
+THEMEN-SÄULEN (jeder Beitrag gehört zu genau einer):
+- Wissensmanagement: Firmenwissen sichern, KI-gestützte Dokumentation, Wissen strukturieren statt in Köpfen und E-Mails
+- Compliance: EU-KI-Verordnung, Transparenzpflichten für KI-Systeme, DSGVO-Konformität - sachlich, keine Panikmache
+- Einkauf: Ausschreibungsprozesse, Kalkulation, Lieferantenmanagement, Long-Tail-Spend
+- KI-Nutzung: Adoption, Hürden, Praxisbeispiele, Stücklisten-/BOM-Automatisierung
+
+SCHREIBPRINZIP "CLAIM IT, SHOW IT, AIM IT" - gilt ausnahmslos für jeden Beitrag:
+- CLAIM: eine klare Aussage treffen. Keine Frage als These, kein "könnte", "vielleicht", "korrigiert mich".
+- SHOW: eine eigene Zahl oder konkrete Beobachtung zeigen. Kein nacherzähltes fremdes Framework.
+- AIM: an eine konkrete Person gerichtet ("ein Einkaufsleiter mit einer Ausschreibung ohne Herstellerangabe"), nie an "alle Unternehmen".
 
 SCHREIBE IMMER SO:
-- Kurze Sätze. Jede Zeile ein Gedanke.
-- Aus Erfahrung - nicht aus dem Lehrbuch
-- Provokant aber professionell
-- Wir-Perspektive NUR für das, was Prozessia selbst tut oder bei Kunden beobachtet (z.B. "Wir sehen das bei fast jedem Kunden", "Wir automatisieren das") - NIEMALS als hätte Prozessia selbst eine Werkstatt, Produktion oder Belegschaft mit Rollen wie Werkstattleiter/Einkaufsleiter/Schichtführer. Prozessia ist eine KI-Agentur, kein produzierender Betrieb.
-- Konkrete Beispiele allgemein/typisierend halten ("ein Werkstattleiter", "ein Mittelständler aus dem Werkzeugbau"), nicht als Prozessias eigene Person/Situation ausgeben - im Zweifel lieber allgemeiner formulieren als eine zu spezifische, erfundene Einzelperson/-szene zu behaupten.
+- Deutsch, direkt, nüchtern-konkret. Kurze Sätze, jede Zeile ein Gedanke.
+- Aussagen werden getroffen, nicht zur Diskussion gestellt.
+- Wir-Perspektive NUR für das, was Prozessia selbst tut oder bei Kunden beobachtet ("Wir sehen das bei fast jedem Kunden") - NIEMALS als hätte Prozessia eigene Werkstatt, Produktion oder Belegschaft. Prozessia ist eine KI-Agentur, kein produzierender Betrieb.
+
+BEISPIELE: dürfen erfunden sein, wenn sie mitreißend sind - aber unter drei Bedingungen:
+1. IMMER ein erfundener Firmenname (z.B. "Elektro Nordstern GmbH", "Nordmetall Fertigung GmbH"). Niemals ein echter Kundenname.
+2. IMMER als typisches Szenario gerahmt ("ein typischer Fall", "so läuft das üblicherweise"), nie als verifizierbares reales Kundenergebnis - sonst ist es irreführende Werbung.
+3. Konkret genug, dass die Zielgruppe sich wiedererkennt.
 
 SCHREIBE NIE:
-- Buzzwords: revolutionär, bahnbrechend, innovativ, disruptiv
-- Generische KI-Aussagen ohne Bezug zu Beschaffung/Einkauf
-- Werbetexte oder offensichtliche Produktpitches
-- Englische Begriffe wenn Deutsche existieren
-- Sätze wie "unser Werkstattleiter/unsere Produktion/unser Lager" - Prozessia hat keine eigene Fertigung, das verwirrt und wirkt unglaubwürdig
-
-PROZESSIA KERNBOTSCHAFT:
-Manuelle Beschaffungsprozesse kosten Unternehmen in Automotive, Pharma, Bau und Maschinenbau täglich Geld. Wir automatisieren das mit KI-Agenten die sich in bestehende ERP-Systeme integrieren.
-
-STÄRKSTES ARGUMENT:
-3-5 Tage frühere Erkennung von Lieferverzögerungen = Zeit für Gegenmaßnahmen = kein Produktionsstillstand.
+- Buzzwords: revolutionär, bahnbrechend, innovativ, disruptiv, nachhaltig, ganzheitlich, Transformation, zukunftsfähig
+- Superlative ohne Beleg
+- Performte Bescheidenheit ("ich war unsicher, ob ich das teilen soll")
+- Hedging-Formulierungen
+- Generische Zustimmungsfragen: "Stimmt ihr zu?", "Wer kennt das?", "Was denkt ihr?"
+- Engagement-Bait ("Teile diesen Post", "Tag jemanden")
+- Englische Begriffe, wenn deutsche existieren
+- Echte Kundennamen
 
 UNTERNEHMENSKONTEXT:
 - Gründer: Sebastian Spuhler & Amin Douioui
-- Standort: Campus Starterzentrum, Saarland
-- Website: https://www.prozessia.de
-- Kontakt: info@prozessia.de
+- Standort: Campus Starterzentrum, Saarbrücken/Saarland
+- Website: https://www.prozessia.de, Kontakt: info@prozessia.de
 
-PRODUKTE:
-1. KI-Beschaffungsagent (FLAGSHIP): Überwacht Liefertermine in Echtzeit, erkennt Abweichungen 3-5 Tage früher, integriert sich in ERP (Proleis, proALPHA, SAP, Abas), kommuniziert direkt mit Lieferanten
-2. KI-Chatbots (ProGPT): 100% DSGVO-konform, EU-gehostet, firmenwissenbasiert
-3. Voice Agents: 24/7 Erreichbarkeit, Telefonnetz-Integration
-4. KI-Automatisierungen: Custom Workflows, Prozessberatung
+AUTORITÄT: Namedropping bekannter Fachsysteme und Normen ist erlaubt und erwünscht,
+wo es inhaltlich trägt: SAP, proALPHA, Abas, Proleis, ERP-Systeme, branchenübliche Normen.
 
-ZIELGRUPPE:
-- Einkaufsleiter, Leiter Supply Chain, Geschäftsführer
-- Branchen: Automotive Tier-1/2/3, Pharma, Bau, Maschinenbau
-- Größe: 50-500 Mitarbeiter, Mittelstand DACH
-- Kennzeichen: internationale Lieferanten (besonders Asien), manuelle Excel-Prozesse, hoher OTIF-Druck
-
-CONTENT-SÄULEN:
-1. SCHMERZ: Probleme im Einkauf die jeder kennt (Montag)
-2. WISSEN: KI-Trends, Branchennews, Erklärungen (Mittwoch)
-3. BEWEIS: Konkrete Zahlen, Vorher/Nachher (Donnerstag)
-4. MEINUNG: Provokante These zur Digitalisierung (Freitag)
-
-HASHTAGS: #Beschaffung #KIAutomatisierung #Einkauf #Mittelstand #SupplyChain #Automatisierung #Prozessia`;
+HASHTAGS: 3-5 pro Beitrag, Mischung aus breit (#KI, #Mittelstand) und spezifisch
+(#Werkzeugbau, #Beschaffung, #Wissensmanagement, #Lohnfertigung, #Stückliste, #EUAIAct).
+Hashtags dienen Suche und Filter, nicht Reichweite.`;
 
 /**
  * Generiert Content-Ideen basierend auf News-Artikeln und Prozessia-Kontext
@@ -135,12 +155,14 @@ Antworte NUR mit validem JSON in diesem Format:
   }
 ]
 
-Format: entweder "TEXT" oder "KARUSSELL"
-Branche: "Automotive", "Pharma", "Bau", "Maschinenbau" oder "Alle"
-Säule: "Schmerz", "Wissen", "Beweis" oder "Meinung"
+Format: entweder "TEXT" oder "KARUSSELL" - bevorzugt KARUSSELL, das ist das Leitformat
+Branche: "Werkzeugbau", "Lohnfertigung", "Elektrotechnik", "Kunststoff", "Metallbau" oder "Alle"
+Säule: "Wissensmanagement", "Compliance", "Einkauf" oder "KI-Nutzung"
 Impact: "Hoch", "Mittel" oder "Niedrig"
 
-Mach die Hooks konkret, provokant und relevant für Einkaufsleiter.`,
+Verteile die 5 Ideen über mindestens 3 verschiedene Säulen.
+Jeder Hook ist eine Aussage oder ein konkretes Bild aus dem Betriebsalltag, keine Frage
+ins Blaue - Claim it, Show it, Aim it.`,
     PROZESSIA_SYSTEM_PROMPT
   )).trim();
 
@@ -172,14 +194,15 @@ Content-Säule: ${idee.saeule}
 ${zusatzInfos ? `Zusätzliche Infos: ${zusatzInfos}` : ''}
 
 ANFORDERUNGEN:
-- Erste Zeile: Knallharter Hook der zum Weiterlesen zwingt (max 120 Zeichen)
-- 3-5 kurze Absätze mit echtem Mehrwert
-- Mindestens eine konkrete Zahl oder ein typisches Beispiel einbauen - allgemein/typisierend gehalten ("ein Werkstattleiter", "ein Mittelständler"), nie als Prozessias eigene Situation/Belegschaft dargestellt
-- Absätze durch Leerzeile trennen
-- CTA am Ende + Community-Frage
-- 3-4 Hashtags aus: #Beschaffung #KIAutomatisierung #Einkauf #Mittelstand #SupplyChain #Automatisierung #Prozessia
+- Erste Zeile: Hook, der zum Weiterlesen zwingt (max 120 Zeichen). Fragment oder kurze Frage, kein vollständiger Satz, keine Statistik als allererster Satz.
+- 3-5 kurze Absätze mit echtem Mehrwert, Absätze durch Leerzeile getrennt
+- Mindestens eine konkrete Zahl. Beispiele mit erfundenem Firmennamen und als typisches Szenario gerahmt, nie als Prozessias eigene Situation oder als verifizierbares Kundenergebnis
+- Eine Ergebnis-Zeile allein auf einer Zeile im Format **Ergebnis: ...**
+- Abschlussfrage, die nur mit echter Berufserfahrung beantwortbar ist. Keine generische Zustimmungsfrage, keine "Kontaktiert uns"-Floskel
+- 3-5 Hashtags, Mischung aus breit (#KI, #Mittelstand) und spezifisch (#Werkzeugbau, #Beschaffung, #Wissensmanagement)
 - MAXIMALE LÄNGE: 1300 Zeichen
-- Kein "innovativ", "revolutionär", "bahnbrechend"
+- Kein Link im Text - Links gehören in den ersten Kommentar
+- Kein "innovativ", "revolutionär", "bahnbrechend", "Transformation", "ganzheitlich"
 
 Antworte NUR mit validem JSON:
 {
@@ -198,59 +221,82 @@ Antworte NUR mit validem JSON:
 }
 
 /**
- * Generiert Karussell-Slides
+ * Generiert Karussell-Slides UND den Begleittext (Caption).
+ *
+ * Slide-Dramaturgie und Begleittext-Aufbau folgen Marketing/LinkedIn/
+ * STRATEGIE.md (§4 und §6), abgeleitet aus dem Vorbild-Karussell von
+ * Wolfgang Lang: Hook -> Problem -> Zahlen -> Vertiefung -> Konsequenz -> CTA.
+ * Die Caption entsteht hier mit, statt sie im Backend aus Slide-Titeln
+ * zusammenzusetzen - der zusammengesetzte Text erfüllte die Caption-Struktur
+ * nie und wiederholte nur die Slides.
+ *
+ * **fett** markiert Kernbegriffe und Zahlen mitten im Satz; der Renderer
+ * (backend/app/services/carousel_service.py) setzt sie in den fetten
+ * Schriftschnitt, so wie im Vorbild.
  */
 async function generiereKarussell(idee) {
   console.log('[Claude] Generiere Karussell für:', idee.hook);
 
   const text = (await runClaudeCli(
-    `Erstelle ein LinkedIn Karussell (7 Slides) für Prozessia.
+    `Erstelle ein LinkedIn-Dokument-Karussell (7 Slides) plus Begleittext für Prozessia.
 
 IDEE:
 Hook: ${idee.hook}
 Branche: ${idee.branche}
-Content-Säule: ${idee.saeule}
+Themen-Säule: ${idee.saeule}
 
-SLIDE-STRUKTUR:
-- Slide 1: Knallharter Hook/Titel (max 8 Wörter), Untertitel optional
-- Slide 2-6: Je ein Hauptpunkt (Überschrift max 6 Wörter + Text max 40 Wörter)
-- Slide 7: CTA + "Folgt Prozessia für mehr"
+SLIDE-DRAMATURGIE (genau diese Reihenfolge):
+- Slide 1 (hook): Titel max 7 Wörter, Untertitel spitzt das Problem zu. text bleibt leer.
+- Slide 2 (problem): Wie es heute im Betrieb tatsächlich läuft. Titel max 5 Wörter.
+- Slide 3 (zahlen): Die Zahlen dahinter. 2-3 konkrete Zahlen, die zentrale Zahl **fett**.
+- Slide 4-6 (vertiefung): je ein Aspekt - warum es passiert, was es kostet, was daran anders geht.
+- Slide 7 (cta): Was der Leser jetzt konkret tun kann. Kein "Folgt uns für mehr".
+
+REGELN FÜR SLIDE-TEXTE:
+- Titel: max 5-7 Wörter, normale Groß-/Kleinschreibung, keine Versalien.
+- text: max 45 Wörter, kurze Sätze.
+- Pro Slide höchstens EINE **fett**-Markierung, nur für die Kernzahl oder den Kernbegriff.
+- Absatzwechsel innerhalb von text mit \\n\\n.
+- Mindestens zwei Slides nennen eine konkrete Zahl.
+- Erfundene Firmennamen sind erlaubt, aber als typisches Szenario gerahmt.
+
+BEGLEITTEXT (Feld "caption") - GENAU diese Reihenfolge, das ist die Post-Struktur:
+1. Kurze Einleitung oder Frage, die das Problem umreißt (1-2 Zeilen)
+2. 2-3 konkrete Zahlen oder Fakten
+3. Eine Ergebnis-Zeile, allein auf einer Zeile, im Format: **Ergebnis: ...**
+4. Optional ein Satz mit einem bekannten Fachsystem oder einer Norm (SAP, proALPHA, ERP, branchenübliche Normen) - nur wenn es inhaltlich trägt
+5. Kurzer Einordnungs-Absatz, 2-3 Sätze
+6. Abschlussfrage, die nur mit echter Berufserfahrung beantwortbar ist und die Aussage stützt. Keine generische Zustimmungsfrage.
+7. 3-5 Hashtags, Mischung aus breit und spezifisch
+
+CAPTION-FORMAT:
+- Leerzeile zwischen den Blöcken, damit der Text auf LinkedIn luftig wirkt.
+- Kein Link im Text.
+- Maximal 1300 Zeichen.
+- Nur die Ergebnis-Zeile wird mit **...** markiert, sonst keine Fett-Markierung in der Caption.
 
 Antworte NUR mit validem JSON:
 {
   "slides": [
-    {
-      "nummer": 1,
-      "typ": "hook",
-      "titel": "Kurzer Hook-Titel",
-      "untertitel": "Optionaler Untertitel",
-      "text": ""
-    },
-    {
-      "nummer": 2,
-      "typ": "inhalt",
-      "titel": "Punkt-Überschrift",
-      "untertitel": "",
-      "text": "Max 40 Wörter Erklärung mit konkretem Beispiel oder Zahl"
-    },
-    ...
-    {
-      "nummer": 7,
-      "typ": "cta",
-      "titel": "Call to Action",
-      "untertitel": "Folgt Prozessia für mehr",
-      "text": "Kurze Handlungsaufforderung"
-    }
-  ]
+    { "nummer": 1, "typ": "hook", "titel": "...", "untertitel": "...", "text": "" },
+    { "nummer": 2, "typ": "problem", "titel": "...", "untertitel": "", "text": "..." },
+    { "nummer": 3, "typ": "zahlen", "titel": "...", "untertitel": "...", "text": "..." },
+    { "nummer": 4, "typ": "vertiefung", "titel": "...", "untertitel": "", "text": "..." },
+    { "nummer": 5, "typ": "vertiefung", "titel": "...", "untertitel": "", "text": "..." },
+    { "nummer": 6, "typ": "vertiefung", "titel": "...", "untertitel": "", "text": "..." },
+    { "nummer": 7, "typ": "cta", "titel": "...", "untertitel": "", "text": "..." }
+  ],
+  "caption": "Der vollständige Begleittext mit Zeilenumbrüchen als \\n"
 }`,
-    PROZESSIA_SYSTEM_PROMPT
+    PROZESSIA_SYSTEM_PROMPT,
+    { maxBudgetUsd: 1.5, timeoutMs: 180000 }
   )).trim();
 
   const jsonMatch = text.match(/\{[\s\S]*\}/);
   if (!jsonMatch) throw new Error('Kein valides JSON vom Claude erhalten');
 
   const result = JSON.parse(jsonMatch[0]);
-  console.log(`[Claude] Karussell mit ${result.slides.length} Slides generiert`);
+  console.log(`[Claude] Karussell mit ${result.slides.length} Slides + Caption (${(result.caption || '').length} Zeichen) generiert`);
   return result;
 }
 
@@ -265,13 +311,17 @@ async function bewerteNewsArtikel(artikel) {
   ).join('\n\n');
 
   const text = (await runClaudeCli(
-    `Bewerte diese News-Artikel auf Relevanz für Prozessia's Zielgruppe (Einkaufsleiter in Automotive, Pharma, Bau, Maschinenbau).
+    `Bewerte diese News-Artikel auf Relevanz für Prozessias Zielgruppe (Geschäftsführer und Einkaufsleiter in produzierenden Mittelständlern mit 20-80 Mitarbeitenden: Werkzeugbau, Lohnfertigung, Elektrotechnik, Kunststoff, Metallbau).
 
 ARTIKEL:
 ${artikelListe}
 
 Bewerte jeden Artikel mit einer Zahl von 1-10 (10 = höchste Relevanz für LinkedIn Content).
-Relevant sind Themen zu: Lieferketten, Beschaffung, ERP-Systeme, Automatisierung, Produktionsstillstand, internationale Lieferanten, OTIF, Supply Chain.
+Relevant sind Themen entlang der vier Themen-Säulen: Wissensmanagement im Betrieb,
+KI-Compliance und EU-KI-Verordnung, Einkauf und Beschaffung (Ausschreibung, Kalkulation,
+Lieferantenmanagement, Long-Tail-Spend), KI-Nutzung im Mittelstand inklusive
+Stücklisten-/BOM-Automatisierung. Studien mit konkreten Zahlen sind wertvoller als Meinungsstücke.
+Artikel über Konzerne ohne Übertragbarkeit auf 20-80-Mitarbeiter-Betriebe sind kaum relevant.
 
 Antworte NUR mit JSON:
 [

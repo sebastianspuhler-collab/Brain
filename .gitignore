@@ -68,6 +68,14 @@ _agent/inbox_altlast_*/
 *.gif
 *.svg
 *.webp
+
+# Ausnahme: die beiden Logo-Dateien sind Render-Assets, keine Mediendateien.
+# backend/app/services/carousel_service.py setzt sie auf jede Karussell-Slide.
+# Ohne diese Ausnahme kommen sie nie auf den VPS (der Vault-Sync ist git-basiert,
+# siehe _agent/vault_sync.sh) und der Renderer fällt dort still auf die
+# Text-Wortmarke zurück.
+!Marketing/Branding/Logo-removebg-preview.png
+!Marketing/Branding/Logo_converted.png
 *.mp4
 *.mov
 *.avi
