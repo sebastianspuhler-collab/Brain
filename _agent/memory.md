@@ -1,4 +1,12 @@
 ## KONTEXT
+- [2026-08-12 20:13] [brain-direction.md] Referenzdokument: Marketing/LinkedIn/STRATEGIE.md hat verbindliche Priorität bei inhaltlichen Widersprüchen
+- [2026-08-12 20:13] [bild-prompts.md] Profil-Banner-Specs: 1584 × 396 Pixel, schwarzer Hintergrund, Headline 'Fortschritt durch sichere KI.' in Weiß, bold rounded display grotesque, Satz-case
+- [2026-08-12 20:12] [CLAUDE.md] Abhängigkeit: STRATEGIE.md ist verbindlich und gewinnt bei Widerspruch zu anderen Richtlinien
+- [2026-08-12 20:12] [CLAUDE.md] LinkedIn-Profile: Sebastian Spuhler (6a25d2578f1d11f9b260c5ee), Prozessia-Seite (6a25d2578f1d11f9b260c5ef)
+- [2026-08-12 20:11] [2026-06-09-KI-Agent-X-Voigt-Salus (2).md] DSGVO-konform und Datenschutz wird als prioritär hervorgehoben
+- [2026-08-12 20:11] [2026-06-09-KI-Agent-X-Voigt-Salus.md] DSGVO-konform, Deutschland/EU-Hosting erforderlich; Datenschutz ist Hauptanforderung
+- [2026-08-12 20:11] [2026-08-11-Prozessia X TopDown.md] Meeting 2026-08-11; Referenzen und Compliance-Themen wurden im Gespräch abgedeckt; nächster Schritt: Angebotserstellung
+- [2026-08-12 20:10] [2026-06-08-Meeting Thorsten Maas X Prozessia (2).md] Nächster Schritt: Definition konkreter Anwendungsfall als Startprojekt (z.B. Einkauf) mit klarem Scope und iterativem Ansatz
 - [2026-08-12 10:45] [Re: Wachstum systematisieren] Status des Themas: steht aktuell nicht oben auf Sebastians Agenda oder wurde bereits gelöst
 - [2026-08-12 04:06] [2026-08-12-19f8d67a64-Image.md] Datei 19f8d67a64-Image ist eine Bilddatei in unbekanntem Format ohne extrahierbaren Textinhalt
 - [2026-08-12 03:22] [[Twilio] Re: [ACTION REQUIRED] Your Trus] Bearbeiter: Jed (Twilio Onboarding & Compliance)
@@ -873,6 +881,13 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-12 20:14] [context.md] Juchem: Nach Meeting 29.07. (kompletter Beschaffungsprozess besprochen) – nächster Schritt: Angebot erstellen
+- [2026-08-12 20:14] [context.md] Schaufler Tooling: Beschaffungsagent live, 220€/Mon, nächster Schritt: Lexoffice-Angebot
+- [2026-08-12 20:12] [2026-08-26-Inductoheat.md] Kontaktperson: allmendinger@inductoheat.eu
+- [2026-08-12 20:12] [2026-08-26-Inductoheat.md] Neue Lead: Inductoheat
+- [2026-08-12 20:12] [2026-08-11-TopDown.md] TopDown ist kein reiner Kalender-Lead mehr, sondern ein aktiver Kundenordner
+- [2026-08-12 20:10] [2026-06-08-Meeting Thorsten Maas X Prozessia (2).md] Thorsten Maas: Bedarf an sicherer KI-Lösung für sensible Bereiche (Entwicklung/Einkauf) ohne Datenabfluss, Risikominderung bei Schatten-KI
+- [2026-08-12 20:10] [2026-08-03-19fc729374-Angebot_AG0028_03.08.2026.md] Juchem GmbH, Kundennr. 10001, Angebotsnr. AG0028
 - [2026-08-11 17:44] [2026-06-09-Prozessia-Voice-Agents (1).md] Zielgruppe: Handelsvertreter als Vertriebsunterlage; Anwendungsfall: Professionelle Anrufbearbeitung für Teams
 - [2026-08-11 17:44] [2026-06-09-Prozessia-KI-Losungen-fur-moderne-Unternehmen (1).md] Adressierte Probleme: ineffiziente Prozesse, Herausforderungen bei der Digitalisierung
 - [2026-08-11 17:44] [2026-06-09-Prozessia-KI-Losungen-fur-moderne-Unternehmen (1).md] Zielmarkt: kleine und mittelständische Unternehmen (KMU)
@@ -1227,6 +1242,22 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-12 20:14] [context.md] Schaufler Stücklistenprojekt: Termin zu vereinbaren, Anschluss an Lastenheft v. 05.08., Angebot/nächste Schritte erforderlich
+- [2026-08-12 20:13] [brain-direction.md] Post-Schema ‚Claim it, Show it, Aim it': Klare Aussage (keine Frage), eigene Zahlen (kein fremdes Framework), adressiert konkrete Person (nicht generische Zielgruppe)
+- [2026-08-12 20:13] [brain-direction.md] Vier Content-Säulen: Wissensmanagement, Compliance (EU-KI-Verordnung, DSGVO), Einkauf/Beschaffung, KI-Nutzung Mittelstand
+- [2026-08-12 20:13] [bild-prompts.md] Referenzdateien als Bild-Input anhängen: Logo hell/dunkel (Marketing/Branding/Logo-*.png), Schrift-Referenz aus carousel/, finales Banner als Farb-/Stil-Vorlage
+- [2026-08-12 20:12] [STRATEGIE.md] Differenzierungskern: klare Fertigungs-Nische in jedem Post spürbar; Abgrenzung zu generischen KI-Agenturen
+- [2026-08-12 20:12] [STRATEGIE.md] LinkedIn-Content-Strategie (STRATEGIE.md) ist verbindliche Grundlage für gesamte LinkedIn-Pipeline; gilt bei Widersprüchen
+- [2026-08-12 20:12] [CLAUDE.md] Engagement-Anforderung: 60 Minuten nach Go-Live müssen Kommentare beantwortet werden (Sebastian selbst)
+- [2026-08-12 20:12] [CLAUDE.md] Publikations-Deadlines: Dienstag und Donnerstag, 09:30 Uhr (Berlin-Zeit)
+- [2026-08-12 20:11] [2026-06-09-Präsentation_ Datenschutz.md] Funktionalität: Integration in Microsoft-Kanzleikonto (Outlook/Teams), RAG mit Kanzlei-Dokumenten/Richtlinien/Vorlagen, Mitarbeiter-Onboarding möglich
+- [2026-08-12 20:11] [2026-08-11-Prozessia X TopDown.md] Ist-Zustand Eingangsrechnungen: vollständig papierbasiert/manuell — E-Mail-Eingang, manuelle ERP-Erfassung, ausgedruckte Zettel mit Belegnummern durch physische Freigaberunde, Datenexport via DATEV zu Steuerberater
+- [2026-08-12 20:10] [2026-06-09-Digitaler-Beschaffungsagent-fur-Schaufler.md] Modul 1: Eingehende Auftragsbestätigungs-E-Mails werden automatisch erfasst und relevante Daten extrahiert; Liefertermine und Referenzen automatisch in Datenbasis aktualisiert
+- [2026-08-12 20:10] [2026-06-09-Digitaler-Beschaffungsagent-fur-Schaufler.md] Digitaler Beschaffungsagent umfasst drei Module: (1) Automatisierte Bearbeitung von Auftragsbestätigungen, (2) Intelligente Lieferterminüberwachung, (3) Versanddokumentation mit Tracking
+- [2026-08-12 20:10] [2026-06-08-Meeting Thorsten Maas X Prozessia (2).md] Beschaffungsagenten-Lösung: automatisiert Einkaufsprozess von Bestellung bis Wareneingang mit Lieferanten-Scoring, Auftragsbestätigungen und Dokumentation
+- [2026-08-12 20:10] [2026-08-03-19fc729374-Angebot_AG0028_03.08.2026.md] Implementierung Beschaffungsagent mit Integration zu Infor LN ERP-System, Schnittstellen/APIs, Server-Infrastruktur, Preisanfrage, Bestellabwicklung, Dashboard
+- [2026-08-12 20:10] [CLAUDE.md] Neue Dokumente IMMER über _inbox/ hochladen, nie direkt in andere Ordner ablegen
+- [2026-08-12 20:10] [CLAUDE.md] Beim Start lesen: _agent/prozessia.md, _agent/context.md, _agent/memory.md, _agent/buffer_status.md
 - [2026-08-12 10:45] [Re: Wachstum systematisieren] Nächste Schritte: Sebastian soll Levin kontaktieren, falls sich Situation ändert oder andere Person zuständig ist
 - [2026-08-12 03:22] [[Twilio] Re: [ACTION REQUIRED] Your Trus] Aktion erforderlich: Informationen im Twilio Console aktualisieren über bereitgestellten Link
 - [2026-08-11 17:47] [2026-06-09-prozessia_Beschaffungsagent_Marketing.md] Erkannte Probleme: Lieferverzögerungen, hoher Dokumentenaufwand, fehlende Lieferanten-KPIs und Transparenz
@@ -2087,6 +2118,10 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-08-12 20:13] [bild-prompts.md] Marken-Klausel (verpflichtend für alle Prompts): Farbschema Schwarz/Weiß mit Purple-Akzent (#534AB7–#B088FF, max 10–15%), bold rounded display grotesque, deutsche Texte nur, Logo unverändert, keine AI-Klischees (keine glowing brains, circuit boards, robot hands)
+- [2026-08-12 20:10] [2026-06-09-Digitaler-Beschaffungsagent-fur-Schaufler.md] Geschäftliche Vorteile: Drastische Reduktion manueller E-Mail-Bearbeitung, Planungssicherheit, durchgängige Transparenz im Beschaffungsprozess
+- [2026-08-12 20:10] [CLAUDE.md] Dateien niemals ohne explizite Bestätigung von Sebastian löschen
+- [2026-08-12 20:10] [CLAUDE.md] Meeting-Notizen müssen in Kunden/[Firma]/Meetings/ oder Leads/[Name]-Korrespondenz/Meetings/ gespeichert werden, nicht in Memos/ (Web-App zeigt nur Meetings-Pfade)
 - [2026-08-11 17:40] [kpi-tracking.md] Erfolgreiches Post-Thema/Säule in Folgewoche verdoppeln, nicht durch neues Thema ersetzen.
 - [2026-08-11 17:40] [kpi-tracking.md] Best-Post-Bestimmung nach Saves-Zahl vornehmen, nicht nach Likes — diese KPI hat Vorrang.
 - [2026-08-11 17:39] [bild-prompts.md] LinkedIn-Profil-Banner: 1584×396px, Headline 'Fortschritt durch sichere KI.' in Weiß
@@ -2163,6 +2198,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-12 20:11] [2026-06-09-Präsentation_ Datenschutz.md] US Cloud Act ermöglicht Datenzugriff bei ChatGPT – rechtliches Risiko für Kanzleien; Prozessia-Lösung mit Azure OpenAI in EU gehostet und rechtskonform
 - [2026-08-12 04:06] [2026-08-12-19f8d67a64-Image.md] Datei benötigt manuelle Überprüfung; weder Absender noch Kunde noch Thema ableitbar
 - [2026-08-11 17:46] [2026-06-09-Vertriebsvereinbarung_Geginat.md] Vertriebspartner-Name (Geginat) noch nicht namentlich in den Vertrag eingetragen – ausstehend
 - [2026-08-11 17:39] [STRATEGIE.md] Positionierung: Prozessias Kernargument ist klare Fertigungs-Nische – nicht verwässern mit generischem Mittelstand-Ansatz wie Konkurrenten
@@ -2279,6 +2315,8 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-13 19:09] [Personalkosten erstattet bekommen] Schulung des Teams in kundengewinnung und Tools (Clay, Claude, Close) finanziert über Fördergelder § 82 SGB III
 
 ## ENTSCHEIDUNG
+- [2026-08-12 20:13] [kpi-tracking.md] Beste Posts nach Saves bewerten, NICHT nach Likes — Saves sind das zentrale Erfolgskriterium
+- [2026-08-12 20:11] [2026-08-11-Prozessia X TopDown.md] Sehr positiver Gesprächsverlauf; Dominik forderte aktiv Angebot für interne Präsentation bei TopDown-Geschäftsführung an
 - [2026-08-11 17:34] [2026-06-09-Präsentation_ Datenschutz.md] Prozessia-Lösung als EU-konforme, kostengünstigere Alternative zu ChatGPT positioniert
 - [2026-08-03 02:24] [2026-08-02.md] Sicherheitsansatz: E-Mail-Preisanfragen starten als Entwürfe (Zillmer-Freigabe erforderlich) vor Versand, nicht vollautomatisch
 - [2026-08-01 05:15] [09_ust_jahreserklaerung_2025.md] Elster-Eintragung erforderlich: Vorauszahlungssoll 2025 = 680,04 € (bereits über 4 Voranmeldungen Q1-Q4 gezahlt)
