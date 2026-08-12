@@ -1,0 +1,21 @@
+{
+  "generiert_am": "2026-08-12T20:05:46.785688",
+  "kanaele": [],
+  "planungen": [],
+  "posts": [
+    {
+      "id": "e9b62a7a",
+      "tag": "Donnerstag",
+      "datum": "2026-08-13",
+      "termin": "2026-08-14T09:30:00+02:00",
+      "idee": "Wissensmanagement – stilles Erfahrungswissen an einer Maschine oder Person",
+      "text": "Der eine Mitarbeiter. Die eine Maschine. Der eine Handgriff, den sonst niemand kennt.\nFehlt diese Person, steht oft mehr als nur eine Anlage still.\n\nEin ungeplanter Ausfall verlängert die Stillstandszeit im Schnitt um 4 bis 6 Stunden.\nIn 30 Prozent der Fälle findet sich die Ursache erst nach Rücksprache mit dieser Person.\n\n**Ergebnis: Ein einziger Krankheitstag kostet mehr als die Dokumentation, die ihn verhindert hätte.**\n\nWeder SAP noch ein ERP-System fragen nach dem Wissen, das nur im Kopf existiert.\n\nEin Wissensmanagement-System macht dieses Erfahrungswissen durchsuchbar, bevor der nächste Ausfall kommt.\nEs ersetzt keinen Facharbeiter, aber es macht sein Wissen für alle nutzbar.\n\nWie lange dauert bei Ihnen ein Rückruf, wenn der eine Kollege im Urlaub ist?\n\n#KI #Mittelstand #Wissensmanagement #Werkzeugbau #Lohnfertigung",
+      "typ": "A",
+      "pushed": true,
+      "buffer_post_ids": [
+        "6a7cd21ea69b2de4b9e3c8da",
+        "6a7cd21fa1130ae12dae2204"
+      ]
+    }
+  ]
+}
