@@ -186,7 +186,7 @@ def _to_iso_berlin(datum: str, uhrzeit: str) -> str:
     return dt.isoformat()
 
 
-def push_post_to_buffer(post_id: str, scheduled_at: str | None = None) -> dict:
+def push_post_to_buffer(post_id: str, scheduled_at: str | None = None, draft: bool = False) -> dict:
     """Pusht einen einzelnen gespeicherten Post nach Buffer (beide Kanäle) und
     merkt Termin + Status direkt am Post, damit Detailansicht/Chat wissen,
     dass er schon raus ist."""
@@ -196,7 +196,7 @@ def push_post_to_buffer(post_id: str, scheduled_at: str | None = None) -> dict:
     if not post.get("text", "").strip():
         return {"error": "Post hat keinen Text"}
     due = scheduled_at or post.get("termin") or None
-    result = buffer_push(post["text"], scheduled_at=due)
+    result = buffer_push(post["text"], scheduled_at=due, draft=draft)
     if result.get("ok"):
         _save_post_fields(
             post_id,
@@ -451,7 +451,7 @@ _LINKEDIN_CHAT_TOOLS = [
     },
     {
         "name": "schedule_post",
-        "description": "Plant einen bestehenden, gespeicherten Post (per id) zu einem Datum/Uhrzeit in Buffer ein (beide Kanäle: Sebastian + Prozessia).",
+        "description": "Plant einen bestehenden, gespeicherten Post (per id) zu einem Datum/Uhrzeit in Buffer ein (beide Kanäle: Sebastian + Prozessia) - der Post geht zu diesem Termin automatisch live.",
         "input_schema": {
             "type": "object",
             "properties": {
@@ -460,6 +460,20 @@ _LINKEDIN_CHAT_TOOLS = [
                 "uhrzeit": {"type": "string", "description": "HH:MM, 24h, Berliner Zeit."},
             },
             "required": ["post_id", "datum", "uhrzeit"],
+        },
+    },
+    {
+        "name": "draft_post",
+        "description": (
+            "Pusht einen bestehenden, gespeicherten Post (per id) als echten Buffer-Entwurf, OHNE Termin - "
+            "wird NIE automatisch veröffentlicht, liegt in Buffer nur zum Anschauen/Auswählen bereit. "
+            "Immer dieses Tool nutzen (nicht schedule_post) wenn Sebastian mehrere Posts 'zum Durchschauen', "
+            "'als Entwurf', 'unscheduled' oder 'zur Auswahl' haben will, statt sie fest einzuplanen."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {"post_id": {"type": "string"}},
+            "required": ["post_id"],
         },
     },
     {
@@ -559,7 +573,7 @@ _LINKEDIN_CHAT_TOOLS = [
 
 MAX_LINKEDIN_CHAT_ITERATIONS = 6
 _LINKEDIN_STATE_CHANGING_TOOLS = {
-    "generate_ideas", "write_post", "revise_post", "schedule_post", "make_carousel", "set_direction",
+    "generate_ideas", "write_post", "revise_post", "schedule_post", "draft_post", "make_carousel", "set_direction",
     "delete_post", "reschedule_post",
 }
 
@@ -602,7 +616,20 @@ def _execute_linkedin_chat_tool(name: str, inp: dict) -> tuple[str, bool]:
             except Exception:
                 return "Ungültiges Datum/Uhrzeit-Format, bitte YYYY-MM-DD und HH:MM verwenden.", True
             r = push_post_to_buffer(post_id, scheduled_at)
-            return (f"Post {post_id} eingeplant für {scheduled_at}." if r.get("ok") else f"Buffer-Fehler: {r.get('error', '?')}"), not r.get("ok")
+            if not r.get("ok"):
+                return f"Buffer-Fehler: {r.get('error', '?')}", True
+            if r.get("partial"):
+                return f"Post {post_id} nur teilweise eingeplant für {scheduled_at} - ein Kanal ist fehlgeschlagen: {r.get('errors')}. Bitte prüfen, nicht als vollständig erledigt melden.", True
+            return f"Post {post_id} eingeplant für {scheduled_at} (beide Kanäle bestätigt).", False
+
+        if name == "draft_post":
+            post_id = inp.get("post_id", "")
+            r = push_post_to_buffer(post_id, scheduled_at=None, draft=True)
+            if not r.get("ok"):
+                return f"Buffer-Fehler: {r.get('error', '?')}", True
+            if r.get("partial"):
+                return f"Post {post_id} nur auf einem Kanal als Entwurf angelegt - der andere ist fehlgeschlagen: {r.get('errors')}. Bitte prüfen.", True
+            return f"Post {post_id} als Buffer-Entwurf angelegt (beide Kanäle, kein Termin, wird nicht automatisch veröffentlicht).", False
 
         if name == "make_carousel":
             due_at = None
@@ -697,7 +724,8 @@ Verfügbare Aktionen (bei Bedarf aufrufen, sonst direkt in Text antworten):
 - generate_ideas (CLI: generate_linkedin_ideas): neue Ideen generieren (ersetzt die alten)
 - write_post (CLI: write_linkedin_post_draft): Post-Text aus einer Idee/einem Thema schreiben und als Entwurf speichern - pusht NICHT automatisch
 - revise_post (CLI: revise_linkedin_post): Text eines bestehenden Posts (per id) überarbeiten
-- schedule_post (CLI: schedule_linkedin_post): bestehenden Post (per id) zu einem Zeitpunkt in Buffer einplanen (rechne relative Angaben wie "morgen" anhand des heutigen Datums oben um)
+- schedule_post (CLI: schedule_linkedin_post): bestehenden Post (per id) zu einem Zeitpunkt in Buffer einplanen (rechne relative Angaben wie "morgen" anhand des heutigen Datums oben um) - geht zu diesem Termin automatisch live
+- draft_post: bestehenden Post (per id) OHNE Termin als echten Buffer-Entwurf anlegen - IMMER dieses Tool nutzen (nicht schedule_post mit einem selbst ausgedachten Termin!) wenn Sebastian mehrere Posts "zum Durchschauen", "als Entwurf" oder "unscheduled" haben will
 - make_carousel (CLI: generate_carousel): Bild-Karussell erstellen (aus post_id oder freiem hook) und automatisch in Buffer einplanen.
   entwurf=true, wenn Sebastian testen/vorher sehen will, bevor es raus geht - landet dann als Buffer-Entwurf
   (nie automatisch veröffentlicht) statt eingeplant zu werden.
@@ -1206,8 +1234,17 @@ def push_latest_to_buffer() -> dict:
     return {"ok": True, "gepusht": pushed, "errors": errors or None}
 
 
-def buffer_push(text: str, scheduled_at: str | None = None) -> dict:
+def buffer_push(text: str, scheduled_at: str | None = None, draft: bool = False) -> dict:
     """Pusht einen Post auf beide Buffer-Kanäle (Sebastian + Prozessia) via GraphQL.
+
+    draft=True (2026-08-13): landet als echter Buffer-Entwurf (saveToDraft, wie
+    carousel_service.generate_carousel es für Karusselle schon konnte) statt
+    automatisch eingeplant zu werden. Vorher gab es für reine Text-Posts KEINEN
+    Weg, "als Entwurf" zu erfüllen - eine Bitte wie "pushe sie unscheduled als
+    Entwürfe" landete zwangsläufig trotzdem scheduled (mode=addToQueue mangels
+    Alternative), weil das Tool das schlicht nicht kannte. Live beobachtet
+    12.08.2026: 9 angeforderte Entwürfe wurden automatisch im Di/Do-Rhythmus
+    eingeplant statt als Entwürfe liegenzubleiben.
 
     **Ergebnis: ...** wird hier erst beim Push in Unicode-Fettschrift übersetzt
     (siehe carousel_service._linkedin_bold). Gespeichert bleibt der Text mit
@@ -1268,7 +1305,8 @@ mutation CreatePost($input: CreatePostInput!) {
                 "text": text,
                 "mode": "customScheduled" if due else "addToQueue",
                 "schedulingType": "automatic",
-                **({"dueAt": due} if due else {}),
+                **({"dueAt": due} if due and not draft else {}),
+                **({"saveToDraft": True} if draft else {}),
             }
         }
         payload = json.dumps({"query": mutation, "variables": variables}).encode()
@@ -1298,7 +1336,12 @@ mutation CreatePost($input: CreatePostInput!) {
 
     if errors and not pushed:
         return {"error": errors}
-    return {"ok": True, "pushed": pushed, "errors": errors or None}
+    # "ok" heißt bisher nur "mindestens ein Kanal hat geklappt" - ein Aufrufer,
+    # der nur result["ok"] prüft (z.B. der Chat-Tool-Handler für schedule_post),
+    # meldet dann fälschlich "in beiden Kanälen eingeplant", obwohl z.B. nur
+    # Sebastian klappte und Prozessia mit einem stillen Fehler ausblieb.
+    # partial=True macht diesen Fall für Aufrufer unterscheidbar.
+    return {"ok": True, "pushed": pushed, "errors": errors or None, "partial": bool(errors)}
 
 
 _INSIGHTS_ORG_ID = "6a15c3685a233c9c16251245"
@@ -1405,6 +1448,7 @@ query Posts($orgId: OrganizationId!, $status: [PostStatus!]) {
       node {
         id text status dueAt sentAt
         channel { id name }
+        assets { __typename }
       }
     }
   }
