@@ -304,15 +304,88 @@ def _format_ideas_for_chat() -> str:
     return "\n".join(f"- [{i['kategorie']}] {i['titel']} — {i['hook']}" for i in ideen)
 
 
+_BUFFER_STATUS_LABEL = {"draft": "Entwurf", "scheduled": "geplant", "sent": "gesendet"}
+
+
+def _merge_local_and_buffer_posts() -> list[dict]:
+    """Verschmilzt lokal generierte Posts (beitraege-*.json) mit dem
+    tatsächlichen Live-Stand in Buffer. Ohne das sieht list_posts nur, was
+    diese Pipeline selbst geschrieben hat - Drafts, die Sebastian direkt in
+    Buffer anlegt (z.B. über die Buffer-Web-App), blieben sonst komplett
+    unsichtbar, weil dafür schlicht kein lokaler Post-Eintrag existiert
+    (live beobachtet: 4 Buffer-Drafts, 0 lokale Treffer, 12.08.2026).
+
+    Lokale Posts, die schon gepusht wurden, werden per buffer_post_ids mit
+    ihrem Live-Eintrag abgeglichen (echter Buffer-Status statt nur des
+    lokalen pushed-Flags). Alles in Buffer, das keinem lokalen Post
+    zugeordnet werden kann, wird zusätzlich angehängt und als "nur Buffer"
+    markiert - über die zwei Kanäle (Sebastian + Prozessia) hinweg per
+    Text+Termin gruppiert, damit nicht derselbe Draft doppelt auftaucht."""
+    path = _latest_file("beitraege")
+    local_posts = []
+    if path:
+        try:
+            local_posts = _normalize_posts(json.loads(path.read_text(encoding="utf-8")))
+        except Exception:
+            local_posts = []
+
+    buffer_result = get_buffer_status()
+    buffer_posts = buffer_result.get("posts", []) if buffer_result.get("ok") else []
+    buffer_by_id = {b["id"]: b for b in buffer_posts}
+
+    matched_ids = set()
+    merged = []
+    for p in local_posts:
+        buffer_ids = [b for b in (p.get("buffer_post_ids") or []) if b]
+        live = [buffer_by_id[b] for b in buffer_ids if b in buffer_by_id]
+        matched_ids.update(buffer_ids)
+        if live:
+            status, due = live[0].get("status"), live[0].get("due_at")
+        else:
+            status = "gesendet" if p.get("pushed") else "offen"
+            due = p.get("termin")
+        merged.append({
+            "id": p.get("id"),
+            "text_preview": (p.get("idee") or p.get("text") or "")[:100],
+            "status": status,
+            "due": due,
+            "source": "lokal",
+        })
+
+    grouped = {}
+    for b in buffer_posts:
+        if b["id"] in matched_ids:
+            continue
+        key = (b.get("text_preview"), b.get("due_at"))
+        g = grouped.setdefault(key, {"buffer_ids": [], "channels": [], "status": b.get("status"), "due": b.get("due_at"), "text_preview": b.get("text_preview")})
+        g["buffer_ids"].append(b["id"])
+        g["channels"].append(b.get("channel"))
+    for g in grouped.values():
+        merged.append({
+            "id": None,
+            "buffer_ids": g["buffer_ids"],
+            "text_preview": g["text_preview"],
+            "status": g["status"],
+            "due": g["due"],
+            "source": "buffer",
+        })
+    return merged
+
+
 def _format_posts_for_chat() -> str:
-    posts = get_posts().get("posts", [])
+    posts = _merge_local_and_buffer_posts()
     if not posts:
         return "(keine gespeicherten Posts)"
-    return "\n".join(
-        f"- id={p['id']} | {p['tag']} {p['termin'][:16].replace('T', ' ')} | "
-        f"{'gepusht' if p['pushed'] else 'offen'} | {p['idee']}"
-        for p in posts
-    )
+    lines = []
+    for p in posts:
+        due = (p.get("due") or "")[:16].replace("T", " ")
+        status_label = _BUFFER_STATUS_LABEL.get(p["status"], p["status"] or "offen")
+        if p["source"] == "buffer":
+            id_part = f"buffer_ids={','.join(p['buffer_ids'])} (nur in Buffer, nicht hier generiert - für Text-/Terminänderung delete_post + write_post nutzen)"
+        else:
+            id_part = f"id={p['id']}"
+        lines.append(f"- {id_part} | {due} | {status_label} | {p['text_preview']}")
+    return "\n".join(lines)
 
 
 def list_ideas_text() -> str:
@@ -350,7 +423,7 @@ _LINKEDIN_CHAT_TOOLS = [
     },
     {
         "name": "list_posts",
-        "description": "Zeigt die aktuell gespeicherten/geplanten Posts (id, Tag, Termin, ob schon gepusht, Thema).",
+        "description": "Zeigt alle Posts, die entweder hier lokal geschrieben oder aktuell live in Buffer als Entwurf/geplant hinterlegt sind (auch Drafts, die Sebastian direkt in Buffer angelegt hat) - mit Status (Entwurf/geplant/gesendet/offen) und Termin.",
         "input_schema": {"type": "object", "properties": {}},
     },
     {
@@ -431,9 +504,9 @@ _LINKEDIN_CHAT_TOOLS = [
     {
         "name": "get_buffer_status",
         "description": (
-            "Live-Abfrage direkt aus Buffer: was ist aktuell wirklich geplant oder als Entwurf hinterlegt "
-            "(beide Kanäle). Zeigt den tatsächlichen Buffer-Stand, nicht nur die lokal generierten Posts "
-            "(dafür list_posts). Nutzen bei 'Was ist geplant?'/'Buffer Status'."
+            "Live-Abfrage direkt aus Buffer, roh ohne Zusammenführung mit lokalen Posts (list_posts macht "
+            "das schon automatisch, ist meist die bessere Wahl). Nur nutzen für den unvermischten "
+            "Buffer-Rohstand, z.B. um exakte Buffer-Post-IDs für delete_post/get_insights zu bekommen."
         ),
         "input_schema": {"type": "object", "properties": {}},
     },
@@ -634,7 +707,7 @@ Verfügbare Aktionen (bei Bedarf aufrufen, sonst direkt in Text antworten):
   Markdown-Link anhängen, z.B. [Vollständiges PDF](URL).
 - set_direction (CLI: set_linkedin_direction): Richtungsvorgabe für künftige Generierung setzen
 - get_insights (CLI: get_buffer_insights): Performance-Daten (Impressions, Reach, Engagement-Rate %, Reactions/Likes, Kommentare, Shares) der letzten gesendeten Posts live aus Buffer abrufen
-- get_buffer_status (CLI: get_buffer_status): live aus Buffer, was tatsächlich geplant/als Entwurf hinterlegt ist (anders als list_posts, das nur lokal generierte Posts zeigt)
+- get_buffer_status (CLI: get_buffer_status): roher Buffer-Live-Stand ohne Zusammenführung mit lokalen Posts - list_posts zeigt das schon gemischt an, get_buffer_status nur für unvermischte Buffer-Post-IDs (z.B. für delete_post) nutzen
 - get_buffer_drafts (CLI: get_buffer_drafts): nur die Buffer-Entwürfe live abrufen
 - get_buffer_ideas (CLI: get_buffer_ideas): Buffers eigenes Ideas-Feature - nur auf explizite Nachfrage nach "Buffer-Ideen", nicht als Ersatz für list_ideas
 - delete_post (CLI: delete_buffer_post): einen Post direkt in Buffer löschen (Buffer-Post-ID aus get_buffer_status/get_insights, nicht die lokale id)
