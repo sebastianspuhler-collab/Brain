@@ -231,6 +231,7 @@ def spawn_process(
     max_budget_usd: float = 2.00,
     tools: str | None = None,
     allowed_tools: str | None = None,
+    resume_session_id: str | None = None,
 ) -> subprocess.Popen:
     """Baut den claude -p Subprocess auf (stream-json, MCP-fähig) und startet
     ihn - OHNE den mcp_warmup-Sleep oder das Schreiben der ersten
@@ -253,7 +254,21 @@ def spawn_process(
     Zuständigkeitsbereich läuft deshalb ausschließlich über den
     Zusatz-Prompt (system_prompt_zusatz) - der Agent wird angewiesen, sich
     daran zu halten, es gibt keine technische Durchsetzung. ordner_filter
-    bleibt wie bisher nur eine Einschränkung der RAG-Suche."""
+    bleibt wie bisher nur eine Einschränkung der RAG-Suche.
+
+    SESSION-PERSISTENZ (2026-08-09): --no-session-persistence ist raus -
+    jeder Prozess (auch Pool-Standbys) legt jetzt eine wieder aufnehmbare
+    Session an, sonst kann stream_chat() Folge-Turns nicht per
+    resume_session_id fortsetzen (siehe dortiger Docstring). resume_session_id
+    gesetzt => --resume statt einer neuen Session. WICHTIG, empirisch
+    verifiziert (lokal, 09.08.2026): --system-prompt muss beim Resume
+    BYTE-IDENTISCH zum ursprünglichen Aufruf bleiben, sonst zählt die API das
+    als "system_changed" und der gesamte Cache-Vorteil ist futsch (getestet:
+    $0.089 mit geändertem/fehlendem System-Prompt vs. $0.0072 mit
+    unverändertem - beide auf denselben resumten Prozess). Betrifft hier
+    nichts weiter, weil system_prompt für jeden Aufrufer bereits eine fixe
+    Konstante ist (context.BASE_PROMPT, siehe claude_cli_pool.py und
+    chat.py::_stream_chat_cli) - nur nicht versehentlich variabel machen."""
     settings = get_settings()
     vault = str(settings.vault_path)
     mcp_config = str(Path(vault) / ".mcp.json")
@@ -277,9 +292,10 @@ def spawn_process(
         "--allowedTools", allowed_value,
         "--mcp-config", mcp_config,
         "--strict-mcp-config",
-        "--no-session-persistence",
         "--max-budget-usd", str(max_budget_usd),
     ]
+    if resume_session_id:
+        cmd += ["--resume", resume_session_id]
     return subprocess.Popen(
         cmd, env=_subprocess_env(), cwd=vault,
         stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, bufsize=1,
@@ -322,6 +338,8 @@ def stream_chat(
     try_pool: bool = False,
     tools: str | None = None,
     allowed_tools: str | None = None,
+    resume_session_id: str | None = None,
+    history_fallback: str = "",
 ) -> Iterator[dict]:
     """Streaming-Ersatz für get_client().messages.stream(...) im Chat-Loop
     (chat.py). Nutzt native Claude-Code-Tools (Read/Write/Edit, beschränkt auf

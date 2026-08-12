@@ -146,6 +146,26 @@ TOOLS = [
         },
     },
     {
+        "name": "create_gmail_draft",
+        "description": (
+            "Legt einen Gmail-Entwurf direkt im Postfach an (nicht senden). Übernimmt automatisch "
+            "Sebastians echte Gmail-Signatur - selbst KEINE Signatur/Grußformel in body schreiben. "
+            "Der gmail.compose-Scope ist vorhanden - niemals 'kein Schreibzugriff' behaupten, "
+            "sondern dieses Tool nutzen. Fehlt eine E-Mail-Adresse, vorher search_emails oder "
+            "search_meetings nutzen, um sie im Vault zu finden, statt den Nutzer zu fragen."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "to": {"type": "string", "description": "Empfänger-E-Mail-Adresse"},
+                "subject": {"type": "string"},
+                "body": {"type": "string", "description": "Reiner Text, keine HTML-Formatierung"},
+                "cc": {"type": "string", "description": "Optional"},
+            },
+            "required": ["to", "subject", "body"],
+        },
+    },
+    {
         "name": "task_add",
         "description": "Fügt eine neue offene Aufgabe in der Sidebar hinzu (context.md). Sidebar aktualisiert sich sofort.",
         "input_schema": {
@@ -211,15 +231,16 @@ TOOLS = [
     {
         "name": "generate_carousel",
         "description": (
-            "Vollständige Karussell-Pipeline: Slides (Claude) → KI-Bilder (gpt-image-1) → PDF → Cloudinary → Buffer Document-Post. "
-            "Datum optional, ohne Datum wird der nächste Di oder Fr 09:30 genommen."
+            "Vollständige Karussell-Pipeline: Slides + Begleittext (Claude) → Hintergrundbild (gpt-image-1) → PDF → Cloudinary → Buffer Document-Post. "
+            "Datum optional, ohne Datum wird der nächste Di oder Do 09:30 genommen."
         ),
         "input_schema": {
             "type": "object",
             "properties": {
                 "hook": {"type": "string", "description": "Hook-Text für die erste Slide"},
-                "branche": {"type": "string", "description": "z.B. Werkzeugbau, Maschinenbau — Default 'Alle'"},
-                "saeule": {"type": "string", "description": "Themen-Säule, Default 'Wissen'"},
+                "branche": {"type": "string", "description": "Werkzeugbau, Lohnfertigung, Elektrotechnik, Kunststoff, Metallbau — Default 'Alle'"},
+                "saeule": {"type": "string", "description": "Themen-Säule: Wissensmanagement, Compliance, Einkauf oder KI-Nutzung — Default 'Einkauf'"},
+                "variante": {"type": "string", "description": "Farblogik der Serie: 'schwarz' oder 'weiss'. Pro Post-Serie konsistent halten, Default 'schwarz'."},
                 "due_date": {"type": "string", "description": "Optional YYYY-MM-DD"},
             },
             "required": ["hook"],
@@ -390,6 +411,20 @@ def execute_tool(name: str, tool_input: dict) -> tuple[str, bool]:
                 False,
             )
 
+        if name == "create_gmail_draft":
+            if not gmail_client.is_authenticated():
+                return "Gmail nicht verbunden (fehlende/abgelaufene Zugangsdaten).", True
+            try:
+                result = gmail_client.create_draft(
+                    tool_input.get("to", ""),
+                    tool_input.get("subject", ""),
+                    tool_input.get("body", ""),
+                    cc=tool_input.get("cc") or None,
+                )
+                return result["message"], False
+            except Exception as e:
+                return f"Fehler beim Anlegen des Entwurfs: {e}", True
+
         if name == "task_add":
             result = tasks_service.add_task(tool_input.get("text", ""))
             ok = result.get("ok", False)
@@ -434,10 +469,13 @@ def execute_tool(name: str, tool_input: dict) -> tuple[str, bool]:
         if name == "generate_carousel":
             hook = tool_input.get("hook", "")
             branche = tool_input.get("branche") or "Alle"
-            saeule = tool_input.get("saeule") or "Wissen"
+            saeule = tool_input.get("saeule") or "Einkauf"
+            variante = tool_input.get("variante") or carousel_service.DEFAULT_VARIANTE
             due_date = tool_input.get("due_date")
             due_at = f"{due_date}T09:30:00+02:00" if due_date and re.match(r"\d{4}-\d{2}-\d{2}", due_date) else None
-            result = carousel_service.generate_carousel(hook, branche, saeule, due_at=due_at)
+            # Über linkedin_service, damit das Karussell in karusselle.json
+            # protokolliert wird und im Dashboard auftaucht.
+            result = linkedin_service.make_carousel(hook, branche=branche, saeule=saeule, due_at=due_at, variante=variante)
             if result.get("ok"):
                 n = result.get("slides", 0)
                 due = (result.get("due_at") or "")[:10]

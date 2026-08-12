@@ -79,11 +79,22 @@ def load_session(session_id: str) -> dict | None:
         return None
 
 
-def save_session(session_id: str, messages: list[dict], model: str, agent_id: str | None = None) -> dict:
+def save_session(
+    session_id: str, messages: list[dict], model: str, agent_id: str | None = None,
+    claude_session_id: str | None = None,
+) -> dict:
     path = _session_path(session_id)
     now = datetime.now(timezone.utc).isoformat()
     existing = load_session(session_id)
     created_at = existing.get("created_at", now) if existing else now
+    # claude_session_id (2026-08-09): die claude-CLI-eigene Session-ID für
+    # --resume (siehe claude_cli.py) - None bedeutet hier "unverändert lassen",
+    # nicht "löschen", damit die bisherigen Aufrufer (Haupt-Chat im
+    # api-Engine-Modus, Zwischenspeichern der reinen Nutzer-Nachricht vor der
+    # Antwort, Dev-Agent-Proxy, das PUT-Endpoint unten) die ID nicht jedes Mal
+    # kennen/mitschicken müssen, um sie nicht versehentlich zu überschreiben.
+    if claude_session_id is None and existing:
+        claude_session_id = existing.get("claude_session_id")
     data = {
         "id": session_id,
         "title": _derive_title(messages),
@@ -92,6 +103,7 @@ def save_session(session_id: str, messages: list[dict], model: str, agent_id: st
         "updated_at": now,
         "messages": messages,
         "agent_id": agent_id,
+        "claude_session_id": claude_session_id,
     }
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     return data

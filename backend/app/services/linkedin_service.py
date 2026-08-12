@@ -226,6 +226,17 @@ def get_carousels() -> dict:
     return {"karusselle": _load_karusselle()}
 
 
+def _format_carousels_for_chat() -> str:
+    karusselle = get_carousels().get("karusselle", [])
+    if not karusselle:
+        return "(noch keine Karusselle erstellt)"
+    lines = []
+    for c in karusselle:
+        status = f"{c['anzahl_gepusht']}x gepusht" if c.get("anzahl_gepusht") else "nicht gepusht"
+        lines.append(f"- id={c['id']} | {c.get('hook', '')} | {c.get('branche', '')} | {len(c.get('slide_titles') or [])} Slides | {status}")
+    return "\n".join(lines)
+
+
 def _save_carousel_record(hook: str, branche: str, result: dict, source_post_id: str | None = None) -> None:
     """Merkt ein erzeugtes Karussell dauerhaft (Thumbnail + PDF-Link), damit es
     im Dashboard sichtbar bleibt statt nur einmalig im Chat aufzutauchen -
@@ -248,18 +259,29 @@ def _save_carousel_record(hook: str, branche: str, result: dict, source_post_id:
     _karusselle_path().write_text(json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def make_carousel(hook: str, branche: str = "Alle", saeule: str = "Wissen",
-                   due_at: str | None = None, source_post_id: str | None = None) -> dict:
-    """Erstellt ein eigenständiges Karussell (Slides -> Bilder -> PDF ->
-    Cloudinary -> Buffer) aus einem Hook/Thema und merkt das Ergebnis dauerhaft."""
-    result = carousel_service.generate_carousel(hook=hook, branche=branche or "Alle", saeule=saeule, due_at=due_at)
+def make_carousel(hook: str, branche: str = "Alle", saeule: str = "Einkauf",
+                   due_at: str | None = None, variante: str = carousel_service.DEFAULT_VARIANTE,
+                   draft: bool = False, source_post_id: str | None = None) -> dict:
+    """Erstellt ein eigenständiges Karussell (Slides -> Bild -> PDF ->
+    Cloudinary -> Buffer) aus einem Hook/Thema und merkt das Ergebnis dauerhaft.
+
+    variante steuert die Farblogik der Serie ("schwarz" oder "weiss", siehe
+    Strategie §6) - laut Strategie pro Post-Serie konsistent zu wählen, nicht
+    pro Einzelpost zu mischen. draft=True landet als echter Buffer-Entwurf
+    (nie automatisch veröffentlicht) - für Testläufe/Review vor dem ersten
+    echten Einsatz eines neuen Themas/einer neuen Variante."""
+    result = carousel_service.generate_carousel(
+        hook=hook, branche=branche or "Alle", saeule=saeule, due_at=due_at, variante=variante, draft=draft
+    )
     if result.get("ok"):
         _save_carousel_record(hook, branche or "Alle", result, source_post_id=source_post_id)
     return result
 
 
-def make_carousel_from_post(post_id: str, branche: str = "Alle", saeule: str = "Wissen",
-                             due_at: str | None = None) -> dict:
+def make_carousel_from_post(post_id: str, branche: str = "Alle", saeule: str = "Einkauf",
+                             due_at: str | None = None,
+                             variante: str = carousel_service.DEFAULT_VARIANTE,
+                             draft: bool = False) -> dict:
     """Erstellt aus einem bestehenden Text-Post ein eigenständiges Karussell -
     läuft unabhängig vom Text-Post als eigener Buffer-Beitrag, der Text-Post
     bleibt unverändert."""
@@ -271,7 +293,8 @@ def make_carousel_from_post(post_id: str, branche: str = "Alle", saeule: str = "
         hook = post["text"].strip().split("\n")[0].strip()
     if not hook:
         return {"ok": False, "error": "Kein Thema/Hook für das Karussell gefunden"}
-    return make_carousel(hook, branche=branche, saeule=saeule, due_at=due_at or post.get("termin"), source_post_id=post_id)
+    return make_carousel(hook, branche=branche, saeule=saeule, due_at=due_at or post.get("termin"),
+                         variante=variante, draft=draft, source_post_id=post_id)
 
 
 def _format_ideas_for_chat() -> str:
@@ -281,15 +304,88 @@ def _format_ideas_for_chat() -> str:
     return "\n".join(f"- [{i['kategorie']}] {i['titel']} — {i['hook']}" for i in ideen)
 
 
+_BUFFER_STATUS_LABEL = {"draft": "Entwurf", "scheduled": "geplant", "sent": "gesendet"}
+
+
+def _merge_local_and_buffer_posts() -> list[dict]:
+    """Verschmilzt lokal generierte Posts (beitraege-*.json) mit dem
+    tatsächlichen Live-Stand in Buffer. Ohne das sieht list_posts nur, was
+    diese Pipeline selbst geschrieben hat - Drafts, die Sebastian direkt in
+    Buffer anlegt (z.B. über die Buffer-Web-App), blieben sonst komplett
+    unsichtbar, weil dafür schlicht kein lokaler Post-Eintrag existiert
+    (live beobachtet: 4 Buffer-Drafts, 0 lokale Treffer, 12.08.2026).
+
+    Lokale Posts, die schon gepusht wurden, werden per buffer_post_ids mit
+    ihrem Live-Eintrag abgeglichen (echter Buffer-Status statt nur des
+    lokalen pushed-Flags). Alles in Buffer, das keinem lokalen Post
+    zugeordnet werden kann, wird zusätzlich angehängt und als "nur Buffer"
+    markiert - über die zwei Kanäle (Sebastian + Prozessia) hinweg per
+    Text+Termin gruppiert, damit nicht derselbe Draft doppelt auftaucht."""
+    path = _latest_file("beitraege")
+    local_posts = []
+    if path:
+        try:
+            local_posts = _normalize_posts(json.loads(path.read_text(encoding="utf-8")))
+        except Exception:
+            local_posts = []
+
+    buffer_result = get_buffer_status()
+    buffer_posts = buffer_result.get("posts", []) if buffer_result.get("ok") else []
+    buffer_by_id = {b["id"]: b for b in buffer_posts}
+
+    matched_ids = set()
+    merged = []
+    for p in local_posts:
+        buffer_ids = [b for b in (p.get("buffer_post_ids") or []) if b]
+        live = [buffer_by_id[b] for b in buffer_ids if b in buffer_by_id]
+        matched_ids.update(buffer_ids)
+        if live:
+            status, due = live[0].get("status"), live[0].get("due_at")
+        else:
+            status = "gesendet" if p.get("pushed") else "offen"
+            due = p.get("termin")
+        merged.append({
+            "id": p.get("id"),
+            "text_preview": (p.get("idee") or p.get("text") or "")[:100],
+            "status": status,
+            "due": due,
+            "source": "lokal",
+        })
+
+    grouped = {}
+    for b in buffer_posts:
+        if b["id"] in matched_ids:
+            continue
+        key = (b.get("text_preview"), b.get("due_at"))
+        g = grouped.setdefault(key, {"buffer_ids": [], "channels": [], "status": b.get("status"), "due": b.get("due_at"), "text_preview": b.get("text_preview")})
+        g["buffer_ids"].append(b["id"])
+        g["channels"].append(b.get("channel"))
+    for g in grouped.values():
+        merged.append({
+            "id": None,
+            "buffer_ids": g["buffer_ids"],
+            "text_preview": g["text_preview"],
+            "status": g["status"],
+            "due": g["due"],
+            "source": "buffer",
+        })
+    return merged
+
+
 def _format_posts_for_chat() -> str:
-    posts = get_posts().get("posts", [])
+    posts = _merge_local_and_buffer_posts()
     if not posts:
         return "(keine gespeicherten Posts)"
-    return "\n".join(
-        f"- id={p['id']} | {p['tag']} {p['termin'][:16].replace('T', ' ')} | "
-        f"{'gepusht' if p['pushed'] else 'offen'} | {p['idee']}"
-        for p in posts
-    )
+    lines = []
+    for p in posts:
+        due = (p.get("due") or "")[:16].replace("T", " ")
+        status_label = _BUFFER_STATUS_LABEL.get(p["status"], p["status"] or "offen")
+        if p["source"] == "buffer":
+            id_part = f"buffer_ids={','.join(p['buffer_ids'])} (nur in Buffer, nicht hier generiert - für Text-/Terminänderung delete_post + write_post nutzen)"
+        else:
+            id_part = f"id={p['id']}"
+        lines.append(f"- {id_part} | {due} | {status_label} | {p['text_preview']}")
+    return "\n".join(lines)
 
 
 def list_ideas_text() -> str:
@@ -327,7 +423,7 @@ _LINKEDIN_CHAT_TOOLS = [
     },
     {
         "name": "list_posts",
-        "description": "Zeigt die aktuell gespeicherten/geplanten Posts (id, Tag, Termin, ob schon gepusht, Thema).",
+        "description": "Zeigt alle Posts, die entweder hier lokal geschrieben oder aktuell live in Buffer als Entwurf/geplant hinterlegt sind (auch Drafts, die Sebastian direkt in Buffer angelegt hat) - mit Status (Entwurf/geplant/gesendet/offen) und Termin.",
         "input_schema": {"type": "object", "properties": {}},
     },
     {
@@ -374,9 +470,12 @@ _LINKEDIN_CHAT_TOOLS = [
             "properties": {
                 "post_id": {"type": "string", "description": "Optional: bestehenden Post als Grundlage nehmen."},
                 "hook": {"type": "string", "description": "Optional: freier Hook/Thema, falls kein post_id angegeben."},
-                "branche": {"type": "string", "enum": ["Werkzeugbau", "Maschinenbau", "Lohnfertiger", "Elektrotechnik", "Allgemein"]},
+                "branche": {"type": "string", "enum": ["Werkzeugbau", "Lohnfertigung", "Elektrotechnik", "Kunststoff", "Metallbau", "Allgemein"]},
+                "saeule": {"type": "string", "enum": ["Wissensmanagement", "Compliance", "Einkauf", "KI-Nutzung"]},
+                "variante": {"type": "string", "enum": ["schwarz", "weiss"], "description": "Farblogik der Serie: schwarzer oder weißer Hintergrund. Pro Post-Serie konsistent halten, Default schwarz."},
                 "datum": {"type": "string", "description": "YYYY-MM-DD, optional."},
                 "uhrzeit": {"type": "string", "description": "HH:MM, optional, nur zusammen mit datum."},
+                "entwurf": {"type": "boolean", "description": "true = landet als Buffer-Entwurf (status draft, wird nie automatisch veröffentlicht) statt eingeplant zu werden - für Testläufe/Review, bevor ein neues Thema wirklich raus geht."},
             },
             "required": [],
         },
@@ -402,10 +501,67 @@ _LINKEDIN_CHAT_TOOLS = [
             "properties": {"n": {"type": "integer", "description": "Anzahl der letzten gesendeten Posts, Default 10"}},
         },
     },
+    {
+        "name": "get_buffer_status",
+        "description": (
+            "Live-Abfrage direkt aus Buffer, roh ohne Zusammenführung mit lokalen Posts (list_posts macht "
+            "das schon automatisch, ist meist die bessere Wahl). Nur nutzen für den unvermischten "
+            "Buffer-Rohstand, z.B. um exakte Buffer-Post-IDs für delete_post/get_insights zu bekommen."
+        ),
+        "input_schema": {"type": "object", "properties": {}},
+    },
+    {
+        "name": "get_buffer_drafts",
+        "description": "Zeigt nur die Buffer-Entwürfe (status draft), live aus Buffer. Nutzen bei 'Zeig Entwürfe'.",
+        "input_schema": {"type": "object", "properties": {}},
+    },
+    {
+        "name": "get_buffer_ideas",
+        "description": (
+            "Zeigt Buffers eigenes, organisationsweites Ideas-Feature - NICHT dieselben Ideen wie list_ideas "
+            "(das liest die hier im Chat generierten ideen-*.json). Nur nutzen, wenn Sebastian explizit nach "
+            "'Buffer-Ideen' fragt, nicht als Ersatz für list_ideas."
+        ),
+        "input_schema": {"type": "object", "properties": {}},
+    },
+    {
+        "name": "delete_post",
+        "description": "Löscht einen Post direkt in Buffer, per Buffer-Post-ID (siehe get_buffer_status/get_insights für die ID, nicht die lokale Post-id).",
+        "input_schema": {
+            "type": "object",
+            "properties": {"buffer_post_id": {"type": "string"}},
+            "required": ["buffer_post_id"],
+        },
+    },
+    {
+        "name": "reschedule_post",
+        "description": (
+            "Ändert Datum/Uhrzeit eines bereits in Buffer eingeplanten Posts (per lokaler id, siehe list_posts). "
+            "Für noch nicht eingeplante Posts stattdessen schedule_post nutzen - reschedule_post schlägt fehl, "
+            "wenn der Post noch nicht gepusht wurde."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "post_id": {"type": "string"},
+                "datum": {"type": "string", "description": "YYYY-MM-DD"},
+                "uhrzeit": {"type": "string", "description": "HH:MM, 24h, Berliner Zeit."},
+            },
+            "required": ["post_id", "datum", "uhrzeit"],
+        },
+    },
+    {
+        "name": "list_carousels",
+        "description": "Zeigt die bisher erstellten Karusselle (Hook, Branche, Slide-Anzahl, Push-Status).",
+        "input_schema": {"type": "object", "properties": {}},
+    },
 ]
 
 MAX_LINKEDIN_CHAT_ITERATIONS = 6
-_LINKEDIN_STATE_CHANGING_TOOLS = {"generate_ideas", "write_post", "revise_post", "schedule_post", "make_carousel", "set_direction"}
+_LINKEDIN_STATE_CHANGING_TOOLS = {
+    "generate_ideas", "write_post", "revise_post", "schedule_post", "make_carousel", "set_direction",
+    "delete_post", "reschedule_post",
+}
 
 
 def _execute_linkedin_chat_tool(name: str, inp: dict) -> tuple[str, bool]:
@@ -459,15 +615,29 @@ def _execute_linkedin_chat_tool(name: str, inp: dict) -> tuple[str, bool]:
                     due_at = None
             post_id = inp.get("post_id")
             branche = inp.get("branche") or "Alle"
+            saeule = inp.get("saeule") or "Einkauf"
+            variante = inp.get("variante") or carousel_service.DEFAULT_VARIANTE
+            entwurf = bool(inp.get("entwurf"))
             if post_id:
-                r = make_carousel_from_post(post_id, branche=branche, due_at=due_at)
+                r = make_carousel_from_post(post_id, branche=branche, saeule=saeule, due_at=due_at, variante=variante, draft=entwurf)
             elif inp.get("hook"):
-                r = make_carousel(inp["hook"], branche=branche, due_at=due_at)
+                r = make_carousel(inp["hook"], branche=branche, saeule=saeule, due_at=due_at, variante=variante, draft=entwurf)
             else:
                 return "Weder post_id noch hook angegeben.", True
             if r.get("ok"):
                 titles = " | ".join((r.get("slide_titles") or [])[:3])
-                return f"Karussell fertig — {r.get('slides', 0)} Slides, {r.get('anzahl_gepusht', 0)}x eingeplant. {titles}", False
+                # thumb_url/pdf_url im Klartext mitgeben, nicht nur im Rückgabe-
+                # Dict versteckt - der Chat-System-Prompt weist das Modell an,
+                # das Bild als Markdown ![...](url) in seine Antwort zu
+                # übernehmen, damit Sebastian den Entwurf direkt im Chat sieht
+                # statt erst in den Karusselle-Tab wechseln zu müssen.
+                bild_zeile = f"\nVorschau-Bild-URL: {r['thumb_url']}" if r.get("thumb_url") else ""
+                pdf_zeile = f"\nPDF-URL: {r['pdf_url']}" if r.get("pdf_url") else ""
+                return (
+                    f"Karussell fertig — {r.get('slides', 0)} Slides, {r.get('anzahl_gepusht', 0)}x als "
+                    f"{'Entwurf' if r.get('draft') else 'geplanter Post'} in Buffer. {titles}"
+                    f"{bild_zeile}{pdf_zeile}"
+                ), False
             return f"Karussell-Fehler: {r.get('error', '?')}", True
 
         if name == "set_direction":
@@ -477,6 +647,29 @@ def _execute_linkedin_chat_tool(name: str, inp: dict) -> tuple[str, bool]:
         if name == "get_insights":
             text = _format_insights_for_chat(inp.get("n") or 10)
             return text, text.startswith("Fehler")
+
+        if name == "get_buffer_status":
+            r = get_buffer_status()
+            return _format_buffer_posts_for_chat(r), not r.get("ok")
+
+        if name == "get_buffer_drafts":
+            r = get_buffer_drafts()
+            return _format_buffer_posts_for_chat(r), not r.get("ok")
+
+        if name == "get_buffer_ideas":
+            r = get_buffer_ideas()
+            return _format_buffer_ideas_for_chat(r), not r.get("ok")
+
+        if name == "delete_post":
+            r = delete_buffer_post(inp.get("buffer_post_id", ""))
+            return (f"Post {r.get('id')} gelöscht." if r.get("ok") else f"Fehler: {r.get('error', '?')}"), not r.get("ok")
+
+        if name == "reschedule_post":
+            r = reschedule_post(inp.get("post_id", ""), inp.get("datum", ""), inp.get("uhrzeit", ""))
+            return (f"Neuer Termin gesetzt." if r.get("ok") else f"Fehler: {r.get('error', '?')}"), not r.get("ok")
+
+        if name == "list_carousels":
+            return _format_carousels_for_chat(), False
 
         return f"Unbekanntes Tool: {name}", True
     except Exception as e:
@@ -505,15 +698,34 @@ Verfügbare Aktionen (bei Bedarf aufrufen, sonst direkt in Text antworten):
 - write_post (CLI: write_linkedin_post_draft): Post-Text aus einer Idee/einem Thema schreiben und als Entwurf speichern - pusht NICHT automatisch
 - revise_post (CLI: revise_linkedin_post): Text eines bestehenden Posts (per id) überarbeiten
 - schedule_post (CLI: schedule_linkedin_post): bestehenden Post (per id) zu einem Zeitpunkt in Buffer einplanen (rechne relative Angaben wie "morgen" anhand des heutigen Datums oben um)
-- make_carousel (CLI: generate_carousel): Bild-Karussell erstellen (aus post_id oder freiem hook) und automatisch in Buffer einplanen
+- make_carousel (CLI: generate_carousel): Bild-Karussell erstellen (aus post_id oder freiem hook) und automatisch in Buffer einplanen.
+  entwurf=true, wenn Sebastian testen/vorher sehen will, bevor es raus geht - landet dann als Buffer-Entwurf
+  (nie automatisch veröffentlicht) statt eingeplant zu werden.
+  WICHTIG: Das Tool-Ergebnis enthält eine Vorschau-Bild-URL (thumb_url) - binde die IMMER unverändert als
+  Markdown-Bild in deine Antwort ein: ![Karussell-Vorschau](URL). Der Chat rendert das direkt als Bild,
+  Sebastian muss dafür nicht extra in den Karusselle-Tab wechseln. Die PDF-URL zusätzlich als normalen
+  Markdown-Link anhängen, z.B. [Vollständiges PDF](URL).
 - set_direction (CLI: set_linkedin_direction): Richtungsvorgabe für künftige Generierung setzen
 - get_insights (CLI: get_buffer_insights): Performance-Daten (Impressions, Reach, Engagement-Rate %, Reactions/Likes, Kommentare, Shares) der letzten gesendeten Posts live aus Buffer abrufen
+- get_buffer_status (CLI: get_buffer_status): roher Buffer-Live-Stand ohne Zusammenführung mit lokalen Posts - list_posts zeigt das schon gemischt an, get_buffer_status nur für unvermischte Buffer-Post-IDs (z.B. für delete_post) nutzen
+- get_buffer_drafts (CLI: get_buffer_drafts): nur die Buffer-Entwürfe live abrufen
+- get_buffer_ideas (CLI: get_buffer_ideas): Buffers eigenes Ideas-Feature - nur auf explizite Nachfrage nach "Buffer-Ideen", nicht als Ersatz für list_ideas
+- delete_post (CLI: delete_buffer_post): einen Post direkt in Buffer löschen (Buffer-Post-ID aus get_buffer_status/get_insights, nicht die lokale id)
+- reschedule_post (CLI: reschedule_linkedin_post): Termin eines bereits eingeplanten Posts ändern (lokale id aus list_posts) - für noch nicht gepushte Posts stattdessen schedule_post
+- list_carousels (CLI: list_linkedin_carousels): bisher erstellte Karusselle anzeigen
 
-Regeln für Post-Texte (bei write_post/revise_post):
+Regeln für Post-Texte (bei write_post/revise_post), vollständig in Marketing/LinkedIn/STRATEGIE.md:
+- Claim it, Show it, Aim it: klare Aussage, eigene Zahl, an eine konkrete Person gerichtet
+- Aufbau: Problem-Einstieg, 2–3 Zahlen, Ergebnis-Zeile als **Ergebnis: ...**, optional
+  Fachsystem/Norm, kurzer Einordnungs-Absatz, Erfahrungsfrage, 3–5 Hashtags
 - Max. 15 Wörter pro Satz, Leerzeile nach jeder 2. Zeile
-- Max. 3 Hashtags am Ende
-- 0 Emojis außer max. 1 ganz am Ende
+- 3–5 Hashtags am Ende, breit (#KI, #Mittelstand) plus spezifisch (#Werkzeugbau, #Beschaffung)
+- 0 Emojis außer max. 1 ganz am Ende, keine Links im Text
+- Erfundene Beispiele nur mit erfundenem Firmennamen und als typisches Szenario gerahmt
 - Keine Wörter: innovativ, nachhaltig, ganzheitlich, Lösung, Transformation
+- Keine generischen Zustimmungsfragen, kein Hedging, keine performte Bescheidenheit
+- Zielgruppe: Geschäftsführer/Einkaufsleiter, produzierende Mittelständler 20–80 MA,
+  Werkzeugbau/Lohnfertigung/Elektrotechnik/Kunststoff/Metallbau — Nische nie verwässern
 
 Sei proaktiv: wenn Sebastian z.B. "schreib mir einen Post über X" sagt, ruf direkt den write_post-Tool auf statt nachzufragen.
 Frag nur nach, wenn eine Aktion sonst mehrdeutig wäre (z.B. welcher Post gemeint ist).
@@ -527,6 +739,8 @@ _LINKEDIN_STATE_CHANGING_MCP_TOOLS = {
     "mcp__prozessia-tools__schedule_linkedin_post",
     "mcp__prozessia-tools__generate_carousel",
     "mcp__prozessia-tools__set_linkedin_direction",
+    "mcp__prozessia-tools__delete_buffer_post",
+    "mcp__prozessia-tools__reschedule_linkedin_post",
 }
 
 
@@ -662,17 +876,17 @@ def set_direction(prompt: str) -> dict:
 
 
 def _next_posting_slot(after: datetime | None = None) -> str:
-    """Nächster erlaubter Slot: Dienstag–Donnerstag, 07:00 oder 12:00 Uhr (Berlin)."""
+    """Nächster erlaubter Slot: Dienstag ODER Donnerstag, 09:30 Uhr Berlin
+    (Strategie §5 - verbindlich, war vorher fälschlich Di/Mi/Do 07:00 oder
+    12:00). Identische Logik zu carousel_service._next_carousel_slot(), hier
+    mit `after` erweitert: ein Post-Batch bekommt so fortlaufend verschiedene
+    Slots statt mehrere Posts auf denselben Tag/dieselbe Uhrzeit zu legen."""
     now = after or datetime.now()
-    candidate = (now + timedelta(hours=2)).replace(minute=0, second=0, microsecond=0)
-    for _ in range(42):
-        if candidate.weekday() in (1, 2, 3):
-            for hour in (7, 12):
-                slot = candidate.replace(hour=hour, minute=0)
-                if slot > now + timedelta(hours=2):
-                    return slot.strftime("%Y-%m-%dT%H:00:00+02:00")
-        candidate = (candidate + timedelta(days=1)).replace(hour=0)
-    return (now + timedelta(days=2)).strftime("%Y-%m-%dT07:00:00+02:00")
+    for d in range(1, 15):
+        candidate = (now + timedelta(days=d)).replace(hour=9, minute=30, second=0, microsecond=0)
+        if candidate.weekday() in (1, 3):  # Dienstag=1, Donnerstag=3
+            return candidate.strftime("%Y-%m-%dT%H:%M:%S+02:00")
+    return (now + timedelta(days=14)).strftime("%Y-%m-%dT09:30:00+02:00")
 
 
 _GENERATE_IDEAS_TOOL = {
@@ -690,14 +904,14 @@ _GENERATE_IDEAS_TOOL = {
                     "type": "object",
                     "properties": {
                         "typ": {"type": "string", "enum": ["A", "B", "C"]},
-                        "kategorie": {"type": "string", "enum": ["Einkauf", "Industrie", "Compliance", "KI-Tipp", "Kundenstory", "Wissensmanagement"]},
+                        "kategorie": {"type": "string", "enum": ["Wissensmanagement", "Compliance", "Einkauf", "KI-Nutzung"]},
                         "titel": {"type": "string", "description": "Max 60 Zeichen."},
                         "hook": {"type": "string", "description": "Erste Zeile, max 80 Zeichen, stoppt den Scroll."},
                         "kern_botschaft": {"type": "string", "description": "Was der Leser mitnimmt."},
-                        "branche": {"type": "string", "enum": ["Werkzeugbau", "Maschinenbau", "Lohnfertiger", "Elektrotechnik", "Allgemein"]},
-                        "zielgruppe_spezifisch": {"type": "string", "description": "z.B. 'Einkaufsleiter, 45 MA, Werkzeugbau'."},
-                        "format_empfehlung": {"type": "string", "enum": ["Text", "Karussell", "Liste"]},
-                        "cta_vorschlag": {"type": "string", "description": "Eine spezifische Frage für Kommentare - kein Engagement-Bait."},
+                        "branche": {"type": "string", "enum": ["Werkzeugbau", "Lohnfertigung", "Elektrotechnik", "Kunststoff", "Metallbau", "Allgemein"]},
+                        "zielgruppe_spezifisch": {"type": "string", "description": "Die konkrete Person laut Aim-Regel, z.B. 'Einkaufsleiter mit Ausschreibung ohne Herstellerangabe, 45 MA, Werkzeugbau'."},
+                        "format_empfehlung": {"type": "string", "enum": ["Karussell", "Text", "Liste"]},
+                        "cta_vorschlag": {"type": "string", "description": "Eine Frage, die nur mit echter Berufserfahrung beantwortbar ist - keine generische Zustimmungsfrage, kein Engagement-Bait."},
                     },
                     "required": ["typ", "kategorie", "titel", "hook", "kern_botschaft", "branche", "zielgruppe_spezifisch", "format_empfehlung", "cta_vorschlag"],
                 },
@@ -711,35 +925,56 @@ _GENERATE_IDEAS_TOOL = {
 def generate_ideas(focus: str = "") -> dict:
     current_direction = _current_direction()
     prompt = f"""Du bist LinkedIn-Content-Stratege für Prozessia.
+Maßgeblich ist die Content-Strategie in Marketing/LinkedIn/STRATEGIE.md, hier die Kurzfassung.
 
-Zielgruppe: Einkaufsleiter und Geschäftsführer in produzierenden Betrieben, 20–80 MA, DACH.
-Prozessia automatisiert Beschaffungsprozesse und Stücklistenprüfung — keine Beratung, konkrete Agenten die Arbeit abnehmen.
-Themen insgesamt: KI-Beschaffung, Automatisierung, EU AI Act & KI-Compliance, KI-Wissensmanagement, Produktivität im Mittelstand, allgemeine KI-Tipps für Entscheider — nicht nur das Kernprodukt, sondern die ganze Bandbreite dessen was die Zielgruppe zu KI im Betrieb wissen muss.
+ZIELGRUPPE (eng halten):
+Geschäftsführer und Einkaufsleiter in inhabergeführten, produzierenden Mittelständlern,
+20–80 Mitarbeitende, Deutschland. Branchen: Werkzeugbau, Lohnfertigung, Elektrotechnik,
+Kunststoff, Metallbau.
+
+POSITIONIERUNG: Generische KI-Agenturen sprechen "den Mittelstand" allgemein an.
+Prozessias Fertigungs-Nische ist das Kernargument — sie muss in jeder Idee spürbar sein.
+Produkte, um die sich der Content dreht: Beschaffungsagent, Stücklistenagent (BOM-Mapper),
+KI-Chatbot, KI-Schulungen.
 
 {f"Richtungsvorgabe: {current_direction}" if current_direction else ""}
 {f"Zusätzlicher Fokus: {focus}" if focus else ""}
 
 Jede Idee bekommt EINEN dieser drei Post-Typen:
 - Typ A – Schmerz-Post: Ich-Perspektive, konkreter Alltags-Schmerz der Zielgruppe, keine Lösung im ersten Satz
-- Typ B – Carousel/Dokument-Post: Framework, Checkliste oder Schritt-für-Schritt (3–7 Punkte)
-- Typ C – Story-Post: anonymes Vorher/Nachher eines Kunden mit konkreten Zahlen (Zeit, Geld, Aufwand)
+- Typ B – Karussell/Dokument-Post: Framework, Checkliste oder Schritt-für-Schritt (3–7 Punkte)
+- Typ C – Story-Post: anonymes Vorher/Nachher mit konkreten Zahlen (Zeit, Geld, Aufwand)
 
-Jede Idee bekommt außerdem GENAU EINE Kategorie (Themen-Säule), für Mischung sorgen — NICHT alle 10 aus derselben Kategorie:
-- Einkauf: konkrete Beschaffungs-/Stücklisten-Schmerzpunkte (Prozessias Kernprodukt)
-- Industrie: allgemeinere Produktions-/Mittelstandsthemen, nicht zwingend Beschaffung
-- Compliance: EU AI Act, Datenschutz, Haftung bei KI-Einsatz, Schatten-KI-Risiko durch unkontrollierten Wissensabfluss (Mitarbeiter kopieren Firmenwissen/Kundendaten in ChatGPT & Co.) — sachlich, keine Panikmache
-- KI-Tipp: praktische, sofort umsetzbare KI-Tipps für Entscheider (Prompts, Tools, Workflows)
-- Kundenstory: anonymisiertes Vorher/Nachher
-- Wissensmanagement: Spezialwissen erfahrener Mitarbeiter geht verloren, wenn Fachkräfte in Rente gehen (Verrentungswelle im Mittelstand) oder Wissen nur in Köpfen/E-Mails/verstreuten Dokumenten steckt statt durchsuchbar zu sein; Zeitverlust durch tägliche Informationssuche; einfache ChatGPT-Uploads/Markdown-Ordner skalieren nicht auf echtes Firmenwissen — bewusste Brücke zu Compliance (unkontrollierter Wissensabfluss über Schatten-KI)
+Jede Idee bekommt GENAU EINE der vier Themen-Säulen:
+- Wissensmanagement: Firmenwissen sichern, KI-gestützte Dokumentation, Corporate-Wissen strukturieren.
+  Konkret: Spezialwissen geht mit der Verrentungswelle verloren; Wissen steckt in Köpfen, E-Mails und
+  verstreuten Dateien statt durchsuchbar zu sein; ChatGPT-Uploads skalieren nicht auf echtes Firmenwissen.
+- Compliance: EU-KI-Verordnung, Transparenzpflichten für KI-Systeme (z.B. Chatbots), DSGVO-Konformität,
+  Schatten-KI als unkontrollierter Wissensabfluss — sachlich, keine Panikmache.
+- Einkauf: Ausschreibungsprozesse, Kalkulation, Lieferantenmanagement, Long-Tail-Spend.
+- KI-Nutzung: Adoption, Hürden, Praxisbeispiele, Stücklisten-/BOM-Automatisierung.
 
-Ziel-Verteilung über die 10 Ideen: mindestens 2× Einkauf, mindestens 2× Compliance, mindestens 2× KI-Tipp, mindestens 1× Wissensmanagement, Rest frei gemischt aus Industrie/Kundenstory/Einkauf.
+Ziel-Verteilung über die 10 Ideen: mindestens 2× je Säule, Rest frei.
+Den Themen-Fingerprint über Wochen halten — kein abrupter Themenwechsel.
 
 Generiere GENAU 10 Ideen: 4× Typ A, 3× Typ B, 3× Typ C.
+Format-Priorität: Dokument-Karussell vor Text vor Video. Mindestens die Hälfte der Ideen
+soll Karussell-Potenzial haben (format_empfehlung "Karussell").
 
-VERBOTEN für jeden Hook und Post:
-- Statistik oder Prozentzahl als erster Satz
-- Wörter: innovativ, nachhaltig, ganzheitlich, Lösungen, Transformation
+CLAIM IT, SHOW IT, AIM IT — gilt für jede Idee:
+- Claim: eine klare Aussage, keine Frage als These, kein Hedging.
+- Show: eine eigene Zahl oder konkrete Beobachtung, kein nacherzähltes fremdes Framework.
+- Aim: an eine konkrete Person gerichtet (Feld zielgruppe_spezifisch), nicht an "alle Unternehmen".
+
+VERBOTEN für jeden Hook und jede Idee:
+- Statistik oder Prozentzahl als allererster Satz
+- Wörter: innovativ, nachhaltig, ganzheitlich, Transformation, revolutionieren, disruptiv, zukunftsfähig
+- Superlative ohne Beleg, performte Bescheidenheit, Hedging
+- Generische Zustimmungsfragen als CTA ("Stimmt ihr zu?", "Wer kennt das?")
 - Engagement-Bait ("Teile diesen Post", "Tag jemanden")
+- Echte Kundennamen — anonymisierte Beispiele bekommen erfundene Firmennamen
+  (z.B. "Elektro Nordstern GmbH", "Nordmetall Fertigung GmbH") und werden als typisches
+  Szenario gerahmt, nie als verifizierbares reales Kundenergebnis.
 
 PFLICHT für jeden Hook:
 - Stoppt den Scroll innerhalb von 3 Sekunden
@@ -752,7 +987,7 @@ PFLICHT für jeden Hook:
             json_prompt = prompt + """
 
 Antworte NUR mit einem JSON-Objekt in genau diesem Format, kein Markdown, keine Erklärung davor/danach:
-{"ideen": [{"typ": "A|B|C", "kategorie": "Einkauf|Industrie|Compliance|KI-Tipp|Kundenstory|Wissensmanagement", "titel": "...", "hook": "...", "kern_botschaft": "...", "branche": "Werkzeugbau|Maschinenbau|Lohnfertiger|Elektrotechnik|Allgemein", "zielgruppe_spezifisch": "...", "format_empfehlung": "Text|Karussell|Liste", "cta_vorschlag": "..."}] (genau 10 Einträge)}"""
+{"ideen": [{"typ": "A|B|C", "kategorie": "Wissensmanagement|Compliance|Einkauf|KI-Nutzung", "titel": "...", "hook": "...", "kern_botschaft": "...", "branche": "Werkzeugbau|Lohnfertigung|Elektrotechnik|Kunststoff|Metallbau|Allgemein", "zielgruppe_spezifisch": "...", "format_empfehlung": "Karussell|Text|Liste", "cta_vorschlag": "..."}] (genau 10 Einträge)}"""
             raw = claude_cli.run_json(json_prompt, model=Models.SONNET, max_budget_usd=1.00, timeout=240).strip()
             raw = raw.replace("```json", "").replace("```", "").strip()
             data = json.loads(raw)
@@ -821,30 +1056,59 @@ _GENERATE_POSTS_TOOL = {
 def generate_posts(spec: str) -> dict:
     current_direction = _current_direction()
     prompt = f"""Du bist LinkedIn-Texter für Prozessia.
+Maßgeblich ist die Content-Strategie in Marketing/LinkedIn/STRATEGIE.md, hier die Kurzfassung.
 
-Zielgruppe: Einkaufsleiter und Geschäftsführer in produzierenden Betrieben, 20–80 MA, DACH.
-Prozessia automatisiert Beschaffungsprozesse und Stücklistenprüfung — konkrete Agenten, keine Beratung.
-Themen insgesamt breiter als nur das Produkt: KI-Beschaffung, EU AI Act & KI-Compliance, KI-Wissensmanagement (inkl. Schatten-KI-Risiko als Brücke zu Compliance), allgemeine KI-Tipps für Entscheider, Produktivität im Mittelstand — Mischung, nicht nur Beschaffungsagent-Werbung.
+ZIELGRUPPE (eng halten):
+Geschäftsführer und Einkaufsleiter in inhabergeführten, produzierenden Mittelständlern,
+20–80 Mitarbeitende, Deutschland. Branchen: Werkzeugbau, Lohnfertigung, Elektrotechnik,
+Kunststoff, Metallbau. Die Fertigungs-Nische ist das Kernargument der Positionierung und
+muss in jedem Post spürbar sein — nie zu "der Mittelstand" allgemein verwässern.
+
+Produkte: Beschaffungsagent, Stücklistenagent (BOM-Mapper), KI-Chatbot, KI-Schulungen.
+Themen-Säulen: Wissensmanagement, Compliance (EU-KI-Verordnung, DSGVO), Einkauf/Beschaffung,
+allgemeine KI-Nutzung im Mittelstand.
 
 {f"Richtungsvorgabe: {current_direction}" if current_direction else ""}
 
 POST-TYPEN (steht in der Spezifikation):
 - Typ A – Schmerz-Post: Ich-Perspektive, Alltags-Schmerz der Zielgruppe, keine KI-Lösung im ersten Satz
 - Typ B – Karussell/Dokument: Framework, Checkliste oder Schritt-für-Schritt mit 3–7 nummerierten Punkten
-- Typ C – Story-Post: anonymes Vorher/Nachher eines Kunden, konkrete Zahlen (Stunden, €, Prozent)
+- Typ C – Story-Post: anonymes Vorher/Nachher, konkrete Zahlen (Stunden, €, Prozent)
+
+CLAIM IT, SHOW IT, AIM IT — ausnahmslos in jedem Post:
+- Claim: eine klare Aussage. Keine Frage als These, kein "könnte sein", kein "korrigiert mich".
+- Show: eine eigene Zahl oder konkrete Beobachtung, kein nacherzähltes fremdes Framework.
+- Aim: an eine konkrete Person gerichtet (z.B. "Einkaufsleiter mit Ausschreibung ohne
+  Herstellerangabe"), nicht an "alle Unternehmen".
+
+AUFBAU DES POST-TEXTES (in dieser Reihenfolge):
+1. Kurze Einleitung oder Frage, die das Problem umreißt
+2. 2–3 konkrete Zahlen oder Fakten
+3. Eine Ergebnis-Zeile, allein auf einer Zeile, im Format: **Ergebnis: ...**
+4. Optional ein Satz mit einem bekannten Fachsystem oder einer Norm (SAP, proALPHA, ERP,
+   branchenübliche Normen) — nur wenn es inhaltlich trägt
+5. Kurzer Einordnungs-Absatz, 2–3 Sätze
+6. Abschlussfrage, die die Aussage stützt und nur mit echter Berufserfahrung beantwortbar ist
+7. 3–5 Hashtags
 
 FORMAT-REGELN (ausnahmslos):
-- Max. 15 Wörter pro Satz
-- Leerzeile nach jeder 2. Zeile (nicht nach jeder Zeile)
-- Max. 3 Hashtags, immer am Ende
-- VERBOTENE Hashtags: #KI, #AI, #Innovation, #Digitalisierung, #Mittelstand, #Automation (zu groß, zu allgemein)
-- Erlaubte Hashtags: #Einkauf, #Beschaffung, #Produktion, #Werkzeugbau, #Lohnfertigung, #ERP, #EUAIAct, #KICompliance, #Wissensmanagement
+- Max. 15 Wörter pro Satz, Leerzeile nach jeder 2. Zeile
+- 3–5 Hashtags am Ende, Mischung aus breit (#KI, #Mittelstand) und spezifisch
+  (#Werkzeugbau, #Beschaffung, #Wissensmanagement, #Lohnfertigung, #Stückliste, #EUAIAct)
+- Nur die Ergebnis-Zeile wird mit **...** markiert, sonst keine Fett-Markierung
 - 0 Emojis, außer maximal 1 in der letzten Zeile (optional)
 - Links NIEMALS im Post-Text — nur als separater Kommentar
 
+TON: Deutsch, direkt, nüchtern-konkret. Aussagen werden getroffen, nicht zur Diskussion gestellt.
+
 VERBOTENE WÖRTER: innovativ, nachhaltig, ganzheitlich, Lösung, Transformation, revolutionieren, disruptiv, zukunftsfähig
-VERBOTENE NAMEN: konkrete Firmennamen von Kunden (anonymisieren)
-VERBOTEN: "In der heutigen Zeit", "Die KI wird", Statistiken als erster Satz, Engagement-Bait
+BEISPIELE: erfundene Beispiele sind erlaubt, wenn sie mitreißend sind — aber immer mit
+erfundenem Firmennamen (z.B. "Elektro Nordstern GmbH", "Nordmetall Fertigung GmbH"), niemals
+mit echtem Kundennamen, und immer als typisches Szenario gerahmt, nie als verifizierbares
+reales Kundenergebnis (sonst irreführende Werbung).
+VERBOTEN: "In der heutigen Zeit", "Die KI wird", Statistik als allererster Satz,
+Engagement-Bait, generische Zustimmungsfragen ("Stimmt ihr zu?", "Wer kennt das?"),
+performte Bescheidenheit, Superlative ohne Beleg.
 
 ERSTE ZEILE (Hook):
 - Stoppt den Scroll in 3 Sekunden
@@ -889,7 +1153,7 @@ Antworte NUR mit einem JSON-Objekt in genau diesem Format, kein Markdown, keine 
         last_slot = None
         for p in posts:
             slot = _next_posting_slot(after=last_slot)
-            last_slot = datetime.fromisoformat(slot.replace("+02:00", "")) + timedelta(hours=1)
+            last_slot = datetime.fromisoformat(slot.replace("+02:00", ""))
             post_id = uuid.uuid4().hex[:8]
             p["id"] = post_id
             stored_posts.append({
@@ -943,11 +1207,18 @@ def push_latest_to_buffer() -> dict:
 
 
 def buffer_push(text: str, scheduled_at: str | None = None) -> dict:
-    """Pusht einen Post auf beide Buffer-Kanäle (Sebastian + Prozessia) via GraphQL."""
+    """Pusht einen Post auf beide Buffer-Kanäle (Sebastian + Prozessia) via GraphQL.
+
+    **Ergebnis: ...** wird hier erst beim Push in Unicode-Fettschrift übersetzt
+    (siehe carousel_service._linkedin_bold). Gespeichert bleibt der Text mit
+    **-Markierung, damit er im Dashboard weiter normal editierbar ist —
+    Unicode-Bold ließe sich dort nur mühsam wieder ändern."""
     settings = get_settings()
     token = settings.buffer_api_token
     if not token:
         return {"error": "BUFFER_API_TOKEN nicht gesetzt"}
+
+    text = carousel_service._linkedin_bold(text)
 
     channels = [settings.buffer_channel_sebastian, settings.buffer_channel_prozessia]
     pushed = []
@@ -1127,6 +1398,217 @@ def insights_text(n: int = 10) -> str:
     return _format_insights_for_chat(n)
 
 
+_POSTS_QUERY = """
+query Posts($orgId: OrganizationId!, $status: [PostStatus!]) {
+  posts(input: { organizationId: $orgId, filter: { status: $status } }) {
+    edges {
+      node {
+        id text status dueAt sentAt
+        channel { id name }
+      }
+    }
+  }
+}"""
+
+
+def _query_buffer_posts(status: list[str]) -> dict:
+    """Live-Query gegen Buffer (nicht die lokale beitraege-*.json) - Portierung
+    von _agent/buffer_manager.py's status()/drafts()-Befehlen in den Chat-Tool-
+    Loop. list_posts zeigt nur lokal generierte Posts; das hier zeigt den
+    tatsächlichen Buffer-Stand, inkl. Posts, die z.B. manuell in Buffer selbst
+    angelegt wurden."""
+    settings = get_settings()
+    token = settings.buffer_api_token
+    if not token:
+        return {"error": "BUFFER_API_TOKEN nicht gesetzt"}
+    variables = {"orgId": _INSIGHTS_ORG_ID, "status": status}
+    payload = json.dumps({"query": _POSTS_QUERY, "variables": variables}).encode()
+    req = urllib.request.Request(
+        BUFFER_GRAPHQL, data=payload,
+        headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read())
+    except Exception as exc:
+        return {"error": str(exc)}
+    if data.get("errors"):
+        return {"error": data["errors"][0].get("message", "Unbekannter Fehler")}
+
+    channel_names = {
+        settings.buffer_channel_sebastian: "Sebastian",
+        settings.buffer_channel_prozessia: "Prozessia",
+    }
+    edges = data.get("data", {}).get("posts", {}).get("edges", [])
+    posts = []
+    for e in edges:
+        n = e["node"]
+        posts.append({
+            "id": n["id"],
+            "status": n.get("status"),
+            "due_at": n.get("dueAt"),
+            "sent_at": n.get("sentAt"),
+            "channel": channel_names.get(n["channel"]["id"], n["channel"]["name"]),
+            "text_preview": (n.get("text") or "").replace("\n", " ")[:100],
+        })
+    posts.sort(key=lambda p: p.get("due_at") or p.get("sent_at") or "")
+    return {"ok": True, "posts": posts}
+
+
+def get_buffer_status() -> dict:
+    """Was ist aktuell in Buffer geplant oder als Entwurf? Live-Abfrage,
+    Pendant zu `_agent/buffer_manager.py status`."""
+    return _query_buffer_posts(["scheduled", "draft"])
+
+
+def get_buffer_drafts() -> dict:
+    """Nur die Buffer-Entwürfe (status draft) - Pendant zu
+    `_agent/buffer_manager.py drafts`. Nicht zu verwechseln mit lokal
+    geschriebenen, noch nicht gepushten Posts (list_posts)."""
+    return _query_buffer_posts(["draft"])
+
+
+def _format_buffer_posts_for_chat(result: dict) -> str:
+    if not result.get("ok"):
+        return f"Fehler: {result.get('error', '?')}"
+    posts = result.get("posts", [])
+    if not posts:
+        return "(keine)"
+    lines = []
+    for p in posts:
+        zeitpunkt = (p.get("due_at") or p.get("sent_at") or "")[:16].replace("T", " ")
+        lines.append(f"- id={p['id']} | {p['status']} | {zeitpunkt} | {p['channel']} | {p['text_preview']}…")
+    return "\n".join(lines)
+
+
+_IDEAS_QUERY = """
+query Ideas($orgId: OrganizationId!) {
+  ideas(input: { organizationId: $orgId }) {
+    edges {
+      node {
+        id
+        content { title text date }
+        createdAt
+      }
+    }
+  }
+}"""
+
+
+def get_buffer_ideas() -> dict:
+    """Buffer-eigenes Ideas-Feature (organisationsweit in Buffer gespeicherte
+    Content-Ideen) - NICHT dasselbe wie die lokal generierten Ideen aus
+    ideen-*.json (list_ideas/generate_ideas). Pendant zu
+    `_agent/buffer_manager.py ideas`."""
+    settings = get_settings()
+    token = settings.buffer_api_token
+    if not token:
+        return {"error": "BUFFER_API_TOKEN nicht gesetzt"}
+    payload = json.dumps({"query": _IDEAS_QUERY, "variables": {"orgId": _INSIGHTS_ORG_ID}}).encode()
+    req = urllib.request.Request(
+        BUFFER_GRAPHQL, data=payload,
+        headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read())
+    except Exception as exc:
+        return {"error": str(exc)}
+    if data.get("errors"):
+        return {"error": data["errors"][0].get("message", "Unbekannter Fehler")}
+
+    edges = data.get("data", {}).get("ideas", {}).get("edges", [])
+    ideas = []
+    for e in edges:
+        n = e["node"]
+        c = n.get("content") or {}
+        ideas.append({
+            "id": n["id"],
+            "title": c.get("title") or (c.get("text") or "")[:60],
+            "date": c.get("date"),
+            "created_at": n.get("createdAt"),
+        })
+    return {"ok": True, "ideas": ideas}
+
+
+def _format_buffer_ideas_for_chat(result: dict) -> str:
+    if not result.get("ok"):
+        return f"Fehler: {result.get('error', '?')}"
+    ideas = result.get("ideas", [])
+    if not ideas:
+        return "(keine)"
+    lines = []
+    for i in ideas:
+        created = datetime.fromtimestamp(i["created_at"]).strftime("%d.%m.") if i.get("created_at") else ""
+        lines.append(f"- id={i['id'][:12]}… | {i['title']} | {i.get('date') or f'erstellt {created}'}")
+    return "\n".join(lines)
+
+
+_DELETE_MUTATION = """
+mutation DeletePost($id: PostId!) {
+  deletePost(input: { id: $id }) {
+    ... on DeletePostSuccess { id }
+  }
+}"""
+
+
+def delete_buffer_post(buffer_post_id: str) -> dict:
+    """Löscht einen Post direkt in Buffer per Buffer-Post-ID (siehe
+    get_buffer_status/get_buffer_insights für die IDs) - Pendant zu
+    `_agent/buffer_manager.py delete <id>`. Rührt keine lokale
+    beitraege-*.json an, da eine gelöschte Buffer-ID nicht mehr zurückverfolgt
+    werden muss."""
+    settings = get_settings()
+    token = settings.buffer_api_token
+    if not token:
+        return {"error": "BUFFER_API_TOKEN nicht gesetzt"}
+    payload = json.dumps({"query": _DELETE_MUTATION, "variables": {"id": buffer_post_id}}).encode()
+    req = urllib.request.Request(
+        BUFFER_GRAPHQL, data=payload,
+        headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read())
+    except Exception as exc:
+        return {"error": str(exc)}
+    if data.get("errors"):
+        return {"error": data["errors"][0].get("message", "Unbekannter Fehler")}
+    r = data.get("data", {}).get("deletePost") or {}
+    if r.get("id"):
+        cache.invalidate("buffer_status")
+        return {"ok": True, "id": r["id"]}
+    return {"error": "Löschen fehlgeschlagen (unbekannte Antwort)"}
+
+
+def reschedule_post(post_id: str, datum: str, uhrzeit: str) -> dict:
+    """Verschiebt einen bereits gepushten, lokal gespeicherten Post (per id,
+    siehe list_posts) auf einen neuen Termin - sowohl in Buffer
+    (buffer_edit_post) als auch lokal (termin-Feld). Für noch nicht gepushte
+    Posts stattdessen schedule_post nutzen. Ohne dieses Tool ließ sich der
+    Termin eines schon geplanten Posts über den Chat gar nicht mehr ändern -
+    revise_post aktualisiert nur den Text, nicht das Datum."""
+    post = get_post(post_id)
+    if not post:
+        return {"error": f"Post {post_id} nicht gefunden"}
+    buffer_ids = [b for b in (post.get("buffer_post_ids") or []) if b]
+    if not buffer_ids:
+        return {"error": "Post ist noch nicht in Buffer eingeplant - schedule_post nutzen, nicht reschedule_post."}
+    try:
+        scheduled_at = _to_iso_berlin(datum, uhrzeit)
+    except Exception:
+        return {"error": "Ungültiges Datum/Uhrzeit-Format, bitte YYYY-MM-DD und HH:MM verwenden."}
+    result = buffer_edit_post(buffer_ids, post.get("text", ""), due_at=scheduled_at)
+    if result.get("ok"):
+        _save_post_fields(post_id, termin=scheduled_at)
+        cache.invalidate("li_posts")
+        cache.invalidate("buffer_status")
+    return result
+
+
 def buffer_edit_post(buffer_post_ids: list[str], text: str, due_at: str | None = None) -> dict:
     """Aktualisiert bereits in Buffer angelegte Posts (per editPost-Mutation)
     - für Textänderungen NACH dem Push, die sonst nur lokal gespeichert
@@ -1137,6 +1619,8 @@ def buffer_edit_post(buffer_post_ids: list[str], text: str, due_at: str | None =
     token = settings.buffer_api_token
     if not token:
         return {"error": "BUFFER_API_TOKEN nicht gesetzt"}
+
+    text = carousel_service._linkedin_bold(text)
 
     mutation = """
 mutation EditPost($input: EditPostInput!) {

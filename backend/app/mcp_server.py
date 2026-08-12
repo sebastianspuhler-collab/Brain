@@ -86,6 +86,21 @@ def download_attachment(message_id: str) -> dict:
         return {"ok": False, "error": str(e)}
 
 
+@mcp.tool(description=(
+    "Legt einen Gmail-Entwurf direkt im Postfach an (nicht senden). Übernimmt automatisch "
+    "Sebastians echte Gmail-Signatur. Niemals 'kein Schreibzugriff' behaupten - dieses Tool nutzen. "
+    "Fehlt eine E-Mail-Adresse, vorher search_emails nutzen, um sie im Vault zu finden."
+))
+def create_gmail_draft(to: str, subject: str, body: str, cc: str = "") -> dict:
+    if not gmail_client.is_authenticated():
+        return {"ok": False, "error": "Gmail nicht verbunden"}
+    try:
+        result = gmail_client.create_draft(to, subject, body, cc=cc or None)
+        return {"ok": True, **result}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+
 @mcp.tool(description="Pusht die neueste generierte beitraege-*.json (LinkedIn-Posts) sofort nach Buffer, für beide Kanäle (Sebastian + Prozessia).")
 def push_to_buffer() -> dict:
     return linkedin_service.push_latest_to_buffer()
@@ -154,17 +169,67 @@ def get_buffer_insights(n: int = 10) -> str:
 
 
 @mcp.tool(description=(
-    "Vollständige Karussell-Pipeline: Slides (Claude) -> KI-Bilder (gpt-image-1) -> PDF -> Cloudinary -> Buffer Document-Post. "
-    "Entweder post_id (Karussell aus einem bestehenden, gespeicherten Post ableiten) oder hook (freies Thema) angeben. "
-    "Datum optional, ohne Datum wird der nächste Di oder Fr 09:30 genommen."
+    "Live-Abfrage direkt aus Buffer: was ist aktuell wirklich geplant oder als Entwurf hinterlegt (beide "
+    "Kanäle). Anders als list_linkedin_posts (nur lokal generierte Posts) - zeigt den echten Buffer-Stand."
 ))
-def generate_carousel(hook: str = "", branche: str = "Alle", saeule: str = "Wissen", due_date: str = "", post_id: str = "") -> dict:
+def get_buffer_status() -> str:
+    return linkedin_service._format_buffer_posts_for_chat(linkedin_service.get_buffer_status())
+
+
+@mcp.tool(description="Zeigt nur die Buffer-Entwürfe (status draft), live aus Buffer.")
+def get_buffer_drafts() -> str:
+    return linkedin_service._format_buffer_posts_for_chat(linkedin_service.get_buffer_drafts())
+
+
+@mcp.tool(description=(
+    "Zeigt Buffers eigenes, organisationsweites Ideas-Feature - NICHT dieselben Ideen wie "
+    "list_linkedin_ideas (das liest die generierten ideen-*.json). Nur auf explizite Nachfrage nach "
+    "'Buffer-Ideen' nutzen."
+))
+def get_buffer_ideas() -> str:
+    return linkedin_service._format_buffer_ideas_for_chat(linkedin_service.get_buffer_ideas())
+
+
+@mcp.tool(description="Löscht einen Post direkt in Buffer, per Buffer-Post-ID (aus get_buffer_status/get_buffer_insights, nicht die lokale Post-id).")
+def delete_buffer_post(buffer_post_id: str) -> dict:
+    return linkedin_service.delete_buffer_post(buffer_post_id)
+
+
+@mcp.tool(description=(
+    "Ändert Datum/Uhrzeit eines bereits in Buffer eingeplanten LinkedIn-Posts (per lokaler id, siehe "
+    "list_linkedin_posts). Für noch nicht eingeplante Posts stattdessen schedule_linkedin_post nutzen."
+))
+def reschedule_linkedin_post(post_id: str, datum: str, uhrzeit: str) -> dict:
+    return linkedin_service.reschedule_post(post_id, datum, uhrzeit)
+
+
+@mcp.tool(description="Zeigt die bisher erstellten LinkedIn-Karusselle (Hook, Branche, Slide-Anzahl, Push-Status).")
+def list_linkedin_carousels() -> str:
+    return linkedin_service._format_carousels_for_chat()
+
+
+@mcp.tool(description=(
+    "Vollständige Karussell-Pipeline: Slides + Begleittext (Claude) -> Hintergrundbild (gpt-image-1) -> PDF -> Cloudinary -> Buffer Document-Post. "
+    "Entweder post_id (Karussell aus einem bestehenden, gespeicherten Post ableiten) oder hook (freies Thema) angeben. "
+    "saeule: Wissensmanagement, Compliance, Einkauf oder KI-Nutzung. "
+    "variante: 'schwarz' oder 'weiss' — Farblogik der Serie, pro Post-Serie konsistent halten. "
+    "Datum optional, ohne Datum wird der nächste Di oder Do 09:30 genommen."
+))
+def generate_carousel(hook: str = "", branche: str = "Alle", saeule: str = "Einkauf", due_date: str = "",
+                      post_id: str = "", variante: str = carousel_service.DEFAULT_VARIANTE) -> dict:
     due_at = f"{due_date}T09:30:00+02:00" if due_date and re.match(r"\d{4}-\d{2}-\d{2}", due_date) else None
     if post_id:
-        return linkedin_service.make_carousel_from_post(post_id, branche=branche or "Alle", saeule=saeule or "Wissen", due_at=due_at)
+        return linkedin_service.make_carousel_from_post(
+            post_id, branche=branche or "Alle", saeule=saeule or "Einkauf", due_at=due_at, variante=variante
+        )
     if not hook:
         return {"ok": False, "error": "Weder hook noch post_id angegeben."}
-    return carousel_service.generate_carousel(hook, branche or "Alle", saeule or "Wissen", due_at=due_at)
+    # Über linkedin_service statt direkt über carousel_service, damit das
+    # Ergebnis auch hier in karusselle.json landet und im Dashboard sichtbar
+    # wird - der direkte Aufruf umging _save_carousel_record().
+    return linkedin_service.make_carousel(
+        hook, branche=branche or "Alle", saeule=saeule or "Einkauf", due_at=due_at, variante=variante
+    )
 
 
 @mcp.tool(description="Zeigt hochgeladene NotebookLM-Videos in der YouTube-Pipeline mit Status (Titel gesetzt? schon in Buffer gepusht?).")

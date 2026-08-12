@@ -4,6 +4,7 @@ damit der Chat-Endpoint (/api/inbox_process) es direkt callen kann statt einen
 neuen Python-Prozess zu starten.
 """
 import json
+import logging
 import re
 import shutil
 from datetime import date, datetime
@@ -23,7 +24,12 @@ SKIP_NAMES = {
     "tsconfig.json", "tsdoc-metadata.json", "openai",
 }
 SKIP_PREFIXES = ("README", "readme", "LICENSE", "license", "CHANGELOG",
-                  "HISTORY", "History", "CONTRIBUTING", "contributing")
+                  "HISTORY", "History", "CONTRIBUTING", "contributing",
+                  # Word/Excel-Sperrdateien ("~$Bericht.docx") - enthalten
+                  # keinen Dokumentinhalt und scheiterten deshalb immer.
+                  "~$")
+logger = logging.getLogger("brain.classify")
+
 IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".gif", ".mp4", ".mov", ".mp3"}
 
 # Textmarker, an denen ein Gesprächstranskript zuverlässig erkennbar ist -
@@ -107,7 +113,27 @@ def extract_text(filepath: Path, max_chars: int = 3000) -> str | None:
             from docx import Document
 
             doc = Document(filepath)
-            return " ".join(p.text for p in doc.paragraphs)[:max_chars]
+            # Absätze UND Tabellenzellen (korrigiert 2026-08-11): python-docx
+            # liefert über doc.paragraphs ausschließlich Fließtext-Absätze,
+            # alles in Tabellen bleibt unsichtbar. Transkript-Exporte (Notta &
+            # Co.) legen Sprecher/Zeitstempel/Text aber typischerweise als
+            # Tabelle an - für solche Dateien kam hier ein praktisch leerer
+            # String heraus, die anschließende Klassifizierung bekam nichts zu
+            # sehen und die Datei landete in _inbox/_fehler/.
+            parts = [p.text for p in doc.paragraphs]
+            for table in doc.tables:
+                # row.cells gibt verbundene Zellen einmal pro überspanntem
+                # Feld zurück; über die zugrundeliegende XML-Zelle
+                # deduplizieren, sonst steht ihr Text mehrfach im Extrakt.
+                seen_cells: set[int] = set()
+                for row in table.rows:
+                    for cell in row.cells:
+                        marker = id(cell._tc)
+                        if marker in seen_cells:
+                            continue
+                        seen_cells.add(marker)
+                        parts.append(cell.text)
+            return " ".join(t for t in parts if t and t.strip())[:max_chars]
         if suffix in (".xlsx", ".xls"):
             import openpyxl
 
@@ -257,12 +283,23 @@ REGELN:
   Zweifel eher zu Memos/ oder zum bereits bestehenden Kunden einordnen als
   einen neuen Kundenordner zu erfinden.
 - Verträge die keinen Kunden zugeordnet werden können → Vertraege/
-- Leads → Leads/[Lead-Name]-Korrespondenz/[Unterordner], NIE flach direkt in
-  Leads/ ablegen. Gleiche Unterordner-Logik wie bei Kunden oben (Meetings/,
-  Angebote/, Dokumente/ usw.). Existiert für diesen Lead schon ein
-  -Korrespondenz-Ordner in der Vault-Struktur unten, exakt den wiederverwenden
-  (Namen/Schreibweise übernehmen, nicht neu erfinden) - sonst
-  "Leads/[Lead-Name]-Korrespondenz/[Unterordner]" neu anlegen.
+- Leads/Interessenten (noch kein Kunde, aber eine echte, mehrteilige
+  Geschäftsbeziehung mit Meetings/Angeboten/Dokumenten): GENAUSO wie
+  Kundendokumente behandeln → "Kunden/[Firmenname]/[Unterordner]", exakt
+  dieselbe Unterordner-Logik wie oben. Es gibt KEINEN separaten
+  "-Korrespondenz"-Ordner und KEINE Sonderbehandlung mehr für Leads mit
+  mehreren Dokumenten - ob ein Vertrag schon unterschrieben ist oder nicht,
+  entscheidet sich am Inhalt der Dokumente selbst (Status-Auswertung), nicht
+  an einer eigenen Ordner-Hierarchie. Existiert in der Vault-Struktur unten
+  schon ein Kunden/[Name]/-Ordner (auch bei anderer Schreibweise erkennbar
+  ähnlich), IMMER diesen wiederverwenden statt einen neuen/parallelen Ordner
+  anzulegen - das war die Hauptfehlerquelle für Dubletten.
+  NUR ein ganz frisch erkannter Erstkontakt ohne inhaltliche Substanz (z.B.
+  ein einzelner Kalendereintrag ohne Meeting-Notiz/Angebot/Dokument) bleibt
+  eine flache Einzeldatei: "Leads/[Datum]-[Lead-Name].md", noch kein eigener
+  Ordner. Sobald ein zweites Dokument zu diesem Lead dazukommt, wird daraus
+  sofort ein "Kunden/[Firmenname]/"-Ordner (nicht "Leads/[Name]/") - dorthin
+  auch die bereits bestehende Einzeldatei verschieben/zusammenführen.
 - Finanzen → Finanzen/Rechnungen oder Finanzen/Angebote
 - Marketing → Marketing/[passender Unterordner]
 - Sales → Sales/[passender Unterordner]
@@ -397,11 +434,16 @@ def is_meeting_transcript(filepath: Path, content: str, result: dict) -> bool:
 
 
 def _extract_firma(zielordner_rel: str) -> str:
-    """Leitet den Kunden-/Firmennamen aus dem Zielordner ab (Kunden/[Firma]/...
-    bzw. Leads/[Lead]-Korrespondenz/...), damit Notizen die Zugehörigkeit
-    direkt im Frontmatter/Titel zeigen statt nur implizit über den Ordnerpfad
-    (Sebastian, 2026-07-30: Transkript-Überschriften sollen klar zeigen, zu
-    welcher Firma sie gehören)."""
+    """Leitet den Kunden-/Firmennamen aus dem Zielordner ab (Kunden/[Firma]/...),
+    damit Notizen die Zugehörigkeit direkt im Frontmatter/Titel zeigen statt nur
+    implizit über den Ordnerpfad (Sebastian, 2026-07-30: Transkript-Überschriften
+    sollen klar zeigen, zu welcher Firma sie gehören).
+
+    Das "-Korrespondenz"-Suffix unter Leads/ ist seit 2026-08-11 kein aktives
+    Muster mehr (siehe classify()-Prompt) - die re.sub bleibt trotzdem stehen,
+    rein für den Restbestand älterer Leads-Ordner, die diese Benennung noch
+    tragen (harmlos: greift nur, wenn der Ordnername tatsächlich auf
+    "-Korrespondenz" endet, sonst No-Op)."""
     parts = Path(zielordner_rel).parts
     if len(parts) >= 2 and parts[0] == "Kunden":
         return parts[1]
@@ -426,6 +468,19 @@ def process_file(filepath: Path) -> tuple[bool, str]:
     if content is None:
         return False, "Extraktion fehlgeschlagen"
 
+    # Leerer Extrakt separat behandeln (2026-08-11): vorher lief ein leerer
+    # String weiter in classify(), das Modell bekam nichts zu klassifizieren
+    # und die Datei landete mit der irreführenden Meldung
+    # "API-Klassifizierung fehlgeschlagen" in _fehler/ - die eigentliche
+    # Ursache (nichts extrahierbar) war aus dem Log nicht mehr ablesbar.
+    # Bei PDFs ist das fast immer ein Scan ohne Textebene: dann greift die
+    # Mistral-OCR-Vorstufe in extract_text() nur, wenn MISTRAL_API_KEY gesetzt
+    # ist, sonst liefert der PyPDF2-Fallback leeren Text.
+    if not content.strip():
+        if filepath.suffix.lower() == ".pdf" and not settings.mistral_api_key:
+            return False, "Kein Text extrahierbar (vermutlich Scan) - MISTRAL_API_KEY nicht gesetzt, OCR übersprungen"
+        return False, f"Kein Text extrahierbar aus {filepath.suffix or 'Datei ohne Endung'}"
+
     result = classify(filepath, content[:3000])
     if not result:
         return False, "API-Klassifizierung fehlgeschlagen"
@@ -443,6 +498,18 @@ def process_file(filepath: Path) -> tuple[bool, str]:
     zielordner = settings.vault_path / zielordner_rel
     zielordner.mkdir(parents=True, exist_ok=True)
     firma = _extract_firma(zielordner_rel)
+
+    # Jedes Dokument mit Original+Notiz bekommt sofort einen eigenen
+    # Unterordner statt flach im Zielordner zu landen (Sebastian, 2026-08-11:
+    # Kunden/Schaufler/Dokumente/ war auf ~110 lose Dateien angewachsen,
+    # dadurch faktisch unbrowsbar). Bilder/Zips bleiben flach (kein Notiz-
+    # Pendant, ein eigener Unterordner für eine einzelne Bilddatei wäre selbst
+    # nur Unordnung, siehe reorganize_folder() unten für dieselbe Regel
+    # rückwirkend auf bestehende, schon vollgelaufene Ordner).
+    if filepath.suffix.lower() not in IMAGE_EXTS | {".zip"}:
+        zielordner = zielordner / _dokument_ordnername(filepath.stem)
+        zielordner.mkdir(parents=True, exist_ok=True)
+        result["zielordner"] = str(zielordner.relative_to(settings.vault_path))
 
     meeting_data = extract_meeting_structure(content) if ist_transkript else None
     datum = _resolve_datum(meeting_data, filepath)
@@ -527,12 +594,160 @@ kategorie: {result.get("kategorie", "")}
     return True, result.get("zielordner", "")
 
 
+def _dokument_ordnername(stem: str) -> str:
+    """Ordnername für ein einzelnes Dokument (Notiz + Original zusammen).
+    stem kommt aus Path.stem und ist damit schon als DATEIname auf demselben
+    Dateisystem bewiesen gültig - als Ordnername gilt dieselbe Eignung. Nur
+    Länge deckeln, damit sehr lange Originaldateinamen (z.B. komplette
+    E-Mail-Betreffzeilen) nicht an Pfadlängen-Limits scheitern."""
+    name = stem.strip()
+    return name[:120] if len(name) > 120 else name
+
+
+_ORIGINAL_STEM_RE = re.compile(r"^\d{4}-\d{2}-\d{2}-(.+)$")
+
+
+def _md_original_stem(md_stem: str) -> str | None:
+    """Leitet aus dem Namen einer klassifizierten Notiz (Muster oben:
+    '{datum}-{original_stem}.md') den erwarteten Original-Dateinamen-Stamm ab.
+    None, wenn der Dateiname nicht dem Datumspräfix-Muster folgt (z.B. von
+    Hand angelegte Notizen ohne Original)."""
+    m = _ORIGINAL_STEM_RE.match(md_stem)
+    return m.group(1) if m else None
+
+
+def reorganize_folder(folder: Path) -> dict:
+    """Bündelt lose Notiz+Original-Paare, die noch flach in `folder` liegen,
+    nachträglich in eigene Unterordner (dieselbe Struktur, die process_file()
+    seit 2026-08-11 von Anfang an anlegt - hier für Ordner, die VOR diesem
+    Zeitpunkt schon vollgelaufen sind, z.B. Kunden/Schaufler/Dokumente/ mit
+    ~110 losen Dateien).
+
+    Nur Dateien DIREKT in `folder` werden angefasst (keine Rekursion in schon
+    bestehende Unterordner) - macht die Funktion idempotent: ein zweiter Lauf
+    auf einem bereits aufgeräumten Ordner findet nichts mehr zu tun.
+
+    Zuordnung ausschließlich über den exakten Dateinamen-Stamm (nach Abzug des
+    Datumspräfixes bei der Notiz) - bewusst kein Fuzzy-Matching, siehe
+    Docstring von _md_original_stem(). Eine Notiz ohne passendes Original
+    (z.B. aus reinem E-Mail-Text ohne Anhang) bleibt unangetastet liegen -
+    für sie gibt es keinen zweiten Teil, den ein eigener Ordner zusammenhalten
+    würde. Mehrere Notizen, die auf dasselbe Original zeigen (beobachtet z.B.
+    bei mehrfach neu verarbeiteten Dateien), landen gemeinsam in einem Ordner.
+    """
+    if not folder.is_dir():
+        return {"ordner": str(folder), "verschoben": 0, "gruppen": 0, "moves": []}
+
+    direkte_dateien = [f for f in folder.iterdir() if f.is_file() and not f.name.startswith(".")]
+    md_dateien = [f for f in direkte_dateien if f.suffix.lower() == ".md"]
+    andere_dateien = {f.name: f for f in direkte_dateien if f.suffix.lower() != ".md"}
+
+    # stem -> [passende Notizen], damit mehrere Notizen auf dasselbe Original
+    # in derselben Gruppe landen statt sich gegenseitig zu überschreiben.
+    gruppen: dict[str, list[Path]] = {}
+    for md in md_dateien:
+        original_stem = _md_original_stem(md.stem)
+        if not original_stem:
+            continue
+        passendes_original = next(
+            (f for name, f in andere_dateien.items() if Path(name).stem == original_stem), None
+        )
+        if passendes_original is None:
+            continue
+        gruppen.setdefault(original_stem, [passendes_original]).append(md)
+
+    verschoben = 0
+    # (alter Pfad, neuer Pfad) für jede tatsächlich verschobene .md-Datei -
+    # der Aufrufer braucht das, um den RAG-Index nachzuziehen (alten Pfad
+    # entfernen, neuen aufnehmen), siehe reorganize_vault().
+    moves: list[tuple[Path, Path]] = []
+    for original_stem, dateien in gruppen.items():
+        ziel = folder / _dokument_ordnername(original_stem)
+        # Kollision mit einem zufällig gleichnamigen, bereits existierenden
+        # Unterordner vermeiden (z.B. ein händisch angelegter Ordner) - dann
+        # lieber überspringen als hineinzumischen.
+        if ziel.exists() and not ziel.is_dir():
+            continue
+        ziel.mkdir(exist_ok=True)
+        for f in dateien:
+            zielpfad = ziel / f.name
+            if zielpfad.exists():
+                continue
+            shutil.move(str(f), str(zielpfad))
+            verschoben += 1
+            if f.suffix.lower() == ".md":
+                moves.append((f, zielpfad))
+
+    return {"ordner": str(folder), "verschoben": verschoben, "gruppen": len(gruppen), "moves": moves}
+
+
+def reorganize_vault(min_dateien: int = 15) -> list[dict]:
+    """Läuft über alle Kunden/-, Leads/- und Sales/-Firmenordner und wendet
+    reorganize_folder() auf jeden Unterordner an, der min_dateien oder mehr
+    lose Dateien direkt enthält (Schwelle nur, um sehr kleine, längst
+    übersichtliche Ordner in Ruhe zu lassen - reorganize_folder() selbst wäre
+    auch bei 3 Dateien schon korrekt, brächte dort aber keinen echten Nutzen).
+    Wird sowohl einmalig manuell aufgerufen als auch periodisch vom
+    Hintergrund-Job (jobs.py:vault_reorganize_loop) - idempotent, siehe
+    reorganize_folder(). Zieht danach den RAG-Index nach (alte Pfade raus,
+    neue Pfade rein), sonst würde jede verschobene .md-Datei im Index einen
+    toten Pfad hinterlassen - siehe rag.remove_paths()."""
+    settings = get_settings()
+    ergebnisse = []
+    alte_pfade: set[str] = set()
+    for basis in ("Kunden", "Leads", "Sales"):
+        basis_dir = settings.vault_path / basis
+        if not basis_dir.exists():
+            continue
+        for firma_dir in basis_dir.iterdir():
+            if not firma_dir.is_dir() or firma_dir.name.startswith((".", "[", "_")):
+                continue
+            # Sowohl der Firmenordner selbst (falls dort flach abgelegt wird)
+            # als auch seine direkten Unterordner (Dokumente/, Meetings/, ...).
+            kandidaten = [firma_dir] + [p for p in firma_dir.iterdir() if p.is_dir()]
+            for ordner in kandidaten:
+                anzahl = sum(1 for f in ordner.iterdir() if f.is_file() and not f.name.startswith("."))
+                if anzahl >= min_dateien:
+                    ergebnis = reorganize_folder(ordner)
+                    if ergebnis["verschoben"]:
+                        ergebnisse.append(ergebnis)
+                        for alt, _neu in ergebnis["moves"]:
+                            alte_pfade.add(str(alt.relative_to(settings.vault_path)))
+
+    if alte_pfade:
+        try:
+            from app.services import rag
+            if rag.is_loaded():
+                rag.remove_paths(alte_pfade)
+                rag.reindex_new_files()
+        except Exception:
+            logger.exception("RAG-Index-Abgleich nach reorganize_vault() fehlgeschlagen")
+    return ergebnisse
+
+
+def _archive_source(datei: Path, ziel_ordner: Path) -> None:
+    """Verschiebt eine erfolgreich einsortierte Quelldatei nach _verarbeitet/.
+    Bei Namenskollision wird durchnummeriert, damit nie eine Datei überschrieben
+    wird (gleiche Anhänge kommen über Mail-Weiterleitungen mehrfach rein)."""
+    ziel = ziel_ordner / datei.name
+    zaehler = 1
+    while ziel.exists():
+        ziel = ziel_ordner / f"{datei.stem}({zaehler}){datei.suffix}"
+        zaehler += 1
+    try:
+        shutil.move(str(datei), str(ziel))
+    except Exception:
+        logger.warning("Konnte %s nicht nach _verarbeitet/ verschieben", datei.name, exc_info=True)
+
+
 def run_inbox() -> dict:
     """Verarbeitet alle neuen Dateien in _inbox/. Entspricht heartbeat.py:run()."""
     settings = get_settings()
     fehler_path = settings.inbox_dir / "_fehler"
+    verarbeitet_path = settings.inbox_dir / "_verarbeitet"
     daily_path = settings.agent_dir / "daily"
     fehler_path.mkdir(parents=True, exist_ok=True)
+    verarbeitet_path.mkdir(parents=True, exist_ok=True)
     daily_path.mkdir(parents=True, exist_ok=True)
 
     dateien = [
@@ -544,6 +759,7 @@ def run_inbox() -> dict:
         and not any(f.name.startswith(p) for p in SKIP_PREFIXES)
         and "node_modules" not in str(f)
         and "_fehler" not in str(f)
+        and "_verarbeitet" not in str(f)
     ]
 
     cache = _load_cache()
@@ -565,6 +781,15 @@ def run_inbox() -> dict:
             _save_cache(cache)
             processed += 1
             log_lines.append(f"{datei.name} -> {info}")
+            # Quelldatei nach _verarbeitet/ wegräumen (2026-08-11). Vorher blieb
+            # sie nach erfolgreicher Einsortierung in _inbox/ liegen und wurde
+            # nur über den Cache stillgelegt. Dadurch war am Ordner nicht mehr
+            # ablesbar, was noch offen ist: zuletzt lagen 141 Dateien in _inbox,
+            # 95 davon längst verarbeitet. Genau das Karteileichen-Problem, das
+            # im Kommentar in background/jobs.py für den 24.07. beschrieben ist.
+            # Bewusst verschieben statt löschen - das Original bleibt erhalten
+            # (Vault-Regel: nie ohne Sebastians Bestätigung löschen).
+            _archive_source(datei, verarbeitet_path)
         else:
             errors += 1
             log_lines.append(f"{datei.name}: FEHLER {info}")
@@ -579,5 +804,14 @@ def run_inbox() -> dict:
         f.write(f"\n## Inbox-Verarbeitung {datetime.now().strftime('%H:%M')}\n")
         f.write(f"- Verarbeitet: {processed}\n")
         f.write(f"- Fehler: {errors}\n")
+        # Grund pro Datei mitschreiben (2026-08-11): log_lines wurde bisher nur
+        # als Rückgabewert weitergereicht und nirgends persistiert - im Log
+        # standen ausschließlich Zählerstände. Bei den Läufen mit 51-53 Fehlern
+        # ließ sich hinterher nicht mehr feststellen, woran die Dateien
+        # gescheitert sind; nachträglich getestet waren 64 der 65 PDFs in
+        # _fehler/ problemlos lesbar, der Fehler lag also nicht bei der
+        # Extraktion. Ohne diese Zeilen bleibt so etwas unauffindbar.
+        for line in log_lines:
+            f.write(f"  - {line}\n")
 
     return {"processed": processed, "errors": errors, "output": "\n".join(log_lines)}

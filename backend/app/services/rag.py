@@ -57,8 +57,58 @@ SKIP_DIRS = {
     # (gefunden 2026-07-17 beim Reindexieren nach dem TPG-Fund).
     "backend", "frontend", "services", "mcp-vnc", ".claude", ".venv",
 }
-CHUNK_SIZE = 800
-CHUNK_OVERLAP = 100
+
+# Pfad-Präfixe innerhalb von _agent/, die NICHT in den Index gehören
+# (ergänzt 2026-08-11). Gemessen vor dem Fix: 865 von 1760 Chunks (49 %) kamen
+# aus _agent/, davon 108 aus Gesprächslogs, Tagesprotokollen und
+# logs/inbox_log.md - also aus den Protokollen des Systems über sich selbst.
+# Die konkurrierten bei jeder Suche mit echten Kunden-Dokumenten (288 Chunks).
+#
+# Bewusst als Präfix-Liste und nicht als Ordnername in SKIP_DIRS: SKIP_DIRS
+# prüft jeden Pfadbestandteil, ein Ordner "logs" oder "daily" irgendwo unter
+# Kunden/ würde dadurch mit ausgeschlossen.
+#
+# NICHT ausgeschlossen und bewusst weiter indexiert:
+# - _agent/memory.md, prozessia.md, context.md, decisions.md: kuratiertes Wissen
+# - _agent/email_cache/: von email_indexer.py absichtlich als durchsuchbarer
+#   Mail-Korpus angelegt (siehe email_indexer.py:216-246), kein Müll
+SKIP_PATH_PREFIXES = (
+    "_agent/conversations/",
+    "_agent/daily/",
+    "_agent/logs/",
+    "_agent/chat_sessions/",
+    "_agent/inbox_altlast_",
+    "_agent/templates/",
+)
+
+
+def _should_index(rel_path: str) -> bool:
+    """Ob eine Vault-relative .md-Datei in den Index gehört. Gemeinsame Regel für
+    Vollaufbau und inkrementelles Nachziehen - vorher prüfte nur der Vollaufbau
+    SKIP_DIRS, wodurch beide Pfade unterschiedliche Korpora aufbauen konnten."""
+    normalized = rel_path.replace("\\", "/")
+    if any(normalized.startswith(p) for p in SKIP_PATH_PREFIXES):
+        return False
+    return not any(part in SKIP_DIRS for part in Path(normalized).parts)
+# Chunk-Größe in WÖRTERN (_chunk_text arbeitet auf text.split()).
+#
+# Korrigiert 2026-08-11: stand vorher auf 800/100. Das Embedding-Modell oben hat
+# laut seiner sentence_bert_config.json aber max_seq_length=128 Tokens, und
+# deutscher Vault-Text braucht mit diesem Tokenizer im Median 2,09 Tokens pro
+# Wort (nachgemessen über die vorhandenen Index-Chunks). Ein 800-Wort-Chunk
+# entsprach damit ~1670 Tokens, von denen das Modell die ersten 128 eingebettet
+# hat - rund 93 % jedes Chunks landeten stillschweigend NICHT im Vektor. Die
+# semantische Hälfte der Hybrid-Suche war dadurch praktisch blind; nur BM25
+# (rein lexikalisch, sieht den vollen Chunk-Text) hat noch zuverlässig getroffen.
+# 55 Wörter ≈ 115 Tokens lassen Luft für Sonderzeichen und Zahlen.
+CHUNK_SIZE = 55
+CHUNK_OVERLAP = 12
+# Wie viele Nachbar-Chunks derselben Datei beim Treffer mitgeliefert werden.
+# Die Chunks sind jetzt bewusst klein (gut für die Einbettung), als Kontext für
+# das Sprachmodell wären 55 Wörter aber zu wenig - Standard-Muster "klein
+# einbetten, groß ausliefern". Wird zur Suchzeit aus _meta zusammengesetzt,
+# statt den Text pro Chunk mehrfach zu speichern.
+CONTEXT_NEIGHBOURS = 2
 RRF_K = 60  # Standardkonstante für Reciprocal Rank Fusion (üblicher Literaturwert)
 
 _STOPWORDS = {
@@ -139,6 +189,49 @@ def _extract_entities(query: str) -> list[str]:
 
 def _tokenize(text: str) -> list[str]:
     return re.findall(r"[a-zA-ZäöüÄÖÜß0-9]+", text.lower())
+
+
+def _passage_with_context(idx: int) -> str:
+    """Liefert den getroffenen Chunk plus seine direkten Nachbarn aus derselben
+    Datei.
+
+    Korrigiert 2026-08-11: der Suchpfad hat vorher für JEDEN Treffer die ersten
+    1500 Zeichen der Datei vom Datenträger gelesen - unabhängig davon, welcher
+    Chunk getroffen hatte. Das Retrieval fand also die richtige Datei, übergab
+    dem Sprachmodell aber deren Anfang statt der passenden Stelle. Bei langen
+    Meeting-Notizen und Verträgen bekam das Modell damit zuverlässig den
+    Kopfbereich zu sehen und antwortete, die gesuchte Information stehe nicht
+    im Dokument - obwohl sie weiter unten stand.
+
+    Nachbarn werden hier zusammengesetzt statt pro Chunk gespeichert, damit der
+    Text nicht mehrfach in _meta liegt."""
+    if not _meta or idx >= len(_meta):
+        return ""
+    hit = _meta[idx]
+    if not isinstance(hit, dict):
+        return str(hit)
+    path = hit.get("path", "")
+    chunk_index = hit.get("chunk_index")
+    if chunk_index is None:
+        return hit.get("content", "")
+
+    wanted = range(chunk_index - CONTEXT_NEIGHBOURS, chunk_index + CONTEXT_NEIGHBOURS + 1)
+    parts: list[tuple[int, str]] = []
+    # Nachbarn liegen durch den Aufbau direkt neben idx, deshalb nur ein enges
+    # Fenster absuchen statt über alle Chunks zu iterieren.
+    lo = max(0, idx - CONTEXT_NEIGHBOURS * 2)
+    hi = min(len(_meta), idx + CONTEXT_NEIGHBOURS * 2 + 1)
+    for j in range(lo, hi):
+        n = _meta[j]
+        if not isinstance(n, dict) or n.get("path") != path:
+            continue
+        ci = n.get("chunk_index")
+        if ci in wanted:
+            parts.append((ci, n.get("content", "")))
+    if not parts:
+        return hit.get("content", "")
+    parts.sort(key=lambda x: x[0])
+    return " ".join(text for _, text in parts)
 
 
 def _rebuild_bm25() -> None:
@@ -276,7 +369,6 @@ def _search_impl(
     try:
         import numpy as np
 
-        settings = get_settings()
         queries = [query] + _extract_entities(query)
 
         # Bei aktivem Ordner-Filter (eigene Agenten, Punkt D2) reicht ein Top-k
@@ -313,10 +405,7 @@ def _search_impl(
                 path = m.get("path", "") if isinstance(m, dict) else str(m)
                 if path_prefixes and not any(path.startswith(p) for p in path_prefixes):
                     continue
-                try:
-                    content = (settings.vault_path / path).read_text(encoding="utf-8", errors="ignore")[:1500]
-                except Exception:
-                    content = m.get("content", "") if isinstance(m, dict) else ""
+                content = _passage_with_context(idx)
                 if not content:
                     continue
                 if "Kunden/" in path:
@@ -344,22 +433,12 @@ def add_document(rel_path: str, content: str) -> None:
 
 
 def _add_document_impl(rel_path: str, content: str) -> None:
-    try:
-        import numpy as np
-        import faiss as _faiss
-
-        settings = get_settings()
-        text = content[:1500]
-        vec = _model.encode([text]).astype(np.float32)
-        _index.add(vec)
-        _meta.append({"path": rel_path, "content": text})
-        _faiss.write_index(_index, str(settings.rag_index_path))
-        settings.rag_meta_path.write_text(
-            json.dumps(_meta, ensure_ascii=False), encoding="utf-8"
-        )
-        _rebuild_bm25()
-    except Exception:
-        pass
+    """Einzeldatei-Variante. Delegiert bewusst an die Batch-Implementierung,
+    damit es nur EINE Chunking-/Einbettungs-Logik gibt - vorher hatte diese
+    Funktion ihre eigene Kopie mit denselben zwei Fehlern (kein Chunking,
+    [:1500]-Kürzung, zusätzlich ohne normalize_embeddings, was bei IndexFlatIP
+    die Ähnlichkeitswerte verzerrt)."""
+    _add_documents_batch_impl([(rel_path, content)])
 
 
 def add_documents_batch(items: list[tuple[str, str]]) -> None:
@@ -382,16 +461,35 @@ def add_documents_batch(items: list[tuple[str, str]]) -> None:
 
 
 def _add_documents_batch_impl(items: list[tuple[str, str]]) -> None:
+    """Fügt Dateien mit derselben Chunking-Logik hinzu wie der Vollaufbau.
+
+    Korrigiert 2026-08-11: vorher wurde hier pro Datei EIN Vektor aus den ersten
+    1500 Zeichen erzeugt - ohne Chunking, unabhängig von der Dateilänge. Alles
+    ab Zeichen 1501 war damit unauffindbar. Betroffen waren 667 der 1760
+    Index-Einträge (38 %), darunter 156 Kunden-Dokumente und 24 Verträge, also
+    genau die Dateien, bei denen die Details weiter hinten stehen. Ein Vertrag
+    war nur über seine erste Seite durchsuchbar.
+    Der Vollaufbau (_build_full_index_impl) hat es die ganze Zeit richtig
+    gemacht - die beiden Pfade bauten unterschiedliche Indizes auf."""
     import numpy as np
     import faiss as _faiss
 
     settings = get_settings()
     for rel_path, content in items:
         try:
-            text = content[:1500]
-            vec = _model.encode([text]).astype(np.float32)
-            _index.add(vec)
-            _meta.append({"path": rel_path, "content": text})
+            mtime = (settings.vault_path / rel_path).stat().st_mtime
+        except Exception:
+            mtime = 0.0
+        try:
+            chunks = _chunk_text(content)
+            if not chunks:
+                continue
+            vecs = _model.encode(
+                chunks, batch_size=64, convert_to_numpy=True, normalize_embeddings=True
+            ).astype(np.float32)
+            _index.add(vecs)
+            for i, chunk in enumerate(chunks):
+                _meta.append({"path": rel_path, "chunk_index": i, "content": chunk, "mtime": mtime})
         except Exception:
             continue
     try:
@@ -404,29 +502,92 @@ def _add_documents_batch_impl(items: list[tuple[str, str]]) -> None:
         pass
 
 
-def reindex_new_files() -> list[tuple[str, str]]:
-    """Findet .md-Dateien im Vault, die noch nicht im Index sind, fügt sie hinzu.
+def _remove_paths_impl(paths: set[str]) -> int:
+    """Entfernt alle Chunks der angegebenen Dateien aus FAISS und _meta.
 
-    Gibt (rel_path, content) für neu hinzugefügte Dateien zurück, damit der Aufrufer
-    z.B. auto-memory-Extraktion darauf anstoßen kann.
+    IndexFlatIP unterstützt remove_ids und rückt die verbleibenden Vektoren
+    lückenlos auf. _meta ist die Parallelliste dazu, muss also exakt dieselben
+    Positionen in derselben Reihenfolge verlieren, sonst zeigen Vektor und
+    Metadatum danach auf verschiedene Dokumente."""
+    if _index is None or _meta is None or not paths:
+        return 0
+    import faiss as _faiss
+    import numpy as np
+
+    doomed = [i for i, m in enumerate(_meta) if (m.get("path") if isinstance(m, dict) else str(m)) in paths]
+    if not doomed:
+        return 0
+    _index.remove_ids(np.array(doomed, dtype=np.int64))
+    for i in reversed(doomed):
+        _meta.pop(i)
+    return len(doomed)
+
+
+def remove_paths(paths: set[str]) -> int:
+    """Öffentlicher Wrapper um _remove_paths_impl() für Aufrufer außerhalb
+    dieses Moduls (classify.py:reorganize_vault() - wenn Dateien innerhalb
+    des Vaults verschoben werden, z.B. beim Aufräumen vollgelaufener Ordner,
+    müssen ihre alten Pfade aus dem Index raus, sonst verweisen Suchtreffer
+    auf nicht mehr existierende Dateien)."""
+    if _index is None or _meta is None or not paths:
+        return 0
+    return _run_on_worker(_remove_paths_impl, paths)
+
+
+def reindex_new_files() -> list[tuple[str, str]]:
+    """Zieht den Index gegen den Vault nach: neue UND geänderte .md-Dateien.
+
+    Korrigiert 2026-08-11: vorher wurde jede Datei übersprungen, deren Pfad
+    schon im Index stand ("if rel in existing: continue"). Eine bestehende Datei
+    wurde damit NIE aktualisiert - der Index behielt ihren Stand vom letzten
+    Vollaufbau dauerhaft bei. Konkret hier beobachtet: _agent/memory.md war am
+    07.08. zuletzt geändert, der Index stammte vom 06.08. und enthielt eine
+    entsprechend veraltete Fassung. Jede nachträglich ergänzte Notiz, jedes
+    aktualisierte Angebot blieb dem RAG unsichtbar.
+    Erkennung über die Änderungszeit, die seit demselben Datum in jedem
+    Index-Eintrag mitgespeichert wird. Einträge ohne mtime stammen aus einem
+    Index vor diesem Fix und gelten als veraltet, damit sie einmalig
+    nachgezogen werden.
+
+    Gibt (rel_path, content) für neu aufgenommene Dateien zurück, damit der
+    Aufrufer z.B. die Auto-Memory-Extraktion darauf anstoßen kann.
     """
     if _meta is None or _model is None:
         return []
     settings = get_settings()
-    existing = {(m.get("path", "") if isinstance(m, dict) else str(m)) for m in _meta}
-    new_files: list[tuple[str, str]] = []
-    for md_file in sorted(settings.vault_path.rglob("*.md")):
-        if any(skip in md_file.parts for skip in SKIP_DIRS):
+
+    indexed_mtime: dict[str, float] = {}
+    for m in _meta:
+        if not isinstance(m, dict):
             continue
+        path = m.get("path", "")
+        # Fehlende mtime -> 0.0, gilt damit immer als veraltet.
+        indexed_mtime[path] = min(indexed_mtime.get(path, float("inf")), m.get("mtime", 0.0))
+
+    new_files: list[tuple[str, str]] = []
+    changed: set[str] = set()
+    for md_file in sorted(settings.vault_path.rglob("*.md")):
         rel = str(md_file.relative_to(settings.vault_path))
-        if rel in existing:
+        if not _should_index(rel):
             continue
         try:
-            content = md_file.read_text(encoding="utf-8", errors="ignore")[:1500]
+            mtime = md_file.stat().st_mtime
+            known = indexed_mtime.get(rel)
+            if known is not None and mtime <= known:
+                continue
+            # Volltext statt der früheren [:1500]-Kürzung - die war der zweite
+            # Grund, warum inkrementell aufgenommene Dateien nur mit ihrem
+            # Anfang im Index landeten.
+            content = md_file.read_text(encoding="utf-8", errors="ignore")
             if len(content) > 50:
+                if known is not None:
+                    changed.add(rel)
                 new_files.append((rel, content))
         except Exception:
             pass
+
+    if changed:
+        _run_on_worker(_remove_paths_impl, changed)
     # Ein Rutsch statt einem add_document()-Aufruf pro Datei - siehe
     # add_documents_batch() für die Begründung (Inbox-Watcher kann mehrere
     # Dateien auf einmal finden, jede einzeln wäre ein eigener BM25-Rebuild).
@@ -461,22 +622,27 @@ def _build_full_index_impl() -> dict:
 
     docs = []
     for md in sorted(settings.vault_path.rglob("*.md")):
-        if any(part in SKIP_DIRS for part in md.parts):
+        rel = str(md.relative_to(settings.vault_path))
+        if not _should_index(rel):
             continue
         try:
             text = md.read_text(encoding="utf-8", errors="ignore").strip()
             if text:
-                docs.append((str(md.relative_to(settings.vault_path)), text))
+                docs.append((rel, text, md.stat().st_mtime))
         except Exception:
             pass
 
     all_chunks: list[str] = []
     metadata: list[dict] = []
-    for rel_path, text in docs:
+    for rel_path, text, mtime in docs:
         chunks = _chunk_text(text)
         for i, chunk in enumerate(chunks):
             all_chunks.append(chunk)
-            metadata.append({"path": rel_path, "chunk_index": i, "content": chunk[:1500]})
+            # content ungekürzt: die Chunks sind jetzt klein (CHUNK_SIZE Wörter),
+            # das frühere [:1500] hätte nichts mehr abgeschnitten, verschleierte
+            # aber, dass Chunk-Text und eingebetteter Text identisch sein müssen -
+            # BM25 arbeitet auf genau diesem Feld.
+            metadata.append({"path": rel_path, "chunk_index": i, "content": chunk, "mtime": mtime})
 
     embeddings = model.encode(
         all_chunks, batch_size=64, convert_to_numpy=True, normalize_embeddings=True
