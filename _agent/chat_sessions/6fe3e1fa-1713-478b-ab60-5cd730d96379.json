@@ -1,0 +1,15 @@
+{
+  "id": "6fe3e1fa-1713-478b-ab60-5cd730d96379",
+  "title": "Wann ist der aritttermin hiete",
+  "model": "claude-sonnet-5",
+  "created_at": "2026-08-12T05:26:36.171827+00:00",
+  "updated_at": "2026-08-12T05:26:36.171827+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Wann ist der aritttermin hiete",
+      "attachments": null
+    }
+  ],
+  "agent_id": null
+}
