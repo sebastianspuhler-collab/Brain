@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-12 21:23] [memory.md] DSGVO-Konformität und Deutschland/EU-Hosting sind Hauptanforderung für KI-Agent-Projekte
 - [2026-08-12 21:10] [memory.md] Marketing/LinkedIn/STRATEGIE.md ist verbindliches Referenzdokument mit Priorität bei inhaltlichen Widersprüchen
 - [2026-08-12 20:13] [brain-direction.md] Referenzdokument: Marketing/LinkedIn/STRATEGIE.md hat verbindliche Priorität bei inhaltlichen Widersprüchen
 - [2026-08-12 20:13] [bild-prompts.md] Profil-Banner-Specs: 1584 × 396 Pixel, schwarzer Hintergrund, Headline 'Fortschritt durch sichere KI.' in Weiß, bold rounded display grotesque, Satz-case
@@ -882,6 +883,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-12 21:21] [context.md] Juchem: Folgetermin 29.07. mit Thorsten Maas durchgeführt (kompletter Beschaffungsprozess). Nächster Schritt: Angebot erstellen
 - [2026-08-12 21:12] [memory.md] Sebastian Spuhler LinkedIn-Profil ID: 6a25d2578f1d11f9b260c5ee; Prozessia-Seite ID: 6a25d2578f1d11f9b260c5ef
 - [2026-08-12 20:14] [context.md] Juchem: Nach Meeting 29.07. (kompletter Beschaffungsprozess besprochen) – nächster Schritt: Angebot erstellen
 - [2026-08-12 20:14] [context.md] Schaufler Tooling: Beschaffungsagent live, 220€/Mon, nächster Schritt: Lexoffice-Angebot
@@ -1244,6 +1246,11 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-12 21:24] [memory.md] TopDown-Projekt (Stand 2026-08-11): Nächster Schritt ist Angebotserstellung
+- [2026-08-12 21:23] [memory.md] Startprojekt-Definition erforderlich (z.B. Einkauf-Anwendungsfall) mit klarem Scope und iterativem Ansatz
+- [2026-08-12 21:23] [memory.md] Angebotserstellung ist nächster Schritt nach Meeting 2026-08-11 mit TopDown
+- [2026-08-12 21:21] [context.md] Termin mit Schaufler vereinbaren (Stücklistenprojekt): Anschluss an Lastenheft v. 05.08., Angebot/nächste Schritte besprechen
+- [2026-08-12 21:21] [context.md] Offene Aufgaben Sebastian: LinkedIn 3 Videos diese Woche, Close-Migration fortführen, Kevin (neuer Vertriebler) einarbeiten, Netzwerkaufbau
 - [2026-08-12 20:14] [context.md] Schaufler Stücklistenprojekt: Termin zu vereinbaren, Anschluss an Lastenheft v. 05.08., Angebot/nächste Schritte erforderlich
 - [2026-08-12 20:13] [brain-direction.md] Post-Schema ‚Claim it, Show it, Aim it': Klare Aussage (keine Frage), eigene Zahlen (kein fremdes Framework), adressiert konkrete Person (nicht generische Zielgruppe)
 - [2026-08-12 20:13] [brain-direction.md] Vier Content-Säulen: Wissensmanagement, Compliance (EU-KI-Verordnung, DSGVO), Einkauf/Beschaffung, KI-Nutzung Mittelstand
@@ -2201,6 +2208,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-12 21:21] [context.md] 12.08.2026 - Sebastian: System muss besser abgestimmt werden. Mehrere unabhängige Lücken gefunden (nicht durch Testen, sondern im Alltag)
 - [2026-08-12 20:11] [2026-06-09-Präsentation_ Datenschutz.md] US Cloud Act ermöglicht Datenzugriff bei ChatGPT – rechtliches Risiko für Kanzleien; Prozessia-Lösung mit Azure OpenAI in EU gehostet und rechtskonform
 - [2026-08-12 04:06] [2026-08-12-19f8d67a64-Image.md] Datei benötigt manuelle Überprüfung; weder Absender noch Kunde noch Thema ableitbar
 - [2026-08-11 17:46] [2026-06-09-Vertriebsvereinbarung_Geginat.md] Vertriebspartner-Name (Geginat) noch nicht namentlich in den Vertrag eingetragen – ausstehend
