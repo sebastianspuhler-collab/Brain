@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-12 03:22] [[Twilio] Re: [ACTION REQUIRED] Your Trus] Bearbeiter: Jed (Twilio Onboarding & Compliance)
+- [2026-08-12 03:22] [[Twilio] Re: [ACTION REQUIRED] Your Trus] Ablehnung erfolgt am 11. August 2026
 - [2026-08-11 17:47] [2026-06-09-prozessia_Beschaffungsagent_Marketing.md] Kernmodule des Agenten: Ampellogik, Lieferanten-Scoring, Echtzeit-Bestellstatus, ERP-Integration, Datenschutz
 - [2026-08-11 17:46] [2026-06-09-Vertriebsvereinbarung_Segschneider (1).md] Vereinbarung betrifft Prozessia KI-Produkte (Prozessia Agent) und Automatisierungslösungen
 - [2026-08-11 17:46] [2026-06-09-Vertriebsvereinbarung_HOS_Elias_Haghverdi-1.md] Vereinbarungsdatum: 2026-06-09
@@ -1221,6 +1223,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-12 03:22] [[Twilio] Re: [ACTION REQUIRED] Your Trus] Aktion erforderlich: Informationen im Twilio Console aktualisieren über bereitgestellten Link
 - [2026-08-11 17:47] [2026-06-09-prozessia_Beschaffungsagent_Marketing.md] Erkannte Probleme: Lieferverzögerungen, hoher Dokumentenaufwand, fehlende Lieferanten-KPIs und Transparenz
 - [2026-08-11 17:47] [2026-06-09-prozessia_Beschaffungsagent_Marketing.md] Status Quo: Einkäufer verbringen bis zu 60% ihrer Zeit mit manueller Verfolgung per Telefon & E-Mail
 - [2026-08-11 17:46] [2026-06-09-Vertriebsvereinbarung_Segschneider (1).md] Vertriebspartner vermittelt qualifizierte Leads, darf aber KEINE Verträge im Namen von Prozessia abschließen
