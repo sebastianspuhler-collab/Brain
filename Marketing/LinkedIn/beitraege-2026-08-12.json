@@ -1,21 +1,97 @@
 {
-  "generiert_am": "2026-08-12T20:05:46.785688",
+  "generiert_am": "2026-08-12T20:21:15.012312",
   "kanaele": [],
   "planungen": [],
   "posts": [
     {
-      "id": "e9b62a7a",
-      "tag": "Donnerstag",
+      "id": "325f8fee",
+      "tag": "Wissensmanagement",
       "datum": "2026-08-13",
-      "termin": "2026-08-14T09:30:00+02:00",
-      "idee": "Wissensmanagement – stilles Erfahrungswissen an einer Maschine oder Person",
-      "text": "Der eine Mitarbeiter. Die eine Maschine. Der eine Handgriff, den sonst niemand kennt.\nFehlt diese Person, steht oft mehr als nur eine Anlage still.\n\nEin ungeplanter Ausfall verlängert die Stillstandszeit im Schnitt um 4 bis 6 Stunden.\nIn 30 Prozent der Fälle findet sich die Ursache erst nach Rücksprache mit dieser Person.\n\n**Ergebnis: Ein einziger Krankheitstag kostet mehr als die Dokumentation, die ihn verhindert hätte.**\n\nWeder SAP noch ein ERP-System fragen nach dem Wissen, das nur im Kopf existiert.\n\nEin Wissensmanagement-System macht dieses Erfahrungswissen durchsuchbar, bevor der nächste Ausfall kommt.\nEs ersetzt keinen Facharbeiter, aber es macht sein Wissen für alle nutzbar.\n\nWie lange dauert bei Ihnen ein Rückruf, wenn der eine Kollege im Urlaub ist?\n\n#KI #Mittelstand #Wissensmanagement #Werkzeugbau #Lohnfertigung",
-      "typ": "A",
-      "pushed": true,
-      "buffer_post_ids": [
-        "6a7cd21ea69b2de4b9e3c8da",
-        "6a7cd21fa1130ae12dae2204"
-      ]
+      "termin": "2026-08-13T09:30:00+02:00",
+      "idee": "Der dritte Stücklisten-Abgleich am Freitagabend",
+      "text": "Freitagabend, 18 Uhr. Der dritte Stücklisten-Abgleich diese Woche.\n\nZwei Systeme, zwei Versionen, ein Kunde, der die Bestätigung morgen braucht.\n\n47 Positionen händisch gegen die Ursprungsliste geprüft. Drei Abweichungen gefunden, zwei davon erst beim zweiten Durchlauf.\n\n**Ergebnis: Zwei Stunden Mehrarbeit, jede Woche, nur für einen Soll-Ist-Abgleich.**\n\nproALPHA und Excel-Stückliste sprechen selten dieselbe Sprache, wenn Varianten dazukommen.\n\nWer im Werkzeugbau Stücklisten manuell abgleicht, kennt diesen Freitagabend. Die Fehler stecken selten in der Fertigung, sondern in der Übertragung zwischen Systemen.\n\nEinkaufsleiter im Werkzeugbau: Wie oft prüft ihr eine Stückliste, bevor sie freigegeben wird?",
+      "typ": "A"
+    },
+    {
+      "id": "6b4ee0f7",
+      "tag": "Wissensmanagement",
+      "datum": "2026-08-18",
+      "termin": "2026-08-18T09:30:00+02:00",
+      "idee": "Von 8 Stunden auf 45 Minuten Stücklistenprüfung bei einem Werkzeugbauer",
+      "text": "Freitagnachmittag, Stückliste Nummer sieben. Wieder von vorne.\n\nSo sah der Alltag bei einem Werkzeugbauer aus dem Saarland aus, nennen wir ihn Nordmetall Formenbau GmbH, 45 Mitarbeitende.\n\nDrei Konstrukteure prüften jede Stückliste einzeln gegen die Zeichnung. Vorher: 8 Stunden Prüfzeit, verteilt über zwei Tage.\n\nNachher: 45 Minuten, an einem Nachmittag erledigt.\n\n**Ergebnis: Prüfzeit um 90 Prozent reduziert, ohne zusätzliches Personal.**\n\nDer Abgleich lief über den proALPHA-Export gegen die CAD-Stückliste, automatisiert statt manuell.\n\nDas ist ein typisches Szenario für Werkzeugbauer mit gewachsenen Stücklisten und mehreren Zuständigen. Die Zeit fehlt selten in der Fertigung, sondern in der Prüfung davor.\n\nKonstruktionsleiter im Werkzeugbau: Wie viele Stunden bindet bei euch die Stücklistenprüfung pro Woche?",
+      "typ": "C"
+    },
+    {
+      "id": "db7a3ba4",
+      "tag": "Einkauf/Beschaffung",
+      "datum": "2026-08-20",
+      "termin": "2026-08-20T09:30:00+02:00",
+      "idee": "Fünf Anzeichen für manuelle Beschaffung im Einkauf",
+      "text": "Fünf Anzeichen. Ein Einkauf, der noch komplett manuell läuft.\n\nBei einem Lohnfertiger mit 60 Mitarbeitenden dauerte ein Preisvergleich zuletzt 3 Tage, verteilt auf zwei Einkäufer.\n\nFünf Anzeichen für manuelle Beschaffung:\n\n1. Anfragen gehen einzeln per E-Mail raus, keine Sammelanfrage\n2. Preisvergleich läuft in Excel, jede Woche neu aufgebaut\n3. Lieferantendaten liegen in drei verschiedenen Ablagen\n4. Rückfragen zu Herstellerangaben kosten mehrere Telefonate\n5. Bestellfreigaben hängen an einer Person, nicht am Prozess\n\n**Ergebnis: Bis zu 3 Tage Durchlaufzeit für einen einzigen Preisvergleich.**\n\nEin ERP-System allein schafft das nicht, wenn die Anfrage davor noch manuell läuft.\n\nDiese fünf Punkte tauchen in den meisten Einkaufsabteilungen inhabergeführter Betriebe auf. Sie kosten Zeit, die am Monatsende in der Marge fehlt.\n\nEinkaufsleiter in der Lohnfertigung: Welcher dieser fünf Punkte trifft bei euch am meisten zu?",
+      "typ": "B"
+    },
+    {
+      "id": "3e096b80",
+      "tag": "Einkauf/Beschaffung",
+      "datum": "2026-08-25",
+      "termin": "2026-08-25T09:30:00+02:00",
+      "idee": "Von 3 Tagen auf 20 Minuten Preisvergleich im Einkauf",
+      "text": "Drei Tage für einen Preisvergleich. Bei einem Metallbauer aus der Region, nennen wir ihn Südwest Metallbau GmbH, 35 Mitarbeitende.\n\nDer Einkäufer verschickte Anfragen einzeln, sammelte Angebote per E-Mail und trug sie händisch in eine Excel-Tabelle ein.\n\nVorher: 3 Tage für den Vergleich von 6 Lieferanten. Nachher: 20 Minuten, automatisch sortiert nach Preis und Lieferzeit.\n\n**Ergebnis: Durchlaufzeit von 3 Tagen auf 20 Minuten gesenkt.**\n\nDie Anfragen liefen weiter über die gewohnten Lieferantenkontakte, nur die Auswertung war automatisiert.\n\nDas ist ein typisches Szenario für Metallbauer, die Anfragen noch per E-Mail und Excel abwickeln. Die Zeit geht meist bei der Zusammenführung verloren, nicht bei der Anfrage selbst.\n\nEinkaufsleiter im Metallbau: Wie lange dauert bei euch ein Preisvergleich über mehrere Lieferanten?",
+      "typ": "C"
+    },
+    {
+      "id": "8ec1b145",
+      "tag": "Compliance",
+      "datum": "2026-08-27",
+      "termin": "2026-08-27T09:30:00+02:00",
+      "idee": "Kundendaten im ChatGPT-Verlauf gefunden - Compliance-Risiko",
+      "text": "Kundendaten im ChatGPT-Verlauf gefunden. Bei einer IT-Prüfung, nicht bei einer Schulung.\n\nEin Mitarbeiter hatte Namen und Adressen in einen Prompt eingefügt. Ziel war eine schnelle E-Mail-Formulierung.\n\n12 Chatverläufe geprüft, in 4 davon personenbezogene Daten ohne Zweckbindung.\n\n**Ergebnis: Vier DSGVO-relevante Vorfälle, entstanden aus reiner Zeitnot.**\n\nNach Artikel 5 DSGVO braucht jede Verarbeitung einen festgelegten Zweck. Ein Chatverlauf beim Anbieter zählt dazu.\n\nDas Risiko liegt selten bei böser Absicht, sondern bei fehlenden Regeln für den Alltag. Ein einziger Prompt ohne Vorgabe reicht für einen dokumentationspflichtigen Vorfall.\n\nGeschäftsführer in der Elektrotechnik: Wisst ihr, welche Daten eure Mitarbeitenden aktuell in ChatGPT eingeben?",
+      "typ": "A"
+    },
+    {
+      "id": "34fe2a81",
+      "tag": "Compliance",
+      "datum": "2026-09-01",
+      "termin": "2026-09-01T09:30:00+02:00",
+      "idee": "EU AI Act - die vier Fragen die für produzierende Mittelständler zählen",
+      "text": "Der EU AI Act betrifft auch 30-Mann-Betriebe. Vier Fragen entscheiden, wie stark.\n\nSeit August 2025 gelten erste Pflichten, ab August 2026 kommen weitere Vorgaben für Hochrisiko-Systeme.\n\nVier Fragen, die für produzierende Mittelständler zählen:\n\n1. Wird KI zur Vorauswahl von Bewerbern oder Mitarbeitenden eingesetzt?\n2. Fließen KI-Ergebnisse in sicherheitsrelevante Entscheidungen der Fertigung ein?\n3. Ist dokumentiert, welche Tools mit welchen Daten arbeiten?\n4. Gibt es eine benannte Person für KI-Governance im Betrieb?\n\n**Ergebnis: Wer alle vier Fragen mit Nein beantwortet, hat noch keine Struktur, aber schon Handlungsbedarf.**\n\nDer EU AI Act unterscheidet nach Risikoklasse, nicht nach Unternehmensgröße.\n\nDie meisten Werkzeugbauer und Lohnfertiger nutzen KI heute für Text und Recherche, nicht für Hochrisiko-Anwendungen. Trotzdem lohnt sich die Bestandsaufnahme, bevor die nächste Stufe greift.\n\nGeschäftsführer im Werkzeugbau: Habt ihr eine Antwort auf diese vier Fragen parat?",
+      "typ": "B"
+    },
+    {
+      "id": "eb19af11",
+      "tag": "Allgemeine KI-Nutzung",
+      "datum": "2026-09-03",
+      "termin": "2026-09-03T09:30:00+02:00",
+      "idee": "Drei Stunden mit ChatGPT ohne brauchbares Ergebnis",
+      "text": "Drei Stunden ChatGPT. Am Ende ein Text, den niemand nutzen konnte.\n\nEin Angebot für einen Sondermaschinenbauer sollte es werden, mit korrekten Fachbegriffen aus der Kunststofftechnik.\n\n15 Prompts geschrieben, 3 Anläufe komplett verworfen, am Ende doch von Hand fertiggestellt.\n\n**Ergebnis: 3 Stunden investiert, 0 Minuten Zeit gespart.**\n\nOhne Kontext zu Produkt, Kunde und Tonalität liefert ein allgemeines Sprachmodell allgemeine Texte.\n\nDas Problem liegt selten am Werkzeug, sondern an fehlendem Zugriff auf die eigenen Unterlagen. Ein Chatbot ohne Anbindung an interne Dokumente rät mehr, als er weiß.\n\nGeschäftsführer im Kunststoffbereich: Wie viel Zeit habt ihr zuletzt in einen Prompt investiert, der nichts brachte?",
+      "typ": "A"
+    },
+    {
+      "id": "7f0ce858",
+      "tag": "Einkauf/Beschaffung",
+      "datum": "2026-09-08",
+      "termin": "2026-09-08T09:30:00+02:00",
+      "idee": "Drei Prompts für den Einkaufsalltag",
+      "text": "Drei Prompts. Zehn Minuten gespart, jedes Mal aufs Neue.\n\nBei einem Elektrotechnik-Betrieb mit 25 Mitarbeitenden nutzt der Einkauf inzwischen feste Prompt-Vorlagen statt freier Formulierung.\n\nDrei Prompts für den Einkaufsalltag:\n\n1. Anfrage an Lieferanten mit Toleranzangaben und Lieferfrist strukturieren\n2. Preisangebote nach Positionen vergleichen und Abweichungen markieren\n3. Rückfrage an Hersteller bei fehlender Spezifikation formulieren\n\n**Ergebnis: Rund 10 Minuten Zeitersparnis pro Anfrage, bei drei bis fünf Anfragen täglich.**\n\nFeste Prompt-Vorlagen ersetzen kein ERP-System, sie beschleunigen nur die Texte drumherum.\n\nDer größte Zeitgewinn entsteht nicht durch längere Prompts, sondern durch wiederverwendbare Vorlagen. Wer jedes Mal neu formuliert, verliert Zeit an der falschen Stelle.\n\nEinkaufsleiter in der Elektrotechnik: Nutzt ihr bereits feste Vorlagen für wiederkehrende Anfragen?",
+      "typ": "B"
+    },
+    {
+      "id": "f84d5c78",
+      "tag": "Wissensmanagement",
+      "datum": "2026-09-10",
+      "termin": "2026-09-10T09:30:00+02:00",
+      "idee": "Sechs Wochen bis zur Rente und 30 Jahre Erfahrungswissen gehen mit",
+      "text": "Sechs Wochen bis zur Rente. Mit ihm geht auch das Wissen von 30 Jahren.\n\nDer Werkzeugmacher kennt jede Sonderanfertigung der letzten drei Jahrzehnte, dokumentiert ist davon wenig.\n\n30 Jahre Erfahrung, 6 Wochen Zeit, 0 strukturierte Übergabe geplant.\n\n**Ergebnis: Ein Wissensverlust, der sich erst in der nächsten Reklamation zeigt.**\n\nEin Wiki oder Handbuch entsteht selten nebenbei, wenn der Tagesbetrieb Vorrang hat.\n\nBei inhabergeführten Werkzeugbauern hängt Erfahrungswissen oft an einzelnen Personen, nicht an Prozessen. Die Übergabe beginnt meist zu spät, weil niemand den Aufwand einplant.\n\nGeschäftsführer im Werkzeugbau: Wie viel Erfahrungswissen hängt bei euch an einer einzigen Person?",
+      "typ": "A"
+    },
+    {
+      "id": "aa74f1d7",
+      "tag": "Einkauf/Beschaffung",
+      "datum": "2026-09-15",
+      "termin": "2026-09-15T09:30:00+02:00",
+      "idee": "Angebotswesen bei einem Lohnfertiger zeitlich halbiert",
+      "text": "Angebote schreiben kostete einen ganzen Tag. Jetzt ist es ein halber.\n\nBei einem Lohnfertiger aus der Pfalz, nennen wir ihn Rheinpfalz Fertigung GmbH, 50 Mitarbeitende, lag das Angebotswesen bei einer Person.\n\nVorher: 8 Stunden pro komplexem Angebot, inklusive Stücklisten- und Materialrecherche. Nachher: 4 Stunden, bei gleicher Angebotsqualität.\n\n**Ergebnis: Angebotsdauer halbiert, ohne zusätzliche Stelle im Vertrieb.**\n\nTextbausteine und Materialdaten kamen aus dem ERP, die Zusammenstellung übernahm ein Chatbot mit Zugriff auf frühere Angebote.\n\nDas ist ein typisches Szenario für Lohnfertiger mit wiederkehrenden, aber leicht variierenden Anfragen. Die Zeit fehlt oft nicht bei der Kalkulation, sondern beim Formulieren.\n\nGeschäftsführer in der Lohnfertigung: Wie lange dauert bei euch ein komplexes Angebot von der Anfrage bis zum Versand?",
+      "typ": "C"
     }
   ]
 }
