@@ -6,3 +6,11 @@
 # gesetzt sein, das synct NICHT über git selbst).
 _agent/vault.index merge=ours
 _agent/vault_metadata.json merge=ours
+
+# Reine Anhänge-Logs: neue Einträge werden immer nur eingefügt, bestehende
+# Zeilen nie verändert (siehe memory.append_to_memory) - merge=union kann
+# beide Seiten deshalb gefahrlos zeilenweise vereinen, statt bei einem
+# Konflikt den ganzen Sync-Zyklus zu blockieren (genau das hat den Sync
+# vom 04.08. bis 12.08.2026 tagelang stillgelegt).
+_agent/memory.md merge=union
+_agent/usage_log.jsonl merge=union

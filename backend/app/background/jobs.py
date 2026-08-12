@@ -84,8 +84,41 @@ def _abort_stuck_rebase(vault, env) -> None:
         logger.warning("git pull: hängenden Rebase vor neuem Versuch abgebrochen")
 
 
+_GIT_SYNC_WARNING = "- [ ] ⚠️ Git-Sync hängt seit mehreren Zyklen (siehe Backend-Log `git pull/push Fehler`) - manuell prüfen @Sebastian"
+_pull_fail_count = 0
+_pull_warned = False
+
+
+def _set_git_sync_warning(active: bool) -> None:
+    """Schreibt/entfernt eine Zeile in Offene Aufgaben von context.md, wenn der
+    Git-Sync mehrfach hintereinander fehlschlägt - sonst blieb ein hängender
+    Sync (wie am 12.08.2026, tagelang unbemerkt, weil pull/push-Fehler nur ins
+    Backend-Log gingen, das niemand routinemäßig ansieht) komplett unsichtbar."""
+    global _pull_warned
+    settings = get_settings()
+    path = settings.vault_path / "_agent" / "context.md"
+    if not path.exists():
+        return
+    try:
+        content = path.read_text(encoding="utf-8")
+        has_warning = _GIT_SYNC_WARNING in content
+        if active and not has_warning:
+            marker = "## Offene Aufgaben\n"
+            if marker in content:
+                content = content.replace(marker, f"{marker}{_GIT_SYNC_WARNING}\n", 1)
+                path.write_text(content, encoding="utf-8")
+            _pull_warned = True
+        elif not active and has_warning:
+            content = content.replace(f"{_GIT_SYNC_WARNING}\n", "", 1)
+            path.write_text(content, encoding="utf-8")
+            _pull_warned = False
+    except Exception:
+        logger.exception("Git-Sync-Warnung in context.md konnte nicht aktualisiert werden")
+
+
 def git_pull_vault() -> bool:
     """Führt git pull im Vault aus. Gibt True zurück wenn erfolgreich."""
+    global _pull_fail_count
     settings = get_settings()
     vault = settings.vault_path
     pat = settings.git_pat
@@ -106,6 +139,10 @@ def git_pull_vault() -> bool:
         result = subprocess.run(cmd, cwd=vault, capture_output=True, text=True, timeout=60, env=env)
         if result.returncode == 0:
             logger.info("git pull: %s", result.stdout.strip() or "up to date")
+            global _pull_fail_count
+            _pull_fail_count = 0
+            if _pull_warned:
+                _set_git_sync_warning(False)
             return True
         logger.warning("git pull Fehler: %s", result.stderr.strip()[:200])
         # Bei einem Konflikt (z.B. Mac/VPS-Divergenz bei generierten Dateien,
@@ -114,6 +151,9 @@ def git_pull_vault() -> bool:
         # 10 Minuten lang Dateien mit Konflikt-Markern im Arbeitsverzeichnis,
         # die z.B. der Inbox-Watcher zwischenzeitlich einliest.
         _abort_stuck_rebase(vault, env)
+        _pull_fail_count += 1
+        if _pull_fail_count >= 3 and not _pull_warned:
+            _set_git_sync_warning(True)
         return False
     except Exception as exc:
         logger.warning("git pull Exception: %s", exc)
@@ -176,12 +216,24 @@ def git_push_vault(message: str = "brain: auto-sync") -> bool:
 
 
 async def git_sync_loop() -> None:
-    """Alle 10 Min: zuerst pullen (Mac → VPS), danach eigene Änderungen pushen
-    (VPS → Mac) - bidirektional, damit das Laptop-Dateisystem sieht, was der
-    VPS selbst einsortiert hat (siehe git_push_vault())."""
+    """Alle 10 Min: zuerst eigene lokale Änderungen committen+pushen, DANN
+    pullen, dann nochmal pushen (falls der Pull neue lokale Commits durch
+    den Rebase erzeugt hat).
+
+    Reihenfolge ist hier der Kern: wenn zuerst gepullt würde, während z.B.
+    der Reorganize-Job (siehe vault_reorganize_loop) Dateien bereits umbenannt/
+    verschoben, aber noch nicht committet hat, kollidiert `git pull --rebase`
+    mit diesen UNTRACKED Dateien ("would be overwritten by checkout") und
+    bricht komplett ab - der anschließende Push scheitert dann ebenfalls
+    (non-fast-forward), beides bisher lautlos. Genau das hat den VPS-Sync
+    vom 04.08. bis 12.08.2026 lahmgelegt (82 lokale Commits nie gepusht).
+    Indem zuerst committet wird, ist beim Pull nichts mehr untracked - ein echter
+    Konflikt wird dann von git selbst (ggf. per .gitattributes merge=ours/
+    merge=union) sauber aufgelöst statt den ganzen Zyklus zu blockieren."""
     await asyncio.sleep(30)  # Warten bis der Rest gestartet ist
     while True:
         try:
+            await asyncio.to_thread(git_push_vault)
             await asyncio.to_thread(git_pull_vault)
             await asyncio.to_thread(git_push_vault)
         except Exception:
