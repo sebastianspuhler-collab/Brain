@@ -139,7 +139,6 @@ def git_pull_vault() -> bool:
         result = subprocess.run(cmd, cwd=vault, capture_output=True, text=True, timeout=60, env=env)
         if result.returncode == 0:
             logger.info("git pull: %s", result.stdout.strip() or "up to date")
-            global _pull_fail_count
             _pull_fail_count = 0
             if _pull_warned:
                 _set_git_sync_warning(False)
