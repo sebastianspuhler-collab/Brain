@@ -97,22 +97,21 @@
     }
   },
   "Schaufler": {
-    "input_hash": "2f8dbb3214de8b61",
+    "input_hash": "d02e374aabea5b10",
     "ergebnis": {
       "status": "fulfillment",
       "sicherheit": "hoch",
-      "begruendung": "Der Beschaffungsagent ist bei Schaufler produktiv im Einsatz, wie der Wochenreport (2026-08-11-Beschaffungsagent-Wochenreport-31.07-07.08.2026) mit 54 verarbeiteten Auftragsbestätigungen und Eskalationsstatistiken zeigt, zudem gibt es laufende Betreuung durch Bug-Meldungen (2026-08-10-Email-19feaf7a) und IT-Berechtigungsklärungen (2026-08-07-Email-19fdb7ed). Parallel läuft bereits ein neues Projekt zur KI-gestützten Stücklistendatenerfassung in der Angebots-/Konzeptphase (Lastenheft und Entwicklungsplan vom 05./06.08.2026).",
+      "begruendung": "Der Beschaffungsagent ist bei Schaufler bereits produktiv im Einsatz, wie der wöchentliche Statusreport (2026-08-11-Beschaffungsagent-Wochenreport) mit Ampel-Status und Eskalationszahlen zeigt, zudem meldet der Kunde aktuell einen konkreten Bug bei der Preisberechnung (2026-08-10-Email-19feaf7a-Schaufler-Beschaffungsagent). Parallel läuft bereits ein Folgeprojekt zur KI-gestützten Stücklistendatenerfassung mit eigenem Entwicklungsplan (2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler).",
       "quellen": [
         "2026-08-11-Beschaffungsagent-Wochenreport-31.07-07.08.2026 (1).md",
         "2026-08-10-Email-19feaf7a-Schaufler-Beschaffungsagent--128455.md",
-        "2026-08-07-Email-19fdb7ed-AW-Beschaffungsagent--MailSend-Berechtig.md",
         "2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md"
       ],
-      "warnsignal": "24 von 54 Auftragsbestätigungen im Wochenreport haben Rot-Status, u.a. wegen 68 überfälliger Lieferungen und eines gemeldeten Rechenfehlers bei Einzelpreisen (2026-08-10-Email-19feaf7a).",
+      "warnsignal": "Kunde meldet einen fachlichen Bug im Beschaffungsagenten (Preisberechnung auf Einzelpreis statt Gesamtpreis), der noch behoben werden muss.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Schaufler",
-      "aktueller_stand": "Der Beschaffungsagent läuft produktiv mit wöchentlichem Reporting, während parallel ein Folgeprojekt zur Stücklistendatenerfassung anhand des Lastenhefts vorbereitet wird und aktuell offene Rückfragen dazu in einem Call diese Woche geklärt werden sollen (2026-08-11-Email-19fef82c)."
+      "aktueller_stand": "Der Beschaffungsagent läuft produktiv mit wöchentlichem Reporting, aktuell wird ein gemeldeter Preisberechnungs-Bug bearbeitet, während parallel das Lastenheft für ein neues Projekt zur KI-gestützten Stücklistendatenerfassung geprüft und ein Abstimmungstermin für diese Woche gesucht wird."
     }
   },
   "TPG": {
@@ -133,39 +132,37 @@
     }
   },
   "Voigt_Salus": {
-    "input_hash": "83a617301a9636c3",
+    "input_hash": "385f50e998db5ea0",
     "ergebnis": {
       "status": "fulfillment",
       "sicherheit": "mittel",
-      "begruendung": "Aus 2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md und 2026-06-09-mandatsuebersicht.md geht hervor, dass der KI-Agent bereits eingerichtet und im produktiven Einsatz ist, was auf die Fulfillment-Phase hindeutet.",
+      "begruendung": "Die Mandatsübersicht (2026-06-09-mandatsuebersicht.md) belegt ein bestehendes Mandat, und die wiederkehrenden automatisierten Supabase-Sicherheitswarnungen (z.B. 2026-08-04-Email-19fcdab7) für das Projekt 'Voigtsalus' zeigen eine laufende technische Umsetzung/Betreuung.",
       "quellen": [
-        "2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md",
         "2026-06-09-mandatsuebersicht.md",
         "2026-08-04-Email-19fcdab7-Action-required-security-vulnerabilities.md"
       ],
-      "warnsignal": "Seit mindestens 2026-06-23 wiederholen sich wöchentlich automatische Sicherheitswarnungen (z.B. 2026-08-04-Email-19fcdab7) zu kritischen RLS-Lücken im Supabase-Projekt 'Voigtsalus', die offenbar nicht behoben wurden.",
+      "warnsignal": "Seit mindestens 23.06. bis 04.08.2026 wiederholt gemeldete kritische Sicherheitslücken (RLS nicht aktiviert) im Supabase-Projekt blieben offenbar ungelöst.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
-      "anzeige_name": "Voigt_Salus",
-      "aktueller_stand": "Der KI-Agent wurde onboardet und ist im Einsatz, jedoch bestehen seit Wochen unbehobene kritische Sicherheitslücken (Row-Level Security deaktiviert) im zugehörigen Supabase-Projekt, die dringend adressiert werden müssten."
+      "anzeige_name": "Voigtsalus",
+      "aktueller_stand": "Laufende technische Betreuung eines Supabase-Projekts für den Kunden, wobei kritische Sicherheitslücken (Row-Level-Security nicht aktiviert) trotz wöchentlicher Warnungen seit Ende Juni bislang nicht behoben wurden."
     }
   },
   "endin": {
-    "input_hash": "b18c251229f0fa2a",
+    "input_hash": "390b480b1f3efc63",
     "ergebnis": {
       "status": "angebotsphase",
       "sicherheit": "hoch",
-      "begruendung": "Mehrere Angebote (u.a. AG0026, AG0027, AG0032) wurden erstellt, im Meeting '2026-07-24-Update Prozessia X Endin.md' einigte man sich auf ein risikoarmes Einstiegspaket statt des Gesamtprojekts, eine Entscheidung steht laut diesem Meeting erst zum Folgetermin an.",
+      "begruendung": "Laut 2026-07-24-Update Prozessia X Endin.md wurde ein reduziertes Startpaket-Angebot besprochen, das Sebastian Spuhler schriftlich nachreichen sollte, und ein Folgetermin am 17.09.2026 zur Entscheidung darüber vereinbart; zuvor wurde in 2026-07-09-Zwischenstand Angebot.md die Aufteilung des Gesamtangebots in kleinere Pakete diskutiert.",
       "quellen": [
-        "2026-07-24-Angebot_endin_überarbeitet.md",
-        "2026-07-24-19f93b0bdf-Angebot_AG0032_24.07.2026.md",
-        "2026-07-24-Update Prozessia X Endin.md"
+        "2026-07-24-Update Prozessia X Endin.md",
+        "2026-07-09-Zwischenstand Angebot.md"
       ],
-      "warnsignal": "Entscheidung über das Startpaket ist erst für den 17.09.2026 terminiert - relativ lange Wartezeit bis zur Auftragsentscheidung.",
+      "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
-      "anzeige_name": "endin GmbH",
-      "aktueller_stand": "Nach mehreren Angebotsversionen wurde im Meeting am 24.07.2026 ein reduziertes Startpaket (Postfach-Überwachung, Bestellkategorisierung, Dashboard) vereinbart; Prozessia soll einen Testdatensatz auswerten und ein schriftliches Angebot senden, endgültige Entscheidung fällt beim Folgetermin am 17.09.2026."
+      "anzeige_name": "Endin GmbH",
+      "aktueller_stand": "Prozessia soll ein schriftliches Angebot für ein reduziertes Startpaket senden und einen Testdatensatz auswerten, Entscheidung fällt beim Termin am 17.09.2026."
     }
   },
   "Copy of undefined": {
@@ -402,20 +399,20 @@
     }
   },
   "Seifert-GmbH": {
-    "input_hash": "f3b9a16de5de0a5a",
+    "input_hash": "27f7079ba6ab8ceb",
     "ergebnis": {
-      "status": "erstgespraech",
+      "status": "angebotsphase",
       "sicherheit": "mittel",
-      "begruendung": "Am 28.07.2026 wurde im Meeting 2026-07-28-Update Seifert X Prozessia.md eine Demo gezeigt und ein Preis (vierstelliger Bereich) genannt, ein konkretes Angebot oder Auftrag liegt aber laut Chronologie noch nicht vor. Seifert wollte intern besprechen, wie die Anfrage strukturiert werden soll, ein Folgetermin ist offen.",
+      "begruendung": "Im Meeting 2026-07-28-Update Seifert X Prozessia.md wurde bereits ein Projektpreis (vierstelliger Bereich, Projektpreismodell) für ein Skalierungsprojekt genannt, Seifert wollte dies intern besprechen; die Email 2026-08-11-Email-19ff100c deutet auf ein zugesagtes weiteres Update-Gespräch hin.",
       "quellen": [
         "2026-07-28-Update Seifert X Prozessia.md",
-        "2026-07-23-Stefan Seifert and Sebastian Spuhler.md"
+        "2026-08-11-Email-19ff100c-Zugesagt-Update-Seifert-X-Prozessia.md"
       ],
-      "warnsignal": "Nach dem Meeting vom 28.07.2026 kein konkreter Folgetermin vereinbart, seither keine erkennbare Rückmeldung von Seifert bis 11.08.2026.",
+      "warnsignal": "Seit der Preisnennung am 28.07. und der internen Abstimmungszusage von Seifert liegt kein dokumentiertes Ergebnis vor, der aktuelle Stand nach der Email vom 11.08. bleibt inhaltlich unklar.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Seifert GmbH",
-      "aktueller_stand": "Demo der KI-Lösung zur automatisierten Material-/Zuschnittlisten-Erstellung wurde gezeigt, Preis im vierstelligen Bereich genannt; Seifert bespricht intern die weitere Strukturierung, ein Folgetermin oder Angebot steht noch aus."
+      "aktueller_stand": "Nach der Demo und Preisnennung im Update-Meeting vom 28.07.2026 wollte Seifert intern die Anfragestruktur klären; laut Email vom 11.08.2026 ist ein weiteres Update-Meeting zugesagt, dessen Ergebnis noch offen ist."
     }
   },
   "Juchem": {
@@ -581,20 +578,20 @@
     }
   },
   "East-Side-Fab-eV": {
-    "input_hash": "406ddfe72ca6be24",
+    "input_hash": "5ded7d7a1a4f5e93",
     "ergebnis": {
       "status": "erstgespraech",
       "sicherheit": "mittel",
-      "begruendung": "Die E-Mail 2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md enthält eine Terminseinladung für ein erstes Kennenlernen per Teams, was über den reinen Lead-Status aus 2026-08-11-East-Side-Fab-eV.md hinausgeht.",
+      "begruendung": "Die E-Mail 2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md enthält eine Terminvereinbarung für ein erstes Kennenlernen am 2026-08-13, was über den reinen Lead-Status (2026-08-11-East-Side-Fab-eV.md) hinausgeht.",
       "quellen": [
-        "2026-08-11-East-Side-Fab-eV.md",
-        "2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md"
+        "2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md",
+        "2026-08-11-East-Side-Fab-eV.md"
       ],
       "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "East Side Fab",
-      "aktueller_stand": "Ein erstes Kennenlerngespräch per Teams wurde vereinbart, konkreter Termin ist aber noch nicht bestätigt."
+      "aktueller_stand": "Ein erstes Kennenlerngespräch per Teams ist für den 2026-08-13 vereinbart, bisher gab es noch keinen inhaltlichen Austausch."
     }
   }
 }
