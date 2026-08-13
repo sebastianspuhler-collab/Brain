@@ -1,5 +1,5 @@
 ---
-updated: 2026-08-12
+updated: 2026-08-13
 ---
 
 # Aktueller Kontext
@@ -29,4 +29,31 @@ updated: 2026-08-12
   - Ein Buffer-Karussell-Draft wurde beim "Text überarbeiten" per delete+write_post versehentlich durch einen reinen Text-Post ersetzt (PDF ging verloren, nicht wiederherstellbar) - list_posts erkennt Karussell-Anhänge jetzt und warnt davor.
   - Text-Posts konnten nicht als Buffer-Entwurf gepusht werden (nur Karusselle) - neues draft_post-Tool ergänzt.
   - schedule_post/draft_post meldeten vollen Erfolg, auch wenn nur einer von zwei Kanälen klappte - jetzt sichtbar als Teilerfolg markiert.
-- **Noch nicht geprüft / mögliche weitere Baustellen (nächste Session anschauen):** MAX_LINKEDIN_CHAT_ITERATIONS=6 könnte bei größeren Batch-Aktionen (z.B. "generiere 9 Posts") zu knapp sein; Karussell-Hashtags werden vom Content-Engine unabhängig von der gewählten Themen-Säule generiert (bei „Wissensmanagement“-Post kamen z.B. #Beschaffung #Werkzeugbau-Tags); ob die 6 zuvor versehentlich scheduled statt draft gepushten Text-Posts von Sebastian selbst korrigiert wurden, ist offen.
+- **Noch nicht geprüft / mögliche weitere Baustellen (nächste Session anschauen):** Karussell-Hashtags werden vom Content-Engine unabhängig von der gewählten Themen-Säule generiert (bei „Wissensmanagement“-Post kamen z.B. #Beschaffung #Werkzeugbau-Tags); ob die 6 zuvor versehentlich scheduled statt draft gepushten Text-Posts von Sebastian selbst korrigiert wurden, ist offen.
+- **13.08.2026, LinkedIn-Agent-Umbau (Ideen/Entwürfe/Geplant, Karussell als Standard):**
+  Sebastian wollte drei klare Stufen statt der alten Vermischung: Ideen (Ideengenerator-Output) →
+  Entwürfe (= echte Buffer-Drafts) → Geplant (= Buffer-Queue), Karusselle-Tab weg (läuft als normale
+  Post-Karte mit), und ab jetzt Karussell als Standardformat für fast jeden Post, alles im Chat
+  steuerbar (Idee→Post→Planen). Umgesetzt und auf brain-vps deployed (docker compose build+up
+  backend+web, 13.08.2026 ~13:20):
+  - write_post/make_carousel pushen neue Posts jetzt SOFORT als echten Buffer-Entwurf (status draft),
+    nicht erst nach zweitem Tool-Call. make_carousel ist jetzt der vom System-Prompt bevorzugte Weg
+    (nicht mehr write_post), generate_ideas markiert jetzt mind. 8/10 Ideen als "Karussell".
+  - Kritischer Duplikat-Bug gefixt: schedule_post/push_latest_to_buffer legten bei einem bereits
+    gedrafteten Post bisher einen ZWEITEN Buffer-Post an, statt den Entwurf umzuschalten - betraf auch
+    den auf dem VPS tatsächlich aktiven CLAUDE_ENGINE=cli-Pfad (mcp_server.py), nicht nur die
+    API-Chat-Variante. Jetzt promote-statt-duplizieren via neuer _promote_buffer_posts()
+    (EditPostInput.saveToDraft live per Introspection verifiziert). Neues Tool schedule_buffer_post für
+    Posts ohne lokale id (Karusselle, direkt in Buffer angelegte Drafts).
+  - Karussell-Buffer-Post-IDs werden jetzt in karusselle.json gespeichert (vorher nicht) - dadurch
+    kann list_posts/das Dashboard Thumbnail+PDF direkt einem Live-Buffer-Post zuordnen.
+  - delete_post hat jetzt ein echtes Code-Gate (nicht nur Prompt-Warnung): Löschen eines
+    Karussell-Posts schlägt ohne confirm=true ab.
+  - Fake-Status "gesendet"/"offen" für unbekannte lokale Posts entfernt (kollidierte mit dem echten
+    Buffer-Status "sent") - neue, eindeutige Labels lokal_ungeplant/lokal_verwaist.
+  - Frontend (LinkedInPage.tsx): 3 Tabs Ideen/Entwürfe/Geplant, beide Buffer-Tabs ziehen jetzt den
+    echten Live-Status über GET /api/linkedin/posts?status=draft|scheduled (neu, Backend:
+    get_merged_posts_by_status), Karussell-Thumbnail direkt in der Post-Karte.
+  - Root-CLAUDE.md's `_agent/buffer_manager.py`-CLI-Weg (für MICH, Claude Code, außerhalb der
+    Web-App) wurde NICHT angefasst - der kann bei "als Entwurf pushen" weiterhin nicht draften
+    (kein saveToDraft-Support in cmd_push), das ist eine separate, ältere Schiene und noch offen.
