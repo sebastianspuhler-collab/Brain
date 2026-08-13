@@ -157,11 +157,18 @@ def _layout_rich(draw, runs, max_w, font_regular, font_bold):
     return lines
 
 
-def _draw_rich(draw, lines, x, y, fill, line_height, space_w):
+def _draw_rich(draw, lines, x, y, fill, line_height, space_w, stroke_width=0):
     for line in lines:
         cursor = x
         for word, font in line:
-            draw.text((cursor, y), word, font=font, fill=fill)
+            if stroke_width:
+                # Stroke in derselben Farbe fettet den Font zusätzlich auf -
+                # auch Poppins Black wirkte gegen das Referenz-Banner (Marketing/
+                # Branding/Gemini_Generated_Image_z5n18vz5n18vz5n1.png, KI-generiert,
+                # keine echte Schriftdatei) spürbar dünner (Sebastian, 2026-08-13).
+                draw.text((cursor, y), word, font=font, fill=fill, stroke_width=stroke_width, stroke_fill=fill)
+            else:
+                draw.text((cursor, y), word, font=font, fill=fill)
             cursor += draw.textlength(word, font=font) + space_w
         y += line_height
     return y
@@ -314,6 +321,12 @@ def _render_slides(slides: list, photo_bytes: bytes | None = None, variante_name
         y = _draw_rich(
             draw, headline_lines, PAD, y, variante["text"],
             line_height=int(headline_font.size * 1.16), space_w=space_w,
+            # stroke_width=1 fest, NICHT mit der Schriftgröße skaliert: bei 2px
+            # schloss der Stroke die schmale Öffnung im "e" von Poppins Black
+            # komplett, "jede Woche" wurde optisch zu "jodo Wocho" (getestet
+            # gegen Marketing/Branding/Gemini_Generated_Image_z5n18vz5n18vz5n1.png,
+            # 2026-08-13) - 1px fettet sichtbar auf, ohne Buchstaben zu verschließen.
+            stroke_width=1,
         )
 
         if slide.get("untertitel"):
