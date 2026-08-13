@@ -112,7 +112,9 @@ def generate_linkedin_ideas(focus: str = "") -> dict:
 
 
 @mcp.tool(description=(
-    "Schreibt fertige LinkedIn-Post-Texte aus und pusht sie direkt nach Buffer (beide Kanäle). "
+    "Schreibt fertige LinkedIn-Post-Texte aus UND plant sie SOFORT in Buffer ein (nächster freier Di/Do-9:30-Slot "
+    "je Post, kein Entwurfs-Zwischenschritt). Nur nutzen, wenn Sebastian ausdrücklich 'sofort einplanen'/'raus damit' "
+    "will - im Zweifel stattdessen write_linkedin_post_draft (landet erst als Entwurf zum Gegenlesen). "
     "Spec-Format: 'Thema1/Datum1, Thema2/Datum2, Zielgruppe' - Datum ist optional (YYYY-MM-DD)."
 ))
 def generate_linkedin_posts(spec: str) -> dict:
@@ -125,8 +127,9 @@ def generate_linkedin_posts(spec: str) -> dict:
 
 
 @mcp.tool(description=(
-    "Schreibt einen LinkedIn-Post-Text aus einer Idee/einem Thema und speichert ihn NUR als Entwurf - "
-    "pusht NICHT nach Buffer. Für die eigentliche Veröffentlichung danach schedule_linkedin_post aufrufen."
+    "STANDARDWEG für reine Text-Ideen (Karussell-Ideen -> generate_carousel nutzen): schreibt einen "
+    "LinkedIn-Post-Text aus und pusht ihn SOFORT als echten Buffer-Entwurf (Entwürfe-Tab, kein Termin, wird nie "
+    "automatisch veröffentlicht). Für die Veröffentlichung danach schedule_linkedin_post aufrufen."
 ))
 def write_linkedin_post_draft(spec: str) -> dict:
     return linkedin_service.generate_posts(spec)
@@ -199,9 +202,24 @@ def get_buffer_ideas() -> str:
     return linkedin_service._format_buffer_ideas_for_chat(linkedin_service.get_buffer_ideas())
 
 
-@mcp.tool(description="Löscht einen Post direkt in Buffer, per Buffer-Post-ID (aus get_buffer_status/get_buffer_insights, nicht die lokale Post-id).")
-def delete_buffer_post(buffer_post_id: str) -> dict:
-    return linkedin_service.delete_buffer_post(buffer_post_id)
+@mcp.tool(description=(
+    "Löscht einen Post direkt in Buffer, per Buffer-Post-ID (aus get_buffer_status/get_buffer_insights, nicht die "
+    "lokale Post-id). Bei Karussell-Posts (has_media) schlägt der Aufruf OHNE confirm ABSICHTLICH fehl (PDF-Verlust "
+    "ist unwiderruflich) - erst nach ausdrücklicher Bestätigung durch Sebastian FÜR GENAU DIESEN Post mit "
+    "confirm=true erneut aufrufen. NIE delete_buffer_post+write_linkedin_post_draft als 'Text überarbeiten' nutzen."
+))
+def delete_buffer_post(buffer_post_id: str, confirm: bool = False) -> dict:
+    return linkedin_service.delete_buffer_post(buffer_post_id, confirm=confirm)
+
+
+@mcp.tool(description=(
+    "Plant einen Post OHNE lokale id (list_linkedin_posts zeigt id=null, source=buffer - typisch für Karusselle "
+    "oder direkt in Buffer angelegte Drafts) zu einem Termin ein - befördert den bestehenden Entwurf zu 'geplant', "
+    "OHNE einen doppelten Post anzulegen. buffer_post_ids aus list_linkedin_posts/get_buffer_drafts übernehmen "
+    "(alle IDs des Posts, i.d.R. beide Kanäle). Für Posts MIT lokaler id stattdessen schedule_linkedin_post."
+))
+def schedule_buffer_post(buffer_post_ids: list[str], datum: str, uhrzeit: str) -> dict:
+    return linkedin_service.schedule_buffer_ids(buffer_post_ids, datum, uhrzeit)
 
 
 @mcp.tool(description=(
@@ -218,18 +236,29 @@ def list_linkedin_carousels() -> str:
 
 
 @mcp.tool(description=(
-    "Vollständige Karussell-Pipeline: Slides + Begleittext (Claude) -> Hintergrundbild (gpt-image-1) -> PDF -> Cloudinary -> Buffer Document-Post. "
+    "STANDARDWEG, um aus einer Idee/einem Thema einen fertigen Post zu machen (Prozessia-Karussell-Design, siehe "
+    "STRATEGIE.md §6). Vollständige Pipeline: Slides + Begleittext (Claude) -> Hintergrundbild (gpt-image-1) -> "
+    "PDF -> Cloudinary -> Buffer Document-Post, kann 1-2 Minuten dauern. "
     "Entweder post_id (Karussell aus einem bestehenden, gespeicherten Post ableiten) oder hook (freies Thema) angeben. "
     "saeule: Wissensmanagement, Compliance, Einkauf oder KI-Nutzung. "
     "variante: 'schwarz' oder 'weiss' — Farblogik der Serie, pro Post-Serie konsistent halten. "
-    "Datum optional, ohne Datum wird der nächste Di oder Do 09:30 genommen."
+    "OHNE due_date landet es SOFORT als Buffer-Entwurf (Entwürfe-Tab, kein Termin, keine automatische "
+    "Veröffentlichung). Erst MIT due_date (oder später schedule_linkedin_post/schedule_buffer_post) wird "
+    "wirklich eingeplant - due_date allein setzt automatisch 09:30 Uhr."
 ))
 def generate_carousel(hook: str = "", branche: str = "Alle", saeule: str = "Einkauf", due_date: str = "",
-                      post_id: str = "", variante: str = carousel_service.DEFAULT_VARIANTE) -> dict:
+                      post_id: str = "", variante: str = carousel_service.DEFAULT_VARIANTE,
+                      entwurf: bool | None = None) -> dict:
     due_at = f"{due_date}T09:30:00+02:00" if due_date and re.match(r"\d{4}-\d{2}-\d{2}", due_date) else None
+    # Draft-first (2026-08-13): ohne due_date Default=Entwurf, siehe
+    # linkedin_service._execute_linkedin_chat_tool für dieselbe Logik im
+    # API-Chat-Pfad - dieser MCP-Pfad ist der auf dem VPS tatsächlich aktive
+    # (CLAUDE_ENGINE=cli), rief vorher IMMER mit draft=False auf und plante
+    # damit jedes Karussell ungefragt live in den nächsten Di/Do-Slot ein.
+    draft = entwurf if entwurf is not None else due_at is None
     if post_id:
         return linkedin_service.make_carousel_from_post(
-            post_id, branche=branche or "Alle", saeule=saeule or "Einkauf", due_at=due_at, variante=variante
+            post_id, branche=branche or "Alle", saeule=saeule or "Einkauf", due_at=due_at, variante=variante, draft=draft
         )
     if not hook:
         return {"ok": False, "error": "Weder hook noch post_id angegeben."}
@@ -237,7 +266,7 @@ def generate_carousel(hook: str = "", branche: str = "Alle", saeule: str = "Eink
     # Ergebnis auch hier in karusselle.json landet und im Dashboard sichtbar
     # wird - der direkte Aufruf umging _save_carousel_record().
     return linkedin_service.make_carousel(
-        hook, branche=branche or "Alle", saeule=saeule or "Einkauf", due_at=due_at, variante=variante
+        hook, branche=branche or "Alle", saeule=saeule or "Einkauf", due_at=due_at, variante=variante, draft=draft
     )
 
 

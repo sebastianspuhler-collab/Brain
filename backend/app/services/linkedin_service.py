@@ -728,10 +728,19 @@ _LINKEDIN_CHAT_TOOLS = [
     },
     {
         "name": "delete_post",
-        "description": "Löscht einen Post direkt in Buffer, per Buffer-Post-ID (siehe get_buffer_status/get_insights für die ID, nicht die lokale Post-id).",
+        "description": (
+            "Löscht einen Post direkt in Buffer, per Buffer-Post-ID (siehe get_buffer_status/get_insights für die "
+            "ID, nicht die lokale Post-id). Bei Posts mit Karussell-PDF (has_media) schlägt der erste Aufruf "
+            "OHNE confirm ABSICHTLICH fehl (PDF-Verlust ist unwiderruflich) - erst nach ausdrücklicher Bestätigung "
+            "durch Sebastian FÜR GENAU DIESEN Post mit confirm=true erneut aufrufen. NIE delete_post+write_post "
+            "als 'Text überarbeiten' nutzen - das ersetzt das Karussell durch einen reinen Text-Post."
+        ),
         "input_schema": {
             "type": "object",
-            "properties": {"buffer_post_id": {"type": "string"}},
+            "properties": {
+                "buffer_post_id": {"type": "string"},
+                "confirm": {"type": "boolean", "description": "Nur bei Karussell-Posts nötig, nachdem Sebastian das Löschen für genau diesen Post ausdrücklich bestätigt hat."},
+            },
             "required": ["buffer_post_id"],
         },
     },
@@ -896,8 +905,12 @@ def _execute_linkedin_chat_tool(name: str, inp: dict) -> tuple[str, bool]:
             return _format_buffer_ideas_for_chat(r), not r.get("ok")
 
         if name == "delete_post":
-            r = delete_buffer_post(inp.get("buffer_post_id", ""))
-            return (f"Post {r.get('id')} gelöscht." if r.get("ok") else f"Fehler: {r.get('error', '?')}"), not r.get("ok")
+            r = delete_buffer_post(inp.get("buffer_post_id", ""), confirm=bool(inp.get("confirm")))
+            if r.get("ok"):
+                return f"Post {r.get('id')} gelöscht.", False
+            if r.get("needs_confirmation"):
+                return r["error"], True
+            return f"Fehler: {r.get('error', '?')}", True
 
         if name == "reschedule_post":
             r = reschedule_post(inp.get("post_id", ""), inp.get("datum", ""), inp.get("uhrzeit", ""))
@@ -1440,7 +1453,14 @@ Antworte NUR mit einem JSON-Objekt in genau diesem Format, kein Markdown, keine 
 def push_latest_to_buffer() -> dict:
     """Pusht alle Posts aus dem neuesten beitraege-*.json nach Buffer (beide Kanäle).
     Migriert aus brain_server.py:api_buffer_push() — dort per Subprocess auf
-    buffer_manager.py, hier direkt über buffer_push()."""
+    buffer_manager.py, hier direkt über buffer_push().
+
+    Promote-statt-duplizieren (2026-08-13): generate_posts() pusht seit dem
+    Draft-First-Umbau jeden Post SOFORT als Buffer-Entwurf. Ruft danach noch
+    jemand push_latest_to_buffer() (z.B. die MCP-/Dashboard-Tool-Varianten von
+    generate_linkedin_posts, die historisch beide Schritte kombinieren), legte
+    das bisher für JEDEN Post einen ZWEITEN, live geplanten Duplikat-Post an,
+    statt den schon existierenden Entwurf einzuplanen - jetzt idempotent."""
     path = _latest_file("beitraege")
     if not path:
         return {"error": "Keine generierten Posts gefunden — erst generate_posts aufrufen."}
@@ -1455,7 +1475,13 @@ def push_latest_to_buffer() -> dict:
         if not p.get("text"):
             continue
         label = p.get("id") or p.get("tag", "")
-        result = buffer_push(p["text"], scheduled_at=p.get("termin"))
+        existing_ids = [b for b in (p.get("buffer_post_ids") or []) if b]
+        if existing_ids:
+            result = _promote_buffer_posts(existing_ids, p.get("termin"), draft=False)
+        else:
+            result = buffer_push(p["text"], scheduled_at=p.get("termin"))
+            if result.get("ok") and p.get("id"):
+                _save_post_fields(p["id"], pushed=True, buffer_post_ids=[x["post_id"] for x in result.get("pushed", [])])
         if result.get("ok"):
             pushed.append(label)
         else:

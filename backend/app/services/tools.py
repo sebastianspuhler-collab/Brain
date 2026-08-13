@@ -232,7 +232,8 @@ TOOLS = [
         "name": "generate_carousel",
         "description": (
             "Vollständige Karussell-Pipeline: Slides + Begleittext (Claude) → Hintergrundbild (gpt-image-1) → PDF → Cloudinary → Buffer Document-Post. "
-            "Datum optional, ohne Datum wird der nächste Di oder Do 09:30 genommen."
+            "Ohne due_date landet es als Buffer-Entwurf (kein Termin, keine automatische Veröffentlichung) - erst "
+            "mit due_date wird wirklich eingeplant, dann automatisch 09:30 Uhr."
         ),
         "input_schema": {
             "type": "object",
@@ -241,7 +242,7 @@ TOOLS = [
                 "branche": {"type": "string", "description": "Werkzeugbau, Lohnfertigung, Elektrotechnik, Kunststoff, Metallbau — Default 'Alle'"},
                 "saeule": {"type": "string", "description": "Themen-Säule: Wissensmanagement, Compliance, Einkauf oder KI-Nutzung — Default 'Einkauf'"},
                 "variante": {"type": "string", "description": "Farblogik der Serie: 'schwarz' oder 'weiss'. Pro Post-Serie konsistent halten, Default 'schwarz'."},
-                "due_date": {"type": "string", "description": "Optional YYYY-MM-DD"},
+                "due_date": {"type": "string", "description": "Optional YYYY-MM-DD - ohne dieses Feld bleibt es ein Entwurf."},
             },
             "required": ["hook"],
         },
@@ -473,15 +474,20 @@ def execute_tool(name: str, tool_input: dict) -> tuple[str, bool]:
             variante = tool_input.get("variante") or carousel_service.DEFAULT_VARIANTE
             due_date = tool_input.get("due_date")
             due_at = f"{due_date}T09:30:00+02:00" if due_date and re.match(r"\d{4}-\d{2}-\d{2}", due_date) else None
+            # Draft-first (2026-08-13): ohne due_date landet es als Buffer-
+            # Entwurf statt ungefragt in den nächsten Di/Do-Slot eingeplant zu
+            # werden - siehe linkedin_service._execute_linkedin_chat_tool für
+            # dieselbe Logik im dedizierten LinkedIn-Agent-Chat.
             # Über linkedin_service, damit das Karussell in karusselle.json
             # protokolliert wird und im Dashboard auftaucht.
-            result = linkedin_service.make_carousel(hook, branche=branche, saeule=saeule, due_at=due_at, variante=variante)
+            result = linkedin_service.make_carousel(hook, branche=branche, saeule=saeule, due_at=due_at, variante=variante, draft=due_at is None)
             if result.get("ok"):
                 n = result.get("slides", 0)
                 due = (result.get("due_at") or "")[:10]
                 pushed = result.get("anzahl_gepusht", 0)
                 titles = " | ".join((result.get("slide_titles") or [])[:3])
-                return f"Karussell fertig — {n} Slides | Buffer: {pushed}x eingeplant für {due} | {titles}", False
+                status = "als Entwurf" if result.get("draft") else f"eingeplant für {due}"
+                return f"Karussell fertig — {n} Slides | Buffer: {pushed}x {status} | {titles}", False
             return f"Karussell-Fehler: {result.get('error', '?')}", True
 
         if name == "list_youtube_videos":
