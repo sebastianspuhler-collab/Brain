@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-13 17:07] [OCR 4.1: more accuracy on complex docume] OCR 3 bleibt zum ursprünglichen Preis von $2 pro 1.000 Seiten verfügbar
 - [2026-08-13 12:53] [2026-08-13-Email-19ffb2aa-Follow-up-Prozessia-x-ESF.md] Kollege Alex bei ESF ist verantwortlich für das Thema 'de:hub'
 - [2026-08-13 12:52] [Follow-up Prozessia x ESF] Alex (East Side Fab e.V.) ist Ansprechpartner für das Thema de:hub
 - [2026-08-13 11:42] [STRATEGIE.md] Status verbindlich: Diese Strategie-Datei ist Konfliktlöser – wenn andere Dateien widersprechen, gilt diese Datei
