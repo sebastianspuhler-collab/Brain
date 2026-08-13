@@ -507,7 +507,7 @@ def _merge_local_and_buffer_posts() -> list[dict]:
     return merged
 
 
-_DRAFT_STATUS_GROUP = {"draft", "lokal_ungeplant", "lokal_verwaist"}
+_DRAFT_STATUS_GROUP = {"draft"}
 _SCHEDULED_STATUS_GROUP = {"scheduled"}
 
 
@@ -516,7 +516,15 @@ def get_merged_posts_by_status(status_group: str) -> dict:
     (status_group 'draft' oder 'scheduled') - Grundlage für GET /api/linkedin/
     posts?status=..., ersetzt das alte, rein lokale pushed-Flag. Nutzt dieselbe
     Merge-Logik, die der Chat über list_posts schon zeigt, inkl. Karussell-
-    Thumbnail/PDF-URL wo vorhanden."""
+    Thumbnail/PDF-URL wo vorhanden.
+
+    NUR echte Buffer-Treffer (2026-08-13, Bugfix): lokal_ungeplant/lokal_verwaist
+    (kein Live-Treffer in Buffer) wurden hier zuerst mit angezeigt, um nichts zu
+    verstecken - Sebastian meldete sofort 10 Posts im Entwürfe-Tab ohne
+    passenden Buffer-Draft ("wenn kein Karussell-Draft da ist, ist es eine Idee"),
+    stammend aus alten, nie gepushten beitraege-*.json-Posts von vor dem
+    Draft-First-Umbau. Der Tab zeigt jetzt ausschließlich echte Buffer-Treffer -
+    lokal_ungeplant/lokal_verwaist bleiben über list_posts im Chat sichtbar."""
     wanted = _SCHEDULED_STATUS_GROUP if status_group == "scheduled" else _DRAFT_STATUS_GROUP
     posts = [p for p in _merge_local_and_buffer_posts() if p.get("status") in wanted]
     posts.sort(key=lambda p: p.get("due") or "9999")
