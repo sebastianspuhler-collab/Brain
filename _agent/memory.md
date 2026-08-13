@@ -884,6 +884,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-13 10:40] [2026-08-13-Email-19ffa921-Zugesagt-Prozessia-X-Schauenberg.md] Kontaktperson Schauenberg: Sascha Haller (sascha.haller@sb-it.com)
 - [2026-08-13 05:15] [memory.md] Hauptanforderungen: DSGVO-Konformität, Deutschland/EU-Hosting erforderlich, Datenschutz als Priorität
 - [2026-08-13 05:14] Kontakt Sascha Haller (Schauenburg/sb-it.com), E-Mail sascha-haller@sb-it.com, Ansprechpartner für Projekt 'Prozessia X Schauenberg'
 - [2026-08-12 21:21] [context.md] Juchem: Folgetermin 29.07. mit Thorsten Maas durchgeführt (kompletter Beschaffungsprozess). Nächster Schritt: Angebot erstellen
