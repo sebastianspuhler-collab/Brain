@@ -1,5 +1,180 @@
 [
   {
+    "id": "804cac23",
+    "source_post_id": "eb19af11",
+    "hook": "Drei Stunden mit ChatGPT ohne brauchbares Ergebnis",
+    "branche": "Alle",
+    "slide_titles": [
+      "Drei Stunden ChatGPT. Null Ergebnis.",
+      "ChatGPT kennt euer ERP nicht",
+      "Copy-Paste ist keine Automatisierung",
+      "Chatbots sind keine Agenten",
+      "Das Problem sitzt vor dem Bildschirm nicht",
+      "3 bis 5 Tage früher wissen",
+      "Redet mit uns über euren Prozess"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1786621931/carousel/prozessia/20260903/20260903-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1786621932/carousel/prozessia/20260903/20260903-karussell.pdf",
+    "due_at": "2026-09-03T09:30:00+02:00",
+    "draft": true,
+    "buffer_post_ids": [
+      "6a7dafedfcb192c540ac3def",
+      "6a7dafedc7234b68846afe1e"
+    ],
+    "anzahl_gepusht": 2,
+    "created_at": "2026-08-13T11:52:13.986505"
+  },
+  {
+    "id": "8630ec36",
+    "source_post_id": "3e096b80",
+    "hook": "Von 3 Tagen auf 20 Minuten Preisvergleich im Einkauf",
+    "branche": "Alle",
+    "slide_titles": [
+      "Von 3 Tagen auf 20 Minuten",
+      "Der klassische Ablauf",
+      "Wo die Zeit wirklich verschwindet",
+      "Was ein KI-Agent übernimmt",
+      "Der Unterschied in Zahlen",
+      "Was Einkäufer davon haben",
+      "Wie lange dauert euer Preisvergleich?"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1786621872/carousel/prozessia/20260825/20260825-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1786621873/carousel/prozessia/20260825/20260825-karussell.pdf",
+    "due_at": "2026-08-25T09:30:00+02:00",
+    "draft": true,
+    "buffer_post_ids": [
+      "6a7dafb203ed2754c99193e9",
+      "6a7dafb23d8eb20641d25836"
+    ],
+    "anzahl_gepusht": 2,
+    "created_at": "2026-08-13T11:51:14.658750"
+  },
+  {
+    "id": "b4411cd2",
+    "source_post_id": null,
+    "hook": "Sechs Wochen bis zur Rente – und 30 Jahre Erfahrungswissen drohen verloren zu gehen. Als typisches, erfundenes Szenario bei einem Werkzeugbauer (fiktiver Firmenname, z.B. Mustermann Werkzeugbau GmbH) erzählen, NICHT aus Ich-Perspektive von Prozessia – Prozessia betreibt selbst keine Werkstatt, sondern begleitet solche Betriebe von außen als Berater.",
+    "branche": "Alle",
+    "slide_titles": [
+      "Sechs Wochen bis zur Rente",
+      "Der Fall: Mustermann Werkzeugbau",
+      "Das Problem ist nicht neu",
+      "Warum Excel-Listen nicht reichen",
+      "Was ein Chatbot leisten kann",
+      "Der richtige Zeitpunkt ist jetzt",
+      "Wissen sichern, bevor es geht"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1786621824/carousel/prozessia/20260818/20260818-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1786621825/carousel/prozessia/20260818/20260818-karussell.pdf",
+    "due_at": "2026-08-18T09:30:00+02:00",
+    "draft": true,
+    "buffer_post_ids": [
+      "6a7daf8203ed2754c9919244",
+      "6a7daf833d8eb20641d2567d"
+    ],
+    "anzahl_gepusht": 2,
+    "created_at": "2026-08-13T11:50:27.248013"
+  },
+  {
+    "id": "b0e32bd3",
+    "source_post_id": "eb19af11",
+    "hook": "Drei Stunden mit ChatGPT ohne brauchbares Ergebnis",
+    "branche": "Alle",
+    "slide_titles": [
+      "Drei Stunden ChatGPT. Null Ergebnis.",
+      "Das Problem heißt Kontext",
+      "Copy-Paste ist keine Automatisierung",
+      "Einzelantworten lösen kein System",
+      "Der Unterschied liegt in der Integration",
+      "Zeit ist der eigentliche Preis",
+      "KI, die wirklich in eurem Einkauf arbeitet"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1786621767/carousel/prozessia/20260903/20260903-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1786621768/carousel/prozessia/20260903/20260903-karussell.pdf",
+    "due_at": "2026-09-03T09:30:00+02:00",
+    "draft": true,
+    "buffer_post_ids": [
+      "6a7daf4ac7234b68846af7ea",
+      "6a7daf4a3d8eb20641d2533b"
+    ],
+    "anzahl_gepusht": 2,
+    "created_at": "2026-08-13T11:49:30.914686"
+  },
+  {
+    "id": "2dd84eb4",
+    "source_post_id": "3e096b80",
+    "hook": "Von 3 Tagen auf 20 Minuten Preisvergleich im Einkauf",
+    "branche": "Alle",
+    "slide_titles": [
+      "Von 3 Tagen auf 20 Minuten",
+      "Der Alltag im Einkauf",
+      "Warum das so lange dauert",
+      "Was ein KI-Agent übernimmt",
+      "Das Ergebnis in Zahlen",
+      "Kein Wunder, sondern Integration",
+      "Zeit für euren Einkauf?"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1786621727/carousel/prozessia/20260825/20260825-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1786621728/carousel/prozessia/20260825/20260825-karussell.pdf",
+    "due_at": "2026-08-25T09:30:00+02:00",
+    "draft": true,
+    "buffer_post_ids": [
+      "6a7daf2103ed2754c9918d1a",
+      "6a7daf21fcb192c540ac35ac"
+    ],
+    "anzahl_gepusht": 2,
+    "created_at": "2026-08-13T11:48:49.497190"
+  },
+  {
+    "id": "145e1299",
+    "source_post_id": null,
+    "hook": "In sechs Wochen geht bei einem inhabergeführten Werkzeugbauer (fiktives Beispiel, z.B. \"Musterbau GmbH\") der langjährige Werkstattleiter in Rente - mit ihm 30 Jahre Erfahrungswissen, das nie dokumentiert wurde. Als typisches Szenario bei einem Kunden/Betrieb rahmen, NICHT als Prozessias eigener Betrieb oder eigene Werkstatt - Prozessia ist eine Beratung, keine Werkstatt.",
+    "branche": "Alle",
+    "slide_titles": [
+      "In 6 Wochen ist das Wissen weg",
+      "Ein typischer Fall im Werkzeugbau",
+      "Das Problem ist nicht neu",
+      "Warum Übergabe-Wochen nicht reichen",
+      "Was KI-Agenten hier leisten",
+      "Kein Ersatz für Erfahrung",
+      "Wissen sichern, bevor es geht"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1786621671/carousel/prozessia/20260818/20260818-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1786621672/carousel/prozessia/20260818/20260818-karussell.pdf",
+    "due_at": "2026-08-18T09:30:00+02:00",
+    "draft": true,
+    "buffer_post_ids": [
+      "6a7daee903ed2754c991893d",
+      "6a7daee9fcb192c540ac32d6"
+    ],
+    "anzahl_gepusht": 2,
+    "created_at": "2026-08-13T11:47:53.881965"
+  },
+  {
+    "id": "48ea4820",
+    "source_post_id": "8ec1b145",
+    "hook": "Kundendaten im ChatGPT-Verlauf gefunden - Compliance-Risiko",
+    "branche": "Alle",
+    "slide_titles": [
+      "Kundendaten im ChatGPT-Verlauf gefunden",
+      "Der Fall ist alltäglich",
+      "Wo landen die Daten wirklich?",
+      "Wir sehen das bei fast jedem Kunden",
+      "Verbot ist keine Lösung",
+      "So sieht die Lösung aus",
+      "Prüfen Sie Ihre KI-Nutzung"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1786621599/carousel/prozessia/20260827/20260827-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1786621601/carousel/prozessia/20260827/20260827-karussell.pdf",
+    "due_at": "2026-08-27T09:30:00+02:00",
+    "draft": true,
+    "buffer_post_ids": [
+      "6a7daea1fcb192c540ac30ca",
+      "6a7daea1920e2fa15820c3a0"
+    ],
+    "anzahl_gepusht": 2,
+    "created_at": "2026-08-13T11:46:42.078260"
+  },
+  {
     "id": "24c0fe4c",
     "source_post_id": "34fe2a81",
     "hook": "EU AI Act - die vier Fragen die für produzierende Mittelständler zählen",
