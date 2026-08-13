@@ -396,43 +396,16 @@ export function LinkedInPage() {
     <div className="grid gap-4 lg:grid-cols-[1fr_400px]">
       <LinkedInChat messages={messages} streaming={streaming} error={error} onSend={sendChat} />
 
-      <Tabs defaultValue="geplant" className="flex flex-col">
+      <Tabs defaultValue="ideen" className="flex flex-col">
         <TabsList className="w-full">
-          <TabsTrigger value="geplant" className="flex-1">Geplant</TabsTrigger>
           <TabsTrigger value="ideen" className="flex-1">Ideen</TabsTrigger>
-          <TabsTrigger value="karusselle" className="flex-1">Karusselle</TabsTrigger>
+          <TabsTrigger value="entwuerfe" className="flex-1">
+            Entwürfe{draftsQuery.data?.posts.length ? ` (${draftsQuery.data.posts.length})` : ""}
+          </TabsTrigger>
+          <TabsTrigger value="geplant" className="flex-1">
+            Geplant{scheduledQuery.data?.posts.length ? ` (${scheduledQuery.data.posts.length})` : ""}
+          </TabsTrigger>
         </TabsList>
-
-        <TabsContent value="geplant">
-          <Card>
-            <CardHeader>
-              <CardTitle>Geplante Beiträge</CardTitle>
-            </CardHeader>
-            <CardContent>
-              {!postsQuery.data?.posts.length ? (
-                <p className="text-sm text-muted-foreground">Keine Beiträge in der Pipeline.</p>
-              ) : (
-                <div className="flex flex-col gap-3">
-                  {postsQuery.data.posts.map((p) => (
-                    <button
-                      key={p.id}
-                      onClick={() => setSelectedPostId(p.id)}
-                      className="flex flex-col gap-1 border-b border-border pb-3 last:border-0 text-left transition hover:opacity-80"
-                    >
-                      <div className="flex items-center gap-2">
-                        <StatusPill variant="neutral">{p.tag}</StatusPill>
-                        <span className="text-xs text-muted-foreground">{p.termin.slice(0, 10)}</span>
-                        {p.pushed && <StatusPill variant="success">geplant</StatusPill>}
-                      </div>
-                      <p className="text-sm font-medium">{p.idee}</p>
-                      {p.text_preview && <p className="text-xs text-muted-foreground line-clamp-2">{p.text_preview}</p>}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </CardContent>
-          </Card>
-        </TabsContent>
 
         <TabsContent value="ideen">
           <Card>
@@ -465,7 +438,7 @@ export function LinkedInPage() {
                       idea={idea}
                       onWrite={(idea) =>
                         sendChat(
-                          `Schreibe einen vollständigen LinkedIn-Post zum Thema: "${idea.titel}". Hook: "${idea.hook}". Format: ${idea.format}. CTA: "${idea.cta}".`
+                          `Mach aus dieser Idee einen fertigen Post: "${idea.titel}". Hook: "${idea.hook}". Format: ${idea.format}. CTA: "${idea.cta}".`
                         )
                       }
                     />
@@ -476,29 +449,38 @@ export function LinkedInPage() {
           </Card>
         </TabsContent>
 
-        <TabsContent value="karusselle">
+        <TabsContent value="entwuerfe">
           <Card>
             <CardHeader>
-              <CardTitle>Karusselle</CardTitle>
+              <CardTitle>Entwürfe</CardTitle>
             </CardHeader>
             <CardContent>
-              {!carouselsQuery.data?.karusselle.length ? (
-                <p className="text-sm text-muted-foreground">
-                  Noch keine Karusselle erstellt - im Chat z.B. "Erstelle ein Karussell zu ..." schreiben.
-                </p>
-              ) : (
-                <div className="flex flex-col gap-3">
-                  {carouselsQuery.data.karusselle.map((c) => (
-                    <CarouselCard key={c.id} c={c} />
-                  ))}
-                </div>
-              )}
+              <PostList
+                posts={draftsQuery.data?.posts ?? []}
+                emptyHint='Noch keine Entwürfe - im Chat z.B. "mach aus Idee X einen Post" schreiben.'
+                onOpen={setSelectedPost}
+              />
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="geplant">
+          <Card>
+            <CardHeader>
+              <CardTitle>Geplante Beiträge</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <PostList
+                posts={scheduledQuery.data?.posts ?? []}
+                emptyHint='Noch nichts eingeplant - im Chat z.B. "plane den Entwurf zu X für Dienstag ein" schreiben.'
+                onOpen={setSelectedPost}
+              />
             </CardContent>
           </Card>
         </TabsContent>
       </Tabs>
 
-      <PostDetailSheet postId={selectedPostId} onClose={() => setSelectedPostId(null)} />
+      <PostDetailSheet post={selectedPost} onClose={() => setSelectedPost(null)} />
     </div>
   );
 }
