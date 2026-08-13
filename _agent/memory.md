@@ -1257,6 +1257,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-13 17:08] [memory.md] STRATEGIE.md ist verbindliches Konfliktlösungsdokument – gilt bei inhaltlichen Widersprüchen zu anderen Dateien
 - [2026-08-13 11:42] [STRATEGIE.md] 4 Themen-Säulen für LinkedIn-Content definiert (erste: Wissensmanagement); verankert in linkedin_service.py, claudeService.js, carousel_service.py
 - [2026-08-13 05:14] Brain kann E-Mails nicht zeitgesteuert versenden, sondern legt sie nur als Entwurf in Gmail ab; Versand muss manuell zur gewünschten Zeit erfolgen
 - [2026-08-12 21:24] [memory.md] TopDown-Projekt (Stand 2026-08-11): Nächster Schritt ist Angebotserstellung
