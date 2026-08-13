@@ -189,13 +189,28 @@ def _to_iso_berlin(datum: str, uhrzeit: str) -> str:
 def push_post_to_buffer(post_id: str, scheduled_at: str | None = None, draft: bool = False) -> dict:
     """Pusht einen einzelnen gespeicherten Post nach Buffer (beide Kanäle) und
     merkt Termin + Status direkt am Post, damit Detailansicht/Chat wissen,
-    dass er schon raus ist."""
+    dass er schon raus ist.
+
+    Ist der Post schon in Buffer (buffer_post_ids vorhanden, z.B. weil
+    write_post ihn per Draft-First schon als Entwurf gepusht hat), wird der
+    BESTEHENDE Buffer-Post umgeschaltet (_promote_buffer_posts) statt einen
+    zweiten anzulegen. Vorher legte z.B. schedule_post nach einem vorherigen
+    Draft-Push immer einen komplett neuen, doppelten Buffer-Post an - der
+    alte Entwurf blieb dabei unbemerkt und verwaist in Buffer liegen (live
+    beobachtet 2026-08-13, Kern des in context.md offen notierten Problems)."""
     post = get_post(post_id)
     if not post:
         return {"error": f"Post {post_id} nicht gefunden"}
     if not post.get("text", "").strip():
         return {"error": "Post hat keinen Text"}
     due = scheduled_at or post.get("termin") or None
+    existing_ids = [b for b in (post.get("buffer_post_ids") or []) if b]
+    if existing_ids:
+        result = _promote_buffer_posts(existing_ids, due, draft)
+        if result.get("ok"):
+            _save_post_fields(post_id, termin=due or post.get("termin", ""), pushed=True)
+            cache.invalidate("buffer_status")
+        return result
     result = buffer_push(post["text"], scheduled_at=due, draft=draft)
     if result.get("ok"):
         _save_post_fields(
@@ -204,6 +219,83 @@ def push_post_to_buffer(post_id: str, scheduled_at: str | None = None, draft: bo
             pushed=True,
             buffer_post_ids=[p["post_id"] for p in result.get("pushed", [])],
         )
+        cache.invalidate("buffer_status")
+    return result
+
+
+def _promote_buffer_posts(buffer_post_ids: list[str], due_at: str | None, draft: bool) -> dict:
+    """Ändert Termin/Draft-Status bereits existierender Buffer-Posts per
+    editPost, OHNE Text oder Assets (z.B. das Karussell-PDF) anzufassen -
+    reines Umschalten Entwurf<->geplant. saveToDraft ist auf EditPostInput
+    live per Introspection bestätigt (2026-08-13, s. buffer_edit_post für
+    dieselbe Query-Form)."""
+    settings = get_settings()
+    token = settings.buffer_api_token
+    if not token:
+        return {"error": "BUFFER_API_TOKEN nicht gesetzt"}
+    mutation = """
+mutation EditPost($input: EditPostInput!) {
+  editPost(input: $input) {
+    ... on PostActionSuccess {
+      post { id status dueAt }
+    }
+    ... on InvalidInputError { message }
+    ... on UnauthorizedError { message }
+    ... on NotFoundError { message }
+    ... on UnexpectedError { message }
+    ... on RestProxyError { message }
+    ... on LimitReachedError { message }
+  }
+}"""
+    updated = []
+    errors = []
+    for post_id in buffer_post_ids:
+        if not post_id:
+            continue
+        variables = {
+            "input": {
+                "id": post_id,
+                "schedulingType": "automatic",
+                "saveToDraft": draft,
+                **({"mode": "customScheduled", "dueAt": due_at} if due_at and not draft else {}),
+            }
+        }
+        payload = json.dumps({"query": mutation, "variables": variables}).encode()
+        req = urllib.request.Request(
+            BUFFER_GRAPHQL, data=payload,
+            headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"},
+            method="POST",
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                data = json.loads(resp.read())
+            if data.get("errors"):
+                errors.append({"post_id": post_id, "errors": data["errors"]})
+                continue
+            result = data.get("data", {}).get("editPost") or {}
+            post = result.get("post")
+            if post and post.get("id"):
+                updated.append(post_id)
+            else:
+                errors.append({"post_id": post_id, "errors": [{"message": result.get("message", "Unbekannte Antwort ohne post/message")}]})
+        except Exception as exc:
+            errors.append({"post_id": post_id, "error": str(exc)})
+
+    if errors and not updated:
+        return {"error": errors}
+    return {"ok": True, "updated": updated, "errors": errors or None, "partial": bool(errors)}
+
+
+def schedule_buffer_ids(buffer_post_ids: list[str], datum: str, uhrzeit: str) -> dict:
+    """Plant Buffer-Posts OHNE lokale id ein (z.B. Karusselle oder direkt in
+    Buffer angelegte Drafts) - Pendant zu schedule_post für Posts, die list_posts
+    nur mit buffer_ids statt einer lokalen id zeigt."""
+    try:
+        scheduled_at = _to_iso_berlin(datum, uhrzeit)
+    except Exception:
+        return {"error": "Ungültiges Datum/Uhrzeit-Format, bitte YYYY-MM-DD und HH:MM verwenden."}
+    result = _promote_buffer_posts(buffer_post_ids, scheduled_at, draft=False)
+    if result.get("ok"):
         cache.invalidate("buffer_status")
     return result
 
@@ -243,6 +335,12 @@ def _save_carousel_record(hook: str, branche: str, result: dict, source_post_id:
     analog zum youtube_service-Metadaten-Sidecar-Muster, hier als eine
     gemeinsame Liste statt einer Datei pro Eintrag."""
     items = _load_karusselle()
+    # buffer_post_ids (2026-08-13): vorher gar nicht gespeichert - ohne die IDs
+    # ließ sich ein erzeugtes Karussell später nie wieder gezielt in Buffer
+    # wiederfinden (z.B. um es von Entwurf auf geplant zu befördern oder
+    # sicher vor delete_post+write_post zu schützen), nur raten über
+    # Text-Ähnlichkeit war möglich.
+    buffer_post_ids = [b["postId"] for b in (result.get("buffer") or []) if b.get("ok") and b.get("postId")]
     items.insert(0, {
         "id": uuid.uuid4().hex[:8],
         "source_post_id": source_post_id,
@@ -252,6 +350,8 @@ def _save_carousel_record(hook: str, branche: str, result: dict, source_post_id:
         "thumb_url": result.get("thumb_url"),
         "pdf_url": result.get("pdf_url"),
         "due_at": result.get("due_at"),
+        "draft": bool(result.get("draft")),
+        "buffer_post_ids": buffer_post_ids,
         "anzahl_gepusht": result.get("anzahl_gepusht", 0),
         "created_at": datetime.now().isoformat(),
     })
@@ -304,7 +404,19 @@ def _format_ideas_for_chat() -> str:
     return "\n".join(f"- [{i['kategorie']}] {i['titel']} — {i['hook']}" for i in ideen)
 
 
-_BUFFER_STATUS_LABEL = {"draft": "Entwurf", "scheduled": "geplant", "sent": "gesendet"}
+_BUFFER_STATUS_LABEL = {
+    "draft": "Entwurf",
+    "scheduled": "geplant",
+    "sent": "gesendet",
+    # Fallback-Status für lokale Posts ohne Live-Treffer in Buffer - bewusst NICHT
+    # "gesendet"/"offen" (kollidierte mit dem echten Buffer-Status "sent" und
+    # täuschte einen Buffer-Zustand vor, den es so nie gab). Seit dem Umbau auf
+    # Draft-First (write_post/make_carousel pushen sofort als Buffer-Entwurf)
+    # sollte "lokal_ungeplant" kaum noch auftreten - "lokal_verwaist" ist ein
+    # echtes Drift-Signal (als gepusht markiert, aber Buffer bestätigt es nicht).
+    "lokal_ungeplant": "nur lokal, noch nicht in Buffer",
+    "lokal_verwaist": "als gepusht markiert, aber kein Live-Treffer in Buffer (bitte prüfen)",
+}
 
 
 def _merge_local_and_buffer_posts() -> list[dict]:
@@ -333,6 +445,21 @@ def _merge_local_and_buffer_posts() -> list[dict]:
     buffer_posts = buffer_result.get("posts", []) if buffer_result.get("ok") else []
     buffer_by_id = {b["id"]: b for b in buffer_posts}
 
+    # Karussell-Design (Thumbnail/PDF) per Buffer-Post-ID zuordnen - präzise
+    # statt über Text-/Termin-Heuristik, seit _save_carousel_record() die
+    # tatsächlichen Buffer-IDs mitspeichert (2026-08-13).
+    carousel_by_buffer_id = {}
+    for c in _load_karusselle():
+        for bid in c.get("buffer_post_ids") or []:
+            carousel_by_buffer_id[bid] = c
+
+    def _carousel_info(buffer_ids: list[str]) -> dict:
+        for bid in buffer_ids:
+            c = carousel_by_buffer_id.get(bid)
+            if c:
+                return {"carousel_id": c["id"], "thumb_url": c.get("thumb_url"), "pdf_url": c.get("pdf_url")}
+        return {}
+
     matched_ids = set()
     merged = []
     for p in local_posts:
@@ -343,16 +470,18 @@ def _merge_local_and_buffer_posts() -> list[dict]:
             status, due = live[0].get("status"), live[0].get("due_at")
             has_media = any(l.get("has_media") for l in live)
         else:
-            status = "gesendet" if p.get("pushed") else "offen"
+            status = "lokal_verwaist" if p.get("pushed") else "lokal_ungeplant"
             due = p.get("termin")
             has_media = False
         merged.append({
             "id": p.get("id"),
+            "buffer_ids": buffer_ids,
             "text_preview": (p.get("idee") or p.get("text") or "")[:100],
             "status": status,
             "due": due,
             "has_media": has_media,
             "source": "lokal",
+            **_carousel_info(buffer_ids),
         })
 
     grouped = {}
@@ -367,6 +496,7 @@ def _merge_local_and_buffer_posts() -> list[dict]:
     for g in grouped.values():
         merged.append({
             "id": None,
+            **_carousel_info(g["buffer_ids"]),
             "buffer_ids": g["buffer_ids"],
             "text_preview": g["text_preview"],
             "status": g["status"],
@@ -384,7 +514,7 @@ def _format_posts_for_chat() -> str:
     lines = []
     for p in posts:
         due = (p.get("due") or "")[:16].replace("T", " ")
-        status_label = _BUFFER_STATUS_LABEL.get(p["status"], p["status"] or "offen")
+        status_label = _BUFFER_STATUS_LABEL.get(p["status"], p["status"] or "unbekannt")
         medien = " 🖼️KARUSSELL" if p.get("has_media") else ""
         if p["source"] == "buffer":
             hinweis = (
@@ -447,7 +577,13 @@ _LINKEDIN_CHAT_TOOLS = [
     },
     {
         "name": "write_post",
-        "description": "Schreibt einen vollständigen LinkedIn-Post-Text aus (aus einer Idee oder freiem Thema) und speichert ihn als Entwurf - pusht NICHT automatisch nach Buffer, das braucht einen expliziten schedule_post-Aufruf.",
+        "description": (
+            "Schreibt einen vollständigen LinkedIn-Post-Text aus (aus einer Idee oder freiem Thema) und pusht ihn "
+            "SOFORT als echten Buffer-Entwurf (Entwürfe-Tab, kein Termin, wird nie automatisch veröffentlicht). "
+            "Nur für reine Text-Ideen nutzen (format_empfehlung 'Text' oder 'Liste', oder Sebastian will ausdrücklich "
+            "keinen Karussell-Post) - für alles mit Karussell-Potenzial (Default, siehe make_carousel) NICHT dieses "
+            "Tool nutzen. Einplanen danach über schedule_post."
+        ),
         "input_schema": {
             "type": "object",
             "properties": {
@@ -496,8 +632,33 @@ _LINKEDIN_CHAT_TOOLS = [
         },
     },
     {
+        "name": "schedule_buffer_post",
+        "description": (
+            "Plant einen Post OHNE lokale id (list_posts zeigt id=null, source=buffer - typisch für Karusselle "
+            "oder direkt in Buffer angelegte Drafts) zu einem Termin ein - befördert den bestehenden Entwurf zu "
+            "'geplant', OHNE einen doppelten Post anzulegen. buffer_post_ids aus list_posts/get_buffer_drafts "
+            "übernehmen (alle IDs des Posts, i.d.R. beide Kanäle). Für Posts MIT lokaler id stattdessen schedule_post."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "buffer_post_ids": {"type": "array", "items": {"type": "string"}, "description": "Alle Buffer-Post-IDs dieses Posts (beide Kanäle)."},
+                "datum": {"type": "string", "description": "YYYY-MM-DD - relative Angaben wie 'morgen' anhand des heutigen Datums umrechnen."},
+                "uhrzeit": {"type": "string", "description": "HH:MM, 24h, Berliner Zeit."},
+            },
+            "required": ["buffer_post_ids", "datum", "uhrzeit"],
+        },
+    },
+    {
         "name": "make_carousel",
-        "description": "Erstellt ein Bild-Karussell (mehrere Slides als PDF) und plant es eigenständig in Buffer ein - läuft komplett automatisch (KI-Bilder, PDF, Upload, Buffer-Push), kann 1-2 Minuten dauern. Entweder post_id (Karussell aus einem bestehenden Post ableiten) oder hook (freies Thema) angeben.",
+        "description": (
+            "STANDARDWEG, um aus einer Idee/einem Thema einen fertigen Post zu machen (Prozessia-Karussell-Design, "
+            "siehe STRATEGIE.md §6: Logo, Fließtext, Lila-Akzent, schwarz/weiß) - läuft komplett automatisch "
+            "(KI-Bild, Slides, PDF, Upload, Buffer-Push), kann 1-2 Minuten dauern. Entweder post_id (Karussell aus "
+            "einem bestehenden Post ableiten) oder hook (freies Thema) angeben. Ohne datum+uhrzeit landet es SOFORT "
+            "als Buffer-Entwurf (Entwürfe-Tab) - kein Termin, keine automatische Veröffentlichung. Erst mit "
+            "datum+uhrzeit (oder später über schedule_post/schedule_buffer_draft) wird wirklich eingeplant."
+        ),
         "input_schema": {
             "type": "object",
             "properties": {
@@ -506,9 +667,17 @@ _LINKEDIN_CHAT_TOOLS = [
                 "branche": {"type": "string", "enum": ["Werkzeugbau", "Lohnfertigung", "Elektrotechnik", "Kunststoff", "Metallbau", "Allgemein"]},
                 "saeule": {"type": "string", "enum": ["Wissensmanagement", "Compliance", "Einkauf", "KI-Nutzung"]},
                 "variante": {"type": "string", "enum": ["schwarz", "weiss"], "description": "Farblogik der Serie: schwarzer oder weißer Hintergrund. Pro Post-Serie konsistent halten, Default schwarz."},
-                "datum": {"type": "string", "description": "YYYY-MM-DD, optional."},
+                "datum": {"type": "string", "description": "YYYY-MM-DD, optional - wenn zusammen mit uhrzeit angegeben, wird direkt eingeplant statt als Entwurf zu landen."},
                 "uhrzeit": {"type": "string", "description": "HH:MM, optional, nur zusammen mit datum."},
-                "entwurf": {"type": "boolean", "description": "true = landet als Buffer-Entwurf (status draft, wird nie automatisch veröffentlicht) statt eingeplant zu werden - für Testläufe/Review, bevor ein neues Thema wirklich raus geht."},
+                "entwurf": {
+                    "type": "boolean",
+                    "description": (
+                        "Override des Defaults. Default OHNE datum/uhrzeit ist bereits true (Entwurf), Default MIT "
+                        "datum/uhrzeit ist bereits false (eingeplant) - nur explizit setzen, wenn Sebastian das "
+                        "Gegenteil vom Default will. entwurf=false OHNE datum/uhrzeit plant automatisch auf den "
+                        "nächsten freien Di/Do-9:30-Slot ein (nicht 'sofort live')."
+                    ),
+                },
             },
             "required": [],
         },
@@ -590,10 +759,10 @@ _LINKEDIN_CHAT_TOOLS = [
     },
 ]
 
-MAX_LINKEDIN_CHAT_ITERATIONS = 6
+MAX_LINKEDIN_CHAT_ITERATIONS = 20
 _LINKEDIN_STATE_CHANGING_TOOLS = {
-    "generate_ideas", "write_post", "revise_post", "schedule_post", "draft_post", "make_carousel", "set_direction",
-    "delete_post", "reschedule_post",
+    "generate_ideas", "write_post", "revise_post", "schedule_post", "schedule_buffer_post", "draft_post",
+    "make_carousel", "set_direction", "delete_post", "reschedule_post",
 }
 
 
@@ -618,7 +787,11 @@ def _execute_linkedin_chat_tool(name: str, inp: dict) -> tuple[str, bool]:
                 return f"Fehler: {r.get('error', '?')}", True
             posts = r.get("posts", [])
             lines = [f"- id={p.get('id')}: {p.get('text', '')[:80]}…" for p in posts]
-            return f"{len(posts)} Post(s) geschrieben und als Entwurf gespeichert:\n" + "\n".join(lines), False
+            gepusht = r.get("gepusht_als_entwurf", 0)
+            hinweis = f"{gepusht}/{len(posts)} als Buffer-Entwurf angelegt (im Entwürfe-Tab sichtbar)."
+            if r.get("buffer_errors"):
+                hinweis += f" ACHTUNG, nicht alle Buffer-Pushes liefen sauber: {r['buffer_errors']}"
+            return f"{len(posts)} Post(s) geschrieben. {hinweis}\n" + "\n".join(lines), False
 
         if name == "revise_post":
             post_id = inp.get("post_id", "")
@@ -650,6 +823,17 @@ def _execute_linkedin_chat_tool(name: str, inp: dict) -> tuple[str, bool]:
                 return f"Post {post_id} nur auf einem Kanal als Entwurf angelegt - der andere ist fehlgeschlagen: {r.get('errors')}. Bitte prüfen.", True
             return f"Post {post_id} als Buffer-Entwurf angelegt (beide Kanäle, kein Termin, wird nicht automatisch veröffentlicht).", False
 
+        if name == "schedule_buffer_post":
+            ids = [i for i in (inp.get("buffer_post_ids") or []) if i]
+            if not ids:
+                return "Keine buffer_post_ids angegeben.", True
+            r = schedule_buffer_ids(ids, inp.get("datum", ""), inp.get("uhrzeit", ""))
+            if not r.get("ok"):
+                return f"Fehler: {r.get('error', '?')}", True
+            if r.get("partial"):
+                return f"Nur teilweise eingeplant - ein Kanal ist fehlgeschlagen: {r.get('errors')}. Bitte prüfen, nicht als vollständig erledigt melden.", True
+            return f"Post eingeplant für {inp.get('datum')} {inp.get('uhrzeit')} (beide Kanäle bestätigt, kein Duplikat angelegt).", False
+
         if name == "make_carousel":
             due_at = None
             datum = (inp.get("datum") or "").strip()
@@ -663,7 +847,12 @@ def _execute_linkedin_chat_tool(name: str, inp: dict) -> tuple[str, bool]:
             branche = inp.get("branche") or "Alle"
             saeule = inp.get("saeule") or "Einkauf"
             variante = inp.get("variante") or carousel_service.DEFAULT_VARIANTE
-            entwurf = bool(inp.get("entwurf"))
+            # Draft-first (2026-08-13): ohne explizites datum+uhrzeit landet ein
+            # neues Karussell als Buffer-Entwurf (Entwürfe-Tab), nicht automatisch
+            # im nächsten Di/Do-Slot eingeplant. Nur wenn Sebastian "entwurf"
+            # ausdrücklich angibt, gewinnt das (z.B. um trotz Termin nur einen
+            # Entwurf zu wollen, oder umgekehrt explizit entwurf=false + Termin).
+            entwurf = bool(inp["entwurf"]) if "entwurf" in inp and inp["entwurf"] is not None else due_at is None
             if post_id:
                 r = make_carousel_from_post(post_id, branche=branche, saeule=saeule, due_at=due_at, variante=variante, draft=entwurf)
             elif inp.get("hook"):
@@ -1217,7 +1406,32 @@ Antworte NUR mit einem JSON-Objekt in genau diesem Format, kein Markdown, keine 
         out_path.parent.mkdir(parents=True, exist_ok=True)
         out_path.write_text(json.dumps(out_data, ensure_ascii=False, indent=2), encoding="utf-8")
         cache.invalidate("li_posts")
-        return {"ok": True, "posts": posts}
+
+        # Draft-first (2026-08-13): neu geschriebene Posts landen SOFORT als
+        # echter Buffer-Entwurf, damit sie im Entwürfe-Tab sichtbar sind, ohne
+        # dass ein zweiter Tool-Call (draft_post) nötig ist bzw. vergessen
+        # werden kann. Kein Termin -> due bleibt leer, buffer_push() ignoriert
+        # scheduled_at bei draft=True ohnehin, geplant wird erst explizit über
+        # schedule_post/schedule_buffer_draft.
+        buffer_errors = []
+        pushed_count = 0
+        for p in stored_posts:
+            if not p.get("text", "").strip():
+                continue
+            result = buffer_push(p["text"], scheduled_at=None, draft=True)
+            if result.get("ok"):
+                pushed_count += 1
+                _save_post_fields(
+                    p["id"], pushed=True,
+                    buffer_post_ids=[x["post_id"] for x in result.get("pushed", [])],
+                )
+                if result.get("partial"):
+                    buffer_errors.append({"id": p["id"], "errors": result.get("errors")})
+            else:
+                buffer_errors.append({"id": p["id"], "error": result.get("error")})
+        cache.invalidate("buffer_status")
+
+        return {"ok": True, "posts": posts, "gepusht_als_entwurf": pushed_count, "buffer_errors": buffer_errors or None}
     except Exception as e:
         logger.exception("generate_posts() fehlgeschlagen")
         return {"error": str(e)}
@@ -1618,12 +1832,31 @@ mutation DeletePost($id: PostId!) {
 }"""
 
 
-def delete_buffer_post(buffer_post_id: str) -> dict:
+def delete_buffer_post(buffer_post_id: str, confirm: bool = False) -> dict:
     """Löscht einen Post direkt in Buffer per Buffer-Post-ID (siehe
     get_buffer_status/get_buffer_insights für die IDs) - Pendant zu
     `_agent/buffer_manager.py delete <id>`. Rührt keine lokale
     beitraege-*.json an, da eine gelöschte Buffer-ID nicht mehr zurückverfolgt
-    werden muss."""
+    werden muss.
+
+    Echtes Code-Gate für Karussell-Posts (2026-08-13): vorher gab es nur eine
+    Text-Warnung im Chat-Prompt ("ACHTUNG KARUSSELL..."), kein technischer
+    Schutz - ein Modell, das die Warnung ignorierte, konnte das PDF trotzdem
+    unwiderruflich löschen (genau das ist am 12.08.2026 passiert). Ohne
+    confirm=True wird ein Post mit Medien (Karussell-Anhang) jetzt gar nicht
+    erst gelöscht, sondern die Anfrage mit einer klaren Rückfrage abgelehnt."""
+    if not confirm:
+        live = get_buffer_status()
+        match = next((p for p in live.get("posts", []) if p.get("id") == buffer_post_id), None)
+        if match and match.get("has_media"):
+            return {
+                "error": (
+                    f"Post {buffer_post_id} hat ein Karussell-PDF als Anhang - das geht beim Löschen "
+                    "unwiderruflich verloren. Nur löschen, wenn Sebastian das für GENAU diesen Post "
+                    "ausdrücklich bestätigt hat, dann mit confirm=true erneut aufrufen."
+                ),
+                "needs_confirmation": True,
+            }
     settings = get_settings()
     token = settings.buffer_api_token
     if not token:
