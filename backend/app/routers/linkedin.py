@@ -76,16 +76,22 @@ def update_post(post_id: str, body: UpdatePostRequest, user: str = Depends(get_c
 @router.post("/chat")
 def linkedin_chat(body: ChatRequest, user: str = Depends(get_current_user)):
     """Agentischer Chat für die gesamte LinkedIn-Sektion (Ideen, Posts,
-    Karusselle, Richtung) - siehe linkedin_service.chat_linkedin()."""
+    Karusselle, Richtung) - siehe linkedin_service.chat_linkedin_stream().
+
+    Echtes Streaming (2026-08-13, Bugfix): vorher wurde chat_linkedin()
+    komplett synchron bis zum Ende des gesamten Turns abgewartet (inkl. aller
+    Tool-Aufrufe, z.B. mehrerer Karusselle à 1-2 Min.) und erst dann EIN SSE-
+    Event geschickt - die Verbindung blieb so lange komplett still, bis eine
+    Zwischenschicht (Traefik/Caddy/Browser) sie mangels Daten kappte
+    ("Verbindung bricht ab", Sebastian 13.08.2026). Jetzt wird jedes vom
+    Generator gelieferte Event sofort weitergereicht."""
     def stream():
         messages = [m.model_dump() for m in body.messages]
-        result = linkedin_service.chat_linkedin(messages)
-        if result.get("error"):
-            yield _sse({"error": result["error"]})
-        else:
-            yield _sse({"chunk": result.get("antwort", "")})
-            if result.get("state_changed"):
-                yield _sse({"state_changed": True})
+        try:
+            for event in linkedin_service.chat_linkedin_stream(messages):
+                yield _sse(event)
+        except Exception as ex:
+            yield _sse({"error": str(ex)})
         yield "data: [DONE]\n\n"
 
     return StreamingResponse(

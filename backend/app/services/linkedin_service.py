@@ -1029,28 +1029,46 @@ _LINKEDIN_STATE_CHANGING_MCP_TOOLS = {
     "mcp__prozessia-tools__write_linkedin_post_draft",
     "mcp__prozessia-tools__revise_linkedin_post",
     "mcp__prozessia-tools__schedule_linkedin_post",
+    "mcp__prozessia-tools__schedule_buffer_post",
     "mcp__prozessia-tools__generate_carousel",
     "mcp__prozessia-tools__set_linkedin_direction",
     "mcp__prozessia-tools__delete_buffer_post",
     "mcp__prozessia-tools__reschedule_linkedin_post",
+    "mcp__prozessia-tools__generate_linkedin_posts",
+    "mcp__prozessia-tools__push_to_buffer",
 }
 
 
-def _chat_linkedin_cli(messages: list[dict]) -> dict:
-    """CLI-Variante von chat_linkedin() (claude_engine="cli") - nutzt dieselben
-    Aktionen, aber als MCP-Tools (siehe app.mcp_server) über einen Claude-Code-
-    Subprocess statt des Custom-Tool-Loops unten. Abrechnung über
+def _chat_linkedin_cli(messages: list[dict]):
+    """CLI-Variante von chat_linkedin_stream() (claude_engine="cli") - nutzt
+    dieselben Aktionen, aber als MCP-Tools (siehe app.mcp_server) über einen
+    Claude-Code-Subprocess statt des Custom-Tool-Loops unten. Abrechnung über
     CLAUDE_CODE_OAUTH_TOKEN statt ANTHROPIC_API_KEY. Wie beim Haupt-Chat
     (chat.py:_stream_chat_cli) wird nur die letzte User-Nachricht als Prompt
-    geschickt, nicht die volle messages-History."""
+    geschickt, nicht die volle messages-History.
+
+    ECHTER Generator (2026-08-13, Bugfix): liefert Chunks/state_changed sofort,
+    sobald sie ankommen, statt den kompletten Subprocess-Lauf erst abzuwarten
+    und danach EIN einziges Ergebnis zurückzugeben. Bei Batch-Aufträgen mit
+    mehreren Karusselen (je 1-2 Min., z.B. "mach zu 4 Ideen Entwürfe") blieb
+    die HTTP-Verbindung dadurch mehrere Minuten komplett still - Sebastian
+    meldete "Verbindung bricht ab" (13.08.2026), irgendeine Zwischenschicht
+    (Traefik/Caddy/Browser) kappte mangels Daten. Mirror von
+    chat.py:_stream_chat_cli, das für den Haupt-Chat exakt so schon
+    Token-für-Token streamt - dort trat dasselbe Problem deshalb nie auf."""
     from app.services import claude_cli
     last_msg = messages[-1].get("content", "") if messages else ""
     if not last_msg:
-        return {"error": "Keine Nachricht erhalten"}
+        yield {"error": "Keine Nachricht erhalten"}
+        return
     system = _linkedin_system_prompt()
+    # Token-für-Token-Text ("stream_event"/"content_block_delta") wird sofort
+    # weitergereicht; delta_buffer verhindert, dass derselbe Text beim
+    # abschließenden "assistant"-Event (kompletter Block) doppelt geschickt
+    # wird, falls eine CLI-Version mal keine Partial-Messages liefert, greift
+    # der "assistant"-Zweig als Fallback (identische Logik wie chat.py).
+    delta_buffer = ""
     try:
-        text_parts: list[str] = []
-        state_changed = False
         # mcp_warmup_seconds hochgesetzt (2026-07-25): dieser Pfad läuft bewusst
         # nicht über den warmen Pool (claude_cli_pool.py bäckt nur BASE_PROMPT
         # ein, nicht die LinkedIn-Persona/-Tools aus _linkedin_system_prompt())
@@ -1059,37 +1077,47 @@ def _chat_linkedin_cli(messages: list[dict]) -> dict:
         # zuverlässig aus, live beobachtet: Modell antwortete bevor MCP verbunden
         # war und hielt write_linkedin_post_draft & Co. für nicht verfügbar.
         for event in claude_cli.stream_chat(
-            last_msg, system_prompt=system, model=Models.SONNET, timeout=180, mcp_warmup_seconds=15.0
+            last_msg, system_prompt=system, model=Models.SONNET, mcp_warmup_seconds=15.0
         ):
             etype = event.get("type")
-            if etype == "assistant":
+            if etype == "stream_event":
+                ev = event.get("event", {})
+                ev_type = ev.get("type")
+                if ev_type == "content_block_start":
+                    delta_buffer = ""
+                elif ev_type == "content_block_delta":
+                    delta = ev.get("delta", {})
+                    if delta.get("type") == "text_delta" and delta.get("text"):
+                        delta_buffer += delta["text"]
+                        yield {"chunk": delta["text"]}
+            elif etype == "assistant":
                 for block in event.get("message", {}).get("content", []):
                     if block.get("type") == "text" and block.get("text"):
-                        text_parts.append(block["text"])
+                        if block["text"] == delta_buffer:
+                            continue
+                        yield {"chunk": block["text"]}
                     elif block.get("type") == "tool_use" and block.get("name") in _LINKEDIN_STATE_CHANGING_MCP_TOOLS:
-                        state_changed = True
+                        # Jedes Mal senden, nicht nur beim ersten Mal - bei
+                        # mehreren Karusselen in Folge soll das Dashboard nach
+                        # JEDEM fertigen Entwurf neu laden, nicht erst am Ende.
+                        yield {"state_changed": True}
             elif etype == "result" and event.get("is_error"):
-                return {"error": event.get("result", "Unbekannter Fehler")}
-        return {"ok": True, "antwort": "".join(text_parts).strip() or "Erledigt.", "state_changed": state_changed}
+                yield {"error": event.get("result", "Unbekannter Fehler")}
+                return
     except claude_cli.ClaudeCliError as e:
-        return {"error": str(e)}
+        yield {"error": str(e)}
 
 
-def chat_linkedin(messages: list[dict]) -> dict:
-    """Agentischer Chat für die gesamte LinkedIn-Sektion: Ideen generieren,
-    Posts schreiben/überarbeiten/einplanen, Karusselle erstellen, Richtung
-    setzen - alles über Tool Use (tool_choice=auto, Mehrfach-Turns). Ersetzt
-    das frühere chat_about_post(), das auf einen einzelnen Post beschränkt war.
-    Bei claude_engine="cli" siehe stattdessen _chat_linkedin_cli()."""
-    if get_settings().claude_engine == "cli":
-        return _chat_linkedin_cli(messages)
-
+def _chat_linkedin_api(messages: list[dict]):
+    """API-Engine-Variante von chat_linkedin_stream() (Anthropic SDK statt
+    Claude-Code-Subprocess) - Tool Use mit tool_choice=auto über mehrere
+    Turns. Streamt pro Modell-Antwort/Tool-Ergebnis (nicht Token für Token wie
+    der CLI-Pfad), reicht aber für dasselbe Ziel: die Verbindung bleibt auch
+    bei mehreren langsamen Tool-Aufrufen (z.B. mehrere Karusselle) hintereinander
+    aktiv, statt bis zum Abschluss des gesamten Turns komplett still zu sein."""
     system = _linkedin_system_prompt()
-
     try:
         current_messages = list(messages)
-        text_parts: list[str] = []
-        state_changed = False
 
         for _ in range(MAX_LINKEDIN_CHAT_ITERATIONS):
             result = get_client().messages.create(
@@ -1107,10 +1135,10 @@ def chat_linkedin(messages: list[dict]) -> dict:
             })
             for block in result.content:
                 if block.type == "text" and block.text.strip():
-                    text_parts.append(block.text.strip())
+                    yield {"chunk": block.text.strip()}
 
             if result.stop_reason != "tool_use":
-                break
+                return
 
             tool_result_blocks = []
             for block in result.content:
@@ -1118,19 +1146,31 @@ def chat_linkedin(messages: list[dict]) -> dict:
                     continue
                 content, is_error = _execute_linkedin_chat_tool(block.name, block.input)
                 if not is_error and block.name in _LINKEDIN_STATE_CHANGING_TOOLS:
-                    state_changed = True
+                    yield {"state_changed": True}
                 tool_result_blocks.append({
                     "type": "tool_result", "tool_use_id": block.id,
                     "content": content, "is_error": is_error,
                 })
             current_messages.append({"role": "user", "content": tool_result_blocks})
         else:
-            text_parts.append("(Maximale Anzahl an Aktionen in diesem Turn erreicht.)")
-
-        return {"ok": True, "antwort": "\n\n".join(text_parts).strip() or "Erledigt.", "state_changed": state_changed}
+            yield {"chunk": "\n\n(Maximale Anzahl an Aktionen in diesem Turn erreicht.)"}
     except Exception as e:
-        logger.exception("chat_linkedin() fehlgeschlagen")
-        return {"error": str(e)}
+        logger.exception("chat_linkedin_stream() fehlgeschlagen")
+        yield {"error": str(e)}
+
+
+def chat_linkedin_stream(messages: list[dict]):
+    """Agentischer Chat für die gesamte LinkedIn-Sektion: Ideen generieren,
+    Posts schreiben/überarbeiten/einplanen, Karusselle erstellen, Richtung
+    setzen - alles über Tool Use, als Generator (yieldet {"chunk": ...} /
+    {"state_changed": True} / {"error": ...}, konsumiert vom SSE-Endpunkt in
+    routers/linkedin.py). Ersetzt das frühere chat_about_post(), das auf einen
+    einzelnen Post beschränkt war, und die alte, komplett blockierende
+    chat_linkedin()-Variante (siehe _chat_linkedin_cli-Docstring)."""
+    if get_settings().claude_engine == "cli":
+        yield from _chat_linkedin_cli(messages)
+    else:
+        yield from _chat_linkedin_api(messages)
 
 
 def _current_direction() -> str:
