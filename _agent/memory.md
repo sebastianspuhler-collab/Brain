@@ -883,6 +883,8 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-13 05:15] [memory.md] Hauptanforderungen: DSGVO-Konformität, Deutschland/EU-Hosting erforderlich, Datenschutz als Priorität
+- [2026-08-13 05:14] Kontakt Sascha Haller (Schauenburg/sb-it.com), E-Mail sascha-haller@sb-it.com, Ansprechpartner für Projekt 'Prozessia X Schauenberg'
 - [2026-08-12 21:21] [context.md] Juchem: Folgetermin 29.07. mit Thorsten Maas durchgeführt (kompletter Beschaffungsprozess). Nächster Schritt: Angebot erstellen
 - [2026-08-12 21:12] [memory.md] Sebastian Spuhler LinkedIn-Profil ID: 6a25d2578f1d11f9b260c5ee; Prozessia-Seite ID: 6a25d2578f1d11f9b260c5ef
 - [2026-08-12 20:14] [context.md] Juchem: Nach Meeting 29.07. (kompletter Beschaffungsprozess besprochen) – nächster Schritt: Angebot erstellen
@@ -1246,6 +1248,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-13 05:14] Brain kann E-Mails nicht zeitgesteuert versenden, sondern legt sie nur als Entwurf in Gmail ab; Versand muss manuell zur gewünschten Zeit erfolgen
 - [2026-08-12 21:24] [memory.md] TopDown-Projekt (Stand 2026-08-11): Nächster Schritt ist Angebotserstellung
 - [2026-08-12 21:23] [memory.md] Startprojekt-Definition erforderlich (z.B. Einkauf-Anwendungsfall) mit klarem Scope und iterativem Ansatz
 - [2026-08-12 21:23] [memory.md] Angebotserstellung ist nächster Schritt nach Meeting 2026-08-11 mit TopDown

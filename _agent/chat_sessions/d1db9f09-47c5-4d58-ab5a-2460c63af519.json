@@ -1,0 +1,20 @@
+{
+  "id": "d1db9f09-47c5-4d58-ab5a-2460c63af519",
+  "title": "Kannst du Sascha haller von Schauenburg eine kurze Erinnerun…",
+  "model": "claude-sonnet-5",
+  "created_at": "2026-08-13T05:13:11.254685+00:00",
+  "updated_at": "2026-08-13T05:14:33.645487+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Kannst du Sascha haller von Schauenburg eine kurze Erinnerung für das Meeting um 9 Uhr schicken, die Ncahricht soll um 8 losgehen",
+      "attachments": null
+    },
+    {
+      "role": "assistant",
+      "content": "Kontakt gefunden: Sascha Haller, sascha-haller@sb-it.com, Termin heute 9:00 Uhr \"Prozessia X Schauenberg\" (Teams). Ich lege dir jetzt einen Gmail-Entwurf an, den du nur noch prüfen und um 8 Uhr senden musst – ich kann E-Mails nicht zeitgesteuert verschicken, nur als Entwurf ablegen.Entwurf liegt in deinem Gmail-Postfach, Betreff \"Erinnerung: unser Termin heute um 9 Uhr\" – du musst ihn nur noch um 8 Uhr rausschicken.\n\nZwei Dinge zur Sicherheit: Ich habe \"Schauenburg\" als Schauenberg interpretiert – der einzige Termin heute um 9 Uhr heißt \"Prozessia X Schauenberg\", und Sascha Hallers Mailadresse (sb-it.com) passt dazu, das ist offenbar ein neuer Lead, noch ohne Transkript im Vault. Falls doch eine andere Firma gemeint war, sag Bescheid. Direkt danach um 10 Uhr steht übrigens noch \"East Side Fab\" bei dir an – da hattest du gestern zwei Mails von Lukas Grünbeck wegen einer neuen Terminfindung, falls die noch offen ist."
+    }
+  ],
+  "agent_id": null,
+  "claude_session_id": null
+}
