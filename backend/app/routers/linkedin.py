@@ -51,7 +51,12 @@ def ideas(user: str = Depends(get_current_user)):
 
 
 @router.get("/posts")
-def posts(user: str = Depends(get_current_user)):
+def posts(status: str | None = None, user: str = Depends(get_current_user)):
+    """status=draft|scheduled liefert den echten Live-Buffer-Stand (Grundlage
+    für die Entwürfe-/Geplant-Tabs) - ohne status weiterhin die alte, rein
+    lokal generierte Liste (Kompatibilität, aktuell ungenutzt vom Frontend)."""
+    if status in ("draft", "scheduled"):
+        return linkedin_service.get_merged_posts_by_status(status)
     return linkedin_service.get_posts()
 
 

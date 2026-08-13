@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
-import { ArrowUp, BrainCircuit } from "lucide-react";
+import { ArrowUp, BrainCircuit, Image as ImageIcon } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { api, streamLinkedInChat, type ChatMessage } from "@/api/client";
@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import { StatusPill } from "@/components/shared/status-pill";
+import { StatusPill, type StatusPillVariant } from "@/components/shared/status-pill";
 
 interface Idea {
   titel: string;
@@ -21,13 +21,22 @@ interface Idea {
   cta: string;
 }
 
+/** Ein Post aus dem echten Live-Buffer-Stand (GET /api/linkedin/posts?status=
+ * draft|scheduled, siehe linkedin_service.get_merged_posts_by_status) - id ist
+ * nur gesetzt, wenn diese Pipeline den Post lokal geschrieben hat (Text
+ * editierbar); bei id=null (z.B. Karusselle, oder Drafts die Sebastian direkt
+ * in Buffer anlegt) gibt es nur buffer_ids, keinen editierbaren Volltext. */
 interface Post {
-  id: string;
-  tag: string;
-  termin: string;
-  idee: string;
+  id: string | null;
+  buffer_ids?: string[];
   text_preview: string;
-  pushed?: boolean;
+  status: string;
+  due: string | null;
+  has_media: boolean;
+  source: "lokal" | "buffer";
+  carousel_id?: string | null;
+  thumb_url?: string | null;
+  pdf_url?: string | null;
 }
 
 interface PostDetailData {
@@ -40,18 +49,21 @@ interface PostDetailData {
   pushed?: boolean;
 }
 
-interface Carousel {
-  id: string;
-  source_post_id: string | null;
-  hook: string;
-  branche: string;
-  slide_titles: string[];
-  thumb_url: string | null;
-  pdf_url: string | null;
-  due_at: string | null;
-  anzahl_gepusht: number;
-  created_at: string;
-}
+const STATUS_LABEL: Record<string, string> = {
+  draft: "Entwurf",
+  scheduled: "geplant",
+  sent: "gesendet",
+  lokal_ungeplant: "nur lokal",
+  lokal_verwaist: "verwaist – bitte prüfen",
+};
+
+const STATUS_VARIANT: Record<string, StatusPillVariant> = {
+  draft: "info",
+  scheduled: "success",
+  sent: "neutral",
+  lokal_ungeplant: "neutral",
+  lokal_verwaist: "danger",
+};
 
 const SUGGESTIONS = [
   { title: "Neue Ideen", prompt: "Generiere 10 neue LinkedIn-Ideen." },
@@ -202,9 +214,15 @@ function IdeaCard({ idea, onWrite }: { idea: Idea; onWrite: (idea: Idea) => void
 /** Schnelle manuelle Ansicht/Bearbeitung eines gespeicherten Posts (Klick in
  * "Geplante Beiträge"). Kein eigener Chat mehr hier - Konversation läuft
  * ausschließlich über den großen LinkedInChat oben. */
-function PostDetailSheet({ postId, onClose }: { postId: string | null; onClose: () => void }) {
+/** Bei lokal geschriebenen Text-Posts (post.id gesetzt) voll editierbar. Bei
+ * Buffer-only-Posts (Karusselle, oder Drafts die Sebastian direkt in Buffer
+ * anlegt - post.id ist null) gibt es keinen editierbaren Volltext, nur eine
+ * schreibgeschützte Übersicht mit Design-Vorschau - Textänderungen/Planen
+ * dafür laufen ausschließlich über den Chat. */
+function PostDetailSheet({ post, onClose }: { post: Post | null; onClose: () => void }) {
   const queryClient = useQueryClient();
   const [text, setText] = useState("");
+  const postId = post?.id ?? null;
 
   const detailQuery = useQuery({
     queryKey: ["li-post", postId],
@@ -227,57 +245,99 @@ function PostDetailSheet({ postId, onClose }: { postId: string | null; onClose: 
   });
 
   return (
-    <Sheet open={!!postId} onOpenChange={(open) => !open && onClose()}>
+    <Sheet open={!!post} onOpenChange={(open) => !open && onClose()}>
       <SheetContent className="sm:max-w-lg flex flex-col gap-4 p-4">
         <SheetHeader className="p-0">
-          <SheetTitle>
-            {detailQuery.data?.tag ? `${detailQuery.data.tag}: ` : ""}
-            {detailQuery.data?.idee || "Post bearbeiten"}
+          <SheetTitle className="line-clamp-2">
+            {postId ? detailQuery.data?.idee || "Post bearbeiten" : "Post-Details"}
           </SheetTitle>
-          <div className="flex items-center gap-1.5 pt-1">
-            <StatusPill variant={detailQuery.data?.pushed ? "success" : "neutral"}>
-              {detailQuery.data?.pushed ? "In Buffer geplant" : "Noch nicht geplant"}
-            </StatusPill>
-            {detailQuery.data?.termin && (
-              <span className="text-xs text-muted-foreground">{detailQuery.data.termin.slice(0, 16).replace("T", " ")}</span>
+          <div className="flex items-center gap-1.5 pt-1 flex-wrap">
+            {post && (
+              <StatusPill variant={STATUS_VARIANT[post.status] || "neutral"}>
+                {STATUS_LABEL[post.status] || post.status}
+              </StatusPill>
             )}
+            {post?.has_media && <StatusPill variant="neutral">Karussell</StatusPill>}
+            {post?.due && <span className="text-xs text-muted-foreground">{post.due.slice(0, 16).replace("T", " ")}</span>}
           </div>
         </SheetHeader>
-        <Textarea value={text} onChange={(e) => setText(e.target.value)} className="min-h-72 flex-1 font-mono text-sm" />
-        <div className="flex items-center justify-between">
-          <p className="text-xs text-muted-foreground">{text.length} Zeichen</p>
-          <Button size="sm" onClick={() => saveDirect.mutate()} disabled={saveDirect.isPending || text === detailQuery.data?.text}>
-            {saveDirect.isPending ? "Speichere…" : "Speichern"}
-          </Button>
-        </div>
-        <p className="text-xs text-muted-foreground">
-          Planen, Umschreiben oder Karussell erstellen: einfach im Chat auf diesen Post beziehen (z.B. "Plane den Post zu{" "}
-          {detailQuery.data?.idee ? `"${detailQuery.data.idee}"` : "..."} für morgen 12 Uhr").
-        </p>
+
+        {postId ? (
+          <>
+            <Textarea value={text} onChange={(e) => setText(e.target.value)} className="min-h-72 flex-1 font-mono text-sm" />
+            <div className="flex items-center justify-between">
+              <p className="text-xs text-muted-foreground">{text.length} Zeichen</p>
+              <Button size="sm" onClick={() => saveDirect.mutate()} disabled={saveDirect.isPending || text === detailQuery.data?.text}>
+                {saveDirect.isPending ? "Speichere…" : "Speichern"}
+              </Button>
+            </div>
+            <p className="text-xs text-muted-foreground">
+              Einplanen oder Karussell erstellen: einfach im Chat auf diesen Post beziehen (z.B. "Plane den Post zu{" "}
+              {detailQuery.data?.idee ? `"${detailQuery.data.idee}"` : "..."} für morgen 12 Uhr").
+            </p>
+          </>
+        ) : (
+          <>
+            {post?.thumb_url && (
+              <img src={post.thumb_url} alt="Karussell-Vorschau" className="w-full rounded-xl border border-border object-cover" />
+            )}
+            <p className="text-sm whitespace-pre-wrap leading-relaxed">{post?.text_preview}</p>
+            {post?.pdf_url && (
+              <a href={post.pdf_url} target="_blank" rel="noreferrer" className="text-sm text-primary hover:underline">
+                Vollständiges Karussell-PDF ansehen
+              </a>
+            )}
+            <p className="text-xs text-muted-foreground">
+              Dieser Post wurde nicht hier lokal geschrieben (z.B. ein Karussell oder direkt in Buffer angelegt) -
+              Volltext, Termin-Änderung oder Löschen laufen nur über den Chat, z.B. "plane das Karussell zu{" "}
+              {post?.text_preview ? `"${post.text_preview.slice(0, 40)}…"` : "..."} für Donnerstag ein".
+            </p>
+          </>
+        )}
       </SheetContent>
     </Sheet>
   );
 }
 
-function CarouselCard({ c }: { c: Carousel }) {
+/** Eine Post-Karte für Entwürfe/Geplant - Karussell-Thumbnail (falls vorhanden)
+ * plus Status/Termin/Text-Vorschau. Klick öffnet immer die Detailansicht (auch
+ * bei Buffer-only-Posts ohne lokale id, siehe PostDetailSheet), statt Text nur
+ * abgeschnitten in der Liste stehen zu lassen. */
+function PostCard({ post, onOpen }: { post: Post; onOpen: (post: Post) => void }) {
+  const due = post.due ? post.due.slice(0, 16).replace("T", " ") : null;
   return (
-    <div className="flex gap-3 border-b border-border pb-3 last:border-0 last:pb-0">
-      {c.thumb_url ? (
-        <img src={c.thumb_url} alt={c.hook} className="size-20 shrink-0 rounded-lg object-cover border border-border" />
-      ) : (
-        <div className="size-20 shrink-0 rounded-lg bg-muted" />
-      )}
+    <button
+      onClick={() => onOpen(post)}
+      className="flex gap-3 border-b border-border pb-3 last:border-0 text-left transition hover:opacity-80"
+    >
+      {post.thumb_url ? (
+        <img src={post.thumb_url} alt="" className="size-16 shrink-0 rounded-lg object-cover border border-border" />
+      ) : post.has_media ? (
+        <div className="flex size-16 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground">
+          <ImageIcon className="size-5" />
+        </div>
+      ) : null}
       <div className="min-w-0 flex-1">
-        <p className="text-sm font-medium line-clamp-2">{c.hook}</p>
-        <p className="text-xs text-muted-foreground mt-0.5">
-          {c.branche} · {c.slide_titles.length} Slides · {c.anzahl_gepusht > 0 ? "eingeplant" : "nicht gepusht"}
-        </p>
-        {c.pdf_url && (
-          <a href={c.pdf_url} target="_blank" rel="noreferrer" className="text-xs text-primary hover:underline">
-            PDF ansehen
-          </a>
-        )}
+        <div className="flex items-center gap-1.5 flex-wrap">
+          <StatusPill variant={STATUS_VARIANT[post.status] || "neutral"}>{STATUS_LABEL[post.status] || post.status}</StatusPill>
+          {post.has_media && <StatusPill variant="neutral">Karussell</StatusPill>}
+          {due && <span className="text-xs text-muted-foreground">{due}</span>}
+        </div>
+        <p className="text-sm mt-1 line-clamp-2">{post.text_preview}</p>
       </div>
+    </button>
+  );
+}
+
+function PostList({ posts, emptyHint, onOpen }: { posts: Post[]; emptyHint: string; onOpen: (post: Post) => void }) {
+  if (!posts.length) {
+    return <p className="text-sm text-muted-foreground">{emptyHint}</p>;
+  }
+  return (
+    <div className="flex flex-col gap-3">
+      {posts.map((p, i) => (
+        <PostCard key={p.id ?? p.buffer_ids?.join(",") ?? i} post={p} onOpen={onOpen} />
+      ))}
     </div>
   );
 }
@@ -285,7 +345,7 @@ function CarouselCard({ c }: { c: Carousel }) {
 export function LinkedInPage() {
   const queryClient = useQueryClient();
   const [focus, setFocus] = useState("");
-  const [selectedPostId, setSelectedPostId] = useState<string | null>(null);
+  const [selectedPost, setSelectedPost] = useState<Post | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [streaming, setStreaming] = useState(false);
   const [error, setError] = useState("");
@@ -294,19 +354,18 @@ export function LinkedInPage() {
     queryKey: ["li-ideas"],
     queryFn: () => api.get<{ ideen: Idea[]; datum: string | null }>("/api/linkedin/ideas"),
   });
-  const postsQuery = useQuery({
-    queryKey: ["li-posts"],
-    queryFn: () => api.get<{ posts: Post[]; datum: string | null }>("/api/linkedin/posts"),
+  const draftsQuery = useQuery({
+    queryKey: ["li-posts", "draft"],
+    queryFn: () => api.get<{ posts: Post[] }>("/api/linkedin/posts?status=draft"),
   });
-  const carouselsQuery = useQuery({
-    queryKey: ["li-carousels"],
-    queryFn: () => api.get<{ karusselle: Carousel[] }>("/api/linkedin/carousels"),
+  const scheduledQuery = useQuery({
+    queryKey: ["li-posts", "scheduled"],
+    queryFn: () => api.get<{ posts: Post[] }>("/api/linkedin/posts?status=scheduled"),
   });
 
   function invalidateAll() {
     queryClient.invalidateQueries({ queryKey: ["li-ideas"] });
     queryClient.invalidateQueries({ queryKey: ["li-posts"] });
-    queryClient.invalidateQueries({ queryKey: ["li-carousels"] });
   }
 
   async function sendChat(text: string) {

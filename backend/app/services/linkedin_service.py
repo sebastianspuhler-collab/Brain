@@ -507,6 +507,22 @@ def _merge_local_and_buffer_posts() -> list[dict]:
     return merged
 
 
+_DRAFT_STATUS_GROUP = {"draft", "lokal_ungeplant", "lokal_verwaist"}
+_SCHEDULED_STATUS_GROUP = {"scheduled"}
+
+
+def get_merged_posts_by_status(status_group: str) -> dict:
+    """Echter Live-Buffer-Stand für die Entwürfe-/Geplant-Tabs im Dashboard
+    (status_group 'draft' oder 'scheduled') - Grundlage für GET /api/linkedin/
+    posts?status=..., ersetzt das alte, rein lokale pushed-Flag. Nutzt dieselbe
+    Merge-Logik, die der Chat über list_posts schon zeigt, inkl. Karussell-
+    Thumbnail/PDF-URL wo vorhanden."""
+    wanted = _SCHEDULED_STATUS_GROUP if status_group == "scheduled" else _DRAFT_STATUS_GROUP
+    posts = [p for p in _merge_local_and_buffer_posts() if p.get("status") in wanted]
+    posts.sort(key=lambda p: p.get("due") or "9999")
+    return {"posts": posts}
+
+
 def _format_posts_for_chat() -> str:
     posts = _merge_local_and_buffer_posts()
     if not posts:
@@ -932,6 +948,21 @@ def _linkedin_system_prompt() -> str:
 Ideen generieren, Posts schreiben/überarbeiten/einplanen, Karusselle erstellen, Richtung setzen.
 Heute ist {weekday_de}, {now.strftime('%Y-%m-%d')}, {now.strftime('%H:%M')} Uhr (Berliner Zeit).
 
+DREI-STUFEN-MODELL (entspricht den drei Tabs im Dashboard - Ideen/Entwürfe/Geplant):
+1. IDEE (Tab "Ideen") - Rohmaterial aus generate_ideas, noch kein Post.
+2. ENTWURF (Tab "Entwürfe") - ein echter Buffer-Post mit Status "draft": kein Termin, wird NIE automatisch
+   veröffentlicht. write_post und make_carousel landen HIER standardmäßig, sobald Sebastian sagt "mach daraus
+   einen Post"/"schreib das aus" o.ä. - OHNE dass er extra "als Entwurf" sagen muss, das ist der Default.
+3. GEPLANT (Tab "Geplant") - derselbe Buffer-Post, jetzt mit festem Termin (Status "scheduled"), geht zu diesem
+   Zeitpunkt automatisch live. Ein Entwurf wird NUR auf ausdrücklichen Wunsch eingeplant ("plane das für Dienstag
+   ein", "schick den jetzt raus") - schedule_post/schedule_buffer_post schalten den BESTEHENDEN Entwurf um,
+   legen NIE einen zweiten Post an.
+
+KARUSSELL IST DER STANDARD, NICHT DIE AUSNAHME: fast jeder Post soll als Bild-Karussell im Prozessia-Design
+raus (STRATEGIE.md §6: Logo, Fließtext, Lila-Akzent, schwarz/weiß je Serie). Wenn Sebastian eine Idee "zum
+Post machen" will und sie keine explizite Formatvorgabe "Text"/"Liste" hat, IMMER make_carousel nutzen, NICHT
+write_post. write_post ist nur für ausdrückliche Text-only-Wünsche da.
+
 Aktuelle Richtungsvorgabe: {_current_direction() or '(keine gesetzt)'}
 
 Aktuelle Ideen:
@@ -941,29 +972,29 @@ Aktuelle gespeicherte Posts:
 {_format_posts_for_chat()}
 
 Verfügbare Aktionen (bei Bedarf aufrufen, sonst direkt in Text antworten):
-- list_ideas / list_posts (CLI: list_linkedin_ideas / list_linkedin_posts): aktuellen Stand nachladen, falls sich seit obiger Übersicht etwas geändert hat
+- list_ideas / list_posts (CLI: list_linkedin_ideas / list_linkedin_posts): aktuellen Stand nachladen, falls sich seit obiger Übersicht etwas geändert hat. list_posts zeigt bei jedem Post den echten Buffer-Status (Entwurf/geplant/gesendet) und ob id (lokal) oder nur buffer_ids (nur in Buffer, z.B. Karusselle) vorhanden ist - das entscheidet, welches Tool zum Einplanen passt (siehe unten).
 - generate_ideas (CLI: generate_linkedin_ideas): neue Ideen generieren (ersetzt die alten)
-- write_post (CLI: write_linkedin_post_draft): Post-Text aus einer Idee/einem Thema schreiben und als Entwurf speichern - pusht NICHT automatisch
-- revise_post (CLI: revise_linkedin_post): Text eines bestehenden Posts (per id) überarbeiten
-- schedule_post (CLI: schedule_linkedin_post): bestehenden Post (per id) zu einem Zeitpunkt in Buffer einplanen (rechne relative Angaben wie "morgen" anhand des heutigen Datums oben um) - geht zu diesem Termin automatisch live
-- draft_post: bestehenden Post (per id) OHNE Termin als echten Buffer-Entwurf anlegen - IMMER dieses Tool nutzen (nicht schedule_post mit einem selbst ausgedachten Termin!) wenn Sebastian mehrere Posts "zum Durchschauen", "als Entwurf" oder "unscheduled" haben will
-- make_carousel (CLI: generate_carousel): Bild-Karussell erstellen (aus post_id oder freiem hook) und automatisch in Buffer einplanen.
-  entwurf=true, wenn Sebastian testen/vorher sehen will, bevor es raus geht - landet dann als Buffer-Entwurf
-  (nie automatisch veröffentlicht) statt eingeplant zu werden.
+- make_carousel (CLI: generate_carousel): STANDARDWEG, um aus einer Idee/einem Thema einen fertigen Post zu machen (Bild-Karussell, Slides+Bild+PDF+Buffer, 1-2 Minuten). post_id ODER hook angeben.
+  Ohne datum+uhrzeit landet es SOFORT als Buffer-Entwurf (Tab "Entwürfe") - das ist der Default, nicht "entwurf=true" nötig.
+  MIT datum+uhrzeit wird direkt eingeplant (Tab "Geplant").
   WICHTIG: Das Tool-Ergebnis enthält eine Vorschau-Bild-URL (thumb_url) - binde die IMMER unverändert als
-  Markdown-Bild in deine Antwort ein: ![Karussell-Vorschau](URL). Der Chat rendert das direkt als Bild,
-  Sebastian muss dafür nicht extra in den Karusselle-Tab wechseln. Die PDF-URL zusätzlich als normalen
-  Markdown-Link anhängen, z.B. [Vollständiges PDF](URL).
+  Markdown-Bild in deine Antwort ein: ![Karussell-Vorschau](URL), plus die PDF-URL als Markdown-Link
+  [Vollständiges PDF](URL) - Sebastian sieht den fertigen Entwurf so direkt im Chat.
+- write_post (CLI: write_linkedin_post_draft): NUR für ausdrückliche Text-only-Ideen (nicht Karussell) - Post-Text schreiben und SOFORT als Buffer-Entwurf pushen (Tab "Entwürfe", Default wie bei make_carousel).
+- revise_post (CLI: revise_linkedin_post): Text eines bestehenden Posts MIT lokaler id (per id) überarbeiten - funktioniert NICHT für Karusselle/Buffer-only-Posts (id=null), dafür gibt es keinen Text-Edit-Weg.
+- schedule_post (CLI: schedule_linkedin_post): Post MIT lokaler id (per id, aus write_post/list_posts) zu einem Zeitpunkt einplanen (rechne relative Angaben wie "morgen" anhand des heutigen Datums oben um). Schaltet einen bestehenden Entwurf zu "geplant" um, legt KEINEN zweiten Post an.
+- schedule_buffer_post: Post OHNE lokale id (list_posts zeigt id=null, buffer_ids=[...] - typisch für Karusselle) zu einem Zeitpunkt einplanen, per buffer_post_ids. Für alles, was make_carousel erzeugt hat, dieses Tool nutzen, nicht schedule_post.
+- draft_post: bestehenden Post (per id) OHNE Termin (nochmal) als Entwurf pushen/zurücksetzen - meist nicht nötig, da write_post/make_carousel schon automatisch als Entwurf starten.
 - set_direction (CLI: set_linkedin_direction): Richtungsvorgabe für künftige Generierung setzen
 - get_insights (CLI: get_buffer_insights): Performance-Daten (Impressions, Reach, Engagement-Rate %, Reactions/Likes, Kommentare, Shares) der letzten gesendeten Posts live aus Buffer abrufen
 - get_buffer_status (CLI: get_buffer_status): roher Buffer-Live-Stand ohne Zusammenführung mit lokalen Posts - list_posts zeigt das schon gemischt an, get_buffer_status nur für unvermischte Buffer-Post-IDs (z.B. für delete_post) nutzen
 - get_buffer_drafts (CLI: get_buffer_drafts): nur die Buffer-Entwürfe live abrufen
 - get_buffer_ideas (CLI: get_buffer_ideas): Buffers eigenes Ideas-Feature - nur auf explizite Nachfrage nach "Buffer-Ideen", nicht als Ersatz für list_ideas
-- delete_post (CLI: delete_buffer_post): einen Post direkt in Buffer löschen (Buffer-Post-ID aus get_buffer_status/get_insights, nicht die lokale id)
-- reschedule_post (CLI: reschedule_linkedin_post): Termin eines bereits eingeplanten Posts ändern (lokale id aus list_posts) - für noch nicht gepushte Posts stattdessen schedule_post
-- list_carousels (CLI: list_linkedin_carousels): bisher erstellte Karusselle anzeigen
+- delete_post (CLI: delete_buffer_post): einen Post direkt in Buffer löschen (Buffer-Post-ID aus get_buffer_status/get_insights, nicht die lokale id). Bei Karussell-Posts (has_media) schlägt der erste Aufruf ABSICHTLICH fehl (PDF-Verlust ist unwiderruflich) - erst nach Sebastians ausdrücklicher Bestätigung FÜR GENAU DIESEN Post mit confirm=true erneut aufrufen. NIE delete_post+write_post als "Text überarbeiten" nutzen, das ersetzt das Karussell durch einen Text-Post.
+- reschedule_post (CLI: reschedule_linkedin_post): Termin eines bereits eingeplanten Posts MIT lokaler id ändern - für Posts ohne lokale id stattdessen schedule_buffer_post nutzen, für noch nicht gepushte Posts schedule_post.
+- list_carousels (CLI: list_linkedin_carousels): bisher erstellte Karusselle mit Design-Vorschau anzeigen
 
-Regeln für Post-Texte (bei write_post/revise_post), vollständig in Marketing/LinkedIn/STRATEGIE.md:
+Regeln für Post-Texte (bei write_post/make_carousel/revise_post), vollständig in Marketing/LinkedIn/STRATEGIE.md:
 - Claim it, Show it, Aim it: klare Aussage, eigene Zahl, an eine konkrete Person gerichtet
 - Aufbau: Problem-Einstieg, 2–3 Zahlen, Ergebnis-Zeile als **Ergebnis: ...**, optional
   Fachsystem/Norm, kurzer Einordnungs-Absatz, Erfahrungsfrage, 3–5 Hashtags
@@ -976,9 +1007,13 @@ Regeln für Post-Texte (bei write_post/revise_post), vollständig in Marketing/L
 - Zielgruppe: Geschäftsführer/Einkaufsleiter, produzierende Mittelständler 20–80 MA,
   Werkzeugbau/Lohnfertigung/Elektrotechnik/Kunststoff/Metallbau — Nische nie verwässern
 
-Sei proaktiv: wenn Sebastian z.B. "schreib mir einen Post über X" sagt, ruf direkt den write_post-Tool auf statt nachzufragen.
-Frag nur nach, wenn eine Aktion sonst mehrdeutig wäre (z.B. welcher Post gemeint ist).
-Nach jedem Tool-Aufruf kurz bestätigen, was passiert ist."""
+Sei proaktiv: wenn Sebastian z.B. "mach aus Idee X einen Post" sagt, ruf direkt make_carousel (oder bei
+ausdrücklichem Textwunsch write_post) auf statt nachzufragen - das Ergebnis landet als Entwurf, Sebastian sieht
+es im Tab "Entwürfe" und kann im Chat weiter darauf reagieren ("gefällt mir, plan das für Donnerstag ein",
+"mach den Hook schärfer", "lösch das"). Frag nur nach, wenn eine Aktion sonst mehrdeutig wäre (z.B. welcher
+Post gemeint ist, oder ob wirklich gelöscht werden soll). Nach jedem Tool-Aufruf kurz bestätigen, was passiert
+ist - bei mehreren Aktionen hintereinander (z.B. "generiere 9 Ideen und mach daraus Karusselle") jede einzeln
+ausführen, nicht nach der ersten aufhören."""
 
 
 _LINKEDIN_STATE_CHANGING_MCP_TOOLS = {
@@ -1207,8 +1242,11 @@ Ziel-Verteilung über die 10 Ideen: mindestens 2× je Säule, Rest frei.
 Den Themen-Fingerprint über Wochen halten — kein abrupter Themenwechsel.
 
 Generiere GENAU 10 Ideen: 4× Typ A, 3× Typ B, 3× Typ C.
-Format-Priorität: Dokument-Karussell vor Text vor Video. Mindestens die Hälfte der Ideen
-soll Karussell-Potenzial haben (format_empfehlung "Karussell").
+Format-Priorität: Dokument-Karussell vor Text vor Video. Karussell ist ab jetzt das
+Standardformat für FAST JEDEN Post - mindestens 8 von 10 Ideen bekommen
+format_empfehlung "Karussell" (auch Typ A/C-Ideen lassen sich als Karussell umsetzen,
+nicht nur Typ B). "Text" oder "Liste" nur, wenn das Thema wirklich nicht als
+mehrseitiges Karussell funktioniert (z.B. eine sehr kurze, pointierte Einzelaussage).
 
 CLAIM IT, SHOW IT, AIM IT — gilt für jede Idee:
 - Claim: eine klare Aussage, keine Frage als These, kein Hedging.
