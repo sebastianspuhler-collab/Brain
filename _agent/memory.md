@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-13 11:23] [context.md] Kevin neuer Vertriebler - Einarbeitung/Einführung erforderlich (@Sebastian)
 - [2026-08-13 11:11] [2026-08-13-Email-19ffa921-Zugesagt-Prozessia-X-Schauenberg.md] Bestätigungsemail vom 2026-08-13, 10:01 Uhr
 - [2026-08-13 10:04] [2026-08-13-Email-19ffa921-Zugesagt-Prozessia-X-Schauenberg.md] Bestätigung von Sascha Haller (SB-IT) am 2026-08-13
 - [2026-08-12 21:23] [memory.md] DSGVO-Konformität und Deutschland/EU-Hosting sind Hauptanforderung für KI-Agent-Projekte
@@ -885,6 +886,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-13 11:23] [context.md] Juchem: Beschaffungsprozess besprochen (29.07.2026 mit Thorsten Maas), nächster Schritt: Angebot erstellen
 - [2026-08-13 10:40] [2026-08-13-Email-19ffa921-Zugesagt-Prozessia-X-Schauenberg.md] Kontaktperson Schauenberg: Sascha Haller (sascha.haller@sb-it.com)
 - [2026-08-13 05:15] [memory.md] Hauptanforderungen: DSGVO-Konformität, Deutschland/EU-Hosting erforderlich, Datenschutz als Priorität
 - [2026-08-13 05:14] Kontakt Sascha Haller (Schauenburg/sb-it.com), E-Mail sascha-haller@sb-it.com, Ansprechpartner für Projekt 'Prozessia X Schauenberg'

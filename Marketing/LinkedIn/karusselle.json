@@ -1,5 +1,30 @@
 [
   {
+    "id": "24c0fe4c",
+    "source_post_id": "34fe2a81",
+    "hook": "EU AI Act - die vier Fragen die für produzierende Mittelständler zählen",
+    "branche": "Alle",
+    "slide_titles": [
+      "EU AI Act: Vier Fragen die zählen",
+      "Ist deine KI Hochrisiko?",
+      "Anbieter oder Betreiber?",
+      "Welche Daten verarbeitet sie?",
+      "Ab wann gilt was?",
+      "Was das für dich bedeutet",
+      "Jetzt Compliance-Check sichern"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1786620527/carousel/prozessia/20260901/20260901-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1786620528/carousel/prozessia/20260901/20260901-karussell.pdf",
+    "due_at": "2026-09-01T09:30:00+02:00",
+    "draft": true,
+    "buffer_post_ids": [
+      "6a7daa71419b7fbc05b97326",
+      "6a7daa71848821997f179517"
+    ],
+    "anzahl_gepusht": 2,
+    "created_at": "2026-08-13T11:28:50.049874"
+  },
+  {
     "id": "51eb94da",
     "source_post_id": null,
     "hook": "3 KI-Tipps, die wirklich Zeit sparen im Arbeitsalltag.",
