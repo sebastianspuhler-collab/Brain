@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-13 22:38] [[Twilio] Re: [ACTION REQUIRED] Your Trus] Ticket-Nummer: 28824206, Datum: 13.08.2026
 - [2026-08-13 17:07] [OCR 4.1: more accuracy on complex docume] OCR 3 bleibt zum ursprünglichen Preis von $2 pro 1.000 Seiten verfügbar
 - [2026-08-13 12:53] [2026-08-13-Email-19ffb2aa-Follow-up-Prozessia-x-ESF.md] Kollege Alex bei ESF ist verantwortlich für das Thema 'de:hub'
 - [2026-08-13 12:52] [Follow-up Prozessia x ESF] Alex (East Side Fab e.V.) ist Ansprechpartner für das Thema de:hub
@@ -890,6 +891,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-13 22:38] [[Twilio] Re: [ACTION REQUIRED] Your Trus] Twilio (Onboarding & Compliance Operations), Kontaktperson: Jed Enel, E-Mail: trusthub-verify@twilio.zendesk.com
 - [2026-08-13 11:23] [context.md] Juchem: Beschaffungsprozess besprochen (29.07.2026 mit Thorsten Maas), nächster Schritt: Angebot erstellen
 - [2026-08-13 10:40] [2026-08-13-Email-19ffa921-Zugesagt-Prozessia-X-Schauenberg.md] Kontaktperson Schauenberg: Sascha Haller (sascha.haller@sb-it.com)
 - [2026-08-13 05:15] [memory.md] Hauptanforderungen: DSGVO-Konformität, Deutschland/EU-Hosting erforderlich, Datenschutz als Priorität
@@ -1257,6 +1259,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-13 22:38] [[Twilio] Re: [ACTION REQUIRED] Your Trus] Anforderung: Gewerbeanmeldung oder offizielles Dokument mit Geschäftsnamen und Registrierungsnummer zur Verifizierung des Trust Hub Business Profiles erforderlich
 - [2026-08-13 17:08] [memory.md] STRATEGIE.md ist verbindliches Konfliktlösungsdokument – gilt bei inhaltlichen Widersprüchen zu anderen Dateien
 - [2026-08-13 11:42] [STRATEGIE.md] 4 Themen-Säulen für LinkedIn-Content definiert (erste: Wissensmanagement); verankert in linkedin_service.py, claudeService.js, carousel_service.py
 - [2026-08-13 05:14] Brain kann E-Mails nicht zeitgesteuert versenden, sondern legt sie nur als Entwurf in Gmail ab; Versand muss manuell zur gewünschten Zeit erfolgen
@@ -2380,3 +2383,6 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 
 ## CONTERXT
 - [2026-08-11 17:34] [2026-06-09-Präsentation_ Datenschutz .md] Präsentation vom 2026-06-09 als Verkaufsunterstützung zur KI-Tool-Entscheidung für Voigt Salus
+
+## NÄCHSTE SCHRITTE
+- [2026-08-13 22:38] [[Twilio] Re: [ACTION REQUIRED] Your Trus] Dokument (Gewerbeanmeldung oder offizielle Registrierungsdokumentation) an Twilio übermitteln
