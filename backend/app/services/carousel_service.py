@@ -24,9 +24,11 @@ Geändert wurde nur die Farblogik (Lang: Hellblau): schwarzer oder weißer
 Hintergrund je Serie, Schrift in der Gegenfarbe, Lila (#534AB7–#B088FF) nur als
 sparsamer Akzent (Regel-Strich, Seitenzähler, Kernzahl) — deutlich unter den
 in der Strategie erlaubten 10–15 % Bildfläche.
-Typografie: Poppins (Black für Headlines, Light/SemiBold für Fließtext) aus
+Typografie: Poppins (Bold für Headlines, Light/SemiBold für Fließtext) aus
 Marketing/Branding/fonts/. Der Vault ist in den Container gemountet, die Fonts
 brauchen also keinen Docker-Rebuild. Fällt auf DejaVu zurück, falls sie fehlen.
+Headline-Gewicht 2026-08-13 von Black auf Bold reduziert (Black wirkte gegen
+das Referenz-Banner spürbar zu fett/aufgeblasen).
 
 Farb-Update (2026-08-11, vierte Iteration): Lila, Weiß und Schwarzton 1:1 aus dem
 finalen LinkedIn-Banner (Marketing/LinkedIn/Neuer Ordner/) gemessen (Pixel-Sampling
@@ -157,18 +159,11 @@ def _layout_rich(draw, runs, max_w, font_regular, font_bold):
     return lines
 
 
-def _draw_rich(draw, lines, x, y, fill, line_height, space_w, stroke_width=0):
+def _draw_rich(draw, lines, x, y, fill, line_height, space_w):
     for line in lines:
         cursor = x
         for word, font in line:
-            if stroke_width:
-                # Stroke in derselben Farbe fettet den Font zusätzlich auf -
-                # auch Poppins Black wirkte gegen das Referenz-Banner (Marketing/
-                # Branding/Gemini_Generated_Image_z5n18vz5n18vz5n1.png, KI-generiert,
-                # keine echte Schriftdatei) spürbar dünner (Sebastian, 2026-08-13).
-                draw.text((cursor, y), word, font=font, fill=fill, stroke_width=stroke_width, stroke_fill=fill)
-            else:
-                draw.text((cursor, y), word, font=font, fill=fill)
+            draw.text((cursor, y), word, font=font, fill=fill)
             cursor += draw.textlength(word, font=font) + space_w
         y += line_height
     return y
@@ -178,15 +173,21 @@ def _fit_headline(draw, text, max_w, max_lines, start_size, min_size):
     """Verkleinert die Headline schrittweise, bis sie in max_lines passt.
     Ohne das reißt eine lange Slide-Überschrift das Layout auf oder läuft aus
     dem Bild — die Slide-Titel kommen aus einem Sprachmodell, ihre Länge ist
-    also nicht garantiert."""
+    also nicht garantiert.
+
+    Gewicht "bold", nicht "black" (2026-08-13, zweiter Anlauf): Poppins Black
+    wirkte gegen das Referenz-Banner (Marketing/Branding/
+    Gemini_Generated_Image_z5n18vz5n18vz5n1.png) zu fett/aufgeblasen - auch mit
+    zusätzlichem Stroke (verworfen). Sebastian direkt: "das banner hat ja
+    dünner schrift". Poppins Bold liegt sichtbar näher an der Banner-Schriftstärke."""
     size = start_size
     while size > min_size:
-        font = _font(size, "black")
+        font = _font(size, "bold")
         lines = _layout_rich(draw, _tokenize_rich(text), max_w, font, font)
         if len(lines) <= max_lines:
             return font, lines
         size -= 4
-    font = _font(min_size, "black")
+    font = _font(min_size, "bold")
     return font, _layout_rich(draw, _tokenize_rich(text), max_w, font, font)
 
 
@@ -321,12 +322,6 @@ def _render_slides(slides: list, photo_bytes: bytes | None = None, variante_name
         y = _draw_rich(
             draw, headline_lines, PAD, y, variante["text"],
             line_height=int(headline_font.size * 1.16), space_w=space_w,
-            # stroke_width=1 fest, NICHT mit der Schriftgröße skaliert: bei 2px
-            # schloss der Stroke die schmale Öffnung im "e" von Poppins Black
-            # komplett, "jede Woche" wurde optisch zu "jodo Wocho" (getestet
-            # gegen Marketing/Branding/Gemini_Generated_Image_z5n18vz5n18vz5n1.png,
-            # 2026-08-13) - 1px fettet sichtbar auf, ohne Buchstaben zu verschließen.
-            stroke_width=1,
         )
 
         if slide.get("untertitel"):

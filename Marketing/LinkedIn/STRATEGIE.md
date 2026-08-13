@@ -153,9 +153,11 @@ Fokus plötzlich wechseln, verlieren temporär Reichweite.
   Schriftfarbe auf prozessia.de (C_DARK/C_PURPLE/C_PURPLE_LIGHT, siehe frontend/src/index.css)
 - **Typografie Headlines:** fette, rundliche Display-Grotesk mit „aufgeblasenem" Charakter,
   normale Groß-/Kleinschreibung statt Versalien, enger Buchstabenabstand.
-  Umgesetzt mit **Poppins Black** (in der Marken-Vorgabe als zulässige Variante genannt,
-  neben Baloo 2 ExtraBold und Fredoka Bold). Fließtext: Poppins Light, Hervorhebungen
-  Poppins SemiBold. Font-Dateien: `Marketing/Branding/fonts/`.
+  Umgesetzt mit **Poppins Bold** (2026-08-13 von Black auf Bold reduziert - Black wirkte
+  im Karussell-Rendering gegen das finale Banner spürbar zu fett/aufgeblasen; Poppins war
+  in der Marken-Vorgabe als zulässige Variante genannt, neben Baloo 2 ExtraBold und
+  Fredoka Bold). Fließtext: Poppins Light, Hervorhebungen Poppins SemiBold.
+  Font-Dateien: `Marketing/Branding/fonts/`.
 - **Banner-Beispiel (final):** „Fortschritt durch sichere KI." (weiß) /
   „Wissenssicherung und Prozesseffizienz für den Mittelstand" (Unterzeile, kleiner, leichter)
 - **Bild-Generierung:** Nano Banana Pro, Logo und Font-Referenz-Screenshots als Bild-Input
