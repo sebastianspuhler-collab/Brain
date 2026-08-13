@@ -1,5 +1,105 @@
 [
   {
+    "id": "3e778421",
+    "source_post_id": "eb19af11",
+    "hook": "Drei Stunden mit ChatGPT ohne brauchbares Ergebnis",
+    "branche": "Alle",
+    "slide_titles": [
+      "Drei Stunden ChatGPT. Null Ergebnis.",
+      "ChatGPT kennt euer ERP nicht",
+      "Ein Chat ist kein Prozess",
+      "Der Denkfehler heißt Werkzeug",
+      "Was ein Agent wirklich tut",
+      "Das Problem sitzt vor dem Bildschirm",
+      "Reden wir über euren Prozess"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1786622517/carousel/prozessia/20260903/20260903-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1786622518/carousel/prozessia/20260903/20260903-karussell.pdf",
+    "due_at": "2026-09-03T09:30:00+02:00",
+    "draft": true,
+    "buffer_post_ids": [
+      "6a7db2376fd32923a805c693",
+      "6a7db237b7a5221dc8b459b9"
+    ],
+    "anzahl_gepusht": 2,
+    "created_at": "2026-08-13T12:02:00.043777"
+  },
+  {
+    "id": "5381bafa",
+    "source_post_id": "3e096b80",
+    "hook": "Von 3 Tagen auf 20 Minuten Preisvergleich im Einkauf",
+    "branche": "Alle",
+    "slide_titles": [
+      "Von 3 Tagen auf 20 Minuten",
+      "Der alte Weg",
+      "Wo die Zeit wirklich verschwindet",
+      "Was ein KI-Agent übernimmt",
+      "20 Minuten statt 3 Tage",
+      "Der eigentliche Gewinn",
+      "Wie viel Zeit kostet euer Preisvergleich?"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1786622476/carousel/prozessia/20260825/20260825-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1786622478/carousel/prozessia/20260825/20260825-karussell.pdf",
+    "due_at": "2026-08-25T09:30:00+02:00",
+    "draft": true,
+    "buffer_post_ids": [
+      "6a7db20e018aa21ebbba1355",
+      "6a7db20f1ace93a801871cc2"
+    ],
+    "anzahl_gepusht": 2,
+    "created_at": "2026-08-13T12:01:19.560565"
+  },
+  {
+    "id": "92211671",
+    "source_post_id": null,
+    "hook": "Bei einem Werkzeugbauer, den wir kennen, geht in sechs Wochen der Werkstattleiter in Rente – mit ihm 30 Jahre Erfahrungswissen, das nirgends dokumentiert ist.",
+    "branche": "Alle",
+    "slide_titles": [
+      "In 6 Wochen ist es weg",
+      "Ein Werkzeugbauer, den wir kennen",
+      "Kein Einzelfall im Mittelstand",
+      "Excel-Listen sterben nicht mit",
+      "Was KI-Agenten anders machen",
+      "Zeit ist der knappe Faktor",
+      "Wer geht bei euch bald in Rente?"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1786622431/carousel/prozessia/20260818/20260818-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1786622433/carousel/prozessia/20260818/20260818-karussell.pdf",
+    "due_at": "2026-08-18T09:30:00+02:00",
+    "draft": true,
+    "buffer_post_ids": [
+      "6a7db1e26fd32923a805bbb0",
+      "6a7db1e2b7a5221dc8b44e1c"
+    ],
+    "anzahl_gepusht": 2,
+    "created_at": "2026-08-13T12:00:34.706359"
+  },
+  {
+    "id": "e3efd180",
+    "source_post_id": "8ec1b145",
+    "hook": "Kundendaten im ChatGPT-Verlauf gefunden - Compliance-Risiko",
+    "branche": "Alle",
+    "slide_titles": [
+      "Kundendaten im ChatGPT-Verlauf gefunden",
+      "So passiert es im Einkauf",
+      "Warum das kein Einzelfall ist",
+      "Die Haftung liegt beim Unternehmen",
+      "Verbote lösen das Problem nicht",
+      "Die Lösung: EU-gehostete KI",
+      "Prüfen Sie Ihre KI-Nutzung"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1786622369/carousel/prozessia/20260827/20260827-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1786622371/carousel/prozessia/20260827/20260827-karussell.pdf",
+    "due_at": "2026-08-27T09:30:00+02:00",
+    "draft": true,
+    "buffer_post_ids": [
+      "6a7db1a4018aa21ebbb9fea2",
+      "6a7db1a47044e2aaa3152558"
+    ],
+    "anzahl_gepusht": 2,
+    "created_at": "2026-08-13T11:59:32.740602"
+  },
+  {
     "id": "804cac23",
     "source_post_id": "eb19af11",
     "hook": "Drei Stunden mit ChatGPT ohne brauchbares Ergebnis",
