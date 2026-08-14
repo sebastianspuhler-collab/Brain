@@ -895,9 +895,22 @@ def reorganize_vault(min_dateien: int = 15) -> list[dict]:
 
 
 def _archive_source(datei: Path, ziel_ordner: Path) -> None:
-    """Verschiebt eine erfolgreich einsortierte Quelldatei nach _verarbeitet/.
+    """Verschiebt eine Quelldatei nach _verarbeitet/, falls sie noch in
+    _inbox/ liegt. Normalerweise hat process_file() sie beim erfolgreichen
+    Einsortieren schon an ihren endgültigen Ort im Vault verschoben - das
+    ist der Erfolgsfall, kein Fehler (Fix 2026-08-14: vorher versuchte diese
+    Funktion trotzdem IMMER den Move und loggte bei JEDER erfolgreich
+    verarbeiteten Datei eine irreführende "konnte nicht verschieben"-Warnung,
+    weil die Quelle da schon lange weg war - live reproduziert, kein
+    Datenverlust, nur Log-Rauschen). Nur falls process_file() ausnahmsweise
+    weder verschieben noch kopieren konnte (seltener Doppel-Fehlerfall aus
+    process_file()s eigenem try/except), liegt die Datei noch in _inbox/ -
+    dann greift dieser Schritt als Sicherheitsnetz.
+
     Bei Namenskollision wird durchnummeriert, damit nie eine Datei überschrieben
     wird (gleiche Anhänge kommen über Mail-Weiterleitungen mehrfach rein)."""
+    if not datei.exists():
+        return
     ziel = ziel_ordner / datei.name
     zaehler = 1
     while ziel.exists():
