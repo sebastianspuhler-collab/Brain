@@ -1,4 +1,17 @@
 ## KONTEXT
+- [2026-08-14 22:00] [2026-06-09-Lexoffice 09 25.md] Rechnungsnummer lx2025090092498 vom 07.09.2025, Rechnung der Haufe Service Center GmbH (lexoffice)
+- [2026-08-14 21:59] [2026-06-09-Lexoffice 08 25.md] Rechnungsnummer lx2025080091462, Rechnungsdatum 07.08.2025, Anbieter: Haufe Service Center GmbH
+- [2026-08-14 21:59] [2026-06-09-Lexoffice 05 25.md] Gläubiger-ID: DE68ZZZ00000207489 für automatische SEPA-Einzüge
+- [2026-08-14 21:59] [2026-06-09-LNKD_INVOICE_789144507558.md] Rechnungs-Nr. 789144507558, Transaktions-Nr. P820331024, Rechnung vom 18.09.2025, Betrag bezahlt
+- [2026-08-14 21:57] [2026-06-09-Gewerbeanmeldung Sebastian Spuhler.md] Unternehmensform: GbR (nach § 14 GewO)
+- [2026-08-14 21:57] [2026-06-09-Funnelcockpit_2.md] Abrechnungszeitraum 27.08.2025 – 26.09.2025, Leistungsdatum 26.09.2025
+- [2026-08-14 21:57] [2026-06-09-Finom_statement_31122025.md] Regelmäßige SaaS-Ausgaben: Lexware, Google Workspace, Hostinger, Gamma, Instantly, Facebook-Werbung
+- [2026-08-14 21:56] [2026-06-09-Finanzamt Bescheid.md] Steuerbescheid des Finanzamts für Prozessia GbR vom 2026-06-09 eingegangen
+- [2026-08-14 21:55] [2026-06-09-Domain webwokr.md] Domain webwokr.de registriert für Projekt WebWokr bei Wix.com
+- [2026-08-14 21:55] [2026-06-09-Apify_Invoice_202510060569.md] Dienstleister: Apify Technologies (Web-Scraping-Plattform)
+- [2026-08-14 21:54] [2026-07-26-Transkript-EUER-Tutorial-Elster.md] Referenzmaterial: YouTube-Tutorial (Steuerfit für Selbstständige), Veranlagungsjahr 2024, erfasst 2026-07-26
+- [2026-08-14 21:54] [2026-07-26-Transkript-EUER-Tutorial-Elster.md] Anlage EÜR ist Pflichtanlage für Selbstständige; zeigt Endergebnis der Buchhaltung
+- [2026-08-14 21:53] [09_ust_jahreserklaerung_2025.md] Detailreferenzen: 00_zusammenfassung_steuerpruefung_2025.md | 08_euer_ausgaben_zuordnung.md | projects: euer-2025-finanzamt-zahlungen, euer-2025-ausgaben-korrektionen
 - [2026-08-14 21:53] [08_euer_ausgaben_zuordnung.md] LinkedIn Ireland & digistore24/Funnelcockpit als zusätzliche Werbekostenpartner aktiv (99,99€ bzw. 47€ netto)
 - [2026-08-14 21:52] [06_recherche_beleg_fehlt.md] Quelle: 04_merged.json (Transaktionen mit Status 'BELEG_FEHLT')
 - [2026-08-14 21:52] [00_zusammenfassung_steuerpruefung_2025.md] Umsatzsteuer-Berechnung 2025: 940,50 € fällig (19%), keine Zahlung an Finanzamt erforderlich (0,00 €)
@@ -199,6 +212,7 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-14 21:57] [2026-06-09-Finom_statement_31122025.md] Joel Wagner: Projekt RE250009, Zahlungseingang 4.760,00 € am 31.12.2025
 - [2026-08-14 21:53] [08_euer_ausgaben_zuordnung.md] INSTANTLY: Werbekostenpartner mit 12 monatlichen Zahlungen März-September 2025 (Gesamtnetto ~449€), alle Rechnungen ohne Vorsteuer
 - [2026-08-14 21:48] [2026-08-04-19fca6c853-Hetzner_2026-08-04_084001046484.md] Hetzner-Kundennummer: K0631688826
 - [2026-08-14 21:47] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] sipgate-Kundennummer: 3988053, Inhaber: Sebastian Spuhler, Adresse: Campus A 11, 66123 Saarbrücken
@@ -605,6 +619,31 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-14 22:00] [2026-06-09-Lexoffice 11 24.md] Leistungszeitraum: 06.11.2024 - 06.12.2024
+- [2026-08-14 22:00] [2026-06-09-Lexoffice 09 25.md] Zahlungsziel: 12.09.2025, Zahlungsart: SEPA-Lastschrift, Gläubiger-ID: DE68ZZZ00000207489
+- [2026-08-14 21:59] [2026-06-09-Lexoffice 06 25.md] Zahlungsweise: SEPA-Lastschrift; Zahlungsziel: 13.06.2025; Gläubiger-ID: DE68ZZZ00000207489
+- [2026-08-14 21:59] [2026-06-09-Lexoffice 04 25.md] Zahlungsweise: SEPA-Lastschrift (automatischer Kontoeinzug), Gläubiger-ID DE68ZZZ00000207489
+- [2026-08-14 21:59] [2026-06-09-LNKD_INVOICE_789144507558.md] Zahlung per PayPal monatlich, automatische Erneuerung bis zur Kündigung
+- [2026-08-14 21:57] [2026-06-09-Gewerbeanmeldung Sebastian Spuhler.md] Gewerbeanmeldung bei Landeshauptstadt Saarbrücken registriert am 2026-06-09
+- [2026-08-14 21:57] [2026-06-09-Funnelcockpit_1.md] Zahlungsmodal: Monatliche Kreditkartenzahlung via Digistore24; Zahlungsplan: 1 EUR initial, dann 55,93 EUR ab 27.08.2025
+- [2026-08-14 21:57] [2026-06-09-Finom_statement_31122025.md] Retainer-Modell mit Benito Ferrise für Q1 2026 zahlend
+- [2026-08-14 21:56] [2026-06-09-Finom_statement_30122025 (1).md] Haupteinnahmen Q4 2025: Joel Wagner 4.760,00 € (RE250009), Martin Veser UG 505,75 €
+- [2026-08-14 21:56] [2026-06-09-Finom_statement_30122025 (1).md] Q4 2025 Kontostand: Eröffnung 92,94 € → Abschluss 5.264,00 € (Zeitraum 01.10–30.12.2025)
+- [2026-08-14 21:56] [2026-06-09-Finom 2024.md] Fälligkeitsdatum: 29.11.2024 (sofort fällig)
+- [2026-08-14 21:56] [2026-06-09-Finom 2024.md] Rechnungsnummer 3OJ3-0002 vom 29.11.2024, Betrag brutto: 99,96 € (netto: 84,00 €)
+- [2026-08-14 21:55] [2026-06-09-Domain webwokr.md] Zahlungsmethode: PayPal, Rechnungsstatus bezahlt (5. Aug. 2025)
+- [2026-08-14 21:55] [2026-06-09-Domain webwokr.md] Kosten: 17,79 € inkl. 19% MwSt. (netto 14,95 €)
+- [2026-08-14 21:55] [2026-06-09-Apify_Invoice_202510060569.md] Verbleibender Prepaid-Betrag: 10,71 USD
+- [2026-08-14 21:55] [2026-06-09-Apify_Invoice_202510060569.md] Plattformnutzung 28,29 USD, Prepaid-Subscription-Guthaben 39,00 USD
+- [2026-08-14 21:54] [2026-06-09-Apify_Invoice_202509060156.md] Nutzung Vorperiode: 33,82 USD von 39,00 USD Prepayment; ungenutzte Prepaid: 5,18 USD
+- [2026-08-14 21:54] [2026-06-09-Apify_Invoice_202509060156.md] Apify Starter-Plan (monatlich), 39,00 USD/Monat; Abrechnungszeitraum 2025-09-06 bis 2025-10-05
+- [2026-08-14 21:54] [2026-06-09-Apify_Invoice_202508060773.md] Zahlungsstatus: Bezahlt am 6. August 2025 per Kreditkarte (Visa *7073), Stripe-ID: pi_3Rt8WbAOnxR6X95W1vBybQOK
+- [2026-08-14 21:54] [2026-07-26-Transkript-EUER-Tutorial-Elster.md] Navigationspfad ELSTER: Formulare & Leistungen → Gewinnermittlung → Einnahmenüberschussrechnung (NICHT unter Einkommensteuer suchen)
+- [2026-08-14 21:54] [2026-07-26-Transkript-EUER-Tutorial-Elster.md] Freiberufler dürfen EÜR immer nutzen, unabhängig von Gewinn und Umsatzgröße
+- [2026-08-14 21:54] [2026-07-26-Transkript-EUER-Tutorial-Elster.md] Gewerbetreibende: EÜR nur zulässig bei Gewinn < 80.000€ UND Umsatz < 800.000€; bei Überschreitung Buchführungspflicht (Bilanz + GuV)
+- [2026-08-14 21:54] [NOTIZEN.md] Belegauswertung 2026 angelegt (Stand 2026-07-28): Step1 erfolgreich mit 188 Buchungen Jan–Jul 2026 aus Finom-Kontoauszug (27 Umsatz, 161 Ausgaben); Steps 4–8 codeseitig fertig, noch nicht durchgelaufen
+- [2026-08-14 21:53] [PRUEFFAELLE.md] Wechselkurs-Mapping fehlerhaft: 97.0 USD → 84.32 EUR (Receipt-2172-3201.pdf), nicht automatisch konvertiert, Bankbetrag und Beleg divergent
+- [2026-08-14 21:53] [09_ust_jahreserklaerung_2025.md] USt-Jahreserklärung 2025 finalisiert 2026-07-28 – Elster-Einreichung erforderlich
 - [2026-08-14 21:52] [06_recherche_beleg_fehlt.md] Stand: 2026-07-22. Gesamte Google Drive + Gmail (2025) durchsucht. Von 21 fehlenden Belegen: 5 gelöst
 - [2026-08-14 21:52] [00_zusammenfassung_steuerpruefung_2025.md] Finanzamt-Erstattungen (3 Fälle) seit 2026-07-29 in Pipeline als Betriebseinnahme mitgezählt
 - [2026-08-14 21:52] [PRUEFFAELLE.md] Validierungsbedarf: 4 Hauptprüffälle benötigen Datennachverfolgung und Rechnungsbestätigung
@@ -823,6 +862,7 @@
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-08-14 21:54] [NOTIZEN.md] Step2 (lokale Belege) blockiert: Benötigt Textextraktion aller PDFs unter Finanzen/2026/* → muss in `_local_text_raw.json` + `_ocr_results.json` abgelegt werden (Agent-Durchlauf wie 2025)
 - [2026-08-12 21:12] [memory.md] Startprojekt: Konkreten Anwendungsfall definieren (z.B. Einkauf) mit klarem Scope und iterativem Ansatz
 - [2026-08-12 20:13] [bild-prompts.md] Marken-Klausel (verpflichtend für alle Prompts): Farbschema Schwarz/Weiß mit Purple-Akzent (#534AB7–#B088FF, max 10–15%), bold rounded display grotesque, deutsche Texte nur, Logo unverändert, keine AI-Klischees (keine glowing brains, circuit boards, robot hands)
 - [2026-08-12 20:10] [2026-06-09-Digitaler-Beschaffungsagent-fur-Schaufler.md] Geschäftliche Vorteile: Drastische Reduktion manueller E-Mail-Bearbeitung, Planungssicherheit, durchgängige Transparenz im Beschaffungsprozess
@@ -889,6 +929,8 @@
 - [2026-07-13 19:09] [Bestätigungslink Herr Spuhler Business P] Nach Bestätigung des Links kann die Fachabteilung American Express mit der Prüfung des Antrags fortfahren
 
 ## DEADLINE
+- [2026-08-14 21:59] [2026-06-09-Lexoffice 08 25.md] Zahlungsziel: 14.08.2025
+- [2026-08-14 21:59] [2026-06-09-Lexoffice 04 25.md] Zahlungsziel 14.04.2025 (Rechnungsdatum 07.04.2025)
 - [2026-07-17 21:45] [2026-07-06-Email-19f381c7-AW-Offene-Punkte-Beschaffungsagent.md] Alle 4 Punkte sollten im Laufe dieser Woche (ab 6. Juli 2026) abgearbeitet werden
 - [2026-07-17 18:27] [Kompletten Salesfunnel mit KI erstellen] Termine freihalten: 29.07 und 30.07 (Jahr nicht angegeben, vermutlich kommend)
 - [2026-07-16 06:04] [Kompletten Salesfunnel mit KI erstellen] Veranstaltungstermine: 29.07 und 30.07 (Jahr nicht angegeben, vermutlich 2024/2025)
@@ -904,6 +946,8 @@
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-14 21:54] [NOTIZEN.md] 58 Buchungen markiert als UNKLAR und benötigen manuelle Prüfung: World Class Marketing LLC, Reisekosten (Hotels/Restaurants), diverse SaaS-Abos
+- [2026-08-14 21:53] [PRUEFFAELLE.md] Instantly-Belege: Systematische Fremdwährungsprobleme (USD) - Kartenumrechnung weicht ab, manuelle Überprüfung erforderlich
 - [2026-08-14 21:52] [06_recherche_beleg_fehlt.md] Bolt/StackBlitz (17,73 EUR, 2025-05-30): Stripe-Beleg Nr. 2514-9086, 20,00 $ Pro-Plan, FX-Rate 0,8865 – als PDF in Rechnungen/ ablegen
 - [2026-08-14 21:52] [06_recherche_beleg_fehlt.md] Paddle/n8n Cloud (28,56 EUR, 2025-07-11): Beleg Nr. 73531154-143210765 in Gmail gefunden, Datum 10.07.2025 – als PDF in Rechnungen/ ablegen
 - [2026-08-14 21:52] [PRUEFFAELLE.md] Fehlende Rechnungsdaten bei kritischen Posten: FA/SF (60 EUR), Google (28.1 EUR), Triathlon Transfer (29.75 EUR) - Daten nicht eindeutig extrahierbar
