@@ -1,4 +1,38 @@
 ## KONTEXT
+- [2026-08-14 21:53] [08_euer_ausgaben_zuordnung.md] LinkedIn Ireland & digistore24/Funnelcockpit als zusätzliche Werbekostenpartner aktiv (99,99€ bzw. 47€ netto)
+- [2026-08-14 21:52] [06_recherche_beleg_fehlt.md] Quelle: 04_merged.json (Transaktionen mit Status 'BELEG_FEHLT')
+- [2026-08-14 21:52] [00_zusammenfassung_steuerpruefung_2025.md] Umsatzsteuer-Berechnung 2025: 940,50 € fällig (19%), keine Zahlung an Finanzamt erforderlich (0,00 €)
+- [2026-08-14 21:51] [Angebot_AG0027_01.07.2026.md] Angebotsnummer AG0027, Kundennummer 1000101, Datum 01.07.2026, gültig bis 29.07.2026
+- [2026-08-14 21:51] [2026-07-23-19f17a1531-Leistungsübersicht der Business Platinum Card.md] Leistungen: Membership Rewards Bonusprogramm, Versicherungspaket, Zusatzkarten für Mitarbeiter, individueller Verfügungsrahmen
+- [2026-08-14 21:51] [2026-07-19-Leistungsübersicht der Business Platinum Card.md] Zusatzkarten für Mitarbeiter verfügbar
+- [2026-08-14 21:51] [2026-06-09-Kostenkalkulation.md] Getestete Technologien: GPT-5.1 mini (Chat via Azure), Mistral OCR für Dokumentenverarbeitung
+- [2026-08-14 21:50] [2026-06-09-Angebot_AG0024_27.05.2026.md] Deadline für Angebot-Annahme: 24.06.2026
+- [2026-08-14 21:49] [2026-06-09-Angebot_AG0018_15.12.2025.md] Zahlungsbedingung: 50% Anzahlung (29.155€) bei Auftragsannahme fällig
+- [2026-08-14 21:49] [2026-06-09-Angebot_AG0018_15.12.2025.md] Gesamtbetrag: 58.310,00€ brutto (netto 49.000€, Umsatzsteuer 19% = 9.310€)
+- [2026-08-14 21:49] [2026-06-09-Angebot_AG0018_15.12.2025.md] Angebotsdatum: 15.12.2025, Gültig bis: 30.01.2026 (Deadline: 30.01.2026)
+- [2026-08-14 21:49] [2026-06-09-Angebot_AG0010_17.09.2025.md] Angebotsgültig bis 01.10.2025 – Entscheidungsfrist erforderlich
+- [2026-08-14 21:49] [2026-06-09-Angebot_AG0010_17.09.2025.md] Angebotsnummer AG0010 von WebWokr vom 17.09.2025, gültig bis 01.10.2025
+- [2026-08-14 21:49] [2026-06-09-Angebot testphase KI-Assistent VOIGT SALUS-.md] Angebotsgültig: 04.12.2025 - 18.12.2025
+- [2026-08-14 21:49] [2026-06-09-Angebot Webseite.md] Neukunde; Webseite-Projekt für Catering-Unternehmen
+- [2026-08-14 21:47] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] Zahlungsart: Kreditkarte (Endung 7073), Betrag 105,00 EUR bereits beglichen
+- [2026-08-14 21:47] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] Rechnung B4644944 vom 01.08.2026: 105,00 EUR brutto (88,24 EUR netto + 16,76 EUR USt 19%)
+- [2026-08-14 21:47] [2026-08-01-19fbd42301-5637373931.md] Rechnungsnummer 5637373931 vom 31.07.2026, Billing-ID 7361-1441-4101
+- [2026-08-14 21:47] [2026-08-01-19fbd42301-5637373931.md] Abonnementzeitraum: 01.-31.07.2026 (monatlich, automatische Abrechnung)
+- [2026-08-14 21:47] [2026-07-24-19f4baf08b-G170104086.md] Quelle: 19f4baf08b-G170104086.pdf vom 24.07.2026
+- [2026-08-14 21:47] [2026-07-23-19f8cb719f-63459971781.md] Rechnungsnummer E0600ZW122, Auftragsnummer b2279353-0153-4b03-9266-671d4ea2431a
+- [2026-08-14 21:47] [2026-07-23-19f8cb719f-63459971781.md] Abrechnungszeitraum: 23.06.2026 - 22.07.2026, Rechnungsdatum: 23.07.2026
+- [2026-08-14 21:46] [2026-07-23-19f801f127-invoice-MSTRL-API-750302-002.md] Rechnungsnummer MSTRL-API-750302-002, Ausstellungsdatum 20.07.2026, Zahlungsfrist: 0 Tage (sofort fällig)
+- [2026-08-14 21:46] [2026-07-23-19f8015dd3-invoice-MSTRL-API-750302-002.md] Progressive Rechnung: kumulative Nutzung erreichte €11,54 und überschritt Schwellenwert von €10,00
+- [2026-08-14 21:45] [2026-07-23-19f69cc342-Rechnung_2026-07-16_310100082556.md] Rechnungsnummer 310100082556 vom 16.07.2026, IONOS Sammelrechnung
+- [2026-08-14 21:45] [2026-07-23-19f4baf08b-G170104086.md] Billing Number: G170104086, Rechnungsdatum: 23.07.2026
+- [2026-08-14 21:45] [2026-07-23-19f47537e0-Rechnung_RE260014_09.07.2026.md] Nettobetrag: 42,10 € für Speisen und Getränke (Wantan, Chicken Karaage, Crispy Tiger, Curry King, Pink-Berry-Limonade)
+- [2026-08-14 21:45] [2026-07-23-19f1c3dc33-invoice_sipgatede_B4602762.md] Zahlung per Kreditkarte (4983XXXXXX7073, Inhaber: Sebastian Spuhler) begleichen
+- [2026-08-14 21:44] [2026-07-23-19f188bb24-Invoice-GGYF9D9L-0019.md] Rechnungsnummer GGYF9D9L-0019, Rechnungsdatum 30.06.2026, Fälligkeitsdatum 30.06.2026
+- [2026-08-14 21:44] [2026-07-23-19f09dec90-Receipt-2713-3487.md] Rechnungsnummer: XC0AID8J-0007, Belegnummer: 2713-3487
+- [2026-08-14 21:44] [2026-07-23-19f09dec90-Invoice-XC0AID8J-0007.md] SaaS-Abo-Zahlung für Prozessia (DE VAT DE451202966), Kontakt: sebastian.spuhler@prozessia.de
+- [2026-08-14 21:44] [2026-07-23-19f09dec90-Invoice-XC0AID8J-0007.md] Reverse-Charge-Verfahren angewendet, Steuersatz 0% (EU OSS VAT EU372090612)
+- [2026-08-14 21:44] [2026-07-23-19f09dec90-Invoice-XC0AID8J-0007.md] Rechnungsnummer XC0AID8J-0007, Ausstellungsdatum 27. Juni 2026, Fälligkeitsdatum 27. Juni 2026
+- [2026-08-14 21:44] [2026-07-23-19f23ce695-5615032135.md] Kosten Juni 2026: 28,10 EUR netto (0% MwSt, Reverse Charge)
 - [2026-08-14 21:43] [00_zusammenfassung_steuerpruefung_2025.md] Detailinformationen in Referenzdateien: 08_euer_ausgaben_zuordnung.md (Ausgaben-Details), 09_ust_jahreserklaerung_2025.md (Elster USt-Werte)
 - [2026-08-14 21:42] [Paddle n8n Cloud Beleg 10-07-2025.md] Beleg-Nr. 73531154-143210765; Beleg-Datum 10.07.2025; Online-Beleg abrufbar unter my.paddle.com
 - [2026-08-14 21:42] [Bolt StackBlitz Beleg 05-29-2025.md] Zahlungsmethode: Visa ****7073; EUR-Äquivalent ca. 17,73 EUR (FX 0,8865)
@@ -165,6 +199,11 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-14 21:53] [08_euer_ausgaben_zuordnung.md] INSTANTLY: Werbekostenpartner mit 12 monatlichen Zahlungen März-September 2025 (Gesamtnetto ~449€), alle Rechnungen ohne Vorsteuer
+- [2026-08-14 21:48] [2026-08-04-19fca6c853-Hetzner_2026-08-04_084001046484.md] Hetzner-Kundennummer: K0631688826
+- [2026-08-14 21:47] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] sipgate-Kundennummer: 3988053, Inhaber: Sebastian Spuhler, Adresse: Campus A 11, 66123 Saarbrücken
+- [2026-08-14 21:46] [2026-07-23-19f801f127-invoice-MSTRL-API-750302-002.md] Mistral AI SAS, 15 rue des Halles, 75001 Paris; Steuer-ID: FR95952418325
+- [2026-08-14 21:45] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] Hetzner Kundennummer K0631688826 für Sebastian Spuhler/Prozessia, Campus Starterzentrum Saarbrücken
 - [2026-08-14 21:42] [Bolt StackBlitz Beleg 05-29-2025.md] Aktives Abonnement: Bolt Pro-Plan von StackBlitz Inc.
 - [2026-08-14 21:05] [2026-07-19-Rechnung_RE260014_09.07.2026.md] Rechnung RE260014 ausgestellt an World Class Marketing LLC, 30 N Gould St Ste N, Sheridan 82801 Wyoming, USA
 - [2026-08-14 21:04] [2026-07-19-Receipt-2715-8726-9308.md] Sebastian's Individual Org (Prozessia), Sebastian Spuhler, sebastian.spuhler@prozessia.de, 66123 Saarbrücken, Germany
@@ -566,6 +605,33 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-14 21:52] [06_recherche_beleg_fehlt.md] Stand: 2026-07-22. Gesamte Google Drive + Gmail (2025) durchsucht. Von 21 fehlenden Belegen: 5 gelöst
+- [2026-08-14 21:52] [00_zusammenfassung_steuerpruefung_2025.md] Finanzamt-Erstattungen (3 Fälle) seit 2026-07-29 in Pipeline als Betriebseinnahme mitgezählt
+- [2026-08-14 21:52] [PRUEFFAELLE.md] Validierungsbedarf: 4 Hauptprüffälle benötigen Datennachverfolgung und Rechnungsbestätigung
+- [2026-08-14 21:51] [2026-07-23-19f17a1531-Leistungsübersicht der Business Platinum Card.md] Dokument vom 2026-07-23, Produktinformationsblatt zur Kartenabsicherung
+- [2026-08-14 21:51] [2026-06-09-Kostenkalkulation.md] Gesamt-Token: 2.160.000 Input, 1.080.000 Output; davon 30% Prompt-Cached (648.000 Tokens)
+- [2026-08-14 21:50] [2026-06-09-Angebot_Schaufler_Retainer.md] Monatlicher Service- und Weiterentwicklungs-Retainer Beschaffungsagent: 100,00 € netto / 119,00 € brutto
+- [2026-08-14 21:50] [2026-06-09-Angebot_Schaufler_Beschaffungsagent.md] KI-Beschaffungsagent mit Prozessaufnahme (890€), API-Schnittstellen, Auftragsbestätigungsmanagement, Lieferterminüberwachung, Versandtracking und Dashboard
+- [2026-08-14 21:49] [2026-06-09-Angebot_AG0018_15.12.2025.md] Leistungen: (1) Prozessaufnahme Beschaffungsprozess 3.000€; (2) Implementierung Beschaffungsagent mit drei Teilagenten (Auftragsbestätigungen, Lieferterminen, Lieferungen/Versand) 46.000€
+- [2026-08-14 21:48] [2026-08-04-19fca6c853-Hetzner_2026-08-04_084001046484.md] Zahlungsfrist: spätestens 14.08.2026 (10 Tage nach Rechnungsdatum 04.08.2026)
+- [2026-08-14 21:48] [2026-08-03-19fc530f90-Rechnung_RE260018_03.08.2026.md] Infrastruktur: Docker Container überwacht, automatischer Neustart, SSL-Zertifikat auto-erneuert, proaktives Incident Management
+- [2026-08-14 21:48] [2026-08-03-19fc530f90-Rechnung_RE260018_03.08.2026.md] Rechnung RE260018 vom 03.08.2026: 307,10 € Gesamtbetrag (258,07 € netto + 19% USt.), zahlbar sofort
+- [2026-08-14 21:47] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] Monatliche sipgate.de Telefonieguthaben-Aufladung per Kreditkarte (regelmäßiger Prozess)
+- [2026-08-14 21:47] [2026-07-24-19f4baf08b-G170104086.md] Fälligkeitsdatum: 09.07.2026, Zahlungsart: automatische Kreditkartenabbuchung
+- [2026-08-14 21:47] [2026-07-23-19f8cb719f-63459971781.md] Monatliches Abonnement mit automatischer Abbuchung
+- [2026-08-14 21:47] [2026-07-23-19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.md] Bereits abgerechneter Betrag: 11,25€, verbleibende Balance: 0,00€
+- [2026-08-14 21:47] [2026-07-23-19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.md] Rechnung MSTRL-API-750302-003: 11,04€ netto + 19% MwSt = Gesamtbetrag 11,04€, bezahlt am 20.07.2026 per Visa
+- [2026-08-14 21:47] [2026-07-23-19f80bf0b9-invoice-MSTRL-API-750302-003.md] Rechnung MSTRL-API-750302-003: 11,04 € für 6039 Seiten OCR-Verarbeitung (01.-20.07.2026) à 0,0034 €/Seite
+- [2026-08-14 21:46] [2026-07-23-19f80b8128-invoice-MSTRL-API-750302-003.md] Progressive Abrechnung: Schwellenwert 20,00 € überschritten (kumulierte Nutzung 20,82 €) - Rechnung automatisch ausgelöst
+- [2026-08-14 21:46] [2026-07-23-19f801f127-receipt-MSTRL-API-750302-RCPT-000001.md] Gesamtkosten: €13,39 brutto (€11,25 netto + €2,14 MwSt. 19%)
+- [2026-08-14 21:46] [2026-07-23-19f801f127-invoice-MSTRL-API-750302-002.md] Progressive Rechnungsstellung wird bei kumulierter Nutzung von €11,54 ausgelöst
+- [2026-08-14 21:45] [2026-07-23-19f4b8def1-G170032929.md] Microsoft-Rechnungsnummer G170032929, Belegdatum 09/07/2026
+- [2026-08-14 21:45] [2026-07-23-19f4b8def1-G170032929.md] Fälligkeitsdatum 09/07/2026, automatische Kreditkartenabbuchung
+- [2026-08-14 21:45] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] Zahlungsweise: automatische Kreditkartenabbuchung in den nächsten Tagen nach Rechnungsdatum
+- [2026-08-14 21:44] [2026-07-23-19f09dec90-Receipt-2713-3487.md] Zahlungsdatum: 27.06.2026, Zahlungsart: Visa-Kreditkarte (7073), Betrag: €25.00
+- [2026-08-14 21:44] [2026-07-23-19f09dec90-Receipt-2713-3487.md] Abonnement-Zahlungszyklus: monatlich €25.00, Laufzeit 27.06.2026 - 27.07.2026
+- [2026-08-14 21:43] [2026-07-23-19f188bb24-Receipt-2715-8726-9308.md] Bezahlung am 30. Juni 2026 per Link-Zahlungsmethode erfolgt
+- [2026-08-14 21:43] [2026-07-23-19f188bb24-Receipt-2715-8726-9308.md] Einmaliger API-Credit-Kauf bei Anthropic über $20.00
 - [2026-08-14 21:43] [00_zusammenfassung_steuerpruefung_2025.md] Vollständige Einzelbeleg-Verifizierung abgeschlossen: 80 Buchungen verifiziert, 75 Ausgaben-Buchungen final zugeordnet
 - [2026-08-14 21:42] [Paddle n8n Cloud Beleg 10-07-2025.md] Zahlungsflow: Beleg 10.07.2025 → Bankbuchung 11.07.2025 (Settlement nach ~24h)
 - [2026-08-14 21:42] [Bolt StackBlitz Beleg 05-29-2025.md] Rechnungsnummer LRDKYW8R-0001; Bankbuchung 30.05.2025, Gegenpartei 'BOLT (BY STACKBLITZ)'
@@ -838,6 +904,11 @@
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-14 21:52] [06_recherche_beleg_fehlt.md] Bolt/StackBlitz (17,73 EUR, 2025-05-30): Stripe-Beleg Nr. 2514-9086, 20,00 $ Pro-Plan, FX-Rate 0,8865 – als PDF in Rechnungen/ ablegen
+- [2026-08-14 21:52] [06_recherche_beleg_fehlt.md] Paddle/n8n Cloud (28,56 EUR, 2025-07-11): Beleg Nr. 73531154-143210765 in Gmail gefunden, Datum 10.07.2025 – als PDF in Rechnungen/ ablegen
+- [2026-08-14 21:52] [PRUEFFAELLE.md] Fehlende Rechnungsdaten bei kritischen Posten: FA/SF (60 EUR), Google (28.1 EUR), Triathlon Transfer (29.75 EUR) - Daten nicht eindeutig extrahierbar
+- [2026-08-14 21:50] [2026-06-09-Automatisierung Kostenvoranschlag.md] HTML-Export enthält keine lesbaren Kostendetails oder Vertragsinformationen - Original-Dokument erforderlich
+- [2026-08-14 21:47] [2026-08-01-19fbd42301-5637373931.md] Reverse-Charge-Verfahren anwendbar: 0% USt., Steuerschuldnerschaft beim Empfänger (Richtlinie 2006/112/EG Art. 196)
 - [2026-08-14 21:06] [2026-07-20-invoice-MSTRL-API-750302-002.md] MISTRAL_API_KEY auf VPS-Instanz deaktiviert als Maßnahme
 - [2026-08-14 21:06] [2026-07-20-invoice-MSTRL-API-750302-002.md] Ursache ungewöhnlich hoher Seitenzahl: Parallel laufende lokale und VPS-Instanz führte zu Duplikaten (Anhänge mehrfach heruntergeladen und per OCR verarbeitet)
 - [2026-08-14 21:05] [2026-07-19-Rechnung_RE260014_09.07.2026.md] Verdacht auf Fehlzuordnung: Restaurant-Rechnung ohne erkennbaren Bezug zu legitimer Prozessia-Kundenbeziehung
