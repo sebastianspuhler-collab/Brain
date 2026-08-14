@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-14 06:14] [Loadout by Aident x WebWokr] WebWokr konzentriert sich auf DSGVO-konforme Chatbots und KPI-Dashboards für KMUs - Kunden haben typischerweise unterschiedliche Tool-Stacks
+- [2026-08-14 06:14] [Loadout by Aident x WebWokr] Tyler Spencer (Loadout by Aident, t@connectdriftvox.com) bietet AI-Consulting-Support an - verbindet AI Agents mit 1.000+ Tools über ein Dashboard
 - [2026-08-13 22:38] [[Twilio] Re: [ACTION REQUIRED] Your Trus] Ticket-Nummer: 28824206, Datum: 13.08.2026
 - [2026-08-13 17:07] [OCR 4.1: more accuracy on complex docume] OCR 3 bleibt zum ursprünglichen Preis von $2 pro 1.000 Seiten verfügbar
 - [2026-08-13 12:53] [2026-08-13-Email-19ffb2aa-Follow-up-Prozessia-x-ESF.md] Kollege Alex bei ESF ist verantwortlich für das Thema 'de:hub'
@@ -1259,6 +1261,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-14 06:14] [Loadout by Aident x WebWokr] Angebot: Tyler Spencer erstellt kurze 3-Punkte-Übersicht wie Loadout/Aident zu WebWokrs Delivery-Modell passt (weniger Setup pro Kunde, portablere Aktionen)
 - [2026-08-13 22:38] [[Twilio] Re: [ACTION REQUIRED] Your Trus] Anforderung: Gewerbeanmeldung oder offizielles Dokument mit Geschäftsnamen und Registrierungsnummer zur Verifizierung des Trust Hub Business Profiles erforderlich
 - [2026-08-13 17:08] [memory.md] STRATEGIE.md ist verbindliches Konfliktlösungsdokument – gilt bei inhaltlichen Widersprüchen zu anderen Dateien
 - [2026-08-13 11:42] [STRATEGIE.md] 4 Themen-Säulen für LinkedIn-Content definiert (erste: Wissensmanagement); verankert in linkedin_service.py, claudeService.js, carousel_service.py
