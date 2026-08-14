@@ -9,6 +9,7 @@ import asyncio
 import json
 import logging
 import os
+import re
 import subprocess
 import time
 
@@ -65,8 +66,17 @@ def _git_remote_with_pat(vault_path, pat: str) -> str | None:
         url = result.stdout.strip()
         if not url or "github.com" not in url:
             return None
-        # https://github.com/... → https://PAT@github.com/...
-        return url.replace("https://", f"https://{pat}@")
+        # https://[alte-credentials@]github.com/... → https://PAT@github.com/...
+        # Erst eventuell schon eingebettete Zugangsdaten aus einem vorherigen
+        # Aufruf entfernen (Bug 2026-08-14): diese Funktion wird bei JEDEM
+        # Sync-Zyklus (git_pull_vault UND git_push_vault, alle 10 Min) erneut
+        # auf der zuletzt gesetzten Remote-URL aufgerufen - ohne das Entfernen
+        # haengte jeder weitere Aufruf ein zusaetzliches "PAT@" vor die schon
+        # vorhandenen Zugangsdaten ("https://PAT@PAT@github.com/..."), git/curl
+        # lehnten das dann mit "URL rejected: Bad hostname" ab. Muss idempotent
+        # sein, egal wie oft sie auf derselben URL laeuft.
+        url_ohne_credentials = re.sub(r"://[^/@]+@", "://", url, count=1)
+        return url_ohne_credentials.replace("https://", f"https://{pat}@", 1)
     except Exception:
         return None
 

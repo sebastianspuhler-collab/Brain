@@ -7,6 +7,7 @@ _agent/ms_config.json
 _agent/watcher.pid
 .env
 .env.local
+.env.bak*
 backend/users.json
 backend/templates/AVV_Prozessia_TEMPLATE.docx
 *.key
