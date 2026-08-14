@@ -422,22 +422,24 @@ async def attachment_backfill_loop() -> None:
 
 
 async def vault_reorganize_loop() -> None:
-    """Bündelt lose Notiz+Original-Paare in vollgelaufenen Kunden-/Leads-/
-    Sales-Unterordnern automatisch in eigene Dokument-Ordner (Sebastian,
-    2026-08-11: Kunden/Schaufler/Dokumente/ war auf ~110 lose Dateien
-    angewachsen und dadurch faktisch unbrowsbar - "das System muss das
-    automatisch neu sortieren"). process_file() legt diese Struktur seit
-    demselben Tag für NEUE Dateien direkt an; dieser Loop holt bestehende,
-    schon vollgelaufene Ordner nach und hält künftig neu wachsende Ordner
-    laufend aufgeräumt, ohne dass Sebastian das manuell anstoßen muss.
-    classify.reorganize_folder() ist idempotent - ein Durchlauf ohne etwas
-    zu tun ist die Regel, nicht die Ausnahme, sobald einmal aufgeräumt."""
+    """Räumt den Vault laufend automatisch auf (Sebastian, 2026-08-11:
+    Kunden/Schaufler/Dokumente/ war auf ~110 lose Dateien angewachsen und
+    dadurch faktisch unbrowsbar - "das System muss das automatisch neu
+    sortieren"; erweitert 2026-08-14 um MD/Original-Trennung und
+    Kategorie-Unterordner ab einer Schwelle, siehe classify.reorganize_vault()
+    Docstring für die drei Teilschritte). process_file() legt die
+    Zielstruktur seit 2026-08-14 für NEUE Dateien direkt an; dieser Loop holt
+    bestehende, schon vollgelaufene oder noch nicht migrierte Ordner nach und
+    hält künftig neu wachsende Ordner laufend aufgeräumt, ohne dass Sebastian
+    das manuell anstoßen muss. classify.reorganize_vault() ist idempotent -
+    ein Durchlauf ohne etwas zu tun ist die Regel, nicht die Ausnahme, sobald
+    einmal aufgeräumt."""
     await asyncio.sleep(120)  # nach RAG-Laden und den anderen Loops starten
     while True:
         try:
             ergebnisse = await asyncio.to_thread(classify.reorganize_vault)
             if ergebnisse:
-                gesamt = sum(e["verschoben"] for e in ergebnisse)
+                gesamt = sum(e.get("verschoben", e.get("aufgeloest", 0)) for e in ergebnisse)
                 logger.info(
                     "Vault-Aufräumen: %d Datei(en) in %d Ordner(n) neu einsortiert",
                     gesamt, len(ergebnisse),

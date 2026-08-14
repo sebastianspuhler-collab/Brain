@@ -499,25 +499,25 @@ def process_file(filepath: Path) -> tuple[bool, str]:
     zielordner.mkdir(parents=True, exist_ok=True)
     firma = _extract_firma(zielordner_rel)
 
-    # Jedes Dokument mit Original+Notiz bekommt sofort einen eigenen
-    # Unterordner statt flach im Zielordner zu landen (Sebastian, 2026-08-11:
-    # Kunden/Schaufler/Dokumente/ war auf ~110 lose Dateien angewachsen,
-    # dadurch faktisch unbrowsbar). Bilder/Zips bleiben flach (kein Notiz-
-    # Pendant, ein eigener Unterordner für eine einzelne Bilddatei wäre selbst
-    # nur Unordnung, siehe reorganize_folder() unten für dieselbe Regel
-    # rückwirkend auf bestehende, schon vollgelaufene Ordner).
-    if filepath.suffix.lower() not in IMAGE_EXTS | {".zip"}:
-        zielordner = zielordner / _dokument_ordnername(filepath.stem)
-        zielordner.mkdir(parents=True, exist_ok=True)
-        result["zielordner"] = str(zielordner.relative_to(settings.vault_path))
+    # Original bleibt flach im Zielordner, die zugehörige Notiz liegt separat
+    # unter <zielordner>/MD/ (Sebastian, 2026-08-14: .md-Notizen dürfen nie
+    # mit Originaldokumenten vermischt in einem Ordner liegen - löst die
+    # vorherige Regel vom 11.08. ab, die Original+Notiz gemeinsam in einem
+    # eigenen, nach dem Dokument benannten Unterordner ablegte). Bilder/Zips
+    # haben ohnehin keine Notiz und bleiben unverändert flach. Läuft ein
+    # Zielordner trotzdem wieder voll, übernimmt reorganize_vault()
+    # (min_dateien-Schwelle) die automatische Kategorie-Unterteilung.
+    hat_notiz = filepath.suffix.lower() not in IMAGE_EXTS | {".zip"}
+    if hat_notiz:
+        (zielordner / "MD").mkdir(exist_ok=True)
 
     meeting_data = extract_meeting_structure(content) if ist_transkript else None
     datum = _resolve_datum(meeting_data, filepath)
 
-    if filepath.suffix.lower() not in IMAGE_EXTS | {".zip"}:
+    if hat_notiz:
         tags = result.get("tags", [])
         tags_str = "\n".join(f"  - {t}" for t in tags)
-        notiz_path = zielordner / f"{datum}-{filepath.stem}.md"
+        notiz_path = zielordner / "MD" / f"{datum}-{filepath.stem}.md"
 
         meeting_sections = ""
         if ist_transkript:
@@ -594,125 +594,241 @@ kategorie: {result.get("kategorie", "")}
     return True, result.get("zielordner", "")
 
 
-def _dokument_ordnername(stem: str) -> str:
-    """Ordnername für ein einzelnes Dokument (Notiz + Original zusammen).
-    stem kommt aus Path.stem und ist damit schon als DATEIname auf demselben
-    Dateisystem bewiesen gültig - als Ordnername gilt dieselbe Eignung. Nur
-    Länge deckeln, damit sehr lange Originaldateinamen (z.B. komplette
-    E-Mail-Betreffzeilen) nicht an Pfadlängen-Limits scheitern."""
-    name = stem.strip()
-    return name[:120] if len(name) > 120 else name
+def _ordnername(name: str) -> str:
+    """Sanitisiert einen freien Namen (Dokument-Stamm oder LLM-Kategorie) zu
+    einem gültigen Ordnernamen: Pfadtrenner/führende-trailing Whitespaces raus,
+    Länge gedeckelt, damit z.B. komplette E-Mail-Betreffzeilen oder etwas zu
+    ausführliche Kategorienamen nicht an Dateisystem-Limits scheitern."""
+    name = name.strip().replace("/", "-").replace("\\", "-")
+    return name[:80] if len(name) > 80 else name
 
 
-_ORIGINAL_STEM_RE = re.compile(r"^\d{4}-\d{2}-\d{2}-(.+)$")
+VERTRAEGE_KATEGORIEN = [
+    "NDA", "Dienstleistungsvertraege", "Vertriebsvereinbarungen",
+    "AVV_SLA", "Gesellschaftsrecht", "Sonstige",
+]
+
+# Top-Level-Ordner, die reorganize_vault() als Inhaltsordner behandelt -
+# bewusst eine Allowlist statt einer Blockliste, damit backend/, frontend/,
+# dev-agent/, mcp-vnc/, services/, _agent/, _inbox/ sicher nie angefasst
+# werden, ohne dass man jeden davon einzeln ausschließen muss.
+REORG_TOP_LEVEL = {"Kunden", "Leads", "Sales", "Vertraege", "Finanzen", "Marketing", "Produkte", "Memos"}
 
 
-def _md_original_stem(md_stem: str) -> str | None:
-    """Leitet aus dem Namen einer klassifizierten Notiz (Muster oben:
-    '{datum}-{original_stem}.md') den erwarteten Original-Dateinamen-Stamm ab.
-    None, wenn der Dateiname nicht dem Datumspräfix-Muster folgt (z.B. von
-    Hand angelegte Notizen ohne Original)."""
-    m = _ORIGINAL_STEM_RE.match(md_stem)
-    return m.group(1) if m else None
+def unwrap_legacy_pairing_folders(parent: Path) -> dict:
+    """Löst die bis 2026-08-14 aktive Struktur "ein Unterordner pro Dokument
+    mit Original+Notiz zusammen" (siehe process_file() vor diesem Datum)
+    wieder auf: ein direkter Unterordner von `parent`, der KEINE eigenen
+    Unterordner, aber genau eine Nicht-MD-Datei und mindestens eine
+    .md-Datei enthält, gilt als solcher Wrapper. Original wandert nach
+    `parent/`, die .md(s) nach `parent/MD/`, der jetzt leere Wrapper wird
+    entfernt. Muss vor separate_md_files() laufen, sonst hält dessen
+    "enthält Ordner MD schon?"-Logik einen 1-Datei-Wrapper fälschlich für
+    bereits korrekt getrennt. Kollisionsfälle (Zielname existiert schon)
+    werden übersprungen statt überschrieben - idempotent, ein zweiter Lauf
+    auf einem bereits aufgelösten Ordner findet nichts mehr zu tun."""
+    if not parent.is_dir():
+        return {"ordner": str(parent), "aufgeloest": 0, "moves": []}
 
-
-def reorganize_folder(folder: Path) -> dict:
-    """Bündelt lose Notiz+Original-Paare, die noch flach in `folder` liegen,
-    nachträglich in eigene Unterordner (dieselbe Struktur, die process_file()
-    seit 2026-08-11 von Anfang an anlegt - hier für Ordner, die VOR diesem
-    Zeitpunkt schon vollgelaufen sind, z.B. Kunden/Schaufler/Dokumente/ mit
-    ~110 losen Dateien).
-
-    Nur Dateien DIREKT in `folder` werden angefasst (keine Rekursion in schon
-    bestehende Unterordner) - macht die Funktion idempotent: ein zweiter Lauf
-    auf einem bereits aufgeräumten Ordner findet nichts mehr zu tun.
-
-    Zuordnung ausschließlich über den exakten Dateinamen-Stamm (nach Abzug des
-    Datumspräfixes bei der Notiz) - bewusst kein Fuzzy-Matching, siehe
-    Docstring von _md_original_stem(). Eine Notiz ohne passendes Original
-    (z.B. aus reinem E-Mail-Text ohne Anhang) bleibt unangetastet liegen -
-    für sie gibt es keinen zweiten Teil, den ein eigener Ordner zusammenhalten
-    würde. Mehrere Notizen, die auf dasselbe Original zeigen (beobachtet z.B.
-    bei mehrfach neu verarbeiteten Dateien), landen gemeinsam in einem Ordner.
-    """
-    if not folder.is_dir():
-        return {"ordner": str(folder), "verschoben": 0, "gruppen": 0, "moves": []}
-
-    direkte_dateien = [f for f in folder.iterdir() if f.is_file() and not f.name.startswith(".")]
-    md_dateien = [f for f in direkte_dateien if f.suffix.lower() == ".md"]
-    andere_dateien = {f.name: f for f in direkte_dateien if f.suffix.lower() != ".md"}
-
-    # stem -> [passende Notizen], damit mehrere Notizen auf dasselbe Original
-    # in derselben Gruppe landen statt sich gegenseitig zu überschreiben.
-    gruppen: dict[str, list[Path]] = {}
-    for md in md_dateien:
-        original_stem = _md_original_stem(md.stem)
-        if not original_stem:
-            continue
-        passendes_original = next(
-            (f for name, f in andere_dateien.items() if Path(name).stem == original_stem), None
-        )
-        if passendes_original is None:
-            continue
-        gruppen.setdefault(original_stem, [passendes_original]).append(md)
-
-    verschoben = 0
-    # (alter Pfad, neuer Pfad) für jede tatsächlich verschobene .md-Datei -
-    # der Aufrufer braucht das, um den RAG-Index nachzuziehen (alten Pfad
-    # entfernen, neuen aufnehmen), siehe reorganize_vault().
     moves: list[tuple[Path, Path]] = []
-    for original_stem, dateien in gruppen.items():
-        ziel = folder / _dokument_ordnername(original_stem)
-        # Kollision mit einem zufällig gleichnamigen, bereits existierenden
-        # Unterordner vermeiden (z.B. ein händisch angelegter Ordner) - dann
-        # lieber überspringen als hineinzumischen.
-        if ziel.exists() and not ziel.is_dir():
+    aufgeloest = 0
+    for sub in [p for p in parent.iterdir() if p.is_dir() and p.name != "MD" and not p.name.startswith(".")]:
+        kinder = [f for f in sub.iterdir() if not f.name.startswith(".")]
+        if any(f.is_dir() for f in kinder):
             continue
-        ziel.mkdir(exist_ok=True)
-        for f in dateien:
-            zielpfad = ziel / f.name
-            if zielpfad.exists():
-                continue
-            shutil.move(str(f), str(zielpfad))
-            verschoben += 1
-            if f.suffix.lower() == ".md":
-                moves.append((f, zielpfad))
+        md_dateien = [f for f in kinder if f.suffix.lower() == ".md"]
+        andere = [f for f in kinder if f.suffix.lower() != ".md"]
+        if len(andere) != 1 or not md_dateien:
+            continue
 
-    return {"ordner": str(folder), "verschoben": verschoben, "gruppen": len(gruppen), "moves": moves}
+        original = andere[0]
+        ziel_original = parent / original.name
+        md_ziel_ordner = parent / "MD"
+        if ziel_original.exists() or any((md_ziel_ordner / md.name).exists() for md in md_dateien):
+            continue  # Kollision - lieber liegen lassen als überschreiben
+
+        md_ziel_ordner.mkdir(exist_ok=True)
+        shutil.move(str(original), str(ziel_original))
+        for md in md_dateien:
+            zielpfad = md_ziel_ordner / md.name
+            shutil.move(str(md), str(zielpfad))
+            moves.append((md, zielpfad))
+        try:
+            sub.rmdir()
+        except OSError:
+            pass
+        aufgeloest += 1
+
+    return {"ordner": str(parent), "aufgeloest": aufgeloest, "moves": moves}
+
+
+def separate_md_files(folder: Path) -> dict:
+    """Trennt lose .md-Notizen von allem anderen in `folder`: sobald der
+    Ordner direkt sowohl mindestens eine .md-Datei als auch mindestens eine
+    andere Datei oder einen Unterordner enthält, wandern alle direkten
+    .md-Kinder nach `folder/MD/` (Sebastian, 2026-08-14: ".md-Dateien mit
+    anderen vermischt - das geht nicht"). No-op wenn `folder` selbst "MD"
+    heißt oder keine .md-Datei direkt enthält - macht die Funktion idempotent,
+    ein zweiter Lauf auf einem bereits getrennten Ordner findet nichts mehr
+    zu tun (die .md-Dateien liegen dann schon in folder/MD/, nicht mehr
+    direkt in folder)."""
+    if not folder.is_dir() or folder.name == "MD":
+        return {"ordner": str(folder), "verschoben": 0, "moves": []}
+
+    direkte = [f for f in folder.iterdir() if not f.name.startswith(".")]
+    md_dateien = [f for f in direkte if f.is_file() and f.suffix.lower() == ".md"]
+    andere = [f for f in direkte if f not in md_dateien]
+
+    if not md_dateien or not andere:
+        return {"ordner": str(folder), "verschoben": 0, "moves": []}
+
+    ziel = folder / "MD"
+    ziel.mkdir(exist_ok=True)
+    moves: list[tuple[Path, Path]] = []
+    for md in md_dateien:
+        zielpfad = ziel / md.name
+        if zielpfad.exists():
+            continue
+        shutil.move(str(md), str(zielpfad))
+        moves.append((md, zielpfad))
+    return {"ordner": str(folder), "verschoben": len(moves), "moves": moves}
+
+
+def group_by_category(folder: Path, dateien: list[Path], vokabular: list[str] | None = None) -> dict:
+    """Gruppiert lose Originaldateien in `folder` per LLM in Kategorie-
+    Unterordner - mit festem Vokabular (z.B. Vertragstypen für Vertraege/,
+    siehe VERTRAEGE_KATEGORIEN) oder, wenn keins übergeben wird, schlägt das
+    Modell selbst 3-6 knappe Kategorien für genau diesen Dateisatz vor
+    (Sebastian, 2026-08-14: "ab einer gewissen Zahl an Dateien müssen
+    automatisch und intelligent Unterordner angelegt werden"). Nutzt nur die
+    Dateinamen (kein Inhaltsauswertung nötig, hält den Aufruf günstig und
+    schnell für bis zu einige hundert Dateien in einem Aufruf).
+
+    Verschiebt NUR die übergebenen Originaldateien - .md-Notizen liegen nach
+    separate_md_files() ohnehin schon getrennt in folder/MD/ und bleiben dort
+    unverändert liegen; die Zuordnung zu einem Original bleibt über das
+    "quelle:"-Frontmatter-Feld in der Notiz nachvollziehbar, auch ohne
+    gemeinsamen Ordner."""
+    if not dateien:
+        return {"ordner": str(folder), "verschoben": 0, "moves": []}
+
+    namen = [f.name for f in dateien]
+    vokabular_hinweis = (
+        f"Nutze GENAU diese Kategorien: {', '.join(vokabular)}"
+        if vokabular else
+        "Schlage selbst 3-6 knappe, treffende deutsche Kategorienamen vor "
+        "(kurz, ohne Sonderzeichen/Leerzeichen, z.B. 'Rechnungen' statt "
+        "'Rechnungen und Belege')."
+    )
+    prompt = f"""Ordne jede dieser Dateien einer Kategorie zu, um einen vollgelaufenen
+Ordner ({folder.name}, {len(namen)} Dateien) in Unterordner aufzuteilen.
+
+Dateinamen:
+{chr(10).join(f"- {n}" for n in namen)}
+
+{vokabular_hinweis}
+
+Antworte NUR als JSON-Objekt: {{"dateiname": "kategorie", ...}} - für JEDE
+Datei aus der Liste oben exakt ein Eintrag, "kategorie" als kurzer
+Ordnername (keine Sonderzeichen außer _)."""
+
+    try:
+        raw = complete_json(prompt, model=Models.SONNET, max_tokens=2000).strip()
+        raw = raw.replace("```json", "").replace("```", "").strip()
+        zuordnung = json.loads(raw)
+    except Exception:
+        logger.exception("group_by_category: Klassifizierung fehlgeschlagen für %s", folder)
+        return {"ordner": str(folder), "verschoben": 0, "moves": []}
+
+    moves: list[tuple[Path, Path]] = []
+    for f in dateien:
+        kategorie = zuordnung.get(f.name)
+        if not kategorie or not isinstance(kategorie, str):
+            continue
+        kategorie_ordner = folder / _ordnername(kategorie)
+        kategorie_ordner.mkdir(exist_ok=True)
+        ziel = kategorie_ordner / f.name
+        zaehler = 1
+        while ziel.exists():
+            ziel = kategorie_ordner / f"{f.stem}({zaehler}){f.suffix}"
+            zaehler += 1
+        shutil.move(str(f), str(ziel))
+        moves.append((f, ziel))
+
+    return {"ordner": str(folder), "verschoben": len(moves), "moves": moves}
 
 
 def reorganize_vault(min_dateien: int = 15) -> list[dict]:
-    """Läuft über alle Kunden/-, Leads/- und Sales/-Firmenordner und wendet
-    reorganize_folder() auf jeden Unterordner an, der min_dateien oder mehr
-    lose Dateien direkt enthält (Schwelle nur, um sehr kleine, längst
-    übersichtliche Ordner in Ruhe zu lassen - reorganize_folder() selbst wäre
-    auch bei 3 Dateien schon korrekt, brächte dort aber keinen echten Nutzen).
-    Wird sowohl einmalig manuell aufgerufen als auch periodisch vom
-    Hintergrund-Job (jobs.py:vault_reorganize_loop) - idempotent, siehe
-    reorganize_folder(). Zieht danach den RAG-Index nach (alte Pfade raus,
-    neue Pfade rein), sonst würde jede verschobene .md-Datei im Index einen
-    toten Pfad hinterlassen - siehe rag.remove_paths()."""
+    """Räumt den gesamten Vault auf, in drei Schritten über eine feste
+    Allowlist von Top-Level-Inhaltsordnern (REORG_TOP_LEVEL, rekursiv in
+    jeden Unterordner):
+
+    1. unwrap_legacy_pairing_folders() - löst alte Dokument+Notiz-Wrapper-
+       Ordner von vor dem 14.08. auf.
+    2. separate_md_files() - trennt .md-Notizen von Originaldokumenten in
+       jedem Ordner, der beides direkt gemischt enthält.
+    3. group_by_category() - für Ordner, die danach noch >= min_dateien lose
+       Originaldateien direkt enthalten, per LLM in Kategorie-Unterordner
+       aufteilen (Vertraege/ mit festem Vertragstyp-Vokabular, sonst lässt
+       das Modell selbst passende Kategorien vorschlagen).
+
+    Reihenfolge ist bewusst: erst 1+2 über ALLE Kandidaten (bottom-up, damit
+    ein aufgelöster Wrapper nicht seinen jetzt größeren Elternordner verpasst),
+    danach erst 3 - sonst würde Schritt 3 noch die alten Wrapper-Ordner statt
+    der echten losen Dateien zählen. Wird sowohl einmalig manuell aufgerufen
+    als auch periodisch vom Hintergrund-Job (jobs.py:vault_reorganize_loop) -
+    jede Teilfunktion ist für sich idempotent, siehe deren Docstrings. Zieht
+    danach den RAG-Index nach (alte Pfade raus, neue Pfade rein) für alle
+    verschobenen .md-Notizen - reine Dokument-Umsortierungen aus Schritt 3
+    berühren den RAG-Index nicht, der indiziert nur .md-Dateien (rag.py)."""
     settings = get_settings()
-    ergebnisse = []
+    ergebnisse: list[dict] = []
     alte_pfade: set[str] = set()
-    for basis in ("Kunden", "Leads", "Sales"):
-        basis_dir = settings.vault_path / basis
-        if not basis_dir.exists():
+
+    def sammle_dirs(basis: Path) -> list[Path]:
+        dirs = [basis]
+        for p in sorted(basis.rglob("*")):
+            if p.is_dir() and not any(teil.startswith(".") for teil in p.relative_to(basis).parts):
+                dirs.append(p)
+        return dirs
+
+    kandidaten: list[Path] = []
+    for name in sorted(REORG_TOP_LEVEL):
+        basis_dir = settings.vault_path / name
+        if basis_dir.exists() and basis_dir.is_dir():
+            kandidaten.extend(sammle_dirs(basis_dir))
+    # Tiefste Ordner zuerst, siehe Docstring oben.
+    kandidaten.sort(key=lambda p: len(p.parts), reverse=True)
+
+    for ordner in kandidaten:
+        if not ordner.exists():
             continue
-        for firma_dir in basis_dir.iterdir():
-            if not firma_dir.is_dir() or firma_dir.name.startswith((".", "[", "_")):
-                continue
-            # Sowohl der Firmenordner selbst (falls dort flach abgelegt wird)
-            # als auch seine direkten Unterordner (Dokumente/, Meetings/, ...).
-            kandidaten = [firma_dir] + [p for p in firma_dir.iterdir() if p.is_dir()]
-            for ordner in kandidaten:
-                anzahl = sum(1 for f in ordner.iterdir() if f.is_file() and not f.name.startswith("."))
-                if anzahl >= min_dateien:
-                    ergebnis = reorganize_folder(ordner)
-                    if ergebnis["verschoben"]:
-                        ergebnisse.append(ergebnis)
-                        for alt, _neu in ergebnis["moves"]:
-                            alte_pfade.add(str(alt.relative_to(settings.vault_path)))
+        r = unwrap_legacy_pairing_folders(ordner)
+        if r["aufgeloest"]:
+            ergebnisse.append({"ordner": str(ordner), "typ": "unwrap", **r})
+            for alt, _neu in r["moves"]:
+                alte_pfade.add(str(alt.relative_to(settings.vault_path)))
+
+    for ordner in kandidaten:
+        if not ordner.exists() or ordner.name == "MD":
+            continue
+        r = separate_md_files(ordner)
+        if r["verschoben"]:
+            ergebnisse.append({"ordner": str(ordner), "typ": "md_trennung", **r})
+            for alt, _neu in r["moves"]:
+                alte_pfade.add(str(alt.relative_to(settings.vault_path)))
+
+    for ordner in kandidaten:
+        if not ordner.exists() or ordner.name == "MD":
+            continue
+        lose = [f for f in ordner.iterdir() if f.is_file() and not f.name.startswith(".")]
+        if len(lose) < min_dateien:
+            continue
+        rel = ordner.relative_to(settings.vault_path)
+        vokabular = VERTRAEGE_KATEGORIEN if rel.parts and rel.parts[0] == "Vertraege" else None
+        r = group_by_category(ordner, lose, vokabular)
+        if r["verschoben"]:
+            ergebnisse.append({"ordner": str(ordner), "typ": "kategorisierung", **r})
 
     if alte_pfade:
         try:
