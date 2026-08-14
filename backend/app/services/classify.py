@@ -7,6 +7,7 @@ import json
 import logging
 import re
 import shutil
+import time
 from datetime import date, datetime
 from pathlib import Path
 
@@ -631,6 +632,26 @@ VERTRAEGE_KATEGORIEN = [
 REORG_TOP_LEVEL = {"Kunden", "Leads", "Sales", "Vertraege", "Finanzen", "Marketing", "Produkte", "Memos"}
 
 
+_REORG_GRACE_SECONDS = 300  # 5 Minuten
+
+
+def _kuerzlich_geaendert(pfad: Path) -> bool:
+    """Ob `pfad` innerhalb der letzten _REORG_GRACE_SECONDS veraendert wurde -
+    Sicherheitsabstand gegen Wettlaeufe mit externen Live-Sync-Tools (z.B.
+    Syncthing), die dieselbe Datei gerade noch schreiben/verschieben koennten
+    (Sebastian, 2026-08-14: beim Erst-Sync von ~1300 bisher VPS-unsichtbaren
+    Dateien griff group_by_category() zeitgleich auf frisch von Syncthing
+    geschriebene Dateien zu - 3 Dateien wurden kurzzeitig geloescht, per
+    Syncthing-Versionierung wiederhergestellt, kein dauerhafter Verlust, aber
+    ein echter Wettlauf). Bei fehlendem/nicht lesbarem stat() konservativ
+    true (lieber diesen Zyklus ueberspringen als riskieren) - der naechste
+    Lauf (reorganize_vault laeuft periodisch) holt es dann nach."""
+    try:
+        return (time.time() - pfad.stat().st_mtime) < _REORG_GRACE_SECONDS
+    except OSError:
+        return True
+
+
 def unwrap_legacy_pairing_folders(parent: Path) -> dict:
     """Löst die bis 2026-08-14 aktive Struktur "ein Unterordner pro Dokument
     mit Original+Notiz zusammen" (siehe process_file() vor diesem Datum)
@@ -656,6 +677,8 @@ def unwrap_legacy_pairing_folders(parent: Path) -> dict:
         andere = [f for f in kinder if f.suffix.lower() != ".md"]
         if len(andere) != 1 or not md_dateien:
             continue
+        if any(_kuerzlich_geaendert(f) for f in kinder):
+            continue  # noch frisch (z.B. von einem Live-Sync-Tool) - naechster Zyklus
 
         original = andere[0]
         ziel_original = parent / original.name
@@ -707,10 +730,14 @@ def separate_md_files(folder: Path) -> dict:
     if not md_dateien or not andere:
         return {"ordner": str(folder), "verschoben": 0, "moves": []}
 
+    stabile_md_dateien = [f for f in md_dateien if not _kuerzlich_geaendert(f)]
+    if not stabile_md_dateien:
+        return {"ordner": str(folder), "verschoben": 0, "moves": []}
+
     ziel = folder / "MD"
     ziel.mkdir(exist_ok=True)
     moves: list[tuple[Path, Path]] = []
-    for md in md_dateien:
+    for md in stabile_md_dateien:
         zielpfad = ziel / md.name
         if zielpfad.exists():
             continue
@@ -875,11 +902,12 @@ def reorganize_vault(min_dateien: int = 15) -> list[dict]:
         if not ordner.exists() or ordner.name == "MD":
             continue
         lose = [f for f in ordner.iterdir() if f.is_file() and not f.name.startswith(".")]
-        if len(lose) < min_dateien or not _sieht_aus_wie_echte_dokumente(ordner, lose):
+        stabile = [f for f in lose if not _kuerzlich_geaendert(f)]
+        if len(stabile) < min_dateien or not _sieht_aus_wie_echte_dokumente(ordner, stabile):
             continue
         rel = ordner.relative_to(settings.vault_path)
         vokabular = VERTRAEGE_KATEGORIEN if rel.parts and rel.parts[0] == "Vertraege" else None
-        r = group_by_category(ordner, lose, vokabular)
+        r = group_by_category(ordner, stabile, vokabular)
         if r["verschoben"]:
             ergebnisse.append({"ordner": str(ordner), "typ": "kategorisierung", **r})
 
