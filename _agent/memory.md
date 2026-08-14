@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-14 09:31] [2026-08-14-Email-19fff7f1-Zugesagt-Angebotsdurchsprache-Prozessia.md] Email-Bestätigung vom 14.08.2026, 08:58 Uhr
 - [2026-08-14 08:52] [memory.md] Twilio Ticket #28824206 vom 2026-08-13 erfordert Action
 - [2026-08-14 06:14] [Loadout by Aident x WebWokr] WebWokr konzentriert sich auf DSGVO-konforme Chatbots und KPI-Dashboards für KMUs - Kunden haben typischerweise unterschiedliche Tool-Stacks
 - [2026-08-14 06:14] [Loadout by Aident x WebWokr] Tyler Spencer (Loadout by Aident, t@connectdriftvox.com) bietet AI-Consulting-Support an - verbindet AI Agents mit 1.000+ Tools über ein Dashboard
@@ -894,6 +895,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-14 09:31] [2026-08-13-Email-19ffb2aa-Follow-up-Prozessia-x-ESF.md] East-Side-Fab-eV arbeitet an zwei Themen: de:hub (Ansprechpartner: Alex) und IT.CON (Ansprechpartner: Flo)
 - [2026-08-14 09:04] [2026-08-14-Prozessia X TopDown.md] TopDown (Dominik Nussbaumer) – Follow-up Angebotsdurchsprache 14.08.2026, Präsentation versendet 11.08.2026
 - [2026-08-13 22:38] [[Twilio] Re: [ACTION REQUIRED] Your Trus] Twilio (Onboarding & Compliance Operations), Kontaktperson: Jed Enel, E-Mail: trusthub-verify@twilio.zendesk.com
 - [2026-08-13 11:23] [context.md] Juchem: Beschaffungsprozess besprochen (29.07.2026 mit Thorsten Maas), nächster Schritt: Angebot erstellen
@@ -1263,6 +1265,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-14 09:31] [2026-08-14-Prozessia X TopDown.md] Schnittstelle DATEV identifiziert als zweiter Integrationspunkt (technische Details im Dokument abgeschnitten)
 - [2026-08-14 09:11] [2026-08-14-Prozessia X TopDown.md] Schnittstelle 2 – DATEV: fertig verbuchter Beleg wird an Steuerberater übertragen
 - [2026-08-14 09:11] [2026-08-14-Prozessia X TopDown.md] Schnittstelle 1 – E-Mail: Outlook via Microsoft Graph API (Standard-Setup, IT-Ansprechpartner erforderlich)
 - [2026-08-14 09:11] [2026-08-14-Prozessia X TopDown.md] Agent-Scope erweitern: Kontierung/Verbuchung mit Buchungsvorschlag auf Basis der Rechnung erforderlich (nicht nur Erkennung/Prüfung)
