@@ -1,4 +1,8 @@
 ## KONTEXT
+- [2026-08-14 21:43] [00_zusammenfassung_steuerpruefung_2025.md] Detailinformationen in Referenzdateien: 08_euer_ausgaben_zuordnung.md (Ausgaben-Details), 09_ust_jahreserklaerung_2025.md (Elster USt-Werte)
+- [2026-08-14 21:42] [Paddle n8n Cloud Beleg 10-07-2025.md] Beleg-Nr. 73531154-143210765; Beleg-Datum 10.07.2025; Online-Beleg abrufbar unter my.paddle.com
+- [2026-08-14 21:42] [Bolt StackBlitz Beleg 05-29-2025.md] Zahlungsmethode: Visa ****7073; EUR-Äquivalent ca. 17,73 EUR (FX 0,8865)
+- [2026-08-14 21:42] [Bolt StackBlitz Beleg 05-29-2025.md] Wiederkehrende Kosten: 20,00 USD monatlich (Beleg 2514-9086 vom 29.05.2025)
 - [2026-08-14 21:06] [2026-07-20-invoice-MSTRL-API-750302-002.md] Zweite Mistral-Rechnung desselben Tages (MSTRL-API-750302-003): 11,04 € - löste gemeinsam Kosten-Analyse vom 20.07.2026 aus
 - [2026-08-14 21:06] [2026-07-20-invoice-MSTRL-API-750302-002.md] Zahlungsfrist: 20.07.2026 (0 Tage) - sofortige Fälligkeit
 - [2026-08-14 21:05] [2026-07-19-Rechnung_2026-07-16_310100082556.md] IONOS Servicezeiten täglich rund um die Uhr, Telefon 0721 170 5522
@@ -161,6 +165,7 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-14 21:42] [Bolt StackBlitz Beleg 05-29-2025.md] Aktives Abonnement: Bolt Pro-Plan von StackBlitz Inc.
 - [2026-08-14 21:05] [2026-07-19-Rechnung_RE260014_09.07.2026.md] Rechnung RE260014 ausgestellt an World Class Marketing LLC, 30 N Gould St Ste N, Sheridan 82801 Wyoming, USA
 - [2026-08-14 21:04] [2026-07-19-Receipt-2715-8726-9308.md] Sebastian's Individual Org (Prozessia), Sebastian Spuhler, sebastian.spuhler@prozessia.de, 66123 Saarbrücken, Germany
 - [2026-08-14 21:04] [2026-07-19-Receipt-2713-3487.md] Vendor: Lovable Labs Incorporated, Dover Delaware, support@lovable.dev, EU OSS VAT: EU372090612
@@ -561,6 +566,9 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-14 21:43] [00_zusammenfassung_steuerpruefung_2025.md] Vollständige Einzelbeleg-Verifizierung abgeschlossen: 80 Buchungen verifiziert, 75 Ausgaben-Buchungen final zugeordnet
+- [2026-08-14 21:42] [Paddle n8n Cloud Beleg 10-07-2025.md] Zahlungsflow: Beleg 10.07.2025 → Bankbuchung 11.07.2025 (Settlement nach ~24h)
+- [2026-08-14 21:42] [Bolt StackBlitz Beleg 05-29-2025.md] Rechnungsnummer LRDKYW8R-0001; Bankbuchung 30.05.2025, Gegenpartei 'BOLT (BY STACKBLITZ)'
 - [2026-08-14 21:05] [2026-07-19-invoice_sipgatede_B4602762.md] Bezahlung per Kreditkarte (Endziffer 7073), Karteninhaber Sebastian Spuhler
 - [2026-08-14 21:05] [2026-07-19-invoice_sipgatede_B4602762.md] Sipgate.de Telefonieguthaben, Leistungsdatum 01.07.2026, Rechnungsnummer B4602762
 - [2026-08-14 21:05] [2026-07-19-Rechnung_RE260014_09.07.2026.md] Rechnungspositionen: 5 Essenspositionen (Wantan, Chicken Karaage, Crispy Tiger, Curry King, Limonade) à 6,90-14,90 €
