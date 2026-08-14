@@ -706,6 +706,28 @@ def separate_md_files(folder: Path) -> dict:
     return {"ordner": str(folder), "verschoben": len(moves), "moves": moves}
 
 
+_ASSET_ORDNER_SUFFIXE = ("_files", "_Dateien")
+
+
+def _sieht_aus_wie_echte_dokumente(ordner: Path, dateien: list[Path]) -> bool:
+    """Filtert Cache-/Asset-Ordner aus der automatischen Kategorisierung
+    heraus (Sebastian, 2026-08-14: beobachtet bei einem im Browser
+    gespeicherten LinkedIn-Profil - "Seite_files/" mit hunderten hash-
+    benannten Dateien ohne Endung; group_by_category() erfand dafür
+    bedeutungslose Kategorien wie "Gruppe_A"/"Zahlen_1bis3", weil solche
+    Ordner denselben Schwellwert wie echte Dokumentordner überschreiten).
+    Zwei Signale: (1) der Ordner selbst oder ein Vorfahre bis REORG_TOP_LEVEL
+    endet auf ein bekanntes Browser-"gespeicherte-Seite"-Suffix, (2) weniger
+    als die Hälfte der Dateien hat überhaupt eine Dateiendung - echte
+    Dokumente (PDF, DOCX, Bilder, ...) haben praktisch immer eine, rohe
+    Cache-/Hash-Dateien meist nicht."""
+    for teil in ordner.parts:
+        if teil.endswith(_ASSET_ORDNER_SUFFIXE):
+            return False
+    mit_endung = sum(1 for f in dateien if f.suffix)
+    return mit_endung >= len(dateien) / 2
+
+
 def group_by_category(folder: Path, dateien: list[Path], vokabular: list[str] | None = None) -> dict:
     """Gruppiert lose Originaldateien in `folder` per LLM in Kategorie-
     Unterordner - mit festem Vokabular (z.B. Vertragstypen für Vertraege/,
@@ -837,7 +859,7 @@ def reorganize_vault(min_dateien: int = 15) -> list[dict]:
         if not ordner.exists() or ordner.name == "MD":
             continue
         lose = [f for f in ordner.iterdir() if f.is_file() and not f.name.startswith(".")]
-        if len(lose) < min_dateien:
+        if len(lose) < min_dateien or not _sieht_aus_wie_echte_dokumente(ordner, lose):
             continue
         rel = ordner.relative_to(settings.vault_path)
         vokabular = VERTRAEGE_KATEGORIEN if rel.parts and rel.parts[0] == "Vertraege" else None
