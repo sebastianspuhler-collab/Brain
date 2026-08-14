@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-14 20:39] [Paddle n8n Cloud Beleg 10-07-2025.md] Quelle: Gmail von help@paddle.com, Beleg über Paddle-Portal abrufbar
+- [2026-08-14 20:39] [Bolt StackBlitz Beleg 05-29-2025.md] Zahlungsbetrag: 20,00 USD, Zahlungsdatum: 29. Mai 2025
 - [2026-08-14 09:31] [2026-08-14-Email-19fff7f1-Zugesagt-Angebotsdurchsprache-Prozessia.md] Email-Bestätigung vom 14.08.2026, 08:58 Uhr
 - [2026-08-14 08:52] [memory.md] Twilio Ticket #28824206 vom 2026-08-13 erfordert Action
 - [2026-08-14 06:14] [Loadout by Aident x WebWokr] WebWokr konzentriert sich auf DSGVO-konforme Chatbots und KPI-Dashboards für KMUs - Kunden haben typischerweise unterschiedliche Tool-Stacks
@@ -40,6 +42,7 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-14 20:39] [Bolt StackBlitz Beleg 05-29-2025.md] Bolt Pro-Plan Abonnement (StackBlitz Inc.)
 - [2026-08-14 09:31] [2026-08-13-Email-19ffb2aa-Follow-up-Prozessia-x-ESF.md] East-Side-Fab-eV arbeitet an zwei Themen: de:hub (Ansprechpartner: Alex) und IT.CON (Ansprechpartner: Flo)
 - [2026-08-14 09:04] [2026-08-14-Prozessia X TopDown.md] TopDown (Dominik Nussbaumer) – Follow-up Angebotsdurchsprache 14.08.2026, Präsentation versendet 11.08.2026
 - [2026-08-13 22:38] [[Twilio] Re: [ACTION REQUIRED] Your Trus] Twilio (Onboarding & Compliance Operations), Kontaktperson: Jed Enel, E-Mail: trusthub-verify@twilio.zendesk.com
@@ -410,6 +413,12 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-14 20:39] [Paddle n8n Cloud Beleg 10-07-2025.md] Settlement/Bankbuchung: 11.07.2025, 28,56 EUR (1 Tag nach Beleg-Datum)
+- [2026-08-14 20:39] [Paddle n8n Cloud Beleg 10-07-2025.md] Zahlungsmethode: Visa Endziffern 7073, Kartenabrechnungstext: PADDLE.NET* N8N CLOUD1
+- [2026-08-14 20:39] [Paddle n8n Cloud Beleg 10-07-2025.md] Betrag: 28,56 € (netto 24,00 €, MwSt. 4,56 €)
+- [2026-08-14 20:39] [Paddle n8n Cloud Beleg 10-07-2025.md] n8n Cloud Starter Abonnement: Beleg 73531154-143210765 vom 10.07.2025
+- [2026-08-14 20:39] [Bolt StackBlitz Beleg 05-29-2025.md] Bankbuchung 30. Mai 2025: 17,73 EUR, FX-Rate 0,8865 USD/EUR
+- [2026-08-14 20:39] [Bolt StackBlitz Beleg 05-29-2025.md] Zahlungsbeleg Nr. 2514-9086, Rechnungsnummer LRDKYW8R-0001
 - [2026-08-14 11:24] [context.md] Close-Migration: Fortführung erforderlich
 - [2026-08-14 09:31] [2026-08-14-Prozessia X TopDown.md] Schnittstelle DATEV identifiziert als zweiter Integrationspunkt (technische Details im Dokument abgeschnitten)
 - [2026-08-14 09:11] [2026-08-14-Prozessia X TopDown.md] Schnittstelle 2 – DATEV: fertig verbuchter Beleg wird an Steuerberater übertragen

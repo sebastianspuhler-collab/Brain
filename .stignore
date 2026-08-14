@@ -1,0 +1,23 @@
+# Syncthing-Ignore fuer den Ordner "prozessia-content" - Allowlist statt
+# Blockliste (analog zur REORG_TOP_LEVEL-Logik in classify.py): nur die
+# Dokumentenordner werden synchronisiert, Code/Build-Artefakte/.git bleiben
+# aussen vor und laufen weiterhin ausschliesslich ueber Git.
+*
+!/Kunden
+!/Kunden/**
+!/Leads
+!/Leads/**
+!/Sales
+!/Sales/**
+!/Vertraege
+!/Vertraege/**
+!/Finanzen
+!/Finanzen/**
+!/Marketing
+!/Marketing/**
+!/Produkte
+!/Produkte/**
+!/Memos
+!/Memos/**
+!/_inbox
+!/_inbox/**
