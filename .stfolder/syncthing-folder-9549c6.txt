@@ -1,5 +1,0 @@
-# This directory is a Syncthing folder marker.
-# Do not delete.
-
-folderID: prozessia-content
-created: 2026-08-14T22:38:46+02:00

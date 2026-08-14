@@ -1,3 +1,14 @@
+# ── Syncthing-eigener Zustand (2026-08-14) ───────────────────────────────────
+# .stfolder (Ordner-Marker) und .stversions/ (Versionierungs-Archiv) sind
+# Syncthings interne Buchfuehrung, analog zu .git selbst - kein geteilter
+# Vault-Inhalt. Wurden versehentlich von git_sync_loop/vault_sync.sh (git add
+# -A) miterfasst und verursachten Merge-Konflikte zwischen den beiden
+# unabhaengigen Sync-Mechanismen (add/add auf der Marker-Datei, rename/delete-
+# Verwechslungen durch die vielen aehnlichen .stversions-Dateinamen).
+.stfolder/
+.stversions/
+.stignore.tmp
+
 # ── Credentials & Tokens (NIEMALS einchecken) ────────────────────────────────
 _agent/drive_credentials.json
 _agent/drive_token.json
