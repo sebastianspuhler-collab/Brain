@@ -1265,6 +1265,7 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-14 11:24] [context.md] Close-Migration: Fortführung erforderlich
 - [2026-08-14 09:31] [2026-08-14-Prozessia X TopDown.md] Schnittstelle DATEV identifiziert als zweiter Integrationspunkt (technische Details im Dokument abgeschnitten)
 - [2026-08-14 09:11] [2026-08-14-Prozessia X TopDown.md] Schnittstelle 2 – DATEV: fertig verbuchter Beleg wird an Steuerberater übertragen
 - [2026-08-14 09:11] [2026-08-14-Prozessia X TopDown.md] Schnittstelle 1 – E-Mail: Outlook via Microsoft Graph API (Standard-Setup, IT-Ansprechpartner erforderlich)
@@ -2241,6 +2242,7 @@ Wird bei jedem Gespräch geladen. Wird nie automatisch gelöscht.
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-14 11:24] [context.md] 12.08.2026: Mehrere Systemqualitätslücken im alltäglichen Gebrauch entdeckt - Absprache beim nächsten Mal verbessern
 - [2026-08-12 21:21] [context.md] 12.08.2026 - Sebastian: System muss besser abgestimmt werden. Mehrere unabhängige Lücken gefunden (nicht durch Testen, sondern im Alltag)
 - [2026-08-12 20:11] [2026-06-09-Präsentation_ Datenschutz.md] US Cloud Act ermöglicht Datenzugriff bei ChatGPT – rechtliches Risiko für Kanzleien; Prozessia-Lösung mit Azure OpenAI in EU gehostet und rechtskonform
 - [2026-08-12 04:06] [2026-08-12-19f8d67a64-Image.md] Datei benötigt manuelle Überprüfung; weder Absender noch Kunde noch Thema ableitbar
