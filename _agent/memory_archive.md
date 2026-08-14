@@ -1,0 +1,1694 @@
+# Memory-Archiv
+
+Aeltere memory.md-Eintraege, ausgelagert um memory.md schlank zu halten (siehe classify.py:_load_memory_rules() und context.py). Nichts geloescht, nur hierher verschoben.
+
+## KONTEXT
+- [2026-08-11 17:42] [2026-06-09-Copy of fonio Public Partner Angebotsvorlage.md] Kontakt für Endkunden-Demo: +43 720 224117
+- [2026-08-11 17:42] [2026-06-09-Copy of fonio Public Partner Angebotsvorlage.md] Partner-Referral-Option in Angebotsvorlage integriert
+- [2026-08-11 17:42] [2026-06-09-Copy of fonio Public Partner Angebotsvorlage.md] Preismodell besteht aus Setup-Gebühr, Pay-per-Use-Abrechnung und Wartungsgebühr
+- [2026-08-11 17:41] [2026-06-09-Seriendruck2_Seriendruck_FINAL.md] Kampagnendatum: 2026-06-09; Quelle: Seriendruck2_Seriendruck_FINAL.xlsx
+- [2026-08-11 17:41] [2026-06-09-Listen.md] Kontaktdaten vorhanden: z.B. Hedin Automotive Saarland GmbH (+49 681 93587702); einige Handler als Vertragshändler klassifiziert (Audi Zentrum, Stellantis &You)
+- [2026-08-11 17:41] [2026-06-09-Listen.md] Zielmarkt: Autohändler im Raum Saarbrücken; Zielprodukt: Voice-Agent-Lösungen
+- [2026-08-11 17:41] [2026-06-09-Cold_Call_Leitfaden_Prozessia_v5 (5).md] Cold Call Leitfaden Prozessia Version 5 gültig ab Juni 2026 (Auszug vom 2026-06-09)
+- [2026-08-11 17:40] [kpi-tracking.md] Buffer liefert automatisch: Impressions, Reach, Engagement-Rate %, Reactions, Kommentare, Shares pro Post.
+- [2026-08-11 17:39] [STRATEGIE.md] Content organisiert in 4 Themen-Säulen; erste: Wissensmanagement (Wissenssicherung im Unternehmen)
+- [2026-08-11 17:39] [2026-08-26-Inductoheat.md] Quelle: Automatische Erkennung aus Kalender
+- [2026-08-11 17:39] [2026-07-19-Workflow Ersatzteile.md] Workflow-Diagramm dokumentiert vom 2026-07-19
+- [2026-08-11 17:38] [2026-07-19-Wareneingang 2025.08.08.md] Dokumentdatum: 19.07.2026; Prozessdatum: 08.08.2025
+- [2026-08-11 17:38] [2026-07-19-Wareneingang 2025.08.08.md] Teil der vierteiligen Potenzialanalyse 'Endin X Prozessia'
+- [2026-08-11 17:38] [2026-07-19-Prozess Lohnverguß 2022.07.20.md] Dokumentation durch Screenshot ohne zusätzlichen Textinhalt; Dokument eingescannt: 2026-07-19
+- [2026-08-11 17:38] [2026-07-19-Prozess Kleinauftrag 2022.07.15.md] Dokument in Vault aufgenommen: 2026-07-19
+- [2026-08-11 17:38] [2026-07-24-19f17dfce8-Workflow Ersatzteile.md] Prozess standardisiert für Kleinaufträge/Ersatzteile in der Endin-Auftragsabwicklung
+- [2026-08-11 17:38] [2026-07-23-19f17dfce8-Wareneingang 2025.08.08.md] Potenzialanalyse umfasst 4 Prozessdokumentationen
+- [2026-08-11 17:37] [2026-07-24-19f17dfce8-Prozess Lohnverguß 2022.07.20.md] Abteilungen im Prozess: Vertrieb, Projektleitung, Konstruktion, Einkauf & Logistik, Software, Fertigung, Lager & Versand
+- [2026-08-11 17:37] [2026-07-23-19f17dfce8-Prozess Kleinauftrag 2022.07.15.md] Prozessdiagramm vom 11.7.2022, bereitgestellt von Cyril Dietz
+- [2026-08-11 17:37] [2026-07-24-Angebot_endin_überarbeitet.md] Angebotsnummer AG0032, Datum 24.07.2026, gültig bis 24.08.2026
+- [2026-08-11 17:36] [2026-07-19-Angebot_AG0027_01.07.2026.md] Angebotsnummer AG0027, gültig bis 29.07.2026
+- [2026-08-11 17:35] [2026-06-09-klageschrift_entwurf_arbeitsrecht.md] Kunde Voigt Salus; Dokumentdatum: 2026-06-09; Zuständiges Gericht: Arbeitsgericht Saarbrücken, Franz-Josef-Röder-Str. 15, 66119 Saarbrücken
+- [2026-08-11 17:35] [2026-06-09-Voigt_Salus_Arbeitsalltag (1).md] Anwaltskanzlei Voigt Salus (RA Voigt, RA Salus) verwaltet Akten in Arbeitsrecht, Baurecht, Verkehrsrecht, Vertragsrecht
+- [2026-08-11 17:34] [2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md] Datenschutz und Datenhoheit des Kunden sind zentral - Kanzlei behält vollständige Kontrolle über eigene Daten, Prozessia arbeitet nur im technischen Bereich
+- [2026-08-11 17:34] [2026-06-09-Kostenkalkulation Testphase.md] Input-Aufteilung: 70% Uncached (1.512.000 Tokens) + 30% Cached (648.000 Tokens)
+- [2026-08-11 17:34] [2026-06-09-Kostenkalkulation Testphase.md] Gesamtkosten konservativ kalkuliert: 4,20 USD pro Mitarbeiter pro Monat
+- [2026-08-11 17:33] [2026-06-09-KI-Agent-X-Voigt-Salus.md] DSGVO-konform, sicher gehostet in Deutschland/EU
+- [2026-08-11 17:33] [2026-06-09-KI-Agent-X-Voigt-Salus.md] Setup-Kosten ca. 7.000 €; monatliches Betriebsmodell mit Wartung und Support
+- [2026-08-11 17:33] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Stückliste (BOM) Datum: 27.07.2026, Zeichnungsnummer 21135351.MI 00, Bearbeitet 20.07.2026
+- [2026-08-11 17:33] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83479898.md] Dokumentdatum: 2026-07-27 – Lead-Kategorie: Potentiell hochrelevant für automatisierungslösung im Fertigungssektor
+- [2026-08-11 17:33] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83479898.md] Zeichnungsnummer: 11946823.MI 00 – Gesamtgewicht: 18.075,976 kg – Längswert: 2.016 mm
+- [2026-08-11 17:32] [2026-07-27-19fa3698b1-MATERIAL_IU485.md] Materialnummer am 2026-07-27 dokumentiert, Quelle: 19fa3698b1-MATERIAL_IU485.pdf
+- [2026-08-11 17:32] [2026-07-27-19fa3698b1-MATERIAL_83493383.md] Dokument ist Fragment einer Stückliste/Materialliste ohne erkennbaren Kontext
+- [2026-08-11 17:32] [2026-07-27-19fa3698b1-MATERIAL_83486122.md] GB Materialnummer 83486122 für Seifert-GmbH - Herkunft und Verwendungskontext unklar
+- [2026-08-11 12:00] [2026-08-11-Email-19ff0a71-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Verfügbare Termine mit Marvin Wiegner (Schaufler): 11.08., 12.08. oder 14.08. jeweils um 17:00 Uhr
+- [2026-08-11 08:52] Bug in backend/app/services/classify.py: docx-Extraktion liest nur doc.paragraphs, wodurch Notta-Transkripte (die z.B. Tabellen nutzen) nicht vollständig/korrekt extrahiert werden - Ursache für Klassifizierungsfehler.
+- [2026-08-11 08:25] [2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md] Projektbezeichnung: Prozessia x ESF
+- [2026-08-11 08:24] [2026-08-11-East-Side-Fab-eV.md] Status: Noch kein Gespräch/Dokument vorhanden - reine E-Mail-Anfrage
+- [2026-08-11 08:24] [2026-08-11-East-Side-Fab-eV.md] Erstkontakt via E-Mail am 2026-08-11, Betreff: 'Prozessia x ESF'
+- [2026-08-11 08:13] [Zugesagt: Prozessia X TopDown] Neuer Kontakt: Dominik Nussbaumer, TopDown CF (topdown-cf.com)
+- [2026-08-11 07:27] [Prozessia x ESF] Neue Kontaktperson: Lukas Grünbeck von East Side Fab e.V. (l.gruenbeck@eastsidefab.de)
+- [2026-08-11 06:37] [2026-08-11-Email-19fef82c-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Marvin Wiegner (Konstruktion Schaufler) hat CAD-Schulung diese Woche 8:30-17:00 Uhr - Terminslots nur vor/nach Schulungszeit verfügbar
+- [2026-08-11 06:32] [AW: Ergebnisse Testreihe Stücklistenproj] Stücklistenprojekt - Lastenheft vom 6. Aug 2026
+- [2026-08-10 09:36] [2026-08-10-Email-19feaf7a-Schaufler-Beschaffungsagent--128455.md] Abweichung wurde in Ausschreibung/Bestellung (AB) identifiziert und vom Lieferanten mit 150€ bestätigt
+- [2026-08-10 09:20] [Schaufler Beschaffungsagent | 128455] Benjamin Schmohl (Schaufler, benjamin.schmohl@schaufler.de) meldet Fehler und bittet um Überprüfung und ggf. Anpassung durch Prozessia
+- [2026-08-10 08:19] Sebastians Wochenaufgaben: LinkedIn 3 Videos posten, Close-Migration, Kevin einführen, Netzwerkaufbau
+- [2026-08-10 07:04] [2026-08-10-Email-19fea422-Automatische-Antwort-Bericht-Beschaffung.md] Eingeschränkter E-Mail-Zugriff während Abwesenheit erwartet
+- [2026-08-10 06:01] [Automatische Antwort: Bericht Beschaffun] Stellvertretende Kontakte bei dringenden Fragen: Christoph Nagel-Knospe (+49 7333/9608-813) und Benjamin Schmohl (+49 7333/9608-640)
+- [2026-08-10 06:01] [Automatische Antwort: Bericht Beschaffun] Florian Knoblauch (Leiter Materialwirtschaft Global, Schäufler) ist bis 17. August 2026 abwesend
+- [2026-08-10 05:08] [2026-08-09.md] Weekly Limit bei Brain-API erreicht; Reset um 22:00 UTC am 2026-08-09
+- [2026-08-07 09:29] [2026-08-07-Email-19fdb825-AW-Beschaffungsagent--MailSend-Berechtig.md] Kontaktperson: Jonas Rösch, IT-Administration (jonas.roesch@schaufler.de, +49 7333 9608 38)
+- [2026-08-07 09:29] [2026-08-07-Email-19fdb815-AW-Beschaffungsagent--MailSend-Berechtig.md] Datum der Anforderung: 2026-08-07
+- [2026-08-07 06:09] [Request #28824206: How would you rate th] Account SID: ACa756b2b60f3dba0995621f130b4caa60, Bundle SID: BU6b3e48b819e258269f5e87416b09cda1
+- [2026-08-07 06:09] [Request #28824206: How would you rate th] Support-Ticket #28824206 für Prozessia bearbeitet durch Jed Enel am 4. Aug 2026, 22:07 PDT
+- [2026-08-06 21:13] [2026-08-26-Inductohead.md] Status: Aus Kalendertermin erkannter Lead, Transkript und weitere Dokumentation ausstehend
+- [2026-08-06 21:13] [2026-08-24-Schmidt-Hänsch.md] Status: Kalendertermin ohne bisheriges Transkript/Material
+- [2026-08-06 21:13] [2026-08-06-Finom_payment_06082026.md] End-to-end ID: e8cd75516ab14651b575884a74712c98 (für Nachverfolgung)
+- [2026-08-06 21:13] [2026-08-06-Finom_payment_06082026.md] Abschluss: 06.08.2026 20:09 Uhr; Ausführung: 06.08.2026 20:08 Uhr
+- [2026-08-06 15:37] [AGB & AVV Änderungen] Alte AGB-Fassung gültig bis: Stand 18.06.2026
+- [2026-08-06 15:37] [AGB & AVV Änderungen] Gültige AGB-Fassung: Stand 18.06.2026; AVV-Fassung: Stand 19.06.2026 (veraltet)
+- [2026-08-06 15:37] [AGB & AVV Änderungen] Matthias von fonio (hallo@update.fonio.info) teilt Änderungen an AGB und Auftragsverarbeitungsvereinbarung (AVV) mit
+- [2026-08-06 12:05] KORREKTUR: Die beiden ZF-Formenplanungs-PDFs (Steuerteile Juli 2025 + Großguss September 2025) haben KEINEN Bezug zur Schaufler-Übernahmestrategie (Kunden/Schaufler/Übernahme/). Sie sind Ausgangsmaterial für einen KI-Podcast (vermutlich via NotebookLM-Pipeline, siehe YouTube-Workflow), der die Inhalte automatisiert aufbereiten soll. Nicht als Übernahme-Due-Diligence einordnen/ablegen.
+- [2026-08-06 11:53] Dokument '8HP-Steuerteile-Formenplanung Juli 2025' (Köberle/Schwindling/Wehberg, SCAA4) behandelt Werkzeugplanung für Steuerteile (Ventilgehäuse + Ventilplatte, immer als Satz) der ZF-Achtgang-Automatik 8HP. Gesamtvolumen 2025: 7.306.166 Stück (-275.211 gegenüber letzter Planung).
+- [2026-08-06 11:35] [2026-08-06.md] Anfrage eingereicht am 2026-08-06, 11:20 Uhr
+- [2026-08-06 09:27] [2026-08-06-Email-19fd65ce-AW-Update-IMK-X-Prozessia.md] Absage erfolgt nach Absprache mit Geschäftsführer Manuel Biebl
+- [2026-08-06 07:55] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Grundlagen: Lastenheft v. 05.08.2026 (M. Wiegner), Umsetzungsplan v. 05.08.2026 (Teil 2-3)
+- [2026-08-05 20:04] [2026-08-05.md] Stücklistengröße: einstellig bis niedrig zweistellige Positionsanzahl, Gewichtsspanne 1–44 kg pro Baugruppe
+- [2026-08-05 13:21] [Automatische Antwort: Unser Gespräch] Notfallkontakte: 043171799-0 (Kiel), 041017099-0 (Pinneberg)
+- [2026-08-05 13:21] [Automatische Antwort: Unser Gespräch] Anfragen-Kontakte: vertrieb-ki@hoedtke.de (Kiel), vertrieb-pi@hoedtke.de (Pinneberg)
+- [2026-08-05 13:21] [Automatische Antwort: Unser Gespräch] Bestellungen-Kontakte: bestellung-ki@hoedtke.de (Kiel), bestellung-pi@hoedtke.de (Pinneberg)
+- [2026-08-05 13:21] [Automatische Antwort: Unser Gespräch] Lana Kruckow (hoedtke.de) ist bis einschließlich 25.08.2026 im Urlaub und nicht erreichbar
+- [2026-08-05 10:08] [Re: ISO 27001 bei Prozessia] Geschäftsnutzen: Deepslate konnte nach ISO 27001 schneller größere Kunden gewinnen und Umsatz signifikant steigern
+- [2026-08-05 10:08] [Re: ISO 27001 bei Prozessia] Marktsituation: Größere Unternehmen erwarten ISO 27001 Zertifizierungen von ihren Partnern für Audit-/Compliance-Sicherheit
+- [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider.md] Prozessia GbR: vertreten durch Sebastian Spuhler und Mohamed Douioui, Campus Starterzentrum Saarbrücken
+- [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider.md] Vertriebsvereinbarung mit Segschneider unterzeichnet am 2026-06-09
+- [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_HOS_Elias_Haghverdi-1.md] Vertriebsvereinbarung zwischen Home of Solar GmbH und Elias Haghverdi vom 09.06.2026
+- [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_Geginat .md] Vertragsdatum: 2026-06-09, Dokumenttyp: Vertriebsvereinbarung zur Lead-Vermittlung und Kooperation
+- [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_Adrian_Mueller (1).md] Vertragsdatum: 2026-06-09
+- [2026-08-05 08:30] [2026-06-09-Vertriebsvereinbarung Handelsvertreter.md] Vertriebspartner ist selbstständig tätig (nicht angestellt)
+- [2026-08-05 08:30] [2026-06-09-Kooperationsvereinbarung_Prozessia (4).md] Prozessia bietet den Prozessia Agent (KI-Assistent für Unternehmen) als Leistung an
+- [2026-08-05 08:30] [2026-06-09-Kooperationsvereinbarung_Prozessia (4) (1).md] Prozessia-Sitz: Campus Starterzentrum, Gebäude A1, 66123 Saarbrücken
+- [2026-08-05 08:29] [2026-07-20-Wissensmanagement_Prozessia.md] Ab 02.08.2026 (EU AI Act) besteht gesetzliche Nachweispflicht für KI-Einsatz in Betrieben
+- [2026-08-05 08:29] [2026-06-09-prozessia_Beschaffungsagent_Marketing.md] DSGVO-konforme lokale Datenhaltung mit nahtloser ERP-Integration
+- [2026-08-05 08:28] [2026-06-09-Prozessia_Agent_Produktbeschreibung_LANG_FINAL.md] Betrieb datenschutzkonform in der EU; Kundendaten werden nicht zum Training von Sprachmodellen verwendet
+- [2026-08-05 08:28] [2026-06-09-Prozessia_Agent_Produktbeschreibung_LANG_FINAL.md] Personalisierung nach Rollen/Abteilungen und kundenspezifische Workflows sind im Leistungsumfang enthalten
+- [2026-08-05 08:28] [2026-06-09-Prozessia.md] Kampagnenziel: Terminbuchung für 30-minütiges Erstgespräch zum KI-Beschaffungsagenten
+- [2026-08-05 08:28] [2026-06-09-Prozessia — Unternehmenspräsentation.md] Kritisches Risiko: Konstruktionsdaten/Stücklisten in US-Clouds sind existenzbedrohend für Maschinenbauer
+- [2026-08-05 08:26] [2026-06-09-🚗 Mehr Servicequalität für Automobile Görres mit KI-Telefonagent 🤖 – Prozessia.md] Verkaufspräsentation/Lead-Pitch vom 09.06.2026
+- [2026-08-05 08:26] [2026-06-09-🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia.md] Lead-Status: Pitch-Dokument vom 2026-06-09, noch mit unfertigen Platzhaltern ({{USE_CASES}})
+- [2026-08-05 08:26] [2026-06-09-🚗 Effizienter Service im Autohaus mit KI-Voice-Agent 🎙️ – Prozessia.md] Dokument-Status: Unvollständiges Vertriebstemplate mit nicht gefülltem Platzhalter ({{USE_CASES}}), erstellt 2026-06-09
+- [2026-08-05 08:26] [2026-06-09-🚗 Effizienter Service im Autohaus mit KI-Voice-Agent 🎙️ – Prozessia.md] Hochaufkommen-Zeiten in Autohäusern: morgens, montags, nach Verkaufsaktionen
+- [2026-08-05 08:26] [2026-06-09-🚗 Effiziente Telefonentlastung für Ihr Autohaus 🚗 – Prozessia.md] Kernfunktionen: 24/7-Erreichbarkeit und automatisierte Terminbuchung
+- [2026-08-05 08:25] [2026-06-09-🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.md] Kundeanfragen fokussieren auf Fahrzeugverfügbarkeit, Terminkoordination und Service
+- [2026-08-05 08:25] [2026-06-09-🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.md] Stoßzeiten mit erhöhtem Anrufvolumen: montags und während Aktionen
+- [2026-08-05 08:25] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus – mit Prozessia Voice Agent 🚗 – Prozessia.md] Autohäuser erleben Telefonspitzen zu Stoßzeiten (morgens und montags) mit hohem Koordinationsaufwand
+- [2026-08-05 08:24] [2026-06-09-📞 Effiziente Telefonbetreuung mit dem Prozessia Voice Agent für AM Autoservice 🚗 – Prozessia.md] Dokument vom 2026-06-09, Vertriebsdokument/Sales-Unterlage mit unbefülltem Platzhalter ({{USE_CASES}})
+- [2026-08-05 08:24] [2026-06-09-📞 Effiziente Telefonbetreuung mit dem Prozessia Voice Agent für AM Autoservice 🚗 – Prozessia.md] Herausforderung: Viele Anrufe während Stoßzeiten (Morgen, nach Aktionen) für Service-Termine
+- [2026-08-05 08:24] [2026-06-09-📞 Effiziente Anrufsteuerung im Autohaus mit KI-Voice-Agent 🚗 – Prozessia.md] Voice-Agent-Lösung für Autohäuser: Automatisierte Anrufsteuerung, Terminbuchung, 24/7-Erreichbarkeit, adressiert Spitzenlastzeiten (z.B. Montagmorgen)
+- [2026-08-05 08:23] [2026-06-09-Werbeagenturen.md] Dokumentdatum: 2026-06-09, Kategorie: Sales, Quelle: Werbeagenturen.pdf
+- [2026-08-05 08:23] [2026-06-09-Werbeagenturen.md] Dokumentzweck: Vertriebsmaterial für Präsentationen und Verkaufsgespräche mit Werbeagenturen
+- [2026-08-05 08:23] [2026-06-09-Serienbrief_2.md] Zielaction: 30-minütiger Gesprächstermin via Calendly-Buchung
+- [2026-08-05 08:23] [2026-06-09-Serienbrief_2.md] Serienbriefkampagne 2026-06-09 für Fertigungs-/Automatisierungsbranche (Zielunternehmen: Siempelkamp, STEIN Automation)
+- [2026-08-05 08:23] [2026-06-09-Schaufler_Hosting_Praesentation (1).md] Hosting-Partner Hetzner: deutsche Rechenzentren, DSGVO-konform, ISO-zertifiziert, seit 1997 etabliert
+- [2026-08-05 08:22] [2026-06-09-Report Immobilienmarkler.md] Marketingmaterial mit KI-Lösungsbausteinen: Zentrales CRM, automatisierte Kommunikation, digitale Objektverwaltung, automatische Reports
+- [2026-08-05 08:22] [2026-06-09-Prozessia_Voice_Agents_Produktbeschreibung_LANG_FINAL_CLEAN.md] Produktstand: 19.12.2025 (Dokumentationsdatum: 09.06.2026)
+- [2026-08-05 08:22] [2026-06-09-Prozessia_Voice_Agents_Produktbeschreibung_LANG_FINAL_CLEAN.md] Voice Agents-Kernfunktion: KI-gestützte Anrufbearbeitung mit strukturierter Erfassung und intelligentem Routing zur Prozessstandardisierung
+- [2026-08-05 08:22] [2026-06-09-Prozessia_Voice_Agents_Produktbeschreibung_LANG_FINAL_CLEAN.md] Prozessia ist offizieller Fonio-Partner (Österreich), Fonio arbeitet DSGVO-konform
+- [2026-08-05 08:22] [2026-06-09-Prozessia_Serienbrief_FINAL_vorlage.md] Kampagnenziel: 30-minütiges Beratungsgespräch zur KI-Lösung im Einkauf vereinbaren
+- [2026-08-05 08:21] [2026-06-09-Prozessia_Landingpage_Brief_v2.md] Gesetzliche KI-Kompetenzpflicht nach EU AI Act Artikel 4 gilt seit Februar 2025
+- [2026-08-05 08:21] [2026-06-09-Prozessia_Flyer_Messe.md] Implementierung: KI-Lösung in wenigen Wochen realisierbar; deutsche Serverinfrastruktur; DSGVO-konform und EU-AI-Act-ready
+- [2026-08-05 08:21] [2026-06-09-Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.pptx.md] Verkaufsposition: Kosteneinsparung + Datensicherheit + Kontrolle vs. ChatGPT Enterprise
+- [2026-08-05 08:21] [2026-06-09-Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.md] Drei Hauptherausforderungen adressiert: Kosten, Datenschutz, fehlende Systemintegration
+- [2026-08-05 08:21] [2026-06-09-Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.md] Kernproblem: Mandantendaten auf US-Servern gefährden anwaltliche Verschwiegenheitspflicht
+- [2026-08-05 08:21] [2026-06-09-Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.md] ChatGPT Enterprise kostet 30 € pro Mitarbeiter/Monat (18.000 €/Jahr für 50er-Kanzlei)
+- [2026-08-05 08:20] [2026-06-09-Gamma Presentation (1).md] Workflow-Dokumentation vom 09.06.2026, kategorisiert als Sales-Tool, JSON-Export verfügbar
+- [2026-08-05 08:20] [2026-06-09-Der-digitale-Kanzlei-Assistent (1).md] DSGVO-konform mit EU-Hosting; Datenschutz nach höchstem Standard
+- [2026-08-05 08:20] [2026-06-09-DE_Partner_Deck.md] Demo-Nummer für Kundentests verfügbar: +49 308 379 3172
+- [2026-08-05 08:20] [2026-06-09-DE_Partner_Deck.md] Fonio ist ein KI-Telefonassistent speziell für deutschsprachigen DACH-Raum mit eigener KI-Entwicklung, nicht lizenziert
+- [2026-08-05 08:20] [2026-06-09-Cocomin-KI-Agent .md] Cocomin-KI-Agent: Verkaufspräsentation für automatisierte, DSGVO-konforme Kundenkommunikation zur Kundenbindung zwischen Terminen (Datum: 2026-06-09)
+- [2026-08-05 08:19] [2026-06-09-Campus Starterzentrum.md] Kampagnendatum: 2026-06-09; Ansprechpartner bei Siempelkamp: Herr Rehling
+- [2026-08-05 08:19] [2026-06-09-Campus Starterzentrum.md] Social Proof: Werkzeugbauer aus Baden-Württemberg (60+ Mitarbeiter, Serienteile für Automobilindustrie) erzielt 11.000€ Monatseinsparung durch optimierten Einkaufsprozess
+- [2026-08-05 08:19] [2026-06-09-2026-arbeiten-Unternehmen-mit-KI-Agenten-Die-Frage-ist-nur-mit-wem.md] Vertriebsmessaging: KI ersetzt ineffiziente Arbeit, nicht Menschen (wichtig für Kundenakquisition)
+- [2026-08-05 08:19] [2026-06-09-2026-arbeiten-Unternehmen-mit-KI-Agenten-Die-Frage-ist-nur-mit-wem.md] Kernpositionierung: '2026 arbeiten Unternehmen mit KI-Agenten. Die Frage ist nur: mit wem.' (Wettbewerbsmessage)
+- [2026-08-05 08:19] [2026-06-09-2026-arbeiten-Unternehmen-mit-KI-Agenten-Die-Frage-ist-nur-mit-wem.md] Prozessia differenziert sich durch EU-Hosting und Datenschutz-Fokus als Alleinstellungsmerkmale
+- [2026-08-05 08:19] [2026-08-04-Content-Recherche-Strategie.md] Ziel: Maximale Reichweite/Wachstum mit minimalem Aufwand für Sebastian (Claude: Recherche+Texterstellung, Sebastian: Freigabe+5 Min. Engagement)
+- [2026-08-05 08:19] [2026-08-04-Content-Recherche-Strategie.md] Relevante Ereignisse für Content-Anlässe: EDIH-Veranstaltungen, EU AI Act-Fristen, Messen, Webinare
+- [2026-08-05 08:18] [2026-06-27-Bildschirmfoto 2026-06-27 um 13.05.52_vision.md] Starttermin Outsourcing: noch offen
+- [2026-08-05 08:18] [2026-06-26-jobs_icp.md] ICP-Score: 5 (maximale Relevanz) - qualifizierter Lead für Beschaffungsagent
+- [2026-08-05 08:17] [2026-06-09-services_intern.md] Fokus auf Entscheidungsträger: Sales Manager mit teilweise parallelen Rollen (Product Owner, ECM-Verantwortung)
+- [2026-08-05 08:17] [2026-06-09-services_intern.md] Datenquelle: services_intern.csv, Import-Datum: 2026-06-09
+- [2026-08-05 08:17] [2026-06-09-retail_extern.md] Geografische Abdeckung: Berlin, Hamburg, Bayern, Nordrhein-Westfalen, Rheinland-Pfalz, Hessen
+- [2026-08-05 08:17] [2026-06-09-real_estate&consum_extern.md] Leadquelle: externe Leaddatenbank für Real Estate und Consumer Services (ca. 20 Kontakte), importiert 2026-06-09
+- [2026-08-05 08:17] [2026-06-09-leads_out_with_icebreakers.md] Spalte für deutschsprachige Icebreaker-Texte ist größtenteils noch leer und ausfüllungsbedürftig
+- [2026-08-05 08:16] [2026-06-09-leads.md] Datenquelle: Automatisierter Import mit vollständigen Kontaktdaten (Name, E-Mail, Website, Standort)
+- [2026-08-05 08:16] [2026-06-09-financial_intern.md] Geografische Abdeckung: Deutschland (Bundesländer: Hesse, Bavaria, North Rhine-Westphalia, Baden-Württemberg)
+- [2026-08-05 08:15] [2026-06-09-coaching_final.md] Daten verfügbar: Email, LinkedIn-Profile, Websites, Personennamen, individualisierte Call-to-Actions für 40+ Kontakte
+- [2026-08-05 08:15] [2026-06-09-coaching_final.md] Neue Lead-Liste 'coaching_final' vom 2026-06-09: personalisierte Cold-Outreach für KI-Agenten-Akquise in Professional Training & Coaching
+- [2026-08-05 08:15] [2026-06-09-cleaned_leads.md] Datenquelle: cleaned_leads.xlsx, Bereinigung abgeschlossen: 2026-06-09
+- [2026-08-05 08:15] [2026-06-09-cleaned_leads.md] Bereinigte Lead-Datenbank für KI-Schulungsangebote in der Weiterbildungs- und Beratungsbranche (professional training & coaching, management consulting)
+- [2026-08-05 08:15] [2026-06-09-advertising_extern.md] Tags: Leads, Marketing & Advertising, Leaddatenbank, Sales Manager, Deutschland
+- [2026-08-05 08:15] [2026-06-09-advertising_extern.md] Lead-Datenbank advertising_extern.csv vom 2026-06-09: ~19 Kontakte aus Marketing & Advertising sowie Online Media Branche
+- [2026-08-05 08:14] [2026-06-09-Untitled document.md] WebWokr bietet auch individuelle Automatisierungslösungen mit Analyse bestehender Prozesse (Dokument unvollständig)
+- [2026-08-05 08:14] [2026-06-09-Untitled document.md] WebWokr Kontakt: info@webwokr.de | www.webwokr.de | Campus Starterzentrum Gebäude A1 1, 66123 Saarbrücken
+- [2026-08-05 08:14] [2026-06-09-Untitled document.md] WebWokr GbR (Saarbrücken) ist Wettbewerber/Kooperationspartner von Prozessia im Marktsegment Webdesign und KI-Automatisierung
+- [2026-08-05 08:14] [2026-06-09-Recruiting.md] Liste vom 2026-06-09; Branchenschwerpunkt: Staffing & Recruiting sowie Human Resources
+- [2026-08-05 08:14] [2026-06-09-Recruitement.md] Konkrete Kontakte identifiziert: Zero to One Search (München), Kooku Recruiting (Berlin), Wonderland Recruitment Services (Konstanz)
+- [2026-08-05 08:14] [2026-06-09-Recruitement.md] Datei enthält Kontaktliste von Recruiting- und HR-Agenturen aus DACH-Raum als potenzielle Akquisekontakte für Prozessia GbR
+- [2026-08-05 08:13] [2026-06-09-Recruiing_final.md] Lead-Liste erstellt am 2026-06-09, Quelle: Recruiing_final.csv
+- [2026-08-05 08:13] [2026-06-09-Recruiing_final.md] Angebot: KI-Recruiting-Agent zur Automatisierung repetitiver Aufgaben und Koordination
+- [2026-08-05 08:13] [2026-06-09-Prozessia_Lieferantenbewerbung_Windhoff.md] Zielbranche: produzierende Industrieunternehmen (Einkaufsabteilungen)
+- [2026-08-05 08:13] [2026-06-09-Prozessia_Lieferantenbewerbung_Windhoff.md] Outbound-Akquiseschreiben vom April 2025 mit Demo-Termin-Angebot
+- [2026-08-05 08:13] [2026-06-09-Prozessia_Leads_NurNeu (1).md] Prozessia Lead-Datenbank: 11 neue, unbearbeitete Leads (Nr. 60-70) aus Werkzeugbau, Stanztechnik, Metallverarbeitung; Status 'Neu – offen'; Stand 2026-06-09
+- [2026-08-05 08:12] [2026-06-09-Prozessia_Leads_Komplett_v5.md] Datei vom 2026-06-09 (Version v5), Quelle: Prozessia_Leads_Komplett_v5.xlsx
+- [2026-08-05 08:12] [2026-06-09-Prozessia_Leads_Komplett_v5.md] Leaddatenbank enthält 16+ verifizierte B2B-Kontakte aus Werkzeugbau, Stanz-/Umformtechnik und Kunststofftechnik
+- [2026-08-05 08:12] [2026-06-09-Marketing an Advertising.md] Datensätze enthalten: Kontaktdaten, Email-Status, Seniority-Level, Technologie-Profile, Funding-Informationen und Keywords
+- [2026-08-05 08:12] [2026-06-09-Leads_1.md] Datenquelle: Leads_1.xlsx aus Drive-Bereich Industrie
+- [2026-08-05 08:12] [2026-06-09-Leads_1.md] Alle erfassten Leads mit Status 'Kontaktiert' gekennzeichnet
+- [2026-08-05 08:12] [2026-06-09-Leads_1.md] Lead-Kontaktliste mit 5 verifizierten B2B-Firmenkontakten aus Werkzeugbau, Stanztechnik und Kunststoff, Datum 2026-06-09
+- [2026-08-05 08:11] [2026-06-09-Immobilien_neu.md] Datenerstellung: 2026-06-09, Quelle: Immobilien_neu.xlsx
+- [2026-08-05 08:11] [2026-06-09-Immobilien_neu.md] Geographische Verteilung: 6 deutsche Städte (Willingen, Dresden, Essen, Leipzig, Ulm, Laboe) + Cambridge
+- [2026-08-05 08:11] [2026-06-09-Immobilien_final.md] Lead-Kampagne für Immobilienbranche (Hausverwaltungen, Family Offices, Immobilien-AGs) vom 2026-06-09
+- [2026-08-05 08:11] [2026-06-09-Immobilien.md] Kontakte stammen aus deutschen Städten (Willingen, Dresden, Essen, Leipzig, Ulm, Laboe) sowie Cambridge; Quelle: Immobilien.csv vom 2026-06-09
+- [2026-08-05 08:11] [2026-06-09-Coaching.md] Lead-Liste 'Professional Training & Coaching' aus Coaching.xlsx (2026-06-09) mit Kontakten aus Düsseldorf, Hünfeld, Berlin, Rüdersdorf und Dubai
+- [2026-08-05 08:11] [2026-06-09-Briefe.md] Datenbank-Datum: 2026-06-09; Quelle: Briefe.xlsx mit Kontaktdaten (Anrede, Name, Unternehmen, Adresse)
+- [2026-08-05 08:10] [2026-07-21-Update Zillmer X Prozessia.md] Fehlerreduktion durch Begrenzung auf ~50 relevante Leuchtenhersteller + exakte Systemprompt-Definition (nicht generische ChatGPT/Claude-Nutzung)
+- [2026-08-05 08:10] [2026-07-14-Zillmer-Elektrotechnik-Erstgespraech.md] Folgetermin vereinbart für 21.07.2026
+- [2026-08-05 08:10] [2026-07-14-Zillmer-Elektrotechnik-Erstgespraech.md] Zillmer ist Mitglied der Handwerksgruppe Mecklenburg (H.P.M., 155 Firmen, bundesweit + Österreich), die bereits KI zur Ausschreibungssuche nutzt
+- [2026-08-05 08:09] [2026-07-30-19fb1d58d4-20260624 LV KG 440_SIBE.md] Stand: 24.06.2026
+- [2026-08-05 08:09] [2026-07-30-19fb1d58d4-20260624 LV KG 440_Beleuchtung.md] Status: Lead – technische Vorgaben liegen vor, Produktbestimmung steht aus
+- [2026-08-05 08:09] [2026-07-30-19fb1d58d4-20260624 LV KG 440_Beleuchtung.md] Dokument-ID: 19fb1d58d4-20260624, Dateiaufnahme: 2026-07-30
+- [2026-08-05 08:08] [2026-07-28-Zillmer_KI_Kalkulationsprozess.md] Dateistand: 2026-07-28 | Kategorie: Lead | Quelle: Zillmer_KI_Kalkulationsprozess.pdf
+- [2026-08-05 08:08] [2026-08-04-Email-19fcdab7-Action-required-security-vulnerabilities.md] Probleme erkannt am 03 Aug 2026; Notiz vom Supabase-System am 04 Aug 2026
+- [2026-08-05 08:07] [2026-07-21-Email-19f8394e-AW-Unser-Termin.md] Kunde befindet sich vor Urlaubszeit, daher keine Verfügbarkeit bis August
+- [2026-08-05 08:07] [2026-07-28-Update Seifert X Prozessia.md] Prototyp-Demo erfolgreich gezeigt 28.07.2026; Folgetermin zum Erstgespräch vom 23.07.2026; Sebastian bestätigt Abbildung der Anforderung
+- [2026-08-05 08:06] [2026-07-28-Seifert_GmbH_pitch_deck.md] Pitch-Präsentation vom 2026-07-28
+- [2026-08-05 08:06] [2026-07-28-Seifert_GmbH_pitch_deck.md] Hauptherausforderung: unterschiedliche Kunden-Zeichnungsformate erfordern manuellen Aufwand bei Material-/Zuschnittlisten
+- [2026-08-05 08:06] [2026-07-28-Prozessskizze-Materialliste.md] Basis: Erstgespräch 23.07.2026 mit Stefan Seifert; Prozessskizze vom 28.07.2026
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Bearbeitungsdatum: 20.07.2026 | Quelle-ID: 19fa3698b1
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Werkstoffvorgaben: S235, S355J2H | Unterstücklisten für Komponenten definiert
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83479898.md] Kategorie Lead - mehrstufige BOM-Struktur für automatisierte Zuschnittlisten-Erstellung relevant
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-MATERIAL_IU485.md] Material-Nummer: IU485 (Präfix GB) dokumentiert am 2026-07-27
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-MATERIAL_83493383.md] Material-Dokument 83493383 liegt nur als Fragment vor; Vollständige Stückliste/Kontext fehlt
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-MATERIAL_83486122.md] Materialnummer aus Materialstamm/Stückliste, Datum 2026-07-27
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-MATERIAL_83480037.md] GB Materialnummer 83480037 referenziert; Kontext und Zuordnung unklar
+- [2026-08-05 08:04] [2026-07-27-19fa3698b1-MATERIAL_83479898.md] GB-Materialnummer 83479898 für Seifert-GmbH identifiziert (2026-07-27)
+- [2026-08-05 08:04] [2026-07-27-19fa3698b1-MATERIAL_2663011.md] GB-Materialnummer 2663011 identifiziert
+- [2026-08-05 08:03] [2026-07-27-19fa3698b1-MATERIAL_2588573.md] GB-Materialnummer 2588573 existiert für Seifert-GmbH, Kundenbezug unklar
+- [2026-08-05 08:03] [2026-07-27-19fa3698b1-MATERIAL_2588569.md] Dokument vom 2026-07-27: Rohdaten-Fragment, Zuordnung zu Seifert-GmbH unklar
+- [2026-08-05 08:03] [2026-07-27-19fa3698b1-Grenzebach-Anfrage 6000017119.md] Anfrage-Eingangsdatum: 2026-07-27
+- [2026-08-05 08:03] [2026-07-27-19fa3698b1-6000017119.md] Liefertermin: 07.09.2026
+- [2026-08-05 08:02] [2026-07-23-Seifert-GmbH.md] Transkript/Dokumentation des Gesprächs steht noch aus
+- [2026-08-05 08:02] [2026-06-09-Schaufler_Hosting_Praesentation (4).md] Infrastruktur: Hetzner (dedizierter Server, Deutschland) + Azure OpenAI als Sprachmodell
+- [2026-08-05 08:01] [2026-06-09-Schaufler_Hosting.md] Infrastruktur-Leistungen im Vertrag enthalten
+- [2026-08-05 08:01] [2026-06-09-Prozessia_Intern_Schaufler_Hosting.md] Dokument: Vertrauliches internes Hosting-Konzept Schaufler (April 2026, Quelle 2026-06-09), enthält Kosten- und Gewinnmargeninformationen
+- [2026-08-05 08:01] [2026-06-09-Prozessia-X-Schaufler Beschafungsagent.md] Prozessia-Kernkompetenz: KI-gestützte Prozessautomatisierung, Chatbots und intelligente Automatisierungslösungen
+- [2026-08-05 08:00] [2026-08-05-Email-19fd0e77-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Email vom 2026-08-05 als Antwort zu Testreihen-Ergebnissen des Stücklistenprojekts
+- [2026-08-05 08:00] [2026-08-13-Schauenberg.md] Teilnehmer: Sascha Haller (Sascha-haller@sb-it.com)
+- [2026-08-05 08:00] [2026-07-14-Prozessia X Morali.md] Sebastian erläuterte EU-gehostete Sprachmodelle über Microsoft mit AVV-Vertrag als Unterscheidung zu öffentlichen Chatbots
+- [2026-08-05 07:59] [2026-07-02-M.Reuss X Prozessia.md] Nächster Meilenstein: Moritz klärt intern mit Geschäftsführung (Klärungsbedarf unvollständig dokumentiert)
+- [2026-08-05 07:59] [2026-07-29-Update Juchem X Prozessia.md] Follow-up Treffen: 29.07.2026, 14:00–17:00 Uhr (nach Erstgespräch 08.06.2026)
+- [2026-08-05 07:59] [2026-06-08-Juchem.md] Demo des Beschaffungsagenten gezeigt: AB-Prüfung, Eskalationsmechanismus, Lieferantenscore, Dokumentenablage über ERP-/Postfach-Adapter
+- [2026-08-05 07:58] [2026-06-09-Susanne Riedt (Huissel GmbH) X Prozessia.md] Frühe Sondierungsphase, Erstgespräch vom 06.01.2026, 25 Minuten
+- [2026-08-05 07:58] [2026-06-09-Susanne Riedt (Huissel GmbH) X Prozessia.md] Kernthema: Datenschutzrisiken bei privatem KI-Einsatz (DSGVO, EU AI Act Compliance)
+- [2026-08-05 07:58] [2026-07-19-Präsentation-Esterer Giesserei-V20_Deutsch.md] Eigentümer seit 2008: Topol GmbH (zuvor Tochter der Esterer AG)
+- [2026-08-05 07:55] [AW: Ergebnisse Testreihe Stücklistenproj] Lastenheft für KI-gestützte Stücklistendatenerfassung übermittelt; Anforderungen zur Prüfung eingereicht
+- [2026-08-05 05:07] [Request# 28824206 | [ACTION REQUIRED] Yo] Ansprechpartner: Jed Enel (Onboarding & Compliance, Twilio)
+- [2026-08-05 05:07] [Request# 28824206 | [ACTION REQUIRED] Yo] Bundle SID: BU6b3e48b819e258269f5e87416b09cda1
+- [2026-08-05 05:07] [Request# 28824206 | [ACTION REQUIRED] Yo] Account SID: ACa756b2b60f3dba0995621f130b4caa60
+- [2026-08-04 20:54] [Re: New Qualifications for Air Condition] Referenzbeispiel: Klimaanlagenbetrieb in Texas erhielt 150.000 USD Kreditlinie (2026)
+- [2026-08-04 20:54] [Re: New Qualifications for Air Condition] Marketing-E-Mail von Approvd (Kreditangebote für Klimaanlagenbetriebe) - nicht relevant für Prozessia GbR
+- [2026-08-04 12:36] [AW: Angeot Beschaffungsagent] Beschaffungsagent schafft wiederverwendbare Basisinfrastruktur für zukünftige KI-Anwendungen
+- [2026-08-04 07:50] [New Time Proposed: Prozessia X Schmidt-H] Kontaktperson: Sumit Bhawar, Einkauf/Purchaser, Schmidt + Haensch GmbH & Co., Berlin
+- [2026-08-03 18:12] [Unterstützung bei Tracking, Datenanalyse] Fachliche Schwerpunkte: GA4, Google Tag Manager, Matomo, Server-Side Tracking, Looker Studio, BigQuery, KI-gestützte Workflows
+- [2026-08-03 18:12] [Unterstützung bei Tracking, Datenanalyse] Anna-Lena Eggensberger (annalena.eggensberger@gmail.com) bietet Services in Tracking, Datenanalyse und Automatisierung an
+- [2026-08-03 15:40] [fonio 3.5: +70 ultra-realistische Stimme] fonio 3.5 Update veröffentlicht: 70+ ultra-realistische Stimmen, automatische Kontakterstellung und Namensansprache, WhatsApp-Zusammenfassungen, Stora Integration, Blacklist-Funktion für blockierte Nummern
+- [2026-08-03 02:24] [2026-08-02.md] Workflow besprochen 21.07.2026, final bestätigt von Biendarra am 28.07.2026
+- [2026-08-03 02:23] [2026-08-03-19fc530f90-Rechnung_RE260018_03.08.2026.md] Support & Updates inklusive: technische Ansprechpartner, kleinere Anpassungen, Versionskontrolle & Rollouts
+- [2026-08-03 02:23] [2026-08-03-19fc530f90-Rechnung_RE260018_03.08.2026.md] Rechnung RE260018 vom 03.08.2026: 307,10€ Gesamtbetrag (258,07€ netto + 19% USt.), Zahlbar sofort
+- [2026-08-01 12:29] [2026-08-01-19fbd42301-5637373931.md] Reverse-Charge-Verfahren (0% USt.), Steuerschuldnerschaft liegt bei Prozessia
+- [2026-08-01 05:15] [09_ust_jahreserklaerung_2025.md] Dokumentation: 00_zusammenfassung_steuerpruefung_2025.md, 08_euer_ausgaben_zuordnung.md; Projects: project-euer-2025-finanzamt-zahlungen, project-euer-2025-ausgaben-korrekturen
+- [2026-08-01 05:15] [00_zusammenfassung_steuerpruefung_2025.md] Detaildateien: 08_euer_ausgaben_zuordnung.md (Ausgaben-Details), 09_ust_jahreserklaerung_2025.md (finale Elster-Werte USt)
+- [2026-08-01 05:15] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] Dienstleister sipgate GmbH: Telefonie-Provider, Support: team@support.sipgate.de
+- [2026-08-01 05:14] [00_zusammenfassung_steuerpruefung_2025.md] Finanzamt-USt-Erstattungen 2025 (273,96 €) seit 2026-07-29 als Betriebseinnahme in Pipeline berücksichtigt
+- [2026-08-01 05:14] [00_zusammenfassung_steuerpruefung_2025.md] Umsatz netto 2025: 5.223,96 € (Kundenrechnungen 4.950,00 € + Finanzamt-Erstattungen 273,96 €)
+- [2026-07-31 11:32] [Prozessia] Kontakt: Benjamin Schmohl <benjamin.schmohl@schaufler.de>
+- [2026-07-30 09:45] [2026-07-30-20260624 LV KG 440_SIBE.md] Dokumenttyp: Ausschreibung mit Anforderungskatalog für Sicherheitsbeleuchtungskomponenten
+- [2026-07-30 09:44] [2026-07-30-20260624 LV KG 440_Beleuchtung (1).md] Leistungsverzeichnis (LV) als Grundlage für KI-Agent-Verarbeitung bereitgestellt
+- [2026-07-30 09:42] [2026-07-30-Email-19fb2594-AW-Update-IMK-X-Prozessia.md] Grund der Absage: beide Parteien nicht im Haus
+- [2026-07-30 09:15] Dauerangebot (ohne Ablaufdatum, im Gegensatz zu AG0024 das nur bis 24.06. galt): 220 € Verwaltungspauschale + 38,07 € Serverkosten (Hetzner CCX23) = 258,07 €/Monat netto, Serverkosten laut Schaufler_Hosting_Praesentation (4) bestätigt
+- [2026-07-30 09:14] [Unser Termin] Identifizierte Kundenwünsche/Herausforderungen: (1) Wenig Auswahl an neuen Kunden da die meisten über Empfehlungen kommen, (2) Teilweise zu viel Zeit (Text unvollständig)
+- [2026-07-30 09:14] [Unser Termin] Alexander Heeg (support@agentur-consulting.de) bietet kostenloses Coaching-Call/Beratungsgespräch an
+- [2026-07-30 09:07] Serverkosten (Hetzner) für Kunde Schaufler: 220 pro Monat zzgl. Server-Kosten; in der Präsentation wurde ursprünglich 3,80 oder ähnlich genannt
+- [2026-07-30 08:35] [2026-07-30.md] Folgetermin: 30.07.2026, 11:30 Uhr, Teams – 'Update IMK X Prozessia'
+- [2026-07-30 08:32] Das Transkript-Dokument 'Kunden/Lendner/Meetings/2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler.md' bricht bereits bei Minute 1:52 ab (mitten im Satz), obwohl das Meeting laut Kopfzeile 21:54 Minuten dauerte - Transkript ist unvollständig
+- [2026-07-30 08:18] [AW: Termin mit Herrn Jauch] Ansprechpartnerin: Olga Boldyrieva, Marketing and Business Development, Sarissa GmbH (o.boldyrieva@sarissa.de, +49 751 509 159-10)
+- [2026-07-30 07:13] [2026-07-30-19fb1d58d4-20260624 LV KG 440_SIBE.md] Datei für automatisierte Artikel-/Herstellerfindung bei Ausschreibungen geeignet
+- [2026-07-30 07:13] [2026-07-29-Email-19fad2e6-TechJobs-x-WebWokr.md] Angebot von TechJobs (portugiesische Tech-Job-Plattform): KI-gestützte Lebenslauffanalyse und schnellere Kandidaten-Matching für Tech-Rollen
+- [2026-07-30 07:13] [2026-07-29-Follow-up-Entwurf.md] Esma Tamer (BWL-Seite) war im Erstgespräch 14.07.2026, Email-Adresse fehlt noch – bei Versand hinzufügen
+- [2026-07-30 07:12] [2026-07-29-Update Juchem X Prozessia.md] Folgetermin 29.07.2026, 14:00-17:00 Uhr; Erstkontakt 08.06.2026
+- [2026-07-30 07:12] [2026-07-29-Email-19fad8ab-AW-Vorgeschlagene-Zeit-Update-Beschaffun.md] Email 29.07.2026 - Schmohl antwortet auf Spuhlers Anfrage zu 10:00 Uhr Termin mit Gegenvorschlägen
+- [2026-07-30 07:06] [Vorlagen zur Artikelfindung über KI-Agen] Zwei Anlagen aus Leistungsverzeichnis werden zur Analyse versendet
+- [2026-07-30 07:06] [Vorlagen zur Artikelfindung über KI-Agen] Problem: Leistungsverzeichnis enthält Beschreibungen technischer Leuchten ohne Herstellerangaben; manuelle Suche in EU-Markt mit vielen Herstellern kaum möglich
+- [2026-07-29 09:27] [TechJobs x WebWokr] Schmerz-Punkt identifiziert: Recruiting zeitaufwendig bei 5-Mann-Team mit mehreren parallelen offenen Positionen
+- [2026-07-29 09:20] [Lead Morali] Sebastian hat Ayoub Falah (Morali) ca. am 14.07.2026 zwei Wochen Zeit gegeben, sich nach Durchsicht der Demo zu melden – Frist ist am 29.07.2026 abgelaufen, Follow-up jetzt fällig
+- [2026-07-28 21:01] [2026-06-08-Meeting Thorsten Maas X Prozessia (2).md] Weitere Anwendungsfälle identifiziert: Stücklistenmanagement und Buchhaltung (analog Rezepturen bei Maas)
+- [2026-07-28 17:40] [AW: Kapazitätenplanung Stücklistenprojek] Beteiligte Personen: Juergen Mahler, Florian Knoblauch (im CC der Original-Email)
+- [2026-07-28 14:34] [2026-07-28-Seifert_GmbH_pitch_deck.md] Kernherausforderung: unterschiedliche Kunden-Zeichnungsformate und manueller Aufwand bei Material-/Zuschnittlisten
+- [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] Kontaktperson: Moritz Klüpfel (Arbeitsvorbereitung, Schnittstelle Produktion/Geschäftsführung/CAD, nicht direkt Einkauf)
+- [2026-07-28 14:15] [2026-06-08-Juchem.md] Datenschutz-Constraint: Mitarbeiter bei Juchem dürfen nur Microsoft Copilot nutzen, keine anderen Chatbots – bei Lösung beachten
+- [2026-07-28 14:15] [2026-06-09-Susanne Riedt (Huissel GmbH) X Prozessia.md] Frühe Sondierungsphase; Präsentation wurde während des Gesprächs gezeigt
+- [2026-07-28 14:15] [2026-06-09-Susanne Riedt (Huissel GmbH) X Prozessia.md] Erstgespräch vom 09.06.2026, Dauer 25 Minuten; Susanne Riedt nutzt bereits privat ChatGPT/Claude für Arbeitsaufgaben, aber unorganisiert
+- [2026-07-28 13:32] [2026-07-21-Update Zillmer X Prozessia.md] 42–70 % der Mitarbeiter nutzen Schatten-KI – verstärkt Regulatorik-Dringlichkeit
+- [2026-07-28 13:32] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Bestehendes Tool Spanflug kalkuliert Fräszeiten aus PDF und 3D-Modell, scheitert aber bei geschweißten Baugruppen aus mehreren Einzelteilen
+- [2026-07-28 13:18] [2026-07-28-Update Seifert X Prozessia.md] Demo-Datenbasis: 16 Positionen aus Seifert-Anfrage vom 27.07. - Folgetermin zum Erstgespräch vom 23.07.2026
+- [2026-07-28 12:04] [Bessere Sprachqualität ab nächster Woche] Datenschutz-Verbesserung durch EU-Datenresidenz und Zero Data Retention
+- [2026-07-28 12:04] [Bessere Sprachqualität ab nächster Woche] Natürlichere Stimmen und deutlich verbesserte Aussprache von Zahlen (Telefonnummern, Preise, Termine)
+- [2026-07-28 08:35] Seifert-Problem: Spanflug (PDF+3D-Modell -> Fräszeit/Werkzeugbedarf/Werktage) funktioniert gut bei einteiligen Frästeilen, aber Seifert hat überwiegend geschweißte Baugruppen, was Spanflug nicht abdeckt
+- [2026-07-28 07:08] [Wachstum systematisieren] Erfolgsbeispiele: DRIP-Wachstum von 200k auf über 450k pro Monat, notus-Wachstum von 40k auf 170k mit gleicher Lead-Anzahl
+- [2026-07-28 07:08] [Wachstum systematisieren] Levin Germann, Gründer & Geschäftsführer PREDICT PA GmbH (levin@predict-abilityos.com, Rosenthaler Str. 42-44, 10178 Berlin)
+- [2026-07-28 01:06] [2026-07-28-Email-19fa640b-Neue-Zahlung-von-SCHAUFLER-TOOLING-GMBH.md] Zahlungsbenachrichtigung von Finom am 2026-07-28
+- [2026-07-27 20:35] [2026-06-09-New Record from Google Meet (1).md] Meeting-Datum: 2026-06-09, Thema: Vertriebsskalierung und KI-Vertrieb
+- [2026-07-27 12:40] [Automatische Antwort: Kapazitätenplanung] Bei dringenden Angelegenheiten: Kontakt zu Antonia Häberle (antonia.haeberle@schaufler.de)
+- [2026-07-27 12:13] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83493383.md] Dokument wirkt wie technisches Beispiel/Test-Stückliste ohne erkennbaren Kundenbezug
+- [2026-07-27 12:13] [2026-07-27-19fa3698b1-MATERIAL_2670270.md] GB-Materialnummer 2670270 dokumentiert, aber ohne Kundenzuordnung oder weiteren Kontext
+- [2026-07-27 12:13] [2026-07-27-19fa3698b1-MATERIAL_83493383.md] Materialnummer GB 83493383 – Fragment ohne Kundenzuordnung oder weitere Kontextinformation
+- [2026-07-27 12:13] [2026-07-27-19fa3698b1-MATERIAL_83480037.md] GB Materialnummer: 83480037 - Fragment ohne Prozess-/Kundenzuordnung
+- [2026-07-27 12:12] [2026-07-27-19fa3698b1-MATERIAL_83479898.md] GB Materialnummer 83479898 dokumentiert, ohne erkennbaren Projekt- oder Kundenbezug
+- [2026-07-27 12:12] [2026-07-27-19fa3698b1-MATERIAL_2672654.md] Materialnummer 2672654 (GB) ohne Kundenbezug oder Projektkontext - Zuordnung erforderlich
+- [2026-07-27 12:12] [2026-07-27-19fa3698b1-MATERIAL_2663011.md] GB-Materialnummer 2663011 aufgenommen - Kunden- und Projektbezug unklar
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-MATERIAL_2588573.md] GB-Materialnummer 2588573 identifiziert
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-MATERIAL_2588569.md] GB-Materialnummer 2588569 ohne erkannte Kundenzuordnung identifiziert
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Stückliste bearbeitet 20.07.2026, eingegangen 27.07.2026
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83479898.md] Bearbeitungsdatum: 20.07.2026, Datei vom 27.07.2026, Quelle: PDF-Stückliste 19fa3698b1
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83479898.md] Spezifikationen Fuß-Baugruppe: Gewicht 18.075,976 kg, Längenmaß 2016 mm, Zeichnungsnummer 11946823.MI 00
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-6000017119.md] Anfragennummer: 6000017119 vom 27.07.2026
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83480037.md] Bearbeitungsdatum: 20.07.2026
+- [2026-07-27 05:36] [08_euer_ausgaben_zuordnung.md] EÜR 2025 Betriebsausgaben Werbekosten nach Belegprüfung vom 2026-07-26 klassifiziert
+- [2026-07-25 14:36] [Your Invite to our new Approval Program ] Marketing-/Spam-E-Mail von Regal Cash Group (Sydney Brooks, EVP) für Unternehmensfinanzierungsangebot - keine Relevanz für Prozessia GbR erkannt
+- [2026-07-25 12:24] [Zahlung erhalten] Server-Domain: srv1089921.hstgr.cloud
+- [2026-07-25 12:24] [Zahlung erhalten] Gesamtbetrag bezahlt: 304,83 EUR (257,88 EUR Produkt + 49,00 EUR Steuern - 2,05 EUR Credits)
+- [2026-07-25 12:24] [Zahlung erhalten] Hostinger KVM 4 Server (1 Jahr) erfolgreich aktiviert - Rechnung H_47569812
+- [2026-07-24 13:48] [20260724-19f94522-The-final-varieties-of-peach-season.md] Cresthaven: Anfang-August-Sorte, durchgehend süß, beliebt zum Einmachen
+- [2026-07-24 13:47] [20260724-19f94520-The-final-varieties-of-peach-season.md] Sun Prince: ausgewogen süß, fest - für Verzehr und Backen; Cresthaven: frühe August-Sorte, süß, gut zum Einmachen
+- [2026-07-24 13:47] [20260724-19f94520-The-final-varieties-of-peach-season.md] Verfügbare Pfirsichsorten Ende Juli 2026: Sun Prince, Cresthaven, Flame Prince, Dixieland
+- [2026-07-24 13:46] [20260724-19f93b0b-Angebot-AG0032-von-Prozessia.md] Angebotsnummer AG0032 vom 24.07.2026 von Prozessia
+- [2026-07-24 03:20] [2026-07-24-19f5bf6740-Top 10 Lieferanten.md] Lieferantenliste aktuell vom 2026-07-24 als Referenzmaterial für Beschaffungsagenten verfügbar
+- [2026-07-24 03:20] [2026-07-24-19f5bf6740-Top 10 Lieferanten.md] Lieferanten geografisch verteilt: Deutschland (4), Portugal (1), Ungarn (1), Italien geplant
+- [2026-07-23 21:33] [2026-07-23-19f69cc342-Rechnung_2026-07-16_310100082556.md] Zahlungsfrist: 23.07.2026 (7 Tage nach Rechnungsdatum 16.07.2026), Leistungszeitraum: 16.07.-15.08.2026
+- [2026-07-23 21:33] [2026-07-23-19f69cc342-Rechnung_2026-07-16_310100082556.md] Gesamtbetrag: 1,00 EUR (Grundgebühr 18,00 EUR minus Rabatt 17,00 EUR, inklusive 19% MwSt.), Zahlungsart: Kreditkartenabbuchung
+- [2026-07-24 15:11] [2026-07-21-Prozessia X Schmidt-Hänsch.md] Nächster Termin: eineinhalb Wochen nach 21.07.2026 (ca. 04-07.08) – Sebastian planen
+- [2026-07-24 15:11] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Kundenprioritäten: Lieferverzugsliste und Automatisierung von Mahnläufen bei verspäteten Lieferungen
+- [2026-07-24 15:11] [Re: FT Ventures x WebWokr] FT Ventures/exceedtree: 5-köpfiges Team mit mehreren parallelen Aufträgen; externe Entwickler-Kapazität ist ein Engpass
+- [2026-07-24 15:11] [Re: Decube x WebWokr] Trusty-Feature: Versteht Metadaten in deutscher Sprache, ermöglicht Datenzugang für globale Teams ohne Englischkenntnisse – ergänzender Punkt zu früherer Nachricht von Daniela (cloudmeshes.org) zum Decube x WebWork-Projekt
+- [2026-07-24 15:11] [Unsere aktuellen KI- und Digitalformate ] EDIH Saarland positioniert sich als Anlaufstelle für KI & Digitalisierung mit Angeboten von Workshops bis zur konkreten Umsetzung
+- [2026-07-24 15:11] [Unsere aktuellen KI- und Digitalformate ] EDIH Saarland (info@edih-saarland.de) bewirbt Workshop 'KI für den Shopfloor' am 29. Juli 2026, 14:00–15:00 Uhr (Online)
+- [2026-07-23 15:20] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] KI-Agent-Einsatz langfristig zur Automatisierung von Kalkulationsprozessen in der Fertigung geplant
+- [2026-07-23 15:20] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Bestehendes Tool ‚Spanflug' zur Kalkulation von Frässzeiten – zeigt Limitierungen bei komplexen geschweißten Baugruppen
+- [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Zusage: Prozessia übernimmt Server-Infrastruktur auf Wunsch; Folgetermin in ~1-1,5 Wochen (ca. 28.7.-4.8.2026)
+- [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Schatten-KI, DSGVO/EU AI Act Risiken besprochen
+- [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Kunde interessiert an Lieferverzugsliste & automatisierter Mahnläufe bei verspäteten Lieferungen
+- [2026-07-23 14:54] [Neu: WhatsApp-Übergabe & Spam-Blocker] fonio Spam-Blocker: Blockiert unerwünschte Anrufe direkt über Kontakte
+- [2026-07-23 14:54] [Neu: WhatsApp-Übergabe & Spam-Blocker] fonio Feature neu: WhatsApp-Konversationen - Assistent erkennt Anliegen und leitet Konversation ans Team weiter
+- [2026-07-23 12:11] [2026-07-23-19f430a55b-Gewerbeanmeldung Mohamed Douioui.md] Betriebsstätte Prozessia: Universität/Starterzentrum Campus A 1.1, 66123 Saarbrücken
+- [2026-07-23 12:11] [2026-07-23-19f430a55b-Gesellschaftsvertrag der Webwokr Gbr.md] Kapitaleinlage pro Gesellschafter: 100€
+- [2026-07-23 12:11] [2026-07-23-19f430a55b-Gesellschaftsvertrag der Webwokr Gbr.md] Geschäftszweck WebWokr: Webdesign, SEO, Website-Konzeption/-Gestaltung/-Entwicklung, Online-Marketing-Beratung
+- [2026-07-23 12:11] [2026-07-23-19f430a55b-Gesellschaftsvertrag der Webwokr Gbr.md] WebWokr GbR: Gesellschaftsvertrag zwischen Sebastian Spuhler und Mohamed Douioui, Sitz Saarbrücken
+- [2026-07-23 12:10] [2026-07-23-19f3cde426-Ticket_1von1_TX-14010-39606_COBOTS4YOU-Würzburg.md] Veranstaltung COBOTS4YOU ist kostenlos (freier Eintritt)
+- [2026-07-23 12:10] [2026-07-23-19f3cde426-Ticket_1von1_TX-14010-39606_COBOTS4YOU-Würzburg.md] Sebastian Spuhler/Prozessia: Ticket bestätigt (1 von 1) für COBOTS4YOU
+- [2026-07-23 12:10] [2026-07-23-19f3cde426-Ticket_1von1_TX-14010-39606_COBOTS4YOU-Würzburg.md] Veranstaltungsadresse: Max-Planck-Straße 7/9, 97082 Würzburg, Deutschland
+- [2026-07-23 12:10] [2026-07-23-19f3cde426-Ticket_1von1_TX-14010-39606_COBOTS4YOU-Würzburg.md] COBOTS4YOU Würzburg: 27.10.2026, 09:00-17:00 Uhr im VCC Vogel Convention Center
+- [2026-07-23 12:10] [2026-07-23-19f17dfce8-Wareneingang 2025.08.08.md] Vier Prozesse in der Analyse: Wareneingang, Kleinaufträge, ergänzender Workflow, Lohnfertigung
+- [2026-07-23 12:10] [2026-07-23-19f17dfce8-Prozess Lohnverguß 2022.07.20.md] Datei enthält hauptsächlich Scan des PDF-Prozessdiagramms ohne zusätzliche strukturierte Textinformationen
+- [2026-07-23 12:09] [2026-07-23-19f1c9e313-Angebot_AG0027_01.07.2026.md] Gesamtbetrag 21.420€ brutto (18.000€ netto), 50% Abschlag bei Prototyp-Fertigstellung
+- [2026-07-23 12:09] [2026-07-23-19f1906293-Angebot_AG0026_30.06.2026.md] Preis: 7.140,00 € brutto (6.000,00 € netto + 19% USt.)
+- [2026-07-23 12:09] [2026-07-23-19f1906293-Angebot_AG0026_30.06.2026.md] Angebot AG0026 vom 30.06.2026, gültig bis 28.07.2026 – Gültigkeitsfrist in 5 Tagen ablaufend
+- [2026-07-23 12:09] [2026-07-23-19f40a0d3d-AVV_Schaufler_Prozessia.md] Technologie-Stack: Azure OpenAI Service in europäischer Region
+- [2026-07-23 12:08] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] Quelle: 19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.xlsx (Datum: 2026-07-23)
+- [2026-07-23 12:08] [2026-07-23-19f18e16e2-Mitgliedschaftsbedingungen.md] Mitgliedschaftsbedingungen aktuell vom 23.07.2026
+- [2026-07-23 12:08] [2026-07-23-19f18e16e2-Mitgliedschaftsbedingungen.md] Verfügbar: Zusatzkarten und Platinum Plus Optionen (Preise in Dokument)
+- [2026-07-23 12:08] [2026-07-23-19f18e16e2-Mitgliedschaftsbedingungen.md] Vertragspartner: American Express Europe S.A. (Germany branch), Frankfurt, HRB 112342
+- [2026-07-23 12:08] [2026-07-23-19f18e16e2-Mitgliedschaftsbedingungen.md] Jahresgebühr Hauptkarte: 850 €
+- [2026-07-23 12:08] [2026-07-23-19f17a1531-Leistungsübersicht der Business Platinum Card.md] 24/7 persönlicher Service und Versicherungspaket enthalten
+- [2026-07-23 12:08] [2026-07-23-19f17a1531-Leistungsübersicht der Business Platinum Card.md] Zusatzkarten für Mitarbeiter:innen verfügbar, individueller Verfügungsrahmen verhandelbar
+- [2026-07-23 12:08] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] Zahlungsart: Automatische Kreditkartenabbuchung für Hetzner-Rechnungen
+- [2026-07-23 12:08] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] Monatliche Infrastrukturkosten: 0,77 € brutto (0,65 € netto) - Juni 2026
+- [2026-07-23 12:08] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] Hetzner Kundennummer: K0631688826 (Prozessia, Sebastian Spuhler)
+- [2026-07-23 12:07] [2026-07-23-19f1c3dc33-invoice_sipgatede_B4602762.md] Kreditkarte hinterlegt bei sipgate (letzte Ziffer: 7073, Inhaber: Sebastian Spuhler)
+- [2026-07-23 12:07] [2026-07-23-19f1c3dc33-invoice_sipgatede_B4602762.md] Sipgate Telefonieguthaben-Aufladung: 105,00 EUR brutto (88,24 EUR netto + 19% USt), bezahlt per Kreditkarte
+- [2026-07-23 12:07] [2026-07-23-19f188bb24-Invoice-GGYF9D9L-0019.md] Rechnung adressiert an: 'Sebastian's Individual Org', 66123 Saarbrücken, sebastian.spuhler@prozessia.de
+- [2026-07-23 12:07] [2026-07-23-19f188bb24-Invoice-GGYF9D9L-0019.md] Zahlungsadresse für Anthropic: P.O. Box 104477, Pasadena, CA 91189-4447 (Scheck-Versand, bevorzugt: Online-Zahlung)
+- [2026-07-23 12:07] [2026-07-23-19f188bb24-Invoice-GGYF9D9L-0019.md] ⚠️ ZAHLUNGSTERMIN ÜBERSCHRITTEN: Fälligkeitsdatum war 30.06.2026, heute ist 23.07.2023 — Zahlung notwendig
+- [2026-07-23 12:07] [2026-07-23-19f188bb24-Invoice-GGYF9D9L-0019.md] Invoice GGYF9D9L-0019 von Anthropic: $23.80 USD (One-time API-Credit-Kauf $20.00 + 19% deutsche MwSt. $3.80), ausgestellt 30.06.2026
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Receipt-2713-3487.md] Reverse-Charge-Umsatzsteuer (0%) – EU B2B Transaktion (DE VAT: DE451202966)
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Receipt-2713-3487.md] Nächste automatische Abrechnung: 27. Juli 2026 (€25,00) – wiederkehrende Zahlung
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Receipt-2713-3487.md] Zahlungsart: Visa-Kreditkarte (endend auf 7073), zuletzt am 27.06.2026 bezahlt
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Receipt-2713-3487.md] Lovable Labs Pro-Abo: €25,00/Monat, monatliche Abrechnung am 27. des Monats
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Invoice-XC0AID8J-0007.md] Aktueller Abo-Zeitraum: 27.06.–27.07.2026, Fälligkeitsdatum 27.06.2026
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Invoice-XC0AID8J-0007.md] Lovable-Rechnung läuft über Reverse Charge Verfahren, keine MwSt. ausgewiesen, EU OSS VAT
+- [2026-07-23 12:07] [2026-07-23-19f46e3b5c-INV-057.md] Zahlungsmethode: Wise (Belgien) für EUR-Überweisungen innerhalb Eurozone
+- [2026-07-23 12:06] [2026-07-23-19f23ce695-5615032135.md] Domain prozessia.de ist mit diesem Google Workspace Account verknüpft
+- [2026-07-23 12:06] [2026-07-23-19f23ce695-5615032135.md] Rechnungsnummer 5615032135, Billing ID 7361-1441-4101, Rechnungsdatum 30.06.2026, gültig für Juni 2026
+- [2026-07-23 12:06] [2026-07-23-19f23ce695-5615032135.md] Monatliche Subscription-Kosten Google Workspace: 28,10 € netto (Reverse Charge 0% MwSt)
+- [2026-07-23 12:06] [2026-07-23-19f23ce695-5615032135.md] Google Workspace Business Starter: Commitment-Erhöhung von 3 auf 5 Lizenzen für Prozessia GbR
+- [2026-07-23 12:06] [2026-07-23-19f188bb24-Receipt-2715-8726-9308.md] Rechnungsnummer: GGYF9D9L-0019, Receipt-Nummer: 2715-8726-9308
+- [2026-07-23 11:58] [2026-07-23-19f4baf08b-G170104086.md] Rechnungsnummer G170104086 für Abrechnungszeitraum 01.06.-30.06.2026, Fälligkeit 09.07.2026
+- [2026-07-23 11:58] [2026-07-23-19f4baf08b-G170104086.md] Zahlungsmethode: Automatische Kreditkartenbelastung bei Microsoft
+- [2026-07-23 11:58] [2026-07-23-19f4baf08b-G170104086.md] Aktuelle monatliche Kosten: EUR 33,31 brutto (EUR 27,99 netto + EUR 5,32 MwSt.)
+- [2026-07-23 11:57] [2026-07-23-19f4b8def1-G170032929.md] Zahlungsart: automatische Kreditkartenabbuchung, Belegdatum 09.07.2026
+- [2026-07-23 11:57] [2026-07-23-19f4b8def1-G170032929.md] Azure AI + Machine Learning Nutzungsgebühren: 3,76 EUR netto zzgl. 19% MwSt.
+- [2026-07-23 11:57] [2026-07-23-19f4b8def1-G170032929.md] Microsoft Azure Rechnung G170032929, Abrechnungszeitraum 01.06-30.06.2026, Gesamtbetrag 4,47 EUR brutto, fällig 09.07.2026
+- [2026-07-23 11:55] [2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md] Lieferdatum: 24.06.2026 (Leistung bereits erbracht)
+- [2026-07-23 11:55] [2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md] Rechnungsbetrag 1.000€ netto (1.190€ mit 19% USt.); Zahlungsbedingung: sofort zahlbar
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-PFITZER-127655.md] Lieferant PFITZER: Max-Planck-Str. 4, 74211 Leingarten; E-Mail: bestellung.po-order@pfitzer-verbindun[gstechnik]
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-KIND WBH-127668.md] Vertragsgrundlage: Schauflers AEB (www.schaufler.de), Incoterms 2020, Kontakt Lieferant: WBH-AV@Kind-Co.de
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-KIND WBH-127668.md] Lieferadresse: MJM Metallverarbeitung Mangner GmbH, Dautphetal (Endkunde/Verarbeiter)
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-KIND WBH-127668.md] Bestellbeleg-Nr. 127668 vom 26.06.2026: Schaufler Tooling beauftragt Kind & Co. Edelstahlwerke mit Wärmebehandlung (Härten) eines Ejector Shotblock-Bauteils
+- [2026-07-23 11:53] [2026-07-23-19f5ff1aad-BEST-KIND STAHL-127653.md] Bestelldatum: 24.06.2026; Vertragsgrundlage: Schaufler Allgemeine Einkaufsbedingungen + Verhaltenskodex (www.schaufler.de)
+- [2026-07-23 11:53] [2026-07-23-19f8e484e8-Top100_Lieferanten_mit_Email.md] Top-3-Lieferanten nach Volumen: Schaufler China (19,4M), Handtmann (4,3M), Fischer Tool & Die (3,4M EUR)
+- [2026-07-23 11:53] [2026-07-23-19f65504d0-Receipt-2233-8816-5318.md] Rechnungsnummer: GGYF9D9L-0020, Quittung: 2233-8816-5318
+- [2026-07-23 11:53] [2026-07-23-19f65504d0-Receipt-2233-8816-5318.md] Zahlungsdatum: 15.07.2026, Zahlungsmethode: Link (erfolgreich bezahlt)
+- [2026-07-23 11:53] [2026-07-23-19f65504d0-Receipt-2233-8816-5318.md] Anthropic API-Credits: $20.00 gekauft + $3.80 MwSt (19%) = $23.80 Gesamtbetrag
+- [2026-07-23 11:52] [2026-07-23-19f8cb719f-63459971781.md] Abrechnungszyklus läuft vom 23. eines Monats bis zum 22. des nächsten Monats; automatischer Bankeinzug — KEINE manuelle Zahlung erforderlich
+- [2026-07-23 11:52] [2026-07-23-19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.md] Mistral Vendor-Adresse: 952 418 325 SAS, 15 rue des Halles, 75001 Paris; Quittung 2026-07-23, Invoice MSTRL-API-750302-003
+- [2026-07-23 11:52] [2026-07-23-19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.md] Zahlungsmodalität: Visa-Abbuchung (***7073), automatisch bei Schwellenwert-Überschreitung
+- [2026-07-23 11:52] [2026-07-23-19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.md] Mistral OCR Nutzung: ~6.000 Seiten/Monat à 0,0034€/Seite; Juli 01-20: 6.039 Seiten = 20,53€ (brutto mit 19% MwSt.), davon 11,25€ bereits vorfinanziert
+- [2026-07-23 11:52] [2026-07-23-19f80bf0b9-invoice-MSTRL-API-750302-003.md] Prozessia nutzt Mistral OCR für API-Seitenerkennung; bisherige Nutzung bereits €11,25 abgerechnet
+- [2026-07-23 11:52] [2026-07-23-19f80bf0b9-invoice-MSTRL-API-750302-003.md] Rechnung 20.07.2026 (MSTRL-API-750302-003): €11,04 netto für 6.039 Seiten (01.–20.07.2026), zzgl. 19% DE-Steuern
+- [2026-07-23 11:51] [2026-07-23-19f80b8128-invoice-MSTRL-API-750302-003.md] Kumulierte Mistral-Nutzung: bereits 11,25 € abgerechnet vor dieser Rechnung
+- [2026-07-23 11:51] [2026-07-23-19f80b8128-invoice-MSTRL-API-750302-003.md] Mistral OCR Einzelpreis: 0,0034 € pro Seite; progressive Abrechnung ab 20,00 € Schwellenwert
+- [2026-07-23 11:51] [2026-07-23-19f80b8128-invoice-MSTRL-API-750302-003.md] Mistral AI Rechnung MSTRL-API-750302-003 (20.07.2026): 11,04 € brutto (9,28 € netto, MwSt 19%)
+- [2026-07-23 11:51] [2026-07-23-19f801f127-receipt-MSTRL-API-750302-RCPT-000001.md] Monatliche Mistral-Kosten stabil bei ~€13 brutto (Juli 2026)
+- [2026-07-23 11:51] [2026-07-23-19f801f127-invoice-MSTRL-API-750302-002.md] Kumulierte Mistral-Nutzung bereits bei €11,54 (Schwellenwert überschritten → progressive Abrechnung aktiv)
+- [2026-07-23 11:51] [2026-07-23-19f8015dd3-invoice-MSTRL-API-750302-002.md] Kumulative Mistral-Nutzung €11,54 erreicht; progressive Abrechnungslogik ab €10,00-Schwelle aktiviert
+- [2026-07-23 11:51] [2026-07-23-19f8015dd3-invoice-MSTRL-API-750302-002.md] Rechnung MSTRL-API-750302-002: €13,39 brutto, Zahlungsfrist 0 Tage (sofort fällig 20.7.2026)
+- [2026-07-23 11:51] [2026-07-23-19f8015dd3-invoice-MSTRL-API-750302-002.md] Mistral OCR API-Tarif: €0,0034 pro Seite; 3310 Seiten im Juli 2026 verarbeitet (€11,25 netto)
+- [2026-07-23 11:50] [2026-07-23-19f69cc342-Rechnung_2026-07-16_310100082556.md] Sammelrechnung 310100082556 vom 16.07.2026, Abrechnungszeitraum 16.07.–15.08.2026, Gesamtbetrag 2,00 EUR brutto
+- [2026-07-23 11:42] [2026-07-21-Email-19f83bcb-Zugesagt-Boris-Tetzlaff-and-Sebastian-Sp.md] Termin/Meeting zwischen Boris Tetzlaff (Sundh) und Sebastian Spuhler zugesagt am 2026-07-21
+- [2026-07-23 11:41] [2026-07-21-Email-19f8394e-AW-Unser-Termin.md] Sundh-Schaltanlagen hat anstehenden Urlaub im August/früher September
+- [2026-07-23 11:41] [2026-07-21-Email-19f8394e-AW-Unser-Termin.md] Nächste Termine bei Sundh-Schaltanlagen ab September 2026 möglich, bevorzugt montags
+- [2026-07-23 11:41] [2026-07-21-Email-19f834b9-FT-Ventures-x-WebWokr.md] Lead-Eingang: 21.07.2026; Kategorie: Leads/Listen; Pain-Point erkannt: Kapazitäts-Mismatch bei zeitkritischen KMU-Projekten
+- [2026-07-23 11:41] [2026-07-21-Email-19f834b9-FT-Ventures-x-WebWokr.md] Outbound-Kontakt adressiert WebWokrs Kerngeschäft: DSGVO-konforme Chatbots und KPI-Dashboards für KMUs
+- [2026-07-23 11:41] [2026-07-21-Email-19f834b9-FT-Ventures-x-WebWokr.md] FT Ventures (Kontakt: Mary, mary@exceedtree.org) – IT-Staffing-Provider mit 200+ Spezialisten in 10 Ländern; bietet flexible Kapazitäts-Entlastung für Kundenprojekte
+- [2026-07-23 11:41] [2026-08-24-Grohe.md] Ansprechpartner: Daniel Hettich (daniel.hettich@grohe-technology.de)
+- [2026-07-23 11:41] [2026-08-24-Grohe.md] Erstgespräch am 2026-08-24
+- [2026-07-23 11:41] [2026-07-21-Email-19f8596e-Action-required-security-vulnerabilities.md] Email von Supabase am 21 Jul 2026 – Supabase-Dashboard: https://supabase.com/dashboard/project/stggglgcvisnvcertpau/advisors/security
+- [2026-07-23 11:41] [2026-07-21-Email-19f8596e-Action-required-security-vulnerabilities.md] Sensitive Daten öffentlich zugänglich – Risiko für unbefugte Dateneinsicht und -manipulation
+- [2026-07-23 11:41] [2026-07-21-Email-19f8596e-Action-required-security-vulnerabilities.md] Row-Level Security (RLS) deaktiviert in Projekt stggglgcvisnvcertpau – Tabellen öffentlich lesbar/editierbar/löschbar für jeden mit Project URL
+- [2026-07-23 11:40] [2026-07-23-Email-19f8dab3-AW-Anforderung-einer-zentralen-Lösung-zu.md] Jonas Rösch (IT-Administration Schaufler) wird Kontakt zu Herr Knoblauch herstellen, falls dieser das Projekt weiter vorantreiben möchte – nächster Schritt abhängig von Knoblauch
+- [2026-07-23 11:40] [2026-07-21-Update Zillmer X Prozessia.md] Gesprächsdatum: 21.07.2026, 08:59 Uhr – Dauer: ~22 Min; Transkript via Voice-Recording
+- [2026-07-23 11:40] [2026-07-21-Update Zillmer X Prozessia.md] Status: Grundsätzliches Interesse vorhanden, aber zeitliche und prioritätsbezogene Hürden auf Seiten Zillmer (Chef-Feedback ausstehend)
+- [2026-07-23 11:40] [2026-07-21-Update Zillmer X Prozessia.md] Ausgangsproblem: Moderne Ausschreibungen oft unklar definiert – Hersteller und Produkttypen (z.B. Leuchten) nicht eindeutig identifizierbar
+- [2026-07-23 11:39] [2026-07-21-Prozessia X Schmidt-Hänsch.md] DSGVO/EU-AI-Act Compliance-Risiken: Schatten-KI durch unkontrollierte KI-Nutzung von Mitarbeitern → standardisierter Agent reduziert diese Risiken
+- [2026-07-23 11:39] [2026-07-21-Prozessia X Schmidt-Hänsch.md] Folgetermin: in 1-1,5 Wochen ab 21.07.2026 (ca. 28.07-04.08.2026); Sumit klärt intern mit Chef und IT-Abteilung Freigabe/Machbarkeit
+- [2026-07-23 11:39] [06_recherche_beleg_fehlt.md] StackBlitz Bolt Pro-Plan: 20 USD/Monat (Zahlung 17,73 EUR am 2025-05-30, FX-Rate 0,8865, Beleg Nr. 2514-9086)
+- [2026-07-23 11:39] [2026-07-22-Rechnung Schnittstellen Winform.md] Leistung erbracht 24.06.2026: Einrichtung Agent X Schnittstellen Winform, Testing und Validierung abgeschlossen
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Google-Beleg 28.1 EUR (ID: 5615032135.pdf) ohne eindeutig extrahierbare Datierung
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Gesellschafter-Transfer an Sebastian Spuhler: 1.0 EUR (2024-10-31) mit unbekanntem Verwendungszweck ('test') – Klärung erforderlich
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Triathlon Transfer 29.75 EUR (2024-12-25) taucht doppelt auf: Finom-Kontoauszug + Beleg (Triathlon Miete.pdf) – mögliches Duplikat
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Belegauswertung 2024: 15 echte Prüffälle identifiziert (Bagatellefälle ≤ 15 EUR ausgeschlossen)
+- [2026-07-23 11:39] [Paddle n8n Cloud Beleg 10-07-2025.md] Zahlungsmethod: Visa-Karte (Paddle payment processor), automatische monatliche Abrechnung
+- [2026-07-23 11:39] [Paddle n8n Cloud Beleg 10-07-2025.md] n8n Cloud Abonnement (Cloud Starter Plan) aktiv und im Betrieb
+- [2026-07-23 11:38] [Bolt StackBlitz Beleg 05-29-2025.md] Zahlungsmethode: Visa ****7073 (über Stripe/StackBlitz abgewickelt)
+- [2026-07-23 11:38] [Bolt StackBlitz Beleg 05-29-2025.md] FX-Rate Mai 2025: 20 USD = 17,73 EUR (Kurs 0,8865), Bankbuchung 30.05.2025
+- [2026-07-23 11:38] [Bolt StackBlitz Beleg 05-29-2025.md] Zahlungsbeleg Nr. 2514-9086, Rechnungsnummer LRDKYW8R-0001, Bezahlung 29.05.2025
+- [2026-07-23 11:38] [Bolt StackBlitz Beleg 05-29-2025.md] Bolt Pro-Plan (StackBlitz) — monatliches SaaS-Abo, 20,00 USD/Monat, regelmäßige Zahlung
+- [2026-07-23 11:38] [Re: Prozessia ICP] KI-Wissensmanagement: Neue Präsentation erstellt, weitere Inhalte in Entwicklung geplant (21.07.2026)
+- [2026-07-23 11:38] [Re: Prozessia ICP] Neue Leads wurden Lars Segschneider im CRM zugeteilt mit besserer ICP-Passform (21.07.2026)
+- [2026-07-23 11:38] [Re: Prozessia ICP] Kontakt Lars Segschneider (larssegschneider.ls@gmail.com) zeigt Interesse an KI-Wissensmanagement Präsentation (23.07.2026)
+- [2026-07-23 11:38] [AW: Unser Termin] Termin wurde kurzfristig von Boris Tetzlaff (Betriebsleiter S + H Schaltanlagenbau GmbH) absagen müssen – Grund: Familienangelegenheit (Betreuung Tochter)
+- [2026-07-23 11:38] [Dashboard fehler] Dashboard-Fehler seit 2026-07-22 Abend (andauernd Fehlermeldung angezeigt)
+- [2026-07-23 11:38] [AW: Anforderung einer zentralen Lösung z] Anfrage zu KI-Wissensmanagement stammt von Herr Knoblauch (nicht Jonas Rösch), Thema: zentrale Lösung zur gemeinsamen E-Mail-Ablage und Wissenssicherung
+- [2026-07-23 11:38] [FT Ventures x WebWokr] FT Ventures erkennt WebWokr-Geschäftsmodell: DSGVO-konforme Chatbots und KPI-Dashboards für KMUs
+- [2026-07-23 11:38] [FT Ventures x WebWokr] Mary (mary@exceedtree.org) von FT Ventures bietet IT-Talent-Vermittlung an: 200+ Spezialisten in 10 Ländern, spezialisiert auf schnelle Kapazitätserweiterung bei Engpässen
+- [2026-07-23 11:38] [Fwd: Live-Schaltung diese Woche] Amin Douioui (Prozessia) koordiniert die Schaltung mit Schaufler – Bestätigung durch Kunde steht noch aus
+- [2026-07-23 11:38] [Fwd: Live-Schaltung diese Woche] Feature 2 'Weiterleitung der Versanddokumente': Live-Start Donnerstag (24. Juli 2026)
+- [2026-07-23 11:38] [Fwd: Live-Schaltung diese Woche] Feature 1 'Messberichte': Live-Start Mittwoch (23. Juli 2026)
+- [2026-07-23 11:38] [KI Agent] Benjamin fordert Feedback zur Performance der Live-Daten und zur Agent-Funktionalität an; bislang keine Fehler/komischen Mails von Kollegen gemeldet (22.-23.07.2026)
+- [2026-07-23 11:38] [WhatsApp-Konversationen-Handover und Upd] fonio Update-Webinar: 30. Juli 2026, 16:00 Uhr (monatliches Webinar)
+- [2026-07-23 11:38] [WhatsApp-Konversationen-Handover und Upd] Matthias (CTO fonio) postet täglich Updates zu neuen Features auf LinkedIn
+- [2026-07-23 11:38] [WhatsApp-Konversationen-Handover und Upd] fonio WhatsApp-Assistenten können Konversationen ab sofort direkt an Menschen übergeben (neue Funktion diese Woche)
+- [2026-07-23 11:38] [Re: IT Sicherheit Riemann] Sebastians Anfrage vom 22.07.2026 bezog sich auf Schatten-KI-Nutzung, Datenschutzverstöße und KI-Einsatz im industriellen Mittelstand
+- [2026-07-23 11:38] [Update: Änderung Sub-Auftragsverarbeiter] Änderung gemäß AVV Ziffer 5.6 (Auftragsverarbeitungsvereinbarung mit fonio.ai) – formale Benachrichtigung erhalten
+- [2026-07-23 11:38] [Update: Änderung Sub-Auftragsverarbeiter] fonio.ai ändert Sub-Auftragsverarbeiter für Text-to-Speech: Eleven Labs Inc. wird ab 06.08.2026 durch Theai, Inc. dba Inworld AI ersetzt (EU-Datenresidenz, Zero Data Retention, Standardvertragsklauseln)
+- [2026-07-19 16:52] [2026-07-16-Einführung Beschaffungsagent.md] Besprechung vom 16.07.2026 mit Benjamin Schmohl, Amin Douioui und Sebastian Spuhler zur Einführung/Weiterentwicklung Beschaffungsagent
+- [2026-07-19 16:52] [2026-06-25-Besprechung Umsetzung Server Infrastruktur Schaufler (1).md] Offene Abhängigkeit: Testview-Status bei Jochen - erforderlich vor WinForm-Anbindung
+- [2026-07-19 16:51] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler.md] Treffen am 2026-07-16 war Erstgespräch zwischen Prozessia und Lendner; nächste Schritte noch offen
+- [2026-07-19 16:51] [2026-07-19-Rechnung_2026-07-16_310100082556.md] IONOS Kundennummer: 314248816, Support täglich rund um die Uhr erreichbar (0721 170 5522)
+- [2026-07-19 16:51] [2026-07-19-Rechnung_2026-07-16_310100082556.md] Leistungsperiode: 16.07.2026 - 15.08.2026, Tarif MyWebsite Now Plus mit Grundgebühr und Rabatt pro Vertrag
+- [2026-07-19 16:51] [2026-07-19-Rechnung_2026-07-16_310100082556.md] IONOS-Sammelrechnung 310100082556 vom 16.07.2026 für zwei MyWebsite Now Plus Verträge (111670906, 111670937)
+- [2026-07-19 16:51] [2026-07-19-Receipt-2233-8816-5318.md] Rechnungsnummer GGYF9D9L-0020, Belegnummer 2233-8816-5318
+- [2026-07-19 16:51] [2026-07-19-Invoice-GGYF9D9L-0020.md] Rechnungsnummer: GGYF9D9L-0020, Ausstellungsdatum: 15.07.2026
+- [2026-07-19 13:10] [2026-07-16.md] Kai Winterscheid teilt mit: TPG-ERP-Team meldet sich bei ihm, sobald Prozessia Ressourcen verfügbar hat – Initiative liegt bei TPG
+- [2026-07-19 13:10] [2026-06-09-Unterlassungserklärung WebWokr.md] Gerichtliche Schritte und Übernahme von Gerichts- und Anwaltskosten durch Spuhler im Falle fruchtlos verstrichener Frist
+- [2026-07-19 13:10] [2026-06-09-Allgemeine Geschäftsbedingungen.md] Leistungsumfang umfasst Konzeption, Einrichtung und Betreuung KI-gestützter Systeme
+- [2026-07-19 13:10] [2026-06-09-Allgemeine Geschäftsbedingungen.md] AGB gelten ausschließlich für gewerbliche Kunden
+- [2026-07-19 13:10] [2026-06-09-Allgemeine Geschäftsbedingungen.md] Prozessia AGB vom 2026-06-09 regeln Verträge für KI- und Automatisierungsdienstleistungen
+- [2026-07-19 13:10] [2026-06-09-1. Vertragsänderung M-2024-16_Spuhler_webwokr.md] Unterzeichnung der 1. Vertragsänderung am 30.09.2025 in Saarbrücken
+- [2026-07-19 13:10] [2026-06-09-1. Vertragsänderung M-2024-16_Spuhler_webwokr.md] Mietvertrag M-2024-16 mit Triathlon Transfer GmbH (Vermieterin)
+- [2026-07-19 13:10] [2026-06-09-1. Vertragsänderung M-2024-16_Spuhler_webwokr (1) (2).md] Geschäftsführer: Sebastian Spuhler (*19.09.2004, Hunsrückstr. 4, 66333 Völklingen) und Mohamed Douioui (*28.02.2005, Leipziger Str. 37, 66113 SB-Malstatt)
+- [2026-07-19 13:10] [2026-06-09-1. Vertragsänderung M-2024-16_Spuhler_webwokr (1) (2).md] Vermieterin: Triathlon Transfer GmbH, Gebäude A1 1, 66123 Saarbrücken
+- [2026-07-19 13:10] [2026-06-09-Präsentation_Beschaffungsagent_Prozessia.md] Alleinstellungsmerkmale: DSGVO-Konformität und ERP-Integration
+- [2026-07-19 13:10] [2026-06-09-Präsentation_Beschaffungsagent_Prozessia.md] Nutzenversprechen: bis zu 80% Kostensenkung bei Beschaffungskosten
+- [2026-07-19 13:10] [2026-06-09-Präsentation_Beschaffungsagent_Prozessia.md] Zielkunden: Automotive, Maschinenbau, Werkzeugbau, Pharma
+- [2026-07-19 13:10] [2026-06-09-Prozessia_AI_Produktpräsentation (1).md] Kernmerkmale: individuelle Anpassbarkeit, Prompt-Bibliothek, Skills, Sicherheit und Datenschutz inbegriffen
+- [2026-07-19 13:10] [2026-06-09-Prozessia_AI_Produktpräsentation (1).md] Produktpräsentation vom 09.06.2026 für Vertriebseinsatz bei potenziellen Kunden im Mittelstand konzipiert
+- [2026-07-19 13:10] [2026-06-09-Prozessia — Unternehmenspräsentation.md] Schmerzpunkte der Zielgruppe: Datenschutz/DSGVO (US-Cloud-Risiken für Stücklisten, Konstruktionsdaten, Lieferantenpreise), EU AI Act Compliance bis August 2026
+- [2026-07-19 13:10] [2026-06-09-Prozessia — Unternehmenspräsentation.md] EU AI Act Compliance-Frist: August 2026 – Anforderungen: Pflichten, Kompetenznachweis, Transparenz, persönliche Haftung bei Nichterfüllung
+- [2026-07-19 13:10] [2026-06-09-Prozessia — Unternehmenspräsentation.md] 91% der Industrieunternehmen in DACH haben KI noch nicht systematisch integriert
+- [2026-07-19 13:10] [2026-06-09-Prozessia — Unternehmenspräsentation.md] Zentrale Verkaufsargumente: 4× schnellere Angebotsauswertung bei weniger Fehlern, Konstruktionsdaten bleiben in Deutschland
+- [2026-07-19 13:10] [2026-06-09-Demo Video Prozessia Agent für Kanzleien.md] Material befindet sich in Sales/Handelsvertreter/ und dient der Vertriebsunterstützung für potenzielle Kanzlei-Kunden
+- [2026-07-19 13:10] [2026-06-09-Demo Video Prozessia Agent für Kanzleien.md] Demo-Video des Prozessia Agenten für Kanzleien existiert als Präsentationsmaterial für Handelsvertreter (Datum: 2026-06-09)
+- [2026-07-19 13:10] [2026-06-09-Stücklistenagent_Prozessia.md] Zielgruppen: Werkzeugbau, Engineering und regulierte Industrie
+- [2026-07-19 13:10] [2026-06-09-Stückliste A.md] Erstellt: 20.11.2015, geeignet als Eingabedokument für Stücklistenagenten von Prozessia
+- [2026-07-19 13:10] [2026-06-09-Stückliste A.md] Dokument enthält Fertigmaße, Materialien (1.2738, 1.2343), Vergütungsangaben und Massen für alle Komponenten
+- [2026-07-19 13:10] [2026-06-09-Stückliste A.md] Stückliste A (FB-WZ-BM-001, Revision 1) für Getriebegehäuse B3-HST, erstellt von Formenbau AG
+- [2026-07-19 13:10] [2026-06-09-KI-Kompass Industriemittelstand_ Ganztags-Schulungskonzept für Geschäftsführer und Entscheider.md] Dokument-Datum: 2026-06-09; Quelle: Prozessia GbR
+- [2026-07-19 13:10] [2026-06-09-KI-Kompass Industriemittelstand_ Ganztags-Schulungskonzept für Geschäftsführer und Entscheider.md] Zielgruppe: Entscheider-Format ohne Mathematik, Code oder technische Benchmarks
+- [2026-07-19 13:10] [2026-07-19-anbei eine Kurzzusammenfassung unserer Instrumente wie soeben besprochen.md] Memo vom 19.07.2026 mit Kurzzusammenfassung der Instrumente nach Besprechung versendet
+- [2026-07-19 13:09] [2026-07-13-ideen-2026-07-13.md] Identifizierte Schmerzpunkte: manuelle Stücklistenprüfung, fragmentierte Excel-Tools, Bestellfehler durch fehlende Verknüpfung
+- [2026-07-19 13:09] [2026-07-13-beitraege-2026-07-13.md] Zielgruppe: Einkaufsabteilungen mit manueller Excel-basierter Stücklistenprüfung
+- [2026-07-19 13:09] [2026-06-30-Potenzialanalyse Endin X Prozessia.md] Potenzialanalyse-Termin: 30. Juni 2026
+- [2026-07-19 13:09] [2026-06-09-Präsentation_ Datenschutz .md] Dokument vom 2026-06-09 – Verkaufspräsentation zur Unterstützung der KI-Tool-Auswahl für Kanzlei Voigt Salus
+- [2026-07-19 13:09] [2026-06-09-Präsentation_ Datenschutz .md] Zentrale Entscheidungskriterien: US Cloud Act-Risiken bei ChatGPT vs. EU-Datenhaltung beim maßgeschneiderten Assistenten
+- [2026-07-19 13:09] [2026-07-16-Einführung Beschaffungsagent.md] Auftragsbestätigungen kommen über Postfach; teilweise telefonische Bestellungen ohne Belegnummer oder Online-Shop-Bestellungen, hauptsächlich bei nicht-projektbezogenen Artikeln
+- [2026-07-19 13:09] [2026-06-25-Besprechung Umsetzung Server Infrastruktur Schaufler (1).md] Besprechungsdatum: 25. Juni 2026
+- [2026-07-19 13:09] [2026-06-25-Besprechung Umsetzung Server Infrastruktur Schaufler (1).md] Offene Abhängigkeit: Testview-Status bei Jochen - erforderlich für WinForm-Anbindung
+- [2026-07-19 13:09] [2026-07-18-Email-19f76b7e-Re-Prozessia-ICP.md] Lars Segschneider wird in kommenden Aktivitäten eingebunden (genaue Details folgen noch)
+- [2026-07-19 13:09] [2026-06-09-Prozessia --- Ergebnisse Machbarkeit Stücklistenprojekt.md] Limitation: CAD-Zeichnungen können aktuell nicht vollautomatisiert verarbeitet werden
+- [2026-07-19 13:09] [2026-06-09-Prozessia --- Ergebnisse Machbarkeit Stücklistenprojekt.md] Machbarkeitsprüfung durchgeführt von Amin Douioui (Meeting ca. 40 Min., 09.06.2026)
+- [2026-07-19 13:09] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler.md] Treffen vom 16.07.2026 - Erstgespräch Neukunde; Nächste Schritte noch nicht abgeschlossen
+- [2026-07-18 22:09] [Re: Prozessia ICP] Erfolg: Beschaffungsagent konnte gewonnen werden
+- [2026-07-18 19:36] [Re: Prozessia ICP] Beschaffungsagent-Erfolg für Prozessia erwähnt (Datum: 16.07.2026)
+- [2026-07-18 19:36] [Re: Prozessia ICP] Lars Segschneider (larssegschneider.ls@gmail.com, +34632764208) arbeitet mit Prozessia zusammen, Information zur Einbindung folgt
+- [2026-07-18 10:24] [Re: Prozessia ICP] Kontakt Lars Segschneider: +34632764208
+- [2026-07-18 05:25] [Re: Prozessia ICP] Kontaktdaten Lars Segschneider: larssegschneider.ls@gmail.com, +34632764208
+- [2026-07-17 21:47] [2026-07-11-Email-19f51b7b-Funding-Application-for-Paula--Berkman-Z.md] Berkman Financial hat kürzlich $200.000 für gebrauchtes Autohändler-Unternehmen gesichert (vorher 3x abgelehnt)
+- [2026-07-17 21:46] [2026-06-30-Email-19f17f30-Zugesagt-Angebotsdurchsprache-Endin-X-Pr.md] Bestätigung erfolgt am 30.06.2026
+- [2026-07-17 21:46] [2026-06-26-Email-19f0350e-Sebastian---are-you-attending-the-confer.md] Email-ID: 48E2G6D ZRSMQTG vom 26.06.2026
+- [2026-07-17 21:46] [2026-06-26-Email-19f0350e-Sebastian---are-you-attending-the-confer.md] Anfrage zur Konferenzteilnahme im Juli 2026 an Sebastian Spuhler von McKinley Blg
+- [2026-07-17 21:46] [2026-07-07-Email-19f3d924-Action-required-security-vulnerabilities.md] Meldungsdatum: 07.07.2026, Erkennungsdatum der Vulnerabilities: 06.07.2026
+- [2026-07-17 21:46] [2026-06-23-Email-19ef570c-Action-required-security-vulnerabilities.md] Nachricht vom: 23. Juni 2026, 17:04 Uhr UTC - Sicherheitsprobleme erkannt am 22. Juni 2026
+- [2026-07-17 21:46] [2026-07-15-Email-19f6689d-Abgelehnt-Bedarfsanalyse-TPG-X-Prozessia.md] TPG-Standort: Gerberstr. 50, 51789 Lindlar, Germany
+- [2026-07-17 21:46] [2026-07-16-Email-19f69bbe-Messberichte.md] Risiko der Postfachüberauslastung erfordert Speicherverwaltungsstrategie
+- [2026-07-17 21:46] [2026-07-15-Email-19f65c24-AW-Messberichte.md] Termin: Jonas Rösch konnte Besprechung für 'morgen früh' (ab 16.07.2026) zusagen
+- [2026-07-17 21:46] [2026-07-15-Email-19f65c24-AW-Messberichte.md] Umfang: Messberichte sind temporäre Lösung - dauerhafte Lösung unklar
+- [2026-07-17 21:46] [2026-07-15-Email-19f65521-Zugesagt-Einführung-Beschaffungsagent.md] Zusage erfolgte am 15. Juli 2026 von Benjamin Schmohl (benjamin.schmohl@schaufler.de)
+- [2026-07-17 21:45] [2026-07-10-Email-19f4b6ce-Zugesagt-Update-Azure-OpenAI.md] Status: Zugesagt (confirmed)
+- [2026-07-17 21:45] [2026-07-08-Email-19f40a0d-WG-AVV-Vertrag--SLA.md] Beteiligte Kontaktpersonen: Florian Knoblauch, Andreas Thunich, Siegfried Heinrich, Benjamin Schmohl
+- [2026-07-17 21:45] [2026-07-13-Email-19f5bf98-AW-Statusabfrage--AI-Agent-Beschaffung.md] Verfügbarkeiten für Go-Live Meeting: Benjamin Schmohl ab Dienstag 11:00 Uhr, Mittwoch ganztägig oder Donnerstag bis 12:00 Uhr
+- [2026-07-17 21:44] [2026-07-09-Email-19f47913-AW-Infos-zur-WinForm-Sicht.md] Ansprechpartner Hettmer-Seite: Jochen Hettmer; weitere Beteiligten: Jonas Rösch, Benjamin Schmohl (CC)
+- [2026-07-17 21:44] [2026-07-09-Email-19f472fd-Infos-zur-WinForm-Sicht.md] Test-Datenbank bereitgestellt mit Login-Daten (Benutzer: Prozessia, Passwort: Prozessia#66123#-A11!)
+- [2026-07-17 21:44] [2026-07-08-Email-19f419a4-AW-Offene-Punkte-Beschaffungsagent.md] VPN-Tunnel zum Server (Poleis) mit Lese- und Schreibrechten ist relevant für Datenzugriff
+- [2026-07-17 21:44] [2026-06-15-Email-19ecd0bb-KI-erfolgreich-im-Unternehmen-etablieren.md] Fokus: Nachhaltige KI-Implementierung, Mitarbeiterakzeptanz, Umgang mit Widerständen bei Veränderungsprojekten
+- [2026-07-17 21:44] [2026-06-15-Email-19ecd0bb-KI-erfolgreich-im-Unternehmen-etablieren.md] Veranstaltungsreihe im Q3 2026 zu Themen: Change-Management, KI-Agenten, KI programmieren
+- [2026-07-17 21:42] [30---Email-19f17f30-Zugesagt-Angebotsdurchsprache-Endin-X-Pr.md] Bestätigung erhalten am 30. Juni 2026, 11:53 Uhr
+- [2026-07-17 21:42] [26---Email-19f0350e-Sebastian---are-you-attending-the-confer.md] Referenznummer: 48E2G6D ZRSMQTG
+- [2026-07-17 21:42] [26---Email-19f0350e-Sebastian---are-you-attending-the-confer.md] Konferenz findet nächsten Monat statt (nach Juni 2026)
+- [2026-07-17 21:42] [11---Email-19f51b7b-Funding-Application-for-Paula--Berkman-Z.md] Kontakt: Lana Barrett (lana@berkmanlending.com), Corporate VP Berkman Financial
+- [2026-07-17 21:42] [30---Email-19f1978f-Action-required-security-vulnerabilities.md] Supabase-Sicherheitsadvisor identifizierte Schwachstellen; Dashboard-Link für Behebung verfügbar
+- [2026-07-17 21:42] [14---Email-19f618fd-Action-required-security-vulnerabilities.md] Meldungsdatum: 14. Juli 2026, Erkannt am: 12. Juli 2026 - sofortiges Handeln erforderlich
+- [2026-07-17 21:42] [07---Email-19f3d924-Action-required-security-vulnerabilities.md] Mitteilung von Supabase vom 07 Jul 2026 - Unbefugte Datenmanipulation möglich
+- [2026-07-17 21:42] [15---Email-19eccb53-Carlos--saidspentplanextra-ZRSMQTG.md] Kontaktperson: Nick Todd (n.todd@mintonsentinel.info), Datum der Anfrage: 15. Juni 2026
+- [2026-07-17 21:42] [11---Email-19f50f37-Getting-the-most-from-Google-Tag-Manager.md] Implementierungsdatum: 11. Juli 2026
+- [2026-07-17 21:42] [9---Email-19f4611a-Zugesagt-Umstzung-Microsoft-Anbindung-Sc.md] Status: Zugesagt (Umsetzung bestätigt)
+- [2026-07-17 21:42] [7---Email-19f3c174-Abstimmung-VPN-Tunnel.md] Abstimmungsbesprechung anberaumt - MS Teams Meeting Link vorhanden (ID: 332 189 589 163 009)
+- [2026-07-17 21:41] [16---Email-19f6c96f-AW-Zugangsdaten-Beschaffungsagent.md] Amin ist Kontaktperson für Schaufler, Telefonnummer: +491732154932
+- [2026-07-17 21:41] [16---Email-19f69bbe-Messberichte.md] Speicherplatz-Management für Postfächer notwendig, um Volllaufen zu verhindern
+- [2026-07-17 21:41] [15---Email-19f65c24-AW-Messberichte.md] Zeitnahe Umsetzung möglich; Jonas Rösch kann morgen früh (16. Juli 2026) starten
+- [2026-07-17 21:41] [15---Email-19f65c24-AW-Messberichte.md] Messberichte-Lösung wird als temporär betrachtet; pragmatischste Lösung für Schaufler wird angestrebt
+- [2026-07-17 21:41] [15---Email-19f65521-Zugesagt-Einführung-Beschaffungsagent.md] Email-Datum: 15. Juli 2026
+- [2026-07-17 21:41] [14---Email-19f5ff1a-Bestell-Dokumente-für-den-KI-Agend.md] Tracking-Tool für Vessel/Schiffe: www.vesselfinder.com
+- [2026-07-17 21:41] [14---Email-19f5ff1a-Bestell-Dokumente-für-den-KI-Agend.md] Lieferant China: Sarah.peng@schaufler.com.cn (Schaufler China)
+- [2026-07-17 21:41] [14---Email-19f5f54b-Zugesagt-Meeting-Go-Live-Beschaffungsage.md] Bestätigung vom 14.07.2026 eingegangen
+- [2026-07-17 21:41] [13---Email-19f5a966-Statusabfrage--AI-Agent-Beschaffung.md] Kritische Anforderung: Frühe Identifikation von Risiken für pünktlichen Go-live am Freitag
+- [2026-07-17 21:41] [10---Email-19f4b6ce-Zugesagt-Update-Azure-OpenAI.md] Status: Zugesagt (bestätigt am 10.07.2026)
+- [2026-07-17 21:41] [9---Email-19f47c0d-AW-Infos-zur-WinForm-Sicht.md] Anpassungen an WinForm-Sicht durchgeführt und getestet
+- [2026-07-17 21:41] [9---Email-19f47986-AW-Infos-zur-WinForm-Sicht.md] WinForm-Sicht-Integration bei Kunde Hettmer in Arbeit, Testing folgt nach Behebung des Datenbankzugriffs
+- [2026-07-17 21:41] [9---Email-19f472fd-Infos-zur-WinForm-Sicht.md] VPN-Zugang wurde von Jonas bereitgestellt; Datum der Anfrage: 9. Juli 2026
+- [2026-07-17 21:41] [8---Email-19f419a4-AW-Offene-Punkte-Beschaffungsagent.md] Prozessia benötigt Zugriffsdetails auf order@schaufler.de-Postfach; VPN-Tunnel zu Poleis-Server und Daten-Zugriff (Lese-/Schreibrechte) werden überprüft
+- [2026-07-17 21:40] [17---Email-19f6f491-AW-Go-Live-Beschaffungsagent.md] Sebastian Spuhler Kontakt: 015159473260
+- [2026-07-17 21:40] [16---Email-19f69ece-AW-Go-Live-Beschaffungsagent.md] Produktivsystem-Zugangsdaten bereitgestellt (Login-Name und Passwort)
+- [2026-07-17 21:40] [13---Email-19f5c567-Zugesagt-Meeting-Go-Live-Beschaffungsage.md] Email vom 13.07.2026 bestätigt Zusage für Go-Live Meeting
+- [2026-07-17 21:40] [13---Email-19f5bfda-AW-Statusabfrage--AI-Agent-Beschaffung.md] Ziel: Go Live beschleunigen durch Klärung des schrittweisen Plans und Reibungspunkte
+- [2026-07-17 21:40] [13---Email-19f5bf98-AW-Statusabfrage--AI-Agent-Beschaffung.md] Benjamin Schmohl verfügbar: Dienstag ab 11 Uhr, Mittwoch ganztägig, Donnerstag bis 12 Uhr
+- [2026-07-17 21:40] [13---Email-19f5bf67-AW-Statusabfrage--AI-Agent-Beschaffung.md] Projektteam: Sebastian Spuhler, Florian Knoblauch, Benjamin Schmohl, Jochen Hettmer
+- [2026-07-17 21:40] [15---Email-19ecd0bb-KI-erfolgreich-im-Unternehmen-etablieren.md] Thematische Schwerpunkte: Umgang mit Widerständen, Erfolgsfaktoren für nachhaltigen KI-Einsatz, Anwendungsbeispiele, verantwortungsvoller KI-Umgang
+- [2026-07-17 21:40] [15---Email-19ecd0bb-KI-erfolgreich-im-Unternehmen-etablieren.md] Veranstaltungen starten im dritten Quartal 2026 (ab Juli 2026) mit Fokus auf Change-Management, KI-Agenten und KI-Programmierung
+- [2026-07-17 21:22] [2026-07-17-Gewerbeanmeldung Mohamed Douioui.md] Gemeindekennzahl: 10041100
+- [2026-07-17 21:22] [2026-07-17-Gewerbeanmeldung Mohamed Douioui.md] Gewerbeanmeldung (GewA 1) eingereicht bei Landeshauptstadt Saarbrücken am 2026-07-17
+- [2026-07-17 21:22] [2026-07-17-Gesellschaftsvertrag der Webwokr Gbr.md] Mitgesellschafter: Mohamed Douioui
+- [2026-07-17 21:22] [2026-07-17-Gesellschaftsvertrag der Webwokr Gbr.md] Gesellschaftsvertrag wurde am 17.07.2026 aufgenommen
+- [2026-07-17 21:22] [2026-07-17-Gesellschaftsvertrag der Webwokr Gbr.md] WebWokr GbR hat ihren Sitz in Saarbrücken
+- [2026-07-17 21:22] [2026-07-17-SLA_Schaufler  (3).md] SLA-Datum: 17.07.2026, Parteienvertreter: Sebastian Spuhler und Mohamed-Amin Douioui (Prozessia GbR)
+- [2026-07-17 21:22] [2026-07-17-SLA_Schaufler  (2).md] Infrastruktur: Hetzner-Server (Kostenübernahme durch Auftraggeber)
+- [2026-07-17 21:22] [2026-07-17-SLA_Schaufler  (1).md] Referenzen: Angebot AG0024 vom 27.05.2026, Bestellung BEST-PROZESSIA-127412 vom 15.06.2026
+- [2026-07-17 21:22] [2026-07-17-SLA_Schaufler  (1).md] Infrastruktur: Hetzner-Server; Haftungsausschluss für Infrastrukturausfälle
+- [2026-07-17 21:22] [2026-07-17-SLA_Schaufler  (1).md] SLA für Betrieb des Beschaffungsagenten, Laufzeit 12 Monate mit Verlängerungsoption
+- [2026-07-17 21:22] [2026-07-17-AVV_Schaufler_Prozessia (2).md] Bestellung BEST-PROZESSIA-127412, Vertragsdatum 2026-07-17
+- [2026-07-17 21:22] [2026-07-17-Fragenkatalog_beantwortet.md] Cloud-Infrastruktur auf zwei Komponenten: Hetzner und Azure OpenAI (beide EU)
+- [2026-07-17 21:22] [2026-07-17-Fragenkatalog_beantwortet.md] Prozessia GbR (Anbieter): Campus Starterzentrum Gebäude A1 1, 66123 Saarbrücken - verantwortlich für Entwicklung, Wartung, Support
+- [2026-07-17 21:22] [2026-07-17-INV-057.md] Reverse-Charge-Verfahren anwendbar, keine Umsatzsteuer ausgewiesen
+- [2026-07-17 18:27] [Frage] Alexander Heeg hat eine KI Akquise Schablone für Claude erstellt und fragt, ob Sebastian Spuhler diese erhalten hat
+- [2026-07-17 18:27] [FW: Erklärung unserer Instrumente] Martin Veser dokumentiert vier Planungs- und Kontrollsinstrumente für Prozessia GbR
+- [2026-07-17 18:27] [TCPA Deep Dive Webinar: What Voice AI Te] Thema: TCPA-Compliance bei ausgehenden KI-Voice-Anrufen im Skalierungsprozess
+- [2026-07-17 18:27] [TCPA Deep Dive Webinar: What Voice AI Te] Dies ist eine Webinar-Einladung von Retell AI, keine geschäftliche Anfrage oder Auftrag für Prozessia GbR
+- [2026-07-17 18:27] [RE: Bestätigungslink Herr Spuhler Busine] American Express Business Platinum Card Antrag (ID 4179830)
+- [2026-07-17 18:27] [Build more with HeyGen, new APIs are liv] HeyGen hat neue AI APIs veröffentlicht (Background Music API, Sound Effect API, Cinematic Avatar API)
+- [2026-07-17 18:27] [A special tour with some of our coolest ] The Black Keys haben neues Album 'PEACHES' veröffentlicht mit Southern Blues und Rock Sound
+- [2026-07-17 18:27] [A special tour with some of our coolest ] Michael (Bruder von Patrick Carney von The Black Keys) ist Creative Director und hat Special Peaches!-Truck und exklusive Merchandising entworfen
+- [2026-07-17 18:27] [AW: Zugangsdaten Beschaffungsagent] Florian Knoblauch (florian.knoblauch@schaufler.de) benötigt E-Mail-Adresse von Amin
+- [2026-07-17 18:27] [AW: Zugangsdaten Beschaffungsagent] Amin (Rolle/Funktion nicht spezifiziert) - Telefonnummer: +491732154932
+- [2026-07-17 18:27] [Abgelehnt: Bedarfsanalyse TPG X Prozessi] ERP-Team von TPG arbeitet derzeit an Schnittstellen, Ressourcen-Verfügbarkeit unklar
+- [2026-07-17 11:31] [Automatic reply: Bestätigungslink Herr S] 24h Kundenservice verfügbar unter 069 9797 1000 für Kartenfragen (Transaktionen, Abrechnungen, Ersatzkarte, Zusatzkarte, PIN, Online Account)
+- [2026-07-17 11:31] [Automatic reply: Bestätigungslink Herr S] Moritz Vitting (aexp.com) ist bis einschließlich Mittwoch, 5. August 2026 im Urlaub und antwortet ab Donnerstag, 6. August 2026
+- [2026-07-17 10:25] [Re: AgentPowers x WebWokr] DSGVO-Konformität ist Verkaufsargument für Sicherheitsfeature
+- [2026-07-17 10:25] [Re: AgentPowers x WebWokr] Security-Scans prüfen MCP-Agenten automatisch vor Kundennutzung
+- [2026-07-17 10:25] [Re: AgentPowers x WebWokr] Projekt: AgentPowers x WebWork
+- [2026-07-17 08:58] [AW: Go Live Beschaffungsagent] Jochen Hettmer (Hettmer EDV) ist Ansprechpartner für technische Bereitstellung
+- [2026-07-16 20:49] [AW: Zugangsdaten Beschaffungsagent] Amin Douioui ist Beschaffungsagent bei Prozessia GbR mit E-Mail amin.douioui@prozessia.de und Telefonnummer +491732154932
+- [2026-07-16 20:23] [Build more with HeyGen, new APIs are liv] HeyGen hat neue APIs veröffentlicht: Background Music API, Sound Effect API und Cinematic Avatar API
+- [2026-07-16 20:23] [AW: Zugangsdaten Beschaffungsagent] Empfänger der Zugangsdaten: Florian Knoblauch und Benjamin Schmohl
+- [2026-07-16 20:23] [AW: Zugangsdaten Beschaffungsagent] Florian Knoblauch (florian.knoblauch@schaufler.de) benötigt Amin's E-Mail-Adresse für Kontaktanlage
+- [2026-07-16 20:23] [AW: Zugangsdaten Beschaffungsagent] Amin's Telefonnummer: +491732154932
+- [2026-07-16 12:12] [FW: Erklärung unserer Instrumente] Martin Veser erklärt vier Instrumente des Prozessmanagements für Sebastian Spuhler (Prozessia GbR)
+- [2026-07-16 09:33] [Frage] Alexander Heeg hat eine neue KI Akquise Schablone für Claude erstellt und versendet
+- [2026-07-16 07:56] [AW: Go Live Beschaffungsagent] Produktivsystem-Zugangsdaten übergeben: Login-Name 'Prozessia', Passwort 'Prozessia#66123#-A11!'
+- [2026-07-16 07:05] [Messberichte] Kontakt: Jonas Rösch, IT-Administration, Schaufler Tooling GmbH & Co. KG, jonas.roesch@schaufler.de, +49 7333 9608 38
+- [2026-07-15 16:10] [Abgelehnt: Bedarfsanalyse TPG X Prozessi] Grund für Verschiebung: ERP-Team von TPG arbeitet an Schnittstellen und meldet sich sobald Ressourcen verfügbar sind
+- [2026-07-15 12:31] [AW: Messberichte] Benjamin hat erste Informationen zum jährlichen Volumen an Messberichten bereitgestellt
+- [2026-07-15 10:06] [Produkt-Updates Juni/Juli 2026] Neue AI Agent Funktionen: Datenabruf bei Anrufbeginn ermöglicht aktuelle Informationen vor Gesprächsbeginn
+- [2026-07-15 10:06] [Produkt-Updates Juni/Juli 2026] Sipgate GmbH hat Produkt-Updates für Juni/Juli 2026 veröffentlicht
+- [2026-07-15 01:34] [A special tour with some of our coolest ] E-Mail ist informativ über Kooperationsprojekt, enthält keine konkreten Aufträge, Preise oder Deadlines für Prozessia GbR
+- [2026-07-15 00:32] [A special tour with some of our coolest ] Angebot: frische Pfirsiche (walk-up und Beutel), Vinyl-Musik und limitierte Merchandise an Tourstandorten
+- [2026-07-15 00:32] [A special tour with some of our coolest ] Michael (Bruder von Patrick der Black Keys) ist Creative Director und hat spezielle Peaches! Truck und exklusive Merchandise designed
+- [2026-07-15 00:32] [A special tour with some of our coolest ] Peaches N Kreme Tour - The Black Keys touren durch select cities mit The Peaches! Truck
+- [2026-07-14 19:40] [AW: Statusabfrage – AI-Agent Beschaffung] E-Mail-Diskussion endet abrupt mit 'Der einzige offene Punkt ist daher' - Satz unvollständig, offener Punkt nicht benannt
+- [2026-07-14 19:40] [AW: Go Live Beschaffungsagent] Status zum Zeitpunkt 14. Juli 2026 17:16 Uhr: Jochen Hettmer war in Terminen und wird später daran weiterarbeiten
+- [2026-07-14 16:41] [Women First Funding Portal - A Quick Pat] Berkman Financial bewirbt 'Women First Funding Portal' für Unternehmensfinanzierung ohne Auswirkungen auf FICO-Score
+- [2026-07-14 15:06] [AgentPowers x WebWokr] Elizabeth hat WebWokr (Prozessias Produkt) identifiziert: DSGVO-konforme Chatbots und KPI-Dashboards für KMUs
+- [2026-07-14 15:06] [Decube x WebWokr] Decube hat eine Plattform namens Trusty, die Teams ermöglicht, in natürlicher Sprache Fragen zu vertrauenswürdigen Daten zu stellen
+- [2026-07-14 15:06] [Decube x WebWokr] WebWokr entwickelt DSGVO-konforme Chatbots und KPI-Dashboards für KMUs
+- [2026-07-14 15:06] [In 15 Minuten geht es los] Robert Heineke (Leaders Media) lädt Sebastian Spuhler zu Live-Einblick in Marbella Mastermind ein
+- [2026-07-14 15:06] [AW: Update Zillmer X Prozessia] Ursprünglich vorgeschlagener Termin: Dienstag, 21.07.2026, 10:00–10:30 Uhr, Microsoft Teams
+- [2026-07-14 15:06] [Bestell-Dokumente für den KI Agend] Lieferant Schaufler China mit Kontakt Sarah.peng@schaufler.com.cn
+- [2026-07-14 15:06] [Kontakte blockieren und Leads reserviere] Updates betreffen Fonio-Kunden und deren Geschäftsprozesse
+- [2026-07-14 15:06] [Kontakte blockieren und Leads reserviere] E-Mail von David von fonio (partner@fonio.info) an Sebastian Spuhler
+- [2026-07-14 15:06] [Zugesagt: Meeting Go Live Beschaffungsag] Benjamin Schmohl (schaufler.de) hat ein Meeting zum Go Live des Beschaffungsagenten zugesagt
+- [2026-07-14 14:07] [Women First Funding Portal - A Quick Pat] Angebot richtet sich laut E-Mail an 'woman-owned fashion businesses' - unklar ob relevant für Prozessia GbR
+- [2026-07-14 14:07] [Women First Funding Portal - A Quick Pat] Absender Ella Thomas (VP bei Berkman Financial) bewirbt 'Women First Funding Portal' für Unternehmensfinanzierung
+- [2026-07-14 10:50] [In 15 Minuten geht es los] Marbella Mastermind ist ein zweitägiges Event
+- [2026-07-14 09:29] [Bestell-Dokumente für den KI Agend] Projekt/Auftrag: KI Agend
+- [2026-07-14 09:29] [Bestell-Dokumente für den KI Agend] Lieferant China: Sarah Peng, schaufler.com.cn (sarah.peng@schaufler.com.cn)
+- [2026-07-14 08:43] [AW: Update Zillmer X Prozessia] Projekt/Meeting: 'Update Zillmer X Prozessia'
+- [2026-07-14 06:40] [Decube x WebWokr] WebWokr baut DSGVO-konforme Chatbots und KPI-Dashboards für KMUs
+- [2026-07-13 22:08] [Top 10 Lieferanten.xlsx] Datei 'Top 10 Lieferanten.xlsx' wurde von Benjamin Schmohl (benjamin.schmohl@schaufler.de) als Statusabfrage zum AI-Agent Beschaffung bereitgestellt.
+- [2026-07-13 22:08] [2026-07-13-image001.png] Datei aufgenommen am 13.07.2026 - Business Platinum Card Bestätigung
+- [2026-07-13 22:08] [2026-07-13-image001.png] Anfrage zum Thema: AI-Agent Beschaffung (Statusabfrage)
+- [2026-07-13 22:08] [WG: Anforderung einer zentralen Lösung z] Jonas Rösch vermutet KI-Lösungspotenzial für die Anforderung
+- [2026-07-13 22:08] [2026-07-13-image001.png] Statusabfrage zu AI-Agent Beschaffung vom 13.07.2026
+- [2026-07-13 22:08] [Zugesagt: Meeting Go Live Beschaffungsag] Florian Knoblauch ist Kontakt bei schaufler.de
+- [2026-07-13 22:08] [Zugesagt: Boris Tetzlaff and Sebastian S] Boris Tetzlaff (b.tetzlaff@sundhschaltanlagen.de) von Sundh Schaltanlagen hat einer Zusammenarbeit mit Sebastian Spuhler zugesagt.
+- [2026-07-13 22:08] [Zugesagt: Meeting Go Live Beschaffungsag] Kontaktperson: Jochen Hettmer von Hettmer EDV (jochen@hettmer-edv.de)
+- [2026-07-13 22:08] [kurze Frage] Alexander Heeg arbeitet bei Agency Elite Kontakt und kürzt sich als 'Alex' ein
+- [2026-07-13 19:09] [Who will you meet at TailscaleUp?] TailscaleUp Event im August - Networking-Veranstaltung zum Thema sichere Konnektivität
+- [2026-07-13 19:09] [Zugesagt: Update Azure OpenAI] Jonas Rösch von schaufler.de hat ein Update zu Azure OpenAI zugesagt
+- [2026-07-13 19:09] [Business Funding Now Ready for Oakwood M] Nennt verschiedene Unternehmen (Oakwood Media & Sons Inc., Kingsley Optical Contractors LLC) ohne Bezug zu Prozessia
+- [2026-07-13 19:09] [Business Funding Now Ready for Oakwood M] E-Mail adressiert falsch an 'Diana', versendet aber an sebastian.spuhler@prozessia.de
+- [2026-07-13 19:09] [500k im Jahr mit Webinaren knacken] YouTube-Video mit Case Study veröffentlicht (Link in E-Mail)
+- [2026-07-13 19:09] [500k im Jahr mit Webinaren knacken] Webinar-Erfolg nachgewiesen: 8 Teilnehmer führten zu 3 Terminen und 1 Kundengewinn
+- [2026-07-13 19:09] [Der schnellste Weg zu 25k pro Monat 👀] Email enthält Fallbeispiel eines KI/Automation-Mentors (Felix) mit Skalierungsproblem
+- [2026-07-13 19:09] [Funding Application for Paula | Berkman ] Absender Lana Barrett von Berkman Financial bewirbt Finanzierungsprodukte für frauengeführte Kleinunternehmen ohne umfangreiche Kredithistorie
+- [2026-07-13 19:09] [AW: Statusabfrage – AI-Agent Beschaffung] Beteiligte: Florian Knoblauch, Jochen Hettmer (hettmer-edv.de), Benjamin Schmohl, Jonas Rösch
+- [2026-07-13 19:09] [AW: Statusabfrage – AI-Agent Beschaffung] Vorgeschlagene Meeting-Termine: Dienstag 14.07.2026 ab 10:30 Uhr, Mittwoch 15.07.2026 ab 15:30 Uhr oder Donnerstag 16.07.2026 morgens
+- [2026-07-13 19:09] [WG: Anforderung einer zentralen Lösung z] Originale Anfrage von Florian Knoblauch am 10. Juli 2026 um 22:38 Uhr (Cc: Benjamin Schmohl, Christoph Nagel-Knospe)
+- [2026-07-13 19:09] [WG: Anforderung einer zentralen Lösung z] Anforderung kommt vom Bereich Materialwirtschaft/Beschaffung bei Schaufler - täglich hohe Anzahl E-Mails zu Projekten, Lieferanten und Aufträgen
+- [2026-07-13 19:09] [WG: Anforderung einer zentralen Lösung z] Jonas Rösch (IT-Administration, Schaufler Tooling) leitet Anforderung an Prozessia GbR weiter mit Frage zur KI-Machbarkeit
+- [2026-07-13 19:09] [👀 Das sehen die meisten erst im Call] Demo-Slots sind begrenzt verfügbar
+- [2026-07-13 19:09] [👀 Das sehen die meisten erst im Call] ProviPanda bietet Demo-Call zur Live-Präsentation ihrer Plattform an
+- [2026-07-13 19:09] [AW: Statusabfrage – AI-Agent Beschaffung] Statusabfrage vom 13. Juli 2026
+- [2026-07-13 19:09] [kurze Frage] Alexander Heeg (agency-elite-kontakt.com) möchte mit Sebastian Spuhler telefonieren bezüglich einer gestrigen Anfrage von Sebastian
+- [2026-07-13 19:09] [Zugesagt: Meeting Go Live Beschaffungsag] Jochen Hettmer (jochen@hettmer-edv.de) hat ein Meeting zum Go Live des Beschaffungsagenten zugesagt
+- [2026-07-12 17:52] [2026-07-12-Konzept_Meeting-CRM-Agent.md] Quelle für Produktkonzept: YouTube-Video über übersehene KI-Use-Cases (ID: y0u4-ol8T1I); dokumentiert im Second Brain
+- [2026-07-12 17:52] [2026-07-12-Konzept_Meeting-CRM-Agent.md] Neues Produktkonzept: Meeting-zu-CRM-Agent als eigenständiges verkaufbares Produkt geplant (aktuell nur internes Werkzeug); Agent soll Gespräche transkribieren, strukturierte Zusammenfassungen erstellen und Daten automatisch ins CRM übernehmen (Status: Konzept, noch nicht verkauft, 2026-07-12)
+- [2026-07-12 16:27] VPS-Deploy Backend: Commit 5ddaf94 auf origin/main gepusht (Tool Use im Chat-Endpoint nachgebaut - vault_list/create/move/rename, search_meetings/emails, task_add/done/remove/set, download_attachment, generate_linkedin_ideas/posts, push_to_buffer; Modell auf claude-sonnet-5 korrigiert; 38/38 Tests grün, Live-Smoke-Test erfolgreich). Alle 5 Credential-Dateien (drive_credentials.json, drive_token.json, gmail_token.json, ms_config.json, ms_token_cache.bin) + ANTHROPIC_API_KEY wurden per Mail an Amin (amin.douioui@prozessia.de) geschickt, inkl. Erklärung welche Datei/welcher Wert wofür ist. Amin muss noch: git pull auf dem VPS, Credentials in _agent/ ablegen, docker compose up -d --build. vault_reorganize und generate_carousel wurden bewusst NICHT ins neue Backend portiert (Mac-only bzw. höheres Risiko).
+- [2026-07-04 13:05] [15-19ecbbf7-Auf-zum-Anstoß-5-Cashback-in-Restaurants.md] PayPal Cashback-Aktion: 5% Cashback in Restaurants und Bars in Deutschland vom 2.6. bis 19.7.2026
+- [2026-07-04 13:05] [2026-06-09-Modul-5-Datenschutz-and-IT-Sicherheit-bei-KI-Nutzung.md] DSGVO-Konformität ist Pflicht bei KI-Nutzung, auch bei technisch komplexen Systemen
+- [2026-07-04 13:05] [2026-06-09-Modul-5-Datenschutz-and-IT-Sicherheit-bei-KI-Nutzung.md] Schulungsmodul deckt ab: personenbezogene Daten, Verantwortlichkeiten, Transparenzpflichten, automatisierte Entscheidungen (Art. 22 DSGVO), Risiken bei externen KI-Diensten und Drittstaatentransfers
+- [2026-07-04 13:05] [2026-06-09-Modul-5-Datenschutz-and-IT-Sicherheit-bei-KI-Nutzung.md] Modul 5 der KI-Schulungsreihe behandelt Datenschutz und IT-Sicherheit bei KI-Nutzung mit Fokus auf DSGVO-Konformität
+- [2026-07-04 13:05] [26-19f03c48-Sebastian---how-are-you-finding-leads--G.md] Email-ID: 19f03c4811379909, Referenz: GXA8YB1 ZRSMQTG
+- [2026-07-04 13:05] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus – mit Prozessia Voice Agent 🚗 – Prozessia.md] Dokumentdatum: 2026-06-09, Quelle aus Word-Datei
+- [2026-07-04 13:05] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus – mit Prozessia Voice Agent 🚗 – Prozessia.md] Dokument ist Flyer und Vertriebsunterlage zur Kundenansprache im Autohaus-Segment
+- [2026-07-04 13:05] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus – mit Prozessia Voice Agent 🚗 – Prozessia.md] Zielgruppe: Autohäuser mit hohem Telefonaufkommen in Stoßzeiten (morgens, montags)
+- [2026-07-04 13:05] [2026-06-09-Finom_payment_13112025 (1).md] Absender: WebWokr GbR, Saarbrücken - Abwicklung über Finom am 13.11.2025
+- [2026-07-04 13:05] [26-19f031ba-Wir-starten-gleich-Im-Gespräch-closen.md] Robert Heineke ist Ansprechpartner bei Leaders Media (consultants@leadersmedia.de)
+- [2026-07-04 13:05] [26-19f031ba-Wir-starten-gleich-Im-Gespräch-closen.md] Thema: 'Im Gespräch closen' - Verkaufstechniken/Abschlussstrategien
+- [2026-07-04 13:05] [2026-06-09-Rechnung Joel Wagner.md] Zeitraum: Q3 2025
+- [2026-07-04 13:05] [2026-06-09-Rechnung Joel Wagner.md] Eingangsrechnung RE250005 vom 20.08.2025, Betrag 119,00 € brutto (100,00 € netto + 19 % USt.)
+- [2026-07-04 13:05] [25-19efe63f-Sebastian---still-a-quote--Street-View-I.md] Status: Angebot noch ausstehend - Josh Rixey wartet auf Rückmeldung von Sebastian
+- [2026-07-04 13:05] [25-19efe63f-Sebastian---still-a-quote--Street-View-I.md] Anfrage von Josh Rixey (Instant 360 Labs) bezüglich offenes Angebot für Projekt 'Street View Inside ZRSMQTG'
+- [2026-07-04 13:05] [2026-06-09-Report Immobilienmarkler.md] Report zu Prozessoptimierung für Immobilienunternehmen vom 2026-06-09, dient als Akquise-/Präsentationsmaterial für potenzielle Kunden
+- [2026-07-04 13:05] [30-19f182de-How-can-we-make-it-work--ought-care-sing.md] Email von Silas Marstein (Nordic Nexuz HQ Team) vom 30.06.2026 zu Projekt 'ought-care-sing' (ID: ZRSMQTG)
+- [2026-07-04 13:05] [schaufler.md] Systeme: ERP Proleis, DMS ELO
+- [2026-07-04 13:05] [schaufler.md] Hosting: 220€/Monat (Basispauschale 100€ + Beschaffungsagent 120€), Infrastrukturkosten trägt Kunde selbst
+- [2026-07-04 13:05] [2026-06-16.md] Folgetermin Mundinger findet am Mo, 29.06. um 10:30 Uhr statt (KW 26, nächste Woche)
+- [2026-07-04 13:05] [2026-06-09-leads.md] Datensatz enthält Kontaktdaten: Namen, E-Mails, Websites, Städte, Organisationen
+- [2026-07-04 13:05] [2026-06-09-Prozessia-Agent-Funktions-und-Datenschutzubersicht (1).md] Datenschutz-Features: EU-exklusive Datenverarbeitung und Zero-Knowledge-Architektur
+- [2026-07-04 13:05] [2026-06-09-Prozessia-Agent-Funktions-und-Datenschutzubersicht (1).md] Zentrale Funktionen: Beantwortung von Fragen basierend auf internen Unternehmensdokumenten, Texterstellung und Dokumentenaufbereitung
+- [2026-07-04 13:05] [2026-06-09-Prozessia-Agent-Funktions-und-Datenschutzubersicht (1).md] Prozessia Agent ist ein KI-gestütztes System zur Unterstützung von Mitarbeitenden, das auf einem Server oder VPS des Kunden betrieben wird
+- [2026-07-04 13:05] [15-19ecc940-Sebastian-lets-get-in-touch--9XAT619-ZRS.md] Kontakt-ID: 9XAT619 ZRSMQTG - Referenz für Nachverfolgung
+- [2026-07-04 13:05] [15-19ecc940-Sebastian-lets-get-in-touch--9XAT619-ZRS.md] Shaylyn Guasta von meetseamlessreach.info möchte mit Sebastian ein Gespräch führen
+- [2026-07-04 13:05] [2026-06-09-Schaufler Prototyp.md] Prototyp-Präsentation am 25.03.2026, nächste Schritte: Integration mit echten Kundendaten (Tabellen von Vorles, EDU-Ablage statt Google Drive)
+- [2026-07-04 13:05] [2026-06-09-2026-01-22_Schaufler Tooling GmbH Co. KG_Vertraulichkeitsvereinbarung_13.00 - Prozessia (1).md] Geschäftsführer Schaufler: Siegfried Heinrich, Dr. Joachim Schuster, Andreas Thunich
+- [2026-07-04 13:05] [2026-06-09-2026-01-22_Schaufler Tooling GmbH Co. KG_Vertraulichkeitsvereinbarung_13.00 - Prozessia (1).md] Regelung zum Schutz vertraulicher Informationen im Rahmen der Zusammenarbeit
+- [2026-07-04 13:05] [2026-06-09-2026-01-22_Schaufler Tooling GmbH Co. KG_Vertraulichkeitsvereinbarung_13.00 - Prozessia (1).md] Prozessia GbR (Sebastian Spuhler, Mohamed Douioui, Saarbrücken) als Lieferant
+- [2026-07-04 13:05] [2026-06-09-2026-01-22_Schaufler Tooling GmbH Co. KG_Vertraulichkeitsvereinbarung_13.00 - Prozessia (1).md] Vertraulichkeitsvereinbarung (NDA) Version 13 vom 19. Januar 2026
+- [2026-07-04 13:05] [25-19efe901-Sebastian-wed-like-to-get-to-know-you-be.md] Projekt/Kampagne: Kindwarmswoop202404 ZRSMQTG
+- [2026-07-04 13:05] [25-19efe901-Sebastian-wed-like-to-get-to-know-you-be.md] Peter Evenson (peter@swoopshuttle.com) möchte sich mit Sebastian austauschen und Research-Daten zu einem Thema teilen
+- [2026-07-04 13:05] [2026-06-09-Prozessia-Informationen-fur-Vertriebspartner (1).md] Zielgruppe für Vertriebspartner: frei wählbare Unternehmen mit Fokus auf Effizienzsteigerung und operative Entlastung
+- [2026-07-04 13:05] [2026-06-09-Rag Agent.md] Dateiversion vom 2026-06-09, Quelle: Rag Agent.json, Pinecone Index: 'company-files'
+- [2026-07-04 13:05] [2026-06-09-Rechnung_vapi.md] Zahlungsbedingung: sofort per Überweisung
+- [2026-07-04 13:05] [2026-06-09-Rechnung_vapi.md] Rechnungsnummer RE250006, Datum 23.10.2025, Gesamtbetrag 505,75 € brutto (425,00 € netto)
+- [2026-07-04 13:05] [2026-06-09-🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia.md] Lead-Datum: 2026-06-09, Lösung: Prozessia Voice Agent für Terminbuchung und Rückrufmanagement
+- [2026-07-04 13:05] [15-19ece5a3-line-of-credit-for-Accurate-Business-Ser.md] Lead/Kontakt: Trevor Fields - Inside Sales & Marketing bei Ventures US Now
+- [2026-07-04 13:05] [15-19ece5a3-line-of-credit-for-Accurate-Business-Ser.md] Anfrage von Spencer Reed (Ventures US Now) vom 15. Juni 2026
+- [2026-07-02 04:47] [📊 Your daily recap: See how today's post] 2 Posts am 02.07.2026 um 07:30 Uhr veröffentlicht zum Thema: Geschäftsführer von Betrieben ohne IT-Abteilung und KI-Einsatz
+- [2026-07-01 22:58] [What do you think of this? | ZRTRGWF ZRS] Opt-out-Möglichkeit durch Antwort mit 'opt-out' oder 'unsubscribe' vorhanden
+- [2026-07-01 22:58] [What do you think of this? | ZRTRGWF ZRS] Lauren Dobbins von Carderaz kontaktiert Sebastian Spuhler nach Treffen auf Konferenz in der Vorwoche
+- [2026-07-01 20:12] [Sebastian, here's the bottom line. | KT1] Kontaktanfrage von Sarah Mitchell (Connection Conversionize) zur Diskussion von Content-Generation-Lösungen
+- [2026-07-01 18:21] [README.md] Für VPS-Rollout ist separate DEPLOY.md-Dokumentation mit Docker-Anweisungen vorhanden
+- [2026-07-01 18:06] Beschaffungsagent-Testsystem URL: https://beschaffungsagent-test-system.prozessia.space/auftragsbestaetigung — Login: demo / demo123. Wurde an Herrn Ackermann als Demo-Zugang weitergegeben (1.7.2026).
+- [2026-07-01 18:06] [Let us be your guide. | 0496GSG ZRSMQTG] Unspezifische Kontaktaufnahme von Logan Martin ohne geschäftlichen Bezug zu Prozessia GbR
+- [2026-07-01 15:01] [Need to touch base | 9XAT619 ZRSMQTG] Follow-up auf vorherige E-Mail aus der Vorwoche
+- [2026-07-01 15:01] [Need to touch base | 9XAT619 ZRSMQTG] Winston Chi (winston.chi@searchnoso.info) von SearchNoso inquiriert bezüglich Recruiting-Dienstleistungen für Prozessia GbR
+- [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Kontakt: Cyril Dietz (PMP, Geschäftsführer ENDIN GmbH), Tel. +49(0)7934/99544-102, cyril.dietz@endin-email.eu
+- [2026-07-01 14:21] [2026-07-01-AW-Unser-Gespraech-MTO-Days.md] Kontakt initiated nach Gespräch auf MTO Days; Ziel: interaktiver Chatbot zur Vereinfachung der Kommunikation bei Bender
+- [2026-07-01 14:21] [2026-07-01-AW-Unser-Gespraech-MTO-Days.md] Kontakt entstanden über MTO Days; Präsentation von Prozessia bereits übermittelt
+- [2026-07-01 14:21] [2026-06-16-Zugesagt-Potenzialanalyse.md] Zusage-Datum: 16. Juni 2026
+- [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] API-Dokumentation von microtech weniger offen als bei Lexoffice oder sevDesk
+- [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Verfügbarkeit der Schnittstellen variiert je nach microtech-Version und Einsatzszenario
+- [2026-07-01 14:21] [2026-06-16-Zugesagt-Potenzialanalyse.md] Bestätigung eingegangen am 16.06.2026
+- [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] microtech-APIs weniger offen dokumentiert als Lexoffice oder sevDesk
+- [2026-07-01 13:33] [2026-07-01-AVV_Schaufler_Prozessia.md] Mindestlaufzeit: 12 Monate mit automatischer Verlängerung, gekoppelt an zugehöriges SLA
+- [2026-07-01 13:33] [2026-07-01-AVV_Schaufler_Prozessia.md] Vertragsparteien Prozessia: Mohamed-Amin Douioui und Sebastian Spuhler
+- [2026-07-01 13:33] [Sebastian, let's chat next week? | blow_] Seraphina Nix (seraphina.nix@salcido-brokerage.info) möchte nächste Woche mit Sebastian Spuhler über ihre geplante Gründung eines Consulting-Unternehmens sprechen und bittet um Tipps und Ressourcen
+- [2026-07-01 13:33] [AW: Unser Gespräch MTO Days] Vorangegangenes Gespräch bei MTO Days (Termin unbekannt, vor 29. Juni 2026)
+- [2026-07-01 13:32] [Sebastian, let's discuss your requiremen] Unternehmenswebsite von Ambridge Bequest wurde von Regina Gil zur Verfügung gestellt
+- [2026-07-01 13:32] [Sebastian, let's discuss your requiremen] Regina Gil ist aktuell telefonisch erreichbar und hat Kapazität für ein kurzes Gespräch
+- [2026-07-01 13:32] [Jetzt noch schnell Platz sichern: Live-W] Webinar-Teilnahme kostenlos
+- [2026-07-01 13:32] [Jetzt noch schnell Platz sichern: Live-W] Neue KI-Kennzeichnungspflicht gilt ab August
+- [2026-07-01 13:32] [Jetzt noch schnell Platz sichern: Live-W] Live-Webinar zur KI-Kennzeichnungspflicht am Mittwoch, 1. Juli 2026, 11:00-12:00 Uhr mit Rechtsanwältin Marlene Schreiber
+- [2026-07-01 13:32] [Sebastian, want to chat? | use--fact ZRS] Callie Foxe (Casey Escrow) möchte Kontakt mit Sebastian Spuhler aufnehmen und über ein neues Projekt diskutieren
+- [2026-07-01 13:32] [Angebot AG0027 von Prozessia] Angebot AG0027 wurde am 01.07.2026 erstellt und versendet
+- [2026-06-30 15:06] [2026-06-30.md] SLA (Service Level Agreement) mit Schaufler war zum 2026-06-29 noch nicht fertiggestellt
+- [2026-06-30 15:05] [ISO 27001 bei Prozessia] Secfix unterstützt bereits über 500 Unternehmen bei ISO 27001 Konformität
+- [2026-06-30 15:05] [Infomaterial + Antragslinks American Exp] Hinweis: Freundschaftslink zu verwenden, falls Sebastian Spuhler geworben wurde
+- [2026-06-30 15:05] [Infomaterial + Antragslinks American Exp] Zahlungsziel: 28 Tage nach Rechnungstellung (Liquiditätsvorteil bis zu 58 Tagen)
+- [2026-06-30 15:05] [Infomaterial + Antragslinks American Exp] Jahresgebühr: 850 EUR für Gesamtpaket
+- [2026-06-30 15:05] [Sebastian, drop me a line! | P02T1X5 ZRS] Evan Shelley plant Treffen nächste Woche
+- [2026-06-30 15:05] [Sebastian, drop me a line! | P02T1X5 ZRS] Evan Shelley von meetfleetparkingspace.com fragt nach Interesse an Backend-Engineer-Position
+- [2026-06-30 15:05] [Sebastian - meeting request | TQNZ5F8 ZR] Taylor Rowland ist derzeit telefonisch erreichbar und steht für ein kurzes Gespräch zur Verfügung
+- [2026-06-30 15:05] [Sebastian - meeting request | TQNZ5F8 ZR] Taylor Rowland von clearnowshift.info hat Sebastians Präsentation der letzten Woche positiv bewertet
+- [2026-06-30 15:05] [Sebastian - new customers? | Y0PKTM7 ZRS] Unternehmenswebsite von Spencer Lowery ist in der E-Mail verlinkt (Recinos Portfolio)
+- [2026-06-30 15:05] [Zugesagt: Angebotsdurchsprache Endin X P] Cyril Dietz (cyril.dietz@endin-email.eu) ist Kontaktperson bei Endin
+- [2026-06-30 15:05] [Partner-Sommer-Bonus: 35% + plus 150€ Ex] Kontaktperson: David von fonio (partner@fonio.info)
+- [2026-06-30 15:05] [Partner-Sommer-Bonus: 35% + plus 150€ Ex] Bonus-Aktion läuft bis Ende August
+- [2026-06-30 15:05] [Partner-Sommer-Bonus: 35% + plus 150€ Ex] Partner-Sommer-Bonus-Aktion: 35% Provision plus 150€ Extra-Bonus pro Kunde
+- [2026-06-30 15:05] [Sebastian, what can I do for you? | rod.] Shiloh Kraft von SyncAdaptNow kontaktiert Sebastian Spuhler bezüglich Business Development und Personalvermittlung
+- [2026-06-30 15:05] [Sebastian - sync call | WK2FX1R ZRSMQTG] Rebecca Rose von Stud.eo Conversion bietet ein Gespräch über Hiring/Personalvermittlung an
+- [2026-06-29 14:03] Im bisherigen Schaufler-Angebot sind weder Laufzeit noch Rabattstaffel definiert — beides muss noch ergänzt werden.
+- [2026-06-29 13:56] [2026-06-29-AVV_Schaufler_Prozessia_ausgefuellt (2).md] Vertrag regelt datenschutzkonforme Verarbeitung personenbezogener Daten im Rahmen der Zusammenarbeit
+- [2026-06-29 13:56] [2026-06-29-AVV_Schaufler_Prozessia_ausgefuellt (2).md] Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DS-GVO unterzeichnet am 2026-06-29
+- [2026-06-29 13:56] [Sebastian - i’d love to hear your though] Anfrage nach Blog-Inhalten oder Gedankenaustausch zum Thema
+- [2026-06-29 13:56] [Sebastian - i’d love to hear your though] Tonia Bose (Modern Strategy Councils) lobte Sebastians Präsentation der Vorwoche
+- [2026-06-29 13:56] [Sie hatte 14k Follower und löscht ihr Li] Inhalt ist Verkaufs-E-Mail für Coaching-Programm, keine geschäftliche Anfrage oder Auftrag für Prozessia
+- [2026-06-29 13:56] [Here's what we're working on now - let's] Absender rohan.aus@em.bodyhacking.com - keine klare Geschäftsbeziehung zu Prozessia GbR erkennbar
+- [2026-06-29 13:56] [Sebastian - looking forward to meeting y] LinkedIn-Verbindung wird als Optional angeboten
+- [2026-06-29 13:56] [Would love to work with you | Q62KE79 ZR] Referenznummer: Q62KE79 ZRSMQTG
+- [2026-06-29 13:56] [Umsatz pro Mitarbeiter] Recruiting-Agentur-Modell: 1 Account Manager + 1 Content Creator können 20-30 Kunden bei 2.000 € Retainer (40.000-60.000 € monatlich) betreuen
+- [2026-06-29 13:56] [Umsatz pro Mitarbeiter] Empfehlung von Alexander Heeg (support@agentur-consulting.de): Umsatz pro Mitarbeiter sollte 20.000-25.000 € pro Monat betragen als Kennzahl für effiziente Teamauslastung
+- [2026-06-29 13:56] [Sebastian - need a partner? | G46KD5X ZR] Absender hat Code-Referenz G46KD5X ZRSMQTG in der E-Mail
+- [2026-06-29 13:56] [Sebastian - need a partner? | G46KD5X ZR] Nicole Oneill bietet möglicherweise SEO-Spezialist-Services an und möchte Sebastian Spuhler treffen
+- [2026-06-29 13:56] [Sebastian, let's get together! | 82HW7MA] Anfrage zur Zusammenarbeit / Empfehlungsanfrage - nächster Schritt: Antwort von Sebastian erforderlich
+- [2026-06-29 13:56] [Sebastian, feedback for your business | ] Kshitij Ingle (getecliptix.com) folgt auf eine E-Mail von der Vorwoche auf
+- [2026-06-29 13:56] [Sebastian - got your email | 1E6X767 ZRS] Referenznummer: 1E6X767 ZRSMQTG
+- [2026-06-29 13:56] [When would be a good time to get togethe] Ameer Mullin (ameer.mullin@kathymindset.com) hatte telefonisches Gespräch mit Sebastian Spuhler und möchte sich treffen
+- [2026-06-29 13:56] [Sebastian, we can do this! | CQ9C7TV ZRS] Ein vorheriges Gespräch zwischen Todd Porter und Sebastian Spuhler hat bereits stattgefunden
+- [2026-06-29 13:56] [Automatische Antwort: Ergebnisse Testrei] E-Mails werden nicht weitergeleitet
+- [2026-06-29 13:56] [Automatische Antwort: Ergebnisse Testrei] Kontaktperson für dringende Fälle während der Abwesenheit: Andreas Klotz
+- [2026-06-29 13:56] [Automatische Antwort: Ergebnisse Testrei] Jörg Schwindling ist bis 16.07.2026 abwesend und antwortet nicht persönlich
+- [2026-06-29 13:56] [Need your help | G2NE2AW ZRSMQTG] Kontaktaufnahme basiert auf Website von Prozessia GbR
+- [2026-06-27 17:35] Sebastian muss Mundinger eine Erinnerungsmail schicken (vor Termin 29.06. 10:30 Uhr) und den Endin-Termin vorbereiten (Angebotsstruktur für Buchhaltungsagent)
+- [2026-06-27 16:45] [Wenn du auf der Stelle trittst...] Zielgruppe: Agenturen im Umsatzbereich 30k-100k monatlich
+- [2026-06-27 16:11] [buffer_status.md] Über 80% der Maschinenbauer messen KI hohe Bedeutung bei
+- [2026-06-27 16:11] [buffer_status.md] Seit Februar 2025 sind bestimmte KI-Praktiken in der EU verboten
+- [2026-06-27 15:35] [New API key created on Buffer] Sicherheitshinweis: API-Schlüssel ist privat zu halten und nicht öffentlich zu teilen
+- [2026-06-27 15:35] [New API key created on Buffer] Buffer API ist nun für Integration verfügbar
+- [2026-06-27 15:30] [Was alle unsere besten Kunden verbindet] Erfolgskriterium nach Heineke: Kunden mit klarer Vorstellung von Minimalzielen (z.B. 25k/Monat) unabhängig vom Startpunkt
+- [2026-06-27 15:30] [Was alle unsere besten Kunden verbindet] Heineke teilt persönliche Erkenntnis: Erfolgreichste Kunden zeichnen sich nicht durch Status quo (Teamgröße, Umsatz, Kapital) aus, sondern durch Wachstumshunger
+- [2026-06-27 15:30] [Was alle unsere besten Kunden verbindet] E-Mail von Robert Heineke (Leaders Media) an Sebastian Spuhler ist unvollständig/abgebrochen (endet bei 'Wir arbeit')
+- [2026-06-27 15:30] [Sebastian - interested in learning more?] Whitepaper als PDF-Anhang vorhanden (Referenznummer: KT12SK5 ZRSMQTG)
+- [2026-06-27 13:08] [Call me about that idea | KT12SK5 ZRSMQT] Scott Jones bietet Hilfe bei Sebastians Projekt an
+- [2026-06-27 13:08] [Call me about that idea | KT12SK5 ZRSMQT] Scott Jones (scott.jones@conversionizecareers.com) hatte Telefonat mit Sebastian Spuhler und möchte sich über das Projekt austauschen
+- [2026-06-27 13:08] [Bildschirmfoto 2026-06-27 um 13.07.15_vision.md] Keine automatisierten Fibu-Zahlläufe vorhanden; alle Zahlungen manuell verwaltet
+- [2026-06-27 13:08] [2026-06-27-Bildschirmfoto 2026-06-27 um 13.07.15_vision.md] Checkliste erstellt durch Dienstleister 'Zahlen im Takt' am 2026-06-27
+- [2026-06-27 13:07] [2026-06-27-Bildschirmfoto 2026-06-27 um 13.05.52_vision.md] Datum Checkliste: 2026-06-27
+- [2026-06-27 13:07] [2026-06-27-Bildschirmfoto 2026-06-27 um 13.05.52_vision.md] Lead-Status: Outsourcing-Checkliste 'Zahlen im Takt' ausgefüllt, Basis für Angebotserstellung Buchhaltungs-Outsourcing
+- [2026-06-27 13:03] [2026-06-27-Outsourcing Checkliste.md] Outsourcing Checkliste für Finanz- und Rechnungswesen als standardisierter Fragebogen für potenzielle Kunden
+- [2026-06-27 12:51] [2026-06-27-beitraege-2026-06-27.md] Zielgruppe: Geschäftsführer produzierender Betriebe mit 30–70 Mitarbeitern (KMU ohne IT-Struktur)
+- [2026-06-27 12:51] [2026-06-27-beitraege-2026-06-27.md] Kernstatistik: 78 % der Kunden haben beim Projektstart keinen internen IT-Spezialisten
+- [2026-06-27 12:51] [2026-06-27-beitraege-2026-06-27.md] Geplante Posts: Dienstag 01.07.2026 zum Thema 'KI-Einsatz ohne IT-Abteilung' und Freitag 03.07.2026 zum Thema 'KI trotz schlechter Datenqualität'
+- [2026-06-27 12:50] [2026-06-27-ideen-2026-06-27.md] Identifizierte Use-Cases: KI-Workflows für Zeitersparnis (2h/Tag), Lieferantenvergleich-Automatisierung (10 Min statt 3 Tage)
+- [2026-06-27 12:50] LinkedIn Post Idee 9 'Keine IT-Abteilung? Kein Problem beim KI-Einsatz' ist geplant für Dienstag 01.07.2026 (Liste-Format)
+- [2026-06-27 12:47] [2026-06-27.md] Zielgruppe: Produzierendes Gewerbe, Werkzeugbau, Einkauf
+- [2026-06-27 10:24] [$250,000 in just 2 days for your busines] Dies ist eine unaufgeforderte Werbe-E-Mail von Lyft Capital an Sebastian Spuhler, keine legitime Geschäftskommunikation für Prozessia GbR
+- [2026-06-27 10:24] [I'm just trying to understand you better] Vage Lunch-Einladung ohne konkreten Termin oder Zweck
+- [2026-06-27 10:24] [I'm just trying to understand you better] Absender: Simone White (trygrowthchannel.com) - bietet Promotion Pricing für Startups an
+- [2026-06-27 10:24] [I'm just trying to understand you better] E-Mail ist Werbe-Follow-up ohne spezifische geschäftliche Inhalte für Prozessia GbR
+- [2026-06-27 10:24] [Let's get together! | CBR25T8 ZRSMQTG] Referenznummer/Code: CBR25T8 ZRSMQTG
+- [2026-06-27 10:24] [Sebastian - tried calling you | WK4H58H ] Referenznummer: WK4H58H ZRSMQTG
+- [2026-06-27 10:24] [Sebastian - tried calling you | WK4H58H ] Steve Upton ist erreichbar für Rest der Woche und stellt Buchungsseite zur Verfügung
+- [2026-06-27 10:24] [Let's chat about it | TQNZ5F8 ZRSMQTG] Vorheriges Telefonat zwischen Sam Allisen und Sebastian Spuhler fand letzte Woche statt
+- [2026-06-27 10:24] [Let's chat about it | TQNZ5F8 ZRSMQTG] Sam Allisen hat Interesse an den Services von Sebastian Spuhler/Prozessia GbR und möchte mehr über die Spezialitäten erfahren
+- [2026-06-27 10:24] [Sebastian - we’d love to chat. | ought-c] Sarah Miller (s.miller@useconsultingpipeline.one) möchte mit Sebastian Spuhler ein Gespräch führen und benötigt einen Calendly-Link
+- [2026-06-26 14:00] [2026-06-26-Indeed.md] Vermutlich Stellenanzeige, Bewerbung oder Kandidatenprofil von Indeed
+- [2026-06-26 14:00] [2026-06-26-Indeed.md] Datei aus Indeed vom 26.06.2026 - Inhalt konnte nicht ausgelesen werden (unbekanntes Format)
+- [2026-06-26 13:47] [Sebastian - let's discuss how we can hel] Hazel Stewart (aisystemskit.com) folgt auf vorheriges Telefonat auf und möchte diskutieren, wie das Angebot für Prozessia GbR relevant ist
+- [2026-06-26 13:47] [Can we talk? | been_rate ZRSMQTG] Anfrage zu Spezialisierungen und Dienstleistungen
+- [2026-06-26 13:47] [Sebastian, i thought about this a lot | ] Winston Chi möchte ein Treffen zum Mittagessen innerhalb des nächsten Monats vereinbaren
+- [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Referenz/Projekt-ID: warmup ZRSMQTG
+- [2026-06-26 12:20] Jürgen Mahler ist von der Firma Schaufler. Schaufler schickt ein Lastenheft, danach soll Prozessia ein Angebot erstellen.
+- [2026-06-25 16:28] Hetzner-Serverkosten für Schaufler (CCX23) sind im Vault nicht dokumentiert
+- [2026-06-25 16:28] Verwaltungspauschale für Schaufler (Prozessias Leistung): 220 €/Monat netto – umfasst Docker-Monitoring, Security-Updates, SSL, Backups, 24/7 Uptime, Support, Versionskontrolle, kleinere Anpassungen und Deployment weiterer KI-Agenten
+- [2026-06-25 16:23] Preis für monatliche Wartung & Management Server + KI-Agent: 220 €/Monat
+- [2026-06-25 16:23] Serverpauschalbestellung basiert auf Angebot AG0024
+- [2026-06-25 16:23] Bestellung Nr. 127412 für Schaufler Tooling GmbH & Co. KG liegt bei Brain vor
+- [2026-06-25 16:21] Bestellung BEST-PROZESSIA-127412 von Schaufler: 220 €/Monat Verwaltungspauschale (Wartung & Management mit KI-Agent) laut Angebot AG0024
+- [2026-06-25 16:14] Neue Bestellung BEST-PROZESSIA-127412 wurde heute eingespeichert
+- [2026-06-25 16:14] Bestellung BEST-PROZESSIA-124952 über 10.000€ netto für Beschaffungsagent vorhanden
+- [2026-06-25 16:14] NDA v13 zwischen Schaufler Tooling GmbH & Prozessia GbR vom 22.01.2026 existiert
+- [2026-06-25 16:14] Schaufler-Ordner enthält ~50 Dokumente
+- [2026-06-25 16:05] Prozessia erhält Zugriffsrechte zur Verwaltung des Hetzner Cloud-Servers
+- [2026-06-25 16:05] Schaufler beschafft einen Hetzner Cloud-Server
+- [2026-06-25 16:02] Thema: Messberichte (Format/Details unklar wegen abgebrochenem Transkript)
+- [2026-06-25 16:02] Hauptgesprächspartner sind Sebastian Spuhler und Michael Maier
+- [2026-06-25 16:02] Das Transkript vom 15. Juni ist unvollständig/wurde abgebrochen (Satz beginnt mit 'in welcher For...')
+- [2026-06-25 16:02] Benjamin Schmohl ist nur Transkriptions-Initiator, hat nicht gesprochen
+- [2026-06-25 15:53] Zugehörige Dokumente zum Projekt existieren bereits: Besprechung vom 2026-06-09, Angebot Serververwaltung, Azure_OpenAI_Anleitung
+- [2026-06-25 15:53] Datei 'Besprechung Umsetzung Server Infrastruktur Schaufler.docx' (756 KB) wurde hochgeladen - Inhalt nicht lesbar, da Word-Format
+- [2026-06-25 15:48] [Email: Automatische Antwort: Ein Austausch, Herr Fuchs?] Frank Fuchs von Roth Hydraulics ist bis 29.06.2026 abwesend, Zentrale erreichbar unter +49 (6461) 9330
+- [2026-06-25 15:48] [Email: Action required: security vulnerabilities detected] Sicherheitsmitteilung von Supabase - keine geschäftsrelevanten Informationen für Aufträge, Preise oder Deadlines
+- [2026-06-16 17:13] Benjamin wünscht sich Benachrichtigung mit Kontext bei nicht zuordenbaren Dateien
+- [2026-06-16 17:13] Benjamin möchte Chatbot-System, das aktiv meldet wenn Datei nicht zuordenbar ist
+- [2026-06-16 17:13] Problem: Lieferanten vergeben falsche Positionsnummern oder falsches Projekt auf Dateien → ProLeis kann nicht automatisch zuordnen
+- [2026-06-16 17:13] Benjamin Schmohl (Schaufler Tooling) hat am 15.06 Mail mit Messberichten und Transkript gesendet
+- [2026-06-16 15:57] Benjamin möchte einen Chatbot zur Lösung eines Lieferanten-Problems einsetzen: Messberichte werden mit falschen Positionsnummern oder falschem Projekt eingereicht und können nicht automatisch in ProLeis zugeordnet werden
+- [2026-06-16 15:35] Vorbild für Benachrichtigungsformat: Chat-Funktion bei ChatGPT
+- [2026-06-16 15:34] Messberichte landen dadurch nicht korrekt zugeordnet in ProLeis
+- [2026-06-16 15:34] Kunde Schaufler: Lieferanten vergeben falsche Positionsnummern oder falsche Projekte bei Messberichten
+- [2026-06-16 15:30] Schaufler: Bestellung 127412 ist offen und benötigt Auftragsbestätigung
+- [2026-06-16 15:30] Schaufler: Hosting/Retainer-Preis ab Juli 2026 auf 280 €/Monat erhöht
+- [2026-06-16 15:17] Schaufler Tooling GmbH & Co. KG ist zahlender Kunde mit monatlichem Abo von 280€
+- [2026-06-16 15:17] Bestellung 127412 von Schaufler Tooling GmbH & Co. KG vom 15.06.2026 erfordert Auftragsbestätigung mit Datum, Signatur und Firmenstempel
+- [2026-06-16 15:15] [Email: Bestellung 127412] Ansprechpartner: Christoph Nagel-Knospe, Leiter Service-Center, Tel. +49 (0)7333 9608-130
+- [2026-06-16 15:15] [Email: Ihr Besuch auf der MTO Stuttgart 2026] Nächste Messe: FMB in Bad Salzuflen vom 03.-05.11.2026
+- [2026-06-16 15:15] [Email: Ihr Besuch auf der MTO Stuttgart 2026] Hoedtke bietet Überblicksinformationen via YouTube-Videos und Website www.hoedtke.de an
+- [2026-06-16 15:15] [Email: Ihr Besuch auf der MTO Stuttgart 2026] Sebastian Spuhler hat Messestand von Hoedtke GmbH & Co. KG auf MTO Stuttgart 2026 besucht
+- [2026-06-16 15:15] [Email: Lexware Office-Update in Kürze 🔔] Finom kündigt neue Lexware Office-Integration an, Migration ab 22. Juni 2026 geplant
+- [2026-06-16 15:15] [Email: Kontakte-Feature testen und erster Partner Online ] Erster Partner-Online-Stammtisch von fonio - Anmeldung möglich
+- [2026-06-16 15:15] [Email: Transkript] Transkript von Schaufler Tooling GmbH erhalten
+- [2026-06-16 15:15] [Email: Zugesagt: Potenzialanalyse Endin X Prozessia] Cyril Dietz von Endin bestätigt Zusage für Potenzialanalyse zwischen Endin und Prozessia
+- [2026-06-16 15:05] Bekannte Bestellung Schaufler (BEST-PROZESSIA-124952) vom Februar 2026: 10.000 € netto für Beschaffungsagent
+- [2026-06-16 15:05] Cyril Dietz (Endin) hat den Kalendertermin 'Potenzialanalyse Endin X Prozessia' zugesagt
+- [2026-06-16 12:07] Gestern wurde eine Bestellung erhalten
+- [2026-06-16 12:07] Angebot für Schaufler wurde bereits ausgegeben
+- [2026-06-16 12:07] Messberichte-Thema ist dokumentiert und sollte aus bestehenden Dokumenten bekannt sein
+- [2026-06-16 12:07] Anbindung zu Winform/Proleis ist in Arbeit
+- [2026-06-16 12:07] Offene Bestellung von Schaufler liegt vor mit Auftragsbestätigung
+- [2026-06-16 12:05] Schaufler: Lexoffice-Angebot muss fertiggestellt werden mit Retainer ab Juli 2026 auf 280 €/Monat (erhöht von 220 €)
+- [2026-06-16 11:27] Langfristig ist eine Migration des Schaufler-Servers auf eine Cloud-Lösung geplant
+- [2026-06-16 11:27] Server für Schaufler: Hetzner CCX23 mit 16 GB RAM und 200 GB Speicher
+- [2026-06-16 09:58] DSGVO-Bußgelder: 1,2 Mrd. Euro bis 2026
+- [2026-06-16 09:58] Zielgruppe: Einkaufsleiter Werkzeugbau
+- [2026-06-16 09:57] Häufige DSGVO-Verstöße bei Einkaufsleitern: Lieferantendaten per unverschlüsselter E-Mail, Angebotsunterlagen auf privaten Endgeräten, ABs mit Preisinformationen in ungesicherten Postfächern
+- [2026-06-16 09:57] 1,2 Milliarden Euro DSGVO-Bußgelder wurden 2023 verhängt, auch gegen Mittelständler
+- [2026-06-16 09:57] Zielgruppe für alle drei Posts: Einkaufsleiter Werkzeugbau
+- [2026-06-16 09:51] 2023 wurden in der EU über 1,2 Mrd. € DSGVO-Bußgelder verhängt, auch gegen mittelständische Unternehmen
+- [2026-06-16 09:51] Zielgruppe der Posts: Einkaufsleiter Werkzeugbau
+- [2026-06-16 09:51] Sebastian benötigt 3 LinkedIn Posts für KW 25: A) Di 16.06. DSGVO-Bußgelder, C) Mi 17.06. 52% ohne KI-Strategie, D) Do 18.06. KI ohne IT
+- [2026-06-16 09:32] Zielgruppe: Einkaufsleiter und Geschäftsführer in Werkzeugbau und produzierendem Gewerbe Deutschland
+- [2026-06-16 09:32] Veröffentlichungstermine: Dienstag 16.06., Mittwoch 17.06., Donnerstag 18.06.
+- [2026-06-16 09:32] Drei LinkedIn Posts für KW25 geplant: DSGVO-Bußgelder (1,2 Mrd. €), KI-Strategie im Einkauf (52% ohne), KI für KMU ohne IT-Abteilung
+- [2026-06-16 09:31] Es gibt einen Datums-Konflikt: zwei Donnerstage in der Planung, Klärung der korrekten drei Tage erforderlich
+- [2026-06-16 09:30] Drei geplante Themen: Mi 18.06. – C (52% ohne KI-Strategie im Einkauf), Do 19.06. – D (KI ohne IT-Abteilung für KMU), Di 16.06. – A (DSGVO-Bußgelder 1,2 Mrd. €)
+- [2026-06-16 09:30] Drei geplante Posts: Di 16.06. (DSGVO-Bußgelder 1,2 Mrd. €), Mi 18.06. (52 % ohne KI-Strategie im Einkauf), Do 19.06. (KI ohne IT-Abteilung für KMU)
+- [2026-06-16 09:30] Post Do 19.06.: KI ohne IT-Abteilung für KMU
+- [2026-06-16 09:30] Post Mi 17.06.: 52 % ohne KI-Strategie im Einkauf
+- [2026-06-16 09:30] Post Di 16.06.: DSGVO-Bußgelder 1,2 Mrd. €
+- [2026-06-16 09:29] Geplante Veröffentlichungstage: Dienstag 17.06. und Donnerstag 19.06.
+- [2026-06-16 09:29] Geplante Post-Themen: DSGVO-Bußgelder (A), 52% ohne KI-Strategie im Einkauf (C), KI ohne IT-Abteilung (D)
+- [2026-06-16 09:29] Sebastian möchte Posts A, C und D veröffentlichen
+- [2026-06-16 09:28] Bewährter Posting-Rhythmus: Dienstag + Donnerstag
+- [2026-06-13 13:09] Brain hat Zugriff nur auf 5 Ideen aus dem LinkedIn Autoposter-Export vom 07.06, weitere Dateien (ideen-2026-06-07.json, ContentIdeas.xlsx) sind nicht geladen
+- [2026-06-13 13:09] Sebastian vermutet, dass es weitere Content-Ideen zu Bußgeldern und allgemeiner KI-Verwendung gibt, die nicht in den bisherigen 5 Ideen enthalten sind
+- [2026-06-13 13:08] Zwei LinkedIn-Beiträge waren geplant für 11.06. und 12.06., sind aber bereits vergangen (heute 13.06.)
+- [2026-06-13 12:49] Es existieren generierte LinkedIn-Beitrags-Ideen, die noch nicht eingeplant sind
+- [2026-06-13 12:49] LinkedIn-Beiträge für KW 25 (16.–20. Juni 2026) sind aktuell nicht geplant
+- [2026-06-13 12:47] Für KW 25 (16.–20. Juni 2026) sind aktuell keine LinkedIn-Beiträge geplant
+- [2026-06-13 12:47] Zielgruppe für Social-Media-Beiträge: Werkzeugbau/Batterie-Fertigung
+- [2026-06-13 12:47] Für nächste Woche (KW 25, 16.–20. Juni) sind keine LinkedIn-Beiträge geplant
+- [2026-06-13 12:37] Sebastian sucht Messen und Veranstaltungen für Vertrieb in der Zielgruppe Elektroauto-Herstellung, speziell mit Fokus auf Batteriefertigung
+- [2026-06-13 12:22] Ansprechpartner Schaufler Tooling GmbH: Thomas Issel, Einkaufsleiter
+- [2026-06-13 12:17] Test: Gedächtnis-Endpoint funktioniert korrekt
+
+## PROZESS
+- [2026-08-11 17:46] [2026-06-09-Vertriebsvereinbarung_Segschneider (1).md] Vertriebspartner vermittelt qualifizierte Leads, darf aber KEINE Verträge im Namen von Prozessia abschließen
+- [2026-08-11 17:46] [2026-06-09-Vertriebsvereinbarung_Segschneider.md] Prozessia-Leistung: Prozessia Agent (KI-Lösung)
+- [2026-08-11 17:46] [2026-06-09-Vertriebsvereinbarung_Segschneider.md] Aufgaben des Vertriebspartners: Lead-Generierung, Erstkontakt mit Kunden, Übergabe qualifizierter Kontakte an Prozessia
+- [2026-08-11 17:46] [2026-06-25-Vertriebsvereinbarung_Geginat (1).md] Vertriebspartner hat keine Abschlussvollmacht
+- [2026-08-11 17:46] [2026-06-25-Vertriebsvereinbarung_Geginat (1).md] Vergütung provisionsbasiert auf qualifizierten, weitergeleiteten Leads
+- [2026-08-11 17:45] [2026-06-09-Vertriebsvereinbarung_Geginat .md] Vertriebspartner Geginat: Selbstständig tätig, qualifiziert potenzielle Kunden und vermittelt Leads an Prozessia
+- [2026-08-11 17:45] [2026-06-09-Prozessia_Voice_Agents_Produktbeschreibung_LANG_FINAL_CLEAN.md] Kernfunktionalität: KI-Telefonassistenten für Anrufbearbeitung, strukturierte Erfassung, intelligentes Routing und Prozessstandardisierung
+- [2026-08-11 17:44] [2026-06-09-Prozessia_Agent_Produktbeschreibung_LANG_FINAL.md] Kernfunktionen: Recherche, Wissensabfrage (RAG), Formulierungshilfe, Texterstellung
+- [2026-08-11 17:44] [2026-06-09-Prozessia-Voice-Agents (1).md] Kernfunktionen: Anrufannahme mit Qualifizierung, Dokumentation, strukturierte Weiterleitung, Rückruflisten-Erstellung, automatische SMS Follow-ups (Terminbestätigungen, Links, Anforderungen)
+- [2026-08-11 17:44] [2026-06-09-Prozessia-KI-Losungen-fur-moderne-Unternehmen (1).md] Kernkompetenzen: Automatisierung von Geschäftsprozessen, intelligente KI-Assistenten, Telefon-KI-Systeme
+- [2026-08-11 17:44] [2026-06-09-Prozessia-Informationen-fur-Vertriebspartner (1).md] Zielgruppe ist frei wählbar durch den Vertriebspartner
+- [2026-08-11 17:43] [2026-06-25-Prozessia Karrieresystem.md] Override-Regelung: (Rang-% übergeordneter Partner − Rang-% direkter Partner) × Umsatz direkter Partner, max. 10% pro direktem Partner
+- [2026-08-11 17:43] [2026-06-25-Prozessia Karrieresystem.md] Verkäufer-Pfad Volumen-Boni: +3% ab 80.000€, weitere +4% ab 180.000€ (insgesamt +7%)
+- [2026-08-11 17:43] [2026-06-25-Prozessia Karrieresystem.md] Ab 80.000€ Eigenvolumen: Partner wählt zwischen Verkäufer-Pfad oder Leadership-Pfad (gegenseitig ausschließlich)
+- [2026-08-11 17:43] [2026-06-09-Preismodell - Basismodell.md] Leistungen: DSGVO-konformer RAG-Agent, persönliche Mitarbeiter-Bots, bis zu 5 spezialisierte KI-Modelle (Steuerrecht, Kommunikation, Schriftsatz, Recherche, Mandanten-Kommunikation)
+- [2026-08-11 17:43] [2026-06-09-Preismodell - Basismodell.md] Monatliche Retainer-Kosten: 250–1.000 € + variable Nutzungskosten (Azure OpenAI, VPS-Server)
+- [2026-08-11 17:43] [2026-06-09-Preismodell - Basismodell.md] Preismodell Stufe A - Setup-Gebühren: 3.000–9.000 € einmalig
+- [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (2).md] Vertrag regelt Aufgaben, Stellung und Pflichten des Kooperationspartners für Vertriebsunterstützung und Kundenkontakt-Vermittlung
+- [2026-08-11 17:42] [2026-06-09-Copy of fonio Public Partner Angebotsvorlage.md] Leistungsumfang: Setup, Konfiguration, Anpassungen, Testphase und laufende Partner-Betreuung
+- [2026-08-11 17:42] [2026-06-09-werbe_final.md] Lösungspositionierung: KI-Agent zur Entlastung bei Reporting und permanenten Status-Updates
+- [2026-08-11 17:42] [2026-06-09-werbe_final.md] Identifizierte Schmerzpunkte: Reporting, Koordination, Status-Updates, enge Abstimmungen erforderlich
+- [2026-08-11 17:42] [2026-06-09-Untitled document.md] Kernregel: AUSSCHLIESSLICH Formulierungen verwenden, die im Kontext exakt vorkommen oder eindeutig daraus ableitbar sind – KEINE erfundenen Programme, Methoden oder Claims
+- [2026-08-11 17:42] [2026-06-09-Untitled document.md] Kontext-Validierungslogik: Fall A = verwertbarer Kontext (echte Aussagen zu Haltung, Anspruch, Wirkung, Führung, Teams, Kunden, Programme, Methoden)
+- [2026-08-11 17:42] [2026-06-09-Untitled document.md] Eingabedaten: Email, Branche, Organisationsname, Website-URL, Vorname, Nachname, LinkedIn-URL des Leads
+- [2026-08-11 17:42] [2026-06-09-Untitled document.md] n8n-Workflow-Template für personalisierten KI-gestützten Icebreaker-Generator zur automatisierten Kaltakquise mit deutscher Ausgabe
+- [2026-08-11 17:41] [2026-06-09-Seriendruck_KOMPLETT_FINAL (1).md] Cold-Call-Kampagne mit Vertriebsstatus: 'will Präsi' (POLAR-FORM, Wiesmayer), 'termin' (Klaus Baier GmbH), 'nochmal anrufen' (SCHROEDER+BAUER), 'ja' (Siebenwurst), 'nein' (Kölle, Sixt)
+- [2026-08-11 17:41] [2026-06-09-Listen.md] Datenquellen für Liste: Mobile.de, AutoScout24, Websites, Telefon-Recherche
+- [2026-08-11 17:41] [2026-06-09-Listen.md] Akquiseliste mit 26 Autohändlern in Saarbrücken für Cold-Call-Kampagnen zu Voice-Agent-Lösungen kompiliert (Datum: 2026-06-09)
+- [2026-08-11 17:41] [2026-06-09-Cold_Call_Leitfaden_Prozessia_v5 (5).md] CRM-Pflege erfolgt in Twenty
+- [2026-08-11 17:41] [2026-06-09-Cold_Call_Leitfaden_Prozessia_v5 (5).md] Gatekeeper-Überwindung: Priorität auf vorhandenem Brief basierend (Standardfall)
+- [2026-08-11 17:41] [2026-06-09-Cold_Call_Leitfaden_Prozessia_v5 (5).md] Drei Argumentationsvarianten für Setter: Effizienz, FOMO, Haftung - Variante konsequent durchziehen, nicht mischen
+- [2026-08-11 17:40] [kpi-tracking.md] Wöchentliche Auswertung montags (5 Min): (1) Buffer-Insights abrufen, (2) drei manuellen KPIs nachtragen, (3) besten Post der Vorwoche nach Saves-Zahl bestimmen.
+- [2026-08-11 17:40] [kpi-tracking.md] LinkedIn-Tracking: Drei Primär-Kennzahlen (Saves/Post, Profilaufrufe/Woche, DMs/Anfragen) müssen wöchentlich manuell aus LinkedIn-Analytics eingetragen werden — Buffer liefert diese nicht automatisch.
+- [2026-08-11 17:39] [bild-prompts.md] Bild-Prompts müssen Referenzdateien anhängen: Logo-Varianten, Schrift-Screenshot, finales Banner-Muster
+- [2026-08-11 17:39] [STRATEGIE.md] Status: Verbindliche Grundlage für gesamte LinkedIn-Pipeline. Überschreibt widersprechende Inhalte in anderen Dateien.
+- [2026-08-11 17:39] [2026-08-26-Inductoheat.md] Erstgespräch geplant am 2026-08-26
+- [2026-08-11 17:39] [2026-07-19-Workflow Ersatzteile.md] Workflow Ersatzteile regelt Ablauf zwischen Bereichen Einkauf und Werkstatt
+- [2026-08-11 17:38] [2026-07-19-Wareneingang 2025.08.08.md] Wareneingang-Workflow mit Prozessdiagramm und Legende vorhanden
+- [2026-08-11 17:38] [2026-07-19-Prozess Lohnverguß 2022.07.20.md] Prozessname: Lohnverguß-Aufzug, Prozessdatum: 20.07.2022
+- [2026-08-11 17:38] [2026-07-19-Prozess Kleinauftrag 2022.07.15.md] Prozess 'Kleinauftrag' dokumentiert am 11.7.2022, regelt die Abwicklung von Kleinaufträgen
+- [2026-08-11 17:38] [2026-07-24-19f17dfce8-Workflow Ersatzteile.md] Interner Auftrag wird angelegt mit Laufzettel und Auftragsliste vor Lieferzusammenstellung
+- [2026-08-11 17:38] [2026-07-24-19f17dfce8-Workflow Ersatzteile.md] Teillieferungen sind optional im Workflow mit separatem Lieferschein und Teilversand
+- [2026-08-11 17:38] [2026-07-24-19f17dfce8-Workflow Ersatzteile.md] Lagerprüfung ist kritischer Entscheidungspunkt: Bei Vollbestand direkter Versand, sonst Fehlmengenbeauftragung
+- [2026-08-11 17:38] [2026-07-23-19f17dfce8-Wareneingang 2025.08.08.md] Wareneingang-Prozess dokumentiert vom 08.08.2025
+- [2026-08-11 17:37] [2026-07-24-19f17dfce8-Prozess Lohnverguß 2022.07.20.md] Entscheidungsgateways: Konstruktion nötig?, Beschaffung nötig?, Fertigung nötig?, Montage nötig?, Software nötig?
+- [2026-08-11 17:37] [2026-07-24-19f17dfce8-Prozess Lohnverguß 2022.07.20.md] Prozessablauf: Auftragsklärung → Ressourcenplanung → Konstruktion → Beschaffung → Fertigung → Montage → Versand
+- [2026-08-11 17:37] [2026-07-23-19f17dfce8-Prozess Kleinauftrag 2022.07.15.md] Diagramm mit Legende zu verwendeten Symbolen für Prozessdarstellung dokumentiert
+- [2026-08-11 17:37] [2026-07-23-19f17dfce8-Prozess Kleinauftrag 2022.07.15.md] Prozeß Kleinauftrag regelt Abwicklung von Kleinaufträgen und Ersatzteilen
+- [2026-08-11 17:36] [2026-07-19-Angebot_AG0026_30.06.2026.md] Agent prüft & strukturiert Lieferschein- und Rechnungsinhalte
+- [2026-08-11 17:36] [2026-07-19-Angebot_AG0026_30.06.2026.md] Beschaffungsagent: automatische Bestellverarbeitung, Klassifizierung (Service/Ersatzteile/Maschine), Export-Begleitdokumente inkl. Tunesien-Sonderfall
+- [2026-08-11 17:36] [2026-07-24-19f93b0bdf-Angebot_AG0032_24.07.2026.md] Anforderungen: E-Mail-Schnittstellen, unternehmenseigener Server, Bestellungsklassifizierung (Service/Ersatzteile/Maschine), Steuerungs-Dashboard
+- [2026-08-11 17:36] [2026-07-24-19f93b0bdf-Angebot_AG0032_24.07.2026.md] Angebotsnr. AG0032 vom 24.07.2026, gültig bis 24.08.2026
+- [2026-08-11 17:36] [2026-07-23-19f37a9ec1-Angebot_AG0027_01.07.2026.md] KI-Agent kaufmännische Auftragsabwicklung mit DATEV-Integration, Schnittstellen zu Buhl Unternehmer 365 und E-Mail-Postfächern auf unternehmenseigenem Server
+- [2026-08-11 17:35] [2026-07-24-19f1906293-Angebot_AG0026_30.06.2026.md] Deadline für Annahmeerklärung: 28.07.2026
+- [2026-08-11 17:35] [2026-07-23-19f1906293-Angebot_AG0026_30.06.2026.md] Agent liest eingehende Bestellungen automatisch per E-Mail, strukturiert Daten (Artikel, Mengen, Angebotsbezug) und klassifiziert nach Service/Ersatzteile/Maschine
+- [2026-08-11 17:35] [2026-06-09-klageschrift_entwurf_arbeitsrecht.md] Schadensersatzforderung: Mindestens 12.500,00 EUR; Klägerin: Müller GmbH, Beklagter: Thomas Becker
+- [2026-08-11 17:35] [2026-06-09-klageschrift_entwurf_arbeitsrecht.md] Außerordentliche Kündigung: 30.09.2025; Arbeitsverhältnis seit 01.03.2020 als Teamleiter Vertrieb
+- [2026-08-11 17:35] [2026-06-09-klageschrift_entwurf_arbeitsrecht.md] Arbeitsrechtssache Müller GmbH ./. Thomas Becker vor Arbeitsgericht Saarbrücken; Grund: Kundenabwerbung und Weiterleitung zu Konkurrenzunternehmen
+- [2026-08-11 17:35] [2026-06-09-kanzlei_memo_intern.md] Nächste Schritte: Test-User im Microsoft-Tenant, Anbindung Outlook/Kalender an KI-System, Workflow-Dokumentation für interne Schulung
+- [2026-08-11 17:35] [2026-06-09-kanzlei_memo_intern.md] KI-System soll Fristenübersichten automatisch aus Akten generieren
+- [2026-08-11 17:35] [2026-06-09-kanzlei_memo_intern.md] Vier-Augen-Prinzip erforderlich: KI-generierte Schriftsätze dürfen nur nach Freigabe versendet werden; mandantensensible Daten bleiben im Microsoft-Tenant der Kanzlei
+- [2026-08-11 17:35] [2026-06-09-kanzlei_memo_intern.md] Zwei Pilotmandate definiert: Müller GmbH (Arbeitsrecht - automatisierte Klageentwürfe) und TechnoLogix AG (IT-Recht - Vertragsanalyse/Klauselvergleich)
+- [2026-08-11 17:34] [2026-06-09-Präsentation_ Datenschutz .md] Kanzlei-Assistent bietet RAG (Kanzlei-Dokumente, Richtlinien & Vorlagen), Integration mit Microsoft-Konto/Outlook/Teams, Onboarding-Funktion
+- [2026-08-11 17:34] [2026-06-09-Präsentation_ Datenschutz .md] Datenschutz-Anforderung: EU-Datenhaltung erforderlich; ChatGPT-Verarbeitung außerhalb EU mit US Cloud Act-Risiken
+- [2026-08-11 17:34] [2026-06-09-Kostenkalkulation Testphase.md] Pro Anfrage durchschnittlich: 1.800 Tokens Input + 900 Tokens Output
+- [2026-08-11 17:34] [2026-06-09-Kostenkalkulation Testphase.md] Chat-Nutzung (GPT-4.1 mini): 60 Anfragen pro Tag = 1.200 Anfragen pro Monat
+- [2026-08-11 17:33] [2026-06-09-KI-Agent-X-Voigt-Salus (2).md] Funktionen: Dokumentenanalyse, E-Mail-Unterstützung, Onboarding, Terminverwaltung mit individuellen Login-Daten pro Mitarbeiter
+- [2026-08-11 17:33] [2026-06-09-KI-Agent-X-Voigt-Salus (2).md] Integration: vollständig in Microsoft Teams und Outlook
+- [2026-08-11 17:33] [2026-08-11-Email-19ff1b48-Action-required-security-vulnerabilities.md] KRITISCHE Sicherheitsverletzung: Tabellen öffentlich zugänglich, Row-Level Security deaktiviert
+- [2026-08-11 17:33] [2026-08-11-Prozessia X TopDown.md] Ist-Zustand: E-Mail-Eingang → manuelle ERP-Erfassung → Papierausdruck mit Belegnummern → physische Freigaberunde → Zahlung → monatliche Weitergabe an Steuerberater (DATEV-Export, kein eigenes Buchhaltungsprogramm)
+- [2026-08-11 17:33] [2026-08-11-Prozessia X TopDown.md] Anwendungsfall: KI-gestützte Automatisierung der Eingangsrechnungsverarbeitung (aktuell vollständig papierbasiert und manuell)
+- [2026-08-11 17:33] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Werkstoffe: S235, S355J2H; Komponenten: 2588569 (Platte), 2670270 (Seitenprofil), Hohlprofil
+- [2026-08-11 17:33] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83479898.md] Baugruppe 'Fuß' (Artikel 83479898): mehrstufige BOM mit S235-Platten und S355J2H-Profilen (Seitenprofile, Hohlprofile) für geschweißte Konstruktionen
+- [2026-08-11 17:32] [2026-07-27-19fa3698b1-MATERIAL_IU485.md] Status: unklar/zu prüfen - Zuordnung zu bestehendem Projekt nicht erkennbar
+- [2026-08-11 12:00] [2026-08-11-Email-19ff0a71-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Stücklistenprojekt: Besprechung der Testreihen-Ergebnisse erforderlich
+- [2026-08-11 11:52] [AW: Ergebnisse Testreihe Stücklistenproj] Verfügbare Terminoptionen: 11.08.2026 (Dienstag), 12.08.2026 (Mittwoch) oder 14.08.2026 (Donnerstag), jeweils 17:00 Uhr
+- [2026-08-11 11:50] [2026-08-11-Prozessia X TopDown.md] Monatsabschluss: Alle Belege + Kontoauszüge werden gebündelt an Steuerberater versendet; kein eigenes Buchhaltungsprogramm im Einsatz
+- [2026-08-11 11:50] [2026-08-11-Prozessia X TopDown.md] Aktueller Eingangsrechnungsprozess: E-Mail → manuelle Erfassung in GlobeManager → Ausdruck → physische Freigaberunde (Projektleiter) → Zahlung → Steuerablage
+- [2026-08-11 11:50] [2026-08-11-Beschaffungsagent-Wochenreport-31.07-07.08.2026 (1).md] Bestätigungsquote 83% (258 von 311 Positionen bestätigt)
+- [2026-08-11 11:50] [2026-08-11-Beschaffungsagent-Wochenreport-31.07-07.08.2026 (1).md] Ampel-Scoring kritisch: 24 Rot / 20 Gelb / 10 Grün bei 54 Auftragsbestätigungen
+- [2026-08-11 11:50] [2026-08-11-Beschaffungsagent-Wochenreport-31.07-07.08.2026 (1).md] 103 Eskalationen Positionsebene für Schaufler (31.07–07.08.2026): 68 überfällige Lieferungen, 18 Preisabweichungen, 9 Mengenabweichungen, 8 Terminabweichungen
+- [2026-08-11 08:25] [2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md] Erstes Kennenlernen / Initial Meeting zwischen Prozessia und East Side Fab e.V. geplant
+- [2026-08-11 08:13] [Zugesagt: Prozessia X TopDown] Dominik Nussbaumer (TopDown, topdown-cf.com) hat das Projekt/die Zusammenarbeit Prozessia X TopDown zugesagt
+- [2026-08-11 07:27] [Prozessia x ESF] Erstes Kennenlernen mit East Side Fab e.V. über Microsoft Teams vereinbart
+- [2026-08-11 06:36] [Kennenlernen Prozessia x ESF] Sebastian soll vor dem Termin sein Anliegen mitteilen (Innovationsprojekt, Kennenlernen, etc.) zur Vorbereitung
+- [2026-08-11 06:36] [Kennenlernen Prozessia x ESF] Neuer Termin vorgeschlagen: Donnerstag, 13.08.2026 zwischen 10:00 und 15:00 Uhr
+- [2026-08-11 06:32] [AW: Ergebnisse Testreihe Stücklistenproj] Verfügbarkeit Marvin Wiegner: CAD-Schulung diese Woche 8:30-17:00 Uhr, Termin vor oder danach möglich
+- [2026-08-11 06:32] [AW: Ergebnisse Testreihe Stücklistenproj] Telefonkonferenz für diese Woche (ab 10. Aug 2026) zur Besprechung offener Punkte geplant
+- [2026-08-11 06:32] [AW: Ergebnisse Testreihe Stücklistenproj] Technische Prüfung des Lastenhefts läuft bei Prozessia
+- [2026-08-10 09:36] [2026-08-10-Email-19feaf7a-Schaufler-Beschaffungsagent--128455.md] Schaufler Beschaffungsagent 128455: Agent prüft aktuell nur Einzelpreise und nicht Gesamtpreis von Bauteilen
+- [2026-08-10 09:20] [Schaufler Beschaffungsagent | 128455] Schaufler Beschaffungsagent (Ticket 128455) vergleicht Einzelpreise (z.B. 4,99/kg) statt Gesamtpreise bei Beschaffungsentscheidungen
+- [2026-08-10 08:18] Aktuelle Wochenaufgaben (neu aufgesetzt, alte Aufgaben wie Schaufler Wissensmanagement, Martin Veser-Scope, Lastenheft-Nachfassen entfallen): Sebastian macht LinkedIn (3 Videos posten), Close-Migration weiterführen, Kevin (neuer Vertriebler) einführen, Netzwerkaufbau/Terminsuche. Amin macht LinkedIn (3 Posts), überwacht Beschaffungsagent und bereitet Bericht vor, macht Webseite fertig und Whitepapers. Gemeinsam: Termin wegen Stücklistenprojekt vereinbaren.
+- [2026-08-10 07:04] [2026-08-10-Email-19fea422-Automatische-Antwort-Bericht-Beschaffung.md] Anfrage betraf: Bericht Beschaffungsagent
+- [2026-08-07 09:18] [AW: Beschaffungsagent – Mail.Send-Berech] Nächster Schritt: Berechtigung anschalten – Anfrage vom 7. August 2026 11:00 Uhr gestellt, Bestätigung ausstehend
+- [2026-08-07 09:18] [AW: Beschaffungsagent – Mail.Send-Berech] KI-Agent (Beschaffungsagent) benötigt Mail.Send-Berechtigung für order@schaufler.de (App-Registrierung) zum Versand von E-Mails an Einkäufer, angefordert am 7. August 2026
+- [2026-08-07 09:13] [AW: Beschaffungsagent – Mail.Send-Berech] Mail.Send-Berechtigung für order@schaufler.de (App-Registrierung) ist konfiguriert: agent@schaufler.de darf als order@schaufler.de senden
+- [2026-08-07 09:13] [AW: Beschaffungsagent – Mail.Send-Berech] KI-Agent soll implementiert werden, um automatisiert E-Mails an Einkäufer zu versenden (7. August 2026)
+- [2026-08-06 21:13] [2026-08-24-Schmidt-Hänsch.md] Erstgespräch geplant: 2026-08-24
+- [2026-08-06 21:13] [2026-08-11-TopDown.md] Erstes Gespräch (Kalender-Erstgespräch) mit TopDown geplant am 2026-08-11
+- [2026-08-06 21:13] [2026-08-06-Finom_payment_06082026.md] Privatentnahme von 1.000,00 EUR durch Gesellschafter am 06.08.2026 durchgeführt
+- [2026-08-06 18:40] To-Do 'Netzwerk ausbauen' für Montag, 10.08.2026 in context.md eingetragen
+- [2026-08-06 15:37] [AGB & AVV Änderungen] Drei neue ergänzende Vertragsdokumente werden mit Wirksamkeit zum 06.08.2026 eingeführt
+- [2026-08-06 11:35] [2026-08-06.md] Auswertung und Einordnung der Formenplanungsdokumente von ZF angefordert
+- [2026-08-06 09:27] [2026-08-06-Email-19fd65ce-AW-Update-IMK-X-Prozessia.md] Termin wird abgesagt
+- [2026-08-06 09:21] [AW: Update IMK X Prozessia] Terminabsage erforderlich
+- [2026-08-06 07:55] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Abnahme und Auslieferung erfolgen erst nach Migration auf gpt-oss-120b (MIG-Tickets, Teil D)
+- [2026-08-06 07:55] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Blockierender Klärungspunkt: Verarbeitung realer Schaufler-Konstruktionsdaten über Azure OpenAI erfordert Genehmigung (Teil 1.2)
+- [2026-08-06 07:55] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Zwei-Phasen-Modellstrategie verbindlich: Phase 1 mit Azure OpenAI (Adapter-Pattern), Phase 2 Migration zu gpt-oss-120b @ vLLM on-premise vor Auslieferung
+- [2026-08-05 20:04] [2026-08-05.md] PoC Stücklistenagent (29.05.2026): 18 Beispieldateien mit Ampel-Bewertung pro Kunde (Grün/Gelb/Rot)
+- [2026-08-05 10:08] [Re: ISO 27001 bei Prozessia] Nächster Schritt: Klärung erforderlich, wie die ISO 27001 Situation bei Prozessia und deren Kunden aussieht
+- [2026-08-05 09:02] [Fwd: Formenplanung] Formenplanung für GGH und Steuergeräte von Joerg Schwindling (ZF Group, Global Commodity Casting SCPCE2) zugesandt am 05.08.2026
+- [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider.md] Leistungen des Partners: Lead-Generierung, Erstkontakt, Übergabe qualifizierter Kontakte an Prozessia
+- [2026-08-05 08:32] [2026-06-09-Vertriebsvereinbarung_Segschneider (1).md] Vertriebspartner Segschneider darf keine Verträge im Namen von Prozessia abschließen, nur Kundenkontakte vermitteln
+- [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_HOS_Elias_Haghverdi-1.md] Vereinbarung regelt Rechte, Pflichten und Vergütung beider Vertragsparteien
+- [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_HOS_Elias_Haghverdi-1.md] Elias Haghverdi als Vertriebspartner vermittelt Dach-/Freiflächen für Photovoltaikanlagen und Privatanleger im Bereich erneuerbare Energien
+- [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_Geginat .md] Prozessia bietet KI-Produkte an, insbesondere den Prozessia Agent (KI-Assistent)
+- [2026-08-05 08:31] [2026-06-09-Vertriebsvereinbarung_Adrian_Mueller (1).md] Adrian Müller: nicht weisungsgebunden, nicht abschlussbefugt
+- [2026-08-05 08:30] [2026-06-09-Vertriebsvereinbarung Handelsvertreter.md] Provision entsteht erst nach Vertragsabschluss UND vollständigem Zahlungseingang der Setup-Gebühr
+- [2026-08-05 08:30] [2026-06-09-Vertriebsvereinbarung (1).md] Provisionsauslöser: Vertragsabschluss + vollständiger Zahlungseingang der Setup-Gebühr
+- [2026-08-05 08:30] [2026-06-09-Kooperationsvereinbarung_Prozessia (4).md] Aufgabe Vertriebspartner: Identifikation und Vermittlung qualifizierter Leads an Prozessia sowie allgemeine Geschäftsunterstützung
+- [2026-08-05 08:30] [2026-06-09-Kooperationsvereinbarung_Prozessia (4) (1).md] Aufgabe: Vermittlung qualifizierter Leads mit Kontaktdaten und Bedarfsbeschreibung
+- [2026-08-05 08:30] [2026-06-09-Kooperationsvereinbarung_Prozessia (2).md] Kooperationspartner ist selbstständig tätig, nicht abschlussberechtigt und vermittelt qualifizierte Leads an Prozessia
+- [2026-08-05 08:29] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Kooperationspartner fungiert als selbstständiger Handelsvertreter ohne Abschlussvollmacht, verantwortlich für Identifikation und Übergabe qualifizierter Leads
+- [2026-08-05 08:29] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Zweck: Vermittlung von Kundenkontakten (Leads) für KI-Produkte: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
+- [2026-08-05 08:29] [2026-07-20-Wissensmanagement_Prozessia.md] Prozessia-Lösung sichert zentral: Lieferantenkonditionen, technisches Konstruktionswissen, Stücklisten
+- [2026-08-05 08:29] [2026-06-09-prozessia_Beschaffungsagent_Marketing.md] System nutzt Ampellogik und Lieferanten-Scoring-System zur Transparenzverbesserung
+- [2026-08-05 08:29] [2026-06-09-Präsentation_Beschaffungsagent_Prozessia.md] Alleinstellungsmerkmale: DSGVO-Konformität, ERP-Integration, Ampel-Scoring-System
+- [2026-08-05 08:29] [2026-06-09-Präsentation_Beschaffungsagent_Prozessia.md] Automatisiert manuelle Nachverfolgung (Einkäufer aktuell 60% Zeit mit Telefon & E-Mail)
+- [2026-08-05 08:29] [2026-06-09-Präsentation_Beschaffungsagent_Prozessia.md] Beschaffungsagent reduziert Beschaffungskosten um bis zu 80%
+- [2026-08-05 08:28] [2026-06-09-Prozessia.md] Nachgewiesene Kostenersparnis: 11.000 € monatlich durch optimierten Einkaufsprozess
+- [2026-08-05 08:28] [2026-06-09-Prozessia — Unternehmenspräsentation.md] Prozessia-Portfolio: Beschaffungsagent, Stücklistenagent, KI-Chatbot, Schulungen, Server-Hosting in Deutschland
+- [2026-08-05 08:27] [2026-06-09-Beschaffungsagent_Prozessia.md] Vier Kernmodule: Rechnungsverarbeitung, Auftragsbestätigung, Lieferterminverfolgung, Versand & Dokumentation
+- [2026-08-05 08:27] [2026-06-25-messberichte-angebot-argumentation.md] WinForm-/MSSQL-Anbindung: Preisargumentation basiert auf fehlender Standard-API, hohem Testaufwand und Sicherheitsanforderungen
+- [2026-08-05 08:27] [2026-06-25-messberichte-angebot-argumentation.md] 2FA-Authentifizierung bei mehreren Lieferanten erforderlich – ohne zusätzlichen RPA-Aufwand nicht automatisierbar
+- [2026-08-05 08:27] [2026-06-09-🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.md] Automatisierbare Anruftypen: Werkstatt-Service, Probefahrten, Rückrufbitten, Verfügbarkeitsanfragen für Fahrzeuge
+- [2026-08-05 08:26] [2026-06-09-🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia.md] Problem: Hohes Telefonaufkommen; Öffnungszeiten Montag–Samstag
+- [2026-08-05 08:25] [2026-06-09-🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.md] Anforderungen: Automatisierung von Service-Terminen, Probefahrten und Rückrufen via Voice Agent
+- [2026-08-05 08:25] [2026-06-09-🚗 Effiziente Kundenbetreuung im Autohaus – mit Prozessia Voice Agent 📞 – Prozessia.md] Voice Agent automatisiert: Serviceterminalfragen, Werkstatttermine, Probefahrten, Rückrufe, Verfügbarkeitsabfragen
+- [2026-08-05 08:25] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus – mit Prozessia Voice Agent 🚗 – Prozessia.md] Voice Agent entlastet Autohaus-Teams bei der Verwaltung von Rückrufwünschen und Serviceanfragen
+- [2026-08-05 08:25] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Anwendungsfälle: Service-Terminbuchungen, Werkstatt-Anfragen, Probefahrten-Reservierungen, automatisiertes Rückrufmanagement
+- [2026-08-05 08:24] [2026-06-09-📞 Effiziente Anrufentlastung im Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] 24/7-Erreichbarkeit ohne Personalaufwand; strukturierte Anrufverwaltung zur Entlastung des Teams
+- [2026-08-05 08:24] [2026-06-09-📞 Effiziente Anrufentlastung im Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Automatisierte Funktionen: Terminbuchung, Rückruferfassung, Bearbeitung von Service-/Werkstatt-/Probefahrt-Anfragen, Fahrzeugverfügbarkeits-Abfragen
+- [2026-08-05 08:23] [2026-06-09-Werbeagenturen.md] Lösungsbausteine: CRM-Automatisierung, automatisierte Projektstart-Workflows, Kampagnen-Dashboards, digitale Abrechnung
+- [2026-08-05 08:23] [2026-06-09-Werbeagenturen.md] Hauptkundenschmerzen: Zersplitterte Kundenkommunikation, manuelle Angebots-/Projektstarts, aufwendiges Reporting, ineffiziente Abrechnung
+- [2026-08-05 08:23] [2026-06-09-Template Autohäuser.md] Template dient als wiederverwendbare Vertriebsunterlage zur Kundenakquise in der Automobilbranche
+- [2026-08-05 08:23] [2026-06-09-Template Autohäuser.md] Voice-Agent-Präsentationstemplate für Autohäuser existiert (erstellt 2026-06-09)
+- [2026-08-05 08:23] [2026-06-09-Schaufler_Hosting_Praesentation (4).md] Sprachmodell: Azure OpenAI empfohlen
+- [2026-08-05 08:23] [2026-06-09-Schaufler_Hosting_Praesentation (4).md] Hosting-Partner: Hetzner (DSGVO-konform, ISO-zertifiziert, deutsche Rechenzentren)
+- [2026-08-05 08:23] [2026-06-09-Schaufler_Hosting_Praesentation (1).md] Preismodell: monatliche Pauschale plus Kosten für Server und Sprachmodell
+- [2026-08-05 08:22] [2026-06-09-Report Recruiting.md] Kernherausforderungen: dezentralisierte Bewerberverwaltung (E-Mail, LinkedIn, Jobportale), manuelle Kommunikation, langsame Kundenabstimmung, fehlende KPI-Transparenz (Time-to-Hire, Cost-per-Hire)
+- [2026-08-05 08:22] [2026-06-09-Report Immobilienmarkler.md] Kernproblem: Fehlende automatische Kennzahlen-Auswertung (Besichtigungsquote, Vermarktungsdauer, Abschlussrate)
+- [2026-08-05 08:22] [2026-06-09-Prozessia_Voice_Agents_Produktbeschreibung_LANG_FINAL_CLEAN.md] Bestehende Telefonnummern können importiert werden (z.B. via Twilio), abhängig von Setup und Provider
+- [2026-08-05 08:22] [2026-06-09-Prozessia_Serienbrief_FINAL_vorlage.md] Produktlösung: KI-Beschaffungsagent speziell für Werkzeugbaubranche; eliminiert Nachfassen, Dokumentenprüfung und manuelle Datenabgleiche
+- [2026-08-05 08:21] [2026-06-09-Prozessia_Landingpage_Brief_v2.md] Deliverable für Teilnehmer: Persönlicher 90-Tage-Umsetzungsplan (konkret, priorisiert, sofort umsetzbar)
+- [2026-08-05 08:21] [2026-06-09-Prozessia_Landingpage_Brief_v2.md] Einziger Call-to-Action: Kostenloses 15-Minuten-Vorgespräch
+- [2026-08-05 08:21] [2026-06-09-Prozessia_Landingpage_Brief_v2.md] Workshop-Format: Eintägiger KI-Workshop mit Grundlagen, EU AI Act, DSGVO, Live-Demo und Maschinenbau-Use-Cases
+- [2026-08-05 08:21] [2026-06-09-Prozessia_Flyer_Messe.md] Stücklistenagent: Automatisierte Stücklistenprüfung und Abweichungserkennung in Stunden statt Tagen; lückenlose Dokumentation
+- [2026-08-05 08:21] [2026-06-09-Prozessia_Flyer_Messe.md] Beschaffungsagent: Automatisiert Auftragsbestätigungsprüfung, Lieferterminüberwachung, automatische Lieferantenkommunikation bei Abweichungen
+- [2026-08-05 08:21] [2026-06-09-Prozessia-KI-Agent-Die-datenschutzkonforme-KI-Losung-fur-die-moderne-Kanzlei.md] Prozessia KI-Agent als EU-gehostete, datenschutzkonforme Alternative positioniert
+- [2026-08-05 08:20] [2026-06-09-Gamma Presentation (1).md] n8n-Workflow für automatische Gamma-Präsentationsgenerierung via Web-Formular (Eingabe: Präsentationstitel + Beschreibung) - funktionsfähig
+- [2026-08-05 08:20] [2026-06-09-Der-digitale-Kanzlei-Assistent (1).md] Maßgeschneiderter KI-Chatbot trainiert auf internen Kanzleidokumenten und Organisationswissen; individuelle Login-Daten pro Mitarbeiter
+- [2026-08-05 08:20] [2026-06-09-Der-digitale-Kanzlei-Assistent (1).md] Kernfunktionen: Dokumentenrecherche, automatische Texterstellung (E-Mails, Schriftsätze, Briefe), Textanalyse/Zusammenfassung, interne FAQ
+- [2026-08-05 08:20] [2026-06-09-Der-digitale-Kanzlei-Assistent (1).md] Digitaler Kanzlei-Assistent: Setup-Gebühr 6.000 € (einmalig), monatliche Gebühr 1.000 €
+- [2026-08-05 08:20] [2026-06-09-DE_Partner_Deck.md] Einrichtungsprozess: (1) Stimme wählen, (2) Inhalte & Verhalten definieren, (3) KI testen & Telefonnummer aktivieren
+- [2026-08-05 08:20] [2026-06-09-Cocomin-KI-Agent .md] Kernfeatures: (1) Intelligente automatische Kundenfragen-Beantwortung, (2) Kontinuierliche Kontaktpflege, (3) Wissenstransfer von Methoden/Materialien
+- [2026-08-05 08:19] [2026-06-09-Case Studies – Webwokr.md] Cocomin: KI-Chatbot-Lösung entwickelt
+- [2026-08-05 08:19] [2026-06-09-Case Studies – Webwokr.md] Deutsche Glasfaser Saarlouis: KI-Leistungsbewertung implementiert
+- [2026-08-05 08:19] [2026-06-09-Case Studies – Webwokr.md] Adrise Marketing: Onboarding-Automatisierung für neue Kunden (Problem: zeitaufwendig und fehleranfällig)
+- [2026-08-05 08:19] [2026-06-09-Campus Starterzentrum.md] Call-to-Action: Einladung zu 30-minütiger Beratung; Absender: Geschäftsführer Sebastian Spuhler
+- [2026-08-05 08:19] [2026-06-09-2026-arbeiten-Unternehmen-mit-KI-Agenten-Die-Frage-ist-nur-mit-wem.md] Leistungsversprechen: 70% effizientere Abläufe, 10x schnellere Abfragen durch KI-Agenten
+- [2026-08-05 08:19] [2026-08-04-Content-Recherche-Strategie.md] Priorisierung: Konkrete Zahlen/Statistiken > generische Aussagen; Muster von erfolgreichen B2B-/Industrie-KI-Anbietern erkennen (nicht kopieren)
+- [2026-08-05 08:19] [2026-08-04-Content-Recherche-Strategie.md] Wöchentliche Recherche-Routine: Jeden Montag vor generate_linkedin_ideas vier Punkte recherchieren (Trend-Check Zielbranche, Konkurrenz-Scan, Format-Trend-Check 1x/Monat, Event-/Anlass-Check) via WebSearch und als focus-Parameter einspeisen
+- [2026-08-05 08:18] [2026-06-26-jobs_icp.md] Systematische Lead-Identifikation: Excel-basiertes Job-Scraping für Einkaufspositionen zur Beschaffungsagent-Lösung
+- [2026-08-05 08:18] [2026-06-26-jobs_icp.md] Jobanzeige vom 2026-06-17 auf Indeed veröffentlicht - aktuelle Lead-Qualifizierungsdatei vom 2026-06-26
+- [2026-08-05 08:17] [2026-06-09-leads_out_with_icebreakers.md] 14 Lead-Datensätze aus Professional Training & Coaching und Management Consulting mit Kontaktdaten verfügbar
+- [2026-08-05 08:16] [2026-06-09-leads.md] Lead-List-Erfassung: 2026-06-09
+- [2026-08-05 08:16] [2026-06-09-leads.md] Projekt Voice Agents für Automobilbranche: Lead-Generierungskampagne (Kaltakquise) mit Excel-Kontaktdatenliste initiiert
+- [2026-08-05 08:15] [2026-06-09-coaching_final.md] Individualisierte deutsche Eisbrecher-Texte basierend auf Unternehmenskontext (Mentoring-Programme, Trainingsabläufe) + spezifische CTAs
+- [2026-08-05 08:15] [2026-06-09-cleaned_leads.md] Lead-Set gezielt für B2B KI-Schulungsangebote in Coaching- und Beratungsbranche aufbereitet
+- [2026-08-05 08:14] [2026-06-09-Untitled document.md] WebWokr Leistungsportfolio: Terminbuchungs-Chatbots, intelligente E-Mail-Automatisierung/Kategorisierung, Webdesign mit SEO-Fokus
+- [2026-08-05 08:14] [2026-06-09-Recruiting.md] Kontaktdaten verfügbar: E-Mail-Adressen, Firmennamen, Städte, Websites und LinkedIn-Profile für Kaltakquise
+- [2026-08-05 08:14] [2026-06-09-Recruitement.md] Zielgruppe für KI-Lösungen: Staffing & Recruiting sowie Human Resources Unternehmen als Vermittler oder Kooperationspartner
+- [2026-08-05 08:13] [2026-06-09-Recruiing_final.md] Cold-Outreach-Kampagne mit 5 personalisierten Kaltakquise-Kontakten aus Recruiting- und HR-Branche
+- [2026-08-05 08:13] [2026-06-09-Prozessia_Lieferantenbewerbung_Windhoff.md] Einsparversprechen: 60–80 % Reduktion manueller Aufwand im operativen Einkauf
+- [2026-08-05 08:13] [2026-06-09-Prozessia_Lieferantenbewerbung_Windhoff.md] KI-gestützter Beschaffungsagent: automatische Überprüfung von Auftragsbestätigungen, Lieferterminal-Überwachung, Abweichungserkennung
+- [2026-08-05 08:13] [2026-06-09-Prozessia_Leads_NurNeu (1).md] Akquise-Priorisierung: Walter Götz als höchste Priorität (HOCH) identifiziert; Datensatz ermöglicht segmentierte Kaltakquise nach Branche und Unternehmensgröße
+- [2026-08-05 08:12] [2026-06-09-Marketing an Advertising.md] Zweck: Cold-Lead-Akquise für Marketing & Advertising Sektor via importierte Leaddatenbank
+- [2026-08-05 08:12] [2026-06-09-Marketing an Advertising.md] Apollo CSV-Export mit Lead-Datensätzen aus Marketing & Advertising vom 2026-06-09 in Prozessia-Vault aufgenommen
+- [2026-08-05 08:12] [2026-06-09-Listen.md] Listen erstellt 2026-06-09 aus Quelle Listen.xlsx, gehört zu Fonio-Projekt
+- [2026-08-05 08:12] [2026-06-09-Leads_1.md] Alle Einträge wurden gegen Impressumsangaben verifiziert oder korrigiert
+- [2026-08-05 08:11] [2026-06-09-Immobilien_final.md] CSV-Datei mit vorbereiteten Cold-Outreach-Kontakten, personalisierten E-Mail-Daten und Icebreaker-Texten für automatisierte Akquise
+- [2026-08-05 08:11] [2026-06-09-Immobilien.md] Liste für Lead-Generierung und Kaltansprache in der Immobilienbranche vorgesehen
+- [2026-08-05 08:11] [2026-06-09-Copy of undefined.md] Typische Kundenanfragen: Fahrzeugverfügbarkeit, Service-Termine buchen, Probefahrten vereinbaren
+- [2026-08-05 08:11] [2026-06-09-Copy of undefined.md] Hohe Anrufdichte in Verkaufs- und Serviceteam; Stoßzeiten morgens und nach Aktionen
+- [2026-08-05 08:11] [2026-06-09-Coaching.md] Lead-Quelle für Outreach in Coaching- und Trainingsbranche mit vollständigen Kontaktdaten (E-Mail, LinkedIn, Website)
+- [2026-08-05 08:11] [2026-06-09-Briefe.md] Campaign-Typ: Lead-Generierung durch strukturierte Serienbriefe mit vordefinierten Ansprechpartnern
+- [2026-08-05 08:11] [2026-06-09-Briefe.md] Leaddatenbank mit über 30 potenziellen Kunden für Serienbriefversand und Akquisekampagnen
+- [2026-08-05 08:10] [2026-07-28-Update Zillmer X Prozessia.md] Sicherheitsstufen-Ansatz: Phase 1 E-Mail-Entwürfe zur Freigabe durch Zillmer, Phase 2 (nach Vertrauensaufbau) automatischer Versand an Hersteller/Großhandel
+- [2026-08-05 08:10] [2026-07-28-Update Zillmer X Prozessia.md] Prozessskizze (von Biendarra bestätigt): (1) Ausschreibung eingang, (2) Hersteller eindeutig → direkter Preisvergleich; (3) Hersteller unklar → Agent recherchiert in ~50 definierten Herstellern, (4) Preisanfragen automatisch per E-Mail, (5) Günstigstes Angebot/Übersicht an Beteiligte
+- [2026-08-05 08:10] [2026-07-21-Update Zillmer X Prozessia.md] Workflow: KI recherchiert Hersteller/Leuchtentypen → Anfragen an Großhandel/Hersteller → Preisvergleich → Weitergabe günstigster Anbieter an Beauftragte
+- [2026-08-05 08:09] [2026-07-30-19fb1d58d4-20260624 LV KG 440_Beleuchtung.md] Artikelfindung erforderlich: Hersteller- und Typ-Ermittlung für Beleuchtungspositionen ohne konkrete Fabrikat-/Typ-Angaben
+- [2026-08-05 08:08] [2026-07-28-Prozessskizze-KI-Kalkulation.md] KI-Recherche: Suchraum bewusst auf ~50 relevante Hersteller (technische Leuchten, Deutschland) eingegrenzt; Ziel: Halluzinations-Risiko praktisch auf 0
+- [2026-08-05 08:08] [2026-07-28-Zillmer_KI_Kalkulationsprozess.md] Automatisierter Preisvergleich durch Anfragen an Großhandel/Hersteller, Ergebnisse direkt in Kalkulation eingespielt
+- [2026-08-05 08:08] [2026-07-28-Zillmer_KI_Kalkulationsprozess.md] KI-gestützter Workflow: Bei uneindeutigen Hersteller-/Typangaben (z.B. technische Leuchten) wird KI-Recherche unter ca. 50 deutschen Herstellern durchgeführt
+- [2026-08-05 08:08] [2026-08-04-Email-19fcdab7-Action-required-security-vulnerabilities.md] Zweites kritisches Problem: Sensitive Daten sind öffentlich zugänglich
+- [2026-08-05 08:07] [2026-07-28-Update Seifert X Prozessia.md] Warnung-Funktion implementiert: Bei Unsicherheit (unleserliche Bilder, unklar Werte) Position zur manuellen Prüfung freigeben – Human-in-the-Loop gegen Halluzinationen
+- [2026-08-05 08:07] [2026-07-28-Update Seifert X Prozessia.md] Stücklistenagent: Hochgeladene Dokumente zusammenfassen, automatisch Positionsnummer, Material und relevante Daten pro Position extrahieren
+- [2026-08-05 08:06] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Kritische Herausforderung: Jeder Kunde strukturiert Zeichnungen unterschiedlich - automatische Einzelteil-Erkennung ist Kernproblem
+- [2026-08-05 08:06] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Hauptschmerzpunkt: Manuelle Erstellung von Gesamtlisten (Material, Zuschnitte, Mengen, Positionszuordnung) aus Anfrage, Zeichnungen und Stückliste
+- [2026-08-05 08:06] [2026-07-28-Prozessskizze-Materialliste.md] Aktuell Spanflug für Frästeile-Kalkulation: PDF + 3D-Modell → Fräszeit, Bohrungen, Werkzeuge, Werktage. Funktioniert bei einzelnen Teilen, nicht bei Baugruppen
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Position 0001: 2 ST Komponente 2588569 (Zeichnung 11689796)
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Stückliste (BOM) Fertigung allgemein mit Komponenten: 2588569 (Platte), 2670270 (Seitenprofil) | Zeichnung 21135351.MI
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-MATERIAL_IU485.md] Überprüfung erforderlich: Datei muss validiert und korrekt zugeordnet werden
+- [2026-08-05 08:05] [2026-07-27-19fa3698b1-MATERIAL_83493383.md] Dateistand 2026-07-27: Dokumentation unvollständig; Kundenzuordnung unklar
+- [2026-08-05 08:03] [2026-07-27-19fa3698b1-Grenzebach-Anfrage 6000017119.md] Status: unverarbeitet - E-Mail-Inhalt nicht extrahierbar (.eml-Format)
+- [2026-08-05 08:03] [2026-07-27-19fa3698b1-6000017119.md] Status: Lead; Dokument dient als Beispiel für automatisierte Material-/Zuschnittlisten-Erstellung
+- [2026-08-05 08:02] [2026-06-09-Schaufler_Hosting_Praesentation.md] Infrastruktur-Design ermöglicht flexible Skalierung: neue KI-Agenten jederzeit deploybar ohne Infrastruktur-Neuinvestitionen
+- [2026-08-05 08:02] [2026-06-09-Schaufler_Hosting_Praesentation.md] Prozessia-Leistungen: Setup, Konfiguration, Sicherheit, Dauerbetrieb, Monitoring, Updates, Wartungsfenster
+- [2026-08-05 08:02] [2026-06-09-Schaufler_Hosting_Praesentation (4).md] Leistungen: Server-Setup/Sicherheit/Konfiguration, dauerhafter Betrieb/Monitoring/Updates, skalierbare KI-Agenten-Deployments ohne Infrastruktur-Neuaufbau
+- [2026-08-05 08:01] [2026-06-09-Schaufler_Hosting.md] Vertragsdatum: 2026-06-09
+- [2026-08-05 08:01] [2026-06-09-Prozessia_Intern_Schaufler_Hosting.md] Betrieb: Server läuft dauerhaft, kein direkter Kundenzugriff, Prozessia verwaltet vollständig, geplante Wartungsfenster
+- [2026-08-05 08:01] [2026-06-09-Prozessia_Intern_Schaufler_Hosting.md] Infrastruktur: Hetzner CCX23 (4 vCPU AMD, 16GB RAM, 160GB NVMe SSD), deutsches Rechenzentrum, 38,07 €/Monat
+- [2026-08-05 08:01] [2026-06-09-Prozessia-X-Schaufler Beschafungsagent.md] Identifizierte Geschäftspotenziale: Automatisierungspotenzial, verbesserte Terminverlässlichkeit, Prozesstransparenz, datengestützte Entscheidungen
+- [2026-08-05 08:01] [2026-06-09-Prozessia-X-Schaufler Beschafungsagent.md] Vier Automatisierungsmodule: (1) Auftragsbestätigungsverarbeitung, (2) Lieferterminüberwachung, (3) Versanddokumente/Tracking, (4) interaktive Kommunikationsschnittstelle
+- [2026-08-05 08:01] [2026-06-09-Beschaffungsagent_Schaufler_Final4.md] Kernfunktionen: Lieferanten-Scoring, Lieferungsüberwachung, Audit-sicheres Protokoll, revisionssichere Ablage
+- [2026-08-05 08:00] [2026-08-05-Email-19fd0e77-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Nächster Schritt: Angebotserstellung. Marvin Wiegner verfügbar für inhaltliche Rückfragen und kurzfristige Termin-Abstimmung vor Angebotserstellung
+- [2026-08-05 08:00] [2026-08-05-19fd0e772e-KI-gestützte Stücklistendatenerfassung_Lastenheft.md] Projekt mit MVP-Abgrenzung; definiert Sollprozess, Statusmodell, Benutzer-/Berechtigungskonzept, Datenintegration und funktionale Anforderungen
+- [2026-08-05 08:00] [2026-07-14-Prozessia X Morali.md] Datenschutz bei KI-Sprachmodellen ist kritisches Anforderungskriterium; Ayoub Falah fragte explizit nach Datenfluss-Handling
+- [2026-08-05 08:00] [2026-07-29-Follow-up-Entwurf.md] Anforderungsabklärung: Einkaufs-Engpässe in ABs, Lieferterminen oder Lieferantenbewertung identifizieren
+- [2026-08-05 07:59] [2026-07-29-Update Juchem X Prozessia.md] Scope: kompletter End-to-End-Beschaffungsprozess – deutlich umfangreicher als aktueller Schaufler-Scope
+- [2026-08-05 07:58] [2026-07-19-Präsentation-Giesserei Wurzen-V3_Deutsch.md] Produktionskapazitäten: Handformguss 0,1-4.500 kg, Losgrößen 1-50 Stück, ca. 1.300 t Guss/Jahr
+- [2026-08-05 07:58] [2026-07-19-Präsentation-Esterer Giesserei-V20_Deutsch.md] Produktionskapazität: Vier Mittelfrequenz-Induktionsöfen
+- [2026-08-05 07:55] [AW: Ergebnisse Testreihe Stücklistenproj] Rückfragenmöglichkeit vor Angebotserstellung; kurzfristige Termine einrichtbar
+- [2026-08-05 07:55] [AW: Ergebnisse Testreihe Stücklistenproj] Angebotserstellung für Stücklistenprojekt erwartet
+- [2026-08-05 05:07] [Request# 28824206 | [ACTION REQUIRED] Yo] Erforderliche Korrektionen müssen über Twilio Console-Link durchgeführt werden
+- [2026-08-05 05:07] [Twilio Business Profile - Additional inf] Nächste Schritte: Business Profile aktualisieren oder Support unter trusthub-verify@twilio.com kontaktieren
+- [2026-08-04 14:28] LinkedIn Content-Recherche-Strategie erstellt und doppelt verankert: als Dokument unter Marketing/LinkedIn/2026-08-04-Content-Recherche-Strategie.md und als aktive Direction via set_linkedin_direction, die ab sofort jede generate_linkedin_ideas-Generierung beeinflusst
+- [2026-08-04 12:36] [AW: Angeot Beschaffungsagent] Investitionsentscheidung für Beschaffungsagent läuft; entscheidende offene Frage: Kostenaufteilung der 32.000€
+- [2026-08-04 09:42] [Re: Wachstum systematisieren] Nächster Schritt: Levin fragt nach, ob Akquise-Automatisierung aktuell Thema bei WebWork ist
+- [2026-08-04 09:42] [Re: Wachstum systematisieren] Zusage: Schriftliche Umsatzgarantie ist möglich, je nach interner Struktur bei Prozessia
+- [2026-08-04 07:53] [2026-08-04-Email-19fcbc06-New-Time-Proposed-Prozessia-X-Schmidt-Hä.md] Geplante Besprechung Prozessia X Schmidt-Hänsch am 2026-08-04 wurde verschoben - Sumit Bhawar kann nicht teilnehmen
+- [2026-08-04 07:53] [2026-08-04-Email-19fcbbf7-RE-Prozessia-X-Schmidt-Hänsch.md] Geschäftsleitung von Schmidt-Hänsch hat noch keine Rückmeldung zum Projekt gegeben
+- [2026-08-04 07:50] [RE: Prozessia X Schmidt-Hänsch] Absage: Sumit Bhawar (Schmidt-Hänsch) kann nicht teilnehmen, da er mit wichtigem Projekt beschäftigt ist
+- [2026-08-04 07:50] [New Time Proposed: Prozessia X Schmidt-H] Nächste Schritte: Neuer Termin wird von Sumit Bhawar später vereinbart
+- [2026-08-04 07:50] [New Time Proposed: Prozessia X Schmidt-H] Sumit Bhawar (Einkauf, Schmidt + Haensch) sagt heutigen Termin (2026-08-04) ab - zu beschäftigt mit wichtigem Projekt
+- [2026-08-04 01:45] [2026-08-04-19fca6c853-Hetzner_2026-08-04_084001046484.md] Rechnung 084001046484 vom 04.08.2026: 12,72 € brutto (10,69 € netto + 19% USt.) für Leistungszeitraum 07/2026
+- [2026-08-03 02:23] [2026-08-03-19fc530f90-Rechnung_RE260018_03.08.2026.md] Cloud-Server Betrieb & Management: Docker-Container-Überwachung, Security-Updates, SSL-Zertifikat-Erneuerung, automatische Backups, 24/7 Monitoring, KI-Agenten-Deployment inklusive
+- [2026-08-01 12:29] [2026-08-01-19fbd42301-5637373931.md] Automatische monatliche Rechnungsstellung durch Google Cloud EMEA Limited
+- [2026-08-01 12:29] [2026-08-01-19fbd42301-5637373931.md] Rechnung 5637373931 vom 31.07.2026 über 34,00 EUR netto (Juli 2026)
+- [2026-08-01 05:16] [2026-07-31-Email-19fb7eef-Prozessia.md] Projekt Prozessia: Dashboard-Abgleich erforderlich
+- [2026-08-01 05:16] [NOTIZEN.md] Step4–step8 codeseitig fertig angepasst (Pfade, Jahr, Konstanten), aber noch nicht durchgeführt – abhängig von Step2-Abschluss
+- [2026-08-01 05:16] [NOTIZEN.md] Step2 blockiert: Vorarbeit erforderlich – OCR/Textextraktion aller PDFs unter Finanzen/2026/* durchführen und in _local_text_raw.json + _ocr_results.json strukturieren
+- [2026-08-01 05:16] [NOTIZEN.md] 58 Buchungen als UNKLAR markiert und benötigen manuelle Prüfung: World Class Marketing LLC, Reisekosten (Hotels/Restaurants), diverse SaaS-Abos
+- [2026-08-01 05:16] [NOTIZEN.md] Belegauswertung 2026: Scaffold angelegt 2026-07-28, step1 erfolgreich – 188 Transaktionen (Jan–Jul) extrahiert: 27 Umsatz-Kandidaten, 161 Ausgaben-Kandidaten
+- [2026-08-01 05:15] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] Monatliches Abonnement: sipgate.de Telefonieguthaben à 105,00€ brutto (88,24€ netto + 19% USt)
+- [2026-08-01 05:15] [09_ust_jahreserklaerung_2025.md] Vollständige Einzelbeleg-Verifizierung aller 80 Buchungen abgeschlossen (75 Ausgaben, 5 Einnahmen)
+- [2026-08-01 05:15] [09_ust_jahreserklaerung_2025.md] Umsatzsteuer-Jahreserklärung 2025 finalisiert am 2026-07-28, Status: final
+- [2026-07-30 09:29] [AW: Update IMK X Prozessia] Termin abgesagt durch Christoph Lendner (Projektleiter IMK GmbH) - Grund: beide nicht im Haus
+- [2026-07-30 09:14] [Unser Termin] Strategie-Session geplant: 60-90 Minuten Coaching zur Lösung identifizierter Herausforderungen
+- [2026-07-30 08:35] [2026-07-30.md] Beschaffungsagent-Lösung vorgestellt: Angebotsvergleich, AB-Prüfung, Lieferantenscore, Rechnungsprüfung
+- [2026-07-30 08:35] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler (1).md] Beschaffungsagent-Demo zeigt Funktionen: Auftragsbestätigungsprüfung, Angebotsvergleich, Lieferantenscoring, Rechnungsprüfung
+- [2026-07-30 08:18] [AW: Termin mit Herrn Jauch] Olga Boldyrieva wird Anliegen mit Herrn Jauch (Geschäftsführer Sarissa GmbH) besprechen
+- [2026-07-30 07:13] [2026-07-29.md] Empfehlung: Vor 04.08. bei Bhawar nachfragen, was mit Chef/IT-Abteilung geklärt wurde
+- [2026-07-30 07:13] [2026-07-29.md] Sebastian-Zusage: Übernimmt Server-Infrastruktur für Schmidt-Hänsch
+- [2026-07-30 07:13] [2026-07-30-19fb1d58d4-20260624 LV KG 440_SIBE.md] Leistungsverzeichnis Stand 24.06.2026 für Ausschreibung
+- [2026-07-30 07:13] [2026-07-30-19fb1d58d4-20260624 LV KG 440_Beleuchtung.md] Leistungsverzeichnis KG 440 (Beleuchtung) vom 24.06.2026 – Artikelfindung erforderlich
+- [2026-07-30 07:13] [2026-07-29-Email-19fad2e6-TechJobs-x-WebWokr.md] Recruiting-Engpass: mehrere Tech-Rollen gleichzeitig führen zu hohem manuellen Screening-Aufwand
+- [2026-07-30 07:13] [2026-07-29-Follow-up-Entwurf.md] Demo-Version seit ~2 Wochen bei Morali in Review, Feedback-Status unklar – Nachfass-Punkt
+- [2026-07-30 07:12] [2026-07-29-Update Juchem X Prozessia.md] Lieferantenauswahl: Einkäufer trifft Entscheidung basierend auf vom Agent bereitgestelltem Preisvergleich (Human-in-the-Loop)
+- [2026-07-30 07:12] [2026-07-29-Update Juchem X Prozessia.md] Prozessia-Agent soll kompletten End-to-End-Beschaffungsprozess bei Juchem abdecken, deutlich umfangreicher als Schaufler-Scope
+- [2026-07-30 07:12] [2026-07-29-Email-19fae497-Prozessia.md] Projekt Prozessia aktiv
+- [2026-07-30 07:12] [2026-07-29-Email-19fad8ab-AW-Vorgeschlagene-Zeit-Update-Beschaffun.md] Vorgeschlagene Termine für Spuhler-Schmohl Besprechung: 30.07.2026 mittags oder 31.07.2026 13:00 Uhr
+- [2026-07-30 07:12] [2026-07-29-Email-19fad8ab-AW-Vorgeschlagene-Zeit-Update-Beschaffun.md] Blocker: Schauflers Preisverhandlung mit Lieferant ist für Freitag 31.07.2026, 10:00 Uhr terminiert
+- [2026-07-30 07:12] [2026-07-29-Email-19fad8ab-AW-Vorgeschlagene-Zeit-Update-Beschaffun.md] Projekt 'Update Beschaffungsagent' - Terminabsprache zwischen Spuhler und Schmohl ausstehend
+- [2026-07-30 07:06] [Vorlagen zur Artikelfindung über KI-Agen] KI-Agent soll Artikel zur Artikelfindung identifizieren: basierend auf technischen Vorgaben ohne Fabrikat/Typ-Angaben soll der passende Hersteller und Typ ermittelt werden
+- [2026-07-29 15:32] Prozessschritt ABS (Auftragsbestätigung) bei Maas: Preis, Menge etc. werden verglichen; bei Abweichungen wird der Lieferant benachrichtigt.
+- [2026-07-29 15:28] Beschaffungsprozess Kunde Maas: 1. Agent holt Preisanfragen bei Lieferanten ein, 2. Einkäufer wählt Lieferant anhand Preise, 3. Bestellung erfolgt über Info LN, 4. Fehlende Auftragsbestätigungen werden nachverfolgt
+- [2026-07-29 15:13] Meeting-Notizen zu Kunden-/Lead-Gesprächen werden unter Leads/[Kunde]-Korrespondenz/Meetings/ abgelegt (nicht in Memos/), damit sie in der Transkripte-Übersicht der Web-App erscheinen - Beispiel: Leads/Juchem-Korrespondenz/Meetings/2026-07-29-Update Juchem X Prozessia.md
+- [2026-07-29 12:23] [AW: Vorgeschlagene Zeit: Update Beschaff] Update Beschaffungsagent Meeting: Terminfindung ausstehend - Alternativzeiten angeboten: Donnerstag 30. Juli 2026 mittags oder Freitag 31. Juli 2026 um 13 Uhr
+- [2026-07-29 12:23] [AW: Vorgeschlagene Zeit: Update Beschaff] Preisverhandlung mit Lieferant: Freitag 31. Juli 2026 um 10 Uhr (Benjamin Schmohl gebunden)
+- [2026-07-29 09:27] [TechJobs x WebWokr] Angebot: 15-Minuten-Demo zum reduzierten manuellen Recruiting-Screening und besserer Kandidaten-Matching
+- [2026-07-28 21:01] [2026-06-08-Meeting Thorsten Maas X Prozessia (2).md] Beschaffungsagent automatisiert: Bestellprozess bis Wareneingang; Dashboard mit Auftragsbestätigungen, Lieferanten-Scoring, Lieferungsübersicht
+- [2026-07-28 21:01] [2026-06-08-Meeting Thorsten Maas X Prozessia (2).md] Startprojekt geplant: Einkaufsautomation mit Anbindung ERP-System Infor LN, E-Mail- und Dokumentenmanagementsystem
+- [2026-07-28 17:54] [2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md] Kundenrequest: Klärung wer Support für Agent-Performance-Analyse übernimmt
+- [2026-07-28 17:54] [2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md] Stücklistenprojekt ist geplant, Freigabe hängt von Agent-Evaluierung ab
+- [2026-07-28 17:54] [2026-07-28-Email-19fa924d-AW-Integration-Einkäufermail.md] Agenda: Vorgänge und Daten der Woche 28.07.2026 mit Einkäufer besprechen
+- [2026-07-28 17:54] [2026-07-28-Email-19fa924d-AW-Integration-Einkäufermail.md] Ab 2026-07-28: Neuer Prozess - Zuständige Einkäufer werden bei potenziellen Eskalationen per Mail informiert
+- [2026-07-28 17:40] [AW: Kapazitätenplanung Stücklistenprojek] Nächstes Projekt: Stücklistenprojekt mit Kapazitätenplanung
+- [2026-07-28 14:37] [AW: Integration Einkäufermail] Ab 28. Juli 2026: Potenzielle Eskalationen werden dem zuständigen Einkäufer per Mail informiert
+- [2026-07-28 14:34] [2026-07-28-Seifert_GmbH_pitch_deck.md] Prozessia KI-Lösung für automatisierte Einzelteilerkennung und Stücklistenerstellung
+- [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] Kernherausforderung: Fehler in Auftragsbestätigungen werden regelmäßig übersehen
+- [2026-07-28 14:15] [2026-07-02-M.Reuss X Prozessia.md] ERP-System: BIOS 2000 (alle Bestellungen laufen darüber)
+- [2026-07-28 14:15] [2026-06-08-Juchem.md] Demo durchgeführt: AB-Prüfung, Eskalationsmechanismus, Lieferantenscore, Dokumentenablage über ERP-/Postfach-Adapter
+- [2026-07-28 14:15] [2026-06-09-Susanne Riedt (Huissel GmbH) X Prozessia.md] Anforderung: Datenschutzkonforme KI-Prozesslösungen für Einkauf; Klärung der Risiken (DSGVO, EU AI Act) beim privaten ChatGPT-Einsatz
+- [2026-07-28 14:15] [2026-06-09-Schnittstelle ProLeiS und Prozessia.md] Rechnung wurde an Kundenbuchhaltung (Schaufler) weitergeleitet; ursprünglich in lesbarem Format versendet
+- [2026-07-28 14:15] [2026-06-09-Schnittstelle ProLeiS und Prozessia.md] System Handbuch wurde an Schaufler versendet und erhalten
+- [2026-07-28 13:32] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Kernherausforderung: Automatisierte Einzelteilerkennung, da jeder Kunde Zeichnungen und Strukturen unterschiedlich gestaltet
+- [2026-07-28 13:32] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Schmerzpunkt: manuelle Erstellung einer Gesamtliste mit Material, Zuschnitten, Mengen und Positionszuordnung aus Anfragen, Zeichnungen und Stücklisten
+- [2026-07-28 13:32] [2026-07-24-Update Prozessia X Endin.md] Einstiegspaket für Endin: KI-Agent überwacht Outlook-Postfach, extrahiert und kategorisiert Bestellungen (Lohnverguss/Ersatzteile/Service), stellt Ergebnisse in Dashboard dar – bewusst OHNE ERP-Integration
+- [2026-07-28 13:18] [2026-07-28-Update Zillmer X Prozessia.md] KI-Agent-Prozess bei Zillmer: (1) Ausschreibung eingehend → (2) Hersteller eindeutig? → (3) Bei Unsicherheit: Recherche in ~50 definierten Herstellern → (4) Agent erstellt Preisanfragen (E-Mail-Anbindung) → (5) Günstigstes Angebot an Biendarra
+- [2026-07-28 13:18] [2026-07-28-Update Seifert X Prozessia.md] Human-in-the-Loop 'Warnung'-Funktion markiert unsichere Positionen (z.B. unleserliche Abbildungen) zur manuellen Prüfung - verhindert Halluzinationen
+- [2026-07-28 13:18] [2026-07-28-Update Seifert X Prozessia.md] Stücklistenagent-Demo: System extrahiert automatisch Positionsnummer, Material und relevante Daten aus hochgeladenen Stücklisten/Zeichnungen
+- [2026-07-28 12:04] [Bessere Sprachqualität ab nächster Woche] Monatliches Update-Webinar am Donnerstag, 31.07.2026
+- [2026-07-28 08:22] [2026-07-28-Prozessskizze-KI-Kalkulation.md] 5-Schritt-Ablauf: (1) Ausschreibung eingang, (2) Hersteller-Eindeutigkeit prüfen, (3) KI-Recherche wenn nötig, (4) Automatisierter Preisvergleich, (5) Preiseinspeisung in Kalkulation
+- [2026-07-27 20:35] [2026-06-09-New Record from Google Meet (1).md] KI-gestützte Cold-Outreach wird eingesetzt, persönlicher Kundenkontakt bleibt aber entscheidend und ist noch nicht vollständig automatisierbar
+- [2026-07-27 20:35] [2026-06-09-New Record from Google Meet (1).md] Vertriebsstrategie: Skalierung durch Handelsvertreter statt fest angestellte Vertriebler geplant
+- [2026-07-27 20:35] [2026-06-09-New Record from Google Meet (1).md] Industrie-, Werkzeugbau und Maschinenbau sind die stärksten Verkaufskanäle und Spezialisierungsbereiche der Agentur
+- [2026-07-27 12:40] [2026-07-27-Email-19fa3942-Automatische-Antwort-Kapazitätenplanung.md] Projekt Kapazitätenplanung Stücklistenprojekt - potenzielle Verzögerung bei Rückfragen bis 8.8.2026
+- [2026-07-27 12:40] [2026-07-27-Email-19fa3942-Automatische-Antwort-Kapazitätenplanung.md] Juergen Mahler abwesend bis 8. August 2026, eingeschränkter Email-Zugriff
+- [2026-07-27 12:13] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83493383.md] Gesamtgewicht: 0,368 KG
+- [2026-07-27 12:13] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83493383.md] Hauptkomponente: C-Profil aus S235JR (EN 10025-2), Länge 345mm
+- [2026-07-27 12:13] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83493383.md] Artikel 83493383 'Halter' (Zeichnungsnummer 21170344) mit Stückliste erfasst
+- [2026-07-27 12:12] [2026-07-27-19fa3698b1-MATERIAL_2663013.md] GB-Materialnummer 2663013 identifiziert, Kontext und Kundenbezug unklar – fragmentarisches Dokument
+- [2026-07-27 12:12] [2026-07-27-19fa3698b1-MATERIAL_2663011.md] Prüffall: Materialnummer erfordert Klärung und Zuordnung
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-MATERIAL_2588573.md] Gekennzeichnet als Prüffall - Material-Stammdaten unvollständig
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Werkstoffe: S235 und S355J2H gemäß Fertigungsvorgaben
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83486122.md] Komponenten: 2588569 (Platte) und 2670270 (Seitenprofil) mit Unterstücklisten
+- [2026-07-27 12:11] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83479898.md] Artikel 83479898 'Fuß'-Baugruppe: Mehrstufige Struktur mit Platten (S235) und Seitenprofile/Hohlprofile (S355J2H)
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-6000017119.md] Liefertermin: 07.09.2026
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-6000017119.md] Anforderung: Fertigungsteile (Halter, Fuß, Schwinge) mit Zeichnungsnummern und Mengen
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-Grenzebach-Anfrage 6000017119.md] Eingangsdatum: 27.07.2026
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-Grenzebach-Anfrage 6000017119.md] Anfrage-Referenznummer: 6000017119
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83480037.md] Stückliste enthält Unterbaugruppen 2663011 und 2663013
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83480037.md] Komponente POS 0001: 2x Platte (Zeichnung 11934033.00, Artikel 2663011)
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83480037.md] Zeichnungsnummer 21126984.MI Version 00 für Schwinge
+- [2026-07-27 12:10] [2026-07-27-19fa3698b1-Stueckliste_-_6000017119_-_83480037.md] Artikel 83480037 'Schwinge' mit Gesamtgewicht 43,462 kg
+- [2026-07-27 11:54] [Beispiel Anfrage für KI] Kundenanfrage mit Stücklisten und Einzelteilzeichnungen eingegangen, Ansprechpartner: Stefan Seifert (Seifert GmbH, stefan.seifert@seifert-gmbh.com, +49 9077 957588-33)
+- [2026-07-27 05:36] [08_euer_ausgaben_zuordnung.md] Werbe-Service-Partner 2025: INSTANTLY, LinkedIn Ireland, Digistore24; Netto-Beträge mit separater Vorsteuer-Dokumentation
+- [2026-07-27 05:36] [08_euer_ausgaben_zuordnung.md] INSTANTLY: Regelmäßiger Werbekostenpartner mit monatlichen Zahlungen 2025 (17,91€–85,37€ netto)
+- [2026-07-27 00:14] [2026-07-27.md] Inbox-Verarbeitung vom 2026-07-27 00:14: 6 Fehler bei der Verarbeitung aufgetreten
+- [2026-07-26 00:13] [2026-07-26.md] Inbox-Verarbeitung: 2 Fehler erkannt am 2026-07-26 00:12
+- [2026-07-25 00:11] [2026-07-25.md] Inbox-Verarbeitung 2026-07-25 00:11: 4 Fehler, 0 Items verarbeitet
+- [2026-07-24 13:56] [2026-07-24-19f93b0bdf-Angebot_AG0032_24.07.2026.md] KI-Agent mit E-Mail-Schnittstellen, automatischer Klassifizierung (Service/Ersatzteile/Maschine), Steuerungs-Dashboard
+- [2026-07-24 13:48] [20260724-19f94522-The-final-varieties-of-peach-season.md] Letzter Bestelltag für Pfirsichlieferung Sommer 2026: Donnerstag, 30. Juli 2026
+- [2026-07-24 13:47] [20260724-19f94520-The-final-varieties-of-peach-season.md] Deadline für Pfirsich-Bestellungen: Donnerstag, 30. Juli 2026 (letzter Liefertag der Saison 2026)
+- [2026-07-24 13:47] [20260724-19f94296-Re-Decube-x-WebWokr.md] Nachfass ausstehend: Drei Punkte zu Decube x WebWokr – Daniela wartet auf Rückmeldung, ob sie Details per E-Mail zusenden soll
+- [2026-07-24 13:47] [20260724-19f94296-Re-Decube-x-WebWokr.md] Decube x WebWokr: Trusty unterstützt Metadaten in deutscher Sprache – ermöglicht Datenzugang für globale Teams ohne Englischkenntnisse
+- [2026-07-24 13:47] [20260724-19f9412a-Re-FT-Ventures-x-WebWokr.md] Nächster Schritt: Mary bereit, drei Kandidatenprofile zu schicken - wartet auf Bestätigung (Ja/Nein)
+- [2026-07-24 13:47] [20260724-19f9412a-Re-FT-Ventures-x-WebWokr.md] Anfrage: Integration von externen Entwicklern direkt in Sebastians Team zur Kapazitätserweiterung
+- [2026-07-24 13:46] [2026-07-24.md] AG0026: 7.140€ brutto, Deadline 28.07.2026 (in 4 Tagen)
+- [2026-07-24 13:46] [2026-07-24.md] AG0032: Angebot via Lexoffice am 24.07.2026 verschickt, gültig bis 24.08.2026
+- [2026-07-24 03:21] [2026-07-24-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Bestellwert: EUR 4.499
+- [2026-07-24 03:21] [2026-07-24-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Bestellbeleg Nr. 127096 vom 01.06.2026, Schaufler Tooling GmbH & Co. KG, Lieferadresse Goethestraße 72, 89150 Laichingen
+- [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-RAFFSPED.-126744.md] Transportauftrag für Lieferungen unterliegt Allgemeinen Einkaufsbedingungen (www.schaufler.de)
+- [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-RAFFSPED.-126744.md] Lieferadresse: Schmitt GbR, Goethestraße 72, 89150 Laichingen
+- [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-RAFFSPED.-126744.md] Lieferbedingung: DAP Laichingen, Incoterms 2020, Liefertermin 12.05.26
+- [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-PFITZER-127655.md] Liefertermin: 29.06.2026
+- [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-KIND WBH-127668.md] Liefertermin: 07.07.2026 (Lieferbedingung DAP an MJM Metallverarbeitung Mangner GmbH, Schwarzackerstraße 26, 35232 Dautphetal)
+- [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-KIND WBH-127668.md] Leistung: Härten Ejector Shotblock, Werkstoff 1.2344 ESU, Härte 42-46 HRC, 3x anlassen mit Härteprotokoll Nadca 207-2022 Class 2
+- [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-KIND STAHL-127653.md] Zahlungskonditionen: 30 Tage 3% Skonto oder 90 Tage netto
+- [2026-07-24 03:20] [2026-07-24-19f5ff1aad-BEST-KIND STAHL-127653.md] Nettosumme: 68,25 EUR, Liefertermin: 29.06.2026
+- [2026-07-24 03:20] [2026-07-24-19f5bf6740-Top 10 Lieferanten.md] Top 10 Lieferantenliste mit vollständigen Kontaktdaten (Adresse, Telefon, E-Mail) erstellt
+- [2026-07-24 03:19] [2026-07-24-19f4baf08b-G170104086.md] Dokumentdatum: 09.07.2026, Fällig: 09.07.2026, Zahlungsart: automatische Kreditkartenabbuchung
+- [2026-07-24 03:19] [2026-07-24-19f4baf08b-G170104086.md] Rechnungsnummer G170104086, Betrag: 33,31 EUR (27,99 € netto + 5,32 € USt. 19%)
+- [2026-07-24 03:19] [2026-07-24-19f4baf08b-G170104086.md] Abrechnungszeitraum: 01.06.2026 - 30.06.2026; Service: Azure AI + Machine Learning
+- [2026-07-24 15:11] [2026-07-21-Prozessia X Schmidt-Hänsch.md] KI-Beschaffungsagent: Auftragsbestätigungen mit ERP-Bestellungen abgleichen, Abweichungen/fehlende Bestätigungen automatisch mahnen, Lieferverzugslisten erstellen
+- [2026-07-24 15:11] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Zusagen: Prozessia übernimmt ggf. Server-Infrastruktur; Folgetermin geplant für ca. 1-1,5 Wochen nach 21.07. (ca. 01.-04.08.2026)
+- [2026-07-24 15:11] [Re: FT Ventures x WebWokr] Sebastian sollte antworten: entweder Ja mit Interesse (dann Profile anfordern) oder Nein kurz absagen (2026-07-24)
+- [2026-07-24 15:11] [Re: FT Ventures x WebWokr] Mary bietet an, 3 Developer-Profile zur direkten Team-Integration zu schicken
+- [2026-07-23 15:20] [2026-07-23-Stefan Seifert and Sebastian Spuhler.md] Gesuchte KI-Agent-Lösung: automatisierte Erstellung von Material-/Zuschnittlisten für geschweißte Baugruppen (mehrere Einzelteile)
+- [2026-07-23 15:18] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] KI-Beschaffungsagent für Einkauf präsentiert: Auftragsbestätigungsprüfung, Mahnwesen, Lieferantenbewertung; adaptierbar an Sage 100/Winform + Outlook
+- [2026-07-23 12:11] [2026-07-23-19f4728b7d-Mitgliedschaftsbedingungen.md] Hauptkartenentgelt: EUR 850/Jahr; Zusatzkarten mit zusätzlichen Entgelten
+- [2026-07-23 12:11] [2026-07-23-19f430a55b-Gesellschaftsvertrag der Webwokr Gbr.md] Vertrag regelt Gewinn-/Verlustverteilung, Geschäftsführung, Entscheidungsprozesse, Ausscheiden/Tod von Gesellschaftern
+- [2026-07-23 12:10] [2026-07-23-19f17dfce8-Wareneingang 2025.08.08.md] Visuelle Prozessdokumentation (Ablaufdiagramm + Legende) für Wareneingang vorhanden
+- [2026-07-23 12:10] [2026-07-23-19f17dfce8-Wareneingang 2025.08.08.md] Wareneingang-Prozess für endin dokumentiert (Datum: 08.08.2025, mit Ablaufdiagramm und Legende)
+- [2026-07-23 12:10] [2026-07-23-19f17dfce8-Prozess Lohnverguß 2022.07.20.md] Prozess 'Lohnverguß-Aufzug' dokumentiert vom 20.07.2022 als Teil der Endin-Prozessdokumentationen
+- [2026-07-23 12:10] [2026-07-23-19f17dfce8-Prozess Kleinauftrag 2022.07.15.md] Prozeß Kleinauftrag: visualisierter Ablauf mit Legende, Grundlage für Prozessoptimierung/Analyse
+- [2026-07-23 12:09] [2026-07-23-19f37a9ec1-Angebot_AG0027_01.07.2026.md] Technische Anforderung: Schnittstellen zu Buhl Unternehmer 365, E-Mail-Postfächern, DATEV; unternehmenseigener Server (Datensicherheit, Skalierbarkeit)
+- [2026-07-23 12:09] [2026-07-23-19f37a9ec1-Angebot_AG0027_01.07.2026.md] Gesamtpreis: 17.255,00 € brutto (14.500,00 € netto + 19% USt.)
+- [2026-07-23 12:09] [2026-07-23-19f37a9ec1-Angebot_AG0027_01.07.2026.md] KI-Agent für kaufmännische Auftragsabwicklung: Angebotserstellung, Auftragserkennung, Versand-/Dokumentenmanagement, Rechnungs-/Buchhaltungsanbindung DATEV, Steuerungsdashboard
+- [2026-07-23 12:09] [2026-07-23-19f1906293-Angebot_AG0026_30.06.2026.md] Leistung: Agent für kaufmännische Abwicklung mit automatischem Lesen/Strukturieren von Bestellungen, Klassifizierung (Service/Ersatzteile/Maschine), Vorbereitung Export-Begleitdokumente inkl. Tunesien-Sonderfall, Vorprüfung Lieferschein/Rechnungsinhalte
+- [2026-07-23 12:09] [2026-07-23-19f40a0d3d-SLA_Schaufler .md] Hetzner-Server-Infrastrukturkosten werden weitergegeben an Schaufler
+- [2026-07-23 12:08] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] Offene Deliverables: Governance-Dokument, genaue Einsatzbereiche, Nutzergruppen, erlaubte Tätigkeiten definieren
+- [2026-07-23 12:08] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] Risikoklasse noch zu verifizieren: minimal vs. begrenzt Risiko (noch ungeklärt)
+- [2026-07-23 12:08] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] KI-Nutzungsrichtlinie nach EU-KI-Act für Prozessia-Agent (Cloud-Lösung) in Erstellung
+- [2026-07-23 12:08] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] CX33 Cloud Server mit Primary IPv4 und Backup läuft im Projekt 'Default'
+- [2026-07-23 12:07] [2026-07-23-19f1c3dc33-invoice_sipgatede_B4602762.md] Regelmäßige monatliche sipgate-Aufladung erkannt (Leistungsdatum: 01.07.2026, Rechnungsdatum: 01.07.2026)
+- [2026-07-23 12:07] [2026-07-23-19f09dec90-Invoice-XC0AID8J-0007.md] Lovable Pro-Abo kostet monatlich 25,00 €, abgerechnet monatlich zum 27. (Rechnungsnummer XC0AID8J-0007)
+- [2026-07-23 11:55] [2026-07-23-19f7aaa4f4-Rechnung_RE260015_20.07.2026.md] Leistung: Einrichtung Agent-Winform-Schnittstellen inkl. Integration, Test, Validierung und geplante Umstellung auf Proleis
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Anforderungen: Gravur, Prüfprotokoll, Härteprotokoll, Messprotokoll erforderlich
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Lieferbedingung: DAP Laichingen (Incoterms 2020)
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-PFITZER-127655.md] Liefertermin: 29.06.2026 – Lieferadresse: Goethestr. 72, 89150 Laichingen
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-PFITZER-127655.md] Bestellte Artikel: DIN 912 Schrauben M10x30 (5 Stk.) und M10x140 (5 Stk.) – Nettosumme 16,00 €
+- [2026-07-23 11:54] [2026-07-23-19f5ff1aad-BEST-KIND WBH-127668.md] Spezifikation: Härten 42-46 HRC, 3x Anlassen, Härteprotokoll nach Nadca 207-2022 Class 2
+- [2026-07-23 11:53] [2026-07-23-19f5ff1aad-BEST-KIND STAHL-127653.md] Liefertermin 29.06.2026 — ÜBERFÄLLIG (heute: 23.07.2026, 24 Tage verspätet)
+- [2026-07-23 11:53] [2026-07-23-19f5ff1aad-BEST-KIND STAHL-127653.md] Bestellbeleg 127653: 1x Rundmaterial INSERT BOTTOM SLIDE, Werkstoff 1.2344 ESU, 68,25 € netto
+- [2026-07-23 11:53] [2026-07-23-19f8e484e8-Top100_Lieferanten_mit_Email.md] Liste als Input für Beschaffungsagenten-Automatisierung bei Schaufler strukturiert zur Lieferantenkommunikation
+- [2026-07-23 11:53] [2026-07-23-19f5bf6740-Top 10 Lieferanten.md] Die Lieferantenliste dient als Referenzmaterial für Beschaffungsagenten und Lieferantenmanagement im Schaufler-Projekt
+- [2026-07-23 11:52] [2026-07-23-19f8cb719f-63459971781.md] Microsoft 365 Business Standard Abo für Prozessia GbR: 2 Lizenzen, monatliche automatische Abrechnung 25,78 EUR (Gebühren 21,66 EUR + MwSt. 4,12 EUR)
+- [2026-07-23 11:52] [2026-07-23-19f80bf0b9-invoice-MSTRL-API-750302-003.md] Progressive Rechnungslegung bei Mistral: Schwellenwert €20,00 – Überschreitung triggert sofort fällige Rechnung
+- [2026-07-23 11:51] [2026-07-23-19f801f127-invoice-MSTRL-API-750302-002.md] Mistral AI OCR API in Produktion: €0,0034 pro Seite, progressive Rechnungen ab €10+ Nutzung
+- [2026-07-23 11:42] [2026-07-21-Email-19f83e33-Angenommen-Update-Zillmer-X-Prozessia.md] Zillmer bestätigt positive Antwort auf Update-Proposal für Prozessia-Zusammenarbeit (2026-07-21)
+- [2026-07-23 11:41] [2026-07-21-Email-19f834b9-FT-Ventures-x-WebWokr.md] Angebot: 15-Minuten-Konsultation zur schnellen Engpass-Entlastung bei Aufträgen ohne interne Kapazität
+- [2026-07-23 11:41] [2026-08-24-Grohe.md] Kein Transkript/Dokument vorhanden – wird ergänzt sobald Material eintrifft
+- [2026-07-23 11:41] [2026-07-21-Email-19f8596e-Action-required-security-vulnerabilities.md] Sofortige Maßnahme erforderlich: RLS aktivieren und Tabellenzugriff sichern vor Datenkompromittierung
+- [2026-07-23 11:40] [2026-07-22-Email-19f8888c-Dashboard-fehler.md] Dashboard-Fehler: aktiv/ungelöst, Fehler-Screenshot im Anhang (image001.png)
+- [2026-07-23 11:40] [2026-07-21-Email-19f85405-KI-Agent.md] Bis 21.07.2026: Keine anomalen/komischen Mails durch KI Agent erkannt; Dashboard zeigt geringe Aktivität
+- [2026-07-23 11:40] [2026-07-21-Update Zillmer X Prozessia.md] Geplanter Use-Case: KI recherchiert fehlende Herstellerangaben in Ausschreibungen, führt automatischen Preisvergleich bei Großhandel/Herstellern durch, gibt Ergebnisse an beauftragte Stellen weiter
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Instantly – Fremdwährungsprobleme: USD-Beleg (97,0 USD) in EUR-Bankbuchung (84,32 EUR) nicht automatisch umgerechnet, manuelle Wechselkurskorrektur erforderlich
+- [2026-07-23 11:39] [PRUEFFAELLE.md] Benito Ferrise – Duplikat-/Rundlauf-Verdacht: Betrag 4760,0 EUR am 2025-12-31 mehrfach gebucht (Ein- und Ausgang)
+- [2026-07-23 11:39] [2026-07-21-Prozessia X Schmidt-Hänsch.md] Technische Integration: Agent benötigt Adapter an Sage 100 ERP und Outlook/E-Mail-Schnittstelle
+- [2026-07-23 11:39] [2026-07-21-Prozessia X Schmidt-Hänsch.md] Identifizierte KI-Usecases im Einkauf: (1) automatischer Abgleich Auftragsbestätigungen ↔ ERP-Bestellungen, (2) Lieferanten-Kontakt bei Abweichungen, (3) Mahnung fehlender Auftragsbestätigungen, (4) Lieferverzugslisten generieren
+- [2026-07-23 11:39] [06_recherche_beleg_fehlt.md] Belegrecherche 2025: Von 21 fehlenden Belegen wurden 5 gelöst (Gmail + Google Drive vollständig durchsucht, Stand 2026-07-22)
+- [2026-07-23 11:39] [2026-07-22-Rechnung Schnittstellen Winform.md] Nächster Schritt geplant: Migration Schnittstellen und System von Winform auf Proleis
+- [2026-07-23 11:39] [Paddle n8n Cloud Beleg 10-07-2025.md] Wiederkehrende monatliche Gebühr: 28,56 € für n8n Cloud Starter (netto 24,00 €, zzgl. 19% MwSt.)
+- [2026-07-23 11:38] [Re: Prozessia ICP] Aktion: Sebastians Telefonnummer an Lars Segschneider übermitteln für WhatsApp-Kontakt (23.07.2026)
+- [2026-07-23 11:38] [AW: Unser Termin] Neue Termine mit S + H Schaltanlagenbau GmbH frühestens im September 2026 möglich
+- [2026-07-23 11:38] [Dashboard fehler] Screenshot des Fehlers (image001.png@01DD19B4.F3DBAA10) versendet; nächster Schritt: Dashboard-Problem diagnostizieren und beheben
+- [2026-07-23 11:38] [FT Ventures x WebWokr] Nächster Schritt angeboten: 15-Minuten-Call mit Mary zur Engpass-Entlastungs-Rahmen-Skizze; Sebastian soll Offenheit signalisieren
+- [2026-07-23 11:38] [Fwd: Live-Schaltung diese Woche] Emails werden zunächst noch als Entwürfe versendet, Kunde wurde um Bestätigung/Anpassungswünsche gebeten
+- [2026-07-23 11:38] [KI Agent] KI Agent läuft live bei Schaufler seit mindestens 23.07.2026; Dashboard freigeschaltet, aber mit begrenzte Sichtbarkeit
+- [2026-07-23 11:38] [Re: IT Sicherheit Riemann] ABSAGE: Riemann hat kein Interesse an Austausch zu IT-Sicherheit und EU AI Act (ab 02.08.2026). Grund: Thema ist intern bereits geregelt.
+- [2026-07-19 16:52] [2026-06-30-Potenzialanalyse Endin X Prozessia.md] Automatisierung des kaufmännischen Abwicklungsprozesses bei Endin geplant: Angebotserstellung, Freigabe-Workflow, Bestellungseingang
+- [2026-07-19 16:52] [2026-06-18-Kai Winterscheid and Sebastian Spuhler.md] Hauptprobleme: Terminverfolgung und Auftragsbestätigungen im Einkauf
+- [2026-07-19 16:52] [2026-07-19-Rechnung_RE260016_20.07.2026.md] Leistung umfasst: Technische Basis & Infrastruktur, Schnittstelleneinrichtung zu Tools/Systemen/APIs, Betrieb auf unternehmenseigenem Server mit Skalierbarkeit für 100+ Aufträge
+- [2026-07-19 16:52] [2026-07-19-Rechnung_RE260016_20.07.2026.md] 50% Abschlagszahlung bei Fertigstellung eines Prototypen (Lieferdatum: 17.07.2026)
+- [2026-07-19 16:52] [2026-07-19-Rechnung_RE260016_20.07.2026.md] Rechnung RE260016 vom 20.07.2026: 5.950,00 € brutto (5.000,00 € netto + 19% USt.) für Implementierung eines Beschaffungsagenten
+- [2026-07-19 16:52] [2026-07-19-Rechnung_RE260015_20.07.2026.md] Einrichtung Schnittstellen Agent X Winform: Integration, Testen, Validierung und spätere Umstellung auf Proleis
+- [2026-07-19 16:52] [2026-07-16-Einführung Beschaffungsagent.md] Drei Eskalationsfälle identifiziert: fehlende Auftragsbestätigung, Mengenabweichung, Auftragsbestätigung ohne Bestellung
+- [2026-07-19 16:52] [2026-07-16-Einführung Beschaffungsagent.md] Beschaffungsagent: Problem mit fehlender Zuordnung von Auftragsbestätigungen zu Bestellungen
+- [2026-07-19 16:52] [2026-06-25-Besprechung Umsetzung Server Infrastruktur Schaufler (1).md] Hetzner Cloud-Server Bestellung ist abgeschlossen
+- [2026-07-19 16:52] [2026-06-15-Prozessia Abstimmung Messdokumente (1).md] Unterschiedliche Lieferantenformate und Ordnerstrukturen der Messdokumente müssen berücksichtigt werden
+- [2026-07-19 16:51] [2026-02-06-Mitschrift.md] ELO-Dokumentenmanagement: Bestellung, Auftragsbestätigung (A/B), Rechnung und Lieferschein müssen ins ELO; Rechnungsfreigabe erst nach vollständiger ELO-Dokumentation
+- [2026-07-19 16:51] [2026-02-06-Mitschrift.md] Packlisten-Anforderungen: Spalten S/N, Pos, Name, Package, Order QTY, Shipped QTY, Bestellnummer erforderlich; reklamieren wenn Nummer fehlt; gelbe Spalten trennen Bestellungen; Packliste kommt NICHT ins ELO
+- [2026-07-19 16:51] [2026-02-06-Mitschrift.md] Lieferantenbefragung: Rohmaterial-Kaufstatus abfragen; bei langen Lieferzeiten alle 2 Wochen, bei kurzen alle 1 Woche nachfragen
+- [2026-07-19 16:51] [2026-02-06-Mitschrift.md] Auftragsbestätigungs-Tracking: Ab 5 Tagen fehlend markieren, ab Tag 8 zweiter Einkäufer in CC, ab Tag 10 Einkäufer verbindlich kontaktieren mit Erinnerung zu Maßnahmen
+- [2026-07-19 16:51] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler.md] Potenzielle KI-Anwendungsfälle: KI-Beschaffungsagent (Angebotsvergleich, Auftragsbestätigung, Lieferantenscore, Rechnungsprüfung), automatisierte Arbeitsplanerstellung, Kapazitätsplanung
+- [2026-07-19 16:51] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler.md] Aktueller Prozess: Manuelle Materialanfragen bei Stahllieferanten mit Vergleich von Preis und Lieferzeit
+- [2026-07-19 16:51] [2026-07-19-Rechnung_2026-07-16_310100082556.md] Rechnungsbetrag: 2,00 EUR (Sammelrechnung), automatische Kreditkartenabbuchung innerhalb von 7 Tagen
+- [2026-07-19 16:51] [2026-07-19-Receipt-2233-8816-5318.md] Zahlung erfolgt am 15.07.2026 per Link-Zahlungsmethode
+- [2026-07-19 16:51] [2026-07-19-Receipt-2233-8816-5318.md] One-time Credit-Kauf bei Anthropic, PBC: $20.00 + 19% deutsche MwSt. = $23.80 Gesamtbetrag
+- [2026-07-19 16:51] [2026-07-19-Invoice-GGYF9D9L-0020.md] Gesamtbetrag inklusive 19% deutsche MwSt.: $23.80 USD fällig am 15.07.2026
+- [2026-07-19 16:51] [2026-07-19-Invoice-GGYF9D9L-0020.md] Einmalige API-Credit-Gutschrift von Anthropic: $20.00 USD
+- [2026-07-19 14:05] Aufgabe erinnert: Sebastian will sich einen Termin beim Steuerberater holen
+- [2026-07-19 13:15] Aufgabenliste (Todos) enthält: 1) sipgate + Whisper via n8n für automatisierte Anruf-Transkripte, 2) Schaufler Wissensmanagement - Jonas Röschs Anforderung zur zentralen E-Mail-Ablage/Wissenssicherung
+- [2026-07-19 13:14] sipgate wird über n8n mit Whisper integriert, um Anruf-Transkripte zu erhalten
+- [2026-07-19 13:10] [17-19f6eaaf-1100-Uhr-Dieser-Funnel-hat-alles-verände.md] Whitepaper-Funnel-Strategie: Geschäftsführer werden zur Whitepaper-Anforderung bewegt, generiert Inbound-Anfragen qualifizierter Leads
+- [2026-07-19 13:10] [2026-07-19.md] Schaufler AB-Rollout seit 17.07. live: AB-Prüfung mit 10 Lieferanten aktiv, Human-in-the-Loop mit Ampel-Klassifizierung soll auf Stücklisten-Seite übertragen werden
+- [2026-07-19 13:10] [2026-07-19.md] Schaufler Stückliste: Feature-Check vom 15.07. bricht bei Anforderung 4.1 ab, Status von 4.2 (Messberichte) unklar
+- [2026-07-19 13:10] [2026-07-17.md] Beschaffungsagent Schaufler: Live-Start am 17.07.2026 um 09:00 Uhr
+- [2026-07-19 13:10] [2026-07-16.md] TPG-Schnittstellen: Keine konkreten Systeme identifiziert. ERP-Team von TPG arbeitet intern an Schnittstellen, konkrete Details noch nicht besprochen
+- [2026-07-19 13:10] [2026-07-15.md] Prototyp läuft auf Mock-Infrastruktur (Google Sheets statt Proleis, Google Drive statt ELO) mit Eskalationsmails funktionsfähig (Stand 25.03.2026)
+- [2026-07-19 13:10] [2026-07-15.md] Lieferungsverfolgung nur architektonisch vorgesehen, noch nicht gebaut (Stand 11.03.2026)
+- [2026-07-19 13:10] [2026-07-15.md] Prototyp-Scope: Feature 4.1 (Auftragsbestätigungen) und 4.2 (Messberichte) mit Ampel-Logik implementiert (Stand 11.03.2026)
+- [2026-07-19 13:10] [2026-06-09-Unterlassungserklärung WebWokr.md] Bei Zuwiderhandlung droht Vertragsstrafe nach Hamburger Brauch, deren Höhe vom Unterlassungsgläubiger nach billigem Ermessen bestimmt wird
+- [2026-07-19 13:10] [2026-06-09-Unterlassungserklärung WebWokr.md] Spuhler verpflichtet sich, keine unerwünschten Werbe-E-Mails mehr an maik@freiwerk.de zu senden
+- [2026-07-19 13:10] [2026-06-09-Allgemeine Geschäftsbedingungen.md] Prozessia erbringt Leistungen: KI-Assistenten, Voice-Agenten, Workflows, Automatisierungslösungen
+- [2026-07-19 13:10] [2026-06-09-1. Vertragsänderung M-2024-16_Spuhler_webwokr.md] Mietverhältnis verlängert von 30.09.2025 auf 30.09.2026, gültig ab 01.10.2025
+- [2026-07-19 13:10] [2026-06-09-1. Vertragsänderung M-2024-16_Spuhler_webwokr (1) (2).md] Vertragsänderung gültig ab 01.10.2025, unterzeichnet 30.09.2025
+- [2026-07-19 13:10] [2026-06-09-1. Vertragsänderung M-2024-16_Spuhler_webwokr (1) (2).md] Mietvertrag M-2024-16: Verlängerung um 1 Jahr, neue Enddatum 30.09.2026
+- [2026-07-19 13:10] [2026-06-09-Präsentation_Beschaffungsagent_Prozessia.md] Ampel-Scoring-System zur Lieferantenbewertung implementiert
+- [2026-07-19 13:10] [2026-06-09-Präsentation_Beschaffungsagent_Prozessia.md] Beschaffungsagent mit drei Kernmodulen: Auftragsbestätigung, Liefertermverfolgung, Versand & Dokumentation
+- [2026-07-19 13:10] [2026-06-09-Präsentation_ Datenschutz .pptx.md] Digitaler Kanzlei-Assistent: EU-gehostete Lösung mit Microsoft-Integration (Outlook/Teams), RAG-basiert mit Kanzlei-Dokumenten und Vorlagen
+- [2026-07-19 13:10] [2026-06-09-Stücklistenagent_Prozessia.md] Lösung bietet transparente Ampellogik, Audit Trail und Review-Funktionalität mit Fokus auf Standardisierung trotz OEM-individueller Spalten und Benennungen
+- [2026-07-19 13:10] [2026-06-09-Stücklistenagent_Prozessia.md] Durchschnittlicher manueller Aufwand pro Stückliste heute: 2+ Stunden; Input-Formate sind PDF und XLSX, oft mehrsprachig und inkonsistent strukturiert
+- [2026-07-19 13:10] [2026-06-09-Stücklistenagent_Prozessia.md] 9-stufiger Verarbeitungsprozess mit Ampellogik zur Qualitätsbewertung auf Zellebene und Human-in-the-Loop-Ansatz
+- [2026-07-19 13:10] [2026-06-09-Stückliste A.md] Projektauftrag Nr. 4.2350.1, Form Nr. 4.2350.1, 35 Seiten, Druckgusswerkzeug mit detaillierten Bauteilen
+- [2026-07-19 13:10] [2026-06-09-KI-Kompass Industriemittelstand_ Ganztags-Schulungskonzept für Geschäftsführer und Entscheider.md] Demo-Systeme als Best-Practice eingebettet: Stücklistenagent, Beschaffungsagent, interner Chatbot
+- [2026-07-19 13:10] [2026-06-09-KI-Kompass Industriemittelstand_ Ganztags-Schulungskonzept für Geschäftsführer und Entscheider.md] Schulungsinhalte: Technisches KI-Grundverständnis, EU AI Act, DSGVO, GeschGehG, Haftungsrecht, industrielle Anwendungsfälle
+- [2026-07-19 13:10] [2026-06-09-KI-Kompass Industriemittelstand_ Ganztags-Schulungskonzept für Geschäftsführer und Entscheider.md] KI-Kompass Industriemittelstand: Ganztags-Schulungskonzept (7h brutto, 6h netto) für Geschäftsführer und Entscheider in Industrie-/Maschinenbauunternehmen (5–250 MA)
+- [2026-07-19 13:10] [2026-06-09-Die Lösungsbausteine.md] Angebotsworkflow-Baustein triggert nach Genehmigung automatisch: Projektanlage mit Templates, Willkommensmail an Kunde, interne Checkliste (Zugänge, Assets, CI-Daten), Information an Buchhaltung
+- [2026-07-19 13:10] [2026-06-09-Die Lösungsbausteine.md] CRM-Baustein konsolidiert alle Anfragen (Website, E-Mail, Social, Empfehlungen) in einem System und ordnet Kontakte automatisch der Pipeline zu (Anfrage → Qualifiziert → Angebot → Gewonnen/Verloren)
+- [2026-07-19 13:10] [2026-06-09-Die Lösungsbausteine.md] Prozessia entwickelt fünf modulare Lösungsbausteine für Agentur-Automatisierung: (1) Zentrales CRM & Lead-Erfassung, (2) Angebotsworkflow & Projektstart, (3) Content- & Kommunikationsfluss, (4) automatische Performance-Reports, (5) Abrechnung & Retainer-Betrieb
+- [2026-07-19 13:10] [2026-07-19-anbei eine Kurzzusammenfassung unserer Instrumente wie soeben besprochen.md] Vier interne Instrumente dokumentiert: Qualifizierungsprozess (QP), Qualitätszirkel (QZ), Orientierungstafel (OT), Projektskizze (PZ)
+- [2026-07-19 13:09] [2026-07-13-ideen-2026-07-13.md] Post-Typ B: Karussell-Format für strukturierte Ratgeber-Inhalte
+- [2026-07-19 13:09] [2026-07-13-ideen-2026-07-13.md] Post-Typ A: Pain-Point-Storys (Beschaffungs-/Einkaufsprobleme) mit Text-Format und Call-to-Action
+- [2026-07-19 13:09] [2026-07-13-ideen-2026-07-13.md] 10 LinkedIn-Post-Ideen generiert am 13.07.2026 für Zielgruppen: Werkzeugbau, Maschinenbau, Elektrotechnik, Lohnfertigung
+- [2026-07-19 13:09] [2026-07-13-beitraege-2026-07-13.md] Call-to-Action: Gesprächstermin nächster Freitag (18.07.2026) 09:30 Uhr zur Stücklistenprüfungs-Automatisierung
+- [2026-07-19 13:09] [2026-07-13-beitraege-2026-07-13.md] LinkedIn-Beitrag geplant für 14.07.2026, 07:00 Uhr zum Thema automatisierte Stücklistenprüfung
+- [2026-07-19 13:09] [2026-06-30-Potenzialanalyse Endin X Prozessia.md] Automatisierungspotenzial: Kaufmännische Abwicklung (Angebotserstellung, Freigabe-Workflow, Bestellungseingang)
+- [2026-07-19 13:09] [2026-06-09-Präsentation_ Datenschutz.md] Funktionen des Kanzlei-Assistenten: Integration mit Outlook/Teams, RAG (Kanzlei-Dokumente/Vorlagen), Onboarding-Support
+- [2026-07-19 13:09] [2026-06-09-Präsentation_ Datenschutz .md] Digitaler Kanzlei-Assistent auf Azure-Basis mit EU-Datenhaltung, Integration in Outlook/Teams, RAG-basiert mit Kanzlei-Dokumenten/Richtlinien
+- [2026-07-19 13:09] [2026-06-18-Kai Winterscheid and Sebastian Spuhler.md] Administrative Herausforderungen im Einkauf: Terminverfolgung, Auftragsbestätigungen bei ~17.500 Bestellungen/Jahr
+- [2026-07-19 13:09] [2026-07-16-Einführung Beschaffungsagent.md] Umrechnungsprobleme zwischen Einheiten (z.B. Fass vs. Liter) in ERP-System
+- [2026-07-19 13:09] [2026-07-16-Einführung Beschaffungsagent.md] Drei Eskalationsfälle identifiziert: (1) fehlende Auftragsbestätigung, (2) Mengenabweichung, (3) Auftragsbestätigung ohne Bestellung
+- [2026-07-19 13:09] [2026-07-16-Einführung Beschaffungsagent.md] Beschaffungsagent: Problem mit fehlender Zuordnung von Auftragsbestätigungen zu Bestellungen
+- [2026-07-19 13:09] [2026-06-25-Besprechung Umsetzung Server Infrastruktur Schaufler (1).md] WireGuard-Tunnel für WinForm-Zugriff geplant
+- [2026-07-19 13:09] [2026-06-25-Besprechung Umsetzung Server Infrastruktur Schaufler (1).md] Hetzner Cloud-Server Bestellung abgeschlossen
+- [2026-07-19 13:09] [2026-06-15-Prozessia Abstimmung Messdokumente (1).md] Zu klären: technische Abläufe beim Empfang, Entpacken/Öffnen der Dateien, verschiedene Lieferantenformate und Ordnerstrukturen
+- [2026-07-19 13:09] [2026-06-15-Prozessia Abstimmung Messdokumente (1).md] Anforderung: KI-Assistent soll automatische Verarbeitung und Vollständigkeitsprüfung von Messdokumenten durchführen
+- [2026-07-19 13:09] [2026-06-15-Prozessia Abstimmung Messdokumente (1).md] Messberichte werden über mehrere Kanäle empfangen: ZIP-Dateien, WeTransfer, OneDrive
+- [2026-07-19 13:09] [2026-02-06-Mitschrift.md] ELO-Dokumentenmanagement: Bestellung, A/B, Lieferschein und Rechnung müssen ins ELO; Rechnungsfreigabe erst nach vollständiger ELO-Dokumentation
+- [2026-07-19 13:09] [2026-02-06-Mitschrift.md] Packlisten-Verarbeitung: Relevante Spalten sind S/N, Pos, Name, Package, Order QTY, Shipped QTY, Bestellnummer; Packlisten gehen NICHT ins ELO (kein Lieferschein)
+- [2026-07-19 13:09] [2026-02-06-Mitschrift.md] Lieferantenstatus-Abfragen: Bei langen Lieferzeiten alle 2 Wochen, bei kurzen Lieferzeiten wöchentlich; Abfrage von Rohmaterial-Kaufstatus erforderlich
+- [2026-07-19 13:09] [2026-02-06-Mitschrift.md] Auftragsbestätigungs-Eskalation: Ab 5 Tagen Warnung, ab Tag 8 zweiter Einkäufer in CC, ab Tag 10 verbindliche Kontaktierung mit Maßnahmen
+- [2026-07-19 13:09] [2026-06-09-Prozessia --- Ergebnisse Machbarkeit Stücklistenprojekt.md] Qualitätssicherung durch zweifachen Koordinaten-Abgleich: Original-PDF + Stammdaten
+- [2026-07-19 13:09] [2026-06-09-Prozessia --- Ergebnisse Machbarkeit Stücklistenprojekt.md] Lösungsansatz: KI-gestütztes 'Human-in-the-Loop'-System zur automatischen Stücklistenverarbeitung mit Vertrauensgrad-Klassifizierung (grün/gelb/rot)
+- [2026-07-19 13:09] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler.md] Potenzielle KI-Einsatzfelder: KI-Beschaffungsagent (Angebotsvergleich, Auftragsbestätigungsprüfung, Lieferantenscore, Rechnungsprüfung), automatisierte Arbeitsplanerstellung, Kapazitätsplanung
+- [2026-07-19 13:09] [2026-07-16-Herr Biebl + Herr Lenbner and Sebastian Spuhler.md] Hauptanwendungsfall: manuelle Materialanfragen bei Stahllieferanten mit Vergleich von Preis und Lieferzeit
+- [2026-07-19 12:58] Offene Aufgabe: Schaufler Wissensmanagement/SLA klären - Stand: SLA-Konzept vom 29.06. mit 99% Verfügbarkeitsgarantie (Hetzner-Ausfälle ausgenommen), offener Punkt zu Infrastrukturkosten-Klausel in Bestellung
+- [2026-07-18 22:09] [Re: Prozessia ICP] Zielgruppe: KMUs aus Werkzeug- und Maschinenbau, kleiner als Schaufler, für schnelleren Zugang zu Entscheidern
+- [2026-07-18 19:36] [Re: Prozessia ICP] Nächste Woche (ab ~25.07.2026): Anpassung der Leads und Herangehensweise geplant
+- [2026-07-18 19:36] [Re: Prozessia ICP] Zielgruppe: KMUs aus Werkzeug- und Maschinenbau, kleiner als Schaufler, für besseren Zugang zu Entscheidungsträgern
+- [2026-07-17 21:47] [2026-07-07-Email-19f3d0eb-AW-Potenzialanalyse-Endin-X-Prozessia.md] ENDIN fordert 1-2 Referenzen an, um direkt mit bestehenden Kunden über Umsetzungserfahrung und erreichte Einsparungen zu sprechen
+- [2026-07-17 21:46] [2026-06-30-Email-19f17dfc-AW-Potenzialanalyse-Endin-X-Prozessia.md] Zur Analyse vorgesehene Prozesse: (1) Abwicklung Kleinaufträge/Ersatzteile, (2) ergänzender Workflow Kleinaufträge, (3) Lohnfertigungsaufträge, (4) Wareneingang-Workflow
+- [2026-07-17 21:46] [2026-07-14-Email-19f618fd-Action-required-security-vulnerabilities.md] Sofortmaßnahmen erforderlich - Sicherheitslücken müssen vor Datenkompromittierung behoben werden
+- [2026-07-17 21:46] [2026-06-30-Email-19f1978f-Action-required-security-vulnerabilities.md] Deadline: Vor Datenkompromittierung - Row-Level Security aktivieren und API-Zugriff einschränken
+- [2026-07-17 21:46] [2026-06-30-Email-19f1978f-Action-required-security-vulnerabilities.md] Handlungsbedarf: Sicherheitsvulnerabilitäten müssen sofort behoben werden - Meldungsdatum 30.06.2026
+- [2026-07-17 21:46] [2026-07-11-Email-19f50f37-Getting-the-most-from-Google-Tag-Manager.md] Bestehende Website-Tags müssen aus dem Site-Code entfernt und in Google Tag Manager-Interface hinzugefügt werden
+- [2026-07-17 21:46] [2026-06-15-Email-19eccb53-Carlos--saidspentplanextra-ZRSMQTG.md] Preisrange: 200.000 - 350.000
+- [2026-07-17 21:46] [2026-06-15-Email-19eccb53-Carlos--saidspentplanextra-ZRSMQTG.md] Produkt/Service: Apunto
+- [2026-07-17 21:46] [2026-07-15-Email-19f65c24-AW-Messberichte.md] Offene Frage: Datenübertragung der Messberichte auf Zielort (z.B. FTP-Server) - Klärung erforderlich, welche Mitarbeiter zuständig sind
+- [2026-07-17 21:46] [2026-07-15-Email-19f65c24-AW-Messberichte.md] Watchfolder-Aufbau für Messberichte geplant, abhängig von jährlichem Volumen (Benjamin hat erste Infos bereitgestellt)
+- [2026-07-17 21:46] [2026-07-13-Email-19f5a998-AW-Statusabfrage--AI-Agent-Beschaffung.md] Ausstehend: Messprotokolle (nächster Termin)
+- [2026-07-17 21:45] [2026-07-13-Email-19f5a966-Statusabfrage--AI-Agent-Beschaffung.md] Testphase: Intensive Tests in der Woche vom 13.07.2026 geplant
+- [2026-07-17 21:45] [2026-07-09-Email-19f4611a-Zugesagt-Umstzung-Microsoft-Anbindung-Sc.md] Status: Umsetzung zugesagt
+- [2026-07-17 21:45] [2026-07-08-Email-19f40a0d-WG-AVV-Vertrag--SLA.md] Unterschriftenabfolge: Sebastian Spuhler (01.07.2026) → Andreas Thunich (07.07.2026) → Florian Knoblauch bestätigt (08.07.2026)
+- [2026-07-17 21:45] [2026-07-07-Email-19f3c174-Abstimmung-VPN-Tunnel.md] Microsoft Teams-Besprechung geplant - Besprechungs-ID: 332 189 589 163 009
+- [2026-07-17 21:45] [2026-07-06-Email-19f38afa-AW-Offene-Punkte-Beschaffungsagent.md] Beschaffungsagent-Projekt: 4 offene Punkte identifiziert - (1) Watchfolder für Messberichte in Microsoft Sharepoint mit Graph API, (2) Testview für Winform Datenbankanbindung, (3) Elo-Schnittstelle für automatische Dokumentablage, (4) Website-Integration für Vessel Tracking
+- [2026-07-17 21:45] [2026-06-15-Email-19ecb6e4-Bestellung-127412.md] Anforderung: Auftragsbestätigung muss original Bestellung 127412 mit Datum, Signatur und Firmenstempel sein
+- [2026-07-17 21:45] [2026-07-07-Email-19f3b787-Vorgeschlagene-Zeit-Update-Projekt-Mundi.md] Projektname: Projekt Mundinger
+- [2026-07-17 21:45] [2026-07-17-Email-19f6f491-AW-Go-Live-Beschaffungsagent.md] Offene Anforderung: Definition des fixen Textes für Feld 'Terminüberwachung_Bemerkung' erforderlich
+- [2026-07-17 21:45] [2026-07-13-Email-19f5cb7c-AW-Statusabfrage--AI-Agent-Beschaffung.md] Geplanter Go-Live für Freitag, 15. Juli 2026
+- [2026-07-17 21:45] [2026-07-13-Email-19f5b5b9-AW-Statusabfrage--AI-Agent-Beschaffung.md] Offene Aufgabe: Messprotokolle stehen in nächstem Termin noch an (IT-Seite)
+- [2026-07-17 21:44] [2026-07-09-Email-19f47a4c-AW-Infos-zur-WinForm-Sicht.md] Alter User aus eingespieltem Backup konnte nicht wieder eingerichtet werden
+- [2026-07-17 21:44] [2026-07-09-Email-19f47986-AW-Infos-zur-WinForm-Sicht.md] Login für Benutzer 'Prozessia' funktioniert auf der Instanz
+- [2026-07-17 21:44] [2026-07-08-Email-19f419a4-AW-Offene-Punkte-Beschaffungsagent.md] Bestelldeckblatt soll die Email-Adresse order@schaufler.de enthalten
+- [2026-07-17 21:44] [2026-07-08-Email-19f419a4-AW-Offene-Punkte-Beschaffungsagent.md] Lieferanten wurden angewiesen, Bestellbestätigungen (ABs) zukünftig an order@schaufler.de zu senden; Großteil hat bereits umgestellt
+- [2026-07-17 21:42] [30---Email-19f17f30-Zugesagt-Angebotsdurchsprache-Endin-X-Pr.md] Angebotsdurchsprache für 'Endin X Prozessia' zugesagt
+- [2026-07-17 21:42] [30---Email-19f17dfc-AW-Potenzialanalyse-Endin-X-Prozessia.md] Zu analysierende Prozesse: (1) Abwicklung Kleinaufträge/Ersatzteile, (2) ergänzender Workflow, (3) Lohnfertigungsauftrag, (4) Wareneingang
+- [2026-07-17 21:42] [11---Email-19f51b7b-Funding-Application-for-Paula--Berkman-Z.md] Finanzierungsangebot von Berkman Financial: Kreditlinien, Darlehen, MCAs für Frauenunternehmen ohne umfangreiche Kredithistorie
+- [2026-07-17 21:42] [30---Email-19f1978f-Action-required-security-vulnerabilities.md] Handlungsfrist: Sofortige Behebung erforderlich, um unbefugten Datenzugriff zu verhindern (Meldungsdatum: 30.06.2026)
+- [2026-07-17 21:42] [14---Email-19f618fd-Action-required-security-vulnerabilities.md] Kritische Sicherheitslücke: Sensitive Daten (Passwörter, persönliche Identifikatoren) ohne Zugriffsbeschränkung über API exponiert
+- [2026-07-17 21:42] [07---Email-19f3d924-Action-required-security-vulnerabilities.md] Kritische Sicherheitslücke: Tabelle öffentlich zugänglich (Row-Level Security deaktiviert) - Projekt stggglgcvisnvcertpau
+- [2026-07-17 21:42] [15---Email-19eccb53-Carlos--saidspentplanextra-ZRSMQTG.md] Konditionen: Monatliche Raten, keine Personengarantien, keine Gebühren im Voraus, kein Druck zum sofortigen Abschluss
+- [2026-07-17 21:42] [15---Email-19eccb53-Carlos--saidspentplanextra-ZRSMQTG.md] Produkt/Service: Apunto-Finanzierung
+- [2026-07-17 21:42] [11---Email-19f50f37-Getting-the-most-from-Google-Tag-Manager.md] Migration bestehender Site-Tags in GTM-Interface geplant
+- [2026-07-17 21:42] [11---Email-19f50f37-Getting-the-most-from-Google-Tag-Manager.md] GTM-Installation auf TPG-Website erfolgt
+- [2026-07-17 21:42] [9---Email-19f4611a-Zugesagt-Umstzung-Microsoft-Anbindung-Sc.md] Projekt: Microsoft Anbindung Schaufler X Prozessia
+- [2026-07-17 21:42] [8---Email-19f40a0d-WG-AVV-Vertrag--SLA.md] Freigabe für nächsten Schritt: AI-Agent-Implementierung kann fortgesetzt werden
+- [2026-07-17 21:42] [8---Email-19f40a0d-WG-AVV-Vertrag--SLA.md] Vertragliche Grundlagen für Server-Beschaffung und -Verwaltung im Rahmen einer Server-Kooperation abgeschlossen
+- [2026-07-17 21:42] [7---Email-19f3d2c1-AW-Fragenkatalog.md] Fragenkatalog zu KI-Richtlinie wurde von Sebastian Spuhler ausgefüllt und an Florian Knoblauch und Benjamin Schmohl versendet
+- [2026-07-17 21:42] [7---Email-19f3c174-Abstimmung-VPN-Tunnel.md] VPN Tunnel Abstimmung mit Kunde Schaufler erforderlich - technische Validierung aller Themen notwendig
+- [2026-07-17 21:42] [6---Email-19f381c7-AW-Offene-Punkte-Beschaffungsagent.md] Priorität: Punkte 1 und 2 (Watchfolder und Testview) haben erhebliche Relevanz und sollen bis Ende dieser Woche abgearbeitet werden
+- [2026-07-17 21:42] [6---Email-19f381c7-AW-Offene-Punkte-Beschaffungsagent.md] Beschaffungsagent-Projekt erfordert 4 offene Punkte: (1) Watchfolder für Messberichte in Microsoft Sharepoint mit Graph API, (2) Testview für Winform Datenbankanbindung, (3) Elo-Schnittstelle für automatische Dokumentablage, (4) Website für Vessel Tracking
+- [2026-07-17 21:41] [16---Email-19f6caf8-AW-Zugangsdaten-Beschaffungsagent.md] Benutzer können über die Benutzer-Funktion in der linken Leiste angelegt werden
+- [2026-07-17 21:41] [16---Email-19f69bbe-Messberichte.md] Shared Mailboxes haben Speicherlimit von 50GB
+- [2026-07-17 21:41] [15---Email-19f65c24-AW-Messberichte.md] Watchfolder für Messberichte soll gebaut werden; Benjamin hat Informationen zum jährlichen Volumen bereitgestellt
+- [2026-07-17 21:41] [15---Email-19ecbd13-WG-Messberichte.md] Systemlimitation: ProLeis kann Daten aus ZIP-Dateien nicht speichern
+- [2026-07-17 21:41] [13---Email-19f5a998-AW-Statusabfrage--AI-Agent-Beschaffung.md] IT-seitige Umsetzung abgeschlossen, aufgetretene Probleme behoben. Ausstehend: Messprotokolle in nächstem Termin
+- [2026-07-17 21:41] [13---Email-19f5a998-AW-Statusabfrage--AI-Agent-Beschaffung.md] Geplanter Live-Gang: Freitag (18.07.2026), sofern Tests planmäßig verlaufen
+- [2026-07-17 21:41] [13---Email-19f5a998-AW-Statusabfrage--AI-Agent-Beschaffung.md] Projekt: AI-Agent Beschaffung. Testphase sollte letzte Woche (vor 13.07.2026) starten, intensive Tests diese Woche geplant
+- [2026-07-17 21:41] [13---Email-19f5a966-Statusabfrage--AI-Agent-Beschaffung.md] Deadline Go-live: Freitag, 17. Juli 2026
+- [2026-07-17 21:41] [7---Email-19f3b787-Vorgeschlagene-Zeit-Update-Projekt-Mundi.md] Projekt Mundinger - Update angefordert
+- [2026-07-17 21:41] [9---Email-19f47a4c-AW-Infos-zur-WinForm-Sicht.md] WinForm-Sicht Konfiguration in Bearbeitung - Abwarten auf Einrichtungsbestätigung vor Weitertests
+- [2026-07-17 21:41] [9---Email-19f47913-AW-Infos-zur-WinForm-Sicht.md] Lesezugriff auf komplette Tabelle 'Bestelldatei' wurde gewährt, Details zur Nutzung erforderlich
+- [2026-07-17 21:41] [9---Email-19f47913-AW-Infos-zur-WinForm-Sicht.md] Datenbank Winform2000_TEST.72SQL liegt auf SQL2022EX02, aber Login 'Prozessia' wird dort abgelehnt (Fehler 18456)
+- [2026-07-17 21:41] [9---Email-19f472fd-Infos-zur-WinForm-Sicht.md] WinForm-Sicht 'Bestelldatei' (VIEW_fuer_Prozessia) mit Feldern: BestellNr, Liefertermin, Liefertermin_bestätigt, Liefertermin_erwartet, Terminüberwachung_Bemerkung
+- [2026-07-17 21:41] [9---Email-19f472fd-Infos-zur-WinForm-Sicht.md] Test-Datenbank verfügbar mit Login 'Prozessia' / Passwort 'Prozessia#66123#-A11!'
+- [2026-07-17 21:41] [8---Email-19f419a4-AW-Offene-Punkte-Beschaffungsagent.md] Anforderung: Alle Einkäufer erhalten Zugriff auf order@schaufler.de-Postfach zur selbstständigen AB-Entnahme
+- [2026-07-17 21:41] [8---Email-19f419a4-AW-Offene-Punkte-Beschaffungsagent.md] Order@schaufler.de-Adresse soll auf Bestelldeckblatt angegeben werden
+- [2026-07-17 21:41] [8---Email-19f419a4-AW-Offene-Punkte-Beschaffungsagent.md] Lieferanten-Bestellabsätze (ABs) werden zukünftig an order@schaufler.de gesendet; Großteil der Top 100 Lieferanten hat Umstellung bereits umgesetzt
+- [2026-07-17 21:40] [16---Email-19f69ece-AW-Go-Live-Beschaffungsagent.md] Go-Live Beschaffungsagent für Hettmer geplant: Produktivsystem-Zugriff ermöglicht Live-Schaltung am Folgetag (ab 16.07.2026)
+- [2026-07-17 21:40] [14---Email-19f6188f-AW-Statusabfrage--AI-Agent-Beschaffung.md] Offener Punkt: Feld für zuständigen Einkäufer muss noch definiert werden (Anforderung vom Mai-Besuch)
+- [2026-07-17 21:40] [13---Email-19f5bfda-AW-Statusabfrage--AI-Agent-Beschaffung.md] Nächster Schritt: Go-Live-Planning-Meeting (1 Stunde) erforderlich vor Go Live
+- [2026-07-17 21:40] [13---Email-19f5bf67-AW-Statusabfrage--AI-Agent-Beschaffung.md] Vor Go Live: detaillierter schrittweiser Plan und Klärung potenzieller Reibungspunkte mit Team erforderlich
+- [2026-07-17 21:40] [13---Email-19f5b5b9-AW-Statusabfrage--AI-Agent-Beschaffung.md] Messprotokolle für Projekt noch ausstehend (nächster Termin erforderlich)
+- [2026-07-17 21:22] [2026-07-17-Gesellschaftsvertrag der Webwokr Gbr.md] Geschäftszweck: Webdesign, Suchmaschinenoptimierung (SEO), Website-Konzeption und -Entwicklung, Kundenberatung im Online-Marketing
+- [2026-07-17 21:22] [2026-07-17-SLA_Schaufler  (3).md] Verfügbarkeitsgarantie: 99%, Infrastruktur auf Hetzner-Servern, Haftungsausschluss für Infrastrukturausfälle
+- [2026-07-17 21:22] [2026-07-17-SLA_Schaufler  (3).md] Service Level Agreement für Betrieb des Beschaffungsagenten basierend auf Angebot AG0024 vom 27.05.2026
+- [2026-07-17 21:22] [2026-07-17-SLA_Schaufler  (1).md] Verfügbarkeitsgarantie: 99%
+- [2026-07-17 21:22] [2026-07-17-AVV_Schaufler_Prozessia (2).md] Dokumentenerkennung/-extraktion und Abgleich mit ERP-System des Auftraggebers inkl. Betriebs- und Wartungsleistung
+- [2026-07-17 21:22] [2026-07-17-Fragenkatalog_beantwortet.md] Beschaffungsagent von Prozessia im Einsatz - maßgeschneiderte KI-gestützte Softwarelösung
+- [2026-07-17 21:22] [2026-07-17-INV-057.md] Zahlungsfällig: 9. Juni 2026
+- [2026-07-17 21:22] [2026-07-17-INV-057.md] Vermittlungsprovision 500 EUR, Rechnung INV-057 vom 2. Juni 2026
+- [2026-07-17 18:27] [Zugesagt: Einführung Beschaffungsagent] Zusage für Einführung Beschaffungsagent
+- [2026-07-17 18:27] [Zugesagt: Einführung Beschaffungsagent] Einführung Beschaffungsagent zugesagt
+- [2026-07-17 18:27] [FW: Erklärung unserer Instrumente] QP (Qualifizierungsprozess): Mitarbeitermitarbeiterqualifizierung mit IST-Stand-Prüfung, Fokus auf Fachlichkeitsentwicklung mit Nachweislichkeit für Berufsfeld-Vorschriften
+- [2026-07-17 18:27] [FW: Erklärung unserer Instrumente] QZ (Qualitätszirkel): Standortübergreifend mit Fachbezug, dokumentiert Entscheidungen, Protokolle und Ergebnisse
+- [2026-07-17 18:27] [FW: Erklärung unserer Instrumente] OT (Orientierungstafel): Halbtageskontrolle für Alltags-Kontrollweisen, gilt von Standort bis Muttergesellschaft
+- [2026-07-17 18:27] [FW: Erklärung unserer Instrumente] PZ (Projektskizze): Jahresplanung von Januar bis Januar, Verbindlichkeit von Standort bis Muttergesellschaft, Muttergesellschaft plant Themen separat
+- [2026-07-17 18:27] [TCPA Deep Dive Webinar: What Voice AI Te] Kernthemen des Webinars: Prior Express Written Consent (PEWC), DNC-Prüfungen (Do-Not-Call), Pre-Call-Consent-Prozesse
+- [2026-07-17 18:27] [TCPA Deep Dive Webinar: What Voice AI Te] Warnung: Fehlende TCPA-Compliance-Verantwortlichkeit führt zu Strafen von 1.500 USD pro Verstoß
+- [2026-07-17 18:27] [Kompletten Salesfunnel mit KI erstellen] Leistungsumfang: hochkonvertierende Salesfunnel-Erstellung, Generierung von Inbound-Anfragen, vollständige KI-Automation ohne Qualitätsverlust
+- [2026-07-17 18:27] [Kompletten Salesfunnel mit KI erstellen] Angebot: Kompletter Salesfunnel mit KI-Unterstützung für KMU-Kunden mit Deals im Bereich 10-25k Euro
+- [2026-07-17 18:27] [RE: Bestätigungslink Herr Spuhler Busine] Authentifizierung erfolgreich abgeschlossen nach mehreren Versuchen (14.07.2026)
+- [2026-07-17 18:27] [RE: Bestätigungslink Herr Spuhler Busine] Bestätigungslink für Postident-Authentifizierung war erforderlich (14.07.2026)
+- [2026-07-17 18:27] [AW: Messberichte] Offene Frage: Wie werden Daten auf FTP Server übertragen?
+- [2026-07-17 18:27] [AW: Messberichte] Offene Frage: Welche Mitarbeiter sind für den Datentransfer zuständig?
+- [2026-07-17 18:27] [AW: Messberichte] Klärung notwendig: Ist die Messbericht-Lösung nur temporär?
+- [2026-07-17 18:27] [AW: Messberichte] Messberichte sollen zu einem Zielort verschoben werden
+- [2026-07-17 18:27] [AW: Messberichte] Jonas Rösch kann eine Aufgabe morgen früh durchführen
+- [2026-07-17 18:27] [Build more with HeyGen, new APIs are liv] Neue APIs sind verfügbar über API, MCP und CLI zur Integration in Workflows
+- [2026-07-17 18:27] [A special tour with some of our coolest ] The Peaches! Truck wird in ausgewählten Städten während der Tour mit frischen Pfirsichen, Vinyl-Musik und limitierter Merchandise erhältlich sein
+- [2026-07-17 18:27] [AW: Zugangsdaten Beschaffungsagent] Mehrere Benutzer können unter 'Benutzer' in der linken Leiste im Beschaffungsagent angelegt werden
+- [2026-07-17 18:27] [AW: Zugangsdaten Beschaffungsagent] Beschaffungsagent geht am 17. Juli 2026 um 9:00 Uhr live
+- [2026-07-17 18:27] [RE: Bestätigungslink Herr Spuhler Busine] Identifizierung von Mohamed Douioui erfolgreich abgeschlossen
+- [2026-07-17 18:27] [AW: Go Live Beschaffungsagent] Ablauf der Einführung des Agenten und letzte Details wurden am 16. Juli 2026 morgens besprochen
+- [2026-07-17 18:27] [Abgelehnt: Bedarfsanalyse TPG X Prozessi] Kai Winterscheid meldet sich, sobald Ressourcen verfügbar sind (Follow-up erforderlich)
+- [2026-07-17 18:27] [Abgelehnt: Bedarfsanalyse TPG X Prozessi] Bedarfsanalyse TPG X Prozessia - Termin wird vorerst ausgesetzt
+- [2026-07-17 18:27] [AW: Go Live Beschaffungsagent] Zugangsdaten für Produktivsystem erhalten (Login: Prozessia, Passwort: Prozessia#66123#-A11!)
+- [2026-07-17 08:58] [AW: Go Live Beschaffungsagent] Offene Frage: Sebastian Spuhler soll Jochen Hettmer mitteilen, welcher fixe Text in das Feld 'Terminüberwachung_Bemerkung' geschrieben wird
+- [2026-07-17 08:58] [AW: Go Live Beschaffungsagent] Produktivsystem-Zugang wurde Jochen Hettmer von Sebastian Spuhler angefordert und erhalten
+- [2026-07-17 08:58] [AW: Go Live Beschaffungsagent] Ablauf und letzte Details der Agent-Einführung wurden am 16. Juli 2026 morgens besprochen
+- [2026-07-16 20:23] [AW: Zugangsdaten Beschaffungsagent] Mehrere Benutzer können im Beschaffungsagent unter 'Benutzer' in der linken Leiste angelegt werden
+- [2026-07-16 20:23] [AW: Zugangsdaten Beschaffungsagent] Beschaffungsagent geht am 17. Juli 2026 um 9:00 Uhr live
+- [2026-07-16 14:57] [RE: Bestätigungslink Herr Spuhler Busine] Identifizierung von Mohamed Douioui bereits erfolgreich dupliziert
+- [2026-07-16 12:12] [FW: Erklärung unserer Instrumente] QP (Qualifizierungsprozess): Mitarbeitqualifizierung mit IST-Stand-Prüfung zur Erfüllung von Berufsfeld-Vorschriften
+- [2026-07-16 12:12] [FW: Erklärung unserer Instrumente] QZ (Qualitätszirkel): Fachbezogener Zirkel übergreifend für alle Standorte mit Protokollen und Ergebnissen
+- [2026-07-16 12:12] [FW: Erklärung unserer Instrumente] OT (Orientierungstafel): Kontrolle im Halbtages-Rhythmus von Standort bis Muttergesellschaft
+- [2026-07-16 12:12] [FW: Erklärung unserer Instrumente] PZ (Projektskizze): Jahresplanung von Januar bis Januar mit Verbindlichkeit von Standort bis Muttergesellschaft
+- [2026-07-16 11:21] [Unser Termin] Beratungsgespräch umfasst 60-90 Minuten
+- [2026-07-16 07:56] [AW: Go Live Beschaffungsagent] Ablauf der Einführung des Agenten am Morgen des 16. Juli 2026 besprochen
+- [2026-07-16 07:05] [Messberichte] Postfächer haben ein Limit von 50GB
+- [2026-07-16 07:05] [Messberichte] Shared Mailboxes HNO, Werkszeugnisse und quality_schaufler@schaufler.de können nun vom Beschaffungsagent ausgelesen werden
+- [2026-07-16 06:04] [Kompletten Salesfunnel mit KI erstellen] Angebot: Erstellung eines kompletten Salesfunnels mit KI zur Kundengewinnung (10-25k Deal-Größe)
+- [2026-07-15 16:10] [Abgelehnt: Bedarfsanalyse TPG X Prozessi] Bedarfsanalyse TPG X Prozessia: Termin wird vorerst ausgesetzt
+- [2026-07-15 13:17] [Zugesagt: Einführung Beschaffungsagent] Projekt: Einführung Beschaffungsagent ist in Umsetzung
+- [2026-07-15 12:31] [AW: Messberichte] Offene Frage: Welche Mitarbeiter sollen Messbericht-Daten zum Zielort verschieben können?
+- [2026-07-15 12:31] [AW: Messberichte] Offene Frage: Ist die geplante Lösung mit Messberichten nur temporär?
+- [2026-07-15 02:31] [A special tour with some of our coolest ] Leistungen: Design eines speziellen PEACHES! TRUCK und exklusive Limited-Edition Merchandise
+- [2026-07-14 19:40] [AW: Statusabfrage – AI-Agent Beschaffung] Lieferanten-E-Mail-Adressen werden direkt aus den E-Mails der Abteilungsbeschaffung (AB) ausgelesen, separate Speicherung in Bestelldatei nicht erforderlich
+- [2026-07-14 19:40] [AW: Statusabfrage – AI-Agent Beschaffung] Lesezugriff auf Bestelldaten ist vorhanden, keine weiteren Handlungen von Hettmer/Knoblauch/Schmohl nötig
+- [2026-07-14 19:40] [AW: Statusabfrage – AI-Agent Beschaffung] Felder Bestelldatum, Preis und Menge sind implementiert und funktionsfähig
+- [2026-07-14 19:40] [AW: Statusabfrage – AI-Agent Beschaffung] Sicht 'Bestellung_Kopf (VIEW_fuer_Prozessia)' wurde von Jochen Hettmer angelegt, Zugriff muss von Sebastian Spuhler bestätigt werden
+- [2026-07-14 19:40] [AW: Go Live Beschaffungsagent] Ansonsten sind alle anderen Anforderungen für Go Live erfüllt
+- [2026-07-14 19:40] [AW: Go Live Beschaffungsagent] Die Einkäufer-Spalte ist die letzte offene Hürde vor dem Go Live
+- [2026-07-14 16:52] [AW: Statusabfrage – AI-Agent Beschaffung] Lieferanten-E-Mails werden aus den E-Mails ausgelesen, die die AB (Abteilung?) schickt – separate Lieferanten-Mails in der Bestelldatei sind nicht erforderlich
+- [2026-07-14 16:52] [AW: Statusabfrage – AI-Agent Beschaffung] Felder Bestelldatum, Preis und Menge sind implementiert mit Lesezugriff – keine weiteren Handlungsschritte von Hettmers Seite notwendig
+- [2026-07-14 16:52] [AW: Statusabfrage – AI-Agent Beschaffung] Lieferanten-Mailadressen wurden von Hettmer bereitgestellt
+- [2026-07-14 15:53] [2026-07-14.md] Go-Live-Termin Beschaffungsagent: Donnerstag 11–12 Uhr (Schaufler, Florian Knoblauch und Benjamin Schmohl)
+- [2026-07-14 15:18] [AW: Go Live Beschaffungsagent] Go Live Beschaffungsagent steht an, letzte Hürde ist die Spalte mit dem zuständigen Einkäufer
+- [2026-07-14 15:06] [AgentPowers x WebWokr] Angebot: Schnellere Pilotauslieferung durch AgentPowers-Integration - Kundenpiloten in 2-3 Tagen statt längerer Vorarbeit
+- [2026-07-14 15:06] [Decube x WebWokr] Daniela schlägt einen kurzen Austausch vor, um drei konkrete Wege aufzuzeigen, wie KI-Projekte mit vertrauenswürdigen Daten schneller umsetzbar werden
+- [2026-07-14 15:06] [In 15 Minuten geht es los] Veranstaltungsdauer: 30 Minuten geplant
+- [2026-07-14 15:06] [In 15 Minuten geht es los] Inhalte des Live-Events: Gründungsgrund der Mastermind, Ablauf der zwei Tage in Marbella, Zielgruppe, Q&A
+- [2026-07-14 15:06] [In 15 Minuten geht es los] Live-Event startet in 15 Minuten nach E-Mail-Versand
+- [2026-07-14 15:06] [Kontakte blockieren und Leads reserviere] Ab sofort: Neue Funktionalität für Fonio-Kunden - Möglichkeit, spezifische Nummern über das Kontakt-Feature zu blockieren
+- [2026-07-14 15:06] [Bestell-Dokumente für den KI Agend] Vessel Tracker nutzt www.vesselfinder.com für Nachverfolgung
+- [2026-07-14 15:06] [Bestell-Dokumente für den KI Agend] Bestellformulare für KI Agend an folgende Lieferanten versendet: Stahl-Hersteller, Wärmebehandler, Normhersteller, Dienstleister und Spedition
+- [2026-07-14 15:06] [Kontakte blockieren und Leads reserviere] Ab sofort: Leads müssen im Reservierungstool reserviert werden
+- [2026-07-14 15:06] [Kontakte blockieren und Leads reserviere] Neue Funktion ab heute: Spezifische Nummern können mit dem Kontakt-Feature blockiert werden
+- [2026-07-14 11:36] [Kontakte blockieren und Leads reserviere] Neue Funktionalität: Lead-Reservierung über Reservierungstool ab sofort aktiviert
+- [2026-07-14 11:36] [Kontakte blockieren und Leads reserviere] Neue Funktionalität: Kontaktblockierung für spezifische Nummern im Kontakt-Feature verfügbar ab heute
+- [2026-07-14 11:36] [Kontakte blockieren und Leads reserviere] Neues Feature: Spezifische Nummern können über Kontakt-Feature blockiert werden (ab heute verfügbar)
+- [2026-07-14 10:50] [In 15 Minuten geht es los] Inhalte der Session: Gründungsgründe der Mastermind, Ablauf der zwei Tage, Zielgruppe, Live-Q&A
+- [2026-07-14 10:50] [In 15 Minuten geht es los] Geplante Dauer: 30 Minuten
+- [2026-07-14 10:50] [In 15 Minuten geht es los] Live-Session startet in 15 Minuten nach Versand der E-Mail
+- [2026-07-14 09:29] [Bestell-Dokumente für den KI Agend] Für Vassel Tracker wird die Plattform www.vesselfinder.com genutzt
+- [2026-07-14 09:29] [Bestell-Dokumente für den KI Agend] Bestellformulare für folgende Kategorien werden bereitgestellt: Stahl-Hersteller, Wärmebehandler, Normhersteller, Dienstleister und Spedition
+- [2026-07-14 08:43] [AW: Update Zillmer X Prozessia] Neuer vorgeschlagener Termin: Dienstag, 21.07.2026, 10:00-10:30 Uhr via Microsoft Teams
+- [2026-07-14 08:43] [AgentPowers x WebWokr] Elizabeth bietet an, 2 konkrete Anwendungsfälle für WebWokr zu skizzieren bei Interesse
+- [2026-07-14 08:43] [AgentPowers x WebWokr] AgentPowers bietet Premium-Marktplatz für MCP-kompatible AI-Agenten mit automatisierten Security-Checks und One-Click-Installationen
+- [2026-07-14 06:40] [Decube x WebWokr] Daniela bietet an: kurzer Austausch mit drei konkreten Wegen zur schnelleren Umsetzung von KI-Projekten mit vertrauenswürdigen Daten
+- [2026-07-13 22:08] [Statusabfrage – AI-Agent Beschaffung] Statusabfrage zu: 1) Testphase planmäßig gestartet?, 2) Probleme/Risiken für Go-live?
+- [2026-07-13 22:08] [Statusabfrage – AI-Agent Beschaffung] Statusbericht erforderlich: bis Dienstagabend von Florian Knoblauch angefordert
+- [2026-07-13 22:08] [Statusabfrage – AI-Agent Beschaffung] Intensive Testphase läuft diese Woche mit Ziel: Go-live am Freitag
+- [2026-07-13 22:08] [Statusabfrage – AI-Agent Beschaffung] Testphase für AI-Agent in der Beschaffung begonnen (vorbereitende Woche abgeschlossen)
+- [2026-07-13 22:08] [2026-07-13-image001.png] Projekt: AI-Agent Beschaffung bei Schaufler
+- [2026-07-13 22:08] [2026-07-13-image001.png] Dokumentation vom 13.07.2026 in Prozessia-Vault eingestellt
+- [2026-07-13 22:08] [Bestätigungslink Herr Spuhler Business P] Mohamed Douioui stellt den Antrag auf die Business Platinum Card für das Unternehmen Prozessia GbR
+- [2026-07-13 22:08] [Bestätigungslink Herr Spuhler Business P] Business Platinum Card Antrag für Prozessia GbR (ID 4179830) muss von Sebastian Spuhler bestätigt werden - Bestätigungslink erforderlich, danach Weiterleitung an Fachabteilung zur Prüfung
+- [2026-07-13 22:08] [WG: Anforderung einer zentralen Lösung z] Florian Knoblauch (Bereich Materialwirtschaft/Beschaffung) arbeitet täglich mit hoher Anzahl an E-Mails (projekt-, lieferanten- und auftragsrelevant)
+- [2026-07-13 22:08] [WG: Anforderung einer zentralen Lösung z] Anforderung einer zentralen Lösung zur gemeinsamen E-Mail-Ablage und Wissenssicherung (vom 10. Juli 2026)
+- [2026-07-13 22:08] [👀 Das sehen die meisten erst im Call] Demo-Call geplant: ProviPanda zeigt Plattformaufbau, verfügbare Vertriebler und Use Cases anderer Unternehmen
+- [2026-07-13 22:08] [Der schnellste Weg zu 25k pro Monat 👀] Ziel der Scaling-Session: planbarer Kundengewinnungsprozess für 25k Monatsumsatz entwickeln
+- [2026-07-13 22:08] [Der schnellste Weg zu 25k pro Monat 👀] Felix (KI- und Automations-Mentor) hat Scaling-Session durchgeführt zum Thema Übergang von Dienstleister zu Berater für Kundengewinnung
+- [2026-07-13 22:08] [Zugesagt: Meeting Go Live Beschaffungsag] Meeting Go Live Beschaffungsagent mit Jochen Hettmer (hettmer-edv.de) zugesagt
+- [2026-07-13 22:08] [kurze Frage] Alexander Heeg (aheeg@agency-elite-kontakt.com) möchte mit Sebastian Spuhler telefonieren bezüglich einer Anfrage von gestern
+- [2026-07-13 19:09] [AW: Infos zur WinForm-Sicht] Nächster Schritt: Datenbank Winform2000_TEST.7 einrichten (ausstehend)
+- [2026-07-13 19:09] [AW: Infos zur WinForm-Sicht] Datenbank-User 'Prozessia' innerhalb von Winform2000_TEST.72SQL muss angelegt werden (separater Schritt zu Server-Login)
+- [2026-07-13 19:09] [AW: Infos zur WinForm-Sicht] Datenbank Winform2000_TEST.72SQL lässt sich mit Login noch nicht öffnen (Fehler 4060)
+- [2026-07-13 19:09] [AW: Infos zur WinForm-Sicht] Login auf der Instanz funktioniert erfolgreich (Stand: 9. Juli 2026)
+- [2026-07-13 19:09] [Sebastian, wir starten gleich.] Format: Zoom-Workshop mit Call-to-Action zur Teilnahme
+- [2026-07-13 19:09] [Sebastian, wir starten gleich.] Workshop-Thema: LinkedIn- und Meta-Werbeanzeigen, Fokus auf B2B-Leads über Leadmagneten, Webinare und Salesfunnel
+- [2026-07-13 19:09] [[11:00 Uhr] KMU-Kunden durch Werbeanzeig] Fokus: Leadmagneten, Webinare, Live-Workshops und Sales-Funnel durch Anzeigen-Skalierung
+- [2026-07-13 19:09] [[11:00 Uhr] KMU-Kunden durch Werbeanzeig] Thema: Skalierung von KMU-Kundengewinnung durch optimierte Werbeanzeigen
+- [2026-07-13 19:09] [AW: Infos zur WinForm-Sicht] Test auf Hettmers Seite war erfolgreich durchgeführt (9. Juli 2026)
+- [2026-07-13 19:09] [AW: Infos zur WinForm-Sicht] Passwort für neuen User ist identisch mit dem bisherigen
+- [2026-07-13 19:09] [AW: Infos zur WinForm-Sicht] Neuer User 'Prozessia_T' wurde in der Test-DB angelegt (9. Juli 2026)
+- [2026-07-13 19:09] [Who will you meet at TailscaleUp?] Aufforderung zur Ticketbuchung für TailscaleUp Event
+- [2026-07-13 19:09] [Identifizierung Herr Spuhler American Ex] Identifizierung muss über bereitgestellten Link durchgeführt werden
+- [2026-07-13 19:09] [AW: Statusabfrage – AI-Agent Beschaffung] Nächster Termin: Messprotokolle stehen noch an
+- [2026-07-13 19:09] [AW: Statusabfrage – AI-Agent Beschaffung] IT-seitig: alle Umsetzungen abgeschlossen und aufgetretene Probleme behoben
+- [2026-07-13 19:09] [500k im Jahr mit Webinaren knacken] Strategie: Erhöhung der Webinar-Teilnehmerzahl zur Steigerung der Kundenakquisition
+- [2026-07-13 19:09] [500k im Jahr mit Webinaren knacken] Scaling-Session mit Florian durchgeführt und auf YouTube veröffentlicht
+- [2026-07-13 19:09] [QCG Förderung] Zusätzlicher Zuschuss auf Gehälter von teilnehmenden Mitarbeitern, anteilig zur Consulting-Zeit
+- [2026-07-13 19:09] [QCG Förderung] Förderung bis zu 100% der Consulting-Kosten durch Staat (§ 82 SGB III)
+- [2026-07-13 19:09] [Claude Cheat Sheet] Dokumentation behandelt die Nutzung von Claude/ChatGPT für Brandstorming, Strategie, Positionierung, Sales und Prozesse mit optimalen Fragestellungen
+- [2026-07-13 19:09] [AW: Statusabfrage – AI-Agent Beschaffung] Terminoptionen für Go-Live-Meeting: Dienstag 13. Juli ab 10:30 Uhr, Mittwoch 14. Juli ab 15:30 Uhr oder Donnerstag 15. Juli morgens
+- [2026-07-13 19:09] [AW: Statusabfrage – AI-Agent Beschaffung] Benjamin Schmohl muss zwingend beim Meeting dabei sein
+- [2026-07-13 19:09] [AW: Statusabfrage – AI-Agent Beschaffung] Florian Knoblauch kann erste halbe Stunde des Meetings teilnehmen, hat harten Anschlag um 11:30 Uhr
+- [2026-07-13 19:09] [AW: Statusabfrage – AI-Agent Beschaffung] Meeting zur AI-Agent Beschaffung geplant für Donnerstag, 14. Juli 2026 um 11:00 Uhr
+- [2026-07-13 19:09] [Statusabfrage – AI-Agent Beschaffung] Abfrage erforderlich: Ist Testphase wie geplant gestartet?
+- [2026-07-13 19:09] [Statusabfrage – AI-Agent Beschaffung] Deadline für Zwischenstandmeldung: Dienstagabend
+- [2026-07-13 19:09] [Statusabfrage – AI-Agent Beschaffung] Geplanter Go-live: Freitag (diese Woche)
+- [2026-07-13 19:09] [Statusabfrage – AI-Agent Beschaffung] Testphase soll diese Woche intensiv durchgeführt werden
+- [2026-07-13 19:09] [Statusabfrage – AI-Agent Beschaffung] AI-Agent Beschaffung: Vorbereitungen letzte Woche abgeschlossen
+- [2026-07-13 19:09] [AW: Statusabfrage – AI-Agent Beschaffung] Nächste Schritte: Terminabstimmung für Go-Live-Vorbesprechung erforderlich
+- [2026-07-13 19:09] [AW: Statusabfrage – AI-Agent Beschaffung] Go-Live-Meeting geplant: 1 Stunde Dauer für schrittweisen Plan und Reibungspunkte
+- [2026-07-13 19:09] [AW: Statusabfrage – AI-Agent Beschaffung] Ziel des Meetings: potenzielle Reibungspunkte identifizieren und beseitigen
+- [2026-07-13 19:09] [👀 Das sehen die meisten erst im Call] Demo-Call zeigt: Plattformaufbau, verfügbare Vertriebler, Nutzungsbeispiele anderer Unternehmen
+- [2026-07-13 19:09] [Bestätigungslink Herr Spuhler Business P] Antrag läuft auf den Namen Mohamed Douioui (GbR ID 4179830)
+- [2026-07-13 19:09] [AW: Statusabfrage – AI-Agent Beschaffung] Winformanbindung steht soweit bereit
+- [2026-07-13 19:09] [AW: Statusabfrage – AI-Agent Beschaffung] AI-Agent Beschaffung Projekt läuft – technische Grundvoraussetzungen sind gelegt
+- [2026-07-12 18:52] [CREDENTIALS.md] Credentials Setup erfolgt über Script: cd backend && python3 setup_credentials.py (interaktive Konfiguration)
+- [2026-07-12 18:52] [CREDENTIALS.md] Optionale Google Service Account Automation: Service Account mit Editor-Role erstellen, JSON-Key generieren und in GOOGLE_SERVICE_ACCOUNT_JSON eintragen.
+- [2026-07-12 18:52] [CREDENTIALS.md] Für Google Workspace Integration muss OAuth 2.0 Client ID von https://console.cloud.google.com erstellt werden und als JSON in GOOGLE_CREDENTIALS_JSON in backend/.env eingetragen werden.
+- [2026-07-12 17:52] [2026-07-12-Konzept_Meeting-CRM-Agent.md] Prozessia nutzt bereits intern produktiv einen Meeting-to-CRM-Mechanismus: Kunden-Meeting-Transkripte landen im Vault unter Kunden/<Firma>/Meetings/, werden automatisch klassifiziert und zusammengefasst via _agent/heartbeat.py und classify.py (Stand: 2026-07-12)
+- [2026-07-04 13:05] [2026-06-09-Immobilien_final.md] Cold-Outreach-Kampagne für Immobilienbranche mit KI-Agenten für Interessentenkommunikation geplant
+- [2026-07-04 13:05] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus – mit Prozessia Voice Agent 🚗 – Prozessia.md] Voice Agent automatisiert Telefonanfragen zu Service, Werkstattterminbuchungen und Probefahrten
+- [2026-07-04 13:05] [2026-06-09-Finom_payment_13112025 (1).md] Zahlungsbeleg vom 13.11.2025 an cy re Rechtsanwaltsgesellschaft mbH über 450,00 EUR mit Referenz CY-16562-MM
+- [2026-07-04 13:05] [2026-06-09-Rechnung Joel Wagner.md] Excel Meta-Ads-Tracking-Sheet Anpassung für Prozessia GbR
+- [2026-07-04 13:05] [25-19efe63f-Sebastian---still-a-quote--Street-View-I.md] Aktion erforderlich: Sebastian sollte mit Josh Rixey bezüglich des Street-View-Angebots in Kontakt treten
+- [2026-07-04 13:05] [2026-06-09-Report Immobilienmarkler.md] Manuelle Terminvereinbarungen für Besichtigungen führen zu Doppelungen und Verzögerungen
+- [2026-07-04 13:05] [2026-06-09-Report Immobilienmarkler.md] Kritische KPIs für Immobilienunternehmen: Besichtigungsquote, Vermarktungsdauer, Abschlussrate
+- [2026-07-04 13:05] [2026-06-09-Report Immobilienmarkler.md] Lösungsansätze: Zentrales CRM, automatisierte Kommunikation, digitale Objektverwaltung, automatische Reports
+- [2026-07-04 13:05] [2026-06-09-Report Immobilienmarkler.md] Hauptherausforderung: Zersplitterte Interessentenverwaltung über E-Mail, Telefon, Immobilienportale und Social Media ohne zentrale Erfassung
+- [2026-07-04 13:05] [30-19f182de-How-can-we-make-it-work--ought-care-sing.md] Anfrage nach Diskussionstermin und zusätzliche Informationen gewünscht
+- [2026-07-04 13:05] [schaufler.md] Offene Aufgabe: Lexoffice Angebot final fertigstellen
+- [2026-07-04 13:05] [schaufler.md] Nächster Schritt: Stücklistenagent als neues Projekt anbieten
+- [2026-07-04 13:05] [2026-06-16.md] LinkedIn-Wochenplan für KW 25 (16.–20. Juni 2026) wird aufgesetzt – zwei Posts geplant
+- [2026-07-04 13:05] [2026-06-16.md] Sebastian benötigt Echtzeit-Zugriff auf E-Mail und Kalender via Gmail/Outlook-Client für vollständige Verwaltung
+- [2026-07-04 13:05] [2026-06-09-leads.md] Daten stammen aus automatisiertem Import mit OSM-Overpass-Schlüsseln aus Leads.xlsx
+- [2026-07-04 13:05] [15-19ecc940-Sebastian-lets-get-in-touch--9XAT619-ZRS.md] Angestrebter Call-Termin: Woche ab 22. Juni 2026
+- [2026-07-04 13:05] [2026-06-09-Schaufler Prototyp.md] Lieferanten-Score-Berechnung ist Teil des Prototyps
+- [2026-07-04 13:05] [2026-06-09-Schaufler Prototyp.md] KI-Beschaffungsagent mit automatischen Eskalations-E-Mails bei fehlenden oder abweichenden Auftragsbestätigungen
+- [2026-07-04 13:05] [2026-06-09-Prozessia-Informationen-fur-Vertriebspartner (1).md] Vertriebspartner-Ablauf: Eigenständige Akquise → Erstkontakt mit Entscheidern → Lead-Qualifizierung
+- [2026-07-04 13:05] [2026-06-09-Rag Agent.md] Technische Umsetzung: Dokumente werden via Text-Splitter aufbereitet und als Embeddings in Pinecone indexiert
+- [2026-07-04 13:05] [2026-06-09-Rag Agent.md] Funktionalität: AI-Agent als HR-Assistent beantwortet Mitarbeiterfragen basierend auf internen Dokumenten
+- [2026-07-04 13:05] [2026-06-09-Rag Agent.md] RAG Agent: n8n-Workflow zur Verarbeitung von Unternehmensdokumenten aus Google Drive mit Pinecone Vektordatenbank und Google Gemini Embeddings
+- [2026-07-04 13:05] [2026-06-09-Rechnung_vapi.md] Vapi Voice Agent mit Twilio-Anbindung, Outlook-Kalender-Integration, Qdrant-Collection und Webhook-Übergabe für transkribierte Skripte
+- [2026-07-01 20:12] [Sebastian, here's the bottom line. | KT1] Anfrage für Terminfindung zu Gespräch über mögliche Zusammenarbeit
+- [2026-07-01 18:21] [README.md] Backend-Setup erfordert Virtual Environment, pip install aus requirements.txt, .env-Datei mit VAULT_PATH, ANTHROPIC_API_KEY und SESSION_SECRET
+- [2026-07-01 18:21] [README.md] Für lokale Entwicklung erforderlich: Python 3.11+, Node.js 20+, Anthropic API Key, lokaler Vault-Ordner
+- [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Zusätzlich zu GraphQL-API existieren ältere COM-/Aktiv-Schnittstellen für Windows-Anwendungen
+- [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] microtech bietet GraphQL-API für Zugriff auf ERP-Daten und externe Systemintegration
+- [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-1.md] Vier Prozeßbeschreibungen zur Analyse vorgesehen: Kleinaufträge (Ersatzteile), ergänzender Workflow, Lohnfertigung, Wareneingang
+- [2026-07-01 13:33] [2026-07-01-AVV_Schaufler_Prozessia.md] Gegenstand: Entwicklung, Bereitstellung und Betrieb eines softwarebasierten Beschaffungsagenten zur automatisierten Verarbeitung von Beschaffungsdokumenten und ERP-Abgleich
+- [2026-07-01 13:33] [AW: Unser Gespräch MTO Days] Nach Erhalt der Unterlagen: Prozessia wird interaktiven Chatbot-Beispiel demonstrieren
+- [2026-07-01 13:33] [AW: Unser Gespräch MTO Days] Kunde (Bender) soll repräsentative Unterlagen für Chatbot-Wissensbasis zusammenstellen
+- [2026-07-01 13:33] [AW: Unser Gespräch MTO Days] Machbarkeitsstudie geplant: Abbildung des Handbuchs des Produkts ISOMETER® iso175
+- [2026-07-01 13:32] [Generate AI images with the Cloudinary c] Neue Funktion nutzt bestehende API-Credentials, Media Library und CDN-Pipeline - keine neue Infrastruktur erforderlich
+- [2026-07-01 13:32] [Generate AI images with the Cloudinary c] Cloudinary Image Generation ist ab sofort im Account verfügbar und ermöglicht AI-gestützte Bildgenerierung ohne zusätzliche Integration
+- [2026-07-01 13:32] [4 Jahre lang Werbeanzeigen falsch gescha] Empfohlene Methode: Vier verschiedene Marketing-Winkel definieren und zu jedem eine einfache Anzeige produzieren (Timeframe: 3-4 Tage statt 3 Wochen für Visual-Diskussionen)
+- [2026-07-01 13:32] [Collaboration | community_customs_st ZRS] Nächster Schritt: LinkedIn-Verbindung mit Trinity Coleman erwägen und Relevanz des Angebots für community_customs_st klären
+- [2026-07-01 13:32] [Angebot AG0027 von Prozessia] Angebot AG0027 liegt als Anhang vor und wurde dem Empfänger zugestellt
+- [2026-06-30 15:06] [2026-06-30.md] Dokumente vorhanden: AVV_Schaufler_Prozessia_ausgefuellt, SLA_Schaufler
+- [2026-06-30 15:05] [ISO 27001 bei Prozessia] Automatisierte Plattform mit geschätztem internem Aufwand von etwa 6 Stunden pro Woche
+- [2026-06-30 15:05] [ISO 27001 bei Prozessia] Secfix bietet Lösung zur ISO 27001 Konformität innerhalb von 8 Wochen an
+- [2026-06-30 15:05] [ISO 27001 bei Prozessia] Anfrage: Stehen ISO 27001, SOC 2 oder weitere Compliance-Anforderungen für 2026 auf der Roadmap von Prozessia?
+- [2026-06-30 15:05] [AW: Potenzialanalyse Endin X Prozessia] Workflow zum Wareneingang (Teil der Abwicklung)
+- [2026-06-30 15:05] [AW: Potenzialanalyse Endin X Prozessia] Ergänzender Workflow zum Kleinauftrags-Prozess
+- [2026-06-30 15:05] [AW: Potenzialanalyse Endin X Prozessia] Prozess zur Abwicklung von Kleinaufträgen (z.B. Ersatzteile)
+- [2026-06-30 15:05] [AW: Potenzialanalyse Endin X Prozessia] Cyril Dietz stellt Prozessbeschreibungen zur Verfügung für Potenzialanalyse Endin X Prozessia
+- [2026-06-30 15:05] [Infomaterial + Antragslinks American Exp] Beantragungslink für Karte mit verlängertem Zahlungsziel bereitgestellt
+- [2026-06-30 15:05] [Infomaterial + Antragslinks American Exp] Angebot: American Express Business Platinum Card mit 200.000 Membership Rewards Punkte bei 15.000 EUR Umsatz auf Businesskarten in ersten 6 Monaten
+- [2026-06-30 15:05] [Looking forward to meeting you | H3F6MZ7] Noelle Shoemaker bietet an, Sebastian Spuhler von ihrer Kontaktliste zu entfernen, falls kein Interesse besteht
+- [2026-06-30 15:05] [AW: Potenzialanalyse Endin X Prozessia] Verfügbare Schnittstellen für microtech: GraphQL-API (modern), COM-/Aktiv-Schnittstellen (Windows), REST-Middleware von Drittanbietern
+- [2026-06-30 15:05] [AW: Potenzialanalyse Endin X Prozessia] microtech-Programmierschnittstellen sind nicht so offen dokumentiert wie Lexoffice oder sevDesk
+- [2026-06-30 15:05] [Partner-Sommer-Bonus: 35% + plus 150€ Ex] Update-Webinar findet morgen statt
+- [2026-06-30 15:05] [Partner-Sommer-Bonus: 35% + plus 150€ Ex] Ab sofort müssen alle Leads im Reservierungstool von fonio eingetragen werden
+- [2026-06-29 14:09] Sebastian hält den Rabatt bei Schaufler bewusst in der Hinterhand und definiert Laufzeiten (Mindestlaufzeit, Verlängerung, Kündigung) im SLA statt im AVV, damit alles rechtlich stimmig ist.
+- [2026-06-29 13:56] [2026-06-29-AVV_Schaufler_Prozessia_ausgefuellt (2).md] Entwicklung und Betrieb eines softwarebasierten Beschaffungsagenten zur automatisierten Verarbeitung von Beschaffungsdokumenten und ERP-Abgleich
+- [2026-06-29 13:56] [New product | QRV7G00 ZRSMQTG] Kundin sucht Unterstützung für Social-Media-Management
+- [2026-06-29 13:56] [Sebastian - looking forward to meeting y] Nächster Schritt: Arbeitsbeispiele/Portfolio-Samples an Sariah Oleary senden
+- [2026-06-29 13:56] [Would love to work with you | Q62KE79 ZR] Nächstes Treffen findet in der kommenden Woche statt
+- [2026-06-29 13:56] [Would love to work with you | Q62KE79 ZR] Sophia Cooper fordert Arbeitsbeispiele und Portfolio-Samples an
+- [2026-06-29 13:56] [Ihre Zugangsdaten] Weitere E-Mails mit Serverzugangsdaten folgen nach Fertigstellung, falls Server bestellt wurde
+- [2026-06-29 13:56] [Ihre Zugangsdaten] Cloud Angebot verfügbar unter https://console.hetzner.com
+- [2026-06-29 13:56] [Ihre Zugangsdaten] Hetzner Administrationsoberfläche Zugangsdaten bereitgestellt: URL https://accounts.hetzner.com, Kundennummer K0631688826, Login sebastian.spuhler@prozessia.de
+- [2026-06-29 13:56] [Sebastian, we'd like to hear from you! |] Telefonat mit Josh Whitfield geplant für nächste Woche
+- [2026-06-29 13:56] [Sebastian, let's get together! | 82HW7MA] Sarah Jaars bittet um Feedback zu ihrem aktuellen Projekt
+- [2026-06-29 13:56] [prozessia.de in ChatGPT verbessern] Einmaliges Sonderangebot zur Optimierung der KI-Sichtbarkeit für 79,99 €
+- [2026-06-29 13:56] [Sebastian - got your email | 1E6X767 ZRS] Anfrage: Kann jemand aus Sebastians Team Social-Media-Management übernehmen?
+- [2026-06-29 13:56] [Re: Unser Termin] Vorlagen für die Besprechung wurden von Gert Mundinger nicht zusammengestellt
+- [2026-06-29 13:56] [Sebastian - we can’t wait to see you | 4] Demo-Angebot von Janelle J. liegt vor
+- [2026-06-29 13:56] [Need your help | G2NE2AW ZRSMQTG] Nächster Schritt: Spencer Lussier möchte sich über LinkedIn verbinden
+- [2026-06-27 16:45] [Wenn du auf der Stelle trittst...] Empfehlung: Alle anderen Aktivitäten (Webseite, CRM, neue Kanäle, Rebranding) aufschieben, da sie nur Ablenkung sind
+- [2026-06-27 16:45] [Wenn du auf der Stelle trittst...] Empfehlung: In dieser Wachstumsphase nur zwei Aktivitäten priorisieren - Terminvergabe und Terminabschluss
+- [2026-06-27 15:35] [New API key created on Buffer] API-Schlüssel 'Mykey' für Buffer wurde am 27. Juni 2026 um 13:31:25 UTC erfolgreich erstellt
+- [2026-06-27 15:30] [Sebastian - interested in learning more?] Anfrage zur Entwicklung einer neuen Website/App/Produkt
+- [2026-06-27 13:08] [Bildschirmfoto 2026-06-27 um 13.07.15_vision.md] Infrastruktur: 1 Bankkonto, 1 Kasse, PayPal als Payment Provider, ca. 138 Anlagegüter
+- [2026-06-27 13:08] [Bildschirmfoto 2026-06-27 um 13.07.15_vision.md] Zahlungsvolumen: ca. 100 manuelle Zahlungen/Monat, ca. 90 Ausgangsrechnungen/Monat, ca. 170 Bankbuchungen/Monat, ca. 10 Kassenbuchungen/Monat
+- [2026-06-27 13:08] [2026-06-27-Bildschirmfoto 2026-06-27 um 13.07.15_vision.md] Mengengerüst umfasst zusätzlich: Bankkonten, Kassen, Anlagevermögen, Reisekostenabrechnungen, Kreditkartenabrechnungen und Reporting
+- [2026-06-27 13:08] [2026-06-27-Bildschirmfoto 2026-06-27 um 13.07.15_vision.md] Verkauf über eBay mit PayPal als Payment-Provider; Rechnungen aus ERP-Programm und manuelle Erfassung im Buchhaltungsprogramm
+- [2026-06-27 13:08] [2026-06-27-Bildschirmfoto 2026-06-27 um 13.07.15_vision.md] Circa 100 manuelle Zahlungen pro Monat, keine aus Fibu erzeugten Zahlläufe
+- [2026-06-27 13:07] [2026-06-27-Bildschirmfoto 2026-06-27 um 13.05.52_vision.md] Finanzbuchhaltung: SKR 04, DATEV, ca. 800 Buchungssätze/Monat, ca. 130 Eingangsrechnungen/Monat
+- [2026-06-27 13:07] [Bildschirmfoto 2026-06-27 um 13.05.52_vision.md] Buchhaltungssoftware: Datev Kanzlei Rewe
+- [2026-06-27 13:07] [Bildschirmfoto 2026-06-27 um 13.05.52_vision.md] Kontenrahmen: SKR 04
+- [2026-06-27 13:03] [2026-06-27-Outsourcing Checkliste.md] Kostenrechnung-Daten erforderlich: Anzahl Kostenstellen und Kostenträger
+- [2026-06-27 13:03] [2026-06-27-Outsourcing Checkliste.md] Mengengerüst-Erfassung: Genehmigungsverfahren, Anzahl Eingangsrechnungen/Monat, Aufteilung Lastschrift/Überweisung
+- [2026-06-27 13:03] [2026-06-27-Outsourcing Checkliste.md] Erforderliche Daten: Kontenrahmen, Buchhaltungssoftware, monatliche Buchungssätze, Mitarbeiterzahl Finanzbuchhaltung (inkl. Aufteilung Kreditoren/Debitoren)
+- [2026-06-27 13:03] [2026-06-27-Outsourcing Checkliste.md] Checkliste erfasst Unternehmensinformationen in Bereichen: Kreditoren, Debitoren, Banken, Kassen, Anlagevermögen, Reisekosten und Reporting
+- [2026-06-27 12:53] LinkedIn-Posts werden in Buffer eingeplant, jeweils für die Prozessia Unternehmensseite UND Sebastians privaten LinkedIn-Account (= immer doppelte Einträge pro Post).
+- [2026-06-27 12:51] [2026-06-27-beitraege-2026-06-27.md] Claude-LinkedIn-Auto-Poster generiert wöchentlich automatisierte LinkedIn-Posts (Generierungsdatum: 27.06.2026 für Woche 01.–03.07.2026)
+- [2026-06-27 12:50] [2026-06-27-ideen-2026-06-27.md] Post-Ideen enthalten standardisiert: Hook, Kernbotschaft, Zielgruppe, Formatempfehlung, CTA – noch nicht als fertige Texte ausgeschrieben
+- [2026-06-27 12:50] [2026-06-27-ideen-2026-06-27.md] Claude-LinkedIn-Auto-Poster generiert regelmäßig Post-Ideen für Prozessia GbR (zuletzt 27.06.2026 mit 10 Ideen)
+- [2026-06-27 12:47] [2026-06-27.md] 10 generierte Post-Ideen vorhanden (Stand 07.06.2026), noch nicht als fertige Posts ausgeschrieben. Themen: KI-Strategie im Einkauf, DSGVO-Bußgelder, KI-Implementierung für KMU
+- [2026-06-27 12:47] [2026-06-27.md] LinkedIn Autoposter: Für Woche 30.06.–06.07.2026 sind keine Beiträge geplant
+- [2026-06-27 10:24] [Sebastian - what's the next step? | ough] Simon Rieck (Nordic Scale Solutions) möchte ein Gespräch mit Sebastian Spuhler vereinbaren, um eine mögliche Zusammenarbeit zu besprechen
+- [2026-06-27 10:24] [I need to discuss this with you | DAVM9X] Selena Church bietet an, auf Facebook oder LinkedIn in Kontakt zu bleiben
+- [2026-06-27 10:24] [I need to discuss this with you | DAVM9X] Selena Church möchte über ein neues Website/App/Produkt-Projekt diskutieren
+- [2026-06-27 10:24] [Sebastian, new customers? | DAVM9XE ZRSM] Telefonisches Gespräch zur Diskussion der Zusammenarbeit wird angeboten
+- [2026-06-27 10:24] [Let's get together! | CBR25T8 ZRSMQTG] Sabrina möchte Sebastians Blog lesen und bittet um Gedanken zu einem Post
+- [2026-06-27 10:24] [Let's get together! | CBR25T8 ZRSMQTG] Sabrina sucht nach einem Partner im Content-Bereich und hat einen potenziellen Client, der passen könnte
+- [2026-06-27 10:24] [Sebastian - we can do this! | QRV7G00 ZR] Tasha Kirkland schlägt ein Telefongespräch für die nächste Woche vor, um ein neues Projekt zu besprechen
+- [2026-06-27 10:24] [Sebastian, your social media plan | GN41] Anfrage nach Kontakten/Partnern für SEO-Projekt - Antwort erforderlich
+- [2026-06-26 13:47] [Can we talk? | been_rate ZRSMQTG] Nächster Schritt: Angebot der Spezialisierungen und Dienstleistungen von Prozessia GbR klären
+- [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] John soll nächste Woche eine Erinnerung senden
+- [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Nächster Schritt: Sebastian soll Arbeitsproben und Beispiele seiner bisherigen Arbeiten einreichen
+- [2026-06-25 16:21] Klarstellung zu Schaufler erforderlich bezüglich separater Serverkosten
+- [2026-06-25 16:05] Deploy des Servers ist Teil der Umsetzung der Server-Infrastruktur für Schaufler
+- [2026-06-25 15:53] Sebastian fordert an: Transkript analysieren und in bestehende Schaufler-Dokumentstruktur einsortieren
+- [2026-06-16 15:57] Der Chatbot soll aktiv melden, wenn eine Datei nicht zuordenbar ist, das Problem klar benennen, Kontext liefern (z.B. Hinweise auf Fehler wie '0 am Ende') und konkrete Ablagerichtlinien geben
+- [2026-06-16 15:35] Benachrichtigung muss Kontext liefern und konkrete Handlungsanweisung geben (z.B. Ablagerichtlinien wie Dateiendung '0')
+- [2026-06-16 15:35] Benachrichtigung muss Problem klar benennen (z.B. 'Achtung: wir haben ein Problem')
+- [2026-06-16 15:35] Chatbot soll aktive Benachrichtigungen schicken, wenn Dateien mit falscher Positionsnummer oder falschem Projekt vom Lieferanten ankommen
+- [2026-06-16 15:34] Benjamin Schmohl Visionsidee: Chatbot-System zur automatischen Benachrichtigung bei nicht zuordenbaren Dateien (ähnlich ChatGPT-Funktionalität)
+- [2026-06-16 15:34] Benjamin Schmohl schlägt vor: Alle Messberichte in einen zentralen Ordner packen und sauber umbenennen, da Zuordnung ohnehin manuell erfolgt
+- [2026-06-16 15:17] Auftragsbestätigung für Bestellung 127412 hat hohe Priorität und steht noch aus
+- [2026-06-16 15:15] [Email: WG: Messberichte] Idee: Chatbot für Benachrichtigungen, wenn Dateien nicht zuordenbar sind
+- [2026-06-16 15:15] [Email: Bestellung 127412] Auftragsbestätigung erforderlich: Bestellung 127412 mit Datum, Signatur und Firmenstempel zurückschicken
+- [2026-06-16 15:15] [Email: WG: Messberichte] Möglichkeit: Alle Dateien in einen Ordner packen und sauber umbenennen
+- [2026-06-16 15:15] [Email: Bestellung 127412] Neue Bestellung 127412 von Schaufler Tooling GmbH & Co. KG eingegangen
+- [2026-06-16 15:15] [Email: WG: Messberichte] Weitere Transfer Links für Messberichte-Formen kommen hinzu
+- [2026-06-16 15:15] [Email: Kontakte-Feature testen und erster Partner Online ] Reseller-Dashboard ermöglicht es, nächste Kunden selbst anzulegen und Abrechnung zu übernehmen
+- [2026-06-16 15:15] [Email: Kontakte-Feature testen und erster Partner Online ] Neue Kontakte-Funktion von fonio ab Donnerstag verfügbar - erfasst automatisch Personen aus Anrufen/WhatsApp und speichert ihre Informationen
+- [2026-06-16 15:15] [Email: Kontakte-Feature testen und erster Partner Online ] Einladung zum ersten Partner-Online-Stammtisch von fonio
+- [2026-06-16 15:15] [Email: Kontakte-Feature testen und erster Partner Online ] Reseller-Dashboard: Möglichkeit, nächste Kunden anzulegen und Abrechnung selbst zu übernehmen
+- [2026-06-16 15:15] [Email: Kontakte-Feature testen und erster Partner Online ] Neue Kontakte-Funktion ab Donnerstag verfügbar - automatische Erfassung von Anrufern und WhatsApp-Kontakten mit Informationsspeicherung
+- [2026-06-16 15:15] [Email: Zugesagt: Potenzialanalyse Endin X Prozessia] Neuer Auftrag: Potenzialanalyse für Endin X Prozessia
+- [2026-06-16 12:07] Sebastian erwartet, dass Brain E-Mails und Dokumente zur Bestellung selbstständig überprüft
+- [2026-06-16 09:58] Content-Generator für 3 Posts ausgelöst: Di 16.06. DSGVO-Bußgelder, Mi 17.06. KI-Strategie im Einkauf (52%), Do 18.06. KI ohne IT
+- [2026-06-16 09:58] Content-Generator für 3 LinkedIn Posts ausgelöst: Di 16.06. DSGVO-Bußgelder, Mi 17.06. 52% ohne KI-Strategie, Do 18.06. KI ohne IT
+- [2026-06-16 09:57] Content-Generator wird ausgelöst für drei Posts: Di 16.06. DSGVO-Bußgelder, Mi 17.06. 52% ohne KI-Strategie, Do 18.06. KI ohne IT-Abteilung
+- [2026-06-16 09:32] Sebastian nutzt einen 'contentgenerator' zur Erstellung von LinkedIn Posts
+- [2026-06-16 09:31] Sebastian bestätigt Veröffentlichungsplan und erwartet Ausschreitung aller drei Artikel zur Veröffentlichung
+- [2026-06-16 09:31] Drei Content-Stücke sind terminiert: Dienstag 16.06. (DSGVO-Bußgelder 1,2 Mrd. €), Mittwoch 17.06. (52 % ohne KI-Strategie im Einkauf), Donnerstag 18.06. (KI ohne IT-Abteilung für KMU)
+- [2026-06-16 09:30] Posts werden an drei Tagen erstellt: Dienstag 16.06., Mittwoch 17.06., Donnerstag 19.06.
+- [2026-06-16 09:29] Brain schlägt vor, dass maximal zwei Posts pro Woche möglich sind und bietet drei Optionen zur Auswahl
+- [2026-06-16 09:28] Zwei LinkedIn Posts sollen für KW 25 geplant werden
+- [2026-06-13 12:37] Sebastian möchte einen Recherche-Prompt für Claude erhalten, um die besten Messen und Veranstaltungen für dieses Jahr zu identifizieren
+- [2026-06-13 12:22] Lexoffice-Angebot für Schaufler vor Versand auf 280 €/Monat prüfen und ggf. anpassen
+
