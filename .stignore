@@ -1,8 +1,13 @@
-# Syncthing-Ignore fuer den Ordner "prozessia-content" - Allowlist statt
-# Blockliste (analog zur REORG_TOP_LEVEL-Logik in classify.py): nur die
-# Dokumentenordner werden synchronisiert, Code/Build-Artefakte/.git bleiben
-# aussen vor und laufen weiterhin ausschliesslich ueber Git.
-*
+// Syncthing-Ignore fuer den Ordner "prozessia-content" - Allowlist statt
+// Blockliste (analog zur REORG_TOP_LEVEL-Logik in classify.py): nur die
+// Dokumentenordner werden synchronisiert, Code/Build-Artefakte/.git bleiben
+// aussen vor und laufen weiterhin ausschliesslich ueber Git.
+//
+// WICHTIG (live herausgefunden, 2026-08-14): Syncthing wertet Regeln anders
+// aus als .gitignore - first-match-wins statt last-match-wins. Die
+// "!"-Ausnahmen MUESSEN deshalb VOR der blanket "*"-Ignore-Regel stehen,
+// sonst greift die Ausnahme nie (getestet: bei "*" zuerst wurden 0 Dateien
+// erkannt, bei Ausnahmen zuerst korrekt alle 524 Dateien in Kunden/ allein).
 !/Kunden
 !/Kunden/**
 !/Leads
@@ -21,3 +26,4 @@
 !/Memos/**
 !/_inbox
 !/_inbox/**
+*
