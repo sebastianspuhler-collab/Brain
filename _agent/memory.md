@@ -619,6 +619,8 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-14 22:04] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] Risikoklasse noch zu klären: minimales Risiko oder begrenztes Risiko
+- [2026-08-14 22:04] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] EU-KI-Act Compliance: KI-Richtlinie wird erstellt, Prozessia-Agent Cloud-basiert im Einsatz
 - [2026-08-14 22:00] [2026-06-09-Lexoffice 11 24.md] Leistungszeitraum: 06.11.2024 - 06.12.2024
 - [2026-08-14 22:00] [2026-06-09-Lexoffice 09 25.md] Zahlungsziel: 12.09.2025, Zahlungsart: SEPA-Lastschrift, Gläubiger-ID: DE68ZZZ00000207489
 - [2026-08-14 21:59] [2026-06-09-Lexoffice 06 25.md] Zahlungsweise: SEPA-Lastschrift; Zahlungsziel: 13.06.2025; Gläubiger-ID: DE68ZZZ00000207489
@@ -946,6 +948,7 @@
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-14 22:04] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] Offene Punkte: Einsatzbereiche, Nutzergruppen und erlaubte Tätigkeiten müssen präzise definiert werden
 - [2026-08-14 21:54] [NOTIZEN.md] 58 Buchungen markiert als UNKLAR und benötigen manuelle Prüfung: World Class Marketing LLC, Reisekosten (Hotels/Restaurants), diverse SaaS-Abos
 - [2026-08-14 21:53] [PRUEFFAELLE.md] Instantly-Belege: Systematische Fremdwährungsprobleme (USD) - Kartenumrechnung weicht ab, manuelle Überprüfung erforderlich
 - [2026-08-14 21:52] [06_recherche_beleg_fehlt.md] Bolt/StackBlitz (17,73 EUR, 2025-05-30): Stripe-Beleg Nr. 2514-9086, 20,00 $ Pro-Plan, FX-Rate 0,8865 – als PDF in Rechnungen/ ablegen
