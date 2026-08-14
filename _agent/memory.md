@@ -1263,6 +1263,9 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-14 09:11] [2026-08-14-Prozessia X TopDown.md] Schnittstelle 2 – DATEV: fertig verbuchter Beleg wird an Steuerberater übertragen
+- [2026-08-14 09:11] [2026-08-14-Prozessia X TopDown.md] Schnittstelle 1 – E-Mail: Outlook via Microsoft Graph API (Standard-Setup, IT-Ansprechpartner erforderlich)
+- [2026-08-14 09:11] [2026-08-14-Prozessia X TopDown.md] Agent-Scope erweitern: Kontierung/Verbuchung mit Buchungsvorschlag auf Basis der Rechnung erforderlich (nicht nur Erkennung/Prüfung)
 - [2026-08-14 09:04] [2026-08-14-Prozessia X TopDown.md] Schnittstellen identifiziert: E-Mail/Outlook (Microsoft Graph API), DATEV
 - [2026-08-14 09:04] [2026-08-14-Prozessia X TopDown.md] Sebastians Empfehlung: Kontierung parallel zur Projektleiter-Freigabe, vor DATEV-Übertragung; individuell je Unternehmensstruktur
 - [2026-08-14 09:04] [2026-08-14-Prozessia X TopDown.md] Offene Frage Dominik: An welcher Stelle im Freigabeprozess erfolgt Verbuchung (vor ERP-Übertragung, nach Freigabe oder in Vorprüfung)?

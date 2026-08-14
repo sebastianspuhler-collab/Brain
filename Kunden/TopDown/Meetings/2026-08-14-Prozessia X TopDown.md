@@ -1,6 +1,6 @@
 ---
 tags: [Meeting, TopDown, Beschaffungsagent, Rechnungsverarbeitung, Schnittstellen]
-quelle: Prozessia X TopDown (1).docx
+quelle: Prozessia X TopDown (2).docx
 datum: 2026-08-14
 kategorie: Kunde
 ---
@@ -51,7 +51,9 @@ hatte. Dominik hatte die Präsentation erhalten und intern kurz vorgestellt.
 - Ansprechpartner bei TopDown für Club Manager/ERP sowie für DATEV/Steuerberater sind noch zu klären.
 
 ## Status
-Transkript-Ausschnitt endet mitten im Gespräch (Thema Sprachmodell/Deployment) – ggf. lief das Meeting
-danach noch weiter, das ist im vorliegenden Anhang nicht mehr enthalten.
+Vollständiges Transkript (Korrektur 14.08.: Quelle ist "Prozessia X TopDown (2).docx", die
+vollständige Fassung des Gesprächs – nicht die zuvor eingeordnete verkürzte Version (1).docx).
+Inhaltlich deckt sich das Gespräch mit der obigen Zusammenfassung; das Meeting endet nach der
+Erklärung zum Sprachmodell/Azure-Deployment ohne weitere neue inhaltliche Punkte.
 
 Nächster bekannter Termin: **08.09.2026, 13:00 Uhr – "Angebotsdurchsprache Prozessia X TopDown"** (Teams).
