@@ -648,11 +648,20 @@ def unwrap_legacy_pairing_folders(parent: Path) -> dict:
             continue  # Kollision - lieber liegen lassen als überschreiben
 
         md_ziel_ordner.mkdir(exist_ok=True)
-        shutil.move(str(original), str(ziel_original))
-        for md in md_dateien:
-            zielpfad = md_ziel_ordner / md.name
-            shutil.move(str(md), str(zielpfad))
-            moves.append((md, zielpfad))
+        try:
+            shutil.move(str(original), str(ziel_original))
+            for md in md_dateien:
+                zielpfad = md_ziel_ordner / md.name
+                shutil.move(str(md), str(zielpfad))
+                moves.append((md, zielpfad))
+        except (FileNotFoundError, shutil.Error):
+            # Quelle ist zwischen Auflisten und Verschieben verschwunden -
+            # z.B. weil derselbe Ordner gleichzeitig vom periodischen
+            # Hintergrund-Job (jobs.py:vault_reorganize_loop) bearbeitet
+            # wurde (Sebastian, 2026-08-14: bei einem manuell angestoßenen
+            # Testlauf parallel zum Loop beobachtet). Einzelnen Wrapper
+            # überspringen statt den ganzen Durchlauf abzubrechen.
+            continue
         try:
             sub.rmdir()
         except OSError:
@@ -689,7 +698,10 @@ def separate_md_files(folder: Path) -> dict:
         zielpfad = ziel / md.name
         if zielpfad.exists():
             continue
-        shutil.move(str(md), str(zielpfad))
+        try:
+            shutil.move(str(md), str(zielpfad))
+        except (FileNotFoundError, shutil.Error):
+            continue  # siehe Kommentar in unwrap_legacy_pairing_folders() - Race mit parallelem Lauf
         moves.append((md, zielpfad))
     return {"ordner": str(folder), "verschoben": len(moves), "moves": moves}
 
@@ -752,7 +764,10 @@ Ordnername (keine Sonderzeichen außer _)."""
         while ziel.exists():
             ziel = kategorie_ordner / f"{f.stem}({zaehler}){f.suffix}"
             zaehler += 1
-        shutil.move(str(f), str(ziel))
+        try:
+            shutil.move(str(f), str(ziel))
+        except (FileNotFoundError, shutil.Error):
+            continue  # siehe Kommentar in unwrap_legacy_pairing_folders() - Race mit parallelem Lauf
         moves.append((f, ziel))
 
     return {"ordner": str(folder), "verschoben": len(moves), "moves": moves}
