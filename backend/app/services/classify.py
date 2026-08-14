@@ -231,19 +231,35 @@ def _scan_vault_folders() -> str:
     return "\n".join(lines)
 
 
+_MEMORY_RULES_MAX_LINES = 60
+
+
 def _load_memory_rules() -> str:
+    """Liest NUR den '## REGEL'-Abschnitt aus memory.md - das sind echte,
+    kuratierte Ablage-/Verhaltensregeln. '## PROZESS' wurde hier bis
+    2026-08-14 mit eingelesen, ist aber tatsächlich ein unbegrenzt
+    wachsendes, chronologisches Log einzelner Business-Fakten aus JEDER
+    verarbeiteten Datei (memory.learn_from_file(), memory.py) - keine
+    Ablageregeln. Das ließ den Abschnitt auf ~880 Zeilen/140KB anwachsen und
+    blähte den classify()-Prompt so stark auf, dass die Klassifizierung
+    mancher Dateien fehlschlug ("API-Klassifizierung fehlgeschlagen").
+    Zusätzliche Zeilen-Obergrenze als Schutz, falls REGEL selbst irgendwann
+    stark wächst - nimmt dann die neuesten Einträge (die stehen laut
+    append_to_memory() direkt nach der Überschrift, also zuerst)."""
     settings = get_settings()
     if not settings.memory_path.exists():
         return ""
     lines = []
     in_section = False
     for line in settings.memory_path.read_text(encoding="utf-8").splitlines():
-        if line.startswith("## REGEL") or line.startswith("## PROZESS"):
+        if line.startswith("## REGEL"):
             in_section = True
         elif line.startswith("## ") and in_section:
-            in_section = False
+            break
         elif in_section and line.startswith("- "):
             lines.append(line)
+            if len(lines) >= _MEMORY_RULES_MAX_LINES:
+                break
     return "\n".join(lines)
 
 
