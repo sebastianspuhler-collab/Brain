@@ -92,6 +92,7 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-14 20:49] [Angebot_AG0027_01.07.2026.md] Angebot AG0027 für Campus Starterzentrum Gebäude A1, 166123 Saarbrücken (Kundennr. 1000101)
 - [2026-08-14 20:47] [2026-06-09-Angebot_AG0010_17.09.2025.md] Prozessia GbR, Kundennr. 10001
 - [2026-08-14 20:47] [2026-06-09-Angebot Webseite.md] SaarHaus Catering GmbH, Breite Str. 47, 66115 Saarbrücken Malstatt, Kundennr. 10001, Neukunde
 - [2026-08-14 20:46] [2026-06-09-Angebot Testzeitraum.md] Voigt Salus (AG0016), Rankestraße 33, 10789 Berlin
@@ -474,6 +475,9 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-14 20:49] [Angebot_AG0027_01.07.2026.md] Funktionen: automatische Angebotserstellung und Auftragserkennung
+- [2026-08-14 20:49] [Angebot_AG0027_01.07.2026.md] Infrastruktur: Betrieb auf unternehmenseigenem Server des Kunden für sichere Datenverarbeitung
+- [2026-08-14 20:49] [Angebot_AG0027_01.07.2026.md] Leistung: KI Agent für kaufmännische Auftragsabwicklung mit Schnittstellen zu Buhl Unternehmer 365, E-Mail-Postfächern und DATEV
 - [2026-08-14 20:49] [2026-07-19-Leistungsübersicht der Business Platinum Card.md] Membership Rewards Bonusprogramm - Punkte bei jeder Zahlung sammeln und flexibel nutzen
 - [2026-08-14 20:49] [2026-06-09-Kostenkalkulation.md] Dokumentenbasis: 500 initiale Dokumente à Ø 1.500 Tokens (750.000 Tokens gesamt), 50 Updates/neue Dokumente im Testzeitraum geplant
 - [2026-08-14 20:49] [2026-06-09-Kostenkalkulation.md] Token-Nutzung: 2.160.000 Input-Tokens (davon 648.000 gecacht), 1.080.000 Output-Tokens; durchschnittlich 1.800 Input- und 900 Output-Tokens pro Frage
@@ -670,6 +674,7 @@
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-14 20:49] [Angebot_AG0027_01.07.2026.md] Angebotsdatum: 01.07.2026, gültig bis 29.07.2026 (Deadline überschritten - Angebot ist ungültig)
 - [2026-08-14 20:48] [2026-06-09-Automatisierung Kostenvoranschlag.md] Datei Finanzen/Angebote/MD/2026-06-09-Automatisierung Kostenvoranschlag.md sollte als Rohdatei (PDF/DOC) statt HTML-Export gespeichert werden
 - [2026-08-14 20:48] [2026-06-09-Angebot_Schaufler_final.md] Angebotsgültig: 25.02.2026 bis 09.03.2026
 - [2026-08-14 20:48] [2026-06-09-Angebot_Schaufler_final.md] Gesamtpreis: 11.900,00 € brutto (10.000,00 € netto), Zahlungsplan: 50% bei Prototyp-Fertigstellung
