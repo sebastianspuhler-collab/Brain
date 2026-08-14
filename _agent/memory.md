@@ -1,4 +1,36 @@
 ## KONTEXT
+- [2026-08-14 21:06] [2026-07-20-invoice-MSTRL-API-750302-002.md] Zweite Mistral-Rechnung desselben Tages (MSTRL-API-750302-003): 11,04 € - löste gemeinsam Kosten-Analyse vom 20.07.2026 aus
+- [2026-08-14 21:06] [2026-07-20-invoice-MSTRL-API-750302-002.md] Zahlungsfrist: 20.07.2026 (0 Tage) - sofortige Fälligkeit
+- [2026-08-14 21:05] [2026-07-19-Rechnung_2026-07-16_310100082556.md] IONOS Servicezeiten täglich rund um die Uhr, Telefon 0721 170 5522
+- [2026-08-14 21:05] [2026-07-19-Receipt-2882-7964-4886.md] Rechnungsnummer SP7D4PI7-0018, Receipt 2882-7964-4886
+- [2026-08-14 21:05] [2026-07-19-Receipt-2882-7964-4886.md] Zahlung: Visa-Kreditkarte (7073), 25. Juni 2026
+- [2026-08-14 21:04] [2026-07-19-Receipt-2715-8726-9308.md] Rechnungsnummer GGYF9D9L-0019, Quelle: Anthropic Receipt
+- [2026-08-14 21:04] [2026-07-19-Receipt-2713-3487.md] Rechnungsnummer XC0AID8J-0007, Zahlungsbeleg-Nummer 2713-3487
+- [2026-08-14 21:04] [2026-07-19-Receipt-2233-8816-5318.md] Zahlungsmethode: Link
+- [2026-08-14 21:04] [2026-07-19-Receipt-2233-8816-5318.md] Zahlungsdatum: 15.07.2026; Rechnungsnummer: GGYF9D9L-0020; Zahlungsbeleg: 2233-8816-5318
+- [2026-08-14 21:04] [2026-07-19-Receipt-2233-8816-5318.md] Gesamtbetrag bezahlt: 23,80 USD (inklusive 19% deutscher MwSt = 3,80 USD)
+- [2026-08-14 21:04] [2026-07-19-Mitgliedschaftsbedingungen.md] Dokumentdatum: 2026-07-19 - Mitgliedschaftsbedingungen und Preis-/Leistungsübersicht
+- [2026-08-14 21:04] [2026-07-19-Mitgliedschaftsbedingungen.md] Anbieter: American Express Europe S.A. (Germany branch), Güterplatz 1, 60327 Frankfurt am Main, HRB 112342
+- [2026-08-14 21:04] [2026-07-19-Invoice-XC0AID8J-0007.md] Reverse-Charge-Verfahren für Umsatzsteuer angewendet (0% MwSt.)
+- [2026-08-14 21:03] [2026-07-19-Invoice-SP7D4PI7-0018.md] Abonnementzeitraum: 25. Juni - 25. Juli 2026
+- [2026-08-14 21:03] [2026-07-19-Invoice-SP7D4PI7-0018.md] Claude Pro Abonnement bei Anthropic, PBC
+- [2026-08-14 21:03] [2026-07-19-Invoice-GGYF9D9L-0020.md] Rechnungssteller: Anthropic, PBC; Zahlungsadresse: P.O. Box 104477, Pasadena, CA 91189-4477
+- [2026-08-14 21:03] [2026-07-19-Invoice-GGYF9D9L-0019.md] Rechnungsnummer: GGYF9D9L-0019; Ausgestellt und fällig: 30.06.2026
+- [2026-08-14 21:03] [2026-07-19-Invoice-GGYF9D9L-0019.md] Rechnungsbetrag: $23.80 USD ($20.00 API-Credits + $3.80 MwSt. 19%)
+- [2026-08-14 21:02] [2026-07-19-Hetzner_2026-07-04_083000997759.md] Rechnungsnummer 083000997759 vom 04.07.2026
+- [2026-08-14 21:02] [2026-07-19-5615032135.md] Rechnungsnummer 5615032135 vom 30.06.2026, Billing ID 7361-1441-4101, Domain: prozessia.de
+- [2026-08-14 21:01] [2026-07-17-INV-057.md] Reverse-Charge-Verfahren angewandt, keine Umsatzsteuer ausgewiesen, Steuerschuldnerschaft beim Leistungsempfänger
+- [2026-08-14 21:01] [2026-06-09-wix domain 2024.md] Domain webwokr.de bei Wix.com registriert, gültig vom 4. September 2024 bis 4. September 2025
+- [2026-08-14 21:01] [2026-06-09-test_rechnung.md] Leistung: Hosting- und Serverressourcen
+- [2026-08-14 21:01] [2026-06-09-test_rechnung.md] Betriebskosten Juni 2026: 38,07 Euro
+- [2026-08-14 21:01] [2026-06-09-e2a326b2-ade7-430c-ad97-bafe06fe26ce.md] Gläubiger-ID: DE68ZZZ00000207489 (Haufe Service Center GmbH)
+- [2026-08-14 21:01] [2026-06-09-a9c2c58e-ea2a-45d6-a7e5-43a3744c3a21.md] Zahlungsziel: 01.12.2025, Rechnungsnummer: lx2025110349962
+- [2026-08-14 21:00] [2026-06-09-Triathlon Miete.md] Leistungserbringer: Triathlon Transfer GmbH, Campus Saarbrücken
+- [2026-08-14 21:00] [2026-06-09-Triathlon Miete.md] Monatliches Nutzungsentgelt: 29,75 € brutto (25,00 € netto + 19% USt.)
+- [2026-08-14 21:00] [2026-06-09-Triathlon Miete.md] Dauerrechnung SZ.SBR-2024-27 für Postfach-Nutzung (Mietvertrag M-2024-16), gültig ab 01.10.2024
+- [2026-08-14 21:00] [2026-06-09-Rechnung_vapi.md] Rechnungsnummer RE250006, Rechnungsdatum 23.10.2025
+- [2026-08-14 21:00] [2026-06-09-Rechnung_TJC9SRX6_73763127-de.md] Leistungsdatum: 25.08.2025, automatische Abbuchen vereinbart
+- [2026-08-14 21:00] [2026-06-09-Rechnung_TJC9SRX6_73763127-de.md] Zahlungsplan: 1,00 EUR einmalig, dann 55,93 EUR monatlich ab 27.08.2025 per Kreditkarte
 - [2026-08-14 20:59] [2026-06-09-Rechnung_RE073.md] Betriebsausgabe kategorisiert als Weiterbildung; Fokus auf praxisnahe Learnings und Netzwerkaufbau
 - [2026-08-14 20:59] [2026-06-09-Rechnung_RE0009 (1).md] Kostenumfang: Melia Hotel Parkhaus, Fahrtkosten, Melia Hotel Übernachtung (Reisekosten 10.09.2025)
 - [2026-08-14 20:59] [2026-06-09-Rechnung Vapi Martin Veser.md] Rechnungsnr. RE250006 vom 23.10.2025: 425,00 € netto (505,75 € brutto), Zahlbar sofort
@@ -129,6 +161,12 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-14 21:05] [2026-07-19-Rechnung_RE260014_09.07.2026.md] Rechnung RE260014 ausgestellt an World Class Marketing LLC, 30 N Gould St Ste N, Sheridan 82801 Wyoming, USA
+- [2026-08-14 21:04] [2026-07-19-Receipt-2715-8726-9308.md] Sebastian's Individual Org (Prozessia), Sebastian Spuhler, sebastian.spuhler@prozessia.de, 66123 Saarbrücken, Germany
+- [2026-08-14 21:04] [2026-07-19-Receipt-2713-3487.md] Vendor: Lovable Labs Incorporated, Dover Delaware, support@lovable.dev, EU OSS VAT: EU372090612
+- [2026-08-14 21:01] [2026-06-09-test_rechnung.md] Hetzner ist Lieferant für Hosting-/Serverkosten
+- [2026-08-14 21:01] [2026-06-09-a9c2c58e-ea2a-45d6-a7e5-43a3744c3a21.md] Rechnungsbetrag: 1,55 EUR von Haufe Service Center GmbH (Lexware/lexoffice)
+- [2026-08-14 21:00] [2026-06-09-Wix Google Workspace 2024.md] Domain: webwokr.de (WebWokr), 2 Geschäfts-E-Mail-Adressen
 - [2026-08-14 20:59] [2026-06-09-Rechnung_RE250004_03.08.2025.md] Auftraggeber: Prozessia GbR (Joel Wagner); Auftragnehmer: WebWokr, Campus Starterzentrum Gebäude A1 1, 66123 Saarbrücken
 - [2026-08-14 20:59] [2026-06-09-Rechnung_RE0009 (1).md] Benito Ferrise, Leharstraße 14, 66113 Saarbrücken, IBAN: DE66 5905 0101 0067 2163 41
 - [2026-08-14 20:57] [2026-06-09-Lexoffice 07 25.md] Vertrag für WebWokr / Sebastian Spuhler, Campus Starterzentrum Gebäude A1 1, 66123 Saarbrücken
@@ -523,6 +561,29 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-14 21:05] [2026-07-19-invoice_sipgatede_B4602762.md] Bezahlung per Kreditkarte (Endziffer 7073), Karteninhaber Sebastian Spuhler
+- [2026-08-14 21:05] [2026-07-19-invoice_sipgatede_B4602762.md] Sipgate.de Telefonieguthaben, Leistungsdatum 01.07.2026, Rechnungsnummer B4602762
+- [2026-08-14 21:05] [2026-07-19-Rechnung_RE260014_09.07.2026.md] Rechnungspositionen: 5 Essenspositionen (Wantan, Chicken Karaage, Crispy Tiger, Curry King, Limonade) à 6,90-14,90 €
+- [2026-08-14 21:05] [2026-07-19-Rechnung_RE260014_09.07.2026.md] Rechnungsbetrag: 42,10 € netto (0% USt.), Datum 09.07.2026, Kundennummer 10001
+- [2026-08-14 21:05] [2026-07-19-Rechnung_2026-07-16_310100082556.md] Sammelrechnungsbetrag 2,00 EUR (brutto), automatische Abbuchung per Kreditkarte innerhalb von 7 Tagen
+- [2026-08-14 21:05] [2026-07-19-Rechnung_2026-07-16_310100082556.md] Rechnungsnummer 310100082556, Rechnungsdatum 16.07.2026, Abrechnungszeitraum 16.07.2026 - 15.08.2026
+- [2026-08-14 21:05] [2026-07-19-Receipt-2882-7964-4886.md] Claude Pro Abo: 25. Juni bis 25. Juli 2026, €18.00 monatlich
+- [2026-08-14 21:04] [2026-07-19-Receipt-2715-8726-9308.md] Zahlungsbeleg 2715-8726-9308, bezahlt am 30.06.2026 via Link
+- [2026-08-14 21:04] [2026-07-19-Receipt-2715-8726-9308.md] One-time credit purchase: $20.00 + 19% deutsche MwSt ($3.80) = $23.80 Gesamtbetrag bei Anthropic, PBC
+- [2026-08-14 21:04] [2026-07-19-Invoice-XC0AID8J-0007.md] Zahlungsfällig: 27.06.2026 (Rechnung XC0AID8J-0007)
+- [2026-08-14 21:04] [2026-07-19-Invoice-XC0AID8J-0007.md] Pro-Abonnement: 25,00 € monatlich für Zeitraum 27.06.2026 - 27.07.2026
+- [2026-08-14 21:03] [2026-07-19-Invoice-GGYF9D9L-0020.md] Fälligkeitsdatum: 15. Juli 2026
+- [2026-08-14 21:03] [2026-07-19-Invoice-GGYF9D9L-0020.md] Rechnung GGYF9D9L-0020: 23,80 USD (20,00 USD + 19% MwSt.) für One-time API-Credits-Kauf
+- [2026-08-14 21:03] [2026-07-19-Invoice-GGYF9D9L-0019.md] One-time credit purchase für API-Credits von Anthropic, PBC
+- [2026-08-14 21:02] [2026-07-19-G170104086.md] Zahlungstermin: 09.07.2026, automatische Kartenzahlung hinterlegt
+- [2026-08-14 21:02] [2026-07-19-G170032929.md] Gesamtbetrag 4,47 EUR (3,76 EUR netto + 0,71 EUR USt/19%), fällig am 09.07.2026
+- [2026-08-14 21:02] [2026-07-19-G170032929.md] Azure-Rechnung G170032929, Abrechnungszeitraum 01.06.2026-30.06.2026
+- [2026-08-14 21:01] [2026-07-17-INV-057.md] Vermittlungsprovision 500 EUR (INV-057, Ausstellungsdatum 2. Juni 2026)
+- [2026-08-14 21:01] [2026-06-09-wix domain 2024.md] Domaingebühr 14,95 € durch vollständigen Rabatt erlassen, Gesamtsumme 0,00 €
+- [2026-08-14 21:01] [2026-06-09-e2a326b2-ade7-430c-ad97-bafe06fe26ce.md] Betrag: 26,06 EUR (inkl. 19% MwSt.), Zahlungsart: SEPA-Lastschrift
+- [2026-08-14 21:00] [2026-06-09-Wix Google Workspace 2024.md] Rechnung #1134835415: 85,68 € (inkl. 19% MwSt.), Rabatt: 72,00 €, Status: bezahlt via PayPal
+- [2026-08-14 21:00] [2026-06-09-Triathlon Miete.md] Abrechnungsrhythmus monatlich per SEPA-Basislastschriftverfahren
+- [2026-08-14 21:00] [2026-06-09-Rechnung_TJC9SRX6_73763127-de.md] FunnelCockpit Lite Testzugang: 12.08.-25.08.2025, Bestellnr. TJC9SRX6, Rechnung 73763127-de vom 12.08.2025
 - [2026-08-14 20:59] [2026-06-09-Rechnung_RE250004_03.08.2025.md] Leistung: KI-Anwendung zur automatischen Generierung von Werbetexten auf Basis von Copywriting-Skripten
 - [2026-08-14 20:59] [2026-06-09-Rechnung_RE250004_03.08.2025.md] Anzahlungsrechnung RE250004 von WebWokr, 476,00 € brutto (400,00 € netto + 19% MwSt.), vom 03.08.2025
 - [2026-08-14 20:59] [2026-06-09-Rechnung_RE073.md] Zahlbar sofort, zahlbar per PayPal oder Banküberweisung
@@ -769,6 +830,9 @@
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-14 21:06] [2026-07-20-invoice-MSTRL-API-750302-002.md] MISTRAL_API_KEY auf VPS-Instanz deaktiviert als Maßnahme
+- [2026-08-14 21:06] [2026-07-20-invoice-MSTRL-API-750302-002.md] Ursache ungewöhnlich hoher Seitenzahl: Parallel laufende lokale und VPS-Instanz führte zu Duplikaten (Anhänge mehrfach heruntergeladen und per OCR verarbeitet)
+- [2026-08-14 21:05] [2026-07-19-Rechnung_RE260014_09.07.2026.md] Verdacht auf Fehlzuordnung: Restaurant-Rechnung ohne erkennbaren Bezug zu legitimer Prozessia-Kundenbeziehung
 - [2026-08-14 20:59] [2026-06-09-Rechnung_RE0009 (1).md] Rabatt von 40,00 € bei Zwischensumme 122,99 € angewendet (Grund nicht dokumentiert)
 - [2026-08-14 20:53] [2026-06-09-Apify_Invoice_202509060156.md] Abrechnungszeiträume: 6.8.2025-5.9.2025 (Abrechnung), 6.9.2025-5.10.2025 (Vorauszahlung nächste Periode)
 - [2026-08-14 20:53] [2026-06-09-Apify_Invoice_202509060156.md] Rechnung #202509060156, Datum: 6.9.2025, Betrag: 46,41 USD (39,00 USD + 7,41 USD MwSt. 19%), bereits per Kreditkarte bezahlt
@@ -927,6 +991,7 @@
 - [2026-07-24 03:21] [2026-07-24-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Komplette mechanische Anfertigung nach Zeichnungen mit Gravur, Prüf-, Härte- und Messprotokoll erforderlich
 
 ## PREIS
+- [2026-08-14 21:03] [2026-07-19-Invoice-SP7D4PI7-0018.md] €18.00 monatlich
 - [2026-08-14 20:44] [2026-07-23-19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.md] Mistral OCR API kostet 0,0034 € pro Seite (Api pages)
 - [2026-08-01 05:15] [09_ust_jahreserklaerung_2025.md] Steuerpflichtige Umsätze netto: 4.950,00 € (19 % Steuersatz); Abziehbare Vorsteuer: 249,76 €
 - [2026-07-28 13:32] [2026-07-24-Update Prozessia X Endin.md] Einstiegspaket max. 25% des Nettoangebots AG0027 (Umfang: Punkte 2.2, 2.3, anteilig 1.1/1.2, 5.1)
