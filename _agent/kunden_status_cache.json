@@ -132,20 +132,20 @@
     }
   },
   "Voigt_Salus": {
-    "input_hash": "385f50e998db5ea0",
+    "input_hash": "ce9da95f7c31f990",
     "ergebnis": {
-      "status": "fulfillment",
+      "status": "auftrag",
       "sicherheit": "mittel",
-      "begruendung": "Die Mandatsübersicht (2026-06-09-mandatsuebersicht.md) belegt ein bestehendes Mandat, und die wiederkehrenden automatisierten Supabase-Sicherheitswarnungen (z.B. 2026-08-04-Email-19fcdab7) für das Projekt 'Voigtsalus' zeigen eine laufende technische Umsetzung/Betreuung.",
+      "begruendung": "Die Mandatsübersicht 2026-06-09-mandatsuebersicht.md belegt ein bestehendes Auftragsverhältnis, während die wiederkehrenden Supabase-Sicherheitswarnungen (z.B. 2026-08-04-Email-19fcdab7-Action-required-security-vulnerabilities.md) zeigen, dass das Projekt 'Voigtsalus' aktiv im Betrieb ist.",
       "quellen": [
         "2026-06-09-mandatsuebersicht.md",
         "2026-08-04-Email-19fcdab7-Action-required-security-vulnerabilities.md"
       ],
-      "warnsignal": "Seit mindestens 23.06. bis 04.08.2026 wiederholt gemeldete kritische Sicherheitslücken (RLS nicht aktiviert) im Supabase-Projekt blieben offenbar ungelöst.",
+      "warnsignal": "Seit Wochen (23.06. bis 04.08.2026) wiederholt kritische Sicherheitslücken (RLS nicht aktiviert) ungelöst - Follow-up überfällig.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
-      "anzeige_name": "Voigtsalus",
-      "aktueller_stand": "Laufende technische Betreuung eines Supabase-Projekts für den Kunden, wobei kritische Sicherheitslücken (Row-Level-Security nicht aktiviert) trotz wöchentlicher Warnungen seit Ende Juni bislang nicht behoben wurden."
+      "anzeige_name": "Voigt_Salus",
+      "aktueller_stand": "Laufendes Auftragsverhältnis mit technischer Betreuung des Supabase-Projekts 'Voigtsalus', wobei kritische Sicherheitswarnungen seit Wochen unadressiert wiederkehren."
     }
   },
   "endin": {
@@ -416,34 +416,39 @@
     }
   },
   "Juchem": {
-    "input_hash": "b1e3e4b9892c32a4",
+    "input_hash": "f3b12f1c130ea120",
     "ergebnis": {
       "status": "angebotsphase",
-      "sicherheit": "mittel",
-      "begruendung": "Laut 2026-07-29-Update Juchem X Prozessia.md wurde der komplette Beschaffungsprozess besprochen und soll nun in ein detailliertes individuelles Angebot überführt werden; laut 2026-06-08-Juchem.md gab es zuvor bereits ein Erstgespräch mit Bedarfsklärung.",
+      "sicherheit": "hoch",
+      "begruendung": "Am 03.08.2026 wurden zwei Versionen des Angebots AG0028 an Juchem GmbH über einen Beschaffungsagenten (29.750,00 € brutto) verschickt, basierend auf dem ausführlichen Bedarfsgespräch vom 29.07.2026 und dem Erstgespräch vom 08.06.2026.",
       "quellen": [
+        "2026-08-03-19fc729374-Angebot_AG0028_03.08.2026.md",
+        "2026-08-03-19fc729b81-Angebot_AG0028_03.08.2026.md",
         "2026-07-29-Update Juchem X Prozessia.md",
         "2026-06-08-Juchem.md"
       ],
-      "warnsignal": "Kein Transkript des Termins vom 29.07. vorhanden und noch kein konkretes Angebot erstellt, Einkaufsseite bislang nicht direkt eingebunden.",
+      "warnsignal": "Angebot AG0028 ist nur bis 22.08.2026 gültig, es liegt aber noch keine dokumentierte Rückmeldung des Kunden vor - Frist rückt näher.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Juchem",
-      "aktueller_stand": "Nach dem Folgetermin am 29.07.2026 wird der besprochene End-to-End-Prozess in ein individuelles, umfangreicheres Angebot (voraussichtlich Pilotprojekt-Festpreis) überführt, wobei Einkaufsseite und Info-LN-Schnittstelle noch final geklärt werden müssen."
+      "aktueller_stand": "Nach ausführlichem Bedarfsgespräch am 29.07.2026 wurde am 03.08.2026 das individuelle Angebot AG0028 für einen umfangreichen Beschaffungsagenten verschickt, dessen Annahme (gültig bis 22.08.2026) noch aussteht."
     }
   },
   "Schauenberg": {
-    "input_hash": "76ce9324a6575310",
+    "input_hash": "0df2cb03b7e559ea",
     "ergebnis": {
-      "status": "neuer_kontakt",
-      "sicherheit": "niedrig",
-      "begruendung": "Automatische Bewertung nicht verfügbar, Anzeige basiert nur auf Ordnerstruktur.",
-      "quellen": [],
+      "status": "erstgespraech",
+      "sicherheit": "mittel",
+      "begruendung": "Die Datei 2026-08-13-Schauenberg.md dokumentiert ein Erstgespräch mit einem neuen potenziellen Kunden, und die E-Mail 2026-08-13-Email-19ffa921-Zugesagt-Prozessia-X-Schauenberg.md zeigt eine Zusage für einen Termin.",
+      "quellen": [
+        "2026-08-13-Schauenberg.md",
+        "2026-08-13-Email-19ffa921-Zugesagt-Prozessia-X-Schauenberg.md"
+      ],
       "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "Schauenberg",
-      "aktueller_stand": ""
+      "aktueller_stand": "Erstgespräch/Termin 'Prozessia X Schauenberg' ist für den 2026-08-28 um 10:30 Uhr vereinbart, weiteres Material steht noch aus."
     }
   },
   "Schmidt-Haensch": {
@@ -545,20 +550,21 @@
     }
   },
   "TopDown": {
-    "input_hash": "0ef2a107e9a72961",
+    "input_hash": "ff266ca401b59a72",
     "ergebnis": {
-      "status": "erstgespraech",
+      "status": "angebotsphase",
       "sicherheit": "mittel",
-      "begruendung": "Der Lead 2026-08-11-TopDown.md dokumentiert ein automatisch erkanntes Erstgespräch mit einem neuen potenziellen Kunden, und die zugesagte E-Mail 2026-08-11-Email-19fefdff-Zugesagt-Prozessia-X-TopDown.md bestätigt einen vereinbarten Termin am 2026-08-14.",
+      "begruendung": "Nach dem Erstgespräch (2026-08-11-Prozessia X TopDown.md) wurde laut 2026-08-14-Email-19fff7f1-Zugesagt-Angebotsdurchsprache-Prozessia.md eine Angebotsdurchsprache zugesagt, und am 14.08.2026 fand dazu ein weiteres Meeting statt (2026-08-14-Prozessia X TopDown.md), dessen Inhalt jedoch nicht dokumentiert ist.",
       "quellen": [
-        "2026-08-11-TopDown.md",
-        "2026-08-11-Email-19fefdff-Zugesagt-Prozessia-X-TopDown.md"
+        "2026-08-11-Prozessia X TopDown.md",
+        "2026-08-14-Email-19fff7f1-Zugesagt-Angebotsdurchsprache-Prozessia.md",
+        "2026-08-14-Prozessia X TopDown.md"
       ],
       "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "TopDown",
-      "aktueller_stand": "Erstgespräch mit TopDown ist für den 2026-08-14 vereinbart, Inhalte liegen noch nicht vor."
+      "aktueller_stand": "Angebot wurde zugesagt und besprochen, nächster Termin zur Angebotsdurchsprache ist für den 08.09.2026 angesetzt."
     }
   },
   "Inductohead": {
@@ -578,20 +584,52 @@
     }
   },
   "East-Side-Fab-eV": {
-    "input_hash": "5ded7d7a1a4f5e93",
+    "input_hash": "0cd6b9fd7fbe1088",
     "ergebnis": {
       "status": "erstgespraech",
       "sicherheit": "mittel",
-      "begruendung": "Die E-Mail 2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md enthält eine Terminvereinbarung für ein erstes Kennenlernen am 2026-08-13, was über den reinen Lead-Status (2026-08-11-East-Side-Fab-eV.md) hinausgeht.",
+      "begruendung": "Laut 2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md wurde ein erstes Kennenlernen per Teams vereinbart, und 2026-08-13-Email-19ffb2aa-Follow-up-Prozessia-x-ESF.md bestätigt, dass dieses Treffen stattgefunden hat und Lukas Sebastian mit weiteren Ansprechpartnern (Alex für de:hub, Flo für IT.CON) vernetzt.",
       "quellen": [
         "2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md",
-        "2026-08-11-East-Side-Fab-eV.md"
+        "2026-08-13-Email-19ffb2aa-Follow-up-Prozessia-x-ESF.md"
       ],
       "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "East Side Fab",
-      "aktueller_stand": "Ein erstes Kennenlerngespräch per Teams ist für den 2026-08-13 vereinbart, bisher gab es noch keinen inhaltlichen Austausch."
+      "aktueller_stand": "Erstes Kennenlernen fand statt, Sebastian wurde an zwei Ansprechpartner für konkrete Themen (de:hub, IT.CON) weiterverbunden, nächster Schritt liegt bei Sebastian bzw. den neuen Kontakten."
+    }
+  },
+  "Maas": {
+    "input_hash": "2b5cf08a2c887d09",
+    "ergebnis": {
+      "status": "erstgespraech",
+      "sicherheit": "mittel",
+      "begruendung": "Das Meeting-Dokument 2026-06-08-Meeting Thorsten Maas X Prozessia (2).md belegt ein Erstgespräch mit Bedarfsermittlung und Prototyp-Demo, es liegt jedoch kein Angebot oder Vertrag vor.",
+      "quellen": [
+        "2026-06-08-Meeting Thorsten Maas X Prozessia (2).md"
+      ],
+      "warnsignal": "Seit dem Erstgespräch am 08.06.2026 ist kein weiterer Termin oder Follow-up bekannt.",
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Thorsten Maas",
+      "aktueller_stand": "Nach dem Erstgespräch (2026-06-08-Meeting Thorsten Maas X Prozessia (2).md) steht die Definition eines konkreten Startprojekts (z.B. Einkaufsagent mit Anbindung an Infor LN) als nächster Schritt aus."
+    }
+  },
+  "Inductoheat": {
+    "input_hash": "78b4b1d48221b08b",
+    "ergebnis": {
+      "status": "neuer_kontakt",
+      "sicherheit": "niedrig",
+      "begruendung": "Die Datei 2026-08-26-Inductoheat.md dokumentiert lediglich einen automatisch erkannten Kalendertermin für ein Erstgespräch, ohne dass bisher ein Transkript oder weiteres Dokument vorliegt.",
+      "quellen": [
+        "2026-08-26-Inductoheat.md"
+      ],
+      "warnsignal": "Kein Transkript oder weiteres Material zum Erstgespräch vorhanden, Status unklar bis Ergänzung eintrifft.",
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "Inductoheat",
+      "aktueller_stand": "Ein Erstgespräch mit einem neuen potenziellen Kunden wurde terminiert, weitere Details stehen noch aus."
     }
   }
 }

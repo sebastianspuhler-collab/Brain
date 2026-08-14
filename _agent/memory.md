@@ -894,6 +894,7 @@
 ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 
 ## KUNDE
+- [2026-08-14 09:04] [2026-08-14-Prozessia X TopDown.md] TopDown (Dominik Nussbaumer) – Follow-up Angebotsdurchsprache 14.08.2026, Präsentation versendet 11.08.2026
 - [2026-08-13 22:38] [[Twilio] Re: [ACTION REQUIRED] Your Trus] Twilio (Onboarding & Compliance Operations), Kontaktperson: Jed Enel, E-Mail: trusthub-verify@twilio.zendesk.com
 - [2026-08-13 11:23] [context.md] Juchem: Beschaffungsprozess besprochen (29.07.2026 mit Thorsten Maas), nächster Schritt: Angebot erstellen
 - [2026-08-13 10:40] [2026-08-13-Email-19ffa921-Zugesagt-Prozessia-X-Schauenberg.md] Kontaktperson Schauenberg: Sascha Haller (sascha.haller@sb-it.com)
@@ -1262,6 +1263,10 @@ ffnungszeiten Verkaufsabteilung: Montag bis Samstag
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-14 09:04] [2026-08-14-Prozessia X TopDown.md] Schnittstellen identifiziert: E-Mail/Outlook (Microsoft Graph API), DATEV
+- [2026-08-14 09:04] [2026-08-14-Prozessia X TopDown.md] Sebastians Empfehlung: Kontierung parallel zur Projektleiter-Freigabe, vor DATEV-Übertragung; individuell je Unternehmensstruktur
+- [2026-08-14 09:04] [2026-08-14-Prozessia X TopDown.md] Offene Frage Dominik: An welcher Stelle im Freigabeprozess erfolgt Verbuchung (vor ERP-Übertragung, nach Freigabe oder in Vorprüfung)?
+- [2026-08-14 09:04] [2026-08-14-Prozessia X TopDown.md] Kontierung/Verbuchung muss Teil des Agenten-Scopes sein: Agent erstellt Buchungsvorschläge, nicht nur Erkennung/Prüfung
 - [2026-08-14 08:50] [2026-08-13-Email-19ffb2aa-Follow-up-Prozessia-x-ESF.md] Flo (East Side Fab) organisiert 'IT.CON' und ist IT-Ansprechpartner
 - [2026-08-14 06:14] [Loadout by Aident x WebWokr] Angebot: Tyler Spencer erstellt kurze 3-Punkte-Übersicht wie Loadout/Aident zu WebWokrs Delivery-Modell passt (weniger Setup pro Kunde, portablere Aktionen)
 - [2026-08-13 22:38] [[Twilio] Re: [ACTION REQUIRED] Your Trus] Anforderung: Gewerbeanmeldung oder offizielles Dokument mit Geschäftsnamen und Registrierungsnummer zur Verifizierung des Trust Hub Business Profiles erforderlich
