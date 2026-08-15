@@ -1,4 +1,9 @@
 ## KONTEXT
+- [2026-08-15 00:47] [2026-06-09-🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia.md] Pitch-Dokument vom 2026-06-09; Status: Unvollständig (Platzhalter {{USE_CASES}}); Call-to-Action: Beratungsgespräch
+- [2026-08-15 00:46] [2026-06-09-🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.md] Voice Agent ist KI-Lösung aus dem Umfeld der Universität des Saarlandes
+- [2026-08-15 00:46] [2026-06-09-🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.md] Zielmarkt: Autohäuser mit hohem Telefonaufkommen, besonders Stoßzeiten montags und morgens
+- [2026-08-15 00:46] [2026-06-09-🚗 Effiziente Telefonentlastung für Ihr Autohaus 🚗 – Prozessia.md] Verkaufspräsentation vom 2026-06-09, entwickelt für Sales-Pitch des Prozessia Voice Agent
+- [2026-08-15 00:46] [2026-06-09-🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.md] Hohes Telefonaufkommen im Service und der Werkstatt, besonders montags und während Aktionen
 - [2026-08-14 22:00] [2026-06-09-Lexoffice 09 25.md] Rechnungsnummer lx2025090092498 vom 07.09.2025, Rechnung der Haufe Service Center GmbH (lexoffice)
 - [2026-08-14 21:59] [2026-06-09-Lexoffice 08 25.md] Rechnungsnummer lx2025080091462, Rechnungsdatum 07.08.2025, Anbieter: Haufe Service Center GmbH
 - [2026-08-14 21:59] [2026-06-09-Lexoffice 05 25.md] Gläubiger-ID: DE68ZZZ00000207489 für automatische SEPA-Einzüge
@@ -212,6 +217,8 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-15 00:47] [2026-06-09-🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia.md] Fahrzeugbestand: ca. 1.800 Fahrzeuge täglich; Öffnungszeiten: Montag–Samstag
+- [2026-08-15 00:44] [2026-06-09-📞 Effiziente Telefonbetreuung mit dem Prozessia Voice Agent für AM Autoservice 🚗 – Prozessia.md] Öffnungszeiten: Montag–Freitag 09:00–18:00 Uhr
 - [2026-08-14 21:57] [2026-06-09-Finom_statement_31122025.md] Joel Wagner: Projekt RE250009, Zahlungseingang 4.760,00 € am 31.12.2025
 - [2026-08-14 21:53] [08_euer_ausgaben_zuordnung.md] INSTANTLY: Werbekostenpartner mit 12 monatlichen Zahlungen März-September 2025 (Gesamtnetto ~449€), alle Rechnungen ohne Vorsteuer
 - [2026-08-14 21:48] [2026-08-04-19fca6c853-Hetzner_2026-08-04_084001046484.md] Hetzner-Kundennummer: K0631688826
@@ -619,6 +626,16 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-15 00:47] [2026-06-09-🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia.md] Herausforderung: Hohes Telefonaufkommen; Lösung: Prozessia Voice Agent für automatisierte Anrufbearbeitung und Terminvereinbarungen
+- [2026-08-15 00:47] [2026-06-09-🚗 Mehr Servicequalität für Automobile Görres mit KI-Telefonagent 🤖 – Prozessia.md] Anfragenkategorien: Serviceanfragen, Werkstatttermine, Rückrufwünsche
+- [2026-08-15 00:46] [2026-06-09-🚗 Effizienter Service im Autohaus mit KI-Voice-Agent 🎙️ – Prozessia.md] Identifizierte Use Cases: Service-/Werkstatttermine, Probefahrtterminen, Rückrufwünsche, Fahrzeugstatusanfragen
+- [2026-08-15 00:46] [2026-06-09-🚗 Effizienter Service im Autohaus mit KI-Voice-Agent 🎙️ – Prozessia.md] Kernfunktionen: Automatisierung Anrufbearbeitung, Terminbuchung (Service/Werkstatt/Probefahrten), Kundenqualifizierung im Autohaus
+- [2026-08-15 00:46] [2026-06-09-🚗 Effizienter Kundenservice im Autohaus mit KI-Voice-Agent 🤖 – Prozessia.md] Voice Agent automatisiert: Serviceanfragen, Probefahrtbuchungen, Rückrufwünschen und Verfügbarkeitsnachfragen
+- [2026-08-15 00:46] [2026-06-09-🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.md] Häufige Kundenanfragen betreffen Service-Termine, Probefahrten und Fahrzeugverfügbarkeit
+- [2026-08-15 00:45] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Adressierte Herausforderung: überlastete Telefonleitungen zu Stoßzeiten (besonders Montage und Aktionen), lange Wartezeiten, Engpass in Werkstatt/Service
+- [2026-08-15 00:45] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Voice Agent Funktionalitäten: 24/7-Erreichbarkeit, automatisierte Terminbuchung, automatisiertes Rückrufmanagement, Handling von Service-/Werkstattanfragen und Probefahrten
+- [2026-08-15 00:44] [2026-06-09-📞 Effiziente Anrufsteuerung im Autohaus mit KI-Voice-Agent 🚗 – Prozessia.md] Anwendungsfälle: Werkstatt-Service, Probefahrten, Rückrufwünsche, Serviceanrufe
+- [2026-08-15 00:44] [2026-06-09-📞 Effiziente Telefonbetreuung mit dem Prozessia Voice Agent für AM Autoservice 🚗 – Prozessia.md] Hauptherausforderung: Hohe Anrufaufkommen in Stoßzeiten (morgens, nach Aktionen) für Servicetermine und Anfragen
 - [2026-08-14 22:04] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] Risikoklasse noch zu klären: minimales Risiko oder begrenztes Risiko
 - [2026-08-14 22:04] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] EU-KI-Act Compliance: KI-Richtlinie wird erstellt, Prozessia-Agent Cloud-basiert im Einsatz
 - [2026-08-14 22:00] [2026-06-09-Lexoffice 11 24.md] Leistungszeitraum: 06.11.2024 - 06.12.2024
