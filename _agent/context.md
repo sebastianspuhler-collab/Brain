@@ -7,7 +7,6 @@ updated: 2026-08-13
 ## Offene Aufgaben
 - [ ] LinkedIn: 3 Videos diese Woche posten @Sebastian !status(in_progress)
 - [ ] YouTube: 3 Videos diese Woche erstellen/veröffentlichen @Amin !status(in_progress)
-- [ ] Termin mit Schaufler wegen Stücklistenprojekt vereinbaren (Anschluss an Lastenheft v. 05.08., Angebot/nächste Schritte) @Beide
 - [x] Beschaffungsagent überwachen und Bericht für Schaufler vorbereiten @Amin !status(in_progress)
 - [x] Webseite fertigstellen @Amin !status(in_progress)
 - [x] Whitepapers fertigstellen @Amin !status(in_progress)
