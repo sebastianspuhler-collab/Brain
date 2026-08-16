@@ -1,4 +1,60 @@
 ## KONTEXT
+- [2026-08-15 00:47] [2026-06-09-🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia.md] Pitch-Dokument vom 2026-06-09; Status: Unvollständig (Platzhalter {{USE_CASES}}); Call-to-Action: Beratungsgespräch
+- [2026-08-15 00:46] [2026-06-09-🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.md] Voice Agent ist KI-Lösung aus dem Umfeld der Universität des Saarlandes
+- [2026-08-15 00:46] [2026-06-09-🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.md] Zielmarkt: Autohäuser mit hohem Telefonaufkommen, besonders Stoßzeiten montags und morgens
+- [2026-08-15 00:46] [2026-06-09-🚗 Effiziente Telefonentlastung für Ihr Autohaus 🚗 – Prozessia.md] Verkaufspräsentation vom 2026-06-09, entwickelt für Sales-Pitch des Prozessia Voice Agent
+- [2026-08-15 00:46] [2026-06-09-🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.md] Hohes Telefonaufkommen im Service und der Werkstatt, besonders montags und während Aktionen
+- [2026-08-14 22:00] [2026-06-09-Lexoffice 09 25.md] Rechnungsnummer lx2025090092498 vom 07.09.2025, Rechnung der Haufe Service Center GmbH (lexoffice)
+- [2026-08-14 21:59] [2026-06-09-Lexoffice 08 25.md] Rechnungsnummer lx2025080091462, Rechnungsdatum 07.08.2025, Anbieter: Haufe Service Center GmbH
+- [2026-08-14 21:59] [2026-06-09-Lexoffice 05 25.md] Gläubiger-ID: DE68ZZZ00000207489 für automatische SEPA-Einzüge
+- [2026-08-14 21:59] [2026-06-09-LNKD_INVOICE_789144507558.md] Rechnungs-Nr. 789144507558, Transaktions-Nr. P820331024, Rechnung vom 18.09.2025, Betrag bezahlt
+- [2026-08-14 21:57] [2026-06-09-Gewerbeanmeldung Sebastian Spuhler.md] Unternehmensform: GbR (nach § 14 GewO)
+- [2026-08-14 21:57] [2026-06-09-Funnelcockpit_2.md] Abrechnungszeitraum 27.08.2025 – 26.09.2025, Leistungsdatum 26.09.2025
+- [2026-08-14 21:57] [2026-06-09-Finom_statement_31122025.md] Regelmäßige SaaS-Ausgaben: Lexware, Google Workspace, Hostinger, Gamma, Instantly, Facebook-Werbung
+- [2026-08-14 21:56] [2026-06-09-Finanzamt Bescheid.md] Steuerbescheid des Finanzamts für Prozessia GbR vom 2026-06-09 eingegangen
+- [2026-08-14 21:55] [2026-06-09-Domain webwokr.md] Domain webwokr.de registriert für Projekt WebWokr bei Wix.com
+- [2026-08-14 21:55] [2026-06-09-Apify_Invoice_202510060569.md] Dienstleister: Apify Technologies (Web-Scraping-Plattform)
+- [2026-08-14 21:54] [2026-07-26-Transkript-EUER-Tutorial-Elster.md] Referenzmaterial: YouTube-Tutorial (Steuerfit für Selbstständige), Veranlagungsjahr 2024, erfasst 2026-07-26
+- [2026-08-14 21:54] [2026-07-26-Transkript-EUER-Tutorial-Elster.md] Anlage EÜR ist Pflichtanlage für Selbstständige; zeigt Endergebnis der Buchhaltung
+- [2026-08-14 21:53] [09_ust_jahreserklaerung_2025.md] Detailreferenzen: 00_zusammenfassung_steuerpruefung_2025.md | 08_euer_ausgaben_zuordnung.md | projects: euer-2025-finanzamt-zahlungen, euer-2025-ausgaben-korrektionen
+- [2026-08-14 21:53] [08_euer_ausgaben_zuordnung.md] LinkedIn Ireland & digistore24/Funnelcockpit als zusätzliche Werbekostenpartner aktiv (99,99€ bzw. 47€ netto)
+- [2026-08-14 21:52] [06_recherche_beleg_fehlt.md] Quelle: 04_merged.json (Transaktionen mit Status 'BELEG_FEHLT')
+- [2026-08-14 21:52] [00_zusammenfassung_steuerpruefung_2025.md] Umsatzsteuer-Berechnung 2025: 940,50 € fällig (19%), keine Zahlung an Finanzamt erforderlich (0,00 €)
+- [2026-08-14 21:51] [Angebot_AG0027_01.07.2026.md] Angebotsnummer AG0027, Kundennummer 1000101, Datum 01.07.2026, gültig bis 29.07.2026
+- [2026-08-14 21:51] [2026-07-23-19f17a1531-Leistungsübersicht der Business Platinum Card.md] Leistungen: Membership Rewards Bonusprogramm, Versicherungspaket, Zusatzkarten für Mitarbeiter, individueller Verfügungsrahmen
+- [2026-08-14 21:51] [2026-07-19-Leistungsübersicht der Business Platinum Card.md] Zusatzkarten für Mitarbeiter verfügbar
+- [2026-08-14 21:51] [2026-06-09-Kostenkalkulation.md] Getestete Technologien: GPT-5.1 mini (Chat via Azure), Mistral OCR für Dokumentenverarbeitung
+- [2026-08-14 21:50] [2026-06-09-Angebot_AG0024_27.05.2026.md] Deadline für Angebot-Annahme: 24.06.2026
+- [2026-08-14 21:49] [2026-06-09-Angebot_AG0018_15.12.2025.md] Zahlungsbedingung: 50% Anzahlung (29.155€) bei Auftragsannahme fällig
+- [2026-08-14 21:49] [2026-06-09-Angebot_AG0018_15.12.2025.md] Gesamtbetrag: 58.310,00€ brutto (netto 49.000€, Umsatzsteuer 19% = 9.310€)
+- [2026-08-14 21:49] [2026-06-09-Angebot_AG0018_15.12.2025.md] Angebotsdatum: 15.12.2025, Gültig bis: 30.01.2026 (Deadline: 30.01.2026)
+- [2026-08-14 21:49] [2026-06-09-Angebot_AG0010_17.09.2025.md] Angebotsgültig bis 01.10.2025 – Entscheidungsfrist erforderlich
+- [2026-08-14 21:49] [2026-06-09-Angebot_AG0010_17.09.2025.md] Angebotsnummer AG0010 von WebWokr vom 17.09.2025, gültig bis 01.10.2025
+- [2026-08-14 21:49] [2026-06-09-Angebot testphase KI-Assistent VOIGT SALUS-.md] Angebotsgültig: 04.12.2025 - 18.12.2025
+- [2026-08-14 21:49] [2026-06-09-Angebot Webseite.md] Neukunde; Webseite-Projekt für Catering-Unternehmen
+- [2026-08-14 21:47] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] Zahlungsart: Kreditkarte (Endung 7073), Betrag 105,00 EUR bereits beglichen
+- [2026-08-14 21:47] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] Rechnung B4644944 vom 01.08.2026: 105,00 EUR brutto (88,24 EUR netto + 16,76 EUR USt 19%)
+- [2026-08-14 21:47] [2026-08-01-19fbd42301-5637373931.md] Rechnungsnummer 5637373931 vom 31.07.2026, Billing-ID 7361-1441-4101
+- [2026-08-14 21:47] [2026-08-01-19fbd42301-5637373931.md] Abonnementzeitraum: 01.-31.07.2026 (monatlich, automatische Abrechnung)
+- [2026-08-14 21:47] [2026-07-24-19f4baf08b-G170104086.md] Quelle: 19f4baf08b-G170104086.pdf vom 24.07.2026
+- [2026-08-14 21:47] [2026-07-23-19f8cb719f-63459971781.md] Rechnungsnummer E0600ZW122, Auftragsnummer b2279353-0153-4b03-9266-671d4ea2431a
+- [2026-08-14 21:47] [2026-07-23-19f8cb719f-63459971781.md] Abrechnungszeitraum: 23.06.2026 - 22.07.2026, Rechnungsdatum: 23.07.2026
+- [2026-08-14 21:46] [2026-07-23-19f801f127-invoice-MSTRL-API-750302-002.md] Rechnungsnummer MSTRL-API-750302-002, Ausstellungsdatum 20.07.2026, Zahlungsfrist: 0 Tage (sofort fällig)
+- [2026-08-14 21:46] [2026-07-23-19f8015dd3-invoice-MSTRL-API-750302-002.md] Progressive Rechnung: kumulative Nutzung erreichte €11,54 und überschritt Schwellenwert von €10,00
+- [2026-08-14 21:45] [2026-07-23-19f69cc342-Rechnung_2026-07-16_310100082556.md] Rechnungsnummer 310100082556 vom 16.07.2026, IONOS Sammelrechnung
+- [2026-08-14 21:45] [2026-07-23-19f4baf08b-G170104086.md] Billing Number: G170104086, Rechnungsdatum: 23.07.2026
+- [2026-08-14 21:45] [2026-07-23-19f47537e0-Rechnung_RE260014_09.07.2026.md] Nettobetrag: 42,10 € für Speisen und Getränke (Wantan, Chicken Karaage, Crispy Tiger, Curry King, Pink-Berry-Limonade)
+- [2026-08-14 21:45] [2026-07-23-19f1c3dc33-invoice_sipgatede_B4602762.md] Zahlung per Kreditkarte (4983XXXXXX7073, Inhaber: Sebastian Spuhler) begleichen
+- [2026-08-14 21:44] [2026-07-23-19f188bb24-Invoice-GGYF9D9L-0019.md] Rechnungsnummer GGYF9D9L-0019, Rechnungsdatum 30.06.2026, Fälligkeitsdatum 30.06.2026
+- [2026-08-14 21:44] [2026-07-23-19f09dec90-Receipt-2713-3487.md] Rechnungsnummer: XC0AID8J-0007, Belegnummer: 2713-3487
+- [2026-08-14 21:44] [2026-07-23-19f09dec90-Invoice-XC0AID8J-0007.md] SaaS-Abo-Zahlung für Prozessia (DE VAT DE451202966), Kontakt: sebastian.spuhler@prozessia.de
+- [2026-08-14 21:44] [2026-07-23-19f09dec90-Invoice-XC0AID8J-0007.md] Reverse-Charge-Verfahren angewendet, Steuersatz 0% (EU OSS VAT EU372090612)
+- [2026-08-14 21:44] [2026-07-23-19f09dec90-Invoice-XC0AID8J-0007.md] Rechnungsnummer XC0AID8J-0007, Ausstellungsdatum 27. Juni 2026, Fälligkeitsdatum 27. Juni 2026
+- [2026-08-14 21:44] [2026-07-23-19f23ce695-5615032135.md] Kosten Juni 2026: 28,10 EUR netto (0% MwSt, Reverse Charge)
+- [2026-08-14 21:43] [00_zusammenfassung_steuerpruefung_2025.md] Detailinformationen in Referenzdateien: 08_euer_ausgaben_zuordnung.md (Ausgaben-Details), 09_ust_jahreserklaerung_2025.md (Elster USt-Werte)
+- [2026-08-14 21:42] [Paddle n8n Cloud Beleg 10-07-2025.md] Beleg-Nr. 73531154-143210765; Beleg-Datum 10.07.2025; Online-Beleg abrufbar unter my.paddle.com
+- [2026-08-14 21:42] [Bolt StackBlitz Beleg 05-29-2025.md] Zahlungsmethode: Visa ****7073; EUR-Äquivalent ca. 17,73 EUR (FX 0,8865)
+- [2026-08-14 21:42] [Bolt StackBlitz Beleg 05-29-2025.md] Wiederkehrende Kosten: 20,00 USD monatlich (Beleg 2514-9086 vom 29.05.2025)
 - [2026-08-14 21:06] [2026-07-20-invoice-MSTRL-API-750302-002.md] Zweite Mistral-Rechnung desselben Tages (MSTRL-API-750302-003): 11,04 € - löste gemeinsam Kosten-Analyse vom 20.07.2026 aus
 - [2026-08-14 21:06] [2026-07-20-invoice-MSTRL-API-750302-002.md] Zahlungsfrist: 20.07.2026 (0 Tage) - sofortige Fälligkeit
 - [2026-08-14 21:05] [2026-07-19-Rechnung_2026-07-16_310100082556.md] IONOS Servicezeiten täglich rund um die Uhr, Telefon 0721 170 5522
@@ -161,6 +217,15 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-15 00:47] [2026-06-09-🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia.md] Fahrzeugbestand: ca. 1.800 Fahrzeuge täglich; Öffnungszeiten: Montag–Samstag
+- [2026-08-15 00:44] [2026-06-09-📞 Effiziente Telefonbetreuung mit dem Prozessia Voice Agent für AM Autoservice 🚗 – Prozessia.md] Öffnungszeiten: Montag–Freitag 09:00–18:00 Uhr
+- [2026-08-14 21:57] [2026-06-09-Finom_statement_31122025.md] Joel Wagner: Projekt RE250009, Zahlungseingang 4.760,00 € am 31.12.2025
+- [2026-08-14 21:53] [08_euer_ausgaben_zuordnung.md] INSTANTLY: Werbekostenpartner mit 12 monatlichen Zahlungen März-September 2025 (Gesamtnetto ~449€), alle Rechnungen ohne Vorsteuer
+- [2026-08-14 21:48] [2026-08-04-19fca6c853-Hetzner_2026-08-04_084001046484.md] Hetzner-Kundennummer: K0631688826
+- [2026-08-14 21:47] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] sipgate-Kundennummer: 3988053, Inhaber: Sebastian Spuhler, Adresse: Campus A 11, 66123 Saarbrücken
+- [2026-08-14 21:46] [2026-07-23-19f801f127-invoice-MSTRL-API-750302-002.md] Mistral AI SAS, 15 rue des Halles, 75001 Paris; Steuer-ID: FR95952418325
+- [2026-08-14 21:45] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] Hetzner Kundennummer K0631688826 für Sebastian Spuhler/Prozessia, Campus Starterzentrum Saarbrücken
+- [2026-08-14 21:42] [Bolt StackBlitz Beleg 05-29-2025.md] Aktives Abonnement: Bolt Pro-Plan von StackBlitz Inc.
 - [2026-08-14 21:05] [2026-07-19-Rechnung_RE260014_09.07.2026.md] Rechnung RE260014 ausgestellt an World Class Marketing LLC, 30 N Gould St Ste N, Sheridan 82801 Wyoming, USA
 - [2026-08-14 21:04] [2026-07-19-Receipt-2715-8726-9308.md] Sebastian's Individual Org (Prozessia), Sebastian Spuhler, sebastian.spuhler@prozessia.de, 66123 Saarbrücken, Germany
 - [2026-08-14 21:04] [2026-07-19-Receipt-2713-3487.md] Vendor: Lovable Labs Incorporated, Dover Delaware, support@lovable.dev, EU OSS VAT: EU372090612
@@ -561,6 +626,73 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-15 00:47] [2026-06-09-🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia.md] Herausforderung: Hohes Telefonaufkommen; Lösung: Prozessia Voice Agent für automatisierte Anrufbearbeitung und Terminvereinbarungen
+- [2026-08-15 00:47] [2026-06-09-🚗 Mehr Servicequalität für Automobile Görres mit KI-Telefonagent 🤖 – Prozessia.md] Anfragenkategorien: Serviceanfragen, Werkstatttermine, Rückrufwünsche
+- [2026-08-15 00:46] [2026-06-09-🚗 Effizienter Service im Autohaus mit KI-Voice-Agent 🎙️ – Prozessia.md] Identifizierte Use Cases: Service-/Werkstatttermine, Probefahrtterminen, Rückrufwünsche, Fahrzeugstatusanfragen
+- [2026-08-15 00:46] [2026-06-09-🚗 Effizienter Service im Autohaus mit KI-Voice-Agent 🎙️ – Prozessia.md] Kernfunktionen: Automatisierung Anrufbearbeitung, Terminbuchung (Service/Werkstatt/Probefahrten), Kundenqualifizierung im Autohaus
+- [2026-08-15 00:46] [2026-06-09-🚗 Effizienter Kundenservice im Autohaus mit KI-Voice-Agent 🤖 – Prozessia.md] Voice Agent automatisiert: Serviceanfragen, Probefahrtbuchungen, Rückrufwünschen und Verfügbarkeitsnachfragen
+- [2026-08-15 00:46] [2026-06-09-🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.md] Häufige Kundenanfragen betreffen Service-Termine, Probefahrten und Fahrzeugverfügbarkeit
+- [2026-08-15 00:45] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Adressierte Herausforderung: überlastete Telefonleitungen zu Stoßzeiten (besonders Montage und Aktionen), lange Wartezeiten, Engpass in Werkstatt/Service
+- [2026-08-15 00:45] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Voice Agent Funktionalitäten: 24/7-Erreichbarkeit, automatisierte Terminbuchung, automatisiertes Rückrufmanagement, Handling von Service-/Werkstattanfragen und Probefahrten
+- [2026-08-15 00:44] [2026-06-09-📞 Effiziente Anrufsteuerung im Autohaus mit KI-Voice-Agent 🚗 – Prozessia.md] Anwendungsfälle: Werkstatt-Service, Probefahrten, Rückrufwünsche, Serviceanrufe
+- [2026-08-15 00:44] [2026-06-09-📞 Effiziente Telefonbetreuung mit dem Prozessia Voice Agent für AM Autoservice 🚗 – Prozessia.md] Hauptherausforderung: Hohe Anrufaufkommen in Stoßzeiten (morgens, nach Aktionen) für Servicetermine und Anfragen
+- [2026-08-14 22:04] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] Risikoklasse noch zu klären: minimales Risiko oder begrenztes Risiko
+- [2026-08-14 22:04] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] EU-KI-Act Compliance: KI-Richtlinie wird erstellt, Prozessia-Agent Cloud-basiert im Einsatz
+- [2026-08-14 22:00] [2026-06-09-Lexoffice 11 24.md] Leistungszeitraum: 06.11.2024 - 06.12.2024
+- [2026-08-14 22:00] [2026-06-09-Lexoffice 09 25.md] Zahlungsziel: 12.09.2025, Zahlungsart: SEPA-Lastschrift, Gläubiger-ID: DE68ZZZ00000207489
+- [2026-08-14 21:59] [2026-06-09-Lexoffice 06 25.md] Zahlungsweise: SEPA-Lastschrift; Zahlungsziel: 13.06.2025; Gläubiger-ID: DE68ZZZ00000207489
+- [2026-08-14 21:59] [2026-06-09-Lexoffice 04 25.md] Zahlungsweise: SEPA-Lastschrift (automatischer Kontoeinzug), Gläubiger-ID DE68ZZZ00000207489
+- [2026-08-14 21:59] [2026-06-09-LNKD_INVOICE_789144507558.md] Zahlung per PayPal monatlich, automatische Erneuerung bis zur Kündigung
+- [2026-08-14 21:57] [2026-06-09-Gewerbeanmeldung Sebastian Spuhler.md] Gewerbeanmeldung bei Landeshauptstadt Saarbrücken registriert am 2026-06-09
+- [2026-08-14 21:57] [2026-06-09-Funnelcockpit_1.md] Zahlungsmodal: Monatliche Kreditkartenzahlung via Digistore24; Zahlungsplan: 1 EUR initial, dann 55,93 EUR ab 27.08.2025
+- [2026-08-14 21:57] [2026-06-09-Finom_statement_31122025.md] Retainer-Modell mit Benito Ferrise für Q1 2026 zahlend
+- [2026-08-14 21:56] [2026-06-09-Finom_statement_30122025 (1).md] Haupteinnahmen Q4 2025: Joel Wagner 4.760,00 € (RE250009), Martin Veser UG 505,75 €
+- [2026-08-14 21:56] [2026-06-09-Finom_statement_30122025 (1).md] Q4 2025 Kontostand: Eröffnung 92,94 € → Abschluss 5.264,00 € (Zeitraum 01.10–30.12.2025)
+- [2026-08-14 21:56] [2026-06-09-Finom 2024.md] Fälligkeitsdatum: 29.11.2024 (sofort fällig)
+- [2026-08-14 21:56] [2026-06-09-Finom 2024.md] Rechnungsnummer 3OJ3-0002 vom 29.11.2024, Betrag brutto: 99,96 € (netto: 84,00 €)
+- [2026-08-14 21:55] [2026-06-09-Domain webwokr.md] Zahlungsmethode: PayPal, Rechnungsstatus bezahlt (5. Aug. 2025)
+- [2026-08-14 21:55] [2026-06-09-Domain webwokr.md] Kosten: 17,79 € inkl. 19% MwSt. (netto 14,95 €)
+- [2026-08-14 21:55] [2026-06-09-Apify_Invoice_202510060569.md] Verbleibender Prepaid-Betrag: 10,71 USD
+- [2026-08-14 21:55] [2026-06-09-Apify_Invoice_202510060569.md] Plattformnutzung 28,29 USD, Prepaid-Subscription-Guthaben 39,00 USD
+- [2026-08-14 21:54] [2026-06-09-Apify_Invoice_202509060156.md] Nutzung Vorperiode: 33,82 USD von 39,00 USD Prepayment; ungenutzte Prepaid: 5,18 USD
+- [2026-08-14 21:54] [2026-06-09-Apify_Invoice_202509060156.md] Apify Starter-Plan (monatlich), 39,00 USD/Monat; Abrechnungszeitraum 2025-09-06 bis 2025-10-05
+- [2026-08-14 21:54] [2026-06-09-Apify_Invoice_202508060773.md] Zahlungsstatus: Bezahlt am 6. August 2025 per Kreditkarte (Visa *7073), Stripe-ID: pi_3Rt8WbAOnxR6X95W1vBybQOK
+- [2026-08-14 21:54] [2026-07-26-Transkript-EUER-Tutorial-Elster.md] Navigationspfad ELSTER: Formulare & Leistungen → Gewinnermittlung → Einnahmenüberschussrechnung (NICHT unter Einkommensteuer suchen)
+- [2026-08-14 21:54] [2026-07-26-Transkript-EUER-Tutorial-Elster.md] Freiberufler dürfen EÜR immer nutzen, unabhängig von Gewinn und Umsatzgröße
+- [2026-08-14 21:54] [2026-07-26-Transkript-EUER-Tutorial-Elster.md] Gewerbetreibende: EÜR nur zulässig bei Gewinn < 80.000€ UND Umsatz < 800.000€; bei Überschreitung Buchführungspflicht (Bilanz + GuV)
+- [2026-08-14 21:54] [NOTIZEN.md] Belegauswertung 2026 angelegt (Stand 2026-07-28): Step1 erfolgreich mit 188 Buchungen Jan–Jul 2026 aus Finom-Kontoauszug (27 Umsatz, 161 Ausgaben); Steps 4–8 codeseitig fertig, noch nicht durchgelaufen
+- [2026-08-14 21:53] [PRUEFFAELLE.md] Wechselkurs-Mapping fehlerhaft: 97.0 USD → 84.32 EUR (Receipt-2172-3201.pdf), nicht automatisch konvertiert, Bankbetrag und Beleg divergent
+- [2026-08-14 21:53] [09_ust_jahreserklaerung_2025.md] USt-Jahreserklärung 2025 finalisiert 2026-07-28 – Elster-Einreichung erforderlich
+- [2026-08-14 21:52] [06_recherche_beleg_fehlt.md] Stand: 2026-07-22. Gesamte Google Drive + Gmail (2025) durchsucht. Von 21 fehlenden Belegen: 5 gelöst
+- [2026-08-14 21:52] [00_zusammenfassung_steuerpruefung_2025.md] Finanzamt-Erstattungen (3 Fälle) seit 2026-07-29 in Pipeline als Betriebseinnahme mitgezählt
+- [2026-08-14 21:52] [PRUEFFAELLE.md] Validierungsbedarf: 4 Hauptprüffälle benötigen Datennachverfolgung und Rechnungsbestätigung
+- [2026-08-14 21:51] [2026-07-23-19f17a1531-Leistungsübersicht der Business Platinum Card.md] Dokument vom 2026-07-23, Produktinformationsblatt zur Kartenabsicherung
+- [2026-08-14 21:51] [2026-06-09-Kostenkalkulation.md] Gesamt-Token: 2.160.000 Input, 1.080.000 Output; davon 30% Prompt-Cached (648.000 Tokens)
+- [2026-08-14 21:50] [2026-06-09-Angebot_Schaufler_Retainer.md] Monatlicher Service- und Weiterentwicklungs-Retainer Beschaffungsagent: 100,00 € netto / 119,00 € brutto
+- [2026-08-14 21:50] [2026-06-09-Angebot_Schaufler_Beschaffungsagent.md] KI-Beschaffungsagent mit Prozessaufnahme (890€), API-Schnittstellen, Auftragsbestätigungsmanagement, Lieferterminüberwachung, Versandtracking und Dashboard
+- [2026-08-14 21:49] [2026-06-09-Angebot_AG0018_15.12.2025.md] Leistungen: (1) Prozessaufnahme Beschaffungsprozess 3.000€; (2) Implementierung Beschaffungsagent mit drei Teilagenten (Auftragsbestätigungen, Lieferterminen, Lieferungen/Versand) 46.000€
+- [2026-08-14 21:48] [2026-08-04-19fca6c853-Hetzner_2026-08-04_084001046484.md] Zahlungsfrist: spätestens 14.08.2026 (10 Tage nach Rechnungsdatum 04.08.2026)
+- [2026-08-14 21:48] [2026-08-03-19fc530f90-Rechnung_RE260018_03.08.2026.md] Infrastruktur: Docker Container überwacht, automatischer Neustart, SSL-Zertifikat auto-erneuert, proaktives Incident Management
+- [2026-08-14 21:48] [2026-08-03-19fc530f90-Rechnung_RE260018_03.08.2026.md] Rechnung RE260018 vom 03.08.2026: 307,10 € Gesamtbetrag (258,07 € netto + 19% USt.), zahlbar sofort
+- [2026-08-14 21:47] [2026-08-01-19fbbb5d1d-invoice_sipgatede_B4644944.md] Monatliche sipgate.de Telefonieguthaben-Aufladung per Kreditkarte (regelmäßiger Prozess)
+- [2026-08-14 21:47] [2026-07-24-19f4baf08b-G170104086.md] Fälligkeitsdatum: 09.07.2026, Zahlungsart: automatische Kreditkartenabbuchung
+- [2026-08-14 21:47] [2026-07-23-19f8cb719f-63459971781.md] Monatliches Abonnement mit automatischer Abbuchung
+- [2026-08-14 21:47] [2026-07-23-19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.md] Bereits abgerechneter Betrag: 11,25€, verbleibende Balance: 0,00€
+- [2026-08-14 21:47] [2026-07-23-19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.md] Rechnung MSTRL-API-750302-003: 11,04€ netto + 19% MwSt = Gesamtbetrag 11,04€, bezahlt am 20.07.2026 per Visa
+- [2026-08-14 21:47] [2026-07-23-19f80bf0b9-invoice-MSTRL-API-750302-003.md] Rechnung MSTRL-API-750302-003: 11,04 € für 6039 Seiten OCR-Verarbeitung (01.-20.07.2026) à 0,0034 €/Seite
+- [2026-08-14 21:46] [2026-07-23-19f80b8128-invoice-MSTRL-API-750302-003.md] Progressive Abrechnung: Schwellenwert 20,00 € überschritten (kumulierte Nutzung 20,82 €) - Rechnung automatisch ausgelöst
+- [2026-08-14 21:46] [2026-07-23-19f801f127-receipt-MSTRL-API-750302-RCPT-000001.md] Gesamtkosten: €13,39 brutto (€11,25 netto + €2,14 MwSt. 19%)
+- [2026-08-14 21:46] [2026-07-23-19f801f127-invoice-MSTRL-API-750302-002.md] Progressive Rechnungsstellung wird bei kumulierter Nutzung von €11,54 ausgelöst
+- [2026-08-14 21:45] [2026-07-23-19f4b8def1-G170032929.md] Microsoft-Rechnungsnummer G170032929, Belegdatum 09/07/2026
+- [2026-08-14 21:45] [2026-07-23-19f4b8def1-G170032929.md] Fälligkeitsdatum 09/07/2026, automatische Kreditkartenabbuchung
+- [2026-08-14 21:45] [2026-07-23-19f2aa37a7-Hetzner_2026-07-04_083000997759.md] Zahlungsweise: automatische Kreditkartenabbuchung in den nächsten Tagen nach Rechnungsdatum
+- [2026-08-14 21:44] [2026-07-23-19f09dec90-Receipt-2713-3487.md] Zahlungsdatum: 27.06.2026, Zahlungsart: Visa-Kreditkarte (7073), Betrag: €25.00
+- [2026-08-14 21:44] [2026-07-23-19f09dec90-Receipt-2713-3487.md] Abonnement-Zahlungszyklus: monatlich €25.00, Laufzeit 27.06.2026 - 27.07.2026
+- [2026-08-14 21:43] [2026-07-23-19f188bb24-Receipt-2715-8726-9308.md] Bezahlung am 30. Juni 2026 per Link-Zahlungsmethode erfolgt
+- [2026-08-14 21:43] [2026-07-23-19f188bb24-Receipt-2715-8726-9308.md] Einmaliger API-Credit-Kauf bei Anthropic über $20.00
+- [2026-08-14 21:43] [00_zusammenfassung_steuerpruefung_2025.md] Vollständige Einzelbeleg-Verifizierung abgeschlossen: 80 Buchungen verifiziert, 75 Ausgaben-Buchungen final zugeordnet
+- [2026-08-14 21:42] [Paddle n8n Cloud Beleg 10-07-2025.md] Zahlungsflow: Beleg 10.07.2025 → Bankbuchung 11.07.2025 (Settlement nach ~24h)
+- [2026-08-14 21:42] [Bolt StackBlitz Beleg 05-29-2025.md] Rechnungsnummer LRDKYW8R-0001; Bankbuchung 30.05.2025, Gegenpartei 'BOLT (BY STACKBLITZ)'
 - [2026-08-14 21:05] [2026-07-19-invoice_sipgatede_B4602762.md] Bezahlung per Kreditkarte (Endziffer 7073), Karteninhaber Sebastian Spuhler
 - [2026-08-14 21:05] [2026-07-19-invoice_sipgatede_B4602762.md] Sipgate.de Telefonieguthaben, Leistungsdatum 01.07.2026, Rechnungsnummer B4602762
 - [2026-08-14 21:05] [2026-07-19-Rechnung_RE260014_09.07.2026.md] Rechnungspositionen: 5 Essenspositionen (Wantan, Chicken Karaage, Crispy Tiger, Curry King, Limonade) à 6,90-14,90 €
@@ -749,6 +881,7 @@
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-08-14 21:54] [NOTIZEN.md] Step2 (lokale Belege) blockiert: Benötigt Textextraktion aller PDFs unter Finanzen/2026/* → muss in `_local_text_raw.json` + `_ocr_results.json` abgelegt werden (Agent-Durchlauf wie 2025)
 - [2026-08-12 21:12] [memory.md] Startprojekt: Konkreten Anwendungsfall definieren (z.B. Einkauf) mit klarem Scope und iterativem Ansatz
 - [2026-08-12 20:13] [bild-prompts.md] Marken-Klausel (verpflichtend für alle Prompts): Farbschema Schwarz/Weiß mit Purple-Akzent (#534AB7–#B088FF, max 10–15%), bold rounded display grotesque, deutsche Texte nur, Logo unverändert, keine AI-Klischees (keine glowing brains, circuit boards, robot hands)
 - [2026-08-12 20:10] [2026-06-09-Digitaler-Beschaffungsagent-fur-Schaufler.md] Geschäftliche Vorteile: Drastische Reduktion manueller E-Mail-Bearbeitung, Planungssicherheit, durchgängige Transparenz im Beschaffungsprozess
@@ -815,6 +948,8 @@
 - [2026-07-13 19:09] [Bestätigungslink Herr Spuhler Business P] Nach Bestätigung des Links kann die Fachabteilung American Express mit der Prüfung des Antrags fortfahren
 
 ## DEADLINE
+- [2026-08-14 21:59] [2026-06-09-Lexoffice 08 25.md] Zahlungsziel: 14.08.2025
+- [2026-08-14 21:59] [2026-06-09-Lexoffice 04 25.md] Zahlungsziel 14.04.2025 (Rechnungsdatum 07.04.2025)
 - [2026-07-17 21:45] [2026-07-06-Email-19f381c7-AW-Offene-Punkte-Beschaffungsagent.md] Alle 4 Punkte sollten im Laufe dieser Woche (ab 6. Juli 2026) abgearbeitet werden
 - [2026-07-17 18:27] [Kompletten Salesfunnel mit KI erstellen] Termine freihalten: 29.07 und 30.07 (Jahr nicht angegeben, vermutlich kommend)
 - [2026-07-16 06:04] [Kompletten Salesfunnel mit KI erstellen] Veranstaltungstermine: 29.07 und 30.07 (Jahr nicht angegeben, vermutlich 2024/2025)
@@ -830,6 +965,14 @@
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-14 22:04] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] Offene Punkte: Einsatzbereiche, Nutzergruppen und erlaubte Tätigkeiten müssen präzise definiert werden
+- [2026-08-14 21:54] [NOTIZEN.md] 58 Buchungen markiert als UNKLAR und benötigen manuelle Prüfung: World Class Marketing LLC, Reisekosten (Hotels/Restaurants), diverse SaaS-Abos
+- [2026-08-14 21:53] [PRUEFFAELLE.md] Instantly-Belege: Systematische Fremdwährungsprobleme (USD) - Kartenumrechnung weicht ab, manuelle Überprüfung erforderlich
+- [2026-08-14 21:52] [06_recherche_beleg_fehlt.md] Bolt/StackBlitz (17,73 EUR, 2025-05-30): Stripe-Beleg Nr. 2514-9086, 20,00 $ Pro-Plan, FX-Rate 0,8865 – als PDF in Rechnungen/ ablegen
+- [2026-08-14 21:52] [06_recherche_beleg_fehlt.md] Paddle/n8n Cloud (28,56 EUR, 2025-07-11): Beleg Nr. 73531154-143210765 in Gmail gefunden, Datum 10.07.2025 – als PDF in Rechnungen/ ablegen
+- [2026-08-14 21:52] [PRUEFFAELLE.md] Fehlende Rechnungsdaten bei kritischen Posten: FA/SF (60 EUR), Google (28.1 EUR), Triathlon Transfer (29.75 EUR) - Daten nicht eindeutig extrahierbar
+- [2026-08-14 21:50] [2026-06-09-Automatisierung Kostenvoranschlag.md] HTML-Export enthält keine lesbaren Kostendetails oder Vertragsinformationen - Original-Dokument erforderlich
+- [2026-08-14 21:47] [2026-08-01-19fbd42301-5637373931.md] Reverse-Charge-Verfahren anwendbar: 0% USt., Steuerschuldnerschaft beim Empfänger (Richtlinie 2006/112/EG Art. 196)
 - [2026-08-14 21:06] [2026-07-20-invoice-MSTRL-API-750302-002.md] MISTRAL_API_KEY auf VPS-Instanz deaktiviert als Maßnahme
 - [2026-08-14 21:06] [2026-07-20-invoice-MSTRL-API-750302-002.md] Ursache ungewöhnlich hoher Seitenzahl: Parallel laufende lokale und VPS-Instanz führte zu Duplikaten (Anhänge mehrfach heruntergeladen und per OCR verarbeitet)
 - [2026-08-14 21:05] [2026-07-19-Rechnung_RE260014_09.07.2026.md] Verdacht auf Fehlzuordnung: Restaurant-Rechnung ohne erkennbaren Bezug zu legitimer Prozessia-Kundenbeziehung
