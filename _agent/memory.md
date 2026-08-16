@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-16 22:42] [memory.md] Alle Sales-Materialien/Präsentationen vom 2026-06-09; mehrere Varianten für Marketing-Flyer und Pitches vorhanden
+- [2026-08-16 22:40] [2026-06-09-🚗 Effiziente Telefonentlastung für Ihr Autohaus 🚗 – Prozessia.md] Sales-Pitch/Präsentation vom 2026-06-09; Entwicklung durch Agentur an Universität des Saarlandes
 - [2026-08-16 22:18] [memory.md] Dokumentdatum: 2026-06-09; Marketing- und Sales-Materialien für KI-Voice-Agent-Lösung
 - [2026-08-16 22:15] [memory.md] Call-to-Action der Sales-Präsentation: Beratungsgespräch vereinbaren
 - [2026-08-16 22:14] [memory.md] Produkt: KI-Voice-Agent für Anrufsteuerung, entwickelt von Agentur an der Universität des Saarlandes
@@ -223,6 +225,8 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-16 22:43] [memory.md] Zielgruppe: Autohäuser; Spezialfall erwähnt: Autohaus Royal GmbH
+- [2026-08-16 22:40] [2026-06-09-🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.md] Autohaus Prozessia
 - [2026-08-16 22:11] [2026-06-09-🚗 Effizienter Service im Autohaus mit KI-Voice-Agent 🎙️ – Prozessia.md] Zielkunde: Spezialisierte Autohäuser mit mehreren Marken und umfangreichen Serviceleistungen
 - [2026-08-15 00:47] [2026-06-09-🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia.md] Fahrzeugbestand: ca. 1.800 Fahrzeuge täglich; Öffnungszeiten: Montag–Samstag
 - [2026-08-15 00:44] [2026-06-09-📞 Effiziente Telefonbetreuung mit dem Prozessia Voice Agent für AM Autoservice 🚗 – Prozessia.md] Öffnungszeiten: Montag–Freitag 09:00–18:00 Uhr
@@ -633,6 +637,10 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-16 22:44] [memory.md] Call-to-Action in Sales-Materialien einheitlich: Beratungsgespräch vereinbaren
+- [2026-08-16 22:44] [memory.md] Mehrere Marketing-Varianten vorhanden: Sales-Pitches, Präsentationen und Flyer für KI-Voice-Agent-Lösung (Dokumentdatum 2026-06-09)
+- [2026-08-16 22:43] [memory.md] Dokumentdatum aller Sales-Materialien: 2026-06-09; mehrere Pitch- und Flyer-Varianten existieren
+- [2026-08-16 22:43] [[Twilio] Re: [ACTION REQUIRED] Your Trus] Nächster Schritt: Offizielles Dokument erforderlich, das den Geschätsname eindeutig zeigt - Ticket #28824206
 - [2026-08-16 22:20] [memory.md] Lösung ermöglicht Telefonentlastung durch intelligente Anrufsteuerung im Autohaus
 - [2026-08-16 22:19] [memory.md] Sales-Strategie: Call-to-Action mit Beratungsgespräch-Vereinbarung; Marketing-Materialien vom 2026-06-09
 - [2026-08-16 22:18] [memory.md] Call-to-Action: Beratungsgespräch vereinbaren (Sales-Präsentationen)
@@ -988,6 +996,7 @@
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-16 22:40] [2026-06-09-🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.md] Sales-Pitch-Dokument (2026-06-09) mit ungefülltem Platzhalter für konkrete Use Cases – Nachfüllung erforderlich
 - [2026-08-16 22:15] [memory.md] Pitch-Dokumente vom 2026-06-09 teilweise unvollständig (Platzhalter {{USE_CASES}} vorhanden)
 - [2026-08-16 22:13] [2026-06-09-🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.md] Pitch-Dokument (2026-06-09) ist noch unvollständig – ungefüllter Platzhalter für konkrete Use Cases vorhanden
 - [2026-08-14 22:04] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] Offene Punkte: Einsatzbereiche, Nutzergruppen und erlaubte Tätigkeiten müssen präzise definiert werden
