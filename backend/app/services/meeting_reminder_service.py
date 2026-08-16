@@ -177,7 +177,12 @@ def resolve_contact_name(address: str, graph_name: str) -> tuple[str, str]:
 def _generate_email(event: dict, contacts: list[tuple[str, str]], minutes_until: int, start: datetime) -> dict:
     subject_line = event.get("subject") or "Meeting"
     link = _teams_link(event)
-    namen_liste = "; ".join(f"Vorname={v}, Nachname={n}" for v, n in contacts)
+    # Bei generischen Sammel-Adressen (info@...) liefert resolve_contact_name()
+    # bewusst keinen erfundenen Namen (z.B. ("Info", "Info")) - hier auf eine
+    # namenlose, aber korrekte Anrede ausweichen statt "Herr Info" zu riskieren.
+    known = [(v, n) for v, n in contacts if n.lower() not in _GENERIC_LOCAL_PARTS]
+    unknown_count = len(contacts) - len(known)
+    namen_liste = "; ".join(f"Vorname={v}, Nachname={n}" for v, n in known) or "keine (nur generische Adresse)"
     prompt = f"""Du schreibst für Sebastian Spuhler (Geschäftsführer Prozessia GbR) eine kurze
 Erinnerungsmail an externe Meeting-Teilnehmer, exakt in seinem Stil.
 
@@ -185,7 +190,10 @@ STIL-BEISPIELE (Ton/Länge/Struktur genau so übernehmen):
 {_STYLE_EXAMPLES}
 
 Fakten zu diesem Termin (NICHT verändern, insbesondere die Nachnamen sind fix vorgegeben):
-- Teilnehmer: {namen_liste}
+- Teilnehmer mit bekanntem Namen: {namen_liste}
+- Zusätzlich {unknown_count} Teilnehmer OHNE bekannten Namen (generische Adresse) - für
+  diese KEINEN Namen erfinden, stattdessen bei der Anrede weglassen bzw. bei
+  ausschließlich unbekannten Teilnehmern neutral mit "Guten Tag," (ohne Namen) grüßen.
 - Meeting-Titel: {subject_line}
 - Termin startet in {minutes_until} Minuten, um {start.strftime('%H:%M')} Uhr
 - Teams-Link: {link or 'kein Link vorhanden - nicht erwähnen'}
