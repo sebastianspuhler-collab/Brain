@@ -14,7 +14,7 @@ import subprocess
 import time
 
 from app.config import get_settings
-from app.services import calendar_lead_service, classify, email_indexer, gmail_client, memory, rag
+from app.services import calendar_lead_service, classify, email_indexer, gmail_client, meeting_reminder_service, memory, rag
 
 logger = logging.getLogger("brain.background")
 
@@ -23,6 +23,7 @@ EMAIL_POLL_SECONDS = 300
 GIT_SYNC_SECONDS   = 600  # alle 10 Minuten git pull
 CALENDAR_LEAD_POLL_SECONDS = 1800  # alle 30 Minuten - Kalender ändert sich seltener als Mails
 ATTACHMENT_POLL_SECONDS = 900  # alle 15 Minuten - Anhänge sind seltener als neue Mails
+REMINDER_POLL_SECONDS = 300  # alle 5 Minuten - Lead-Zeit ist nur 60 Minuten, muss engmaschiger prüfen
 REORGANIZE_POLL_SECONDS = 1800  # alle 30 Minuten - reines Aufräumen, nicht zeitkritisch
 _SKIP_EXT = {".js", ".ts", ".map", ".css", ".lock", ".yml", ".yaml"}
 _SKIP_NAMES = {".DS_Store", "Thumbs.db"}
@@ -328,6 +329,21 @@ async def calendar_lead_loop() -> None:
         except Exception:
             logger.exception("Kalender-Lead-Scan Fehler")
         await asyncio.sleep(CALENDAR_LEAD_POLL_SECONDS)
+
+
+async def meeting_reminder_loop() -> None:
+    """Legt automatisch einen Gmail-Entwurf an, wenn ein Kalendertermin mit
+    externen Teilnehmern kurz bevorsteht (Sebastian, 2026-08-16) - bewusst nur
+    ein Entwurf, kein Auto-Versand, siehe meeting_reminder_service.py."""
+    await asyncio.sleep(90)
+    while True:
+        try:
+            created = await asyncio.to_thread(meeting_reminder_service.scan_and_draft_reminders)
+            if created:
+                logger.info("Termin-Erinnerung(en) als Entwurf angelegt: %s", ", ".join(created))
+        except Exception:
+            logger.exception("Termin-Erinnerung-Scan Fehler")
+        await asyncio.sleep(REMINDER_POLL_SECONDS)
 
 
 def _downloaded_attachments_path():

@@ -14,6 +14,7 @@ from app.background.jobs import (
     git_sync_loop,
     inbox_watcher_loop,
     load_rag_blocking,
+    meeting_reminder_loop,
     vault_reorganize_loop,
 )
 from app.config import get_settings
@@ -42,6 +43,7 @@ async def lifespan(app: FastAPI):
         asyncio.create_task(calendar_lead_loop()),
         asyncio.create_task(attachment_backfill_loop()),
         asyncio.create_task(vault_reorganize_loop()),
+        asyncio.create_task(meeting_reminder_loop()),
     ]
     yield
     for task in tasks:
