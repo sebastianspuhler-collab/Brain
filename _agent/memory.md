@@ -1,4 +1,9 @@
 ## KONTEXT
+- [2026-08-16 22:15] [memory.md] Call-to-Action der Sales-Präsentation: Beratungsgespräch vereinbaren
+- [2026-08-16 22:14] [memory.md] Produkt: KI-Voice-Agent für Anrufsteuerung, entwickelt von Agentur an der Universität des Saarlandes
+- [2026-08-16 22:12] [2026-06-09-🚗 Effiziente Telefonentlastung für Ihr Autohaus 🚗 – Prozessia.md] Entwickler: Agentur an der Universität des Saarlandes
+- [2026-08-16 22:12] [2026-06-09-🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.md] Dokumentdatum: 2026-06-09; Typ: Sales-Präsentation mit Demo-CTA
+- [2026-08-16 22:10] [2026-06-09-📞 Effiziente Anrufsteuerung im Autohaus mit KI-Voice-Agent 🚗 – Prozessia.md] Prozessia Marketing-Flyer für KI-Voice-Agent zur Anrufsteuerung im Autohaus (Datum: 2026-06-09, Status: Archiv)
 - [2026-08-15 00:47] [2026-06-09-🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia.md] Pitch-Dokument vom 2026-06-09; Status: Unvollständig (Platzhalter {{USE_CASES}}); Call-to-Action: Beratungsgespräch
 - [2026-08-15 00:46] [2026-06-09-🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.md] Voice Agent ist KI-Lösung aus dem Umfeld der Universität des Saarlandes
 - [2026-08-15 00:46] [2026-06-09-🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.md] Zielmarkt: Autohäuser mit hohem Telefonaufkommen, besonders Stoßzeiten montags und morgens
@@ -217,6 +222,7 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-16 22:11] [2026-06-09-🚗 Effizienter Service im Autohaus mit KI-Voice-Agent 🎙️ – Prozessia.md] Zielkunde: Spezialisierte Autohäuser mit mehreren Marken und umfangreichen Serviceleistungen
 - [2026-08-15 00:47] [2026-06-09-🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia.md] Fahrzeugbestand: ca. 1.800 Fahrzeuge täglich; Öffnungszeiten: Montag–Samstag
 - [2026-08-15 00:44] [2026-06-09-📞 Effiziente Telefonbetreuung mit dem Prozessia Voice Agent für AM Autoservice 🚗 – Prozessia.md] Öffnungszeiten: Montag–Freitag 09:00–18:00 Uhr
 - [2026-08-14 21:57] [2026-06-09-Finom_statement_31122025.md] Joel Wagner: Projekt RE250009, Zahlungseingang 4.760,00 € am 31.12.2025
@@ -626,6 +632,19 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-16 22:17] [memory.md] Vertriebsmaterialien: Marketing-Flyer, Sales-Präsentationen und Pitch-Dokumente in Nutzung
+- [2026-08-16 22:15] [memory.md] Fokus auf Telefonentlastung in Stoßzeiten: montags und morgens
+- [2026-08-16 22:14] [memory.md] Call-to-Action: Beratungsgespräch als nächster Schritt
+- [2026-08-16 22:13] [2026-06-09-🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.md] Automatisierte Anrufbearbeitung für: Werkstatt-Service-Anfragen, Probefahrtenanfragen, Rückrufbitten, Fahrzeugverfügabilitätsanfragen
+- [2026-08-16 22:12] [2026-06-09-🚗 Effiziente Telefonentlastung für Ihr Autohaus 🚗 – Prozessia.md] Anwendungsfälle: Service-Termine, Werkstattanfragen, Probefahrten, Rückrufbitten
+- [2026-08-16 22:12] [2026-06-09-🚗 Effiziente Telefonentlastung für Ihr Autohaus 🚗 – Prozessia.md] Hauptfunktionen: Automatisierung von Anrufen, 24/7-Erreichbarkeit, automatisierte Terminbuchung
+- [2026-08-16 22:11] [2026-06-09-🚗 Effizienter Service im Autohaus mit KI-Voice-Agent 🎙️ – Prozessia.md] Kritische Zeiten für Anrufaufkommen: Morgens, montags und nach Verkaufsaktionen
+- [2026-08-16 22:11] [2026-06-09-🚗 Effizienter Service im Autohaus mit KI-Voice-Agent 🎙️ – Prozessia.md] Automatisierte Funktionen: Anrufbearbeitung, Serviceterminbuchung, Probefahrttermine, Rückrufwünsche, Fahrzeugstatusanfragen
+- [2026-08-16 22:11] [2026-06-09-🚗 Effizienter Kundenservice im Autohaus mit KI-Voice-Agent 🤖 – Prozessia.md] Zielgruppe-Problemstellung: Lange Wartezeiten an Stoßzeiten, hohe Anrufvolumen durch wiederkehrende Anfragen
+- [2026-08-16 22:10] [2026-06-09-📞 Effiziente Anrufsteuerung im Autohaus mit KI-Voice-Agent 🚗 – Prozessia.md] Anwendungsfälle: Werkstatt-Service-Anrufe, Probefahrten, Rückrufwünsche
+- [2026-08-16 22:10] [2026-06-09-📞 Effiziente Anrufsteuerung im Autohaus mit KI-Voice-Agent 🚗 – Prozessia.md] Voice Agent automatisiert Serviceanrufe, Terminbuchungen, Rückrufe und bietet 24/7-Erreichbarkeit
+- [2026-08-16 22:10] [2026-06-09-📞 Effiziente Anrufentlastung im Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Nutzen: Entlastung des Mitarbeiterteams von Routineanrufen, strukturierte Telefonverkehrssteuerung
+- [2026-08-16 22:10] [2026-06-09-📞 Effiziente Anrufentlastung im Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Automatisierte Funktionen: 24/7-Terminbuchung, Fahrzeugverfügbarkeitsabfragen, Rückruferfassung, Service- und Werkstattanfragen
 - [2026-08-15 00:47] [2026-06-09-🚗 Effizienter Telefonservice für Autohaus Royal GmbH – Mehr Raum für Kunden! 📞 – Prozessia.md] Herausforderung: Hohes Telefonaufkommen; Lösung: Prozessia Voice Agent für automatisierte Anrufbearbeitung und Terminvereinbarungen
 - [2026-08-15 00:47] [2026-06-09-🚗 Mehr Servicequalität für Automobile Görres mit KI-Telefonagent 🤖 – Prozessia.md] Anfragenkategorien: Serviceanfragen, Werkstatttermine, Rückrufwünsche
 - [2026-08-15 00:46] [2026-06-09-🚗 Effizienter Service im Autohaus mit KI-Voice-Agent 🎙️ – Prozessia.md] Identifizierte Use Cases: Service-/Werkstatttermine, Probefahrtterminen, Rückrufwünsche, Fahrzeugstatusanfragen
@@ -965,6 +984,8 @@
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-16 22:15] [memory.md] Pitch-Dokumente vom 2026-06-09 teilweise unvollständig (Platzhalter {{USE_CASES}} vorhanden)
+- [2026-08-16 22:13] [2026-06-09-🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.md] Pitch-Dokument (2026-06-09) ist noch unvollständig – ungefüllter Platzhalter für konkrete Use Cases vorhanden
 - [2026-08-14 22:04] [2026-07-23-19f381c78f-Fragenkatalog_KI-Richtlinie_EU-KI-Act.md] Offene Punkte: Einsatzbereiche, Nutzergruppen und erlaubte Tätigkeiten müssen präzise definiert werden
 - [2026-08-14 21:54] [NOTIZEN.md] 58 Buchungen markiert als UNKLAR und benötigen manuelle Prüfung: World Class Marketing LLC, Reisekosten (Hotels/Restaurants), diverse SaaS-Abos
 - [2026-08-14 21:53] [PRUEFFAELLE.md] Instantly-Belege: Systematische Fremdwährungsprobleme (USD) - Kartenumrechnung weicht ab, manuelle Überprüfung erforderlich
