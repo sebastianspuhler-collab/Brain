@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-16 22:18] [memory.md] Dokumentdatum: 2026-06-09; Marketing- und Sales-Materialien für KI-Voice-Agent-Lösung
 - [2026-08-16 22:15] [memory.md] Call-to-Action der Sales-Präsentation: Beratungsgespräch vereinbaren
 - [2026-08-16 22:14] [memory.md] Produkt: KI-Voice-Agent für Anrufsteuerung, entwickelt von Agentur an der Universität des Saarlandes
 - [2026-08-16 22:12] [2026-06-09-🚗 Effiziente Telefonentlastung für Ihr Autohaus 🚗 – Prozessia.md] Entwickler: Agentur an der Universität des Saarlandes
@@ -632,6 +633,9 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-16 22:20] [memory.md] Lösung ermöglicht Telefonentlastung durch intelligente Anrufsteuerung im Autohaus
+- [2026-08-16 22:19] [memory.md] Sales-Strategie: Call-to-Action mit Beratungsgespräch-Vereinbarung; Marketing-Materialien vom 2026-06-09
+- [2026-08-16 22:18] [memory.md] Call-to-Action: Beratungsgespräch vereinbaren (Sales-Präsentationen)
 - [2026-08-16 22:17] [memory.md] Vertriebsmaterialien: Marketing-Flyer, Sales-Präsentationen und Pitch-Dokumente in Nutzung
 - [2026-08-16 22:15] [memory.md] Fokus auf Telefonentlastung in Stoßzeiten: montags und morgens
 - [2026-08-16 22:14] [memory.md] Call-to-Action: Beratungsgespräch als nächster Schritt
