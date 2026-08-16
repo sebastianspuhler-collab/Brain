@@ -113,14 +113,26 @@ def _derive_name_from_email(address: str) -> tuple[str, str]:
     return "", ""
 
 
+_GENERIC_LOCAL_PARTS = {
+    "info", "kontakt", "contact", "office", "hello", "sales", "mail",
+    "team", "support", "buero", "büro", "empfang", "post",
+}
+
+
 def _lookup_known_contact(address: str) -> tuple[str, str] | None:
-    """Volltextsuche nach der E-Mail-Adresse in Kunden/ und Leads/ - Notizen
-    schreiben Teilnehmer meist als "Vorname Nachname (..., email@...)" (siehe
-    z.B. Meeting-Notizen unter Kunden/*/Meetings/). Best effort, kein Fund ist
-    kein Fehler - dann greift der Email-Fallback."""
+    """Volltextsuche nach der E-Mail-Adresse in Kunden/ und Leads/. Bewusst
+    ENG an das tatsächlich verwendete Notiz-Format gebunden - "Vorname
+    Nachname (..., email@...)" direkt gefolgt von einer schließenden Klammer
+    (siehe z.B. "Dominik Nussbaumer (TopDown, dominik.nussbaumer@...)" in den
+    TopDown-Meeting-Notizen) - NICHT eine lose Nähe-Suche im Fließtext: eine
+    frühere, großzügigere Version davon hat live einen falschen Namen
+    ("Zillmer-Elektrotechnik" + "von") statt des echten Kontakts geliefert.
+    Lieber kein Treffer als ein falscher - der Nachname muss laut Sebastian
+    zuverlässig stimmen."""
     settings = get_settings()
     pattern = re.compile(
-        r"([A-ZÄÖÜ][a-zäöüß\-]+(?:\s+[A-ZÄÖÜ][a-zäöüß\-]+){1,2})[^\n]{0,80}?" + re.escape(address),
+        r"([A-ZÄÖÜ][a-zäöüß\-]+)\s+([A-ZÄÖÜ][a-zäöüß\-]+)\s*\([^)]{0,120}?"
+        + re.escape(address) + r"[^)]{0,80}?\)",
         re.IGNORECASE,
     )
     for root_name in ("Kunden", "Leads"):
@@ -136,19 +148,30 @@ def _lookup_known_contact(address: str) -> tuple[str, str] | None:
                 continue
             m = pattern.search(text)
             if m:
-                parts = m.group(1).split()
-                return parts[0], parts[-1]
+                return m.group(1), m.group(2)
     return None
 
 
 def resolve_contact_name(address: str, graph_name: str) -> tuple[str, str]:
+    """Priorität laut Sebastian (2026-08-16): die E-Mail-Adresse selbst ist
+    der zuverlässigste Indikator ("das kann man anhand der emailadresse
+    erkennen meistens") - vorname.nachname@firma.de ist im B2B-Alltag die mit
+    Abstand häufigste Konvention und eindeutig, anders als Freitext-Suche im
+    Vault oder der oft nur die E-Mail-Adresse wiederholende Graph-Anzeigename.
+    Vault-Suche/Graph-Name nur als Fallback bei generischen Adressen
+    (info@, kontakt@, ...) ohne verwertbaren Vor-/Nachnamen im Lokalteil."""
+    local = address.split("@")[0]
+    email_guess = _derive_name_from_email(address)
+    generic = local.lower() in _GENERIC_LOCAL_PARTS or len(email_guess[0]) < 2 or len(email_guess[1]) < 2
+    if not generic:
+        return email_guess
     known = _lookup_known_contact(address)
     if known:
         return known
     if graph_name and graph_name.strip().lower() != address.lower() and " " in graph_name:
         parts = graph_name.strip().split()
         return parts[0], parts[-1]
-    return _derive_name_from_email(address)
+    return email_guess
 
 
 def _generate_email(event: dict, contacts: list[tuple[str, str]], minutes_until: int, start: datetime) -> dict:
