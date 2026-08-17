@@ -1,4 +1,20 @@
 ## KONTEXT
+- [2026-08-17 15:17] [2026-06-09-📞 Effiziente Anrufentlastung im Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Autohaus-Kampagnenmaterial vom 09.06.2026 — Vertriebspräsentation für Voice Agent als Anrufentlastungs-Lösung mit 24/7-Erreichbarkeit
+- [2026-08-17 15:17] [2026-08-24-Schmidt-Hänsch.md] Termin: 24.08.2026
+- [2026-08-17 15:17] [2026-08-24-Schmidt-Hänsch.md] Neue Lead: Schmidt-Hänsch (Erstgespräch über Kalender erkannt)
+- [2026-08-17 15:17] [2026-07-24-Angebot_endin_überarbeitet.md] Betrag: 2.900,00€ netto / 3.451,00€ brutto (19% USt.)
+- [2026-08-17 15:17] [2026-06-09-Präsentation_ Datenschutz.md] Datei ist Vertriebspräsentation (2026-06-09), dient zur Positionierung von Prozessias Lösung gegen ChatGPT Business/Enterprise
+- [2026-08-17 15:17] [2026-06-09-Präsentation_ Datenschutz.md] Wettbewerb ChatGPT: Business 25–30 USD/Nutzer/Monat, Enterprise ~60 USD/Nutzer/Monat; rechtlich: US Cloud Act Zugriff auf EU-Daten
+- [2026-08-17 15:16] [2026-08-16-Prozessia X TopDown (2).md] Thema wird von TopDown als relevant wahrgenommen, aber Details zur Freigabeprozess-Integration noch unklar
+- [2026-08-17 15:16] [2026-08-16-Prozessia X TopDown (2).md] Meeting vom 14.08.2026 mit Dominik Nussbaumer (TopDown); Dominik hat Präsentation mit seinem Team besprochen, grundsätzliches Interesse vorhanden
+- [2026-08-17 15:16] [2026-07-27-Email-19fa3698-Beispiel-Anfrage-für-KI.md] 2026-07-27: Seifert-Kunde sendet Anfrage mit Stücklisten und Einzelteilzeichnungen zur KI-Verarbeitung (wie besprochen)
+- [2026-08-17 15:16] [2026-07-21-Prozessia X Schmidt-Hänsch.md] DSGVO/EU-AI-Act-Risiken (Schatten-KI) besprochen; unkontrollierte KI-Nutzung durch Mitarbeiter ist Risikothema
+- [2026-08-17 15:16] [2026-07-21-Prozessia X Schmidt-Hänsch.md] Folgetermin geplant in 1–1,5 Wochen nach 21.07.2026 (ca. 28.07.–04.08.2026), intern Freigabe durch Chef & IT-Abteilung erforderlich
+- [2026-08-17 15:16] [2026-07-21-Prozessia X Schmidt-Hänsch.md] Agent via Adapter an Sage 100 & Outlook (E-Mail) anbindbar, liest & schreibt Daten
+- [2026-08-17 15:16] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Kontakt: Sumit Bhawar (Schmidt-Hänsch); Thema Schatten-KI und DSGVO/EU AI Act angesprochen
+- [2026-08-17 15:16] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Folgetermin vereinbart für ca. 1-1,5 Wochen nach 21.07.2026 (ca. Anfang August)
+- [2026-08-17 15:16] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] Zusage: Prozessia übernimmt Server-Infrastruktur, falls gewünscht
+- [2026-08-17 15:15] [2026-08-04-Email-19fcbbf7-RE-Prozessia-X-Schmidt-Hänsch.md] Sumit wartet noch auf Freigabe/Rückmeldung von Schmidt-Haensch-Geschäftsleitung für Prozessia-Projekt
 - [2026-08-17 15:14] [2026-08-11-Email-19fef82c-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Marvin Wiegner diese Woche in CAD-Schulung (8:30–17:00 Uhr) — Termin nur davor/danach möglich
 - [2026-08-17 15:14] [2026-08-05-Email-19fd0e77-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Marvin hat sich intensiv mit dem Thema beschäftigt und steht für inhaltliche Rückfragen vor Angebotserstellung zur Verfügung
 - [2026-08-17 15:14] [2026-08-05-19fd0e772e-KI-gestützte Stücklistendatenerfassung_Lastenheft.md] Kontakt/Projektverantwortlicher: Marvin Wiegner (Schaufler)
@@ -256,6 +272,10 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-17 15:17] [2026-08-24-Schmidt-Hänsch.md] Ansprechpartner: S. Bhawar (s.bhawar@schmidt-haensch.de)
+- [2026-08-17 15:15] [2026-08-04-Email-19fcbbf7-RE-Prozessia-X-Schmidt-Hänsch.md] Sumit Bhawar (s.bhawar@schmidt-haensch.de) — Ansprechpartner Schmidt-Haensch für Prozessia-Projekt
+- [2026-08-17 15:15] [2026-07-21-Schmidt-Hänsch.md] Ansprechpartner: s.bhawar@schmidt-haensch.de
+- [2026-08-17 15:15] [2026-07-16-Einführung Beschaffungsagent.md] Schaufler: Beschaffungsagent-Projekt aktiv, Besprechung mit Benjamin Schmohl und Amin Douioui am 2026-07-16
 - [2026-08-17 15:13] [2026-07-27-Email-19fa3942-Automatische-Antwort-Kapazitätenplanung.md] Jürgen Mahler (juergen.mahler@schaufler.de) ist Ansprechpartner für Kapazitätenplanung Stücklistenprojekt bei Schaufler
 - [2026-08-17 15:12] [2026-07-13-Email-19f5bc27-WG-Anforderung-einer-zentralen-Lösung-zu.md] Jonas Rösch (IT-Administration, jonas.roesch@schaufler.de) hat Anforderung von intern erhalten und zur Bewertung weitergeleitet
 - [2026-08-17 15:12] [2026-06-09-Prozessia --- Ergebnisse Machbarkeit Stücklistenprojekt.md] Schaufler: Stücklistenprojekt mit Human-in-the-Loop KI-System zur automatischen Verarbeitung von Stücklisten
@@ -675,6 +695,19 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-17 15:17] [2026-08-24-Schmidt-Hänsch.md] Lead-Status: Kalender-Erstgespräch erkannt, Transkript ausstehend
+- [2026-08-17 15:17] [2026-07-24-Angebot_endin_überarbeitet.md] KI-Agent für kaufmännische Auftragsabwicklung: Email-Schnittstellen, Bestellungsempfang/-klassifizierung (Service/Ersatzteile/Maschine), Steuerungs-Dashboard, Betrieb auf unternehmenseigenem Server
+- [2026-08-17 15:17] [2026-06-09-Präsentation_ Datenschutz.md] Onboarding neuer Mitarbeiter über Kanzlei-Assistent möglich (differenziert von generischen ChatGPT-Lösung)
+- [2026-08-17 15:17] [2026-06-09-Präsentation_ Datenschutz.md] Prozessias digitaler Kanzlei-Assistent: ~3–4 USD/Mitarbeiter/Monat, EU-gehostet, Microsoft-Stack-Integration (Outlook/Teams), RAG mit Kanzlei-Dokumenten/Richtlinien/Vorlagen
+- [2026-08-17 15:16] [2026-06-09-Präsentation_ Datenschutz .md] Kanzlei-Assistent: Login über Microsoft-Kanzleikonto, Integration in Outlook/Teams, RAG mit Kanzlei-Dokumenten/Richtlinien/Vorlagen, Onboarding-Unterstützung
+- [2026-08-17 15:16] [2026-08-16-Prozessia X TopDown (2).md] Offene Frage: Positionierung der KI-Verbuchung im Freigabeprozess (nach ERP-Übertragung vs. nach Freigabe vs. vor Zahlung) muss geklärt werden
+- [2026-08-17 15:16] [2026-07-27-Email-19fa3698-Beispiel-Anfrage-für-KI.md] Seifert GmbH fungiert als Zwischenkanal: leitet Kundenanfragen strukturiert an Prozessia weiter
+- [2026-08-17 15:16] [2026-07-21-Prozessia X Schmidt-Hänsch.md] KI-Beschaffungsagent für Schmidt-Hänsch: automatischer Abgleich Auftragsbestätigungen ↔ ERP-Bestellungen, Mahnungen fehlender Bestätigungen, Lieferverzugslisten
+- [2026-08-17 15:16] [2026-07-21-Prozessia X Schmidt-Hänsch (1).md] KI-Beschaffungsagent-Angebot: Auftragsbestätigungsprüfung, Mahnwesen, Lieferverzugsliste-Automatisierung, Lieferantenbewertung; Adapter für Sage/Winform/Outlook
+- [2026-08-17 15:15] [2026-08-04-Email-19fcbbf7-RE-Prozessia-X-Schmidt-Hänsch.md] Neuer Termin muss mit Sumit vereinbart werden — Follow-up erforderlich
+- [2026-08-17 15:15] [2026-07-16-Einführung Beschaffungsagent.md] Einheitenumrechnung fehlerhaft (z.B. Fass ↔ Liter) – Integration in Beschaffungsagent erforderlich
+- [2026-08-17 15:15] [2026-07-16-Einführung Beschaffungsagent.md] Kernproblem: Auftragsbestätigungen können nicht automatisch Bestellungen zugeordnet werden, besonders bei telefonischen Bestellungen oder Online-Shop-Käufen ohne Bestellbelegnummer
+- [2026-08-17 15:15] [2026-07-16-Einführung Beschaffungsagent.md] Drei Eskalationsfälle identifiziert: (1) fehlende Auftragsbestätigung, (2) Mengenabweichung zwischen AB und Bestellung, (3) Auftragsbestätigung ohne zugehörige Bestellung
 - [2026-08-17 15:14] [2026-08-11-Email-19ff0a71-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Stücklistenprojekt: Testreihe durchgeführt, Ergebnisse liegen vor und benötigen Besprechung mit Schaufler (Marvin Wiegner)
 - [2026-08-17 15:14] [2026-08-11-Email-19fef82c-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Stücklistenprojekt: Lastenheft geprüft, offene Punkte sollen in Call (Woche 11.08.2026) besprochen werden
 - [2026-08-17 15:14] [2026-08-05-Email-19fd0e77-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Projekt: KI-gestützte Stücklistendatenerfassung (Lastenheft eingereicht am 2026-08-05)
@@ -1065,6 +1098,7 @@
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-17 15:15] [2026-07-16-Einführung Beschaffungsagent.md] Probleme treten hauptsächlich bei nicht-projektbezogenen Artikeln auf (projektbezogene haben klare Bestellbelegnummern)
 - [2026-08-16 22:40] [2026-06-09-🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.md] Sales-Pitch-Dokument (2026-06-09) mit ungefülltem Platzhalter für konkrete Use Cases – Nachfüllung erforderlich
 - [2026-08-16 22:15] [memory.md] Pitch-Dokumente vom 2026-06-09 teilweise unvollständig (Platzhalter {{USE_CASES}} vorhanden)
 - [2026-08-16 22:13] [2026-06-09-🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.md] Pitch-Dokument (2026-06-09) ist noch unvollständig – ungefüllter Platzhalter für konkrete Use Cases vorhanden
@@ -1230,6 +1264,7 @@
 - [2026-07-17 21:42] [6---Email-19f38afa-AW-Offene-Punkte-Beschaffungsagent.md] Bestelldokument muss angepasst werden, damit Lieferanten wissen, dass bestellbezogene Daten an order@schaufler.de gehen (Verantwortung: Benjamin Schmohl)
 
 ## ANFORDERUNGEN
+- [2026-08-17 15:19] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Autohaus-Zielmarkt: Bewältigung hohes Anrufaufkommen zu Stoßzeiten (Montagen, Aktionen), Reduzierung Wartezeiten im Service/Werkstatt durch Telefonentlastung
 - [2026-08-11 17:34] [2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md] Abteilungsbezogene KI-Modelle und Workflows müssen konfiguriert werden
 - [2026-08-11 17:34] [2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md] Azure OpenAI-Einrichtung und Verbindung von Dokumentenquellen erforderlich
 - [2026-08-11 17:34] [2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md] Prozessia KI-Agent erfordert VPS-Server mit Installation von: Automatisierungsplattform, Vektordatenbank, RAG-Struktur und Schnittstellen/Module

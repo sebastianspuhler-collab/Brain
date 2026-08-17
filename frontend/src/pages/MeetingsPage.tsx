@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Calendar as CalendarIcon, ChevronLeft, ChevronRight, List, Maximize2 } from "lucide-react";
+import { Calendar as CalendarIcon, ChevronLeft, ChevronRight, Download, List, Maximize2 } from "lucide-react";
 import { api } from "@/api/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -33,6 +33,8 @@ interface Meeting {
   /** Serverseitig aus der .md gerenderter PDF-Download (2026-07-28) - Sebastian
    * will lesbare Transkripte, keine rohe Markdown-Datei im Download. */
   pdf_url: string;
+  /** Original-Quelldokument (z.B. .docx), falls im Meeting-Ordner gefunden. */
+  original_url: string | null;
 }
 
 const MONTHS = [
@@ -209,10 +211,22 @@ export function MeetingsPage() {
                       <div className="flex items-center gap-1.5">
                         {m.kunde && <StatusPill variant="info">{m.kunde}</StatusPill>}
                         <span className="truncate text-sm font-medium text-foreground">{m.name}</span>
+                        {m.original_url && (
+                          <a
+                            href={`${API_BASE}${m.original_url}`}
+                            target="_blank"
+                            rel="noreferrer"
+                            title="Original-Dokument herunterladen"
+                            className="ml-auto flex size-6 shrink-0 items-center justify-center rounded-md text-muted-foreground opacity-0 hover:bg-muted group-hover:opacity-100"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <Download className="size-3.5" />
+                          </a>
+                        )}
                         <Button
                           variant="ghost"
                           size="icon-sm"
-                          className="ml-auto size-6 opacity-0 group-hover:opacity-100"
+                          className={m.original_url ? "size-6 shrink-0 opacity-0 group-hover:opacity-100" : "ml-auto size-6 shrink-0 opacity-0 group-hover:opacity-100"}
                           title="Volltext groß anzeigen"
                           onClick={(e) => expand(e, m)}
                         >
@@ -246,10 +260,22 @@ export function MeetingsPage() {
                   </span>
                   {m.kunde && <StatusPill variant="info">{m.kunde}</StatusPill>}
                   <span className="truncate text-sm font-medium text-foreground">{m.name}</span>
+                  {m.original_url && (
+                    <a
+                      href={`${API_BASE}${m.original_url}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      title="Original-Dokument herunterladen"
+                      className="ml-auto flex size-7 shrink-0 items-center justify-center rounded-md text-muted-foreground opacity-0 hover:bg-muted group-hover:opacity-100"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Download className="size-4" />
+                    </a>
+                  )}
                   <Button
                     variant="ghost"
                     size="icon-sm"
-                    className="ml-auto size-7 shrink-0 opacity-0 group-hover:opacity-100"
+                    className={m.original_url ? "size-7 shrink-0 opacity-0 group-hover:opacity-100" : "ml-auto size-7 shrink-0 opacity-0 group-hover:opacity-100"}
                     title="Volltext groß anzeigen"
                     onClick={(e) => expand(e, m)}
                   >

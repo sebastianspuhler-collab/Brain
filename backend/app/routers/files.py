@@ -98,6 +98,8 @@ def _parse_meeting_meta(path: Path) -> dict:
         for line in fm_match.group(1).splitlines():
             if line.strip().startswith("datum:"):
                 meta["datum"] = line.split(":", 1)[1].strip()
+            elif line.strip().startswith("quelle:"):
+                meta["quelle"] = line.split(":", 1)[1].strip().strip('"')
     summary_match = re.search(r"## Zusammenfassung\n(.+?)(\n##|\Z)", text, re.DOTALL)
     if summary_match:
         meta["zusammenfassung"] = summary_match.group(1).strip()[:300]
@@ -122,6 +124,23 @@ def list_meetings(user: str = Depends(get_current_user)):
             continue
         meta = _parse_meeting_meta(f)
         kunde = parts[1] if parts[0] == "Kunden" and len(parts) > 1 else None
+
+        # Original-Dokument (z.B. .docx) suchen, damit Sebastian bei Transkripten
+        # nicht nur die auto-generierte PDF-Fassung öffnen kann, sondern auch das
+        # Original herunterladen (2026-08-17: "das kann ja keiner lesen" - die
+        # PDF-Konvertierung einer rohen Teams-Transkript-.md ist unformatiert).
+        # Original liegt je nach Ordnerkonvention entweder neben der .md (alte
+        # Struktur, MD/ und Original im selben Ordner) oder eine Ebene höher
+        # (neue Struktur: Notiz in Meetings/MD/, Original in Meetings/).
+        original_url = None
+        quelle = meta.get("quelle")
+        if quelle:
+            for kandidat in (f.parent / quelle, f.parent.parent / quelle):
+                if kandidat.is_file():
+                    orig_rel = kandidat.relative_to(settings.vault_path)
+                    original_url = "/api/files/download/" + str(orig_rel).replace("\\", "/")
+                    break
+
         meetings.append({
             "path": str(rel).replace("\\", "/"),
             "name": f.stem,
@@ -130,6 +149,7 @@ def list_meetings(user: str = Depends(get_current_user)):
             "zusammenfassung": meta.get("zusammenfassung", ""),
             "url": "/api/files/download/" + str(rel).replace("\\", "/"),
             "pdf_url": "/api/files/download-pdf/" + str(rel).replace("\\", "/"),
+            "original_url": original_url,
         })
     meetings.sort(key=lambda m: m["datum"], reverse=True)
     return {"meetings": meetings}
