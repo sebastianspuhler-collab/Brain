@@ -285,6 +285,7 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-17 14:07] [memory.md] Kundenfeedback positiv nach Präsentation von Sebastian Spuhler
 - [2026-08-17 13:43] Angebot für TopDown wird erstellt, basierend auf Inhalten aus den Meetings vom 11.08. und 14.08. (abgelegt unter Kunden/TopDown/Meetings/MD/).
 - [2026-08-17 13:37] [2026-08-14-Prozessia X TopDown (2).md] Sprachmodell wird über Microsoft Azure direkt vom Kunden bezogen (Server Frankfurt) mit AVV-Vertrag
 - [2026-08-17 15:21] [memory.md] Seifert-Kunde: 27.07.2026 technische Anfrage mit Stücklisten und Einzelteilzeichnungen eingegangen
@@ -712,6 +713,10 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-17 14:09] [memory.md] Infrastruktur: Hetzner-Cloud-Server (skalierbar, optional von Prozessia oder Kunde selbst beschafft), Sprachmodell via Microsoft Azure (Frankfurt), ERP-Anbindung als komplexeste Komponente
+- [2026-08-17 14:07] [memory.md] Infrastruktur: Hetzner Cloud Server, Microsoft Azure für Sprachmodell (Frankfurt), ERP-Anbindung als komplexeste Komponente
+- [2026-08-17 14:06] [20260817-1a010087-Angebot-AG0029-von-Prozessia.md] Angebotsdokument im Anhang verfügbar, eingegangen 17.08.2026 14:03 Uhr
+- [2026-08-17 14:06] [20260817-1a010087-Angebot-AG0029-von-Prozessia.md] Angebot AG0029 von Prozessia, Datum 18.08.2026
 - [2026-08-17 13:44] [memory.md] Infrastruktur: Skalierbare Hetzner-Cloud-Server, Sprachmodell über Microsoft Azure (Frankfurt), bestehender AVV mit Microsoft nutzbar
 - [2026-08-17 13:43] Angebote werden nach dem Muster AG0028 (Juchem, 03.08.) erstellt: nummerierte Kategorien (1./1.1/1.2 usw.), Positionstabelle, Zwischensumme/USt./Gesamtbetrag, Abschlagsklausel. AG0024 (Schaufler) ist die ältere, unnummerierte Bullet-Version und wird nicht mehr als Vorlage verwendet.
 - [2026-08-17 13:41] [decisions.md] DATEV-Übertrag ist der letzte Prozessschritt nach der komplexen KI-Logik
