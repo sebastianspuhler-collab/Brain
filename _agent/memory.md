@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-17 13:37] [2026-08-14-Prozessia X TopDown (2).md] Infrastruktur: Skalierbarer Hetzner-Cloud-Server, entweder von Prozessia als Auftragsverarbeiter oder vom Kunden selbst beschafft
+- [2026-08-17 13:37] [2026-08-14-Prozessia X TopDown (2).md] Drei Schnittstellen relevant: Microsoft Graph API (Outlook), DATEV (Ende des Prozesses), Club Manager von Globe Systems (fortschrittlich, offene APIs)
 - [2026-08-17 13:27] [memory.md] Wettbewerb: ChatGPT Business 25-30 USD/Monat, Enterprise ~60 USD/Monat; US Cloud Act Risiko für EU-Daten
 - [2026-08-17 13:27] [20260817-1a00fd79-250000-Seedance-25-challenge.md] Artlist Seedance 2.5 Challenge: $250,000 Preisgeld für beste 30-Sekunden-Videos
 - [2026-08-17 13:27] [2026-08-14-Prozessia X TopDown (2).md] Sebastian Spuhler versendet Präsentation; Kunde hat positiv reagiert ('etwas, was wir uns vorstellen')
@@ -280,6 +282,7 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-17 13:37] [2026-08-14-Prozessia X TopDown (2).md] Sprachmodell wird über Microsoft Azure direkt vom Kunden bezogen (Server Frankfurt) mit AVV-Vertrag
 - [2026-08-17 15:21] [memory.md] Seifert-Kunde: 27.07.2026 technische Anfrage mit Stücklisten und Einzelteilzeichnungen eingegangen
 - [2026-08-17 15:17] [2026-08-24-Schmidt-Hänsch.md] Ansprechpartner: S. Bhawar (s.bhawar@schmidt-haensch.de)
 - [2026-08-17 15:15] [2026-08-04-Email-19fcbbf7-RE-Prozessia-X-Schmidt-Hänsch.md] Sumit Bhawar (s.bhawar@schmidt-haensch.de) — Ansprechpartner Schmidt-Haensch für Prozessia-Projekt
@@ -705,6 +708,8 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-17 13:37] [decisions.md] Prozessia X TopDown: Hetzner-Cloud-Server wird als Infrastrukturlösung empfohlen und favorisiert
+- [2026-08-17 13:37] [2026-08-14-Prozessia X TopDown (2).md] Automatisierte Kontierung/Verbuchung der Belege soll vor Weitergabe an Steuerberater vorgeschlagen werden
 - [2026-08-17 13:27] [20260817-1a00fd79-250000-Seedance-25-challenge.md] Seedance 2.5 nun in 1080p Auflösung verfügbar
 - [2026-08-17 13:27] [2026-08-11-Prozessia X TopDown.md] Use-Case: Automatisierung Eingangsrechnungsverarbeitung (IST: vollständig manuell/papierbasiert, E-Mail-Empfang, manuelle ERP-Erfassung, physische Freigabeläufe, monatliche Belege-Übergabe an Steuerberater)
 - [2026-08-17 15:21] [memory.md] Angebot endin-Überarbeitung: 2.900€ netto / 3.451€ brutto (19% USt.)
