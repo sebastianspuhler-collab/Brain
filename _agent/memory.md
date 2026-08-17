@@ -285,6 +285,8 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-17 14:18] [memory.md] Kundenreaktion positiv auf Sebastian Spuhlers Präsentation [2026-08-17]
+- [2026-08-17 14:16] [2026-08-17-1a01008792-Angebot_AG0029_18.08.2026.md] TopDown Creative Factory GmbH, Kundennr. 10001, Angebot AG0029
 - [2026-08-17 14:07] [memory.md] Kundenfeedback positiv nach Präsentation von Sebastian Spuhler
 - [2026-08-17 13:43] Angebot für TopDown wird erstellt, basierend auf Inhalten aus den Meetings vom 11.08. und 14.08. (abgelegt unter Kunden/TopDown/Meetings/MD/).
 - [2026-08-17 13:37] [2026-08-14-Prozessia X TopDown (2).md] Sprachmodell wird über Microsoft Azure direkt vom Kunden bezogen (Server Frankfurt) mit AVV-Vertrag
@@ -1143,6 +1145,7 @@
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-17 14:16] [2026-08-17-1a01008792-Angebot_AG0029_18.08.2026.md] Angebotsgültig bis 14.09.2026 (Deadline für Kundenentscheidung)
 - [2026-08-17 13:56] Angebot Juchems beläuft sich auf 32.000 € (nicht 25.000 € netto, wie in den gespeicherten AG0028-Dateien fälschlich/unvollständig erfasst - Extraktion bricht dort nach Position 3 ab)
 - [2026-08-17 15:15] [2026-07-16-Einführung Beschaffungsagent.md] Probleme treten hauptsächlich bei nicht-projektbezogenen Artikeln auf (projektbezogene haben klare Bestellbelegnummern)
 - [2026-08-16 22:40] [2026-06-09-🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.md] Sales-Pitch-Dokument (2026-06-09) mit ungefülltem Platzhalter für konkrete Use Cases – Nachfüllung erforderlich
@@ -1310,6 +1313,7 @@
 - [2026-07-17 21:42] [6---Email-19f38afa-AW-Offene-Punkte-Beschaffungsagent.md] Bestelldokument muss angepasst werden, damit Lieferanten wissen, dass bestellbezogene Daten an order@schaufler.de gehen (Verantwortung: Benjamin Schmohl)
 
 ## ANFORDERUNGEN
+- [2026-08-17 14:16] [2026-08-17-1a01008792-Angebot_AG0029_18.08.2026.md] DSGVO- und AI Act-Konformität des Sprachmodells erforderlich
 - [2026-08-17 15:19] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Autohaus-Zielmarkt: Bewältigung hohes Anrufaufkommen zu Stoßzeiten (Montagen, Aktionen), Reduzierung Wartezeiten im Service/Werkstatt durch Telefonentlastung
 - [2026-08-11 17:34] [2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md] Abteilungsbezogene KI-Modelle und Workflows müssen konfiguriert werden
 - [2026-08-11 17:34] [2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md] Azure OpenAI-Einrichtung und Verbindung von Dokumentenquellen erforderlich
@@ -1319,6 +1323,7 @@
 - [2026-07-24 03:21] [2026-07-24-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Komplette mechanische Anfertigung nach Zeichnungen mit Gravur, Prüf-, Härte- und Messprotokoll erforderlich
 
 ## PREIS
+- [2026-08-17 14:16] [2026-08-17-1a01008792-Angebot_AG0029_18.08.2026.md] Nettobetrag 11.000,00 € für Buchhaltungsagent Rechnungsverarbeitung
 - [2026-08-14 21:03] [2026-07-19-Invoice-SP7D4PI7-0018.md] €18.00 monatlich
 - [2026-08-14 20:44] [2026-07-23-19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.md] Mistral OCR API kostet 0,0034 € pro Seite (Api pages)
 - [2026-08-01 05:15] [09_ust_jahreserklaerung_2025.md] Steuerpflichtige Umsätze netto: 4.950,00 € (19 % Steuersatz); Abziehbare Vorsteuer: 249,76 €
