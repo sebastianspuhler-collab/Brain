@@ -223,12 +223,74 @@ def push_post_to_buffer(post_id: str, scheduled_at: str | None = None, draft: bo
     return result
 
 
+_POST_CONTENT_QUERY = """
+query GetPost($id: PostId!) {
+  post(input: { id: $id }) {
+    id
+    text
+    assets {
+      __typename
+      ... on DocumentAsset { source thumbnail document { title } }
+      ... on ImageAsset { source thumbnail }
+      ... on VideoAsset { source thumbnail }
+    }
+  }
+}"""
+
+
+def _asset_output_to_input(asset: dict, fallback_title: str) -> dict | None:
+    """Übersetzt einen von Buffer gelieferten Asset-Output (DocumentAsset/
+    ImageAsset/VideoAsset, per Introspection ermittelt 2026-08-17) in die vom
+    editPost-Mutation erwartete AssetInput-Form. DocumentAssetInput braucht
+    zwingend url+title+thumbnailUrl (sonst REST_PROXY_ERROR), Image/Video nur
+    url."""
+    typename = asset.get("__typename")
+    if typename == "DocumentAsset":
+        return {"document": {
+            "url": asset["source"],
+            "thumbnailUrl": asset["thumbnail"],
+            "title": (asset.get("document") or {}).get("title") or fallback_title,
+        }}
+    if typename == "ImageAsset":
+        return {"image": {"url": asset["source"], "thumbnailUrl": asset.get("thumbnail")}}
+    if typename == "VideoAsset":
+        return {"video": {"url": asset["source"], "thumbnailUrl": asset.get("thumbnail")}}
+    return None
+
+
+def _fetch_post_content(post_id: str, token: str) -> dict | None:
+    """Holt Text + Assets eines bestehenden Buffer-Posts, damit editPost sie
+    beim reinen Termin-/Draft-Umschalten unverändert mitschicken kann (siehe
+    _promote_buffer_posts)."""
+    payload = json.dumps({"query": _POST_CONTENT_QUERY, "variables": {"id": post_id}}).encode()
+    req = urllib.request.Request(
+        BUFFER_GRAPHQL, data=payload,
+        headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"},
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=15) as resp:
+        data = json.loads(resp.read())
+    if data.get("errors"):
+        raise RuntimeError(data["errors"][0].get("message", "Unbekannter Fehler"))
+    return data.get("data", {}).get("post")
+
+
 def _promote_buffer_posts(buffer_post_ids: list[str], due_at: str | None, draft: bool) -> dict:
     """Ändert Termin/Draft-Status bereits existierender Buffer-Posts per
-    editPost, OHNE Text oder Assets (z.B. das Karussell-PDF) anzufassen -
-    reines Umschalten Entwurf<->geplant. saveToDraft ist auf EditPostInput
-    live per Introspection bestätigt (2026-08-13, s. buffer_edit_post für
-    dieselbe Query-Form)."""
+    editPost - reines Umschalten Entwurf<->geplant, Text/Assets bleiben
+    inhaltlich unverändert. saveToDraft ist auf EditPostInput live per
+    Introspection bestätigt (2026-08-13, s. buffer_edit_post für dieselbe
+    Query-Form).
+
+    Text+Assets IMMER mitschicken (Bugfix 2026-08-17): editPost patcht nicht,
+    sondern ersetzt - ohne Text/Assets im Payload lehnte Buffer den Edit mit
+    "Post must have either text or media" ab. Vorher stand hier fälschlich
+    "OHNE Text oder Assets anzufassen", in der Annahme, weggelassene Felder
+    blieben unangetastet - im schlimmsten Fall (hätte Buffer den Edit trotzdem
+    akzeptiert) wäre dabei ein Karussell-PDF wortlos verloren gegangen, exakt
+    der Schaden vom 12.08.2026-Vorfall. Deshalb jetzt: bestehenden Post per
+    _fetch_post_content() lesen, Assets über _asset_output_to_input() in die
+    Input-Form übersetzen, beides in jedem editPost mitschicken."""
     settings = get_settings()
     token = settings.buffer_api_token
     if not token:
@@ -252,9 +314,26 @@ mutation EditPost($input: EditPostInput!) {
     for post_id in buffer_post_ids:
         if not post_id:
             continue
+        try:
+            current = _fetch_post_content(post_id, token)
+        except Exception as exc:
+            errors.append({"post_id": post_id, "error": f"Post konnte nicht gelesen werden: {exc}"})
+            continue
+        if not current:
+            errors.append({"post_id": post_id, "error": "Post nicht gefunden"})
+            continue
+        text = current.get("text") or ""
+        assets_input = [
+            a for a in (
+                _asset_output_to_input(raw, text[:60] or "Karussell")
+                for raw in (current.get("assets") or [])
+            ) if a
+        ]
         variables = {
             "input": {
                 "id": post_id,
+                "text": text,
+                **({"assets": assets_input} if assets_input else {}),
                 "schedulingType": "automatic",
                 "saveToDraft": draft,
                 **({"mode": "customScheduled", "dueAt": due_at} if due_at and not draft else {}),
