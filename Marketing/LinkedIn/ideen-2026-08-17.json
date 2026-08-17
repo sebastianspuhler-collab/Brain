@@ -1,0 +1,116 @@
+{
+  "ideen": [
+    {
+      "typ": "A",
+      "kategorie": "Wissensmanagement",
+      "titel": "Wissen des Werkzeugmachers sichern",
+      "hook": "Mein Werkzeugmacher geht in Rente. Sein Wissen auch.",
+      "kern_botschaft": "Das Wissen über Toleranzen, Fehlerbehebung und Sondergriffe im Formenbau steckt nur im Kopf des einen erfahrenen Mitarbeiters, nirgendwo dokumentiert. Geht er, fängt der Nachfolger bei null an - mit teuren Ausschussteilen als Lehrgeld. KI-gestützte Dokumentation macht dieses Wissen jetzt durchsuchbar, bevor es verloren geht.",
+      "branche": "Werkzeugbau",
+      "zielgruppe_spezifisch": "Geschäftsführer eines Werkzeugbau-Betriebs mit 20-80 Mitarbeitenden, dessen erfahrenster Werkzeugmacher in den nächsten 2-3 Jahren in Rente geht",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Schreib mir, wie ihr das Wissen eures Werkzeugmachers aktuell sichert."
+    },
+    {
+      "typ": "A",
+      "kategorie": "Compliance",
+      "titel": "Chatbot-Kennzeichnungspflicht Art. 50",
+      "hook": "Mein Chatbot verschweigt, dass er eine KI ist.",
+      "kern_botschaft": "Seit 2. August 2026 gilt Art. 50 AI Act ohne Übergangsfrist: Nutzer müssen bei der ersten Interaktion mit einem Chatbot erkennen, dass sie mit einer Maschine sprechen. Viele Elektrotechnik-Betriebe mit Kunden-Chatbot auf der Website haben diesen sichtbaren Hinweis noch nicht umgesetzt - dabei drohen bei Verstößen Bußgelder bis 15 Mio. Euro oder 3 % des weltweiten Jahresumsatzes.",
+      "branche": "Elektrotechnik",
+      "zielgruppe_spezifisch": "Geschäftsführer eines Elektrotechnik-Betriebs mit Kunden-Chatbot auf der Website, der die Kennzeichnungspflicht seit August 2026 noch nicht geprüft hat",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Prüf diese Woche, ob dein Chatbot den Pflicht-Hinweis zeigt."
+    },
+    {
+      "typ": "A",
+      "kategorie": "Einkauf",
+      "titel": "Kalkulationsfehler trotz Angebotsvergleich",
+      "hook": "Ich hab drei Angebote geprüft. Trotzdem falsch kalkuliert.",
+      "kern_botschaft": "Bei C-Teilen und Long-Tail-Spend vergleichen Einkaufsleiter in der Lohnfertigung Angebote manuell in Excel und verlieren Stunden auf 200 Kleinpositionen, während die 20 Positionen mit echtem Kosten-Hebel untergehen. Strukturierte, KI-gestützte Angebotsprüfung dreht die Prioritäten wieder richtig herum.",
+      "branche": "Lohnfertigung",
+      "zielgruppe_spezifisch": "Einkaufsleiter in einem Lohnfertigungs-Betrieb, der wöchentlich Dutzende Kleinteile-Ausschreibungen manuell bearbeitet",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Lass uns über deinen Long-Tail-Spend sprechen."
+    },
+    {
+      "typ": "A",
+      "kategorie": "KI-Nutzung",
+      "titel": "Stücklisten automatisch übertragen",
+      "hook": "Ich tippe eine 400-Zeilen-Stückliste ab. Von Hand.",
+      "kern_botschaft": "Mitarbeiter in der Kunststoff-Fertigung übertragen BOM-Daten aus PDF-Zeichnungen manuell ins ERP - fehleranfällig, zeitraubend und ohne dass die Geschäftsführung weiß, dass diese Übertragung automatisierbar ist. Ein Stücklistenagent liest die Zeichnung und mapped direkt ins System.",
+      "branche": "Kunststoff",
+      "zielgruppe_spezifisch": "Geschäftsführer eines Kunststoff-Fertigers, dessen Team Stücklisten aus Kundenzeichnungen von Hand ins ERP überträgt",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Zeig mir eine eurer Stücklisten, ich zeig dir, was möglich ist."
+    },
+    {
+      "typ": "B",
+      "kategorie": "Wissensmanagement",
+      "titel": "Wo Firmenwissen verschwindet",
+      "hook": "Wo dein Firmenwissen gerade verschwindet",
+      "kern_botschaft": "Framework mit den fünf typischen Stellen, an denen Wissen in Metallbau-Betrieben verloren geht: E-Mail-Postfächer, WhatsApp-Chats, der Kopf des Meisters, alte Angebote und mündliche Übergabegespräche. Strukturierte KI-Dokumentation macht diese verstreuten Quellen erstmals durchsuchbar statt sie einfach abzulegen.",
+      "branche": "Metallbau",
+      "zielgruppe_spezifisch": "Geschäftsführer eines Metallbau-Betriebs, der bei der Digitalisierung von Firmenwissen nicht weiß, wo er anfangen soll",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Schreib mir, wenn du checken willst, wo es bei euch brennt."
+    },
+    {
+      "typ": "B",
+      "kategorie": "Compliance",
+      "titel": "5 Pflichten für den KI-Chatbot",
+      "hook": "5 Pflichten, die dein KI-Chatbot ab jetzt erfüllen muss",
+      "kern_botschaft": "Checkliste zu Art. 50 AI Act: sichtbarer KI-Hinweis seit 2.8.2026 ohne Übergangsfrist Pflicht, maschinenlesbare Kennzeichnung mit Nachfrist bis 2.12.2026 für Bestandssysteme, Ausnahme bei redaktionell geprüften Texten mit klarer Verantwortungsperson, Bußgeldrisiko bis 15 Mio. Euro oder 3 % Jahresumsatz, und die seit 2.8.2026 verbindliche KI-Kompetenzpflicht für Mitarbeitende - vom Digital Omnibus unangetastet.",
+      "branche": "Allgemein",
+      "zielgruppe_spezifisch": "Geschäftsführer im produzierenden Mittelstand, der einen KI-Chatbot im Kundenservice einsetzt und die neuen Pflichten seit August 2026 noch nicht durchgegangen ist",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Sag mir, an welchem Punkt der Liste ihr steht."
+    },
+    {
+      "typ": "B",
+      "kategorie": "Einkauf",
+      "titel": "Zulieferer bewerten in 6 Schritten",
+      "hook": "So bewertest du einen neuen Zulieferer in 6 Schritten",
+      "kern_botschaft": "Schritt-für-Schritt-Framework zur Lieferantenbewertung im Werkzeugbau: Kapazitätsprüfung, Qualitätsnachweis, Referenzteile, Preis-Leistungs-Check, Reaktionszeit und Testauftrag. Der Prozess läuft in vielen Betrieben nur in verstreuten Excel-Tabellen und lässt sich mit einem Beschaffungsagenten strukturiert beschleunigen.",
+      "branche": "Werkzeugbau",
+      "zielgruppe_spezifisch": "Einkaufsleiter im Werkzeugbau, der neue Zulieferer für Normalien und Rohmaterial bewerten muss und aktuell keinen strukturierten Prozess hat",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Ich zeig dir, wie wir diesen Prozess automatisieren."
+    },
+    {
+      "typ": "C",
+      "kategorie": "KI-Nutzung",
+      "titel": "Von vier Wochen auf neun Minuten",
+      "hook": "Ich hab vier Wochen Wartezeit auf neun Minuten runtergebracht.",
+      "kern_botschaft": "Bei der fiktiven Nordmetall Fertigung GmbH dauerten Rückfragen an Zulieferer für Sonderteile früher wochenlange E-Mail-Ping-Pongs. Nach Einführung eines Beschaffungsagenten sinkt die Zeit bis zur ersten strukturierten Rückmeldung auf neun Minuten - als typisches Szenario für Lohnfertiger mit vielen Sonderanfragen gerahmt.",
+      "branche": "Lohnfertigung",
+      "zielgruppe_spezifisch": "Geschäftsführer eines Lohnfertigungs-Betriebs, der bei Sonderanfragen lange auf Rückmeldungen von Zulieferern wartet",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Frag mich nach dem Ablauf bei Nordmetall."
+    },
+    {
+      "typ": "C",
+      "kategorie": "Wissensmanagement",
+      "titel": "Einarbeitung von drei Monaten auf zwei Wochen",
+      "hook": "Ich hab die Einarbeitung eines Monteurs von drei Monaten auf zwei Wochen runtergebracht.",
+      "kern_botschaft": "Bei der fiktiven Elektro Nordstern GmbH dauerte die Einarbeitung neuer Monteure durch im Kopf und in Ordnern verstreutes Wissen rund drei Monate. Nach Aufbau einer strukturierten, KI-gestützten Wissensdatenbank arbeiten neue Kollegen nach zwei Wochen eigenständig - als typisches Szenario für Elektrotechnik-Betriebe mit Fachkräftemangel gerahmt.",
+      "branche": "Elektrotechnik",
+      "zielgruppe_spezifisch": "Geschäftsführer eines Elektrotechnik-Betriebs, der aktuell neue Monteure einarbeitet und die lange Einarbeitungszeit als Kostenfaktor spürt",
+      "format_empfehlung": "Karussell",
+      "cta_vorschlag": "Frag mich, wie die Einarbeitung bei Nordstern jetzt läuft."
+    },
+    {
+      "typ": "C",
+      "kategorie": "Einkauf",
+      "titel": "37 Angebote von Hand geprüft",
+      "hook": "Ich prüfe 37 Angebote im Monat. Von Hand.",
+      "kern_botschaft": "Bei einem typischen Kunststoff-Fertiger prüfte der Einkauf monatlich 37 C-Teile-Angebote manuell mit hohem Zeitaufwand pro Position. Mit einem Beschaffungsagenten sinkt die reine Prüfzeit deutlich, während Rückfragen zu Preis- oder Mengenabweichungen früher auffallen - als typisches Szenario gerahmt, nicht als konkretes Kundenergebnis.",
+      "branche": "Kunststoff",
+      "zielgruppe_spezifisch": "Einkaufsleiter eines Kunststoff-Fertigers, der monatlich viele Kleinangebote manuell vergleicht",
+      "format_empfehlung": "Text",
+      "cta_vorschlag": "Schick mir eure aktuelle Angebotsliste, ich rechne mit dir durch."
+    }
+  ],
+  "generiert_am": "2026-08-17T21:02:04.844142",
+  "anzahl": 10
+}
