@@ -647,6 +647,11 @@
 - [2026-08-17 15:09] [2026-06-09-Digitaler-Beschaffungsagent-fur-Schaufler~20260814-225618.md] Modul 1 – Automatisierte Auftragsbestätigung: E-Mail-Erfassung, Datenextraktion, zentrale Datenpflege von Lieferterminen und Referenzen
 - [2026-08-17 15:09] [jochem~20260814-225618.md] Offene Punkte: Vor-Ort-Termin Überherrn vereinbaren, Tobias Groß einbeziehen, Roadmap konkretisieren
 - [2026-08-17 15:09] [jochem~20260814-225618.md] Strategie-Workshop mit Instillo geplant; Einstiegspunkt: KI-Infrastruktur oder E-Mail-Automatisierung
+- [2026-08-17 13:03] [memory.md] Nächster Schritt: Beratungsgespräch vereinbaren (CTA der Präsentation)
+- [2026-08-17 13:01] [context.md] Close und Twilio-Integration verbinden
+- [2026-08-17 13:01] [context.md] TopDown-Angebot: Kontierung und Verbuchung ergänzen erforderlich (Follow-up 14.08.)
+- [2026-08-17 13:00] Aufgaben der Vorwoche (vor 17.08.) sind erledigt und archiviert
+- [2026-08-17 13:00] Wochenaufgaben ab 17.08.: Amin - Beschaffungsagent überwachen, 3 YouTube-Videos, Webseite überarbeiten; Beide - Stücklistenkonzept ausarbeiten; Sebastian - 3 LinkedIn-Posts, Angebot TopDown fertigstellen, Close + Twilio verbinden, Aufträge vorantreiben, Netzwerkausbau
 - [2026-08-17 07:12] [memory.md] Sales-Materialien vom 2026-06-09 existieren in mehreren Varianten (Flyer, Pitches, Präsentationen)
 - [2026-08-17 07:09] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Dokumentstatus: Marketing-Material (Flyer/Pitch) noch nicht finalisiert – USE_CASES Platzhalter unausgefüllt
 - [2026-08-16 22:44] [memory.md] Call-to-Action in Sales-Materialien einheitlich: Beratungsgespräch vereinbaren
