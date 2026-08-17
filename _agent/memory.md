@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-17 07:10] [2026-06-09-🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.md] Dokument vom 2026-06-09; noch ungefüllte Platzhalter für konkrete Use Cases vorhanden
+- [2026-08-17 07:10] [2026-06-09-🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.md] Hohe Telefonbelastung in Service/Werkstatt, besonders montags und während Aktionen
 - [2026-08-16 22:42] [memory.md] Alle Sales-Materialien/Präsentationen vom 2026-06-09; mehrere Varianten für Marketing-Flyer und Pitches vorhanden
 - [2026-08-16 22:40] [2026-06-09-🚗 Effiziente Telefonentlastung für Ihr Autohaus 🚗 – Prozessia.md] Sales-Pitch/Präsentation vom 2026-06-09; Entwicklung durch Agentur an Universität des Saarlandes
 - [2026-08-16 22:18] [memory.md] Dokumentdatum: 2026-06-09; Marketing- und Sales-Materialien für KI-Voice-Agent-Lösung
@@ -637,6 +639,8 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-17 07:12] [memory.md] Sales-Materialien vom 2026-06-09 existieren in mehreren Varianten (Flyer, Pitches, Präsentationen)
+- [2026-08-17 07:09] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Dokumentstatus: Marketing-Material (Flyer/Pitch) noch nicht finalisiert – USE_CASES Platzhalter unausgefüllt
 - [2026-08-16 22:44] [memory.md] Call-to-Action in Sales-Materialien einheitlich: Beratungsgespräch vereinbaren
 - [2026-08-16 22:44] [memory.md] Mehrere Marketing-Varianten vorhanden: Sales-Pitches, Präsentationen und Flyer für KI-Voice-Agent-Lösung (Dokumentdatum 2026-06-09)
 - [2026-08-16 22:43] [memory.md] Dokumentdatum aller Sales-Materialien: 2026-06-09; mehrere Pitch- und Flyer-Varianten existieren
@@ -912,6 +916,7 @@
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-08-17 07:10] [2026-06-09-🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.md] Automatisierung einfacher Kundenanfragen zur Entlastung des Teams
 - [2026-08-14 21:54] [NOTIZEN.md] Step2 (lokale Belege) blockiert: Benötigt Textextraktion aller PDFs unter Finanzen/2026/* → muss in `_local_text_raw.json` + `_ocr_results.json` abgelegt werden (Agent-Durchlauf wie 2025)
 - [2026-08-12 21:12] [memory.md] Startprojekt: Konkreten Anwendungsfall definieren (z.B. Einkauf) mit klarem Scope und iterativem Ansatz
 - [2026-08-12 20:13] [bild-prompts.md] Marken-Klausel (verpflichtend für alle Prompts): Farbschema Schwarz/Weiß mit Purple-Akzent (#534AB7–#B088FF, max 10–15%), bold rounded display grotesque, deutsche Texte nur, Logo unverändert, keine AI-Klischees (keine glowing brains, circuit boards, robot hands)
@@ -1147,6 +1152,7 @@
 - [2026-07-13 19:09] [Personalkosten erstattet bekommen] Schulung des Teams in kundengewinnung und Tools (Clay, Claude, Close) finanziert über Fördergelder § 82 SGB III
 
 ## ENTSCHEIDUNG
+- [2026-08-17 07:12] [memory.md] Call-to-Action: Beratungsgespräch/Demo vereinbaren
 - [2026-08-12 20:13] [kpi-tracking.md] Beste Posts nach Saves bewerten, NICHT nach Likes — Saves sind das zentrale Erfolgskriterium
 - [2026-08-12 20:11] [2026-08-11-Prozessia X TopDown.md] Sehr positiver Gesprächsverlauf; Dominik forderte aktiv Angebot für interne Präsentation bei TopDown-Geschäftsführung an
 - [2026-08-11 17:34] [2026-06-09-Präsentation_ Datenschutz.md] Prozessia-Lösung als EU-konforme, kostengünstigere Alternative zu ChatGPT positioniert
