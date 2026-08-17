@@ -1,0 +1,16 @@
+{
+  "id": "cd75184a-e617-4432-89f7-e51536e36ce5",
+  "title": "also, aufgaben für diese woche, amin beschaffungsagenten übe…",
+  "model": "claude-sonnet-5",
+  "created_at": "2026-08-17T12:58:29.985729+00:00",
+  "updated_at": "2026-08-17T12:58:29.985729+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "also, aufgaben für diese woche, amin beschaffungsagenten überwachen, 3 Youtubevideos,  webseite überarbeiten, für beide: Stücklsitenkonzept ausarbeiten, für mich: 3 LinkedIn posts, angebot topdown, close + Twilio verbinden, auftäge vorantreiben, neztwerkausbau, das bitte updaten und ei aufgaben von letzter WOche als erledigt lennzeichnen",
+      "attachments": null
+    }
+  ],
+  "agent_id": null,
+  "claude_session_id": null
+}
