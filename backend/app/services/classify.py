@@ -474,14 +474,16 @@ def process_file(filepath: Path) -> tuple[bool, str]:
     if filepath.suffix.lower() in SKIP_EXTENSIONS:
         return False, "Code-Datei übersprungen"
 
-    # max_chars=20000 statt vormals 3000: der Volltext wird unten sowohl für die
-    # Meeting-Struktur als auch für die gespeicherte Notiz wiederverwendet - bei
-    # 3000 Zeichen (~500 Wörter) war bei jedem längeren Gespräch/Dokument der
-    # "Vollständiger Inhalt"-Abschnitt der Notiz nach wenigen Minuten Gespräch
-    # abgeschnitten (Sebastian, 2026-07-30: "nicht alles ablesbar"). Kostet
-    # keinen zusätzlichen API-Call: die Mistral-OCR-Antwort wird nur lokal
-    # weniger stark gekürzt, PyPDF2/docx/etc. lesen ohnehin lokal.
-    content = extract_text(filepath, max_chars=20000)
+    # max_chars=200000 statt vormals 20000 (das wiederum vormals 3000 war): der
+    # Volltext wird unten sowohl für die Meeting-Struktur als auch für die
+    # gespeicherte Notiz wiederverwendet - bei 20000 Zeichen war bei jedem
+    # etwas längeren Meeting (z.B. TopDown 14.08.2026: echtes Transkript
+    # 35065 Zeichen) der "Vollständiger Inhalt"-Abschnitt immer noch mitten im
+    # Gespräch abgeschnitten (Sebastian, 2026-08-17: "immer noch nicht
+    # vollständig"). 200000 Zeichen (~35k Wörter) deckt auch mehrstündige
+    # Meetings ab. Kostet keinen zusätzlichen API-Call: die Mistral-OCR-Antwort
+    # wird nur lokal weniger stark gekürzt, PyPDF2/docx/etc. lesen ohnehin lokal.
+    content = extract_text(filepath, max_chars=200000)
     if content is None:
         return False, "Extraktion fehlgeschlagen"
 
