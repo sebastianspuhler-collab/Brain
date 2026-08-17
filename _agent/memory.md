@@ -1,4 +1,7 @@
 ## KONTEXT
+- [2026-08-17 15:09] [2026-06-09-Digitaler-Beschaffungsagent-fur-Schaufler~20260814-225618.md] Projektbasis 2026-06-09 (PowerPoint-Präsentation). Geschäftliche Ziele: Automatisierung der Beschaffung, Reduktion manueller E-Mail-Bearbeitung, Planungssicherheit, durchgängige Transparenz
+- [2026-08-17 15:09] [jochem~20260814-225618.md] nanoSaar nutzt bereits Claude intern; Chemische Nanotechnologie; IT-Infrastruktur läuft über Muttergesellschaft Instillo
+- [2026-08-17 15:08] [2026-06-15-Email-19ecd0bb-KI-erfolgreich-im-Unternehmen-etablieren~20260814-225618.md] Kernbotschaft: KI-Projekte erfordern neben Technik auch organisatorische Veränderung und aktive Mitarbeiterbeteiligung
 - [2026-08-17 07:10] [2026-06-09-🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.md] Dokument vom 2026-06-09; noch ungefüllte Platzhalter für konkrete Use Cases vorhanden
 - [2026-08-17 07:10] [2026-06-09-🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.md] Hohe Telefonbelastung in Service/Werkstatt, besonders montags und während Aktionen
 - [2026-08-16 22:42] [memory.md] Alle Sales-Materialien/Präsentationen vom 2026-06-09; mehrere Varianten für Marketing-Flyer und Pitches vorhanden
@@ -227,6 +230,8 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-17 15:09] [2026-06-09-Digitaler-Beschaffungsagent-fur-Schaufler~20260814-225618.md] Schaufler – Digitaler Beschaffungsagent: 3-moduliges System (Auftragsbestätigung, Lieferterminüberwachung, Versanddokumentation mit Tracking)
+- [2026-08-17 15:09] [jochem~20260814-225618.md] nanoSaar (Tochter Instillo Group) – Warm Lead, Dr. Aljosha-Rakim Jochem (Überherrn); IT-Chef Tobias Groß (muss einbezogen werden)
 - [2026-08-16 22:43] [memory.md] Zielgruppe: Autohäuser; Spezialfall erwähnt: Autohaus Royal GmbH
 - [2026-08-16 22:40] [2026-06-09-🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.md] Autohaus Prozessia
 - [2026-08-16 22:11] [2026-06-09-🚗 Effizienter Service im Autohaus mit KI-Voice-Agent 🎙️ – Prozessia.md] Zielkunde: Spezialisierte Autohäuser mit mehreren Marken und umfangreichen Serviceleistungen
@@ -639,6 +644,9 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-17 15:09] [2026-06-09-Digitaler-Beschaffungsagent-fur-Schaufler~20260814-225618.md] Modul 1 – Automatisierte Auftragsbestätigung: E-Mail-Erfassung, Datenextraktion, zentrale Datenpflege von Lieferterminen und Referenzen
+- [2026-08-17 15:09] [jochem~20260814-225618.md] Offene Punkte: Vor-Ort-Termin Überherrn vereinbaren, Tobias Groß einbeziehen, Roadmap konkretisieren
+- [2026-08-17 15:09] [jochem~20260814-225618.md] Strategie-Workshop mit Instillo geplant; Einstiegspunkt: KI-Infrastruktur oder E-Mail-Automatisierung
 - [2026-08-17 07:12] [memory.md] Sales-Materialien vom 2026-06-09 existieren in mehreren Varianten (Flyer, Pitches, Präsentationen)
 - [2026-08-17 07:09] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Dokumentstatus: Marketing-Material (Flyer/Pitch) noch nicht finalisiert – USE_CASES Platzhalter unausgefüllt
 - [2026-08-16 22:44] [memory.md] Call-to-Action in Sales-Materialien einheitlich: Beratungsgespräch vereinbaren
@@ -993,6 +1001,7 @@
 - [2026-06-27 12:47] [2026-06-27.md] Webinar am 05.07.2026 (in 8 Tagen) – LinkedIn-Ankündigungspost fehlt komplett
 
 ## KONTAKT
+- [2026-08-17 15:09] [jochem~20260814-225618.md] Instillo-Ansprechpartner: Dr. Akif Emre Türeli / Monika Baumstümmler (Holding-Ebene)
 - [2026-07-17 21:45] [2026-07-06-Email-19f381c7-AW-Offene-Punkte-Beschaffungsagent.md] Ansprechpartner Schaufler: Florian Knoblauch (florian.knoblauch@schaufler.de); Projektkommunikation auch mit Benjamin Schmohl
 - [2026-07-17 18:27] [RE: Bestätigungslink Herr Spuhler Busine] Moritz Vitting (Ansprechpartner) im Urlaub vom 5. August, bei Problemen Fachabteilungen kontaktieren
 - [2026-07-17 18:27] [AW: Go Live Beschaffungsagent] Jochen Hettmer (jochen@hettmer-edv.de) ist Ansprechpartner für technische Umsetzung
