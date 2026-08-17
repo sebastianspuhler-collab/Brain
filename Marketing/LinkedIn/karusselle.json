@@ -1,0 +1,52 @@
+[
+  {
+    "id": "afddf230",
+    "source_post_id": null,
+    "hook": "EU AI Act: Vier Fragen, die für Beschaffungs-Tools zählen. Seit dem 2. August 2026 ist der EU AI Act für Hochrisiko-Systeme in Kraft - das Thema ist gerade hochaktuell für Einkaufsleiter im Mittelstand, das muss explizit im Text stehen. Zeig anhand von vier konkreten, prüfbaren Fragen, ob ein Beschaffungs-Tool als Hochrisiko-KI gilt: 1) Entscheidet die KI automatisiert ohne menschliche Prüfung (z.B. Bestellungen auslösen, Lieferanten sperren)? 2) Verarbeitet sie sensible Daten (Personaldaten, Bonität, Lieferantenbewertungen)? 3) Beeinflusst sie Vertragsentscheidungen direkt (Lieferantenauswahl, Vertragsstrafen)? 4) Ist eine Dokumentation nach Anhang III vorbereitet? WICHTIG für den Begleittext: KEIN Call-to-Action, KEIN Satz wie \"das ganze Karussell im Dokument\", KEIN Verweis auf \"oben\", \"PDF\", \"swipe\" oder Ähnliches - der Begleittext endet einfach mit der inhaltlichen Einordnung und den Hashtags, ohne jeden Verweis auf das Dokument selbst.",
+    "branche": "Alle",
+    "slide_titles": [
+      "EU AI Act: Ihr Tool im Hochrisiko-Check?",
+      "Entscheidet die KI allein?",
+      "Werden sensible Daten verarbeitet?",
+      "Beeinflusst sie Verträge direkt?",
+      "Ist Anhang III vorbereitet?",
+      "Warum das jetzt zählt",
+      "Prozessia denkt Compliance mit"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1786979107/carousel/prozessia/20260818/20260818-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1786979109/carousel/prozessia/20260818/20260818-karussell.pdf",
+    "due_at": "2026-08-18T09:30:00+02:00",
+    "draft": true,
+    "buffer_post_ids": [
+      "6a83232501a6c9dff41f9d09",
+      "6a83232687edd9b4df2efd12"
+    ],
+    "anzahl_gepusht": 2,
+    "created_at": "2026-08-17T15:05:10.523937"
+  },
+  {
+    "id": "c82e2f42",
+    "source_post_id": null,
+    "hook": "EU AI Act: Vier Fragen, die für Beschaffungs-Tools zählen. Seit dem 2. August 2026 ist der EU AI Act in Kraft - das Thema ist gerade hochaktuell für Einkaufsleiter im Mittelstand. Zeig anhand von vier konkreten, prüfbaren Fragen, ob ein Beschaffungs-Tool als Hochrisiko-KI gilt (z.B. automatisierte Entscheidungen ohne menschliche Prüfung, Verarbeitung sensibler Lieferanten-/Personaldaten, direkter Einfluss auf Vertragsentscheidungen, Dokumentationspflicht nach Anhang III). Kein Call-to-Action am Ende. Kein Verweis auf \"alle Inhalte im Dokument\" oder ähnliche Download-/Verweis-Hinweise auf den Post oder das PDF - nur die inhaltliche Aussage zu den vier Fragen und der Aktualität des Gesetzes.",
+    "branche": "Alle",
+    "slide_titles": [
+      "EU AI Act: Ist euer Tool Hochrisiko?",
+      "Frage 1: Entscheidet die KI allein?",
+      "Frage 2: Werden sensible Daten verarbeitet?",
+      "Frage 3: Beeinflusst es Vertragsentscheidungen?",
+      "Frage 4: Ist Dokumentation vorbereitet?",
+      "Nicht jedes Tool ist Hochrisiko",
+      "Vier Fragen, die jeder kennen sollte"
+    ],
+    "thumb_url": "https://res.cloudinary.com/dkbp6yrcm/image/upload/v1786979008/carousel/prozessia/20260818/20260818-thumb.png",
+    "pdf_url": "https://res.cloudinary.com/dkbp6yrcm/raw/upload/v1786979010/carousel/prozessia/20260818/20260818-karussell.pdf",
+    "due_at": "2026-08-18T09:30:00+02:00",
+    "draft": true,
+    "buffer_post_ids": [
+      "6a8322c22076ab99160284b7",
+      "6a8322c3c354a3f2001329ae"
+    ],
+    "anzahl_gepusht": 2,
+    "created_at": "2026-08-17T15:03:31.469506"
+  }
+]
