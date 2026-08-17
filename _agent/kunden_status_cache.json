@@ -526,21 +526,19 @@
     }
   },
   "TopDown": {
-    "input_hash": "ff266ca401b59a72",
+    "input_hash": "2db6b19334dc2a0e",
     "ergebnis": {
       "status": "angebotsphase",
       "sicherheit": "mittel",
-      "begruendung": "Nach dem Erstgespräch (2026-08-11-Prozessia X TopDown.md) wurde laut 2026-08-14-Email-19fff7f1-Zugesagt-Angebotsdurchsprache-Prozessia.md eine Angebotsdurchsprache zugesagt, und am 14.08.2026 fand dazu ein weiteres Meeting statt (2026-08-14-Prozessia X TopDown.md), dessen Inhalt jedoch nicht dokumentiert ist.",
+      "begruendung": "Laut 2026-08-14-Email-19fff7f1-Zugesagt-Angebotsdurchsprache-Prozessia.md wurde eine Angebotsdurchsprache zugesagt, konkreter Inhalt liegt jedoch nicht vor.",
       "quellen": [
-        "2026-08-11-Prozessia X TopDown.md",
-        "2026-08-14-Email-19fff7f1-Zugesagt-Angebotsdurchsprache-Prozessia.md",
-        "2026-08-14-Prozessia X TopDown.md"
+        "2026-08-14-Email-19fff7f1-Zugesagt-Angebotsdurchsprache-Prozessia.md"
       ],
       "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "TopDown",
-      "aktueller_stand": "Angebot wurde zugesagt und besprochen, nächster Termin zur Angebotsdurchsprache ist für den 08.09.2026 angesetzt."
+      "aktueller_stand": "Angebotsdurchsprache zwischen Prozessia und TopDown ist für den 2026-09-08 um 13:00 Uhr terminiert."
     }
   },
   "Inductohead": {
