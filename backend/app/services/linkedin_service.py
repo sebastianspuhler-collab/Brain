@@ -1692,8 +1692,9 @@ mutation CreatePost($input: CreatePostInput!) {
 _INSIGHTS_ORG_ID = "6a15c3685a233c9c16251245"
 
 _INSIGHTS_QUERY = """
-query PostsWithMetrics($orgId: OrganizationId!, $status: [PostStatus!], $first: Int) {
-  posts(input: { organizationId: $orgId, filter: { status: $status } }, first: $first) {
+query PostsWithMetrics($orgId: OrganizationId!, $status: [PostStatus!], $after: String) {
+  posts(input: { organizationId: $orgId, filter: { status: $status } }, after: $after) {
+    pageInfo { hasNextPage endCursor }
     edges {
       node {
         id text sentAt
@@ -1717,22 +1718,12 @@ def get_buffer_insights(n: int = 10) -> dict:
     if not token:
         return {"error": "BUFFER_API_TOKEN nicht gesetzt"}
 
-    variables = {"orgId": _INSIGHTS_ORG_ID, "status": ["sent"], "first": max(n, 20)}
-    payload = json.dumps({"query": _INSIGHTS_QUERY, "variables": variables}).encode()
-    req = urllib.request.Request(
-        BUFFER_GRAPHQL, data=payload,
-        headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"},
-        method="POST",
-    )
+    variables = {"orgId": _INSIGHTS_ORG_ID, "status": ["sent"]}
     try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            data = json.loads(resp.read())
+        edges = _gql_all_edges(_INSIGHTS_QUERY, variables, token)
     except Exception as exc:
         return {"error": str(exc)}
-    if data.get("errors"):
-        return {"error": data["errors"][0].get("message", "Unbekannter Fehler")}
 
-    edges = data.get("data", {}).get("posts", {}).get("edges", [])
     posts = sorted((e["node"] for e in edges), key=lambda p: p.get("sentAt") or "", reverse=True)[:n]
 
     channel_names = {
@@ -1787,8 +1778,9 @@ def insights_text(n: int = 10) -> str:
 
 
 _POSTS_QUERY = """
-query Posts($orgId: OrganizationId!, $status: [PostStatus!]) {
-  posts(input: { organizationId: $orgId, filter: { status: $status } }) {
+query Posts($orgId: OrganizationId!, $status: [PostStatus!], $after: String) {
+  posts(input: { organizationId: $orgId, filter: { status: $status } }, after: $after) {
+    pageInfo { hasNextPage endCursor }
     edges {
       node {
         id text status dueAt sentAt
@@ -1798,6 +1790,38 @@ query Posts($orgId: OrganizationId!, $status: [PostStatus!]) {
     }
   }
 }"""
+
+
+def _gql_all_edges(query: str, variables: dict, token: str) -> list:
+    """Paginiert eine Buffer posts()-Query komplett durch. Buffer liefert pro
+    Aufruf nur eine Seite (beobachtet: 10 Treffer) und zeigt das nur über
+    pageInfo.hasNextPage/endCursor an - ohne dieses Nachfassen wurden reale
+    Posts jenseits der ersten Seite verschluckt (2026-08-17: 24 echte Drafts
+    in Buffer, list_posts/get_buffer_status zeigten nur die ersten 10 -
+    Sebastians EU-AI-Act-Draft lag auf Seite 3 und war dadurch unsichtbar,
+    inkl. Folgefehler im Karussell-Löschschutz von delete_buffer_post(), der
+    auf get_buffer_status() aufbaut)."""
+    edges: list = []
+    cursor = None
+    while True:
+        vars_page = dict(variables, after=cursor)
+        payload = json.dumps({"query": query, "variables": vars_page}).encode()
+        req = urllib.request.Request(
+            BUFFER_GRAPHQL, data=payload,
+            headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"},
+            method="POST",
+        )
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read())
+        if data.get("errors"):
+            raise RuntimeError(data["errors"][0].get("message", "Unbekannter Fehler"))
+        page = data.get("data", {}).get("posts", {})
+        edges.extend(page.get("edges", []))
+        page_info = page.get("pageInfo") or {}
+        if not page_info.get("hasNextPage"):
+            break
+        cursor = page_info.get("endCursor")
+    return edges
 
 
 def _query_buffer_posts(status: list[str]) -> dict:
@@ -1811,25 +1835,15 @@ def _query_buffer_posts(status: list[str]) -> dict:
     if not token:
         return {"error": "BUFFER_API_TOKEN nicht gesetzt"}
     variables = {"orgId": _INSIGHTS_ORG_ID, "status": status}
-    payload = json.dumps({"query": _POSTS_QUERY, "variables": variables}).encode()
-    req = urllib.request.Request(
-        BUFFER_GRAPHQL, data=payload,
-        headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"},
-        method="POST",
-    )
     try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            data = json.loads(resp.read())
+        edges = _gql_all_edges(_POSTS_QUERY, variables, token)
     except Exception as exc:
         return {"error": str(exc)}
-    if data.get("errors"):
-        return {"error": data["errors"][0].get("message", "Unbekannter Fehler")}
 
     channel_names = {
         settings.buffer_channel_sebastian: "Sebastian",
         settings.buffer_channel_prozessia: "Prozessia",
     }
-    edges = data.get("data", {}).get("posts", {}).get("edges", [])
     posts = []
     for e in edges:
         n = e["node"]
