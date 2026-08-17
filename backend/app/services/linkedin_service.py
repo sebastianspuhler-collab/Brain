@@ -1039,13 +1039,36 @@ _LINKEDIN_STATE_CHANGING_MCP_TOOLS = {
 }
 
 
+def _format_linkedin_history(messages: list[dict], budget_chars: int = 12000) -> str:
+    """Baut ein Text-Transkript der bisherigen Unterhaltung (alles außer der
+    letzten Nachricht) für den CLI-Pfad - identische Logik zu
+    chat.py:_format_history(). Ohne das schickte _chat_linkedin_cli pro Aufruf
+    nur die letzte Nachricht an claude -p (--no-session-persistence, kein
+    --resume) und vergaß dadurch jeden früheren Turn komplett (Sebastian,
+    2026-08-17: "vergisst den Chatverlauf" - z.B. hat er im nächsten Turn
+    nicht mehr gewusst, von welchem Post überhaupt die Rede war). Der Haupt-
+    Chat hatte genau diesen Bug schon am 2026-07-26 gefixt, der LinkedIn-Chat
+    (später als eigener Pfad entstanden) wiederholte ihn unabhängig."""
+    if len(messages) <= 1:
+        return ""
+    picked: list[str] = []
+    used = 0
+    for m in reversed(messages[:-1]):
+        role = "Nutzer" if m.get("role") == "user" else "Assistent"
+        line = f"{role}: {m.get('content', '')}"
+        if used + len(line) > budget_chars and picked:
+            break
+        picked.append(line)
+        used += len(line)
+    picked.reverse()
+    return "\n\n".join(picked)
+
+
 def _chat_linkedin_cli(messages: list[dict]):
     """CLI-Variante von chat_linkedin_stream() (claude_engine="cli") - nutzt
     dieselben Aktionen, aber als MCP-Tools (siehe app.mcp_server) über einen
     Claude-Code-Subprocess statt des Custom-Tool-Loops unten. Abrechnung über
-    CLAUDE_CODE_OAUTH_TOKEN statt ANTHROPIC_API_KEY. Wie beim Haupt-Chat
-    (chat.py:_stream_chat_cli) wird nur die letzte User-Nachricht als Prompt
-    geschickt, nicht die volle messages-History.
+    CLAUDE_CODE_OAUTH_TOKEN statt ANTHROPIC_API_KEY.
 
     ECHTER Generator (2026-08-13, Bugfix): liefert Chunks/state_changed sofort,
     sobald sie ankommen, statt den kompletten Subprocess-Lauf erst abzuwarten
@@ -1062,6 +1085,11 @@ def _chat_linkedin_cli(messages: list[dict]):
         yield {"error": "Keine Nachricht erhalten"}
         return
     system = _linkedin_system_prompt()
+    history_block = _format_linkedin_history(messages)
+    dynamic_context = (
+        f"=== BISHERIGE UNTERHALTUNG (bereits erledigt, nicht erneut ausführen) ===\n{history_block}"
+        if history_block else ""
+    )
     # Token-für-Token-Text ("stream_event"/"content_block_delta") wird sofort
     # weitergereicht; delta_buffer verhindert, dass derselbe Text beim
     # abschließenden "assistant"-Event (kompletter Block) doppelt geschickt
@@ -1077,7 +1105,8 @@ def _chat_linkedin_cli(messages: list[dict]):
         # zuverlässig aus, live beobachtet: Modell antwortete bevor MCP verbunden
         # war und hielt write_linkedin_post_draft & Co. für nicht verfügbar.
         for event in claude_cli.stream_chat(
-            last_msg, system_prompt=system, model=Models.SONNET, mcp_warmup_seconds=15.0
+            last_msg, system_prompt=system, dynamic_context=dynamic_context,
+            model=Models.SONNET, mcp_warmup_seconds=15.0,
         ):
             etype = event.get("type")
             if etype == "stream_event":
