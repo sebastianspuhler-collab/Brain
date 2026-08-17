@@ -419,7 +419,12 @@ def _generate_slides(hook: str, branche: str, saeule: str) -> tuple[list, str]:
 def _fallback_caption(slides: list) -> str:
     """Notfall-Begleittext, falls die Content-Engine keine Caption liefert.
     Bewusst knapp und ohne erfundene Zahlen — die gehören laut Strategie §3 in
-    den generierten Text, nicht in einen mechanischen Zusammenbau."""
+    den generierten Text, nicht in einen mechanischen Zusammenbau.
+
+    Die frühere statische Zeile "Das ganze Karussell im Dokument oben." wurde
+    entfernt (Sebastian, 2026-08-17) - sie stand als reiner Lückenfüller in
+    jedem Fallback-Post und wirkte generisch/unpersönlich, unabhängig vom
+    eigentlichen Inhalt."""
     blocks = []
     for s in slides[1:-1][:3]:
         block = s.get("titel", "")
@@ -427,11 +432,7 @@ def _fallback_caption(slides: list) -> str:
             block += "\n" + s["text"].replace("**", "")
         blocks.append(block)
     kern = "\n\n".join(blocks)
-    return (
-        f"{slides[0].get('titel', '')}\n\n{kern}\n\n"
-        "Das ganze Karussell im Dokument oben.\n\n"
-        "#Beschaffung #Werkzeugbau #KI"
-    )
+    return f"{slides[0].get('titel', '')}\n\n{kern}\n\n#Beschaffung #Werkzeugbau #KI"
 
 
 def _linkedin_bold(text: str) -> str:

@@ -259,6 +259,9 @@ REGELN FÜR SLIDE-TEXTE:
 - Absatzwechsel innerhalb von text mit \\n\\n.
 - Mindestens zwei Slides nennen eine konkrete Zahl.
 - Erfundene Firmennamen sind erlaubt, aber als typisches Szenario gerahmt.
+- KEINE Bindestriche in Wortzusammensetzungen (Sebastian, 2026-08-17) - "Beschaffungs-Tools"
+  wird zu "Beschaffungstools" oder "Tools für die Beschaffung", nicht als Kompositum mit
+  Bindestrich getrennt. Gedankenstriche in normalen Sätzen (" - ") sind davon nicht betroffen.
 
 BEGLEITTEXT (Feld "caption") - GENAU diese Reihenfolge, das ist die Post-Struktur:
 1. Kurze Einleitung oder Frage, die das Problem umreißt (1-2 Zeilen)
@@ -274,6 +277,7 @@ CAPTION-FORMAT:
 - Kein Link im Text.
 - Maximal 1300 Zeichen.
 - Nur die Ergebnis-Zeile wird mit **...** markiert, sonst keine Fett-Markierung in der Caption.
+- KEINE Bindestriche in Wortzusammensetzungen (siehe Slide-Regeln oben) - gilt genauso für die Caption.
 
 Antworte NUR mit validem JSON:
 {
