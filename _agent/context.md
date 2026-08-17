@@ -1,18 +1,29 @@
 ---
-updated: 2026-08-13
+updated: 2026-08-17
 ---
 
 # Aktueller Kontext
 
-## Offene Aufgaben
-- [ ] LinkedIn: 3 Videos diese Woche posten @Sebastian !status(in_progress)
-- [ ] YouTube: 3 Videos diese Woche erstellen/veröffentlichen @Amin !status(in_progress)
-- [x] Beschaffungsagent überwachen und Bericht für Schaufler vorbereiten @Amin !status(in_progress)
-- [x] Webseite fertigstellen @Amin !status(in_progress)
-- [x] Whitepapers fertigstellen @Amin !status(in_progress)
-- [ ] Close-Migration weiterführen @Sebastian
-- [ ] Kevin (neuer Vertriebler) einarbeiten/einführen @Sebastian
-- [ ] Netzwerkaufbau und Terminsuche fortsetzen @Sebastian
+## Offene Aufgaben (Woche ab 17.08.2026)
+- [ ] Beschaffungsagent überwachen @Amin
+- [ ] YouTube: 3 Videos diese Woche erstellen/veröffentlichen @Amin
+- [ ] Webseite überarbeiten @Amin
+- [ ] Stücklistenkonzept ausarbeiten @Amin @Sebastian
+- [ ] LinkedIn: 3 Posts diese Woche @Sebastian
+- [ ] Angebot TopDown fertigstellen (Kontierung/Verbuchung ergänzen, siehe Follow-up 14.08.) @Sebastian
+- [ ] Close + Twilio verbinden @Sebastian
+- [ ] Aufträge vorantreiben @Sebastian
+- [ ] Netzwerkausbau fortsetzen @Sebastian
+
+## Erledigt (Woche bis 16.08.2026)
+- [x] LinkedIn: 3 Videos posten @Sebastian
+- [x] YouTube: 3 Videos erstellen/veröffentlichen @Amin
+- [x] Beschaffungsagent überwachen und Bericht für Schaufler vorbereiten @Amin
+- [x] Webseite fertigstellen @Amin
+- [x] Whitepapers fertigstellen @Amin
+- [x] Close-Migration weiterführen @Sebastian
+- [x] Kevin (neuer Vertriebler) einarbeiten/einführen @Sebastian
+- [x] Netzwerkaufbau und Terminsuche fortsetzen @Sebastian
 
 ## Laufende Projekte
 - Schaufler Tooling: Beschaffungsagent live (220€/Mon). Nächster Schritt: Lexoffice-Angebot
