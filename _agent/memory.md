@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-17 13:41] [2026-08-14-TopDown-Meeting-14082026.md] Preismodell: Einmaliger Projektpreis Entwicklung + laufende Kosten Server/Sprachmodell (nutzungsbasiert, geschätzt niedriger dreistelliger Bereich) + optionale monatliche Wartungsgebühr
+- [2026-08-17 13:41] [2026-08-14-TopDown-Meeting-14082026.md] Infrastructure: Hetzner-Server (skalierbar), Sprachmodell via Microsoft Azure (OpenAI/Anthropic-Modelle, Frankfurt), bestehender AVV mit Microsoft nutzbar; ERP-Anbindung als komplexeste Komponente
 - [2026-08-17 13:37] [2026-08-14-Prozessia X TopDown (2).md] Infrastruktur: Skalierbarer Hetzner-Cloud-Server, entweder von Prozessia als Auftragsverarbeiter oder vom Kunden selbst beschafft
 - [2026-08-17 13:37] [2026-08-14-Prozessia X TopDown (2).md] Drei Schnittstellen relevant: Microsoft Graph API (Outlook), DATEV (Ende des Prozesses), Club Manager von Globe Systems (fortschrittlich, offene APIs)
 - [2026-08-17 13:27] [memory.md] Wettbewerb: ChatGPT Business 25-30 USD/Monat, Enterprise ~60 USD/Monat; US Cloud Act Risiko für EU-Daten
@@ -282,6 +284,7 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-17 13:43] Angebot für TopDown wird erstellt, basierend auf Inhalten aus den Meetings vom 11.08. und 14.08. (abgelegt unter Kunden/TopDown/Meetings/MD/).
 - [2026-08-17 13:37] [2026-08-14-Prozessia X TopDown (2).md] Sprachmodell wird über Microsoft Azure direkt vom Kunden bezogen (Server Frankfurt) mit AVV-Vertrag
 - [2026-08-17 15:21] [memory.md] Seifert-Kunde: 27.07.2026 technische Anfrage mit Stücklisten und Einzelteilzeichnungen eingegangen
 - [2026-08-17 15:17] [2026-08-24-Schmidt-Hänsch.md] Ansprechpartner: S. Bhawar (s.bhawar@schmidt-haensch.de)
@@ -708,6 +711,11 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-17 13:44] [memory.md] Infrastruktur: Skalierbare Hetzner-Cloud-Server, Sprachmodell über Microsoft Azure (Frankfurt), bestehender AVV mit Microsoft nutzbar
+- [2026-08-17 13:43] Angebote werden nach dem Muster AG0028 (Juchem, 03.08.) erstellt: nummerierte Kategorien (1./1.1/1.2 usw.), Positionstabelle, Zwischensumme/USt./Gesamtbetrag, Abschlagsklausel. AG0024 (Schaufler) ist die ältere, unnummerierte Bullet-Version und wird nicht mehr als Vorlage verwendet.
+- [2026-08-17 13:41] [decisions.md] DATEV-Übertrag ist der letzte Prozessschritt nach der komplexen KI-Logik
+- [2026-08-17 13:41] [decisions.md] Server-Hosting über Hetzner (Empfehlung von Sebastian); Kunde kann Server selbst stellen oder von Prozessia als Auftragsverarbeiter bereitstellen lassen
+- [2026-08-17 13:41] [2026-08-14-TopDown-Meeting-14082026.md] Drei Schnittstellen notwendig: E-Mail-Postfach (Outlook/Microsoft Graph API), ERP-System (Club Manager), DATEV
 - [2026-08-17 13:37] [decisions.md] Prozessia X TopDown: Hetzner-Cloud-Server wird als Infrastrukturlösung empfohlen und favorisiert
 - [2026-08-17 13:37] [2026-08-14-Prozessia X TopDown (2).md] Automatisierte Kontierung/Verbuchung der Belege soll vor Weitergabe an Steuerberater vorgeschlagen werden
 - [2026-08-17 13:27] [20260817-1a00fd79-250000-Seedance-25-challenge.md] Seedance 2.5 nun in 1080p Auflösung verfügbar

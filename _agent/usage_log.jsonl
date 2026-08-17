@@ -116,3 +116,4 @@
 {"ts": "2026-08-14T09:20:43.485135+00:00", "source": "chat", "model": "claude-sonnet-5", "agent_id": null, "input_tokens": 10, "output_tokens": 5905, "cache_creation_input_tokens": 85446, "cache_read_input_tokens": 320354, "cost_usd": 0.7338132}
 {"ts": "2026-08-16T13:09:33.219700+00:00", "source": "chat", "model": "claude-sonnet-5", "agent_id": null, "input_tokens": 0, "output_tokens": 0, "cache_creation_input_tokens": 0, "cache_read_input_tokens": 0, "cost_usd": 0.0}
 {"ts": "2026-08-17T13:00:09.378380+00:00", "source": "chat", "model": "claude-sonnet-5", "agent_id": null, "input_tokens": 6, "output_tokens": 3214, "cache_creation_input_tokens": 47565, "cache_read_input_tokens": 87989, "cost_usd": 0.38141270000000005}
+{"ts": "2026-08-17T13:43:14.574016+00:00", "source": "chat", "model": "claude-sonnet-5", "agent_id": null, "input_tokens": 10, "output_tokens": 6509, "cache_creation_input_tokens": 95797, "cache_read_input_tokens": 291686, "cost_usd": 0.7906898}
