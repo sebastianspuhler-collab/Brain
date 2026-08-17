@@ -1362,8 +1362,67 @@ _GENERATE_IDEAS_TOOL = {
 }
 
 
+_COMPLIANCE_RESEARCH_TOPICS = (
+    "EU AI Act aktueller Umsetzungsstand (was gilt schon, was ist verschoben), "
+    "Transparenzpflichten für KI-Systeme nach Artikel 50, Wasserzeichen-/"
+    "Kennzeichnungspflicht für KI-generierte Inhalte, aktuelle DSGVO-relevante "
+    "Entwicklungen für den deutschen Mittelstand"
+)
+
+
+def _research_current_developments(topics: str) -> str:
+    """Recherchiert per WebSearch (natives Claude-Code-Tool, siehe
+    claude_cli.spawn_process - kein separater API-Key nötig) den aktuellen
+    Stand zu einem Thema, BEVOR generate_ideas() daraus Ideen macht.
+
+    Ohne das griff die Ideengenerierung nur auf das eingefrorene Modellwissen
+    zurück - genau das führte am 17.08.2026 dazu, dass ein bereits fertig
+    geplanter Karussell-Post fälschlich behauptete, der EU AI Act sei
+    'vollständig in Kraft'. Tatsächlich gelten laut Recherche an dem Tag nur
+    die Transparenzpflichten aus Art. 50 seit dem 2.8.2026 - die strengeren
+    Hochrisiko-Pflichten sind per Digital-Omnibus-Beschluss auf Ende 2027
+    verschoben. Sebastian, 2026-08-17: "das zählt ja auch wegen Datenschutz
+    und AI Act zu unserer Strategie" - Compliance ist eine der vier festen
+    Themen-Säulen (siehe Prompt unten), verdient also dieselbe Sorgfalt wie
+    die anderen recherchebasierten Blöcke aus STRATEGIE.md §11.
+
+    Gibt bei Fehlern (Timeout, kein Budget, WebSearch nicht verfügbar) bewusst
+    einen leeren String zurück statt zu werfen - generate_ideas() soll auch
+    ohne frische Recherche funktionieren, nur eben mit der Warnung im Prompt,
+    sich auf bekannt gesichertes Wissen zu beschränken."""
+    from app.services import claude_cli
+    prompt = f"""Recherchiere per WebSearch den AKTUELLEN Stand (heutiges Datum) zu: {topics}
+
+Fasse in maximal 15 Sätzen die für einen LinkedIn-Post im B2B-Mittelstand relevanten
+Fakten zusammen: was gilt schon konkret, was ist verschoben oder noch in Planung,
+welche Fristen/Daten sind relevant. Keine Meinung, nur mit Datum belegte Fakten."""
+    findings: list[str] = []
+    try:
+        for event in claude_cli.stream_chat(
+            prompt,
+            system_prompt="Du bist ein präziser Recherche-Assistent für einen deutschen B2B-Mittelstand-Kontext. Nutze WebSearch aktiv, bevor du antwortest.",
+            model=Models.SONNET,
+            tools="WebSearch",
+            allowed_tools="WebSearch",
+            mcp_warmup_seconds=0,
+            max_budget_usd=0.80,
+            timeout=90,
+        ):
+            if event.get("type") == "assistant":
+                for block in event.get("message", {}).get("content", []):
+                    if block.get("type") == "text" and block.get("text"):
+                        findings.append(block["text"])
+    except claude_cli.ClaudeCliError:
+        logger.exception("_research_current_developments() fehlgeschlagen")
+        return ""
+    return "\n".join(findings).strip()
+
+
 def generate_ideas(focus: str = "") -> dict:
     current_direction = _current_direction()
+    research = ""
+    if get_settings().claude_engine == "cli":
+        research = _research_current_developments(_COMPLIANCE_RESEARCH_TOPICS)
     prompt = f"""Du bist LinkedIn-Content-Stratege für Prozessia.
 Maßgeblich ist die Content-Strategie in Marketing/LinkedIn/STRATEGIE.md, hier die Kurzfassung.
 
@@ -1380,6 +1439,18 @@ KI-Chatbot, KI-Schulungen.
 {f"Richtungsvorgabe: {current_direction}" if current_direction else ""}
 {f"Zusätzlicher Fokus: {focus}" if focus else ""}
 
+{f'''AKTUELLE ENTWICKLUNGEN (heute per WebSearch recherchiert, für die Compliance-Säule):
+{research}
+
+Nutze diese recherchierten Fakten für Compliance-Ideen statt dich auf reines Modellwissen zu
+verlassen - dein Trainingswissen zu Fristen/Rechtsständen kann veraltet sein. Nenne konkrete
+Daten/Fristen nur, wenn sie oben belegt sind. Ist dir bei einer Idee nicht klar, ob eine
+Pflicht schon gilt oder noch verschoben ist, formuliere vorsichtiger statt zu behaupten
+"vollständig in Kraft".''' if research else '''HINWEIS: Keine frische Recherche zur aktuellen Rechtslage verfügbar. Bei
+Compliance-Ideen (EU AI Act, DSGVO) NICHT behaupten, eine Regelung sei bereits "vollständig
+in Kraft" oder nenne konkrete Fristen, wenn du dir nicht sicher bist - lieber allgemein
+("der EU AI Act bringt neue Pflichten") als ein falsches Datum/Status zu erfinden.'''}
+
 Jede Idee bekommt EINEN dieser drei Post-Typen:
 - Typ A – Schmerz-Post: Ich-Perspektive, konkreter Alltags-Schmerz der Zielgruppe, keine Lösung im ersten Satz
 - Typ B – Karussell/Dokument-Post: Framework, Checkliste oder Schritt-für-Schritt (3–7 Punkte)
@@ -1390,7 +1461,8 @@ Jede Idee bekommt GENAU EINE der vier Themen-Säulen:
   Konkret: Spezialwissen geht mit der Verrentungswelle verloren; Wissen steckt in Köpfen, E-Mails und
   verstreuten Dateien statt durchsuchbar zu sein; ChatGPT-Uploads skalieren nicht auf echtes Firmenwissen.
 - Compliance: EU-KI-Verordnung, Transparenzpflichten für KI-Systeme (z.B. Chatbots), DSGVO-Konformität,
-  Schatten-KI als unkontrollierter Wissensabfluss — sachlich, keine Panikmache.
+  Schatten-KI als unkontrollierter Wissensabfluss — sachlich, keine Panikmache. Siehe recherchierte
+  aktuelle Entwicklungen oben.
 - Einkauf: Ausschreibungsprozesse, Kalkulation, Lieferantenmanagement, Long-Tail-Spend.
 - KI-Nutzung: Adoption, Hürden, Praxisbeispiele, Stücklisten-/BOM-Automatisierung.
 
