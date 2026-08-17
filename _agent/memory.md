@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-17 13:13] [memory.md] Autohaus-Projekt Telefonentlastung: Hohe Belastung in Service/Werkstatt, besonders montags und während Aktionen
+- [2026-08-17 13:12] [2026-08-14-Prozessia X TopDown.md] Offene Frage Nussbaumer: Exakter Zeitpunkt der Verbuchung im Freigabeprozess (Vorprüfung/nach Freigabe/vor ERP-Transfer) noch zu klären
 - [2026-08-17 15:09] [2026-06-09-Digitaler-Beschaffungsagent-fur-Schaufler~20260814-225618.md] Projektbasis 2026-06-09 (PowerPoint-Präsentation). Geschäftliche Ziele: Automatisierung der Beschaffung, Reduktion manueller E-Mail-Bearbeitung, Planungssicherheit, durchgängige Transparenz
 - [2026-08-17 15:09] [jochem~20260814-225618.md] nanoSaar nutzt bereits Claude intern; Chemische Nanotechnologie; IT-Infrastruktur läuft über Muttergesellschaft Instillo
 - [2026-08-17 15:08] [2026-06-15-Email-19ecd0bb-KI-erfolgreich-im-Unternehmen-etablieren~20260814-225618.md] Kernbotschaft: KI-Projekte erfordern neben Technik auch organisatorische Veränderung und aktive Mitarbeiterbeteiligung
@@ -230,6 +232,7 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-17 13:13] [2026-08-16-Prozessia X TopDown (2).md] TopDown: Interesse an automatischer Kontierung/Verbuchung von Belegen durch KI-Agenten
 - [2026-08-17 15:09] [2026-06-09-Digitaler-Beschaffungsagent-fur-Schaufler~20260814-225618.md] Schaufler – Digitaler Beschaffungsagent: 3-moduliges System (Auftragsbestätigung, Lieferterminüberwachung, Versanddokumentation mit Tracking)
 - [2026-08-17 15:09] [jochem~20260814-225618.md] nanoSaar (Tochter Instillo Group) – Warm Lead, Dr. Aljosha-Rakim Jochem (Überherrn); IT-Chef Tobias Groß (muss einbezogen werden)
 - [2026-08-16 22:43] [memory.md] Zielgruppe: Autohäuser; Spezialfall erwähnt: Autohaus Royal GmbH
@@ -644,6 +647,11 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-17 13:13] [memory.md] Geschäftsziele Digitaler Beschaffungsagent (ab 2026-06-09): Automatisierung der Beschaffung, Reduktion manueller E-Mail-Bearbeitung, Planungssicherheit, durchgängige Transparenz
+- [2026-08-17 13:13] [2026-08-16-Prozessia X TopDown (2).md] Themen: Belegverbuchung, ERP-Prozess, Freigabeprozess
+- [2026-08-17 13:13] [2026-08-16-Prozessia X TopDown (2).md] Offene Entscheidung: Einsatzpunkt der KI-gestützten Verbuchung im Freigabeprozess (nach ERP-Übertragung, nach Freigabe oder vor Zahlung)
+- [2026-08-17 13:12] [2026-08-14-Prozessia X TopDown.md] Empfohlener Zeitpunkt: Verbuchung parallel zur Projektleiter-Freigabe, vor DATEV-Übertragung – individuell je nach Unternehmensstruktur
+- [2026-08-17 13:12] [2026-08-11-Prozessia X TopDown.md] Ist-Zustand: Eingangsrechnungen per E-Mail, manuelle Erfassung im ERP, papierbasierte Freigaberunde, monatlicher Export via DATEV an Steuerberater
 - [2026-08-17 15:09] [2026-06-09-Digitaler-Beschaffungsagent-fur-Schaufler~20260814-225618.md] Modul 1 – Automatisierte Auftragsbestätigung: E-Mail-Erfassung, Datenextraktion, zentrale Datenpflege von Lieferterminen und Referenzen
 - [2026-08-17 15:09] [jochem~20260814-225618.md] Offene Punkte: Vor-Ort-Termin Überherrn vereinbaren, Tobias Groß einbeziehen, Roadmap konkretisieren
 - [2026-08-17 15:09] [jochem~20260814-225618.md] Strategie-Workshop mit Instillo geplant; Einstiegspunkt: KI-Infrastruktur oder E-Mail-Automatisierung
@@ -929,6 +937,7 @@
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-08-17 13:12] [2026-08-11-Prozessia X TopDown.md] KI-gestützte Automatisierung der Eingangsrechnungsverarbeitung mit Infrastruktur Hetzner + Azure OpenAI; EU-KI-Act-Compliance erforderlich
 - [2026-08-17 07:10] [2026-06-09-🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.md] Automatisierung einfacher Kundenanfragen zur Entlastung des Teams
 - [2026-08-14 21:54] [NOTIZEN.md] Step2 (lokale Belege) blockiert: Benötigt Textextraktion aller PDFs unter Finanzen/2026/* → muss in `_local_text_raw.json` + `_ocr_results.json` abgelegt werden (Agent-Durchlauf wie 2025)
 - [2026-08-12 21:12] [memory.md] Startprojekt: Konkreten Anwendungsfall definieren (z.B. Einkauf) mit klarem Scope und iterativem Ansatz
