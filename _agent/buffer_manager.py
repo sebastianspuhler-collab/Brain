@@ -102,8 +102,9 @@ def fmt_text(text, width=80):
 # ── Queries ──────────────────────────────────────────────────────────────────
 
 POSTS_QUERY = """
-query Posts($orgId: OrganizationId!, $status: [PostStatus!]) {
-  posts(input: { organizationId: $orgId, filter: { status: $status } }) {
+query Posts($orgId: OrganizationId!, $status: [PostStatus!], $after: String) {
+  posts(input: { organizationId: $orgId, filter: { status: $status } }, after: $after) {
+    pageInfo { hasNextPage endCursor }
     edges {
       node {
         id text status dueAt sentAt
@@ -115,8 +116,9 @@ query Posts($orgId: OrganizationId!, $status: [PostStatus!]) {
 """
 
 INSIGHTS_QUERY = """
-query PostsWithMetrics($orgId: OrganizationId!, $status: [PostStatus!], $first: Int) {
-  posts(input: { organizationId: $orgId, filter: { status: $status } }, first: $first) {
+query PostsWithMetrics($orgId: OrganizationId!, $status: [PostStatus!], $after: String) {
+  posts(input: { organizationId: $orgId, filter: { status: $status } }, after: $after) {
+    pageInfo { hasNextPage endCursor }
     edges {
       node {
         id text sentAt
@@ -128,6 +130,28 @@ query PostsWithMetrics($orgId: OrganizationId!, $status: [PostStatus!], $first: 
   }
 }
 """
+
+
+def gql_all_posts(token, query, variables):
+    """Paginiert eine posts()-Query vollständig durch. Buffer liefert pro Aufruf
+    nur eine Seite (beobachtet: 10 Treffer) und markiert das nur über
+    pageInfo.hasNextPage/endCursor - ohne dieses Nachfassen wurden reale Posts
+    jenseits der ersten Seite komplett verschluckt (2026-08-17: Sebastians
+    EU-AI-Act-Draft lag in Buffer, aber status/drafts zeigten ihn nicht, weil
+    er auf Seite 3 von 3 lag)."""
+    edges = []
+    cursor = None
+    while True:
+        vars_page = dict(variables, after=cursor)
+        data = gql(token, query, vars_page)
+        page = data.get("posts", {})
+        edges.extend(page.get("edges", []))
+        page_info = page.get("pageInfo") or {}
+        if not page_info.get("hasNextPage"):
+            break
+        cursor = page_info.get("endCursor")
+    return edges
+
 
 IDEAS_QUERY = """
 query Ideas($orgId: OrganizationId!) {
@@ -182,8 +206,8 @@ mutation DeletePost($id: PostId!) {
 # ── Commands ─────────────────────────────────────────────────────────────────
 
 def cmd_status(token):
-    data = gql(token, POSTS_QUERY, {"orgId": ORG_ID, "status": ["scheduled", "draft"]})
-    posts = [e["node"] for e in data.get("posts", {}).get("edges", [])]
+    edges = gql_all_posts(token, POSTS_QUERY, {"orgId": ORG_ID, "status": ["scheduled", "draft"]})
+    posts = [e["node"] for e in edges]
     if not posts:
         print("Keine geplanten Posts in Buffer.")
         return
@@ -200,8 +224,8 @@ def cmd_status(token):
 
 
 def cmd_sent(token, n=10):
-    data = gql(token, POSTS_QUERY, {"orgId": ORG_ID, "status": ["sent"]})
-    posts = [e["node"] for e in data.get("posts", {}).get("edges", [])]
+    edges = gql_all_posts(token, POSTS_QUERY, {"orgId": ORG_ID, "status": ["sent"]})
+    posts = [e["node"] for e in edges]
     posts = sorted(posts, key=lambda x: x.get("sentAt") or "", reverse=True)[:n]
     if not posts:
         print("Keine gesendeten Posts gefunden.")
@@ -218,8 +242,8 @@ def cmd_sent(token, n=10):
 
 
 def cmd_insights(token, n=10):
-    data = gql(token, INSIGHTS_QUERY, {"orgId": ORG_ID, "status": ["sent"], "first": max(n, 50)})
-    posts = [e["node"] for e in data.get("posts", {}).get("edges", [])]
+    edges = gql_all_posts(token, INSIGHTS_QUERY, {"orgId": ORG_ID, "status": ["sent"]})
+    posts = [e["node"] for e in edges]
     posts = sorted(posts, key=lambda x: x.get("sentAt") or "", reverse=True)[:n]
     if not posts:
         print("Keine gesendeten Posts gefunden.")
@@ -258,8 +282,8 @@ def cmd_insights(token, n=10):
 
 
 def cmd_drafts(token):
-    data = gql(token, POSTS_QUERY, {"orgId": ORG_ID, "status": ["draft"]})
-    posts = [e["node"] for e in data.get("posts", {}).get("edges", [])]
+    edges = gql_all_posts(token, POSTS_QUERY, {"orgId": ORG_ID, "status": ["draft"]})
+    posts = [e["node"] for e in edges]
     if not posts:
         print("Keine Entwürfe in Buffer.")
         return
