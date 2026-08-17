@@ -1,4 +1,7 @@
 ## KONTEXT
+- [2026-08-17 13:27] [memory.md] Wettbewerb: ChatGPT Business 25-30 USD/Monat, Enterprise ~60 USD/Monat; US Cloud Act Risiko für EU-Daten
+- [2026-08-17 13:27] [20260817-1a00fd79-250000-Seedance-25-challenge.md] Artlist Seedance 2.5 Challenge: $250,000 Preisgeld für beste 30-Sekunden-Videos
+- [2026-08-17 13:27] [2026-08-14-Prozessia X TopDown (2).md] Sebastian Spuhler versendet Präsentation; Kunde hat positiv reagiert ('etwas, was wir uns vorstellen')
 - [2026-08-17 15:21] [memory.md] TopDown/Dominik Nussbaumer: Meeting 14.08.2026 erfolgreich, Präsentation mit Team besprochen, grundsätzlich interessiert; Freigabeprozess-Integration Details noch unklar
 - [2026-08-17 15:21] [memory.md] Schmidt-Hänsch: Neue Lead, Erstgespräch 24.08.2026 (morgen) terminiert
 - [2026-08-17 15:20] [2026-08-11-Prozessia X TopDown.md] Infrastruktur-Empfehlung: Hetzner + Azure OpenAI. Datenschutz/EU-KI-Act-Compliance thematisiert
@@ -702,6 +705,8 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-17 13:27] [20260817-1a00fd79-250000-Seedance-25-challenge.md] Seedance 2.5 nun in 1080p Auflösung verfügbar
+- [2026-08-17 13:27] [2026-08-11-Prozessia X TopDown.md] Use-Case: Automatisierung Eingangsrechnungsverarbeitung (IST: vollständig manuell/papierbasiert, E-Mail-Empfang, manuelle ERP-Erfassung, physische Freigabeläufe, monatliche Belege-Übergabe an Steuerberater)
 - [2026-08-17 15:21] [memory.md] Angebot endin-Überarbeitung: 2.900€ netto / 3.451€ brutto (19% USt.)
 - [2026-08-17 15:20] [2026-08-11-Prozessia X TopDown.md] Monatlich: Belege + Kontoauszüge an Steuerberater, DATEV-Datenexport. TopDown nutzt selbst kein Buchhaltungsprogramm
 - [2026-08-17 15:20] [2026-08-11-Prozessia X TopDown.md] Anwendungsfall: KI-gestützte Automatisierung Eingangsrechnungsverarbeitung. Ist-Zustand: vollständig papierbasiert/manuell, E-Mail-Empfang → manuelle ERP-Erfassung → ausgedruckte Zettel in physischer Freigaberunde → Zahlung/Ablage
