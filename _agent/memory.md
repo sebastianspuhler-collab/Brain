@@ -285,6 +285,7 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-17 17:49] [2026-08-17-1a010c90a9-Rechnung_2026-08-16_310100556841.md] Sebastian Spuhler, IONOS Kundennummer 314248816, Adresse: Campus D 1, 66123 Saarbrücken
 - [2026-08-17 14:18] [memory.md] Kundenreaktion positiv auf Sebastian Spuhlers Präsentation [2026-08-17]
 - [2026-08-17 14:16] [2026-08-17-1a01008792-Angebot_AG0029_18.08.2026.md] TopDown Creative Factory GmbH, Kundennr. 10001, Angebot AG0029
 - [2026-08-17 14:07] [memory.md] Kundenfeedback positiv nach Präsentation von Sebastian Spuhler
@@ -715,6 +716,10 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-17 17:49] [2026-08-17-1a010c90a9-Rechnung_2026-08-16_310100556841.md] Zahlungsart: Kreditkarteneinzug
+- [2026-08-17 17:49] [2026-08-17-1a010c90a9-Rechnung_2026-08-16_310100556841.md] Vertrag 111670906: Grundgebühr 15,13 EUR/Mon. mit Rabatt (-14,29 EUR/Mon.), Nettobetrag 1,00 EUR
+- [2026-08-17 17:49] [2026-08-17-1a010c90a9-Rechnung_2026-08-16_310100556841.md] Leistungszeitraum 16.08.2026 - 15.09.2026, Gesamtbetrag 2,00 EUR brutto
+- [2026-08-17 17:49] [2026-08-17-1a010c90a9-Rechnung_2026-08-16_310100556841.md] Rechnung 310100556841 vom 16.08.2026, Sammelrechnung über zwei IONOS MyWebsite Now Plus Verträge
 - [2026-08-17 14:09] [memory.md] Infrastruktur: Hetzner-Cloud-Server (skalierbar, optional von Prozessia oder Kunde selbst beschafft), Sprachmodell via Microsoft Azure (Frankfurt), ERP-Anbindung als komplexeste Komponente
 - [2026-08-17 14:07] [memory.md] Infrastruktur: Hetzner Cloud Server, Microsoft Azure für Sprachmodell (Frankfurt), ERP-Anbindung als komplexeste Komponente
 - [2026-08-17 14:06] [20260817-1a010087-Angebot-AG0029-von-Prozessia.md] Angebotsdokument im Anhang verfügbar, eingegangen 17.08.2026 14:03 Uhr
