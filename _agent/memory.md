@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-17 13:55] Preisvorschlag für Angebot (Bezug AG0028-Vergleich): Ankerpreis 16.000 € netto, Verhandlungsspielraum 15.000–18.000 € netto.
 - [2026-08-17 13:41] [2026-08-14-TopDown-Meeting-14082026.md] Preismodell: Einmaliger Projektpreis Entwicklung + laufende Kosten Server/Sprachmodell (nutzungsbasiert, geschätzt niedriger dreistelliger Bereich) + optionale monatliche Wartungsgebühr
 - [2026-08-17 13:41] [2026-08-14-TopDown-Meeting-14082026.md] Infrastructure: Hetzner-Server (skalierbar), Sprachmodell via Microsoft Azure (OpenAI/Anthropic-Modelle, Frankfurt), bestehender AVV mit Microsoft nutzbar; ERP-Anbindung als komplexeste Komponente
 - [2026-08-17 13:37] [2026-08-14-Prozessia X TopDown (2).md] Infrastruktur: Skalierbarer Hetzner-Cloud-Server, entweder von Prozessia als Auftragsverarbeiter oder vom Kunden selbst beschafft
@@ -1137,6 +1138,7 @@
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-17 13:56] Angebot Juchems beläuft sich auf 32.000 € (nicht 25.000 € netto, wie in den gespeicherten AG0028-Dateien fälschlich/unvollständig erfasst - Extraktion bricht dort nach Position 3 ab)
 - [2026-08-17 15:15] [2026-07-16-Einführung Beschaffungsagent.md] Probleme treten hauptsächlich bei nicht-projektbezogenen Artikeln auf (projektbezogene haben klare Bestellbelegnummern)
 - [2026-08-16 22:40] [2026-06-09-🚗 Smarte Telefonentlastung für Ihr Autohaus 🚀 – Prozessia.md] Sales-Pitch-Dokument (2026-06-09) mit ungefülltem Platzhalter für konkrete Use Cases – Nachfüllung erforderlich
 - [2026-08-16 22:15] [memory.md] Pitch-Dokumente vom 2026-06-09 teilweise unvollständig (Platzhalter {{USE_CASES}} vorhanden)
