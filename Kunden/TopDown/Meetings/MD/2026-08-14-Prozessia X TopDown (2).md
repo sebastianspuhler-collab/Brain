@@ -6,7 +6,7 @@ tags:
   - ERP-Prozess
   - Freigabeprozess
 quelle: Prozessia X TopDown (2).docx
-datum: 2026-08-16
+datum: 2026-08-14
 kategorie: Kunde
 firma: TopDown
 ---

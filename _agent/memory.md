@@ -1,4 +1,30 @@
 ## KONTEXT
+- [2026-08-17 15:14] [2026-08-11-Email-19fef82c-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Marvin Wiegner diese Woche in CAD-Schulung (8:30–17:00 Uhr) — Termin nur davor/danach möglich
+- [2026-08-17 15:14] [2026-08-05-Email-19fd0e77-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Marvin hat sich intensiv mit dem Thema beschäftigt und steht für inhaltliche Rückfragen vor Angebotserstellung zur Verfügung
+- [2026-08-17 15:14] [2026-08-05-19fd0e772e-KI-gestützte Stücklistendatenerfassung_Lastenheft.md] Kontakt/Projektverantwortlicher: Marvin Wiegner (Schaufler)
+- [2026-08-17 15:13] [2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md] Ansprechpartner: Siegfried Heinrich, CEO Schaufler Tooling GmbH, Tel. +49 170 2471808
+- [2026-08-17 15:13] [2026-07-23-Email-19f8dab3-AW-Anforderung-einer-zentralen-Lösung-zu.md] Anfrage zu zentraler E-Mail-Ablage/Wissenssicherung kam von Herr Knoblauch (Schaufler), nicht von Jonas Rösch
+- [2026-08-17 15:13] [2026-07-15-Email-19f65e8e-Zugesagt-Einführung-Beschaffungsagent.md] Email-Datei zeigt nur Metadaten; Volltext/Zusammenfassung fehlen — möglicherweise Verarbeitungsproblem in der Inbox-Pipeline
+- [2026-08-17 15:12] [2026-07-15-Email-19f65521-Zugesagt-Einführung-Beschaffungsagent.md] Email-Betreff deutet auf Zusage hin; Volltext in Datei leer – Original-Email-Inhalt nachprüfen
+- [2026-08-17 15:12] [2026-07-14-Email-19f5ff1a-Bestell-Dokumente-für-den-KI-Agend.md] China-Lieferant: Sarah Peng unter Schaufler-Domain (sarah.peng@schaufler.com.cn)
+- [2026-08-17 15:12] [2026-07-14-Email-19f5ff1a-Bestell-Dokumente-für-den-KI-Agend.md] KI-Agent bei Schaufler benötigt Bestellformulare für: Stahl-Hersteller, Wärmebehandler, Normhersteller, Dienstleister, Spedition
+- [2026-08-17 15:12] [2026-07-13-Email-19f5bc27-WG-Anforderung-einer-zentralen-Lösung-zu.md] Jonas fragt explizit, ob das mit KI-Lösung abbildbar ist (Richtung KI-Integration)
+- [2026-08-17 15:12] [2026-07-13-Email-19f5bc27-WG-Anforderung-einer-zentralen-Lösung-zu.md] Anforderung: zentrale Lösung zur gemeinsamen E-Mail-Ablage und Wissenssicherung
+- [2026-08-17 15:12] [2026-06-09-Prozessia --- Ergebnisse Machbarkeit Stücklistenprojekt.md] Machbarkeitsprüfung Meeting (22.04., ~40 Min) von Amin Douioui durchgeführt; CAD-Zeichnungen aktuell nicht im Scope
+- [2026-08-17 15:11] [2026-06-08-Vorstellung Stücklistenagent.md] Verarbeitungsdauer: 1-2 Minuten pro Stückliste
+- [2026-08-17 15:11] [DEPLOY.md] Datei DEPLOY.md ist unvollständig (bricht mitten im Abschnitt zu users.json ab) — komplette Version möglicherweise noch eingehend.
+- [2026-08-17 15:11] [DEPLOY.md] Domain: brain.prozessia.space (DNS auf VPS-IP). Traefik-Netzwerk: traefik_web, exposedbydefault=false, Entrypoints web/websecure.
+- [2026-08-17 15:11] [DEPLOY.md] Brain-Deployment auf VPS: Docker Compose + vorhandenes Traefik (srv1089921). TLS/HTTPS über Traefik (certResolver letsencrypt), nicht durch App selbst.
+- [2026-08-17 15:10] [2026-06-09-prozessia_Beschaffungsagent_Marketing~20260814-225618.md] Beschaffungsagent-Vertriebspräsentation (PowerPoint) zielt auf Automotive, Maschinenbau, Fertigung und Pharma
+- [2026-08-17 15:10] [2026-06-09-Präsentation_ Datenschutz .pptx~20260814-225618.md] ChatGPT Business: keine Trainingsnutzung der Daten, aber Datenverarbeitung außerhalb EU
+- [2026-08-17 15:10] [2026-06-09-Präsentation_ Datenschutz .pptx~20260814-225618.md] Zielgruppe der Präsentation: Kanzleien (Anwälte), Sales-Material vom 2026-06-09 für Handelsvertreter-Distribution
+- [2026-08-17 15:10] [2026-06-09-Präsentation_ Datenschutz .pptx~20260814-225618.md] Datenschutz-Differentiator: Kanzlei-Assistent = EU-Hosting; ChatGPT = US-Verarbeitung unterliegt US Cloud Act (kritisch für Kanzleien/rechtlich sensibel)
+- [2026-08-17 15:10] [2026-06-09-Präsentation_ Datenschutz~20260814-225619.md] Hauptvertriebsargument: kostengünstiger & EU-konform statt ChatGPT Enterprise (16–20x teurer bei besserer Compliance)
+- [2026-08-17 15:10] [2026-06-09-Präsentation_ Datenschutz ~20260814-225619.md] Zentrale Entscheidungskriterien: EU-Datenhaltung (Azure) vs. US Cloud Act Risiko (ChatGPT außerhalb EU)
+- [2026-08-17 15:10] [2026-06-09-KI-Agent-X-Voigt-Salus (2)~20260814-225618.md] Datenschutz: DSGVO-konform, maximale Sicherheit
+- [2026-08-17 15:10] [2026-06-09-KI-Agent-X-Voigt-Salus (2)~20260814-225618.md] Kernfunktionen: Dokumentenanalyse, E-Mail-Unterstützung, Onboarding, Terminverwaltung, Zugriff auf Unternehmenswissen & interne Richtlinien
+- [2026-08-17 15:09] [2026-06-09-KI-Agent-X-Voigt-Salus~20260814-225618.md] Quelle: Verkaufspräsentation KI-Agent-X-Voigt-Salus.pptx vom 2026-06-09
+- [2026-08-17 15:09] [2026-06-09-KI-Agent-X-Voigt-Salus~20260814-225618.md] DSGVO-konform, Deutschland/EU-gehostet; zentraler Wissenszugriff (Richtlinien, interne Dokumente, Unternehmenswissen)
 - [2026-08-17 15:09] [2026-06-09-Digitaler-Beschaffungsagent-fur-Schaufler~20260814-225618.md] Projektbasis 2026-06-09 (PowerPoint-Präsentation). Geschäftliche Ziele: Automatisierung der Beschaffung, Reduktion manueller E-Mail-Bearbeitung, Planungssicherheit, durchgängige Transparenz
 - [2026-08-17 15:09] [jochem~20260814-225618.md] nanoSaar nutzt bereits Claude intern; Chemische Nanotechnologie; IT-Infrastruktur läuft über Muttergesellschaft Instillo
 - [2026-08-17 15:08] [2026-06-15-Email-19ecd0bb-KI-erfolgreich-im-Unternehmen-etablieren~20260814-225618.md] Kernbotschaft: KI-Projekte erfordern neben Technik auch organisatorische Veränderung und aktive Mitarbeiterbeteiligung
@@ -230,6 +256,11 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-17 15:13] [2026-07-27-Email-19fa3942-Automatische-Antwort-Kapazitätenplanung.md] Jürgen Mahler (juergen.mahler@schaufler.de) ist Ansprechpartner für Kapazitätenplanung Stücklistenprojekt bei Schaufler
+- [2026-08-17 15:12] [2026-07-13-Email-19f5bc27-WG-Anforderung-einer-zentralen-Lösung-zu.md] Jonas Rösch (IT-Administration, jonas.roesch@schaufler.de) hat Anforderung von intern erhalten und zur Bewertung weitergeleitet
+- [2026-08-17 15:12] [2026-06-09-Prozessia --- Ergebnisse Machbarkeit Stücklistenprojekt.md] Schaufler: Stücklistenprojekt mit Human-in-the-Loop KI-System zur automatischen Verarbeitung von Stücklisten
+- [2026-08-17 15:11] [2026-06-08-Vorstellung Stücklistenagent.md] Mundinger hat KEINE Einheiten-Umrechnungs- oder Übersetzungsprobleme bei Lieferanten (Unterschied zu anderen Fällen)
+- [2026-08-17 15:11] [2026-06-08-Vorstellung Stücklistenagent.md] Mundinger: Kernproblem ist die manuelle Übertragung verschiedener Kunden-Excel-Formate in das einheitliche Sage-Artikelanlage-System
 - [2026-08-17 15:09] [2026-06-09-Digitaler-Beschaffungsagent-fur-Schaufler~20260814-225618.md] Schaufler – Digitaler Beschaffungsagent: 3-moduliges System (Auftragsbestätigung, Lieferterminüberwachung, Versanddokumentation mit Tracking)
 - [2026-08-17 15:09] [jochem~20260814-225618.md] nanoSaar (Tochter Instillo Group) – Warm Lead, Dr. Aljosha-Rakim Jochem (Überherrn); IT-Chef Tobias Groß (muss einbezogen werden)
 - [2026-08-16 22:43] [memory.md] Zielgruppe: Autohäuser; Spezialfall erwähnt: Autohaus Royal GmbH
@@ -644,6 +675,29 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-17 15:14] [2026-08-11-Email-19ff0a71-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Stücklistenprojekt: Testreihe durchgeführt, Ergebnisse liegen vor und benötigen Besprechung mit Schaufler (Marvin Wiegner)
+- [2026-08-17 15:14] [2026-08-11-Email-19fef82c-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Stücklistenprojekt: Lastenheft geprüft, offene Punkte sollen in Call (Woche 11.08.2026) besprochen werden
+- [2026-08-17 15:14] [2026-08-05-Email-19fd0e77-AW-Ergebnisse-Testreihe-Stücklistenproje.md] Projekt: KI-gestützte Stücklistendatenerfassung (Lastenheft eingereicht am 2026-08-05)
+- [2026-08-17 15:14] [2026-08-05-19fd0e772e-KI-gestützte Stücklistendatenerfassung_Lastenheft.md] Kernkomponenten des Lastenhefts: Berechtigungskonzept, Datenintegration, Sollprozess, Statusmodell, Arbeitsoberfläche, funktionale Anforderungen + Datenmodell
+- [2026-08-17 15:13] [2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md] Kapazitätenplanung/Stücklistenprojekt wartet auf Evaluation der Agent-Performance
+- [2026-08-17 15:13] [2026-07-28-Email-19fa924d-AW-Integration-Einkäufermail.md] Ab 28. Juli 2026: Bei potenziellen Eskalationen wird der zuständige Einkäufer automatisch per Mail informiert
+- [2026-08-17 15:13] [2026-07-23-Email-19f8dab3-AW-Anforderung-einer-zentralen-Lösung-zu.md] Jonas bietet an, bei Interesse von Knoblauch die Kontaktherstellung zu Sebastian zu übernehmen
+- [2026-08-17 15:13] [2026-07-15-Email-19f65e8e-Zugesagt-Einführung-Beschaffungsagent.md] Schaufler: Beschaffungsagent-Einführung zugesagt (Ansprechpartner Jonas Rösch, 15.07.2026)
+- [2026-08-17 15:12] [2026-07-15-Email-19f65521-Zugesagt-Einführung-Beschaffungsagent.md] Einführung Beschaffungsagent zugesagt (Datum: 2026-07-15)
+- [2026-08-17 15:12] [2026-07-14-Email-19f5ff1a-Bestell-Dokumente-für-den-KI-Agend.md] Vessel Finder (www.vesselfinder.com) wird für Schiffsverfolgung/Vessel Tracker genutzt
+- [2026-08-17 15:12] [2026-07-13-Email-19f5bc27-WG-Anforderung-einer-zentralen-Lösung-zu.md] Eingang Anfrage 2026-07-13 – Machbarkeitsprüfung und Lösungskonzept erforderlich
+- [2026-08-17 15:12] [2026-06-09-Prozessia --- Ergebnisse Machbarkeit Stücklistenprojekt.md] Qualitätssicherung: Zweifacher Koordinaten-Abgleich gegen Original-PDF und Stammdaten
+- [2026-08-17 15:12] [2026-06-09-Prozessia --- Ergebnisse Machbarkeit Stücklistenprojekt.md] Vertrauensgrad-Klassifizierung: Systemausgabe klassifiziert Felder nach Sicherheit (grün/gelb/rot)
+- [2026-08-17 15:11] [2026-06-08-Vorstellung Stücklistenagent.md] Stücklistenagent mit Human-in-the-Loop: Ampel-Klassifizierung (grün=sicher/gelb=prüfpflichtig/rot=unsicher) für automatische Wertübertragung, danach Excel-Export nach manueller Bestätigung
+- [2026-08-17 15:11] [2026-07-23-19f17a1531-Leistungsübersicht der Business Platinum Card.md] Individueller Verfügungsrahmen verfügbar (flexibler als Standardkreditrahmen)
+- [2026-08-17 15:11] [DEPLOY.md] Umgebungsvariablen erforderlich: VAULT_PATH (echter Pfad), DOMAIN, ANTHROPIC_API_KEY, SESSION_SECRET in backend/.env. Benutzer/Passwort-Hashes in backend/users.json (Bind-Mount).
+- [2026-08-17 15:11] [DEPLOY.md] Vault-Pfad MUSS getrennt vom App-Code liegen (z.B. ~/Prozessia-Brain), NICHT im selben Ordner wie backend/frontend — sonst landet App-Code im Datei-Browser.
+- [2026-08-17 15:10] [2026-06-09-prozessia_Beschaffungsagent_Marketing~20260814-225618.md] Hauptproblem der Zielgruppe: Einkäufer verbringen bis zu 60% ihrer Zeit mit Nachverfolgung per Telefon/E-Mail, Lieferverzögerungen, Dokumentenaufwand, fehlende Transparenz
+- [2026-08-17 15:10] [2026-06-09-prozessia_Beschaffungsagent_Marketing~20260814-225618.md] Kernvorteil: bis zu 80% Kostensenkung und 5x schnellere Beschaffungsprozesse
+- [2026-08-17 15:10] [2026-06-09-Präsentation_ Datenschutz .pptx~20260814-225618.md] Digitaler Kanzlei-Assistent: Microsoft-Kanzleikonto-Integration (Outlook/Teams), RAG mit Kanzleien-Dokumenten/Richtlinien/Vorlagen, Mitarbeiter-Onboarding, EU-gehostet
+- [2026-08-17 15:10] [2026-06-09-Präsentation_ Datenschutz~20260814-225619.md] Prozessia-Lösung: Azure OpenAI (EU-gehostet) + MS-Kontoanmeldung + RAG mit Kanzlei-Dokumenten/Richtlinien/Vorlagen + Mitarbeiter-Onboarding über Outlook/Teams
+- [2026-08-17 15:10] [2026-06-09-Präsentation_ Datenschutz ~20260814-225619.md] Azure-Lösung: Microsoft-Konto-Integration, RAG mit Kanzlei-Dokumenten/Vorlagen/Richtlinien, Mitarbeiter-Onboarding möglich
+- [2026-08-17 15:09] [2026-06-09-KI-Agent-X-Voigt-Salus~20260814-225618.md] Microsoft Teams & Outlook Integration; individualisierte Agenten je Mitarbeiter mit persönlichen Logins
 - [2026-08-17 15:09] [2026-06-09-Digitaler-Beschaffungsagent-fur-Schaufler~20260814-225618.md] Modul 1 – Automatisierte Auftragsbestätigung: E-Mail-Erfassung, Datenextraktion, zentrale Datenpflege von Lieferterminen und Referenzen
 - [2026-08-17 15:09] [jochem~20260814-225618.md] Offene Punkte: Vor-Ort-Termin Überherrn vereinbaren, Tobias Groß einbeziehen, Roadmap konkretisieren
 - [2026-08-17 15:09] [jochem~20260814-225618.md] Strategie-Workshop mit Instillo geplant; Einstiegspunkt: KI-Infrastruktur oder E-Mail-Automatisierung
@@ -924,6 +978,7 @@
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-08-17 15:10] [2026-06-09-Präsentation_ Datenschutz~20260814-225619.md] EU-Hosting & Datenschutz-Compliance zwingend für Kanzleien; US Cloud Act bei ChatGPT ermöglicht Zugriff auf alle US-Cloud-Daten (rechtlich kritisch)
 - [2026-08-17 07:10] [2026-06-09-🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.md] Automatisierung einfacher Kundenanfragen zur Entlastung des Teams
 - [2026-08-14 21:54] [NOTIZEN.md] Step2 (lokale Belege) blockiert: Benötigt Textextraktion aller PDFs unter Finanzen/2026/* → muss in `_local_text_raw.json` + `_ocr_results.json` abgelegt werden (Agent-Durchlauf wie 2025)
 - [2026-08-12 21:12] [memory.md] Startprojekt: Konkreten Anwendungsfall definieren (z.B. Einkauf) mit klarem Scope und iterativem Ansatz
