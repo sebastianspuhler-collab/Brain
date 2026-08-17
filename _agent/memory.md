@@ -1,4 +1,7 @@
 ## KONTEXT
+- [2026-08-17 15:21] [memory.md] TopDown/Dominik Nussbaumer: Meeting 14.08.2026 erfolgreich, Präsentation mit Team besprochen, grundsätzlich interessiert; Freigabeprozess-Integration Details noch unklar
+- [2026-08-17 15:21] [memory.md] Schmidt-Hänsch: Neue Lead, Erstgespräch 24.08.2026 (morgen) terminiert
+- [2026-08-17 15:20] [2026-08-11-Prozessia X TopDown.md] Infrastruktur-Empfehlung: Hetzner + Azure OpenAI. Datenschutz/EU-KI-Act-Compliance thematisiert
 - [2026-08-17 15:17] [2026-06-09-📞 Effiziente Anrufentlastung im Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Autohaus-Kampagnenmaterial vom 09.06.2026 — Vertriebspräsentation für Voice Agent als Anrufentlastungs-Lösung mit 24/7-Erreichbarkeit
 - [2026-08-17 15:17] [2026-08-24-Schmidt-Hänsch.md] Termin: 24.08.2026
 - [2026-08-17 15:17] [2026-08-24-Schmidt-Hänsch.md] Neue Lead: Schmidt-Hänsch (Erstgespräch über Kalender erkannt)
@@ -272,6 +275,7 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-17 15:21] [memory.md] Seifert-Kunde: 27.07.2026 technische Anfrage mit Stücklisten und Einzelteilzeichnungen eingegangen
 - [2026-08-17 15:17] [2026-08-24-Schmidt-Hänsch.md] Ansprechpartner: S. Bhawar (s.bhawar@schmidt-haensch.de)
 - [2026-08-17 15:15] [2026-08-04-Email-19fcbbf7-RE-Prozessia-X-Schmidt-Hänsch.md] Sumit Bhawar (s.bhawar@schmidt-haensch.de) — Ansprechpartner Schmidt-Haensch für Prozessia-Projekt
 - [2026-08-17 15:15] [2026-07-21-Schmidt-Hänsch.md] Ansprechpartner: s.bhawar@schmidt-haensch.de
@@ -695,6 +699,9 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-17 15:21] [memory.md] Angebot endin-Überarbeitung: 2.900€ netto / 3.451€ brutto (19% USt.)
+- [2026-08-17 15:20] [2026-08-11-Prozessia X TopDown.md] Monatlich: Belege + Kontoauszüge an Steuerberater, DATEV-Datenexport. TopDown nutzt selbst kein Buchhaltungsprogramm
+- [2026-08-17 15:20] [2026-08-11-Prozessia X TopDown.md] Anwendungsfall: KI-gestützte Automatisierung Eingangsrechnungsverarbeitung. Ist-Zustand: vollständig papierbasiert/manuell, E-Mail-Empfang → manuelle ERP-Erfassung → ausgedruckte Zettel in physischer Freigaberunde → Zahlung/Ablage
 - [2026-08-17 15:17] [2026-08-24-Schmidt-Hänsch.md] Lead-Status: Kalender-Erstgespräch erkannt, Transkript ausstehend
 - [2026-08-17 15:17] [2026-07-24-Angebot_endin_überarbeitet.md] KI-Agent für kaufmännische Auftragsabwicklung: Email-Schnittstellen, Bestellungsempfang/-klassifizierung (Service/Ersatzteile/Maschine), Steuerungs-Dashboard, Betrieb auf unternehmenseigenem Server
 - [2026-08-17 15:17] [2026-06-09-Präsentation_ Datenschutz.md] Onboarding neuer Mitarbeiter über Kanzlei-Assistent möglich (differenziert von generischen ChatGPT-Lösung)
