@@ -4,7 +4,8 @@ updated: 2026-08-17
 
 # Aktueller Kontext
 
-## Offene Aufgaben (Woche ab 17.08.2026)
+## Offene Aufgaben
+- [ ] Webseite auf SEO optimieren @Amin (Woche ab 17.08.2026)
 - [ ] Beschaffungsagent überwachen @Amin !status(in_progress)
 - [ ] YouTube: 3 Videos diese Woche erstellen/veröffentlichen @Amin !status(in_progress)
 - [x] Webseite überarbeiten @Amin !status(in_progress)

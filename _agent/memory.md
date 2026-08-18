@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-18 10:25] [memory.md] Materialien-Schwerpunkt: Indexierte Elastomere
+- [2026-08-18 10:24] [memory.md] Materialien-Fokus: Indexierte Elastomere
 - [2026-08-18 08:34] [2026-08-18-1a013f21c3-Leitfaden zur Entwicklung eines Procurement KPI.md] Procurement KPI-System für globalen Einkauf eines Automobilzulieferers mit vier Dimensionen: Cost Management, Spend Management, Supplier Performance, Supply Chain Risk Management
 - [2026-08-18 08:19] [Fwd: Leitfaden zur Entwicklung eines Pro] Absender: Jörg Schwindling (SBR SCAA4), Weiterleitung vom 18.08.2026 um 10:15 Uhr
 - [2026-08-18 08:19] [Fwd: Leitfaden zur Entwicklung eines Pro] Der Leitfaden bezieht sich auf indexierte Materialien, speziell Elastomere
@@ -293,6 +295,7 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-18 10:22] [context.md] Juchem: Folgetermin 29.07.2026 (14-17 Uhr) mit Thorsten Maas – kompletter Beschaffungsprozess besprochen
 - [2026-08-18 06:15] [20260818-1a0137ea-Your-Strategy-Is-Only-as-Strong-as-Its-E.md] Vogel Communications Group (Gerd Kielburger) lädt Sebastian Spuhler zur T3 Conference ein
 - [2026-08-17 17:49] [2026-08-17-1a010c90a9-Rechnung_2026-08-16_310100556841.md] Sebastian Spuhler, IONOS Kundennummer 314248816, Adresse: Campus D 1, 66123 Saarbrücken
 - [2026-08-17 14:18] [memory.md] Kundenreaktion positiv auf Sebastian Spuhlers Präsentation [2026-08-17]
@@ -725,6 +728,8 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-18 10:22] [context.md] Close + Twilio-Verbindung steht aus; Close-Migration in Arbeit
+- [2026-08-18 10:22] [context.md] Angebot TopDown: fertigstellen (Kontierung/Verbuchung ergänzen, Follow-up ab 14.08.2026)
 - [2026-08-18 10:08] [memory.md] Materialfokus: Elastomere (indexiert)
 - [2026-08-18 09:58] [memory.md] Elastomere sind indexierte Materialien mit Relevanz für Procurement
 - [2026-08-18 08:45] [context.md] Angebot TopDown fertigstellen: Kontierung/Verbuchung ergänzen (Follow-up vom 14.08.)
