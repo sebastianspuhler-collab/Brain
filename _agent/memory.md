@@ -1,4 +1,8 @@
 ## KONTEXT
+- [2026-08-18 16:16] [memory.md] Angebotsgültigkeit bis 15.09.2026
+- [2026-08-18 16:14] [2026-08-18-1a0159a6b1-E-Ticket.md] Eintritts-Token: 21W9N2CD8C
+- [2026-08-18 16:14] [2026-08-18-1a0159a6b1-E-Ticket.md] Ort: Holiday Inn Express Merzig, Saarwiesenring 4, 66663 Merzig
+- [2026-08-18 16:14] [2026-08-18-1a0159a6b1-E-Ticket.md] E-Ticket für IHK-Veranstaltung 'Künstliche Intelligenz im Unternehmen: Von ersten Anwendungen zur strategischen Nutzung'
 - [2026-08-18 16:02] [20260818-1a0159a6-Erinnerung-zur-morgigen-Veranstaltung-IH.md] Kurzfristige Abmeldung möglich unter: https://www.saarland.ihk.de/abmelden/28077
 - [2026-08-18 13:04] [memory.md] Materialschwerpunkt: Indexierte Elastomere
 - [2026-08-18 13:03] [The Status of the Regulatory Bundle - BU] Regulatory Bundle SID: BU82c0275ccf831b56172d066563f548a5, Account: ACa756b2b60f3dba0995621f130b4caa60
