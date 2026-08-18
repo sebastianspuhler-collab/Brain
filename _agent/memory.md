@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-18 19:20] [20260818-1a0164f7-Angebot-AG0029-von-Prozessia.md] Angebot übermittelt per E-Mail durch Sebastian Spuhler, Prozessia
 - [2026-08-18 16:43] [2026-08-18-Email-1a015bfa-Action-required-security-vulnerabilities.md] Alert-Datum: 2026-08-18; Issues identifiziert am 2026-08-17
 - [2026-08-18 16:16] [memory.md] Angebotsgültigkeit bis 15.09.2026
 - [2026-08-18 16:14] [2026-08-18-1a0159a6b1-E-Ticket.md] Eintritts-Token: 21W9N2CD8C
@@ -747,6 +748,7 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-18 19:20] [20260818-1a0164f7-Angebot-AG0029-von-Prozessia.md] Angebotsnummer AG0029, Angebotsdatum 18.08.2026
 - [2026-08-18 16:02] [20260818-1a0159a6-Erinnerung-zur-morgigen-Veranstaltung-IH.md] E-Ticket erforderlich zur Beschleunigung der Registrierung vor Ort
 - [2026-08-18 16:02] [20260818-1a0159a6-Erinnerung-zur-morgigen-Veranstaltung-IH.md] Veranstaltungstermin: 19. August 2026, 18:00 Uhr - IHK Regional Merzig-Wadern zu Künstliche Intelligenz im Unternehmen
 - [2026-08-18 13:03] [The Status of the Regulatory Bundle - BU] Regulatory Bundle 'Prozessia' von Prozessia GbR bei Twilio eingereicht, Status: Pending Review (wartet auf Überprüfung durch Twilio)
