@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-18 16:43] [2026-08-18-Email-1a015bfa-Action-required-security-vulnerabilities.md] Alert-Datum: 2026-08-18; Issues identifiziert am 2026-08-17
 - [2026-08-18 16:16] [memory.md] Angebotsgültigkeit bis 15.09.2026
 - [2026-08-18 16:14] [2026-08-18-1a0159a6b1-E-Ticket.md] Eintritts-Token: 21W9N2CD8C
 - [2026-08-18 16:14] [2026-08-18-1a0159a6b1-E-Ticket.md] Ort: Holiday Inn Express Merzig, Saarwiesenring 4, 66663 Merzig
@@ -310,6 +311,7 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-18 16:43] [2026-08-18-Email-1a015bfa-Action-required-security-vulnerabilities.md] Voigt_Salus hat aktive Supabase-Projekte (Projekt-ID: stggglgcvisnvcertpau, Name: Voigtsalus)
 - [2026-08-18 13:04] [memory.md] Angebotspreis AG0030: 75.000,00 € netto, Gültigkeit bis 15.09.2026
 - [2026-08-18 11:04] [AW: Unser Termin] Kontakt: +49 40 713 772 11, dierk.biendarra@zillmer-elektrotechnik.de
 - [2026-08-18 10:22] [context.md] Juchem: Folgetermin 29.07.2026 (14-17 Uhr) mit Thorsten Maas – kompletter Beschaffungsprozess besprochen
@@ -1206,6 +1208,7 @@
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-18 16:43] [2026-08-18-Email-1a015bfa-Action-required-security-vulnerabilities.md] KRITISCH: Table öffentlich zugänglich - Row-Level Security (RLS) ist nicht aktiviert; Jeder mit Projekt-URL kann Daten lesen, bearbeiten und löschen
 - [2026-08-18 09:57] Datei 'Kunden/Schaufler/Dokumente/MD/2026-06-09-Prozessia-X-Schaufler Beschafungsagent.md' ist falsch einsortiert - liegt in Dokumente/, gehört aber inhaltlich (Tag: Angebotsphase, Angebotspräsentation) in Angebote/
 - [2026-08-18 09:54] AG0025 (Kunden/Schaufler/Angebote/MD/2026-06-17-Angebot Anbindung Winform.md, Quelle: Angebot Anbindung Winform.pdf) ist das Angebot für den Beschaffungsagenten, nicht AG0024 (das ist das Serververwaltungs-Angebot). AG0025 deckt die Einrichtung der Schnittstellen zwischen Beschaffungsagent und Winform ab (Testen der Integration, Validieren der Funktionen/Workflows).
 - [2026-08-17 14:16] [2026-08-17-1a01008792-Angebot_AG0029_18.08.2026.md] Angebotsgültig bis 14.09.2026 (Deadline für Kundenentscheidung)
