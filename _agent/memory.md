@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-18 13:04] [memory.md] Materialschwerpunkt: Indexierte Elastomere
+- [2026-08-18 13:03] [The Status of the Regulatory Bundle - BU] Regulatory Bundle SID: BU82c0275ccf831b56172d066563f548a5, Account: ACa756b2b60f3dba0995621f130b4caa60
 - [2026-08-18 12:11] [Email-KI kommt, 50 € für deinen 10M-Post] fonio bietet gemeinsame Webinare an: Partner bringt Kunden mit, fonio übernimmt Inhalt/Technik/Moderation - geeignet für Partner mit 300+ Kunden
 - [2026-08-18 12:11] [Email-KI kommt, 50 € für deinen 10M-Post] Ab sofort können weiterverkaufte fonio-Pläne durch Sebastian selbst upgraded werden
 - [2026-08-18 12:11] [Email-KI kommt, 50 € für deinen 10M-Post] fonio führt Email-KI ein: sortiert Postfach, schreibt Antwortentwürfe im eigenen Schreibstil, wird gerade für erste Kunden aktiviert
@@ -303,6 +305,7 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-18 13:04] [memory.md] Angebotspreis AG0030: 75.000,00 € netto, Gültigkeit bis 15.09.2026
 - [2026-08-18 11:04] [AW: Unser Termin] Kontakt: +49 40 713 772 11, dierk.biendarra@zillmer-elektrotechnik.de
 - [2026-08-18 10:22] [context.md] Juchem: Folgetermin 29.07.2026 (14-17 Uhr) mit Thorsten Maas – kompletter Beschaffungsprozess besprochen
 - [2026-08-18 06:15] [20260818-1a0137ea-Your-Strategy-Is-Only-as-Strong-as-Its-E.md] Vogel Communications Group (Gerd Kielburger) lädt Sebastian Spuhler zur T3 Conference ein
@@ -737,6 +740,7 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-18 13:03] [The Status of the Regulatory Bundle - BU] Regulatory Bundle 'Prozessia' von Prozessia GbR bei Twilio eingereicht, Status: Pending Review (wartet auf Überprüfung durch Twilio)
 - [2026-08-18 12:11] [Email-KI kommt, 50 € für deinen 10M-Post] Nächster Schritt: Interessierte Kunden für Email-KI-Beta anmelden per E-Mail an partner@fonio.info
 - [2026-08-18 12:11] [Email-KI kommt, 50 € für deinen 10M-Post] Angebot: 50 € Guthaben für 10M-Announcement Post - Bedingung: Link auf diese E-Mail antworten
 - [2026-08-18 11:22] [2026-08-18-1a0148dca4-Angebot_AG0030_18.08.2026.md] Optional: Migration auf lokales Sprachmodell
