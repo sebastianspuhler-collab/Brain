@@ -732,6 +732,9 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-18 11:10] [Angebot AG0030 von Prozessia] Nächste Schritte: Angebot AG0030 prüfen und annehmen
+- [2026-08-18 11:09] [20260818-1a0148dc-Angebot-AG0030-von-Prozessia.md] Angebot erfordert Prüfung und Annahme durch Empfänger
+- [2026-08-18 11:09] [20260818-1a0148dc-Angebot-AG0030-von-Prozessia.md] Angebotsnummer AG0030 vom 18.08.2026 versendet
 - [2026-08-18 11:06] [2026-08-18-Email-1a0140ac-Angenommen-Update-Zillmer-X-Prozesia.md] Update 'Zillmer X Prozesia' wurde am 18.08.2026 angenommen/genehmigt
 - [2026-08-18 11:05] [2026-08-18-Email-1a01403b-AW-Unser-Termin.md] Terminverschiebung angefordert: Aktueller Termin soll um 1 Woche verschoben werden
 - [2026-08-18 11:05] [AW: Überarbreitete Präsentation] Überarbeitete Präsentation versendet am 6. August 2026; Neuverschickung in PowerPoint-Format am 18. August 2026 an Jörg Schwindling (ZF)
