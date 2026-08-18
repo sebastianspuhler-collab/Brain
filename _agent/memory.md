@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-18 16:02] [20260818-1a0159a6-Erinnerung-zur-morgigen-Veranstaltung-IH.md] Kurzfristige Abmeldung möglich unter: https://www.saarland.ihk.de/abmelden/28077
 - [2026-08-18 13:04] [memory.md] Materialschwerpunkt: Indexierte Elastomere
 - [2026-08-18 13:03] [The Status of the Regulatory Bundle - BU] Regulatory Bundle SID: BU82c0275ccf831b56172d066563f548a5, Account: ACa756b2b60f3dba0995621f130b4caa60
 - [2026-08-18 12:11] [Email-KI kommt, 50 € für deinen 10M-Post] fonio bietet gemeinsame Webinare an: Partner bringt Kunden mit, fonio übernimmt Inhalt/Technik/Moderation - geeignet für Partner mit 300+ Kunden
@@ -740,6 +741,8 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-18 16:02] [20260818-1a0159a6-Erinnerung-zur-morgigen-Veranstaltung-IH.md] E-Ticket erforderlich zur Beschleunigung der Registrierung vor Ort
+- [2026-08-18 16:02] [20260818-1a0159a6-Erinnerung-zur-morgigen-Veranstaltung-IH.md] Veranstaltungstermin: 19. August 2026, 18:00 Uhr - IHK Regional Merzig-Wadern zu Künstliche Intelligenz im Unternehmen
 - [2026-08-18 13:03] [The Status of the Regulatory Bundle - BU] Regulatory Bundle 'Prozessia' von Prozessia GbR bei Twilio eingereicht, Status: Pending Review (wartet auf Überprüfung durch Twilio)
 - [2026-08-18 12:11] [Email-KI kommt, 50 € für deinen 10M-Post] Nächster Schritt: Interessierte Kunden für Email-KI-Beta anmelden per E-Mail an partner@fonio.info
 - [2026-08-18 12:11] [Email-KI kommt, 50 € für deinen 10M-Post] Angebot: 50 € Guthaben für 10M-Announcement Post - Bedingung: Link auf diese E-Mail antworten
