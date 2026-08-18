@@ -1168,6 +1168,7 @@
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-18 09:54] AG0025 (Kunden/Schaufler/Angebote/MD/2026-06-17-Angebot Anbindung Winform.md, Quelle: Angebot Anbindung Winform.pdf) ist das Angebot für den Beschaffungsagenten, nicht AG0024 (das ist das Serververwaltungs-Angebot). AG0025 deckt die Einrichtung der Schnittstellen zwischen Beschaffungsagent und Winform ab (Testen der Integration, Validieren der Funktionen/Workflows).
 - [2026-08-17 14:16] [2026-08-17-1a01008792-Angebot_AG0029_18.08.2026.md] Angebotsgültig bis 14.09.2026 (Deadline für Kundenentscheidung)
 - [2026-08-17 13:56] Angebot Juchems beläuft sich auf 32.000 € (nicht 25.000 € netto, wie in den gespeicherten AG0028-Dateien fälschlich/unvollständig erfasst - Extraktion bricht dort nach Position 3 ab)
 - [2026-08-17 15:15] [2026-07-16-Einführung Beschaffungsagent.md] Probleme treten hauptsächlich bei nicht-projektbezogenen Artikeln auf (projektbezogene haben klare Bestellbelegnummern)
