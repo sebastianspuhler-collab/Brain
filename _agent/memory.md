@@ -753,6 +753,8 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-18 19:53] [2026-08-18-1a01667aaa-Angebot_AG0033_18.08.2026.md] Erforderliche KPIs: Purchasing Price Variance, Cost Improvement Program, Spend-Transparenz, Supplier On-Time-Delivery, Supplier PPM, Lieferantenrisiken, Single-Source-Analyse
+- [2026-08-18 19:53] [2026-08-18-1a01667aaa-Angebot_AG0033_18.08.2026.md] Procurement KPI-Dashboard: Datenanbindung, Kern-KPI-System, Marktdaten/ESG-Kennzahlen, Advanced Analytics & Automatisierung
 - [2026-08-18 19:37] [2026-08-18-1a0164f77f-Angebot_AG0029_18.08.2026.md] Leistungsumfang: Rechnungserkennung, Formalprüfung, ERP-Anbindung, Kategorisierung, Dashboard; DSGVO- und AI Act-konform
 - [2026-08-18 19:33] [memory.md] Angebotsnr. AG0029 mit Gültigkeitsdatum bis 14.09.2026 (vom 2026-08-18 19:31)
 - [2026-08-18 19:32] [memory.md] Security Vulnerabilities identifiziert am 2026-08-17, Alert am 2026-08-18 16:43
