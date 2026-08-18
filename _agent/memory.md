@@ -725,6 +725,7 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-18 08:45] [context.md] Angebot TopDown fertigstellen: Kontierung/Verbuchung ergänzen (Follow-up vom 14.08.)
 - [2026-08-18 08:34] [2026-08-18-1a013f21c3-Leitfaden zur Entwicklung eines Procurement KPI.md] Anforderung: Einheitliche Steuerung über Werke, Regionen und Commodity-Bereiche ermöglichen
 - [2026-08-18 08:34] [2026-08-18-1a013f21c3-Leitfaden zur Entwicklung eines Procurement KPI.md] Anforderung: Risiken frühzeitig erkennen und Lieferantenperformance steuern
 - [2026-08-18 08:34] [2026-08-18-1a013f21c3-Leitfaden zur Entwicklung eines Procurement KPI.md] Anforderung: Einkaufsperformance messbar machen und Einsparungen sowie Wertbeiträge des Einkaufs transparent darstellen

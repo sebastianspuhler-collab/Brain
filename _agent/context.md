@@ -5,9 +5,9 @@ updated: 2026-08-17
 # Aktueller Kontext
 
 ## Offene Aufgaben (Woche ab 17.08.2026)
-- [ ] Beschaffungsagent überwachen @Amin
-- [ ] YouTube: 3 Videos diese Woche erstellen/veröffentlichen @Amin
-- [ ] Webseite überarbeiten @Amin
+- [ ] Beschaffungsagent überwachen @Amin !status(in_progress)
+- [ ] YouTube: 3 Videos diese Woche erstellen/veröffentlichen @Amin !status(in_progress)
+- [x] Webseite überarbeiten @Amin !status(in_progress)
 - [ ] Stücklistenkonzept ausarbeiten @Amin @Sebastian
 - [ ] LinkedIn: 3 Posts diese Woche @Sebastian
 - [ ] Angebot TopDown fertigstellen (Kontierung/Verbuchung ergänzen, siehe Follow-up 14.08.) @Sebastian
