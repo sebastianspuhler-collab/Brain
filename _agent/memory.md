@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-18 05:14] [[Twilio] Re: Your Trust Hub Business Pro] Bundle SID: BU6b3e48b819e258269f5e87416b09cda1
 - [2026-08-17 13:55] Preisvorschlag für Angebot (Bezug AG0028-Vergleich): Ankerpreis 16.000 € netto, Verhandlungsspielraum 15.000–18.000 € netto.
 - [2026-08-17 13:41] [2026-08-14-TopDown-Meeting-14082026.md] Preismodell: Einmaliger Projektpreis Entwicklung + laufende Kosten Server/Sprachmodell (nutzungsbasiert, geschätzt niedriger dreistelliger Bereich) + optionale monatliche Wartungsgebühr
 - [2026-08-17 13:41] [2026-08-14-TopDown-Meeting-14082026.md] Infrastructure: Hetzner-Server (skalierbar), Sprachmodell via Microsoft Azure (OpenAI/Anthropic-Modelle, Frankfurt), bestehender AVV mit Microsoft nutzbar; ERP-Anbindung als komplexeste Komponente
@@ -716,6 +717,8 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-18 05:14] [[Twilio] Re: Your Trust Hub Business Pro] Nächste Schritte: Zukünftige Registrierung von Trust Products (A2P 10DLC, Toll-Free, Voice Integrity) kann zusätzliche regulatorische Anforderungen mit sich bringen
+- [2026-08-18 05:14] [[Twilio] Re: Your Trust Hub Business Pro] Genehmigung gilt ausschließlich für das Business Profile
 - [2026-08-17 17:49] [2026-08-17-1a010c90a9-Rechnung_2026-08-16_310100556841.md] Zahlungsart: Kreditkarteneinzug
 - [2026-08-17 17:49] [2026-08-17-1a010c90a9-Rechnung_2026-08-16_310100556841.md] Vertrag 111670906: Grundgebühr 15,13 EUR/Mon. mit Rabatt (-14,29 EUR/Mon.), Nettobetrag 1,00 EUR
 - [2026-08-17 17:49] [2026-08-17-1a010c90a9-Rechnung_2026-08-16_310100556841.md] Leistungszeitraum 16.08.2026 - 15.09.2026, Gesamtbetrag 2,00 EUR brutto
