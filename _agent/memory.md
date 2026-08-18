@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-18 11:22] [2026-08-18-1a0148dca4-Angebot_AG0030_18.08.2026.md] Angebotsgültigkeit: bis 15.09.2026
+- [2026-08-18 11:22] [2026-08-18-1a0148dca4-Angebot_AG0030_18.08.2026.md] Angebotspreis: 75.000,00 € netto
 - [2026-08-18 11:06] [memory.md] Terminabsprache verschoben: neuer Termin circa 25. August 2026 (ursprünglich 18. August 2026 um 11:00 Uhr)
 - [2026-08-18 11:04] [AW: Unser Termin] Neue geplante Terminzeit: circa 25. August 2026
 - [2026-08-18 11:04] [AW: Unser Termin] Ursprünglicher Termin war 18. August 2026 um 11:00 Uhr
@@ -732,6 +734,8 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-18 11:22] [2026-08-18-1a0148dca4-Angebot_AG0030_18.08.2026.md] Optional: Migration auf lokales Sprachmodell
+- [2026-08-18 11:22] [2026-08-18-1a0148dca4-Angebot_AG0030_18.08.2026.md] Angebot AG0030: KI-gestützte Stücklistenerfassung mit Systemarchitektur, Dokumentenerfassung, Wissensdatenbank, Regelverwaltung und Export/Anbindung
 - [2026-08-18 11:10] [Angebot AG0030 von Prozessia] Nächste Schritte: Angebot AG0030 prüfen und annehmen
 - [2026-08-18 11:09] [20260818-1a0148dc-Angebot-AG0030-von-Prozessia.md] Angebot erfordert Prüfung und Annahme durch Empfänger
 - [2026-08-18 11:09] [20260818-1a0148dc-Angebot-AG0030-von-Prozessia.md] Angebotsnummer AG0030 vom 18.08.2026 versendet
