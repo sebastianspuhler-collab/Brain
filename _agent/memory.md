@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-18 08:19] [Fwd: Leitfaden zur Entwicklung eines Pro] Absender: Jörg Schwindling (SBR SCAA4), Weiterleitung vom 18.08.2026 um 10:15 Uhr
+- [2026-08-18 08:19] [Fwd: Leitfaden zur Entwicklung eines Pro] Der Leitfaden bezieht sich auf indexierte Materialien, speziell Elastomere
 - [2026-08-18 08:13] [Fwd: Du bist noch auf meiner Liste. Das ] Kai Dippe hatte früheren Kontakt mit Jörg Schwindling zu 'KI-Systeme fürs Unternehmen'
 - [2026-08-18 08:13] [20260818-1a013eba-Fwd-Du-bist-noch-auf-meiner-Liste-Das-hi.md] Themenschwerpunkt: KI-Systeme für Unternehmenseinsatz - Kai Dippe hat praktische Erkenntnisse über KI-Tools und deren Unternehmensanwendung gewonnen
 - [2026-08-18 06:15] [20260818-1a0137ea-Your-Strategy-Is-Only-as-Strong-as-Its-E.md] Event-Fokus: AI-Systeme-Zuverlässigkeit, technische Schulden, Robotik und organisatorische Veränderungen
@@ -722,6 +724,7 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-18 08:19] [Fwd: Leitfaden zur Entwicklung eines Pro] Leitfaden zur Entwicklung eines Procurement KPI wurde 2026 mit dem Controller überarbeitet und angepasst
 - [2026-08-18 08:13] [20260818-1a013eba-Fwd-Du-bist-noch-auf-meiner-Liste-Das-hi.md] Projekt 'iqsian' Company Second Brain (Folge 1) - funktionierendes System wurde entwickelt und wird täglich in Eigennutzung eingesetzt
 - [2026-08-18 06:15] [20260818-1a0137ea-Your-Strategy-Is-Only-as-Strong-as-Its-E.md] Registrierung erforderlich (REGISTER NOW - Link vorhanden)
 - [2026-08-18 05:14] [[Twilio] Re: Your Trust Hub Business Pro] Nächste Schritte: Zukünftige Registrierung von Trust Products (A2P 10DLC, Toll-Free, Voice Integrity) kann zusätzliche regulatorische Anforderungen mit sich bringen
