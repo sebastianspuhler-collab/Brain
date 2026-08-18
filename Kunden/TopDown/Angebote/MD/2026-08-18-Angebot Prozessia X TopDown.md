@@ -1,0 +1,111 @@
+---
+tags:
+  - Angebot
+  - TopDown
+  - Buchhaltungsagent
+  - DATEV
+  - Rechnungsverarbeitung
+quelle: Angebot Prozessia X TopDown.pdf
+datum: 2026-08-18
+kategorie: Kunde
+firma: TopDown
+---
+
+# Angebot Prozessia X TopDown
+
+## Zusammenfassung
+Angebot AG0029 von Prozessia an TOPDOWN Creative Factory GmbH für einen Buchhaltungsagenten zur Rechnungsverarbeitung: Umfasst technische Infrastruktur, Rechnungserkennung, ERP-Anbindung an Globe Manager, Kontierung/Freigabeprozess, DATEV-Übertragung und ein Steuerungs-Dashboard. Nettobetrag 9.000,00 €, Gesamtbetrag mit 19% USt. 10.710,00 €, gültig bis 14.09.2026.
+
+## Vollständiger Inhalt
+Angebotsnr .:
+Kundennr .:
+Datum:
+gültig bis:
+ 
+ AG0029
+10001
+18.08.2026
+14.09.2026Angebot
+Prozessia
+Campus Starterzentrum Gebäude A1 1
+66123 Saarbrücken
+info@prozessia.de
+https://prozessia.de/
+Gerne bieten wir Ihnen an:
+Pos. Bezeichnung Menge Einheit Einzel € Gesamt €
+1 Buchhaltungsagent für Rechnungsverarbei -
+tung
+1. Technische Basis & Infrastruktur 
+1.1 Einrichtung der notwendigen Schnittstellen 
+zu E-Mail-Postfach, Globe Manager und DA -
+TEV 
+1.2 Konstruktion und Betrieb der Anwendung 
+auf einem skalierbaren Server
+1.3 Einrichtung eines DSGVO-und Ai Act-kon -
+formen Sprachmodells 
+2. Rechnungserkennung & Formalprüfung 
+2.1 Programmieren der Funktionen zur Über -
+wachung des Rechnungs-Postfachs und auto -
+matischen Klassifizierung eingehender E-Mails 
+als Rechnung 
+2.2  Einrichtung der formalen Rechnungsprü -
+fung, auf W areneingang, Beträge und weitere 
+Kriterien
+3. ERP-Anbindung & Kategorisierung 
+3.1 Anbindung an das ERP-Systems Globe 
+Manager zur automatischen Übertragung ge -
+prüfter Rechnungen ohne manuellen Zwischen -
+schritt 
+3.2 Kategorisierung der Rechnungen nach 
+Wareneingang/ohne 1 Stück 9.000,00 9.000,00
+Zwischensumme 9.000,00Prozessia, Campus Starterzentrum Gebäude A1 1, 66123
+Saarbrücken
+TOPDOWN Creative Factory GmbH
+Industriestrasse 9
+86551 Aichach
+Seite 1/2Prozessia
+Campus Starterzentrum Gebäude A1 1
+66123 Saarbrücken
+info@prozessia.de
+https://prozessia.de/USt-IdNr .: DE451202966
+Steuernummer: 040/163/12016
+Sebastian Spuhler , Mohmed Douioui GbRSebastian Spuhler
+Finom Payments Zweigniederlassung
+Deutschland
+IBAN: DE97 1001 8000 0739 3368 62
+BIC: FNOMDEB2XXX Pos. Bezeichnung Menge Einheit Einzel € Gesamt €
+Übertrag 9.000,00
+Wareneingang
+4. Kontierung & Freigabeprozess 
+4.1 Automatisierter 
+Kontierungs-/V erbuchungsvorschlag auf Rech -
+nungsbasis 
+4.2 Integration des Kontierungsvorschlags in 
+den bestehenden Freigabeprozess vor der DA -
+TEV-Übertragung, parallel zur 
+inhaltlichen/sachlichen Freigabe durch den Pro -
+jektleiter 
+5. DA TEV-Übertragung 
+5.1 Automatische Übertragung des freigegebe -
+nen, fertig kontierten Belegs an DA TEV 
+6 Steuerung & Transparenz 
+6.1 Einrichtung und Programmierung eines in -
+teraktiven Dashboards zur zentralen Steuerung,  
+Überwachung und Kommunikation mit dem 
+Agenten
+Zwischensumme (netto) 9.000,00
+Umsatzsteuer 19 % 1.710,00
+Gesamtbetrag 10.710,00
+Mit der Annahme des Angebots bestätigen Sie, dass sie die AGBs auf unserer Homepage zur Kenntnis genommen haben. 
+Wir freuen uns auf Ihre Auftragserteilung uns sichern eine einwandfreie Ausführung zu.
+Seite 2/2Prozessia
+Campus Starterzentrum Gebäude A1 1
+66123 Saarbrücken
+info@prozessia.de
+https://prozessia.de/USt-IdNr .: DE451202966
+Steuernummer: 040/163/12016
+Sebastian Spuhler , Mohmed Douioui GbRSebastian Spuhler
+Finom Payments Zweigniederlassung
+Deutschland
+IBAN: DE97 1001 8000 0739 3368 62
+BIC: FNOMDEB2XXX

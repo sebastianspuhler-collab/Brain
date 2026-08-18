@@ -1,4 +1,9 @@
 ## KONTEXT
+- [2026-08-18 19:38] [memory.md] Sicherheitsprobleme (Security Vulnerabilities) identifiziert am 2026-08-17, Alert vom 2026-08-18
+- [2026-08-18 19:38] [memory.md] Angebot AG0029: Deadline 14.09.2026, Gesamtpreis 9.000,00 € netto (10.710,00 € brutto)
+- [2026-08-18 19:37] [2026-08-18-1a0164f77f-Angebot_AG0029_18.08.2026.md] Angebots-Deadline: 14.09.2026
+- [2026-08-18 19:37] [2026-08-18-1a0164f77f-Angebot_AG0029_18.08.2026.md] Gesamtpreis: 9.000,00 € netto (10.710,00 € brutto)
+- [2026-08-18 19:31] [2026-08-18-Angebot Prozessia X TopDown.md] Angebotsnr. AG0029, gültig bis 14.09.2026
 - [2026-08-18 19:20] [20260818-1a0164f7-Angebot-AG0029-von-Prozessia.md] Angebot übermittelt per E-Mail durch Sebastian Spuhler, Prozessia
 - [2026-08-18 16:43] [2026-08-18-Email-1a015bfa-Action-required-security-vulnerabilities.md] Alert-Datum: 2026-08-18; Issues identifiziert am 2026-08-17
 - [2026-08-18 16:16] [memory.md] Angebotsgültigkeit bis 15.09.2026
@@ -748,6 +753,10 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-18 19:37] [2026-08-18-1a0164f77f-Angebot_AG0029_18.08.2026.md] Leistungsumfang: Rechnungserkennung, Formalprüfung, ERP-Anbindung, Kategorisierung, Dashboard; DSGVO- und AI Act-konform
+- [2026-08-18 19:33] [memory.md] Angebotsnr. AG0029 mit Gültigkeitsdatum bis 14.09.2026 (vom 2026-08-18 19:31)
+- [2026-08-18 19:32] [memory.md] Security Vulnerabilities identifiziert am 2026-08-17, Alert am 2026-08-18 16:43
+- [2026-08-18 19:31] [2026-08-18-Angebot Prozessia X TopDown.md] Buchhaltungsagent: Rechnungserkennung, Globe Manager ERP-Anbindung, DATEV-Übertragung, Kontierung/Freigabeprozess, Dashboard
 - [2026-08-18 19:20] [20260818-1a0164f7-Angebot-AG0029-von-Prozessia.md] Angebotsnummer AG0029, Angebotsdatum 18.08.2026
 - [2026-08-18 16:02] [20260818-1a0159a6-Erinnerung-zur-morgigen-Veranstaltung-IH.md] E-Ticket erforderlich zur Beschleunigung der Registrierung vor Ort
 - [2026-08-18 16:02] [20260818-1a0159a6-Erinnerung-zur-morgigen-Veranstaltung-IH.md] Veranstaltungstermin: 19. August 2026, 18:00 Uhr - IHK Regional Merzig-Wadern zu Künstliche Intelligenz im Unternehmen
@@ -1210,6 +1219,9 @@
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-18 19:36] [memory.md] Angebotsgültigkeit: Diskrepanz - AG0029 gültig bis 14.09.2026, aber memory.md zeigt 15.09.2026
+- [2026-08-18 19:34] [memory.md] Sicherheits-Alert vom 2026-08-18: Vulnerabilities identifiziert am 2026-08-17 - Überprüfung erforderlich
+- [2026-08-18 19:32] [memory.md] Abweichung bei Angebotsgültigkeit: 14.09.2026 vs. 15.09.2026 (Abklärung erforderlich)
 - [2026-08-18 16:43] [2026-08-18-Email-1a015bfa-Action-required-security-vulnerabilities.md] KRITISCH: Table öffentlich zugänglich - Row-Level Security (RLS) ist nicht aktiviert; Jeder mit Projekt-URL kann Daten lesen, bearbeiten und löschen
 - [2026-08-18 09:57] Datei 'Kunden/Schaufler/Dokumente/MD/2026-06-09-Prozessia-X-Schaufler Beschafungsagent.md' ist falsch einsortiert - liegt in Dokumente/, gehört aber inhaltlich (Tag: Angebotsphase, Angebotspräsentation) in Angebote/
 - [2026-08-18 09:54] AG0025 (Kunden/Schaufler/Angebote/MD/2026-06-17-Angebot Anbindung Winform.md, Quelle: Angebot Anbindung Winform.pdf) ist das Angebot für den Beschaffungsagenten, nicht AG0024 (das ist das Serververwaltungs-Angebot). AG0025 deckt die Einrichtung der Schnittstellen zwischen Beschaffungsagent und Winform ab (Testen der Integration, Validieren der Funktionen/Workflows).
