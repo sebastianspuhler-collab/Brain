@@ -1,4 +1,7 @@
 ## KONTEXT
+- [2026-08-18 12:11] [Email-KI kommt, 50 € für deinen 10M-Post] fonio bietet gemeinsame Webinare an: Partner bringt Kunden mit, fonio übernimmt Inhalt/Technik/Moderation - geeignet für Partner mit 300+ Kunden
+- [2026-08-18 12:11] [Email-KI kommt, 50 € für deinen 10M-Post] Ab sofort können weiterverkaufte fonio-Pläne durch Sebastian selbst upgraded werden
+- [2026-08-18 12:11] [Email-KI kommt, 50 € für deinen 10M-Post] fonio führt Email-KI ein: sortiert Postfach, schreibt Antwortentwürfe im eigenen Schreibstil, wird gerade für erste Kunden aktiviert
 - [2026-08-18 11:22] [2026-08-18-1a0148dca4-Angebot_AG0030_18.08.2026.md] Angebotsgültigkeit: bis 15.09.2026
 - [2026-08-18 11:22] [2026-08-18-1a0148dca4-Angebot_AG0030_18.08.2026.md] Angebotspreis: 75.000,00 € netto
 - [2026-08-18 11:06] [memory.md] Terminabsprache verschoben: neuer Termin circa 25. August 2026 (ursprünglich 18. August 2026 um 11:00 Uhr)
@@ -734,6 +737,8 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-18 12:11] [Email-KI kommt, 50 € für deinen 10M-Post] Nächster Schritt: Interessierte Kunden für Email-KI-Beta anmelden per E-Mail an partner@fonio.info
+- [2026-08-18 12:11] [Email-KI kommt, 50 € für deinen 10M-Post] Angebot: 50 € Guthaben für 10M-Announcement Post - Bedingung: Link auf diese E-Mail antworten
 - [2026-08-18 11:22] [2026-08-18-1a0148dca4-Angebot_AG0030_18.08.2026.md] Optional: Migration auf lokales Sprachmodell
 - [2026-08-18 11:22] [2026-08-18-1a0148dca4-Angebot_AG0030_18.08.2026.md] Angebot AG0030: KI-gestützte Stücklistenerfassung mit Systemarchitektur, Dokumentenerfassung, Wissensdatenbank, Regelverwaltung und Export/Anbindung
 - [2026-08-18 11:10] [Angebot AG0030 von Prozessia] Nächste Schritte: Angebot AG0030 prüfen und annehmen
