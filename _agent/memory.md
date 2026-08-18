@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-18 06:15] [20260818-1a0137ea-Your-Strategy-Is-Only-as-Strong-as-Its-E.md] Event-Fokus: AI-Systeme-Zuverlässigkeit, technische Schulden, Robotik und organisatorische Veränderungen
+- [2026-08-18 06:15] [20260818-1a0137ea-Your-Strategy-Is-Only-as-Strong-as-Its-E.md] T3 - Transform the Tomorrow Conference: 1.-2. Dezember 2026
 - [2026-08-18 05:14] [[Twilio] Re: Your Trust Hub Business Pro] Bundle SID: BU6b3e48b819e258269f5e87416b09cda1
 - [2026-08-17 13:55] Preisvorschlag für Angebot (Bezug AG0028-Vergleich): Ankerpreis 16.000 € netto, Verhandlungsspielraum 15.000–18.000 € netto.
 - [2026-08-17 13:41] [2026-08-14-TopDown-Meeting-14082026.md] Preismodell: Einmaliger Projektpreis Entwicklung + laufende Kosten Server/Sprachmodell (nutzungsbasiert, geschätzt niedriger dreistelliger Bereich) + optionale monatliche Wartungsgebühr
@@ -286,6 +288,7 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-18 06:15] [20260818-1a0137ea-Your-Strategy-Is-Only-as-Strong-as-Its-E.md] Vogel Communications Group (Gerd Kielburger) lädt Sebastian Spuhler zur T3 Conference ein
 - [2026-08-17 17:49] [2026-08-17-1a010c90a9-Rechnung_2026-08-16_310100556841.md] Sebastian Spuhler, IONOS Kundennummer 314248816, Adresse: Campus D 1, 66123 Saarbrücken
 - [2026-08-17 14:18] [memory.md] Kundenreaktion positiv auf Sebastian Spuhlers Präsentation [2026-08-17]
 - [2026-08-17 14:16] [2026-08-17-1a01008792-Angebot_AG0029_18.08.2026.md] TopDown Creative Factory GmbH, Kundennr. 10001, Angebot AG0029
@@ -717,6 +720,7 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-18 06:15] [20260818-1a0137ea-Your-Strategy-Is-Only-as-Strong-as-Its-E.md] Registrierung erforderlich (REGISTER NOW - Link vorhanden)
 - [2026-08-18 05:14] [[Twilio] Re: Your Trust Hub Business Pro] Nächste Schritte: Zukünftige Registrierung von Trust Products (A2P 10DLC, Toll-Free, Voice Integrity) kann zusätzliche regulatorische Anforderungen mit sich bringen
 - [2026-08-18 05:14] [[Twilio] Re: Your Trust Hub Business Pro] Genehmigung gilt ausschließlich für das Business Profile
 - [2026-08-17 17:49] [2026-08-17-1a010c90a9-Rechnung_2026-08-16_310100556841.md] Zahlungsart: Kreditkarteneinzug
