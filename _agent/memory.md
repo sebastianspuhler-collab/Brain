@@ -1,4 +1,7 @@
 ## KONTEXT
+- [2026-08-19 21:41] [memory.md] Microsoft Teams-Besprechung Prozessia x ESF: Meeting-ID 327 145 469 180 864, Passcode 8bD9wt3v
+- [2026-08-19 21:40] [2026-08-11-Prozessia X TopDown.md] Gesprächsergebnis sehr positiv; Kunde fordert aktiv Angebot für interne Geschäftsführungs-Präsentation an
+- [2026-08-19 21:38] [2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md] Microsoft Teams-Besprechung eingerichtet: Besprechungs-ID 327 145 469 180 864, Passcode 8bD9wt3v
 - [2026-08-19 20:59] [memory.md] ApolloNext Registrierung Deadline: 26.08.2026 (ca. 1 Woche); Thema: AI-powered GTM Engine
 - [2026-08-19 20:57] [memory.md] ApolloNext Registrierung: Deadline in 1 Woche (ca. 26.08.2026), Thema AI-powered GTM Engine
 - [2026-08-19 19:49] [20260819-1a01b8d7-One-week-left-to-register-for-ApolloNext.md] Veranstaltungsthema: AI-powered GTM Engine, neue Apollo Launches, Revenue Growth Strategien
@@ -332,6 +335,7 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-19 21:40] [2026-08-11-Prozessia X TopDown.md] Kontakt: Dominik Nussbaumer, IT-Projektmanager, dominik.nussbaumer@topdown-cf.com
 - [2026-08-19 14:57] [memory.md] TPG Packaging: jährliche Verarbeitung von ca. 17.000+ Auftragsbestätigungen (Automatisierungspotenzial)
 - [2026-08-19 14:55] [2026-08-19-Whitepaper-Wissensmanagement.md] Zielgruppe: Deutscher Mittelstand mit akutem Wissensverlust durch Renteneintritt (13,4 Mio. Erwerbstätige in 15 Jahren laut Statistisches Bundesamt)
 - [2026-08-19 14:13] [Lastenheft_Automatische_AB_Verarbeitung_] Kontakt Kai Winterscheid: kai.winterscheid@tpg-packaging.com, Tel. +49 2266 8057-321, Mobile +49 160 94928436
@@ -774,6 +778,7 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-19 21:39] [2026-08-19-Email-1a01a5db-Lastenheft_Automatische_AB_Verarbeitung_.md] Projekt: Automatische AB-Verarbeitung (Automatische Abweichungsbearbeitung) für proALPHA ERP-System
 - [2026-08-19 19:49] [20260819-1a01b8d7-One-week-left-to-register-for-ApolloNext.md] Preisstaffelung: $99 (aktuell bis 26.08.), dann $199 nach Deadline
 - [2026-08-19 19:49] [20260819-1a01b8d7-One-week-left-to-register-for-ApolloNext.md] Anmeldungs-Deadline für $99 Ticketpreis: 26. August 2026 (eine Woche ab E-Mail-Datum)
 - [2026-08-19 14:58] [2026-08-19-Whitepaper-Wissensmanagement.md] Whitepaper nutzt Daten von Statistischem Bundesamt, KfW und Fraunhofer IAO; verspricht Zugriffszeit in Sekunden (statt Tagen) und Einarbeitungszeit in Wochen (statt Monaten)
