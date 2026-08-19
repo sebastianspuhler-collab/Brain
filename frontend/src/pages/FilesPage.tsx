@@ -1,8 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { ChevronDown, ChevronRight, File, Folder } from "lucide-react";
+import { ChevronDown, ChevronRight, File, Folder, Upload } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { api } from "@/api/client";
+import { ApiError, api } from "@/api/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -26,10 +26,10 @@ interface TreeNode {
 }
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? "";
-// Root-Ebene (Kunden, Finanzen, Leads, ...) direkt aufgeklappt zeigen, wie auf
-// dem Mac - alles darunter erst auf Klick, sonst ist der erste Eindruck wieder
-// eine unübersichtliche Wand aus Ordnern.
-const DEFAULT_OPEN_DEPTH = 1;
+// Sebastian, 2026-08-19: default soll alles zu sein, auch die Root-Ebene -
+// eine Wand aus offenen Ordnern beim ersten Blick auf /files war ihm zu
+// unübersichtlich. Jeder Knoten klappt trotzdem einzeln per Klick auf.
+const DEFAULT_OPEN_DEPTH = 0;
 
 function formatSize(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`;
@@ -42,11 +42,15 @@ function FolderTree({
   depth,
   overridden,
   onToggle,
+  uploadingPath,
+  onUploadToFolder,
 }: {
   node: TreeNode;
   depth: number;
   overridden: Set<string>;
   onToggle: (path: string) => void;
+  uploadingPath: string | null;
+  onUploadToFolder: (path: string, file: File) => void;
 }) {
   if (node.type === "file") {
     return (
@@ -64,33 +68,60 @@ function FolderTree({
     );
   }
 
-  // Default: Root-Ebene offen, Rest zu. Ein Klick kehrt genau diesen einen
-  // Knoten um (egal ob er per Default offen oder zu war).
+  // Default: alles zu. Ein Klick kehrt genau diesen einen Knoten um (egal ob
+  // er per Default offen oder zu war).
   const defaultOpen = depth < DEFAULT_OPEN_DEPTH;
   const isOpen = overridden.has(node.path) ? !defaultOpen : defaultOpen;
   const children = node.children ?? [];
+  const isUploadingHere = uploadingPath === node.path;
 
   return (
     <div>
-      <button
-        type="button"
-        onClick={() => onToggle(node.path)}
+      <div
         className="flex w-full items-center gap-1.5 rounded-lg px-2 py-1 text-sm font-medium hover:bg-muted"
         style={{ paddingLeft: `${depth * 1.25}rem` }}
       >
-        {isOpen ? (
-          <ChevronDown className="size-3.5 shrink-0 text-muted-foreground" />
-        ) : (
-          <ChevronRight className="size-3.5 shrink-0 text-muted-foreground" />
-        )}
-        <Folder className="size-3.5 shrink-0 text-amber-500" />
-        <span className="truncate">{node.name}</span>
-        <span className="text-xs font-normal text-muted-foreground">({children.length})</span>
-      </button>
+        <button type="button" onClick={() => onToggle(node.path)} className="flex flex-1 items-center gap-1.5 text-left">
+          {isOpen ? (
+            <ChevronDown className="size-3.5 shrink-0 text-muted-foreground" />
+          ) : (
+            <ChevronRight className="size-3.5 shrink-0 text-muted-foreground" />
+          )}
+          <Folder className="size-3.5 shrink-0 text-amber-500" />
+          <span className="truncate">{node.name}</span>
+          <span className="text-xs font-normal text-muted-foreground">({children.length})</span>
+        </button>
+        <label
+          title="Datei direkt hier ablegen - ohne KI-Klassifizierung/Umsortierung"
+          className="shrink-0 cursor-pointer rounded p-1 text-muted-foreground hover:bg-background hover:text-foreground"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <Upload className={`size-3.5 ${isUploadingHere ? "animate-pulse" : ""}`} />
+          <input
+            type="file"
+            hidden
+            disabled={isUploadingHere}
+            onClick={(e) => e.stopPropagation()}
+            onChange={(e) => {
+              const file = e.target.files?.[0];
+              if (file) onUploadToFolder(node.path, file);
+              e.target.value = "";
+            }}
+          />
+        </label>
+      </div>
       {isOpen && (
         <div>
           {children.map((child) => (
-            <FolderTree key={child.path} node={child} depth={depth + 1} overridden={overridden} onToggle={onToggle} />
+            <FolderTree
+              key={child.path}
+              node={child}
+              depth={depth + 1}
+              overridden={overridden}
+              onToggle={onToggle}
+              uploadingPath={uploadingPath}
+              onUploadToFolder={onUploadToFolder}
+            />
           ))}
         </div>
       )}
@@ -110,6 +141,7 @@ export function FilesPage() {
   const queryClient = useQueryClient();
   const [filter, setFilter] = useState("");
   const [uploading, setUploading] = useState(false);
+  const [uploadingPath, setUploadingPath] = useState<string | null>(null);
   const [overridden, setOverridden] = useState<Set<string>>(new Set());
 
   const processInbox = useMutation({
@@ -136,6 +168,31 @@ export function FilesPage() {
     } finally {
       setUploading(false);
       e.target.value = "";
+    }
+  }
+
+  // Deterministischer Gegenpart zu handleUpload oben: legt die Datei exakt in
+  // den geklickten Ordner, ohne die Inbox-/Klassifizierungs-Pipeline
+  // (Sebastian, 2026-08-19: "per Hand Dateien im Brain selber ablegen können,
+  // in jedem Ordner").
+  async function handleUploadToFolder(folder: string, file: File) {
+    setUploadingPath(folder);
+    try {
+      const form = new FormData();
+      form.append("file", file);
+      form.append("folder", folder);
+      await api.postForm("/api/files/upload", form);
+      await queryClient.invalidateQueries({ queryKey: ["files"] });
+      await queryClient.invalidateQueries({ queryKey: ["files-tree"] });
+      toast.success(`${file.name} in ${folder || "Vault-Root"} abgelegt`);
+    } catch (err) {
+      if (err instanceof ApiError && err.status === 409) {
+        toast.error(err.message);
+      } else {
+        toast.error("Upload fehlgeschlagen");
+      }
+    } finally {
+      setUploadingPath(null);
     }
   }
 
@@ -170,6 +227,7 @@ export function FilesPage() {
           <Button
             variant="outline"
             disabled={uploading}
+            title="Wird klassifiziert und automatisch einsortiert"
             render={
               <label>
                 {uploading ? "..." : "Hochladen"}
@@ -217,7 +275,15 @@ export function FilesPage() {
         ) : (
           <div className="space-y-0.5">
             {(treeQuery.data?.children ?? []).map((child) => (
-              <FolderTree key={child.path} node={child} depth={0} overridden={overridden} onToggle={toggle} />
+              <FolderTree
+                key={child.path}
+                node={child}
+                depth={0}
+                overridden={overridden}
+                onToggle={toggle}
+                uploadingPath={uploadingPath}
+                onUploadToFolder={handleUploadToFolder}
+              />
             ))}
           </div>
         )}

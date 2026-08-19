@@ -456,11 +456,15 @@ def _extract_firma(zielordner_rel: str) -> str:
     implizit über den Ordnerpfad (Sebastian, 2026-07-30: Transkript-Überschriften
     sollen klar zeigen, zu welcher Firma sie gehören).
 
-    Das "-Korrespondenz"-Suffix unter Leads/ ist seit 2026-08-11 kein aktives
-    Muster mehr (siehe classify()-Prompt) - die re.sub bleibt trotzdem stehen,
-    rein für den Restbestand älterer Leads-Ordner, die diese Benennung noch
-    tragen (harmlos: greift nur, wenn der Ordnername tatsächlich auf
-    "-Korrespondenz" endet, sonst No-Op)."""
+    Das "-Korrespondenz"-Suffix unter Leads/ entstand nicht hier im
+    classify()-Prompt (der 2026-08-11-Fix dort betraf nur diesen einen
+    Schreibpfad), sondern in zwei von classify.py unabhängigen Stellen -
+    email_indexer._write_lead_correspondence() und email_lead_service.
+    consider_new_lead() -, die erst am 2026-08-19 entfernt wurden (Sebastian:
+    "jeder Kunde hat ein Kundenordner, das reicht", inkl. Migration der
+    bestehenden Leads/*-Korrespondenz/-Ordner nach Kunden/). Die re.sub hier
+    bleibt als harmloser No-Op für den Fall, dass irgendwo doch noch ein
+    Altordner mit dieser Endung existiert."""
     parts = Path(zielordner_rel).parts
     if len(parts) >= 2 and parts[0] == "Kunden":
         return parts[1]

@@ -181,14 +181,13 @@ def consider_new_lead(eid: str, sender: str, subject: str, date: str, body: str)
     if not firma or _is_known(firma, _known_names()):
         return None
 
-    from app.services import email_indexer
-
     lead_name = _write_lead_stub(firma, sender, subject, date)
-    # Dieselbe Korrespondenz-Ablage wie für bereits bekannte Leads
-    # (email_indexer._write_lead_correspondence) - die auslösende Mail
-    # erscheint damit sofort als erstes Dokument des neuen Leads, keine
-    # doppelte Schreiblogik.
-    email_indexer._write_lead_correspondence(lead_name, eid, sender, subject, date, body)
+    # Kein eigener Korrespondenz-Ordner für die allererste Mail (Sebastian,
+    # 2026-08-19: nie wieder Leads/<Name>-Korrespondenz/) - Absender und
+    # Betreff stehen bereits im "## Erste Nachricht"-Abschnitt des Lead-Stubs
+    # oben in _write_lead_stub(). Erst eine ZWEITE Mail an diesen Lead
+    # (email_indexer._match_lead-Treffer bei einem künftigen Indexer-Lauf)
+    # macht daraus einen echten Kunden-Ordner.
     memory.append_to_memory(
         "KUNDE",
         f"[E-Mail-Erstkontakt] {firma} - Mail '{subject}' von {sender} am {date}",

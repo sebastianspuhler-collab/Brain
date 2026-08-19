@@ -2,15 +2,17 @@
 import io
 import mimetypes
 import re
+import threading
 from pathlib import Path
 
 import markdown as md
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse, Response
 from xhtml2pdf import pisa
 
 from app.config import get_settings
 from app.deps import get_current_user
+from app.services import rag
 
 router = APIRouter(prefix="/api", tags=["files"])
 
@@ -82,6 +84,47 @@ def files_tree(user: str = Depends(get_current_user)):
     wie auf dem Mac), Ergänzung zur bisherigen flachen Liste oben."""
     settings = get_settings()
     return _build_tree_node(settings.vault_path, ())
+
+
+@router.post("/files/upload")
+async def upload_to_folder(
+    file: UploadFile,
+    folder: str = Form(""),
+    user: str = Depends(get_current_user),
+):
+    """Legt eine Datei unverändert in einem beliebigen Vault-Ordner ab - Sebastians
+    deterministischer Gegenpart zu POST /api/upload (inbox.py), das jede Datei
+    zwingend durch die KI-Klassifizierung (_inbox/ -> classify.py) schickt. Hier
+    entscheidet Sebastian den Zielordner selbst im Datei-Browser, es gibt KEINE
+    Umbenennung/Einsortierung - nur Ablegen + RAG-Reindex, damit die Datei
+    durchsuchbar wird (Sebastian, 2026-08-19: "per Hand ebenfalls Dateien im
+    Brain selber ablegen können, in jedem Ordner")."""
+    settings = get_settings()
+    folder = folder.strip().strip("/")
+    target_dir = (settings.vault_path / folder).resolve() if folder else settings.vault_path.resolve()
+    if not str(target_dir).startswith(str(settings.vault_path.resolve())):
+        raise HTTPException(status_code=403, detail="Zielordner ausserhalb des Vault")
+    rel_parts = target_dir.relative_to(settings.vault_path.resolve()).parts if folder else ()
+    if any(p in _SKIP or p.startswith(".") for p in rel_parts):
+        raise HTTPException(status_code=403, detail="Zielordner ist kein Vault-Inhalt")
+
+    target_dir.mkdir(parents=True, exist_ok=True)
+    filename = Path(file.filename).name
+    target_path = target_dir / filename
+    if target_path.exists():
+        raise HTTPException(status_code=409, detail=f"Datei '{filename}' existiert in diesem Ordner bereits")
+
+    body = await file.read()
+    target_path.write_bytes(body)
+    threading.Thread(target=rag.reindex_new_files, daemon=True).start()
+
+    rel = target_path.relative_to(settings.vault_path)
+    return {
+        "ok": True,
+        "path": str(rel).replace("\\", "/"),
+        "name": filename,
+        "url": "/api/files/download/" + str(rel).replace("\\", "/"),
+    }
 
 
 def _parse_meeting_meta(path: Path) -> dict:

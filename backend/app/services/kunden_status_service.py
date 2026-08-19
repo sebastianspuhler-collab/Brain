@@ -139,26 +139,16 @@ def _sammle_dokumente(kunde_path: Path) -> list[dict]:
     extract_meeting_structure() beim Einsortieren bereits per LLM
     herausgezogen und in die Datei geschrieben hat, keine neue Extraktion.
 
-    Leads sind eine einzelne .md-Datei in Leads/ statt eines Kundenordners
-    mit Unterordnern - dafür wird nur diese eine Datei plus ein optionaler
-    "<Name>-Korrespondenz/"-Ordner daneben gelesen (E-Mails, die
-    email_indexer._write_lead_correspondence() dem Lead zugeordnet hat -
-    Sebastian, 2026-07-21: der Stand soll auch aus laufender Korrespondenz
-    kommen, nicht nur aus dem einmaligen Erstgesprächs-Protokoll)."""
+    Leads sind eine einzelne .md-Datei in Leads/ statt eines Kundenordners mit
+    Unterordnern - dafür wird nur diese eine Datei gelesen. Sobald ein Lead
+    eine zweite Nachricht/ein zweites Dokument bekommt, legt
+    email_indexer._write_customer_correspondence() direkt einen echten
+    Kunden/<Name>/Dokumente/-Ordner an (Sebastian, 2026-08-19: nie wieder
+    Leads/<Name>-Korrespondenz/) - der landet dann im Kunden-Zweig unten,
+    nicht mehr hier."""
     if kunde_path.is_file():
-        dokumente = []
         eintrag = _lies_dokument(kunde_path, "Leads")
-        if eintrag:
-            dokumente.append(eintrag)
-        lead_name = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", kunde_path.stem)
-        korr_dir = kunde_path.parent / f"{lead_name}-Korrespondenz"
-        if korr_dir.exists():
-            for f in korr_dir.glob("*.md"):
-                korr_eintrag = _lies_dokument(f, "Korrespondenz")
-                if korr_eintrag:
-                    dokumente.append(korr_eintrag)
-        dokumente.sort(key=lambda d: d["datum"], reverse=True)
-        return dokumente[:_MAX_DOKUMENTE]
+        return [eintrag] if eintrag else []
 
     dokumente = []
     for sub in _DOKUMENT_ORDNER:

@@ -72,7 +72,14 @@ def _match_lead(sender: str, subject: str, body: str) -> str | None:
     Korrespondenz profitieren (Sebastian, 2026-07-21: die KI soll den
     aktuellen Stand auch aus E-Mails ableiten, nicht nur aus dem einmaligen
     Erstgesprächs-Protokoll). Nur versucht, wenn kein Kunde gematcht hat -
-    ein Name sollte nicht gleichzeitig Kunde und Lead sein."""
+    ein Name sollte nicht gleichzeitig Kunde und Lead sein.
+
+    Ein Treffer hier landet trotzdem in Kunden/<Name>/Dokumente/, nicht unter
+    Leads/ (siehe _write_customer_correspondence im Aufrufer index_new_emails) -
+    Sebastian, 2026-08-19: kein "-Korrespondenz"-Unterordner unter Leads/ mehr,
+    sobald ein Lead eine zweite Nachricht bekommt, ist es ein Kunde mit
+    Kundenordner. Nur der reine Namensabgleich läuft weiterhin gegen die
+    Lead-Liste, weil ein Lead noch keinen Kunden-Ordner hat, der matchen könnte."""
     names = classify.list_lead_names()
     if not names:
         return None
@@ -134,27 +141,6 @@ def _write_customer_correspondence(
         return False
     path.write_text(
         _korrespondenz_markdown("kunde", customer, sender, subject, date, body), encoding="utf-8"
-    )
-    return True
-
-
-def _write_lead_correspondence(
-    lead: str, eid: str, sender: str, subject: str, date: str, body: str
-) -> bool:
-    """Wie _write_customer_correspondence, aber für Leads/<Name>-Korrespondenz/
-    statt Kunden/<Name>/Dokumente/ - Leads sind eine einzelne .md-Datei ohne
-    Unterordner, ein eigener Korrespondenz-Ordner daneben kollidiert nicht mit
-    dashboard.py's nicht-rekursivem leads_dir.glob("*.md") (taucht dort nicht
-    als eigener Lead auf) und wird von kunden_status_service._sammle_dokumente()
-    zusätzlich zur Lead-Datei gelesen."""
-    settings = get_settings()
-    korr_dir = settings.vault_path / "Leads" / f"{lead}-Korrespondenz"
-    korr_dir.mkdir(parents=True, exist_ok=True)
-    path = korr_dir / _korrespondenz_filename(date, eid, subject)
-    if path.exists():
-        return False
-    path.write_text(
-        _korrespondenz_markdown("lead", lead, sender, subject, date, body), encoding="utf-8"
     )
     return True
 
@@ -228,7 +214,12 @@ def index_new_emails(deep: bool = False) -> int:
         else:
             lead = _match_lead(sender, subject, body)
             if lead:
-                _write_lead_correspondence(lead, eid, sender, subject, date, body)
+                # Zweite Nachricht an einen bestehenden Lead -> ab jetzt ein
+                # echter Kunden-Ordner statt Leads/<Name>-Korrespondenz/
+                # (Sebastian, 2026-08-19: "jeder Kunde hat ein Kundenordner,
+                # das reicht"). Gleiche Funktion, gleiche Zielkonvention wie
+                # für Kunden oben.
+                _write_customer_correspondence(lead, eid, sender, subject, date, body)
             else:
                 # Weder bestehender Kunde noch bestehender Lead - könnte ein
                 # komplett neuer Interessent sein (email_lead_service.py,
