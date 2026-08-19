@@ -1,4 +1,7 @@
 ## KONTEXT
+- [2026-08-19 14:15] [memory.md] IT.CON: Standflächen ausgebucht, Alternative de:hub Stand mit Positionierung als Startup-Use-Case
+- [2026-08-19 14:13] [20260819-1a01a5db-Lastenheft_Automatische_AB_Verarbeitung_.md] Lastenheft eingereicht am 19.08.2026 von Kai Winterscheid, Rückfragen willkommen
+- [2026-08-19 14:13] [Zugesagt: Besprechung Lastenheft] Kontaktperson: Kai Winterscheid, kai.winterscheid@tpg-packaging.com
 - [2026-08-19 12:15] [AW: IT.CON] Florian benötigt von Sebastian genaue Bedarfsangaben und Erwartungen zur IT.CON
 - [2026-08-19 12:15] [AW: IT.CON] Alternative Platzierungsmöglichkeit: de:hub Stand mit Positionierung als Use Case aus dem Startup Netzwerk
 - [2026-08-19 12:15] [AW: IT.CON] IT.CON: Standflächen mit 115 Ausstellern komplett ausgebucht
@@ -322,6 +325,9 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-19 14:13] [Lastenheft_Automatische_AB_Verarbeitung_] Kontakt Kai Winterscheid: kai.winterscheid@tpg-packaging.com, Tel. +49 2266 8057-321, Mobile +49 160 94928436
+- [2026-08-19 14:13] [Lastenheft_Automatische_AB_Verarbeitung_] TPG-Packaging GmbH (The Packaging Group), Ansprechpartner: Kai Winterscheid, Head of Purchasing
+- [2026-08-19 14:12] [E-Mail-Erstkontakt] The Packaging Group GmbH - Mail 'Lastenheft_Automatische_AB_Verarbeitung_proALPHA' von Kai Winterscheid <kai.winterscheid@tpg-packaging.com> am Wed, 19 Aug 2026 14:12:12 +0000
 - [2026-08-19 07:26] [2026-08-19-Email-1a018e90-Automatic-reply-Rechnung-RE260018-von-Pr.md] Schaufler erfordert ab sofort elektronische Rechnungsformate statt PDF
 - [2026-08-18 16:43] [2026-08-18-Email-1a015bfa-Action-required-security-vulnerabilities.md] Voigt_Salus hat aktive Supabase-Projekte (Projekt-ID: stggglgcvisnvcertpau, Name: Voigtsalus)
 - [2026-08-18 13:04] [memory.md] Angebotspreis AG0030: 75.000,00 € netto, Gültigkeit bis 15.09.2026
@@ -759,6 +765,11 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-19 14:14] [2026-08-19-Email-1a01a5db-Lastenheft_Automatische_AB_Verarbeitung_.md] Lastenheft-Übermittlung vom 2026-08-19 - Anfragen direkt an Kai Winterscheid möglich
+- [2026-08-19 14:14] [2026-08-19-Email-1a01a5db-Lastenheft_Automatische_AB_Verarbeitung_.md] Lastenheft für automatische Abschlagsverarbeitung (AB) im proALPHA-System eingereicht
+- [2026-08-19 14:14] [2026-08-19-The-Packaging-Group-GmbH.md] Anforderung: Automatische AB-Verarbeitung in proALPHA (Lastenheft angefordert)
+- [2026-08-19 14:13] [20260819-1a01a5db-Zugesagt-Besprechung-Lastenheft.md] Lastenheft-Besprechung wurde bestätigt - Datum der Zusage: 19.08.2026
+- [2026-08-19 14:13] [Lastenheft_Automatische_AB_Verarbeitung_] Lastenheft für 'Automatische AB-Verarbeitung proALPHA' von TPG-Packaging erhalten
 - [2026-08-19 13:21] [20260819-1a01a006-Absprachen-ITCON-x-Prozessia.md] Besprechung zwischen IT.CON und Prozessia am 19. Aug 2026 12:30 Uhr vereinbart
 - [2026-08-19 12:15] [AW: IT.CON] Teams Call zur Abstimmung angeboten für 20.08.2026 Nachmittag ab 13:00
 - [2026-08-19 07:41] [AW: Rechnung RE260018 von Prozessia] Nächster Schritt: In zukünftigen Rechnungen an Schaufler das Zahlungsziel (60 Tage netto) vermerken
