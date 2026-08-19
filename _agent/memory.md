@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-19 19:49] [20260819-1a01b8d7-One-week-left-to-register-for-ApolloNext.md] Veranstaltungsthema: AI-powered GTM Engine, neue Apollo Launches, Revenue Growth Strategien
 - [2026-08-19 14:58] [2026-08-19-Whitepaper-Wissensmanagement.md] Whitepaper 'Wissensmanagement' vom 2026-08-19 ist Marketing-/Vertriebscontent für Prozessia zur Positionierung als Lösungsanbieter
 - [2026-08-19 14:55] [2026-08-19-Whitepaper-Wissensmanagement.md] Identifiziertes Risiko: Schatten-KI ohne Anbindung an internes Betriebswissen; Quellen: Statistisches Bundesamt, KfW, Fraunhofer IAO
 - [2026-08-19 14:55] [2026-08-19-Whitepaper-Wissensmanagement.md] Prozessia-Whitepaper positioniert sich als Lösungsanbieter für Wissensmanagement im deutschen Mittelstand (Maschinenbau, Elektrotechnik, Zulieferindustrie)
@@ -771,6 +772,8 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-19 19:49] [20260819-1a01b8d7-One-week-left-to-register-for-ApolloNext.md] Preisstaffelung: $99 (aktuell bis 26.08.), dann $199 nach Deadline
+- [2026-08-19 19:49] [20260819-1a01b8d7-One-week-left-to-register-for-ApolloNext.md] Anmeldungs-Deadline für $99 Ticketpreis: 26. August 2026 (eine Woche ab E-Mail-Datum)
 - [2026-08-19 14:58] [2026-08-19-Whitepaper-Wissensmanagement.md] Whitepaper nutzt Daten von Statistischem Bundesamt, KfW und Fraunhofer IAO; verspricht Zugriffszeit in Sekunden (statt Tagen) und Einarbeitungszeit in Wochen (statt Monaten)
 - [2026-08-19 14:57] [memory.md] IT.CON 2026: Standflächen ausgebucht; Alternative: de:hub Stand mit Positionierung als Startup-Use-Case
 - [2026-08-19 14:55] [2026-08-19-Whitepaper-Wissensmanagement.md] Nutzenversprechen: Zugriffszeit Sekunden statt Tage, 100% Wissendokumentation, Einarbeitungszeit Wochen statt Monate
