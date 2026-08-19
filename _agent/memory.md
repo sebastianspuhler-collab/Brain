@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-19 14:55] [2026-08-19-Whitepaper-Wissensmanagement.md] Identifiziertes Risiko: Schatten-KI ohne Anbindung an internes Betriebswissen; Quellen: Statistisches Bundesamt, KfW, Fraunhofer IAO
+- [2026-08-19 14:55] [2026-08-19-Whitepaper-Wissensmanagement.md] Prozessia-Whitepaper positioniert sich als Lösungsanbieter für Wissensmanagement im deutschen Mittelstand (Maschinenbau, Elektrotechnik, Zulieferindustrie)
 - [2026-08-19 14:24] [2026-08-19-1a01a5db1e-Lastenheft_Automatische_AB_Verarbeitung_proALPHA.md] TPG verarbeitet jährlich rund 17... Auftragsbestätigungen (genaue Zahl im Dokument unvollständig)
 - [2026-08-19 14:15] [memory.md] IT.CON: Standflächen ausgebucht, Alternative de:hub Stand mit Positionierung als Startup-Use-Case
 - [2026-08-19 14:13] [20260819-1a01a5db-Lastenheft_Automatische_AB_Verarbeitung_.md] Lastenheft eingereicht am 19.08.2026 von Kai Winterscheid, Rückfragen willkommen
@@ -326,6 +328,7 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-19 14:55] [2026-08-19-Whitepaper-Wissensmanagement.md] Zielgruppe: Deutscher Mittelstand mit akutem Wissensverlust durch Renteneintritt (13,4 Mio. Erwerbstätige in 15 Jahren laut Statistisches Bundesamt)
 - [2026-08-19 14:13] [Lastenheft_Automatische_AB_Verarbeitung_] Kontakt Kai Winterscheid: kai.winterscheid@tpg-packaging.com, Tel. +49 2266 8057-321, Mobile +49 160 94928436
 - [2026-08-19 14:13] [Lastenheft_Automatische_AB_Verarbeitung_] TPG-Packaging GmbH (The Packaging Group), Ansprechpartner: Kai Winterscheid, Head of Purchasing
 - [2026-08-19 14:12] [E-Mail-Erstkontakt] The Packaging Group GmbH - Mail 'Lastenheft_Automatische_AB_Verarbeitung_proALPHA' von Kai Winterscheid <kai.winterscheid@tpg-packaging.com> am Wed, 19 Aug 2026 14:12:12 +0000
@@ -766,6 +769,8 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-19 14:57] [memory.md] IT.CON 2026: Standflächen ausgebucht; Alternative: de:hub Stand mit Positionierung als Startup-Use-Case
+- [2026-08-19 14:55] [2026-08-19-Whitepaper-Wissensmanagement.md] Nutzenversprechen: Zugriffszeit Sekunden statt Tage, 100% Wissendokumentation, Einarbeitungszeit Wochen statt Monate
 - [2026-08-19 14:24] [2026-08-19-1a01a5db1e-Lastenheft_Automatische_AB_Verarbeitung_proALPHA.md] Ausbaustufe 1: Straight-Through Processing; Ausbaustufe 2: KI-gestützte Terminverfolgung
 - [2026-08-19 14:14] [2026-08-19-Email-1a01a5db-Lastenheft_Automatische_AB_Verarbeitung_.md] Lastenheft-Übermittlung vom 2026-08-19 - Anfragen direkt an Kai Winterscheid möglich
 - [2026-08-19 14:14] [2026-08-19-Email-1a01a5db-Lastenheft_Automatische_AB_Verarbeitung_.md] Lastenheft für automatische Abschlagsverarbeitung (AB) im proALPHA-System eingereicht
