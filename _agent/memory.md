@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-19 07:42] [memory.md] IHK-Event 'KI im Unternehmen' am Holiday Inn Express Merzig, Eintritts-Token: 21W9N2CD8C
+- [2026-08-19 07:41] [AW: Rechnung RE260018 von Prozessia] Zahlungsziel bei Schaufler: 60 Tage netto Standard
 - [2026-08-18 19:38] [memory.md] Sicherheitsprobleme (Security Vulnerabilities) identifiziert am 2026-08-17, Alert vom 2026-08-18
 - [2026-08-18 19:38] [memory.md] Angebot AG0029: Deadline 14.09.2026, Gesamtpreis 9.000,00 € netto (10.710,00 € brutto)
 - [2026-08-18 19:37] [2026-08-18-1a0164f77f-Angebot_AG0029_18.08.2026.md] Angebots-Deadline: 14.09.2026
@@ -754,6 +756,7 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-19 07:41] [AW: Rechnung RE260018 von Prozessia] Nächster Schritt: In zukünftigen Rechnungen an Schaufler das Zahlungsziel (60 Tage netto) vermerken
 - [2026-08-19 07:26] [2026-08-19-Email-1a018e90-Automatic-reply-Rechnung-RE260018-von-Pr.md] Schaufler akzeptiert: X-Rechnung (UBL 1.x/2.x, UN_CEFACT 1.x/2.x/3.x), ZUGFeRD (1.0/2.0/2.1.1), Fattura, Faktura
 - [2026-08-19 07:25] [Automatic reply: Rechnung RE260018 von P] Schäufler (Rechnungsempfänger) fordert Prozessia auf, zukünftig Rechnungen in elektronischen Formaten zu senden: X-Rechnung (UBL 1.x, 2.x, UN_CEFACT 1.x, 2.x, 3.x), ZUGFeRD (1.0, 2.0, 2.1.1), Fattura oder Faktura
 - [2026-08-19 04:26] [memory.md] Angebot AG0029 Deadline: 14.09.2026
