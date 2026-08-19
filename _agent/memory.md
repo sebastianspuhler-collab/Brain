@@ -753,6 +753,8 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-19 04:22] [The Status of the Regulatory Bundle - BU] Nach Zuweisung zu Telefonnummern ist keine weitere Aktion erforderlich
+- [2026-08-19 04:22] [The Status of the Regulatory Bundle - BU] Genehmigtes Bundle muss Telefonnummern zugewiesen werden
 - [2026-08-18 19:53] [2026-08-18-1a01667aaa-Angebot_AG0033_18.08.2026.md] Erforderliche KPIs: Purchasing Price Variance, Cost Improvement Program, Spend-Transparenz, Supplier On-Time-Delivery, Supplier PPM, Lieferantenrisiken, Single-Source-Analyse
 - [2026-08-18 19:53] [2026-08-18-1a01667aaa-Angebot_AG0033_18.08.2026.md] Procurement KPI-Dashboard: Datenanbindung, Kern-KPI-System, Marktdaten/ESG-Kennzahlen, Advanced Analytics & Automatisierung
 - [2026-08-18 19:37] [2026-08-18-1a0164f77f-Angebot_AG0029_18.08.2026.md] Leistungsumfang: Rechnungserkennung, Formalprüfung, ERP-Anbindung, Kategorisierung, Dashboard; DSGVO- und AI Act-konform
