@@ -93,7 +93,10 @@ def test_sammle_dokumente_reads_single_lead_file(tmp_path):
     assert dokumente[0]["zusammenfassung"] == "Erstgespräch mit Interessent."
 
 
-def test_sammle_dokumente_includes_lead_korrespondenz_ordner(tmp_path):
+def test_sammle_dokumente_never_reads_a_korrespondenz_ordner_next_to_a_lead_file(tmp_path):
+    # Sebastian, 2026-08-19: Leads/<Name>-Korrespondenz/ existiert nicht mehr -
+    # ein zufällig gleichnamiger Ordner neben der Lead-Datei darf nicht mehr
+    # gelesen werden, selbst wenn er (z.B. aus einem alten Zustand) noch da ist.
     lead = tmp_path / "2026-07-14-Zillmer-Elektrotechnik.md"
     lead.write_text(
         "---\ndatum: 2026-07-14\nkategorie: Lead\n---\n\n## Zusammenfassung\nErstgespräch geführt.\n",
@@ -107,21 +110,8 @@ def test_sammle_dokumente_includes_lead_korrespondenz_ordner(tmp_path):
         encoding="utf-8",
     )
     dokumente = svc._sammle_dokumente(lead)
-    assert len(dokumente) == 2
-    # neuestes zuerst
-    assert dokumente[0]["datei"] == "2026-07-20-Email-abcd1234-Update.md"
-    assert dokumente[0]["zusammenfassung"] == "Neuer Termin am 21.07. bestätigt."
-    assert dokumente[1]["datei"] == "2026-07-14-Zillmer-Elektrotechnik.md"
-
-
-def test_sammle_dokumente_lead_without_korrespondenz_ordner_unaffected(tmp_path):
-    lead = tmp_path / "lead.md"
-    lead.write_text(
-        "---\ndatum: 2026-07-02\nkategorie: Lead\n---\n\n## Zusammenfassung\nErstgespräch.\n",
-        encoding="utf-8",
-    )
-    dokumente = svc._sammle_dokumente(lead)
     assert len(dokumente) == 1
+    assert dokumente[0]["datei"] == "2026-07-14-Zillmer-Elektrotechnik.md"
 
 
 def test_bewerte_kunde_propagates_ist_relevant_false(tmp_path, monkeypatch):

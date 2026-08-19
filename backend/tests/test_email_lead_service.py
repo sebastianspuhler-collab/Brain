@@ -1,6 +1,6 @@
 import json
 
-from app.services import email_indexer, email_lead_service as svc
+from app.services import email_lead_service as svc
 
 
 class FakeSettings:
@@ -51,13 +51,9 @@ def test_consider_new_lead_skips_known_customer_names(tmp_path, monkeypatch):
     assert not (tmp_path / "Leads").exists()
 
 
-def test_consider_new_lead_writes_stub_and_correspondence_for_a_genuine_new_contact(tmp_path, monkeypatch):
+def test_consider_new_lead_writes_only_the_flat_stub_for_a_genuine_new_contact(tmp_path, monkeypatch):
     settings = FakeSettings(tmp_path)
     monkeypatch.setattr(svc, "get_settings", lambda: settings)
-    # _write_lead_correspondence() lebt in email_indexer.py und liest dort
-    # eine eigene get_settings()-Bindung - separat patchen, sonst schreibt der
-    # Korrespondenz-Teil am FakeSettings-Vault vorbei in die echten Settings.
-    monkeypatch.setattr(email_indexer, "get_settings", lambda: settings)
     monkeypatch.setattr(svc.classify, "list_customer_names", lambda: [])
     monkeypatch.setattr(svc.classify, "list_lead_names", lambda: [])
     monkeypatch.setattr(svc.memory, "append_to_memory", lambda *a, **k: None)
@@ -75,10 +71,10 @@ def test_consider_new_lead_writes_stub_and_correspondence_for_a_genuine_new_cont
     assert len(stubs) == 1
     assert "dominik.nussbaumer@topdown-cf.com" in stubs[0].read_text(encoding="utf-8")
 
-    korr_dir = tmp_path / "Leads" / "TopDown-Korrespondenz"
-    korr_dateien = list(korr_dir.glob("*.md"))
-    assert len(korr_dateien) == 1
-    assert "lead: TopDown" in korr_dateien[0].read_text(encoding="utf-8")
+    # Sebastian, 2026-08-19: die allererste Mail eines neuen Leads bekommt
+    # keinen eigenen Korrespondenz-Ordner mehr (nie wieder
+    # Leads/<Name>-Korrespondenz/) - Sender/Betreff stehen bereits im Stub.
+    assert not (tmp_path / "Leads" / "TopDown-Korrespondenz").exists()
 
     cache_path = settings.agent_dir / "logs" / "email_lead_cache.json"
     assert "mail-1" in json.loads(cache_path.read_text(encoding="utf-8"))

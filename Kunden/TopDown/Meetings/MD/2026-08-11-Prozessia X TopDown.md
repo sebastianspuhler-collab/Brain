@@ -39,7 +39,8 @@ Präsentation bei der Geschäftsführung.
   Grundbuchungen erstellt
 - TopDown nutzt selbst kein Buchhaltungsprogramm, Datenexport erfolgt über DATEV
 - ERP-System: im Gespräch unterschiedlich benannt ("Globe Manager" bzw. später
-  "Jobmanager" — Transkriptionsunschärfe, **Name mit Dominik verifizieren**)
+  "Jobmanager" — Transkriptionsunschärfe). **Korrektur Sebastian, 11.08.:
+  korrekter Name ist GlobeManager.**
 - Zwei Rechnungsarten: mit und ohne erforderlichen Wareneingangsabgleich; bei
   Wareneingangspflicht müssen laut Dominik mehrere Parameter im ERP übereinstimmen,
   damit die Zuordnung automatisch erfolgen kann ("das sollte schon der Fall sein")
@@ -55,6 +56,32 @@ Präsentation bei der Geschäftsführung.
 6. KI-Vorprüfung soll mit der Zeit die "Trefferquote" korrekter Rechnungen erhöhen,
    sodass bei der manuellen Freigabe weniger Klärungsbedarf entsteht
 7. Danach ggf. weitere Automatisierung Richtung DATEV-Export möglich
+
+**Prozessvisualisierung (Beschaffungsagent-Analogie auf Buchhaltung übertragen):**
+
+```mermaid
+flowchart TD
+    A[Rechnung kommt per E-Mail<br/>ins Postfach invoice@topdown.com] --> B[Agent klassifiziert:<br/>Ist das eine Rechnung?]
+    B -->|Nein| B1[Weiterleitung/Ignorieren]
+    B -->|Ja| C[Formale Prüfung:<br/>Betrag korrekt?<br/>Entspricht Bestellung?<br/>Abgleich mit Wareneingang]
+    C -->|Abweichung erkannt| D[Eskalation an Projektleiter<br/>mit Anmerkung]
+    D --> E{Freigabe durch<br/>Projektleiter: Ja/Nein}
+    C -->|Passt| E
+    E -->|Nein| D2[Rückmeldung/Klärung<br/>mit Lieferant]
+    E -->|Ja| F[Automatische Übertragung<br/>ins ERP GlobeManager<br/>via Schnittstelle]
+    F --> G[Zahlung ausgelöst]
+    G --> H[Optional: automatisierte<br/>Übergabe an Steuerberater/DATEV]
+    H --> I[Ablage/Archivierung]
+
+    style A fill:#e8f0fe
+    style F fill:#fff3cd
+    style E fill:#d4edda
+    style H fill:#f8d7da
+```
+
+Deckt sich 1:1 mit dem etablierten Beschaffungsagent-Muster bei Schaufler
+(Auftragsbestätigung → Abgleich → Eskalation → ERP-Buchung), nur mit Rechnung
+statt AB als Auslöser.
 
 **Infrastrukturempfehlung (Sebastian):**
 - Cloud-Server mieten statt eigene Hardware kaufen — empfohlen: Hetzner
@@ -126,8 +153,7 @@ Präsentation bei der Geschäftsführung.
   Geschäftsführung abstimmen)
 
 ## Offene Punkte / zu prüfen
-- Exakter Name des ERP-Systems ("Globe Manager" vs. "Jobmanager" laut Transkript
-  uneindeutig)
+- ~~Exakter Name des ERP-Systems~~ geklärt: GlobeManager (Korrektur Sebastian, 11.08.)
 - Ob die ERP-Schnittstelle (API bzw. Alternative) tatsächlich existiert
 
 ---

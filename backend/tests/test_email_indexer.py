@@ -51,7 +51,7 @@ def test_korrespondenz_markdown_truncates_long_body_in_zusammenfassung():
     assert langer_text in md  # voller Text bleibt im "## Volltext"-Abschnitt erhalten
 
 
-def test_index_new_emails_falls_back_to_lead_when_no_customer_matches(tmp_path, monkeypatch):
+def test_index_new_emails_promotes_matched_lead_to_kunden_ordner(tmp_path, monkeypatch):
     from app.config import get_settings
 
     monkeypatch.setattr(svc.classify, "list_customer_names", lambda: [])
@@ -82,7 +82,11 @@ def test_index_new_emails_falls_back_to_lead_when_no_customer_matches(tmp_path, 
 
     n = svc.index_new_emails()
     assert n == 1
-    korr_dir = tmp_path / "Leads" / "Zillmer-Elektrotechnik-Korrespondenz"
-    dateien = list(korr_dir.glob("*.md"))
+    # Sebastian, 2026-08-19: eine zweite Mail an einen bestehenden Lead landet
+    # nicht mehr in Leads/<Name>-Korrespondenz/, sondern promotet den Lead
+    # direkt zu einem echten Kunden/<Name>/Dokumente/-Ordner.
+    assert not (tmp_path / "Leads" / "Zillmer-Elektrotechnik-Korrespondenz").exists()
+    dok_dir = tmp_path / "Kunden" / "Zillmer-Elektrotechnik" / "Dokumente"
+    dateien = list(dok_dir.glob("*.md"))
     assert len(dateien) == 1
-    assert "lead: Zillmer-Elektrotechnik" in dateien[0].read_text(encoding="utf-8")
+    assert "kunde: Zillmer-Elektrotechnik" in dateien[0].read_text(encoding="utf-8")
