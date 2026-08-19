@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-19 14:24] [2026-08-19-1a01a5db1e-Lastenheft_Automatische_AB_Verarbeitung_proALPHA.md] TPG verarbeitet jährlich rund 17... Auftragsbestätigungen (genaue Zahl im Dokument unvollständig)
 - [2026-08-19 14:15] [memory.md] IT.CON: Standflächen ausgebucht, Alternative de:hub Stand mit Positionierung als Startup-Use-Case
 - [2026-08-19 14:13] [20260819-1a01a5db-Lastenheft_Automatische_AB_Verarbeitung_.md] Lastenheft eingereicht am 19.08.2026 von Kai Winterscheid, Rückfragen willkommen
 - [2026-08-19 14:13] [Zugesagt: Besprechung Lastenheft] Kontaktperson: Kai Winterscheid, kai.winterscheid@tpg-packaging.com
@@ -765,6 +766,7 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-19 14:24] [2026-08-19-1a01a5db1e-Lastenheft_Automatische_AB_Verarbeitung_proALPHA.md] Ausbaustufe 1: Straight-Through Processing; Ausbaustufe 2: KI-gestützte Terminverfolgung
 - [2026-08-19 14:14] [2026-08-19-Email-1a01a5db-Lastenheft_Automatische_AB_Verarbeitung_.md] Lastenheft-Übermittlung vom 2026-08-19 - Anfragen direkt an Kai Winterscheid möglich
 - [2026-08-19 14:14] [2026-08-19-Email-1a01a5db-Lastenheft_Automatische_AB_Verarbeitung_.md] Lastenheft für automatische Abschlagsverarbeitung (AB) im proALPHA-System eingereicht
 - [2026-08-19 14:14] [2026-08-19-The-Packaging-Group-GmbH.md] Anforderung: Automatische AB-Verarbeitung in proALPHA (Lastenheft angefordert)
@@ -1158,6 +1160,8 @@
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-08-19 14:24] [2026-08-19-1a01a5db1e-Lastenheft_Automatische_AB_Verarbeitung_proALPHA.md] Anbieter muss im Pflichtenheft folgende Inhalte liefern: technische Umsetzung, proALPHA-Schnittstellen, Lizenzierung, Projektkosten und belastbarer Einführungsplan
+- [2026-08-19 14:24] [2026-08-19-1a01a5db1e-Lastenheft_Automatische_AB_Verarbeitung_proALPHA.md] Projektziel: Mindestens 98% der eingehenden Auftragsbestätigungen sollen automatisiert geprüft, zugeordnet und verarbeitet werden
 - [2026-08-17 15:10] [2026-06-09-Präsentation_ Datenschutz~20260814-225619.md] EU-Hosting & Datenschutz-Compliance zwingend für Kanzleien; US Cloud Act bei ChatGPT ermöglicht Zugriff auf alle US-Cloud-Daten (rechtlich kritisch)
 - [2026-08-17 13:12] [2026-08-11-Prozessia X TopDown.md] KI-gestützte Automatisierung der Eingangsrechnungsverarbeitung mit Infrastruktur Hetzner + Azure OpenAI; EU-KI-Act-Compliance erforderlich
 - [2026-08-17 07:10] [2026-06-09-🚗 Effiziente Telefonentlastung für Autohaus Prozessia 📞 – Prozessia.md] Automatisierung einfacher Kundenanfragen zur Entlastung des Teams
