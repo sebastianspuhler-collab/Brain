@@ -1,4 +1,7 @@
 ## KONTEXT
+- [2026-08-19 12:15] [AW: IT.CON] Florian benötigt von Sebastian genaue Bedarfsangaben und Erwartungen zur IT.CON
+- [2026-08-19 12:15] [AW: IT.CON] Alternative Platzierungsmöglichkeit: de:hub Stand mit Positionierung als Use Case aus dem Startup Netzwerk
+- [2026-08-19 12:15] [AW: IT.CON] IT.CON: Standflächen mit 115 Ausstellern komplett ausgebucht
 - [2026-08-19 07:42] [memory.md] IHK-Event 'KI im Unternehmen' am Holiday Inn Express Merzig, Eintritts-Token: 21W9N2CD8C
 - [2026-08-19 07:41] [AW: Rechnung RE260018 von Prozessia] Zahlungsziel bei Schaufler: 60 Tage netto Standard
 - [2026-08-18 19:38] [memory.md] Sicherheitsprobleme (Security Vulnerabilities) identifiziert am 2026-08-17, Alert vom 2026-08-18
@@ -756,6 +759,7 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-19 12:15] [AW: IT.CON] Teams Call zur Abstimmung angeboten für 20.08.2026 Nachmittag ab 13:00
 - [2026-08-19 07:41] [AW: Rechnung RE260018 von Prozessia] Nächster Schritt: In zukünftigen Rechnungen an Schaufler das Zahlungsziel (60 Tage netto) vermerken
 - [2026-08-19 07:26] [2026-08-19-Email-1a018e90-Automatic-reply-Rechnung-RE260018-von-Pr.md] Schaufler akzeptiert: X-Rechnung (UBL 1.x/2.x, UN_CEFACT 1.x/2.x/3.x), ZUGFeRD (1.0/2.0/2.1.1), Fattura, Faktura
 - [2026-08-19 07:25] [Automatic reply: Rechnung RE260018 von P] Schäufler (Rechnungsempfänger) fordert Prozessia auf, zukünftig Rechnungen in elektronischen Formaten zu senden: X-Rechnung (UBL 1.x, 2.x, UN_CEFACT 1.x, 2.x, 3.x), ZUGFeRD (1.0, 2.0, 2.1.1), Fattura oder Faktura
