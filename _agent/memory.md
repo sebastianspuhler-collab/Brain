@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-19 20:59] [memory.md] ApolloNext Registrierung Deadline: 26.08.2026 (ca. 1 Woche); Thema: AI-powered GTM Engine
 - [2026-08-19 20:57] [memory.md] ApolloNext Registrierung: Deadline in 1 Woche (ca. 26.08.2026), Thema AI-powered GTM Engine
 - [2026-08-19 19:49] [20260819-1a01b8d7-One-week-left-to-register-for-ApolloNext.md] Veranstaltungsthema: AI-powered GTM Engine, neue Apollo Launches, Revenue Growth Strategien
 - [2026-08-19 14:58] [2026-08-19-Whitepaper-Wissensmanagement.md] Whitepaper 'Wissensmanagement' vom 2026-08-19 ist Marketing-/Vertriebscontent für Prozessia zur Positionierung als Lösungsanbieter
