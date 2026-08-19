@@ -11,7 +11,6 @@ from app.background.jobs import (
     attachment_backfill_loop,
     calendar_lead_loop,
     email_indexer_loop,
-    git_sync_loop,
     inbox_watcher_loop,
     load_rag_blocking,
     meeting_reminder_loop,
@@ -39,7 +38,6 @@ async def lifespan(app: FastAPI):
     tasks = [
         asyncio.create_task(inbox_watcher_loop()),
         asyncio.create_task(email_indexer_loop()),
-        asyncio.create_task(git_sync_loop()),
         asyncio.create_task(calendar_lead_loop()),
         asyncio.create_task(attachment_backfill_loop()),
         asyncio.create_task(vault_reorganize_loop()),
