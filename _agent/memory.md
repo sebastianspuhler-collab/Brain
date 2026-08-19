@@ -753,6 +753,7 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-19 04:26] [memory.md] Angebot AG0029 Deadline: 14.09.2026
 - [2026-08-19 04:22] [The Status of the Regulatory Bundle - BU] Nach Zuweisung zu Telefonnummern ist keine weitere Aktion erforderlich
 - [2026-08-19 04:22] [The Status of the Regulatory Bundle - BU] Genehmigtes Bundle muss Telefonnummern zugewiesen werden
 - [2026-08-18 19:53] [2026-08-18-1a01667aaa-Angebot_AG0033_18.08.2026.md] Erforderliche KPIs: Purchasing Price Variance, Cost Improvement Program, Spend-Transparenz, Supplier On-Time-Delivery, Supplier PPM, Lieferantenrisiken, Single-Source-Analyse
@@ -1223,6 +1224,11 @@
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-19 04:27] [memory.md] Angebotsgültigkeit AG0029 widersprochen: 14.09.2026 und 15.09.2026 erwähnt – Klärung erforderlich
+- [2026-08-19 04:26] [memory.md] Deadline-Konsistenzcheck: Korrekte Gültigkeitsfrist ist 14.09.2026 (ein Eintrag erwähnte fehlerhaft 15.09.2026)
+- [2026-08-19 04:25] [memory.md] Deadline-Diskrepanz in Dokumenten: 14.09.2026 ist korrekt (nicht 15.09.2026)
+- [2026-08-19 04:24] [memory.md] Abweichung dokumentiert: Angebotsgültigkeit unterschiedlich angegeben (14.09.2026 vs 15.09.2026) - Klärung erforderlich
+- [2026-08-19 04:23] [memory.md] Widerspruch: Angebotsgültigkeit einmal 14.09.2026, einmal 15.09.2026 - Klärung erforderlich
 - [2026-08-18 19:36] [memory.md] Angebotsgültigkeit: Diskrepanz - AG0029 gültig bis 14.09.2026, aber memory.md zeigt 15.09.2026
 - [2026-08-18 19:34] [memory.md] Sicherheits-Alert vom 2026-08-18: Vulnerabilities identifiziert am 2026-08-17 - Überprüfung erforderlich
 - [2026-08-18 19:32] [memory.md] Abweichung bei Angebotsgültigkeit: 14.09.2026 vs. 15.09.2026 (Abklärung erforderlich)
