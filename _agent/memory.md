@@ -1,4 +1,5 @@
 ## KONTEXT
+- [2026-08-19 20:57] [memory.md] ApolloNext Registrierung: Deadline in 1 Woche (ca. 26.08.2026), Thema AI-powered GTM Engine
 - [2026-08-19 19:49] [20260819-1a01b8d7-One-week-left-to-register-for-ApolloNext.md] Veranstaltungsthema: AI-powered GTM Engine, neue Apollo Launches, Revenue Growth Strategien
 - [2026-08-19 14:58] [2026-08-19-Whitepaper-Wissensmanagement.md] Whitepaper 'Wissensmanagement' vom 2026-08-19 ist Marketing-/Vertriebscontent für Prozessia zur Positionierung als Lösungsanbieter
 - [2026-08-19 14:55] [2026-08-19-Whitepaper-Wissensmanagement.md] Identifiziertes Risiko: Schatten-KI ohne Anbindung an internes Betriebswissen; Quellen: Statistisches Bundesamt, KfW, Fraunhofer IAO
@@ -1243,6 +1244,7 @@
 - [2026-07-13 19:09] [Bestätigungslink Herr Spuhler Business P] Nach Bestätigung des Links kann die Fachabteilung American Express mit der Prüfung des Antrags fortfahren
 
 ## DEADLINE
+- [2026-08-19 20:56] [memory.md] ApolloNext Registrierung: Frist endet ca. 26.08.2026 (eine Woche ab 19.08.2026), Thema: AI-powered GTM Engine, neue Apollo Launches, Revenue Growth Strategien
 - [2026-08-14 21:59] [2026-06-09-Lexoffice 08 25.md] Zahlungsziel: 14.08.2025
 - [2026-08-14 21:59] [2026-06-09-Lexoffice 04 25.md] Zahlungsziel 14.04.2025 (Rechnungsdatum 07.04.2025)
 - [2026-07-17 21:45] [2026-07-06-Email-19f381c7-AW-Offene-Punkte-Beschaffungsagent.md] Alle 4 Punkte sollten im Laufe dieser Woche (ab 6. Juli 2026) abgearbeitet werden
@@ -1261,6 +1263,8 @@
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-19 20:55] [Get 120k+ for Grandmas Chiropractic Serv] Unsolicited Marketing-Mail (Spam) von Lyft Capital mit verdächtiger URL - keine Geschäftsrelevanz
+- [2026-08-19 20:55] [Get 120k+ for Grandmas Chiropractic Serv] E-Mail ist falsch adressiert (Empfänger: Bob, Unternehmen: Catalyst Gifts Trading Co.) und nicht für Sebastian Spuhler/Prozessia GbR bestimmt
 - [2026-08-19 04:27] [memory.md] Angebotsgültigkeit AG0029 widersprochen: 14.09.2026 und 15.09.2026 erwähnt – Klärung erforderlich
 - [2026-08-19 04:26] [memory.md] Deadline-Konsistenzcheck: Korrekte Gültigkeitsfrist ist 14.09.2026 (ein Eintrag erwähnte fehlerhaft 15.09.2026)
 - [2026-08-19 04:25] [memory.md] Deadline-Diskrepanz in Dokumenten: 14.09.2026 ist korrekt (nicht 15.09.2026)
