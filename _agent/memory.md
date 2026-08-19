@@ -317,6 +317,7 @@
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
 ## KUNDE
+- [2026-08-19 07:26] [2026-08-19-Email-1a018e90-Automatic-reply-Rechnung-RE260018-von-Pr.md] Schaufler erfordert ab sofort elektronische Rechnungsformate statt PDF
 - [2026-08-18 16:43] [2026-08-18-Email-1a015bfa-Action-required-security-vulnerabilities.md] Voigt_Salus hat aktive Supabase-Projekte (Projekt-ID: stggglgcvisnvcertpau, Name: Voigtsalus)
 - [2026-08-18 13:04] [memory.md] Angebotspreis AG0030: 75.000,00 € netto, Gültigkeit bis 15.09.2026
 - [2026-08-18 11:04] [AW: Unser Termin] Kontakt: +49 40 713 772 11, dierk.biendarra@zillmer-elektrotechnik.de
@@ -753,6 +754,8 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-19 07:26] [2026-08-19-Email-1a018e90-Automatic-reply-Rechnung-RE260018-von-Pr.md] Schaufler akzeptiert: X-Rechnung (UBL 1.x/2.x, UN_CEFACT 1.x/2.x/3.x), ZUGFeRD (1.0/2.0/2.1.1), Fattura, Faktura
+- [2026-08-19 07:25] [Automatic reply: Rechnung RE260018 von P] Schäufler (Rechnungsempfänger) fordert Prozessia auf, zukünftig Rechnungen in elektronischen Formaten zu senden: X-Rechnung (UBL 1.x, 2.x, UN_CEFACT 1.x, 2.x, 3.x), ZUGFeRD (1.0, 2.0, 2.1.1), Fattura oder Faktura
 - [2026-08-19 04:26] [memory.md] Angebot AG0029 Deadline: 14.09.2026
 - [2026-08-19 04:22] [The Status of the Regulatory Bundle - BU] Nach Zuweisung zu Telefonnummern ist keine weitere Aktion erforderlich
 - [2026-08-19 04:22] [The Status of the Regulatory Bundle - BU] Genehmigtes Bundle muss Telefonnummern zugewiesen werden
