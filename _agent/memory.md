@@ -759,6 +759,7 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-19 13:21] [20260819-1a01a006-Absprachen-ITCON-x-Prozessia.md] Besprechung zwischen IT.CON und Prozessia am 19. Aug 2026 12:30 Uhr vereinbart
 - [2026-08-19 12:15] [AW: IT.CON] Teams Call zur Abstimmung angeboten für 20.08.2026 Nachmittag ab 13:00
 - [2026-08-19 07:41] [AW: Rechnung RE260018 von Prozessia] Nächster Schritt: In zukünftigen Rechnungen an Schaufler das Zahlungsziel (60 Tage netto) vermerken
 - [2026-08-19 07:26] [2026-08-19-Email-1a018e90-Automatic-reply-Rechnung-RE260018-von-Pr.md] Schaufler akzeptiert: X-Rechnung (UBL 1.x/2.x, UN_CEFACT 1.x/2.x/3.x), ZUGFeRD (1.0/2.0/2.1.1), Fattura, Faktura
