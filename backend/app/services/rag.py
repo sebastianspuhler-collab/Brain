@@ -21,6 +21,7 @@ doc_count/is_loaded) ist unverändert - alle Aufrufer im Rest des Projekts
 brauchen keine Anpassung.
 """
 import json
+import logging
 import queue
 import re
 import threading
@@ -28,6 +29,9 @@ from concurrent.futures import Future
 from pathlib import Path
 
 from app.config import get_settings
+from app.services import cache as cache_service
+
+logger = logging.getLogger(__name__)
 
 _model = None
 _index = None
@@ -37,6 +41,16 @@ _bm25 = None  # rank_bm25.BM25Okapi, gebaut über _rebuild_bm25() beim Schreiben
 _bm25_size = 0  # len(_meta) beim letzten BM25-Build, zur Erkennung von Änderungen
 
 _reranker = None  # None = noch nicht versucht, False = Laden fehlgeschlagen, sonst CrossEncoder
+_reranker_warned = False  # nur einmal loggen, wenn der Fallback aktiv ist
+
+# Generation-Zähler für den Such-Cache unten (Performance-Phase 1,
+# 2026-08-20): erhöht sich bei JEDER Index-Änderung (add_documents_batch,
+# remove_paths). Geht als Teil des Cache-Keys ein, damit ein Treffer aus dem
+# Cache automatisch ungültig wird, sobald sich der Index seitdem geändert hat
+# - kein Risiko, dass "vollständig durchsuchen" durch einen veralteten
+# Cache-Eintrag frisch indexierte Dateien verpasst.
+_cache_generation = 0
+SEARCH_CACHE_TTL = 600
 
 _worker_queue: "queue.Queue" = queue.Queue()
 _worker_started = False
@@ -258,6 +272,13 @@ def _rebuild_bm25() -> None:
     _bm25_size = len(_meta)
 
 
+def _bump_cache_generation() -> None:
+    """Läuft immer schon auf dem RAG-Worker-Thread (nur aus den *_impl-
+    Funktionen heraus aufgerufen), kein Lock nötig."""
+    global _cache_generation
+    _cache_generation += 1
+
+
 def _rrf_fuse(rank_lists: list[list[int]], k: int = RRF_K) -> dict[int, float]:
     """Reciprocal Rank Fusion: kombiniert mehrere Rankings (Listen von Doc-Indizes,
     beste zuerst) zu einem gemeinsamen Score pro Doc-Index (höher = besser)."""
@@ -273,7 +294,7 @@ def _get_reranker():
     dem RAG-Worker-Thread, da nur aus _search_impl heraus aufgerufen). Gibt None
     zurück, wenn das Laden fehlschlägt (z.B. kein Internetzugriff beim ersten
     Start) - Reranking wird dann übersprungen, kein Fehler für den Aufrufer."""
-    global _reranker
+    global _reranker, _reranker_warned
     if _reranker is None:
         try:
             from sentence_transformers import CrossEncoder
@@ -281,6 +302,13 @@ def _get_reranker():
             _reranker = CrossEncoder(RERANK_MODEL)
         except Exception:
             _reranker = False
+    if _reranker is False and not _reranker_warned:
+        # Vorher lautlos: das Reranking (letzte Qualitätsstufe der Hybrid-
+        # Suche) fiel dann stillschweigend auf reine RRF-Reihenfolge zurück,
+        # ohne dass das im Betrieb irgendwo sichtbar wurde (Performance-Phase 1,
+        # 2026-08-20). Nur einmal pro Prozesslauf loggen, nicht bei jeder Suche.
+        logger.warning("RAG-Reranker (%s) konnte nicht geladen werden - Suche läuft ohne Reranking-Stufe.", RERANK_MODEL)
+        _reranker_warned = True
     return _reranker or None
 
 
@@ -344,6 +372,17 @@ def search_with_sources(
     Präfixe beginnt. Ohne path_prefixes (Standard) unverändertes Verhalten."""
     if _index is None or _model is None:
         return "", []
+
+    # Ergebnis-Cache (Performance-Phase 1, 2026-08-20): dieselbe Frage kam
+    # bisher bei jedem Folge-Call (Retry, mehrere Tool-Iterationen in einer
+    # Antwort, kurz aufeinanderfolgende Chat-Turns) komplett neu durch
+    # Encoding + FAISS + BM25 + Reranking. Key enthält _cache_generation, wird
+    # also automatisch ungültig, sobald der Index sich seitdem geändert hat.
+    cache_key = f"rag_search:{_cache_generation}:{k}:{path_prefixes}:{query.strip().lower()}"
+    cached = cache_service.get(cache_key, ttl=SEARCH_CACHE_TTL)
+    if cached is not None:
+        return cached
+
     error, snippets = _run_on_worker(_search_impl, query, k, path_prefixes)
     if error:
         return "", []
@@ -354,7 +393,9 @@ def search_with_sources(
             continue
         seen_paths.add(path)
         sources.append({"path": path, "score": round(score, 3)})
-    return _format_snippets(snippets), sources[:8]
+    result = (_format_snippets(snippets), sources[:8])
+    cache_service.set(cache_key, result)
+    return result
 
 
 def _format_snippets(snippets: list[tuple[float, str, str]]) -> str:
@@ -498,6 +539,7 @@ def _add_documents_batch_impl(items: list[tuple[str, str]]) -> None:
             json.dumps(_meta, ensure_ascii=False), encoding="utf-8"
         )
         _rebuild_bm25()
+        _bump_cache_generation()
     except Exception:
         pass
 
@@ -520,6 +562,7 @@ def _remove_paths_impl(paths: set[str]) -> int:
     _index.remove_ids(np.array(doomed, dtype=np.int64))
     for i in reversed(doomed):
         _meta.pop(i)
+    _bump_cache_generation()
     return len(doomed)
 
 
@@ -658,4 +701,5 @@ def _build_full_index_impl() -> dict:
     global _index, _meta, _model
     _index, _meta, _model = index, metadata, model
     _rebuild_bm25()
+    _bump_cache_generation()
     return {"documents": len(docs), "chunks": len(all_chunks), "dim": dim}

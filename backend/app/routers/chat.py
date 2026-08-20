@@ -161,12 +161,6 @@ def _stream_chat(
         if rag_sources:
             yield _sse({"sources": rag_sources})
 
-        all_raw = "\n\n".join(filter(None, [cust_ctx, rag_ctx, mentioned_ctx]))
-        if all_raw:
-            synthesis = context_service.synthesize_context(last_msg, all_raw)
-            if synthesis:
-                system += f"\n\n=== KONTEXT-ANALYSE: VERBINDUNGEN & SCHLÜSSELINFORMATIONEN ===\n{synthesis}"
-
         if mentioned_ctx:
             system += f"\n\n=== DIREKT REFERENZIERTE DATEIEN ===\n{mentioned_ctx}"
         if cust_ctx:
@@ -273,10 +267,14 @@ def _stream_chat(
         if tasks_changed:
             yield _sse({"tasks_updated": True})
 
-        saved = memory.auto_remember(last_msg, response_text)
-        if saved:
-            note = "\n\n---\n*Notiert: " + " | ".join(saved[:2]) + "*"
-            yield _sse({"chunk": note})
+        # Nicht mehr blockierend vor [DONE] (Umsetzungsplan 2026-08-20,
+        # Performance-Phase 1): auto_remember() ist ein voller Sonnet-Call und
+        # verzögerte bisher das Streamende jeder Chat-Nachricht um einen
+        # kompletten Roundtrip. Läuft jetzt im Hintergrund weiter, ohne dass
+        # der Client noch darauf wartet - dafür entfällt die inline
+        # "Notiert: ..."-Bestätigung (das Faktum landet trotzdem in memory.md,
+        # nur ohne sofortige Rückmeldung im selben Turn).
+        threading.Thread(target=memory.auto_remember, args=(last_msg, response_text), daemon=True).start()
     except Exception as ex:
         yield _sse({"error": str(ex)})
 
@@ -377,12 +375,6 @@ def _stream_chat_cli(
         if rag_sources:
             yield _sse({"sources": rag_sources})
 
-        all_raw = "\n\n".join(filter(None, [cust_ctx, rag_ctx, mentioned_ctx]))
-        if all_raw:
-            synthesis = context_service.synthesize_context(last_msg, all_raw)
-            if synthesis:
-                dynamic += f"\n\n=== KONTEXT-ANALYSE: VERBINDUNGEN & SCHLÜSSELINFORMATIONEN ===\n{synthesis}"
-
         if mentioned_ctx:
             dynamic += f"\n\n=== DIREKT REFERENZIERTE DATEIEN ===\n{mentioned_ctx}"
         if cust_ctx:
@@ -475,10 +467,14 @@ def _stream_chat_cli(
         if tasks_changed:
             yield _sse({"tasks_updated": True})
 
-        saved = memory.auto_remember(last_msg, response_text)
-        if saved:
-            note = "\n\n---\n*Notiert: " + " | ".join(saved[:2]) + "*"
-            yield _sse({"chunk": note})
+        # Nicht mehr blockierend vor [DONE] (Umsetzungsplan 2026-08-20,
+        # Performance-Phase 1): auto_remember() ist ein voller Sonnet-Call und
+        # verzögerte bisher das Streamende jeder Chat-Nachricht um einen
+        # kompletten Roundtrip. Läuft jetzt im Hintergrund weiter, ohne dass
+        # der Client noch darauf wartet - dafür entfällt die inline
+        # "Notiert: ..."-Bestätigung (das Faktum landet trotzdem in memory.md,
+        # nur ohne sofortige Rückmeldung im selben Turn).
+        threading.Thread(target=memory.auto_remember, args=(last_msg, response_text), daemon=True).start()
     except Exception as ex:
         yield _sse({"error": str(ex)})
 

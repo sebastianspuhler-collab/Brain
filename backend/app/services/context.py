@@ -1,14 +1,11 @@
 """System-Prompt-Aufbau für den Chat. Migriert aus brain_server.py
-(vault_tree, build_system, get_customer_context, get_mentioned_files,
-synthesize_context)."""
+(vault_tree, build_system, get_customer_context, get_mentioned_files)."""
 import re
 from datetime import datetime, timedelta
 from pathlib import Path
 
 from app.config import get_settings
-from app.constants import Models
 from app.services import calendar_service, linkedin_service, mail_service
-from app.services.anthropic_client import complete_json
 
 _SKIP_TREE = {
     ".git", ".obsidian", "__pycache__", ".DS_Store", "node_modules",
@@ -90,28 +87,6 @@ def get_customer_context(query: str) -> str:
             except Exception:
                 pass
     return "\n\n".join(results)
-
-
-def synthesize_context(query: str, raw_context: str) -> str:
-    """Haiku analysiert Verbindungen zwischen Daten-Stücken -> Kontext-Landkarte."""
-    if not raw_context or len(raw_context) < 400:
-        return ""
-    try:
-        prompt = f"""Du bist ein Kontext-Analyst. Sebastians Frage: "{query[:250]}"
-
-Analysiere die unten stehenden Daten-Fragmente und erkläre in 4-6 präzisen Bullet Points:
-- Welche Mails, Dokumente und Aufgaben hängen direkt zusammen?
-- Was ist die wichtigste Information zur Beantwortung der Frage?
-- Welche zeitlichen oder inhaltlichen Verbindungen gibt es?
-- Was fehlt möglicherweise noch?
-
-Sei konkret und nenne Dateinamen/Absender/Daten. Kein Intro, nur Bullet Points.
-
-DATEN:
-{raw_context[:3500]}"""
-        return complete_json(prompt, model=Models.HAIKU, max_tokens=600).strip()
-    except Exception:
-        return ""
 
 
 BASE_PROMPT = """Du bist das persönliche Second Brain von Sebastian Spuhler (Prozessia GbR, Saarbrücken).
