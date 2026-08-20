@@ -3,6 +3,7 @@ Migriert aus _agent/heartbeat.py. Als importierbares Modul statt Subprocess-Aufr
 damit der Chat-Endpoint (/api/inbox_process) es direkt callen kann statt einen
 neuen Python-Prozess zu starten.
 """
+import hashlib
 import json
 import logging
 import re
@@ -60,6 +61,111 @@ def _load_cache() -> set:
 
 def _save_cache(cache: set) -> None:
     _cache_path().write_text(json.dumps(list(cache)), encoding="utf-8")
+
+
+# ── Dedup-Check (Klassifizierungs-Robustheit, 2026-08-20) ──────────────────
+# Beobachtetes Problem: dieselbe Quelldatei kam über verschiedene Wege
+# (erneuter E-Mail-Anhang-Download, doppelter Chat-Upload) wiederholt in
+# _inbox/ an und wurde jedes Mal neu klassifiziert - u.a. 41 identische
+# Dateinamen gleichzeitig in _inbox/_fehler/ UND _inbox/_verarbeitet/. Hash
+# über die Rohbytes (nicht den extrahierten Text), damit auch bei
+# unterschiedlichem OCR-Ergebnis dasselbe Original erkannt wird.
+
+def _file_hash(filepath: Path) -> str:
+    h = hashlib.sha256()
+    with open(filepath, "rb") as f:
+        for chunk in iter(lambda: f.read(65536), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def _content_hash_path() -> Path:
+    return get_settings().agent_dir / "logs" / "content_hashes.json"
+
+
+def _load_content_hashes() -> dict:
+    path = _content_hash_path()
+    if path.exists():
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            return {}
+    # Einmaliger Bootstrap: baut die Karte aus den bereits archivierten
+    # Originalen in _inbox/_verarbeitet/ auf, damit der Dedup-Check auch die
+    # schon bekannte Alt-Situation erkennt statt nur künftige Duplikate.
+    hashes: dict = {}
+    verarbeitet = get_settings().inbox_dir / "_verarbeitet"
+    if verarbeitet.exists():
+        for f in verarbeitet.iterdir():
+            if f.is_file():
+                try:
+                    hashes[_file_hash(f)] = f"_inbox/_verarbeitet/{f.name}"
+                except Exception:
+                    continue
+    _save_content_hashes(hashes)
+    return hashes
+
+
+def _save_content_hashes(hashes: dict) -> None:
+    _content_hash_path().parent.mkdir(parents=True, exist_ok=True)
+    _content_hash_path().write_text(json.dumps(hashes, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _move_aside(filepath: Path, ziel_ordner: Path) -> None:
+    """Verschiebt filepath nach ziel_ordner, durchnummeriert bei Kollision.
+    Für Dedup-/Trivial-Bild-Fälle, die NICHT nach _fehler/ sollen."""
+    ziel_ordner.mkdir(parents=True, exist_ok=True)
+    ziel = ziel_ordner / filepath.name
+    zaehler = 1
+    while ziel.exists():
+        ziel = ziel_ordner / f"{filepath.stem}({zaehler}){filepath.suffix}"
+        zaehler += 1
+    try:
+        shutil.move(str(filepath), str(ziel))
+    except Exception:
+        pass
+
+
+# ── Trivial-Bild-Filter (Klassifizierungs-Robustheit, 2026-08-20) ──────────
+# extract_text() liefert für JEDES Bild denselben Platzhalter - auch für
+# winzige E-Mail-Icons/Signaturbilder. Die liefen bisher trotzdem durch einen
+# vollen LLM-Klassifizierungs-Call und landeten dauerhaft im Vault (u.a.
+# Memos/Medien/Icons|EmailSignaturen|Logos, "image001.png" in Finanzen/).
+# Bewusst konservativ (nur sehr kleine Dateien / typische Outlook-Inline-
+# Namen) - im Zweifel lieber durch die normale Pipeline laufen lassen als ein
+# echtes Foto/Scan zu verpassen. Nichts wird gelöscht, nur nach
+# _agent/trivial_images/ verschoben (Vault-Regel: nie ohne Bestätigung
+# löschen).
+_TRIVIAL_IMAGE_MAX_BYTES = 20_000
+_TRIVIAL_IMAGE_NAME_RE = re.compile(r"^image\d{3,}\.(png|jpe?g|gif)$", re.IGNORECASE)
+
+
+def _is_trivial_image(filepath: Path) -> bool:
+    if filepath.suffix.lower() not in {".png", ".jpg", ".jpeg", ".gif", ".webp"}:
+        return False
+    try:
+        size = filepath.stat().st_size
+    except OSError:
+        return False
+    if _TRIVIAL_IMAGE_NAME_RE.match(filepath.name) and size < 100_000:
+        return True
+    return size < _TRIVIAL_IMAGE_MAX_BYTES
+
+
+def _sanitize_zielordner(raw: str) -> str:
+    """Säubert/validiert den vom LLM gelieferten Zielordner-Pfad, bevor er als
+    echter Dateisystempfad verwendet wird - vorher wurde result['zielordner']
+    ungeprüft übernommen. Jedes Pfadsegment läuft durch _ordnername()
+    (Länge/Sonderzeichen), '..'-Segmente und leere/absolute Pfade fallen auf
+    Memos/ zurück - das Ergebnis bleibt dadurch garantiert innerhalb des
+    Vaults."""
+    raw = (raw or "").strip().replace("\\", "/")
+    if raw.startswith("/"):
+        return "Memos"
+    parts = [p for p in raw.split("/") if p and p != "."]
+    if not parts or any(p == ".." for p in parts):
+        return "Memos"
+    return "/".join(_ordnername(p) for p in parts)
 
 
 def _extract_pdf_via_mistral_ocr(filepath: Path, max_chars: int) -> str | None:
@@ -327,6 +433,13 @@ Bestimme:
 3. tags: 3-5 relevante Tags als JSON-Array
 4. zielordner: exakter relativer Pfad (darf neu sein, wird erstellt)
 5. neuer_kunde: true/false (ob ein bisher unbekannter Kunde erkannt wurde)
+6. unsicher: true/false - ob du bei der Einordnung nicht sicher bist (z.B.
+   Dokument könnte zu mehreren Kunden/Kategorien passen, Kundenname
+   mehrdeutig, Inhalt unklar/widersprüchlich). Es läuft hier kein Mensch mit,
+   der zwischendurch nachfragen könnte - im Zweifel lieber true setzen, damit
+   der Fall sichtbar im Log auftaucht, statt es lautlos zu entscheiden.
+7. unsicherheitsgrund: falls unsicher=true, ein kurzer deutscher Satz warum
+   (sonst leerer String)
 
 Antworte NUR als JSON, keine Erklärung."""
 
@@ -478,6 +591,21 @@ def process_file(filepath: Path) -> tuple[bool, str]:
     if filepath.suffix.lower() in SKIP_EXTENSIONS:
         return False, "Code-Datei übersprungen"
 
+    if _is_trivial_image(filepath):
+        _move_aside(filepath, settings.agent_dir / "trivial_images")
+        return False, "Trivial-Bild übersprungen (nach _agent/trivial_images/ verschoben)"
+
+    file_hash = None
+    try:
+        file_hash = _file_hash(filepath)
+    except Exception:
+        file_hash = None
+    if file_hash:
+        existing = _load_content_hashes().get(file_hash)
+        if existing and (settings.vault_path / existing).exists():
+            _move_aside(filepath, settings.inbox_dir / "_duplikate")
+            return False, f"Duplikat von {existing}"
+
     # max_chars=200000 statt vormals 20000 (das wiederum vormals 3000 war): der
     # Volltext wird unten sowohl für die Meeting-Struktur als auch für die
     # gespeicherte Notiz wiederverwendet - bei 20000 Zeichen war bei jedem
@@ -512,7 +640,8 @@ def process_file(filepath: Path) -> tuple[bool, str]:
     # Sales - sonst fehlen sie in der Transkripte-Übersicht (siehe
     # is_meeting_transcript()). Hat das Modell bereits Meetings/ gewählt, bleibt
     # der Pfad unverändert.
-    zielordner_rel = result.get("zielordner", "Memos")
+    zielordner_rel = _sanitize_zielordner(result.get("zielordner", "Memos"))
+    result["zielordner"] = zielordner_rel
     ist_transkript = is_meeting_transcript(filepath, content, result)
     if ist_transkript and "Meetings" not in Path(zielordner_rel).parts:
         zielordner_rel = f"{zielordner_rel}/Meetings"
@@ -606,15 +735,32 @@ kategorie: {result.get("kategorie", "")}
         except Exception:
             pass
 
+    # Dedup-Hash für künftige Duplikat-Erkennung hinterlegen (siehe
+    # _load_content_hashes() oben) - erst NACH dem erfolgreichen Move, damit
+    # der referenzierte Pfad auch wirklich existiert.
+    if file_hash:
+        try:
+            hashes = _load_content_hashes()
+            hashes[file_hash] = str(ziel.relative_to(settings.vault_path))
+            _save_content_hashes(hashes)
+        except Exception:
+            pass
+
+    unsicher = bool(result.get("unsicher"))
     log_path = settings.agent_dir / "logs" / "inbox_log.md"
     log_path.parent.mkdir(parents=True, exist_ok=True)
     with open(log_path, "a", encoding="utf-8") as f:
+        marker = "⚠️ UNSICHER | " if unsicher else ""
+        grund = f" | Grund: {result.get('unsicherheitsgrund', '')}" if unsicher else ""
         f.write(
-            f"- {datetime.now().strftime('%Y-%m-%d %H:%M')} | {filepath.name} → "
-            f"{result.get('zielordner')} | {result.get('zusammenfassung', '')[:80]}\n"
+            f"- {datetime.now().strftime('%Y-%m-%d %H:%M')} | {marker}{filepath.name} → "
+            f"{result.get('zielordner')} | {result.get('zusammenfassung', '')[:80]}{grund}\n"
         )
 
-    return True, result.get("zielordner", "")
+    info = result.get("zielordner", "")
+    if unsicher:
+        info = "⚠️ UNSICHER: " + info
+    return True, info
 
 
 def _ordnername(name: str) -> str:
@@ -1009,7 +1155,18 @@ def run_inbox() -> dict:
         else:
             errors += 1
             log_lines.append(f"{datei.name}: FEHLER {info}")
-            if info != "Code-Datei übersprungen":
+            # Diese drei Fälle hat process_file() bereits selbst an ihren
+            # endgültigen Platz verschoben (Code-Datei bleibt liegen, Dublette
+            # -> _inbox/_duplikate/, Trivial-Bild -> _agent/trivial_images/) -
+            # ein zusätzlicher Move nach _fehler/ würde das nur rückgängig
+            # machen bzw. eine schon verschobene (nicht mehr existierende)
+            # Datei erneut anfassen.
+            bereits_verschoben = (
+                info == "Code-Datei übersprungen"
+                or info.startswith("Duplikat von ")
+                or info.startswith("Trivial-Bild übersprungen")
+            )
+            if not bereits_verschoben:
                 try:
                     shutil.move(str(datei), str(fehler_path / datei.name))
                 except Exception:

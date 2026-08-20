@@ -334,6 +334,8 @@
 - [2026-08-11 17:43] [2026-06-09-Preismodell - Basismodell.md] Dokumentversion: 2026-06-09, Basismodell als Präsentationsunterlage für Handelsvertreter
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Dokumentdatum: 2026-06-09
 - [2026-08-11 17:43] [2026-06-09-Kooperationsvereinbarung_Prozessia (1).md] Produkte der Kooperation: Prozessia Agent, Voice Agents, Beschaffungsagent, Stücklistenagent
+- [2026-08-11 17:34] [2026-06-09-Präsentation_ Datenschutz .md] Präsentation vom 2026-06-09 als Verkaufsunterstützung zur KI-Tool-Entscheidung für Voigt Salus
+
 ## KUNDE
 - [2026-08-19 21:40] [2026-08-11-Prozessia X TopDown.md] Kontakt: Dominik Nussbaumer, IT-Projektmanager, dominik.nussbaumer@topdown-cf.com
 - [2026-08-19 14:57] [memory.md] TPG Packaging: jährliche Verarbeitung von ca. 17.000+ Auftragsbestätigungen (Automatisierungspotenzial)
@@ -1222,6 +1224,14 @@
 - [2026-07-17 21:40] [13---Email-19f5bf67-AW-Statusabfrage--AI-Agent-Beschaffung.md] Liste mit E-Mails aller ausgewählten Lieferanten wird für Integration von Anfang an benötigt
 - [2026-07-12 18:52] [CREDENTIALS.md] Microsoft 365 Integration erforderlich für: Outlook Email-Synchronisierung, Kalender-Event-Verwaltung
 - [2026-07-12 18:52] [CREDENTIALS.md] Google Workspace Credentials erforderlich für: Gmail-Emails auslesen, Google Drive Dateiablage, Sheets-Datenverarbeitung
+- [2026-08-17 14:16] [2026-08-17-1a01008792-Angebot_AG0029_18.08.2026.md] DSGVO- und AI Act-Konformität des Sprachmodells erforderlich
+- [2026-08-17 15:19] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Autohaus-Zielmarkt: Bewältigung hohes Anrufaufkommen zu Stoßzeiten (Montagen, Aktionen), Reduzierung Wartezeiten im Service/Werkstatt durch Telefonentlastung
+- [2026-08-11 17:34] [2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md] Abteilungsbezogene KI-Modelle und Workflows müssen konfiguriert werden
+- [2026-08-11 17:34] [2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md] Azure OpenAI-Einrichtung und Verbindung von Dokumentenquellen erforderlich
+- [2026-08-11 17:34] [2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md] Prozessia KI-Agent erfordert VPS-Server mit Installation von: Automatisierungsplattform, Vektordatenbank, RAG-Struktur und Schnittstellen/Module
+- [2026-08-05 08:01] [2026-06-09-Prozessia-X-Schaufler Beschafungsagent.md] Primäre Ziele bei Schaufler: Reduktion manueller Tätigkeiten und Steigerung der Prozesstransparenz im Beschaffungsmanagement
+- [2026-07-28 17:54] [2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md] Kunde (Siegfried Heinrich) fordert Analyse der Effizienz und Performance des Beschaffungsagenten vor nächstem Projekt
+- [2026-07-24 03:21] [2026-07-24-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Komplette mechanische Anfertigung nach Zeichnungen mit Gravur, Prüf-, Härte- und Messprotokoll erforderlich
 
 ## KUNDENWUNSCH
 - [2026-08-04 09:53] [AW: Angeot Beschaffungsagent] Transparenz zu laufenden Betriebskosten erforderlich (Server, Infrastruktur, KI-Token-Verbrauch, Lizenzen, Wartung, Support, Updates)
@@ -1248,7 +1258,7 @@
 - [2026-07-13 19:09] [AW: Statusabfrage – AI-Agent Beschaffung] Sebastian Spuhler muss Meeting-Einladung verteilen (oder Florian Knoblauch übernimmt dies)
 - [2026-07-13 19:09] [AW: Statusabfrage – AI-Agent Beschaffung] Termin für Go-Live-Meeting gesucht: Mittwoch ganztägig oder Donnerstag bis 12 Uhr (Benjamin Schmohl verfügbar), Donnerstag 11-12 Uhr (Florian Knoblauch verfügbar)
 - [2026-07-13 19:09] [Bestätigungslink Herr Spuhler Business P] Nach Bestätigung des Links kann die Fachabteilung American Express mit der Prüfung des Antrags fortfahren
-
+- [2026-08-13 22:38] [[Twilio] Re: [ACTION REQUIRED] Your Trus] Dokument (Gewerbeanmeldung oder offizielle Registrierungsdokumentation) an Twilio übermitteln
 ## DEADLINE
 - [2026-08-19 20:56] [memory.md] ApolloNext Registrierung: Frist endet ca. 26.08.2026 (eine Woche ab 19.08.2026), Thema: AI-powered GTM Engine, neue Apollo Launches, Revenue Growth Strategien
 - [2026-08-14 21:59] [2026-06-09-Lexoffice 08 25.md] Zahlungsziel: 14.08.2025
@@ -1449,22 +1459,13 @@
 - [2026-07-23 11:42] [2026-07-21-Email-19f840fe-Angenommen-Update-Zillmer-X-Prozessia.md] Zillmer-Elektrotechnik: Update akzeptiert (Bestätigung von Dierk Biendarra, 21. Juli 2026)
 - [2026-07-17 21:42] [6---Email-19f38afa-AW-Offene-Punkte-Beschaffungsagent.md] Bestelldokument muss angepasst werden, damit Lieferanten wissen, dass bestellbezogene Daten an order@schaufler.de gehen (Verantwortung: Benjamin Schmohl)
 
-## ANFORDERUNGEN
-- [2026-08-17 14:16] [2026-08-17-1a01008792-Angebot_AG0029_18.08.2026.md] DSGVO- und AI Act-Konformität des Sprachmodells erforderlich
-- [2026-08-17 15:19] [2026-06-09-📞 Effiziente Telefonentlastung für Ihr Autohaus mit Prozessia Voice Agent 🚗 – Prozessia.md] Autohaus-Zielmarkt: Bewältigung hohes Anrufaufkommen zu Stoßzeiten (Montagen, Aktionen), Reduzierung Wartezeiten im Service/Werkstatt durch Telefonentlastung
-- [2026-08-11 17:34] [2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md] Abteilungsbezogene KI-Modelle und Workflows müssen konfiguriert werden
-- [2026-08-11 17:34] [2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md] Azure OpenAI-Einrichtung und Verbindung von Dokumentenquellen erforderlich
-- [2026-08-11 17:34] [2026-06-09-Onboarding-Dokument – Einrichtung des Prozessia KI-Agenten.md] Prozessia KI-Agent erfordert VPS-Server mit Installation von: Automatisierungsplattform, Vektordatenbank, RAG-Struktur und Schnittstellen/Module
-- [2026-08-05 08:01] [2026-06-09-Prozessia-X-Schaufler Beschafungsagent.md] Primäre Ziele bei Schaufler: Reduktion manueller Tätigkeiten und Steigerung der Prozesstransparenz im Beschaffungsmanagement
-- [2026-07-28 17:54] [2026-07-28-Email-19fa9cf0-AW-Kapazitätenplanung-Stücklistenprojekt.md] Kunde (Siegfried Heinrich) fordert Analyse der Effizienz und Performance des Beschaffungsagenten vor nächstem Projekt
-- [2026-07-24 03:21] [2026-07-24-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Komplette mechanische Anfertigung nach Zeichnungen mit Gravur, Prüf-, Härte- und Messprotokoll erforderlich
-
 ## PREIS
 - [2026-08-17 14:16] [2026-08-17-1a01008792-Angebot_AG0029_18.08.2026.md] Nettobetrag 11.000,00 € für Buchhaltungsagent Rechnungsverarbeitung
 - [2026-08-14 21:03] [2026-07-19-Invoice-SP7D4PI7-0018.md] €18.00 monatlich
 - [2026-08-14 20:44] [2026-07-23-19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.md] Mistral OCR API kostet 0,0034 € pro Seite (Api pages)
 - [2026-08-01 05:15] [09_ust_jahreserklaerung_2025.md] Steuerpflichtige Umsätze netto: 4.950,00 € (19 % Steuersatz); Abziehbare Vorsteuer: 249,76 €
 - [2026-07-28 13:32] [2026-07-24-Update Prozessia X Endin.md] Einstiegspaket max. 25% des Nettoangebots AG0027 (Umfang: Punkte 2.2, 2.3, anteilig 1.1/1.2, 5.1)
+- [2026-08-05 08:23] [2026-06-09-Schaufler_Hosting_Praesentation (4).md] Monatliche Gesamtkosten: 558,07 € (Servicepauschale 400 €, Server 38,07 €, KI-Modell 120 €)
 
 ## OFFEN
 - [2026-07-28 13:32] [2026-07-24-Update Prozessia X Endin.md] Kundenreferenzen: Endin möchte diese vor vertraglicher Bindung sprechen
@@ -1472,15 +1473,5 @@
 ## KUNDENDATEN
 - [2026-08-05 08:12] [2026-06-09-Listen.md] Autohäuser-Liste: Gebr. Schumann (Hyundai), Audi Zentrum, Stellantis &You, Hedin Automotive, Autohaus Bunk und weitere
 - [2026-08-05 08:12] [2026-06-09-Listen.md] Lead-Listen Saarbrücken: 26 Autohäuser und Fahrzeughändler + 4 Hausverwaltungen/Immobilienunternehmen
-
-## CUSTOMER_DATA
 - [2026-08-05 08:15] [2026-06-09-advertising_extern.md] Verfügbare Datenfelder: Vorname, Nachname, E-Mail, Titel, Organisation, Website, Stadt, Bundesland
 
-## PREISE
-- [2026-08-05 08:23] [2026-06-09-Schaufler_Hosting_Praesentation (4).md] Monatliche Gesamtkosten: 558,07 € (Servicepauschale 400 €, Server 38,07 €, KI-Modell 120 €)
-
-## CONTERXT
-- [2026-08-11 17:34] [2026-06-09-Präsentation_ Datenschutz .md] Präsentation vom 2026-06-09 als Verkaufsunterstützung zur KI-Tool-Entscheidung für Voigt Salus
-
-## NÄCHSTE SCHRITTE
-- [2026-08-13 22:38] [[Twilio] Re: [ACTION REQUIRED] Your Trus] Dokument (Gewerbeanmeldung oder offizielle Registrierungsdokumentation) an Twilio übermitteln

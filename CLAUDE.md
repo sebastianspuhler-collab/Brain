@@ -41,12 +41,17 @@ Du bist das Second Brain von Sebastian Spuhler (Prozessia GbR, Saarbrücken).
 - "Neues Memo"/"Memo zum Gespräch" ZU EINEM TRANSKRIPT/GESPRÄCH mit einem
   Kunden oder Lead (Anhang enthält ein Transkript, oder Sebastian beschreibt
   ein geführtes Gespräch) → NICHT Memos/, sondern
-  Kunden/[Firma]/Meetings/[DATUM]-[Titel].md bzw.
-  Leads/[Lead]-Korrespondenz/Meetings/[DATUM]-[Titel].md (Ordner ggf. anlegen).
-  Grund: nur Notizen mit "Meetings" im Pfad erscheinen in der
-  Transkripte-Übersicht der Web-App (files.py:list_meetings) - ein Memo
-  außerhalb dieses Ordners ist für Sebastian dort unsichtbar, selbst wenn der
-  Inhalt korrekt ist.
+  Kunden/[Firma]/Meetings/[DATUM]-[Titel].md (Ordner ggf. anlegen). Gilt seit
+  19.08.2026 GENAUSO für Leads: kein separater "-Korrespondenz"-Ordner mehr,
+  ein Lead mit mehr als einem Dokument bekommt sofort einen eigenen
+  Kunden/[Firma]/-Ordner wie ein bestehender Kunde (siehe classify.py). Ein
+  ganz frischer Erstkontakt ohne inhaltliche Substanz bleibt vorübergehend
+  eine flache Einzeldatei "Leads/[Datum]-[Lead-Name].md", bis ein zweites
+  Dokument dazukommt.
+  Grund für den Meetings-Unterordner: nur Notizen mit "Meetings" im Pfad
+  erscheinen in der Transkripte-Übersicht der Web-App (files.py:list_meetings)
+  - ein Memo außerhalb dieses Ordners ist für Sebastian dort unsichtbar,
+  selbst wenn der Inhalt korrekt ist.
 - "Inbox verarbeiten" → POST /api/inbox_process (kein _agent/heartbeat.py
   mehr, das wurde nach backend/app/services/classify.py migriert; läuft
   ohnehin automatisch alle 30s über inbox_watcher_loop in
