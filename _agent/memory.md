@@ -1,4 +1,6 @@
 ## KONTEXT
+- [2026-08-20 13:53] [STRATEGIE.md] Status verbindlich seit 2026-08-11; Code-Verknüpfungen: linkedin_service.py, claudeService.js, carousel_service.py, brain-direction.md, kpi-tracking.md
+- [2026-08-20 13:53] [STRATEGIE.md] Kernpositionierung: Prozessias Spezialisierung auf Fertigungs-Nische (nicht generische KI) ist wesentliches Differenzierungsmerkmal - in jedem Post spürbar, nicht verwässern
 - [2026-08-20 08:53] [2026-08-12-wissnesmanagement.md] Fünf Grenzen aktueller KI-Lösungen beim Unternehmenswissen: geringe flächendeckende Ausrollung, begrenzter Kontextzugriff, Datenschutzrisiken, Abhängigkeit von US-Anbietern, Komplexität von RAG-Implementierungen
 - [2026-08-20 08:53] [2026-08-12-wissnesmanagement.md] KI-Erfolg im Unternehmen hängt von Wissensmanagement ab, nicht vom eingesetzten KI-Modell
 - [2026-08-20 08:52] [2026-08-12-19feb53904-E-Ticket.md] Einlass-Token: 21W9N2CD8C (erforderlich zum Einscannen im Eingangsbereich)
@@ -348,6 +350,8 @@
 - [2026-08-11 17:34] [2026-06-09-Präsentation_ Datenschutz .md] Präsentation vom 2026-06-09 als Verkaufsunterstützung zur KI-Tool-Entscheidung für Voigt Salus
 
 ## KUNDE
+- [2026-08-20 13:15] [2026-08-25-F-Tronic.md] F-Tronic ist ein neuer potenzieller Kunde
+- [2026-08-20 13:14] [Kalender-Erstgespräch] F-Tronic - Termin 'Prozessia X F-Tronic' am 2026-08-25 mit t.wehrmann@f-tronic.de
 - [2026-08-20 08:32] Juchem GmbH, Firmensitz: Juchem-Straße 1, 66571 Eppelborn/Saarland, Teil der JUCHEM GROUP, Geschäftsführer: Susanne Juchem & Thorsten Maas.
 - [2026-08-20 08:24] Angebot AG0028 ging ca. am 03.-04.08.2026 an Juchem GmbH raus (nicht an Maas).
 - [2026-08-20 08:02] [memory.md] 8HP-Großguss Getriebegehäuse (Getriebetypen: 8HP4.Gen, 8HP51) am Standort Nürnberg-Altgeschäft
@@ -795,6 +799,7 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-20 13:52] [CLAUDE~20260820-135214.md] LinkedIn Auto Poster Workflow: 1) Recherche (4 Blöcke aus STRATEGIE.md §11) → 2) Ideen generieren (JSON) → 3) Beiträge ausarbeiten (JSON) → 4) Karussell produzieren → 5) Planen (Buffer) → 6) Kommentare beantworten (60 min nach Go-Live)
 - [2026-08-20 09:21] [decisions.md] Prozessablauf: Komplexe KI-Logik → Verbuchungsvorschlag/Kontierung → Freigabeprozess (Prüfung/Vorschlag) → DATEV-Übertrag als finaler Schritt
 - [2026-08-20 08:53] [decisions.md] DATEV-Übertrag erfolgt als letzter Schritt, komplexe KI-Logik und Freigabeprozess liegen davor
 - [2026-08-20 08:53] [2026-08-12-wissnesmanagement.md] RAG-Pipeline-Architektur: Indexierung (OCR, Chunking, Embedding, Vektordatenbank) → Retrieval/Generierung (semantische Suche, Hybrid Search, Reranking, LLM-Antwort)
@@ -1190,6 +1195,7 @@
 - [2026-08-11 17:47] [2026-06-09-prozessia_Beschaffungsagent_Marketing.md] Erkannte Probleme: Lieferverzögerungen, hoher Dokumentenaufwand, fehlende Lieferanten-KPIs und Transparenz
 - [2026-08-11 17:47] [2026-06-09-prozessia_Beschaffungsagent_Marketing.md] Status Quo: Einkäufer verbringen bis zu 60% ihrer Zeit mit manueller Verfolgung per Telefon & E-Mail
 ## REGEL
+- [2026-08-20 13:53] [CLAUDE.md] Fertigungs-Nische ist Kernargument: jeder Post muss nach Fertigung klingen (Stücklisten, Ausschreibungen, Zeichnungen, Maschinen), niemals zu allgemeinem Mittelstand verwässern
 - [2026-08-20 08:53] [2026-07-16-Einführung Beschaffungsagent (1).md] Lieferungs-Tracking mit Vessel Tracker nur für Lieferungen aus China; für andere Lieferungen gilt der AB-Termin direkt
 - [2026-08-11 16:05] Kein eigener "-Korrespondenz"-Ordner mehr unter Leads/ fuer Firmen mit mehreren Dokumenten (Meetings/Angebote/Dokumente) - die gehoeren ab dem zweiten Dokument sofort nach Kunden/[Firmenname]/, exakt wie echte Kunden, unabhaengig vom Vertragsstatus. Existiert schon ein Kunden/[Name]/-Ordner, IMMER den wiederverwenden statt einen Parallelordner anzulegen. Leads/ bleibt nur fuer ganz frische Einzelkontakte ohne zweites Dokument (flache Datei Leads/[Datum]-[Name].md).
 - [2026-08-03 09:56] Angebote müssen durchnummerierte Punkte (1., 2., 3. ...) für den Leistungsumfang enthalten, keine reinen Fett-Header ohne Nummerierung
@@ -1205,6 +1211,8 @@
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-08-20 13:55] [CLAUDE~20260820-135301.md] Themen-Säulen (genau eine pro Post): Wissensmanagement, Compliance, Einkauf.
+- [2026-08-20 13:53] [STRATEGIE.md] LinkedIn-Zielgruppe: inhabergeführte Mittelständler (20-80 MA) aus Werkzeugbau, Lohnfertigung, Elektrotechnik, Kunststoff, Metallbau; Entscheider: Geschäftsführer & Einkaufsleiter
 - [2026-08-20 09:20] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Freigabe-Gate für Realdaten-Verarbeitung erforderlich vor produktivem Betrieb
 - [2026-08-20 08:52] [2026-07-28-rm.md] .env-Datei mit LEXOFFICE_API_KEY erforderlich; Dateiberechtigungen auf chmod 600 setzen
 - [2026-08-20 08:51] [2026-08-06-250725_07_2025_Formenplanung Steuerteile - sent_ZF GUSS (1).md] 8HP-Steuerteile bestehen aus 2-teiligem Satz: Ventilgehäuse + Ventilplatte; Minusbedarfe wurden pro Variante genullt
@@ -1311,6 +1319,7 @@
 - [2026-06-27 12:47] [2026-06-27.md] Webinar am 05.07.2026 (in 8 Tagen) – LinkedIn-Ankündigungspost fehlt komplett
 
 ## KONTAKT
+- [2026-08-20 13:15] [2026-08-25-F-Tronic.md] t.wehrmann@f-tronic.de (Ansprechpartner bei F-Tronic)
 - [2026-08-20 08:52] [2026-07-28-19efee9c03-Präsentation-Giesserei Wurzen-V3_Deutsch.md] Website: www.giesserei-wurzen.de
 - [2026-08-20 08:51] [2026-08-06-250725_07_2025_Formenplanung Steuerteile - sent_ZF GUSS (1).md] Ansprechpersonen: Köberle, Schwindling, Wehberg (Bereich SCAA4)
 - [2026-08-17 15:09] [jochem~20260814-225618.md] Instillo-Ansprechpartner: Dr. Akif Emre Türeli / Monika Baumstümmler (Holding-Ebene)
@@ -1479,6 +1488,8 @@
 - [2026-06-13 12:22] Schaufler Tooling GmbH: Monatliches Hosting/Retainer ab Juli 2026 auf 280 € erhöht (vorher 220 €)
 
 ## PROJEKTSTATUS
+- [2026-08-20 13:53] [STRATEGIE~20260820-135214.md] LinkedIn-Content-Strategie Status: verbindlich seit 2026-08-11
+- [2026-08-20 13:17] [memory.md] Produkt 8HP-Großguss Getriebegehäuse (Stando) in Bearbeitung
 - [2026-08-20 09:20] [2026-08-12-Beschaffungsagent-Wochenreport-31.07-07.08.2026 (1).md] Kritischer Status: 24 rote Positionen, 103 Eskalationen (68 überfällige Lieferungen, 18 Preisabweichungen, 9 Mengen-, 8 Terminabweichungen)
 - [2026-08-20 09:20] [2026-08-12-Beschaffungsagent-Wochenreport-31.07-07.08.2026 (1).md] Beschaffungsagent-Wochenbericht 31.07–07.08.2026: 54 ABs verarbeitet (83% Quote), 258/311 Positionen bestätigt
 - [2026-08-20 09:20] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] MVP-Stufe 1 Entwicklungsplan für Schaufler (KI-gestützte Stücklistendatenerfassung) basierend auf Lastenheft 05.08.2026; Sprint-0-Tickets für technisches Fundament (Repository, Branching, Monorepo)
@@ -1555,6 +1566,7 @@
 - [2026-07-28 13:32] [2026-07-24-Update Prozessia X Endin.md] Kundenreferenzen: Endin möchte diese vor vertraglicher Bindung sprechen
 
 ## KUNDENDATEN
+- [2026-08-20 13:53] [CLAUDE.md] Prozessia LinkedIn Seite ID: 6a25d2578f1d11f9b260c5ef
 - [2026-08-20 08:56] [memory.md] Rechnungen für 01.07.-31.07.2026: G176885117 (Microsoft Deutschland GmbH), G176530781
 - [2026-08-20 08:55] [memory.md] Einlass-Token für Eingangsbereich: 21W9N2CD8C
 - [2026-08-20 08:52] [2026-07-28-19efee9c03-Präsentation-Giesserei Wurzen-V3_Deutsch.md] Gießerei Wurzen GmbH: 25 Mitarbeiter, Mittelfrequenz-Induktionsofen mit 5.500 kg Kapazität
