@@ -78,6 +78,7 @@ async def inbox_watcher_loop() -> None:
                 and not f.name.startswith(".")
                 and not f.name.startswith(_SKIP_PREFIXES)
                 and "_fehler" not in str(f)
+                and "_duplikate" not in str(f)
                 and "node_modules" not in str(f)
                 and "Branding" not in str(f)
                 and str(f) not in bereits_verarbeitet

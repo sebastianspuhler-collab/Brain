@@ -90,16 +90,36 @@ def _load_content_hashes() -> dict:
             return json.loads(path.read_text(encoding="utf-8"))
         except Exception:
             return {}
-    # Einmaliger Bootstrap: baut die Karte aus den bereits archivierten
-    # Originalen in _inbox/_verarbeitet/ auf, damit der Dedup-Check auch die
-    # schon bekannte Alt-Situation erkennt statt nur künftige Duplikate.
+    # Einmaliger Bootstrap (erweitert 2026-08-20): hasht die kompletten
+    # Vault-Inhaltsordner (REORG_TOP_LEVEL), nicht nur _inbox/_verarbeitet/ -
+    # sonst würde der Dedup-Check Dateien übersehen, die schon länger korrekt
+    # im Vault liegen. Fund vom selben Tag bei der _fehler-Aufräumung: mehrere
+    # zurückgeholte Dateien waren unter einem früheren Lauf bereits sauber
+    # eingeordnet worden: ohne diesen breiteren Bootstrap hätte sie das
+    # erneute Einspeisen ein zweites Mal (mit neuem LLM-Call) einsortiert und
+    # damit selbst ein Duplikat erzeugt. MD/-Notizordner werden übersprungen
+    # (enthalten keine Originaldokumente, nur generierte Zusammenfassungen).
+    settings = get_settings()
     hashes: dict = {}
-    verarbeitet = get_settings().inbox_dir / "_verarbeitet"
+    for top in REORG_TOP_LEVEL:
+        top_dir = settings.vault_path / top
+        if not top_dir.exists():
+            continue
+        for f in top_dir.rglob("*"):
+            if not f.is_file() or f.name.startswith("."):
+                continue
+            if f.parent.name == "MD":
+                continue
+            try:
+                hashes[_file_hash(f)] = str(f.relative_to(settings.vault_path))
+            except Exception:
+                continue
+    verarbeitet = settings.inbox_dir / "_verarbeitet"
     if verarbeitet.exists():
         for f in verarbeitet.iterdir():
             if f.is_file():
                 try:
-                    hashes[_file_hash(f)] = f"_inbox/_verarbeitet/{f.name}"
+                    hashes.setdefault(_file_hash(f), f"_inbox/_verarbeitet/{f.name}")
                 except Exception:
                     continue
     _save_content_hashes(hashes)
@@ -733,7 +753,16 @@ kategorie: {result.get("kategorie", "")}
             shutil.copy2(str(filepath), str(ziel))
             filepath.unlink(missing_ok=True)
         except Exception:
-            pass
+            # Korrigiert 2026-08-20: vorher wurde das hier still geschluckt
+            # und die Funktion gab trotzdem True zurück - die Datei blieb für
+            # immer unsichtbar in _inbox/ liegen (process_cache markierte sie
+            # als erledigt, der Watcher hat sie nie wieder angefasst). Fund:
+            # bei der _fehler-Aufräumung vom 20.08. steckten dadurch 128 von
+            # 130 wartenden Dateien in genau dieser Falle. Jetzt: echter
+            # Fehlschlag, Datei bleibt in _inbox/, run_inbox() verschiebt sie
+            # sichtbar nach _fehler/ statt sie lautlos verschwinden zu lassen.
+            logger.exception("Datei konnte weder verschoben noch kopiert werden: %s -> %s", filepath, ziel)
+            return False, f"Konnte Originaldatei nicht ablegen (Ziel: {zielordner_rel})"
 
     # Dedup-Hash für künftige Duplikat-Erkennung hinterlegen (siehe
     # _load_content_hashes() oben) - erst NACH dem erfolgreichen Move, damit
@@ -1122,6 +1151,7 @@ def run_inbox() -> dict:
         and "node_modules" not in str(f)
         and "_fehler" not in str(f)
         and "_verarbeitet" not in str(f)
+        and "_duplikate" not in str(f)
     ]
 
     cache = _load_cache()
