@@ -1,4 +1,12 @@
 ## KONTEXT
+- [2026-08-20 08:53] [2026-08-12-wissnesmanagement.md] Fünf Grenzen aktueller KI-Lösungen beim Unternehmenswissen: geringe flächendeckende Ausrollung, begrenzter Kontextzugriff, Datenschutzrisiken, Abhängigkeit von US-Anbietern, Komplexität von RAG-Implementierungen
+- [2026-08-20 08:53] [2026-08-12-wissnesmanagement.md] KI-Erfolg im Unternehmen hängt von Wissensmanagement ab, nicht vom eingesetzten KI-Modell
+- [2026-08-20 08:52] [2026-08-12-19feb53904-E-Ticket.md] Einlass-Token: 21W9N2CD8C (erforderlich zum Einscannen im Eingangsbereich)
+- [2026-08-20 08:52] [2026-07-28-rm.md] Lexoffice-Integration wird verwendet; API-Key-basierte Authentifizierung erforderlich
+- [2026-08-20 08:49] [2026-08-12-19fea6d358-G176885117.md] Rechnungsnummer G176885117, Abrechnungszeitraum 01.07.-31.07.2026, Microsoft Deutschland GmbH
+- [2026-08-20 08:49] [2026-08-12-19fea087fb-G176530781.md] Rechnungsnummer G176530781, Abrechnungszeitraum 01.07.-31.07.2026
+- [2026-08-20 08:48] [2026-08-04-19fcc99a10-invoice-MSTRL-API-750302-004.md] Pay As You Go Abrechnungsmodell mit Mistral AI SAS; vorherige Nutzung bereits abgerechnet (-20,53€)
+- [2026-08-20 08:47] [CLAUDE.md] Kommunikation auf Deutsch; bei Kundenfragen erst in Kunden/[Firmenname]/ suchen
 - [2026-08-20 08:29] Dieses Dokument (AG0031) wurde am 04.08.2026 per Mail an Thorsten Maas versendet
 - [2026-08-19 21:46] [2026-08-19-_09.2025_Formenplanung_Nürnberg-Altgeschäft_02.10.2025 (003) (1).md] Produkt: 8HP-Großguss Getriebegehäuse, Standort Nürnberg-Altgeschäft; Getriebetypen: 8HP4.Gen, 8HP51
 - [2026-08-19 21:46] [2026-08-19-_09.2025_Formenplanung_Nürnberg-Altgeschäft_02.10.2025 (003) (1).md] Business Plan Basis Mai 2024: 3.003k Einheiten
@@ -787,6 +795,11 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-20 09:21] [decisions.md] Prozessablauf: Komplexe KI-Logik → Verbuchungsvorschlag/Kontierung → Freigabeprozess (Prüfung/Vorschlag) → DATEV-Übertrag als finaler Schritt
+- [2026-08-20 08:53] [decisions.md] DATEV-Übertrag erfolgt als letzter Schritt, komplexe KI-Logik und Freigabeprozess liegen davor
+- [2026-08-20 08:53] [2026-08-12-wissnesmanagement.md] RAG-Pipeline-Architektur: Indexierung (OCR, Chunking, Embedding, Vektordatenbank) → Retrieval/Generierung (semantische Suche, Hybrid Search, Reranking, LLM-Antwort)
+- [2026-08-20 08:51] [2026-08-06-250725_07_2025_Formenplanung Steuerteile - sent_ZF GUSS (1).md] Lieferanten: AE Group, ZF Guss, Trimet, neuer Lieferant Nürnberg
+- [2026-08-20 08:49] [2026-08-12-19fea087fb-G176530781.md] Automatischer Kreditkarteneinzug aktiviert - keine Handlung erforderlich
 - [2026-08-20 08:02] [2026-08-20-Email-1a01e2e2-AW-Angeot-Beschaffungsagent.md] Kontakt zu Maas wurde bereits hergestellt; Follow-up-Gespräch geplant
 - [2026-08-20 08:02] [2026-08-20-Email-1a01e2e2-AW-Angeot-Beschaffungsagent.md] Vorgeschlagener Termin passt Maas nicht; Neuer Termin: Mitte der Woche 2026-08-25 (nächste Woche)
 - [2026-08-20 08:01] [AW: Angeot Beschaffungsagent] Nächstes Gespräch vereinbart für Mitte nächster Woche (circa 26.08.2026)
@@ -1177,6 +1190,7 @@
 - [2026-08-11 17:47] [2026-06-09-prozessia_Beschaffungsagent_Marketing.md] Erkannte Probleme: Lieferverzögerungen, hoher Dokumentenaufwand, fehlende Lieferanten-KPIs und Transparenz
 - [2026-08-11 17:47] [2026-06-09-prozessia_Beschaffungsagent_Marketing.md] Status Quo: Einkäufer verbringen bis zu 60% ihrer Zeit mit manueller Verfolgung per Telefon & E-Mail
 ## REGEL
+- [2026-08-20 08:53] [2026-07-16-Einführung Beschaffungsagent (1).md] Lieferungs-Tracking mit Vessel Tracker nur für Lieferungen aus China; für andere Lieferungen gilt der AB-Termin direkt
 - [2026-08-11 16:05] Kein eigener "-Korrespondenz"-Ordner mehr unter Leads/ fuer Firmen mit mehreren Dokumenten (Meetings/Angebote/Dokumente) - die gehoeren ab dem zweiten Dokument sofort nach Kunden/[Firmenname]/, exakt wie echte Kunden, unabhaengig vom Vertragsstatus. Existiert schon ein Kunden/[Name]/-Ordner, IMMER den wiederverwenden statt einen Parallelordner anzulegen. Leads/ bleibt nur fuer ganz frische Einzelkontakte ohne zweites Dokument (flache Datei Leads/[Datum]-[Name].md).
 - [2026-08-03 09:56] Angebote müssen durchnummerierte Punkte (1., 2., 3. ...) für den Leistungsumfang enthalten, keine reinen Fett-Header ohne Nummerierung
 - [2026-08-03 09:54] Sebastian möchte Leistungsumfänge/Angebote im AG0024-Stil formatiert haben: keine ausformulierten Sätze, sondern Kategorien mit kurzen Stichwort-Bullets (z.B. 'Betrieb & Infrastruktur:', 'Support & Updates:', 'Reporting:')
@@ -1191,6 +1205,13 @@
 - [2026-06-16 09:57] Posts sollen als fertige, direkt einsatzbereite Texte vom Content-Generator generiert werden
 
 ## ANFORDERUNG
+- [2026-08-20 09:20] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Freigabe-Gate für Realdaten-Verarbeitung erforderlich vor produktivem Betrieb
+- [2026-08-20 08:52] [2026-07-28-rm.md] .env-Datei mit LEXOFFICE_API_KEY erforderlich; Dateiberechtigungen auf chmod 600 setzen
+- [2026-08-20 08:51] [2026-08-06-250725_07_2025_Formenplanung Steuerteile - sent_ZF GUSS (1).md] 8HP-Steuerteile bestehen aus 2-teiligem Satz: Ventilgehäuse + Ventilplatte; Minusbedarfe wurden pro Variante genullt
+- [2026-08-20 08:51] [2026-08-12-Rückfragen Lastenheft (1).md] Vektordatenbank erforderlich zur Reduktion von Fehlinterpretationen und Halluzinationen bei firmenspezifischem Wissen
+- [2026-08-20 08:51] [2026-08-12-Rückfragen Lastenheft (1).md] Systemlast-Auslegung auf maximal 5 gleichzeitig arbeitende Konstrukteure
+- [2026-08-20 08:51] [2026-08-06-Umsetzungsplan_Schaufler_Stuecklistendatenerfassung.md] Freigabeprozess muss auf Positionsebene funktionieren
+- [2026-08-20 08:51] [2026-08-06-Umsetzungsplan_Schaufler_Stuecklistendatenerfassung.md] Manuelle V&V muss in Arbeitsfluss integriert sein: Quellenanzeige, Konfliktmarkierung, Statusübergänge, Auflösungsdialog (statt separater Prozess)
 - [2026-08-19 14:24] [2026-08-19-1a01a5db1e-Lastenheft_Automatische_AB_Verarbeitung_proALPHA.md] Anbieter muss im Pflichtenheft folgende Inhalte liefern: technische Umsetzung, proALPHA-Schnittstellen, Lizenzierung, Projektkosten und belastbarer Einführungsplan
 - [2026-08-19 14:24] [2026-08-19-1a01a5db1e-Lastenheft_Automatische_AB_Verarbeitung_proALPHA.md] Projektziel: Mindestens 98% der eingehenden Auftragsbestätigungen sollen automatisiert geprüft, zugeordnet und verarbeitet werden
 - [2026-08-17 15:10] [2026-06-09-Präsentation_ Datenschutz~20260814-225619.md] EU-Hosting & Datenschutz-Compliance zwingend für Kanzleien; US Cloud Act bei ChatGPT ermöglicht Zugriff auf alle US-Cloud-Daten (rechtlich kritisch)
@@ -1245,6 +1266,10 @@
 - [2026-07-24 03:21] [2026-07-24-19f5ff1aad-BEST-SCHMITT GBR-127096.md] Komplette mechanische Anfertigung nach Zeichnungen mit Gravur, Prüf-, Härte- und Messprotokoll erforderlich
 
 ## KUNDENWUNSCH
+- [2026-08-20 09:21] [decisions.md] Thorsten Maas Unternehmen verlangt, dass Mitarbeiter nur Copilot nutzen dürfen, keine freien Chatbots wie ChatGPT
+- [2026-08-20 08:51] [2026-08-06-Umsetzungsplan_Schaufler_Stuecklistendatenerfassung.md] On-Premise-Bereitstellung erforderlich
+- [2026-08-20 08:51] [2026-06-08-Vorstellung Stücklistenagent (1).md] Skepsis bezüglich Aufwand-Nutzen-Verhältnis und Amortisationszeit bei niedriger Auslastung und limitiertem Budget
+- [2026-08-20 08:50] [2026-07-28-New Record from Google Meet.md] Wett-Modus und Wissens-Modus sollen zu einem kombinierten Modus zusammengeführt werden: erst Hinweise, dann Sekunden-Wette auf Musikausschnitt
 - [2026-08-04 09:53] [AW: Angeot Beschaffungsagent] Transparenz zu laufenden Betriebskosten erforderlich (Server, Infrastruktur, KI-Token-Verbrauch, Lizenzen, Wartung, Support, Updates)
 - [2026-08-04 09:53] [AW: Angeot Beschaffungsagent] Technische Architektur und Implementierungsaufwand erforderlich (Systemumgebung, Infor LN Anbindung, Schnittstellen, Technologien, KI-Modelle, Zertifikat- und Dokumentenmanagement)
 - [2026-07-16 06:04] [Kompletten Salesfunnel mit KI erstellen] Interessent soll Zeit für diese Termine reservieren
@@ -1256,6 +1281,8 @@
 - [2026-06-30 15:05] [ISO 27001 bei Prozessia] Linus Dangmann bietet unverbindliches Gespräch zur Vorstellung der Plattform und Kostenübersicht für ISO 27001 Zertifizierung an
 
 ## NÄCHSTE_SCHRITTE
+- [2026-08-20 08:51] [2026-06-08-Vorstellung Stücklistenagent (1).md] Prototyp-Ansatz mit schrittweisem, risikoarmem Einstieg statt umfangreicher Investition empfohlen
+- [2026-08-20 08:50] [2026-07-28-New Record from Google Meet.md] Sebastian schickt PDF mit Erklärung der Spielmodi und Punktevergabe; gibt Thomas Zugang per Google-Konto zur Anwendung
 - [2026-07-17 18:27] [AW: Go Live Beschaffungsagent] Jochen Hettmer wartet auf Information: welcher fixe Text wird in das Feld 'Terminüberwachung_Bemerkung' geschrieben
 - [2026-07-17 18:27] [Kompletten Salesfunnel mit KI erstellen] Aufforderung zum Klick auf Link für detaillierte Informationen und um einen funktionsfähigen Salesfunnel zu erhalten
 - [2026-07-15 16:10] [Abgelehnt: Bedarfsanalyse TPG X Prozessi] Kai Winterscheid wird sich bei Sebastian Spuhler melden, sobald das ERP-Team Ressourcen für die Zusammenarbeit freigegeben hat
@@ -1271,6 +1298,9 @@
 - [2026-07-13 19:09] [Bestätigungslink Herr Spuhler Business P] Nach Bestätigung des Links kann die Fachabteilung American Express mit der Prüfung des Antrags fortfahren
 - [2026-08-13 22:38] [[Twilio] Re: [ACTION REQUIRED] Your Trus] Dokument (Gewerbeanmeldung oder offizielle Registrierungsdokumentation) an Twilio übermitteln
 ## DEADLINE
+- [2026-08-20 08:50] [2026-08-04-19fc7b56c5-Angebot_AG0028_03.08.2026.md] Angebotsgültig bis 24.08.2026
+- [2026-08-20 08:49] [2026-08-12-19fea6d358-G176885117.md] Zahlungsfällig: 09.08.2026 via automatische Kreditkartenabbuchung
+- [2026-08-20 08:48] [2026-08-04-19fcc99a10-invoice-MSTRL-API-750302-004.md] Zahlungsfrist: 04. Aug. 2026 (0 Tage - sofort fällig)
 - [2026-08-19 20:56] [memory.md] ApolloNext Registrierung: Frist endet ca. 26.08.2026 (eine Woche ab 19.08.2026), Thema: AI-powered GTM Engine, neue Apollo Launches, Revenue Growth Strategien
 - [2026-08-14 21:59] [2026-06-09-Lexoffice 08 25.md] Zahlungsziel: 14.08.2025
 - [2026-08-14 21:59] [2026-06-09-Lexoffice 04 25.md] Zahlungsziel 14.04.2025 (Rechnungsdatum 07.04.2025)
@@ -1281,6 +1311,8 @@
 - [2026-06-27 12:47] [2026-06-27.md] Webinar am 05.07.2026 (in 8 Tagen) – LinkedIn-Ankündigungspost fehlt komplett
 
 ## KONTAKT
+- [2026-08-20 08:52] [2026-07-28-19efee9c03-Präsentation-Giesserei Wurzen-V3_Deutsch.md] Website: www.giesserei-wurzen.de
+- [2026-08-20 08:51] [2026-08-06-250725_07_2025_Formenplanung Steuerteile - sent_ZF GUSS (1).md] Ansprechpersonen: Köberle, Schwindling, Wehberg (Bereich SCAA4)
 - [2026-08-17 15:09] [jochem~20260814-225618.md] Instillo-Ansprechpartner: Dr. Akif Emre Türeli / Monika Baumstümmler (Holding-Ebene)
 - [2026-07-17 21:45] [2026-07-06-Email-19f381c7-AW-Offene-Punkte-Beschaffungsagent.md] Ansprechpartner Schaufler: Florian Knoblauch (florian.knoblauch@schaufler.de); Projektkommunikation auch mit Benjamin Schmohl
 - [2026-07-17 18:27] [RE: Bestätigungslink Herr Spuhler Busine] Moritz Vitting (Ansprechpartner) im Urlaub vom 5. August, bei Problemen Fachabteilungen kontaktieren
@@ -1290,6 +1322,8 @@
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-20 08:52] [2026-07-28-rm.md] SICHERHEITSRISIKO: Lexoffice API-Key im Klartext in .md-Datei dokumentiert (wdD7H0EjgpyTyghjneB0TTys-L1A_pl3gulxHaymC8Vcq50j) – sollte aus Repository entfernt werden
+- [2026-08-20 08:47] [CLAUDE.md] Vorfall 14.08.2026: Nicht manuell Zusammenfassungen schreiben oder Transkripte von Hand ablegen. Nur die Pipeline (classify.py::process_file()) hält Ordner, Meetings-Erkennung und Dashboard konsistent
 - [2026-08-20 08:32] Für Kunde Juchem gilt AG0031 mit 32.000,00 € netto / 38.080,00 € brutto als verbindlicher Angebotspreis, nicht die 25.000 € aus AG0028 (da AG0031 per E-Mail verschickt wurde).
 - [2026-08-19 21:46] [2026-08-19-_09.2025_Formenplanung_Nürnberg-Altgeschäft_02.10.2025 (003) (1).md] Abweichung: -227k (-7,56% unter Business Plan)
 - [2026-08-19 20:55] [Get 120k+ for Grandmas Chiropractic Serv] Unsolicited Marketing-Mail (Spam) von Lyft Capital mit verdächtiger URL - keine Geschäftsrelevanz
@@ -1445,6 +1479,15 @@
 - [2026-06-13 12:22] Schaufler Tooling GmbH: Monatliches Hosting/Retainer ab Juli 2026 auf 280 € erhöht (vorher 220 €)
 
 ## PROJEKTSTATUS
+- [2026-08-20 09:20] [2026-08-12-Beschaffungsagent-Wochenreport-31.07-07.08.2026 (1).md] Kritischer Status: 24 rote Positionen, 103 Eskalationen (68 überfällige Lieferungen, 18 Preisabweichungen, 9 Mengen-, 8 Terminabweichungen)
+- [2026-08-20 09:20] [2026-08-12-Beschaffungsagent-Wochenreport-31.07-07.08.2026 (1).md] Beschaffungsagent-Wochenbericht 31.07–07.08.2026: 54 ABs verarbeitet (83% Quote), 258/311 Positionen bestätigt
+- [2026-08-20 09:20] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] MVP-Stufe 1 Entwicklungsplan für Schaufler (KI-gestützte Stücklistendatenerfassung) basierend auf Lastenheft 05.08.2026; Sprint-0-Tickets für technisches Fundament (Repository, Branching, Monorepo)
+- [2026-08-20 08:53] [decisions.md] Kostenlose Demo-Erstellung durch Spuhler auf Basis von Mundingers Daten, kein kurzfristiges Investitionsprojekt
+- [2026-08-20 08:53] [2026-07-16-Einführung Beschaffungsagent (1).md] Messberichte werden vorerst manuell in ProLeiS abgelegt; API-Schnittstelle existiert noch nicht. Shared Mailboxes haben 50GB Speicherlimit und benötigen künftig ein Löschkonzept
+- [2026-08-20 08:52] [2026-08-06-_09.2025_Formenplanung_Nürnberg-Altgeschäft_02.10.2025 (003).md] Formenplanung September 2025 mit Stückzahlprognose für 2025/2026, Datenstand 02.10.2025
+- [2026-08-20 08:51] [2026-08-06-250725_07_2025_Formenplanung Steuerteile - sent_ZF GUSS (1).md] Formenplanung 8HP-Steuerteile mit Stückzahlentwicklung für 2025/2026; Stand Juli 2025; vertrauliche Planzahlen zu Bedarfsmengen und Formenbestellungen
+- [2026-08-20 08:51] [2026-08-06-Umsetzungsplan_Schaufler_Stuecklistendatenerfassung.md] Umsetzungsplan auf Basis Lastenheft v. 05.08.2026 (M. Wiegner, 20 Kapitel) — fünf Konfliktpunkte identifiziert und in Analyse
+- [2026-08-20 08:50] [2026-07-28-New Record from Google Meet.md] Musik-Quiz-Anwendung Prozessia (YouTube-Basis) mit Spielmodi Random Start/Wett/Wissen in Demo-Phase; Spieleranzahl und Jahrzehnt/Genre-Auswahl geplant
 - [2026-08-12 21:12] [memory.md] Meeting 2026-08-11 abgeschlossen (Compliance/Referenzen besprochen); nächster Schritt: Angebotserstellung
 - [2026-08-11 17:33] [2026-08-11-Prozessia X TopDown.md] Sehr positives Erstgespräch; Dominik bat aktiv um Angebot zur internen Geschäftsführungspräsentation
 - [2026-07-28 08:22] [2026-07-28-Prozessskizze-KI-Kalkulation.md] Prozessskizze basiert auf Meeting Dierk Biendarra + Sebastian Spuhler vom 21.07.2026, Vorbereitung für Termin 28.07.2026, 11:00 Uhr
@@ -1452,13 +1495,28 @@
 - [2026-07-01 14:21] [2026-07-01-AW-Unser-Gespraech-MTO-Days.md] Nachverfolgung erforderlich: Christian Spamer sollte Unterlagen zusammenstellen (Stand 1. Juli 2026: noch nicht eingegangen)
 
 ## ANGEBOT
+- [2026-08-20 08:50] [2026-08-04-19fc7ca239-Angebot_AG0031_03.08.2026.md] AG0031 vom 03.08.2026: Implementierung Beschaffungsagent für Juchem GmbH mit ERP-Anbindung Infor LN, Preisanfragen, Bestellabwicklung, Wareneingangsprüfung, Zertifikats-Monitoring und Dashboard
+- [2026-08-20 08:50] [2026-08-04-19fc7c74ad-Angebot_AG0031_03.08.2026.md] Zahlungsmodell: 50% Abschlagszahlung bei Prototyp-Fertigstellung, 50% bei Abnahme
 - [2026-07-13 19:09] [Personalkosten erstattet bekommen] Berufsbegleitende Weiterbildung/Unternehmensberatung in digitaler Vertrieb und KI mit staatlicher Förderung bis zu 100% der Kosten
 - [2026-07-13 19:09] [QCG Förderung] Qualifizierungschancengesetz (QCG) Förderung - berufsbegleitende Weiterbildung für digitalen Vertrieb und KI
 
 ## LEISTUNG
+- [2026-08-20 08:55] [memory.md] Produkt: 8HP-Großguss Getriebegehäuse
+- [2026-08-20 08:52] [2026-07-28-19efee9c03-Präsentation-Giesserei Wurzen-V3_Deutsch.md] Fertigungsbereich: Einzelabgüsse und Kleinserien mit Losgrößen 1-50 Stück
+- [2026-08-20 08:52] [2026-08-06-_09.2025_Formenplanung_Nürnberg-Altgeschäft_02.10.2025 (003).md] Stückzahlen 2025: 2.776k (bei +5% Kapazitätsforderung), gerechnet auf 244 Arbeitstage
+- [2026-08-20 08:51] [2026-06-08-Vorstellung Stücklistenagent (1).md] Stücklistenagent nutzt Human-in-the-Loop KI-Ansatz mit Farbkodierung (grün/gelb/rot) zur Sicherheitskennzeichnung der KI-Werte
+- [2026-08-20 08:49] [2026-07-28-19efee9c03-Präsentation-Esterer Giesserei-V20_Deutsch.md] Maschinenformguss: ab 10 Formen, Gussteilgewicht ab 0,1 kg
+- [2026-08-20 08:49] [2026-07-28-19efee9c03-Präsentation-Esterer Giesserei-V20_Deutsch.md] Handformguss: ab 1 Stück, Gussteilgewicht 0,5 kg bis ca. 1.600 kg, Kastengrößen bis ca. 2.100 x 2.100 x 1.000 mm
+- [2026-08-20 08:49] [2026-07-28-19efee9c03-Präsentation-Esterer Giesserei-V20_Deutsch.md] Vier Mittelfrequenz-Induktionsöfen mit Fassungsvermögen: 500 kg, 1.000 kg, 1.500 kg, 2.000 kg
 - [2026-07-13 19:09] [Personalkosten erstattet bekommen] Schulung des Teams in kundengewinnung und Tools (Clay, Claude, Close) finanziert über Fördergelder § 82 SGB III
 
 ## ENTSCHEIDUNG
+- [2026-08-20 09:20] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Azure ausschließlich als Bauwerkzeug; Abnahme und Auslieferung erst nach erfolgreicher Migration
+- [2026-08-20 09:20] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Zwei-Phasen-Modellstrategie: Phase 1 Entwicklung mit Azure OpenAI (Abstraktionsschicht/Adapter-Pattern), Phase 2 Migration auf gpt-oss-120b @ vLLM on-premise vor Auslieferung
+- [2026-08-20 08:53] [2026-08-12-wissnesmanagement.md] RAG ist nicht immer sinnvoll; bei wenigen Dokumenten oder Einzeldateien ist direktes Laden ins Kontextfenster effizienter als RAG-Pipeline
+- [2026-08-20 08:53] [2026-07-16-Einführung Beschaffungsagent (1).md] Rabattierte Nettopreise werden für den Preisvergleich herangezogen
+- [2026-08-20 08:53] [2026-07-16-Einführung Beschaffungsagent (1).md] Auftragsbestätigungen ohne zuordenbare Bestellung sollen nicht in die Wertung einfließen, sondern nur als Hinweis markiert werden
+- [2026-08-20 08:52] [2026-08-06-_09.2025_Formenplanung_Nürnberg-Altgeschäft_02.10.2025 (003).md] Abweichung -227k (-7,56%) gegenüber Basis-Plan Mai 2024 (3.003k)
 - [2026-08-17 07:12] [memory.md] Call-to-Action: Beratungsgespräch/Demo vereinbaren
 - [2026-08-12 20:13] [kpi-tracking.md] Beste Posts nach Saves bewerten, NICHT nach Likes — Saves sind das zentrale Erfolgskriterium
 - [2026-08-12 20:11] [2026-08-11-Prozessia X TopDown.md] Sehr positiver Gesprächsverlauf; Dominik forderte aktiv Angebot für interne Präsentation bei TopDown-Geschäftsführung an
@@ -1473,6 +1531,12 @@
 - [2026-07-17 21:42] [6---Email-19f38afa-AW-Offene-Punkte-Beschaffungsagent.md] Bestelldokument muss angepasst werden, damit Lieferanten wissen, dass bestellbezogene Daten an order@schaufler.de gehen (Verantwortung: Benjamin Schmohl)
 
 ## PREIS
+- [2026-08-20 09:24] [2026-08-20-Angebot Beschaffungsagent Juchem GmbH (2).md] Gesamtnetto 32.000 €, Bruttosumme 38.080 €, Zahlungsmodell: 50% Abschlag bei Prototyp-Fertigstellung
+- [2026-08-20 08:55] [memory.md] Microsoft Deutschland Rechnungen G176885117 und G176530781, Abrechnungszeitraum 01.07.-31.07.2026
+- [2026-08-20 08:50] [2026-08-04-19fc7ca239-Angebot_AG0031_03.08.2026.md] Nettosumme: 32.000,00 €
+- [2026-08-20 08:50] [2026-08-04-19fc7c74ad-Angebot_AG0031_03.08.2026.md] Nettosumme 32.000,00 €
+- [2026-08-20 08:50] [2026-07-28-New Record from Google Meet.md] Kosten minimal - YouTube API kostenlos, KI-Hinweise verursachen nur geringe Kosten
+- [2026-08-20 08:48] [2026-08-04-19fcc99a10-invoice-MSTRL-API-750302-004.md] Rechnung MSTRL-API-750302-004: 3,07€ inkl. Steuer für Mistral OCR API-Nutzung (Juli 2026)
 - [2026-08-17 14:16] [2026-08-17-1a01008792-Angebot_AG0029_18.08.2026.md] Nettobetrag 11.000,00 € für Buchhaltungsagent Rechnungsverarbeitung
 - [2026-08-14 21:03] [2026-07-19-Invoice-SP7D4PI7-0018.md] €18.00 monatlich
 - [2026-08-14 20:44] [2026-07-23-19f80bf0b9-receipt-MSTRL-API-750302-RCPT-000002.md] Mistral OCR API kostet 0,0034 € pro Seite (Api pages)
@@ -1481,9 +1545,23 @@
 - [2026-08-05 08:23] [2026-06-09-Schaufler_Hosting_Praesentation (4).md] Monatliche Gesamtkosten: 558,07 € (Servicepauschale 400 €, Server 38,07 €, KI-Modell 120 €)
 
 ## OFFEN
+- [2026-08-20 09:20] [2026-08-12-Beschaffungsagent-Wochenreport-31.07-07.08.2026 (1).md] 53 Positionen (17%) noch nicht bestätigt; Schwerpunkt auf Lieferantenverzögerungen
+- [2026-08-20 09:20] [2026-08-06-Entwicklungsplan_MVP_Stufe1_Schaufler.md] Blockierender Klärungspunkt: Verarbeitung realer Schaufler-Konstruktionsdaten über Azure OpenAI erfordert Genehmigung (Datenschutz/Compliance-Aspekt)
+- [2026-08-20 08:52] [2026-08-06-_09.2025_Formenplanung_Nürnberg-Altgeschäft_02.10.2025 (003).md] Planzahlen sind unverbindlich und vertraulich, Daten basieren auf SBR-Produktionsprogrammen 09.1
+- [2026-08-20 08:51] [2026-08-12-Rückfragen Lastenheft (1).md] KPIs fehlen; Erfolgsmessung über Zeiterfassung und Konstrukteurs-Feedback statt quantifizierbarer Metriken geplant
+- [2026-08-20 08:51] [2026-08-12-Rückfragen Lastenheft (1).md] Bereitstellungsmodell ungeklärt: On-Premise vs. DSGVO-konforme Cloud-Lösung (z.B. Azure) für KI-Sprachmodell
+- [2026-08-20 08:51] [2026-08-06-Umsetzungsplan_Schaufler_Stuecklistendatenerfassung.md] Fünf Konfliktpunkte zur Auflösung: (A) V&V-Mechanismus, (B) Freigabeprozess Positionsebene, (C) 3D-Daten-Umfang, (D) On-Premise-Bereitstellung, (E) weiterer
+- [2026-08-20 08:50] [2026-07-28-New Record from Google Meet.md] Rechtliche Klärung erforderlich: GEMA, internationale Nutzung und YouTube API müssen vor breiterer Nutzung geprüft werden
 - [2026-07-28 13:32] [2026-07-24-Update Prozessia X Endin.md] Kundenreferenzen: Endin möchte diese vor vertraglicher Bindung sprechen
 
 ## KUNDENDATEN
+- [2026-08-20 08:56] [memory.md] Rechnungen für 01.07.-31.07.2026: G176885117 (Microsoft Deutschland GmbH), G176530781
+- [2026-08-20 08:55] [memory.md] Einlass-Token für Eingangsbereich: 21W9N2CD8C
+- [2026-08-20 08:52] [2026-07-28-19efee9c03-Präsentation-Giesserei Wurzen-V3_Deutsch.md] Gießerei Wurzen GmbH: 25 Mitarbeiter, Mittelfrequenz-Induktionsofen mit 5.500 kg Kapazität
+- [2026-08-20 08:51] [2026-08-06-250725_07_2025_Formenplanung Steuerteile - sent_ZF GUSS (1).md] Kunde: ZF-Friedrichshafen AG; Projekt: 8HP-Steuerteile (Ventilgehäuse + Ventilplatte)
+- [2026-08-20 08:51] [2026-08-12-Rückfragen Lastenheft (1).md] Schaufler Laichingen: 12-15 parallel arbeitende Konstrukteure; monatlich ca. 90 große und 420 kleine Ersatzteil-Stücklisten zu verarbeiten
+- [2026-08-20 08:51] [2026-06-08-Vorstellung Stücklistenagent (1).md] Mundinger verarbeitet 2-3 Stücklisten-Anfragen pro Monat
+- [2026-08-20 08:48] [2026-08-04-19fcc99a10-invoice-MSTRL-API-750302-004.md] Rechnungsempfänger: Prozessia GbR, sebastian.spuhler@prozessia.com, Campus Satreterzentrum Gebäude A, 66123 Saarbrücken
 - [2026-08-05 08:12] [2026-06-09-Listen.md] Autohäuser-Liste: Gebr. Schumann (Hyundai), Audi Zentrum, Stellantis &You, Hedin Automotive, Autohaus Bunk und weitere
 - [2026-08-05 08:12] [2026-06-09-Listen.md] Lead-Listen Saarbrücken: 26 Autohäuser und Fahrzeughändler + 4 Hausverwaltungen/Immobilienunternehmen
 - [2026-08-05 08:15] [2026-06-09-advertising_extern.md] Verfügbare Datenfelder: Vorname, Nachname, E-Mail, Titel, Organisation, Website, Stadt, Bundesland

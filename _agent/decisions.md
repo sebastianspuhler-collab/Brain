@@ -6,3 +6,21 @@
 - 2026-08-14 | TopDown-Meeting-14082026.docx | Server-Hosting läuft über Hetzner (Empfehlung von Sebastian), Kunde kann Server selbst stellen oder von Prozessia als Auftragsverarbeiter bereitstellen lassen
 - 2026-08-14 | TopDown-Meeting-14082026.docx | Sprachmodell wird über Microsoft Azure bezogen statt lokal gehostet, da 2026 wirtschaftlich nicht sinnvoll
 - 2026-08-14 | TopDown-Meeting-14082026.docx | Preismodell: einmaliger Projektpreis plus laufende Infrastrukturkosten, Wartung optional
+- 2026-06-08 | Vorstellung Stücklistenagent (1).pdf | Kein kurzfristiges Investitionsprojekt, stattdessen zunächst kostenlose Demo-Erstellung durch Spuhler auf Basis von Mundingers Daten
+- 2026-06-08 | Vorstellung Stücklistenagent (1).pdf | Folgetermin am 29.06.2026 um 10:30 Uhr wird fest vereinbart
+- 2026-08-14 | Prozessia X TopDown (1).docx | Verbuchungsvorschlag/Kontierung wird als zusätzlicher Schritt in den Prozess integriert, vorzugsweise im Freigabeprozess vor Übertragung nach DATEV
+- 2026-08-14 | Prozessia X TopDown (1).docx | Empfehlung: Nutzung eines skalierbaren Hetzner-Servers für die KI-Infrastruktur
+- 2026-08-14 | Prozessia X TopDown (1).docx | Sprachmodell wird über Microsoft Azure bezogen statt über Prozessia direkt oder lokale Hardware
+- 2026-08-14 | Prozessia X TopDown (1).docx | Abrechnung erfolgt über einmaligen Projektpreis plus laufende Infrastrukturkosten, Wartung optional
+- 2026-08-12 | Rückfragen Lastenheft (1).docx | Grundsätzliche Offenheit für eine externe, DSGVO-konforme Cloud-Lösung (z.B. Azure) statt zwingend On-Premise-Sprachmodell
+- 2026-07-16 | Einführung Beschaffungsagent (1).pdf | Auftragsbestätigungen ohne zuordenbare Bestellung werden nicht in die Wertung aufgenommen, sondern nur als Hinweis markiert
+- 2026-07-16 | Einführung Beschaffungsagent (1).pdf | Bei Preisabweichungen wird der rabattierte Preis als Vergleichswert verwendet
+- 2026-07-16 | Einführung Beschaffungsagent (1).pdf | Vessel Tracking wird ausschließlich für Lieferungen aus China implementiert
+- 2026-07-16 | Einführung Beschaffungsagent (1).pdf | Für andere Lieferungen wird der AB-Termin direkt übernommen bzw. bei Bedarf lieferantenspezifisch mit Pufferzeiten (z.B. Portugal) berechnet
+- 2026-07-16 | Einführung Beschaffungsagent (1).pdf | Messberichte werden vorerst weiterhin manuell in ProLeiS abgelegt, bis eine API-Schnittstelle existiert
+- 2026-07-16 | Einführung Beschaffungsagent (1).pdf | AB-Workflow startet als erstes (morgen/Montag), Messberichte folgen danach, Lieferungen erst nach Klärung der Detailregeln
+- 2026-07-28 | New Record from Google Meet.pdf | Wett-Modus und Wissens-Modus werden zu einem gemeinsamen Modus kombiniert (Hinweise gefolgt von Sekunden-Wette)
+- 2026-07-28 | New Record from Google Meet.pdf | Die Auswahl von Spieleranzahl, Jahrzehnt und Genre wird vor die eigentlichen Spielmodi geschaltet
+- 2026-07-28 | New Record from Google Meet.pdf | Der Random-Start-Modus bleibt in seiner aktuellen Form bestehen
+- 2026-07-28 | New Record from Google Meet.pdf | Hinweise im kombinierten Modus werden nacheinander mit zeitlichem Abstand eingeblendet, nicht alle gleichzeitig
+- 2026-07-28 | New Record from Google Meet.pdf | Nächster Abstimmungstermin wird auf den 23. April, 16 Uhr festgelegt
