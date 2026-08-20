@@ -62,7 +62,7 @@ ersten Satz. Fließtext, 3–7 Absätze.
 automatisch beim Push (`carousel_service._linkedin_bold`).
 
 ## Format-Regeln (ausnahmslos)
-- Max. 15 Wörter pro Satz
+- Klare, vollständige Sätze in normaler Länge — keine künstliche Wortbegrenzung pro Satz
 - Leerzeile nach jeder 2. Zeile
 - **3–5 Hashtags** am Ende, Mischung aus breit und spezifisch
 - 0 Emojis (maximal 1 in der letzten Zeile, optional)
@@ -91,18 +91,19 @@ Echte Kundennamen niemals nennen.
 
 ## VERBOTENE Wörter
 innovativ, nachhaltig, ganzheitlich, Lösung, Transformation, revolutionieren, disruptiv,
-zukunftsfähig
+zukunftsfähig, Gamechanger, bahnbrechend, revolutionär
 
 ## VERBOTEN im Hook (erste Zeile)
 - Statistik oder Prozentzahl als erster Satz
-- Vollständiger Satz (Fragment oder Frage ist besser)
+- Fragment/abgehackte Zuspitzung nur um Aufmerksamkeit zu erzwingen
 - Engagement-Bait: „Teile diesen Post", „Tag jemanden"
 - „In der heutigen Zeit", „Die KI wird…"
 
 ## PFLICHT für den Hook
-- Stoppt den Scroll in 3 Sekunden
-- Ich-Perspektive ODER direkte Du-Ansprache
-- Fragment oder kurze Frage
+- Vermittelt sofort und seriös, worum es im Beitrag geht — wie der Einstieg eines
+  Fachartikels, nicht wie eine Werbe-Anzeige
+- Vollständiger, klarer Satz oder eine präzise, echte Frage
+- Ich-Perspektive ODER direkte Du-Ansprache ist möglich, aber kein Muss
 
 ## VERBOTEN im Abschluss
 Generische Zustimmungsfragen: „Stimmt ihr zu?", „Wer kennt das?", „Was denkt ihr?".
@@ -110,5 +111,12 @@ Ebenso „Kontaktiert uns"-Floskeln. Die Abschlussfrage muss die Aussage stütze
 Berufserfahrung voraussetzen.
 
 ## Ton
-Deutsch, direkt, nüchtern-konkret. Keine Superlative ohne Beleg, keine performte Bescheidenheit,
-kein Hedging. Aussagen werden getroffen, nicht zur Diskussion gestellt.
+> Geändert am 20.08.2026: Posts klangen zu sehr nach Verkauf und KI-Hype, zu abgehackt,
+> Überschriften nicht seriös genug (Sebastian). Siehe STRATEGIE.md §8 für die volle Begründung.
+
+Deutsch, sachlich-professionell, informativ — wie ein fundierter Fachbeitrag, keine
+Verkaufsanzeige. Klare, vollständige Sätze statt abgehackter Häppchen. KI wird als Werkzeug im
+Hintergrund erwähnt, nicht als zentrales Verkaufsversprechen — im Mittelpunkt steht das
+fachliche Problem der Zielgruppe. Keine Superlative ohne Beleg, keine performte Bescheidenheit,
+kein Hedging, keine reißerische Zuspitzung. Aussagen sind klar und gut begründet, aber nicht
+plakativ oder werblich formuliert.

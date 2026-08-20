@@ -54,12 +54,13 @@ Fokus plötzlich wechseln, verlieren temporär Reichweite.
 
 ## 3. Content-Prinzipien (gelten für JEDEN Post ausnahmslos)
 
-**„Claim it, Show it, Aim it":**
+Drei Grundprinzipien für jeden Beitrag:
 
-- **Claim:** klare Aussage statt Frage/Hedging („könnte sein", „korrigiert mich", „was denkt ihr?")
-- **Show:** eigene Erfahrung/eigene Zahl statt fremdes Framework nacherzählt
-- **Aim:** an eine konkrete Person gerichtet (z.B. „Einkaufsleiter mit Ausschreibung ohne
-  Herstellerangabe"), nicht an „alle Unternehmen"
+- **Klare Aussage:** eine begründete Aussage statt Frage/Hedging („könnte sein", „korrigiert
+  mich", „was denkt ihr?")
+- **Eigene Beobachtung:** eigene Erfahrung/eigene Zahl statt fremdes Framework nacherzählt
+- **Konkreter Leser:** an eine konkrete Person gerichtet (z.B. „Einkaufsleiter mit Ausschreibung
+  ohne Herstellerangabe"), nicht an „alle Unternehmen"
 
 **Weitere feste Regeln:**
 
@@ -167,10 +168,24 @@ Fokus plötzlich wechseln, verlieren temporär Reichweite.
 
 ## 8. Sprache & Ton
 
-- Deutsch, direkt, nüchtern-konkret — keine Buzzword-Sprache, keine Superlative ohne Beleg
+**Geändert 2026-08-20 (Sebastian: Posts klangen zu sehr nach Verkauf/KI-Hype, zu abgehackt,
+Überschriften nicht seriös genug):**
+
+- Deutsch, sachlich-professionell, informativ — wie ein fundierter Fachbeitrag, keine
+  Verkaufsanzeige. Der Leser soll etwas über sein Fachgebiet mitnehmen, nicht zum Klicken
+  verleitet werden.
+- Klare, vollständige Sätze in normaler Länge — keine künstliche Wortbegrenzung pro Satz und
+  keine erzwungene Fragment-Sprache. Abgehackte "jede Zeile ein Gedanke"-Häppchen vermeiden.
+- Überschriften/Hooks sind vollständige, seriöse Sätze oder präzise Fragen — wie bei einem
+  Fachartikel, nicht wie ein reißerischer Clickbait-Fragment-Titel.
+- KI wird als Werkzeug im Hintergrund erwähnt, wenn es zur Sache gehört — nicht als zentrales
+  Verkaufsversprechen. Im Mittelpunkt steht das fachliche Problem der Zielgruppe (Beschaffung,
+  Wissensmanagement, Compliance), nicht die Technologie selbst.
+- Keine Buzzword-Sprache, keine Superlative ohne Beleg, keine reißerische/marktschreierische
+  Zuspitzung
 - Keine performte Bescheidenheit („ich war unsicher, ob ich das teilen soll")
 - Keine Hedging-Formulierungen
-- Aussagen werden getroffen, nicht zur Diskussion gestellt
+- Aussagen sind klar und gut begründet — bestimmt, aber nicht plakativ oder werblich
 
 ## 9. Einmalige Profil-Grundlagen (vor Kampagnenstart)
 
@@ -231,3 +246,10 @@ Strategie widersprach. Aufgelöst wurde jeweils zugunsten dieser Datei:
    Säulen in dieser Strategie). Vereinheitlicht auf die vier Säulen aus Abschnitt 2. Die
    Post-Typen A/B/C (Schmerz/Karussell/Story) bleiben davon unberührt — das ist eine
    Format-Achse, keine Themen-Achse.
+4. **Ton (2026-08-20).** Die bisherige Regel "Hook = Fragment, kein vollständiger Satz" plus
+   "max. 15 Wörter pro Satz" erzeugte in der Praxis abgehackte, reißerisch wirkende Posts, die
+   zu sehr nach Verkauf und KI-Hype klangen statt nach Fachbeitrag (Sebastian, 20.08.2026).
+   Ersetzt durch: vollständige, seriöse Sätze/Überschriften, keine künstliche
+   Wortbegrenzung, KI als Werkzeug im Hintergrund statt als zentrales Verkaufsargument. Die
+   Grundstruktur (Einleitung, Zahlen, Ergebnis-Zeile, Einordnung, Abschlussfrage, Hashtags)
+   bleibt unverändert — nur die sprachliche Ausführung wurde professioneller/informativer.

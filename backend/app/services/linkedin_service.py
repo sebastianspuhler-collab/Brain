@@ -1476,25 +1476,27 @@ format_empfehlung "Karussell" (auch Typ A/C-Ideen lassen sich als Karussell umse
 nicht nur Typ B). "Text" oder "Liste" nur, wenn das Thema wirklich nicht als
 mehrseitiges Karussell funktioniert (z.B. eine sehr kurze, pointierte Einzelaussage).
 
-CLAIM IT, SHOW IT, AIM IT — gilt für jede Idee:
-- Claim: eine klare Aussage, keine Frage als These, kein Hedging.
-- Show: eine eigene Zahl oder konkrete Beobachtung, kein nacherzähltes fremdes Framework.
-- Aim: an eine konkrete Person gerichtet (Feld zielgruppe_spezifisch), nicht an "alle Unternehmen".
+Für jede Idee gilt: eine klare, belegte Aussage statt einer Frage oder eines Hedgings; eine
+eigene Zahl oder konkrete Beobachtung statt eines nacherzählten fremden Frameworks; ein
+konkreter Leser vor Augen (Feld zielgruppe_spezifisch), nicht "alle Unternehmen".
 
 VERBOTEN für jeden Hook und jede Idee:
 - Statistik oder Prozentzahl als allererster Satz
-- Wörter: innovativ, nachhaltig, ganzheitlich, Transformation, revolutionieren, disruptiv, zukunftsfähig
+- Wörter: innovativ, nachhaltig, ganzheitlich, Transformation, revolutionieren, disruptiv,
+  zukunftsfähig, Gamechanger, bahnbrechend, revolutionär
 - Superlative ohne Beleg, performte Bescheidenheit, Hedging
+- Reißerische/marktschreierische Zuspitzung, Clickbait-Anmutung
 - Generische Zustimmungsfragen als CTA ("Stimmt ihr zu?", "Wer kennt das?")
 - Engagement-Bait ("Teile diesen Post", "Tag jemanden")
 - Echte Kundennamen — anonymisierte Beispiele bekommen erfundene Firmennamen
   (z.B. "Elektro Nordstern GmbH", "Nordmetall Fertigung GmbH") und werden als typisches
   Szenario gerahmt, nie als verifizierbares reales Kundenergebnis.
 
-PFLICHT für jeden Hook:
-- Stoppt den Scroll innerhalb von 3 Sekunden
-- Ich-Perspektive ODER direkte Du-Ansprache
-- Kein vollständiger Satz — eher Fragment oder Frage"""
+PFLICHT für jeden Hook (Titel der Idee):
+- Klar formuliert, vollständiger Satz oder präzise Frage — kein Fragment, keine
+  künstliche Zuspitzung nur um Aufmerksamkeit zu erzwingen
+- Benennt seriös, worum es im Beitrag geht, wie eine gute Fachartikel-Überschrift
+- Ich-Perspektive ODER direkte Du-Ansprache ist möglich, aber kein Muss"""
 
     try:
         if get_settings().claude_engine == "cli":
@@ -1590,11 +1592,10 @@ POST-TYPEN (steht in der Spezifikation):
 - Typ B – Karussell/Dokument: Framework, Checkliste oder Schritt-für-Schritt mit 3–7 nummerierten Punkten
 - Typ C – Story-Post: anonymes Vorher/Nachher, konkrete Zahlen (Stunden, €, Prozent)
 
-CLAIM IT, SHOW IT, AIM IT — ausnahmslos in jedem Post:
-- Claim: eine klare Aussage. Keine Frage als These, kein "könnte sein", kein "korrigiert mich".
-- Show: eine eigene Zahl oder konkrete Beobachtung, kein nacherzähltes fremdes Framework.
-- Aim: an eine konkrete Person gerichtet (z.B. "Einkaufsleiter mit Ausschreibung ohne
-  Herstellerangabe"), nicht an "alle Unternehmen".
+Drei Dinge gelten ausnahmslos in jedem Post: eine klare, gut begründete Aussage statt einer
+Frage als These oder eines "könnte sein"; eine eigene Zahl oder konkrete Beobachtung statt
+eines nacherzählten fremden Frameworks; ein konkreter Leser vor Augen (z.B. "Einkaufsleiter
+mit Ausschreibung ohne Herstellerangabe"), nicht "alle Unternehmen".
 
 AUFBAU DES POST-TEXTES (in dieser Reihenfolge):
 1. Kurze Einleitung oder Frage, die das Problem umreißt
@@ -1607,28 +1608,37 @@ AUFBAU DES POST-TEXTES (in dieser Reihenfolge):
 7. 3–5 Hashtags
 
 FORMAT-REGELN (ausnahmslos):
-- Max. 15 Wörter pro Satz, Leerzeile nach jeder 2. Zeile
+- Klare, vollständige Sätze in normaler Länge — keine künstliche Wortbegrenzung pro Satz,
+  aber auch keine verschachtelten Schachtelsätze. Leerzeile nach jeder 2. Zeile.
 - 3–5 Hashtags am Ende, Mischung aus breit (#KI, #Mittelstand) und spezifisch
   (#Werkzeugbau, #Beschaffung, #Wissensmanagement, #Lohnfertigung, #Stückliste, #EUAIAct)
 - Nur die Ergebnis-Zeile wird mit **...** markiert, sonst keine Fett-Markierung
 - 0 Emojis, außer maximal 1 in der letzten Zeile (optional)
 - Links NIEMALS im Post-Text — nur als separater Kommentar
 
-TON: Deutsch, direkt, nüchtern-konkret. Aussagen werden getroffen, nicht zur Diskussion gestellt.
+TON: Deutsch, sachlich-professionell, informativ — wie ein fundierter Fachbeitrag, keine
+Verkaufsanzeige. Der Leser soll etwas Konkretes über sein Fachgebiet mitnehmen, nicht zum
+Klicken verleitet werden. Aussagen sind klar und gut begründet, aber nicht plakativ oder
+reißerisch zugespitzt. KI wird als Werkzeug im Hintergrund erwähnt, wenn es zur Sache gehört —
+nicht als zentrales Verkaufsversprechen in den Vordergrund gestellt. Im Mittelpunkt jedes
+Posts steht das fachliche Problem der Zielgruppe (Beschaffung, Wissensmanagement, Compliance),
+nicht die KI-Technologie selbst.
 
-VERBOTENE WÖRTER: innovativ, nachhaltig, ganzheitlich, Lösung, Transformation, revolutionieren, disruptiv, zukunftsfähig
-BEISPIELE: erfundene Beispiele sind erlaubt, wenn sie mitreißend sind — aber immer mit
-erfundenem Firmennamen (z.B. "Elektro Nordstern GmbH", "Nordmetall Fertigung GmbH"), niemals
-mit echtem Kundennamen, und immer als typisches Szenario gerahmt, nie als verifizierbares
-reales Kundenergebnis (sonst irreführende Werbung).
+VERBOTENE WÖRTER: innovativ, nachhaltig, ganzheitlich, Lösung, Transformation, revolutionieren,
+disruptiv, zukunftsfähig, Gamechanger, bahnbrechend, revolutionär
+BEISPIELE: erfundene Beispiele sind erlaubt, wenn sie glaubwürdig und konkret sind — aber
+immer mit erfundenem Firmennamen (z.B. "Elektro Nordstern GmbH", "Nordmetall Fertigung GmbH"),
+niemals mit echtem Kundennamen, und immer als typisches Szenario gerahmt, nie als
+verifizierbares reales Kundenergebnis (sonst irreführende Werbung).
 VERBOTEN: "In der heutigen Zeit", "Die KI wird", Statistik als allererster Satz,
 Engagement-Bait, generische Zustimmungsfragen ("Stimmt ihr zu?", "Wer kennt das?"),
-performte Bescheidenheit, Superlative ohne Beleg.
+performte Bescheidenheit, Superlative ohne Beleg, reißerische/marktschreierische Zuspitzung.
 
-ERSTE ZEILE (Hook):
-- Stoppt den Scroll in 3 Sekunden
-- Fragment oder kurze Frage, kein vollständiger Satz
-- Ich-Perspektive oder Du-Ansprache
+ERSTE ZEILE (Überschrift/Einstieg):
+- Vermittelt sofort und seriös, worum es im Beitrag geht — wie der Einstieg eines
+  Fachartikels, nicht wie eine Werbe-Anzeige
+- Vollständiger, klarer Satz oder eine präzise, echte Frage — kein reißerisches Fragment
+- Ich-Perspektive oder Du-Ansprache ist möglich, aber kein Muss
 
 Spezifikation für die Posts:
 {spec}
