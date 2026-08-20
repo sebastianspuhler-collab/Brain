@@ -102,7 +102,7 @@
     }
   },
   "Schaufler": {
-    "input_hash": "65196383a5d7c591",
+    "input_hash": "0806fc674463ea94",
     "ergebnis": {
       "status": "angebotsphase",
       "sicherheit": "mittel",
@@ -116,19 +116,17 @@
     }
   },
   "TPG": {
-    "input_hash": "8c5e70f6f37d6341",
+    "input_hash": "65196383a5d7c591",
     "ergebnis": {
       "status": "neuer_kontakt",
-      "sicherheit": "mittel",
-      "begruendung": "Laut 2026-07-15-Email-19f6689d-Abgelehnt-Bedarfsanalyse-TPG-X-Prozessia.md wurde der Termin zur Bedarfsanalyse von TPG (The Packaging Group GmbH) vorerst ausgesetzt, da das ERP-Team zunächst intern Ressourcen klären muss.",
-      "quellen": [
-        "2026-07-15-Email-19f6689d-Abgelehnt-Bedarfsanalyse-TPG-X-Prozessia.md"
-      ],
-      "warnsignal": "Termin zur Bedarfsanalyse wurde abgesagt und seither (über einen Monat) keine erneute Kontaktaufnahme von TPG erkennbar.",
+      "sicherheit": "hoch",
+      "begruendung": "Keine inhaltlichen Unterlagen vorhanden, Einschätzung rein aus Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
-      "anzeige_name": "The Packaging Group GmbH (TPG)",
-      "aktueller_stand": "Bedarfsanalyse-Termin wurde von TPG ausgesetzt; TPG will sich melden, sobald das ERP-Team Ressourcen für Prozessia hat - aktuell wartet Prozessia auf Rückmeldung."
+      "anzeige_name": "TPG",
+      "aktueller_stand": ""
     }
   },
   "Voigt_Salus": {
@@ -403,17 +401,19 @@
     }
   },
   "Juchem": {
-    "input_hash": "65196383a5d7c591",
+    "input_hash": "03007c2131111ff7",
     "ergebnis": {
       "status": "angebotsphase",
       "sicherheit": "mittel",
-      "begruendung": "Keine inhaltlichen Unterlagen vorhanden, Einschätzung rein aus Ordnerstruktur.",
-      "quellen": [],
-      "warnsignal": null,
+      "begruendung": "Laut 2026-08-20-Email-1a01e2e2-AW-Angeot-Beschaffungsagent.md hat Herr Maas bereits Kontakt gehabt, sucht aber noch nach einer Förderung und möchte den Termin auf Mitte nächster Woche verschieben.",
+      "quellen": [
+        "2026-08-20-Email-1a01e2e2-AW-Angeot-Beschaffungsagent.md"
+      ],
+      "warnsignal": "Termin wurde verschoben und Kunde sucht noch nach Förderung, was den Abschluss verzögern könnte.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
-      "anzeige_name": "Juchem",
-      "aktueller_stand": ""
+      "anzeige_name": "Juchem GmbH",
+      "aktueller_stand": "Kunde sucht noch eine Förderung und möchte den vorgeschlagenen Termin auf Mitte nächster Woche verschieben."
     }
   },
   "Schauenberg": {
@@ -526,19 +526,20 @@
     }
   },
   "TopDown": {
-    "input_hash": "2db6b19334dc2a0e",
+    "input_hash": "aedad73f015bfe00",
     "ergebnis": {
       "status": "angebotsphase",
       "sicherheit": "mittel",
-      "begruendung": "Laut 2026-08-14-Email-19fff7f1-Zugesagt-Angebotsdurchsprache-Prozessia.md wurde eine Angebotsdurchsprache zugesagt, konkreter Inhalt liegt jedoch nicht vor.",
+      "begruendung": "Die E-Mails 2026-08-11-Email-19fefdff-Zugesagt-Prozessia-X-TopDown.md und 2026-08-14-Email-19fff7f1-Zugesagt-Angebotsdurchsprache-Prozessia.md bestätigen eine zugesagte Angebotsdurchsprache, konkreter Inhalt fehlt jedoch.",
       "quellen": [
+        "2026-08-11-Email-19fefdff-Zugesagt-Prozessia-X-TopDown.md",
         "2026-08-14-Email-19fff7f1-Zugesagt-Angebotsdurchsprache-Prozessia.md"
       ],
       "warnsignal": null,
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "TopDown",
-      "aktueller_stand": "Angebotsdurchsprache zwischen Prozessia und TopDown ist für den 2026-09-08 um 13:00 Uhr terminiert."
+      "aktueller_stand": "Angebotsdurchsprache mit TopDown ist vereinbart und findet am 2026-09-08 statt."
     }
   },
   "Inductohead": {
@@ -558,20 +559,20 @@
     }
   },
   "East-Side-Fab-eV": {
-    "input_hash": "0cd6b9fd7fbe1088",
+    "input_hash": "2d619e141c4b8c4f",
     "ergebnis": {
       "status": "erstgespraech",
       "sicherheit": "mittel",
-      "begruendung": "Laut 2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md wurde ein erstes Kennenlernen per Teams vereinbart, und 2026-08-13-Email-19ffb2aa-Follow-up-Prozessia-x-ESF.md bestätigt, dass dieses Treffen stattgefunden hat und Lukas Sebastian mit weiteren Ansprechpartnern (Alex für de:hub, Flo für IT.CON) vernetzt.",
+      "begruendung": "Laut 2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md wurde ein erstes Kennenlernen per Teams vereinbart, und 2026-08-13-Email-19ffb2aa-Follow-up-Prozessia-x-ESF.md bestätigt, dass dieses Treffen stattgefunden hat und weitere Kontakte (Alex, Flo) für spezifische Themen vermittelt wurden.",
       "quellen": [
         "2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md",
         "2026-08-13-Email-19ffb2aa-Follow-up-Prozessia-x-ESF.md"
       ],
-      "warnsignal": null,
+      "warnsignal": "Kein bevorstehender Termin bekannt, obwohl neue Kontakte vermittelt wurden - Follow-up mit Alex oder Flo steht noch aus.",
       "ist_relevant": true,
       "relevanz_begruendung": "",
       "anzeige_name": "East Side Fab",
-      "aktueller_stand": "Erstes Kennenlernen fand statt, Sebastian wurde an zwei Ansprechpartner für konkrete Themen (de:hub, IT.CON) weiterverbunden, nächster Schritt liegt bei Sebastian bzw. den neuen Kontakten."
+      "aktueller_stand": "Erstes Kennenlerngespräch fand statt, Sebastian wurde mit Alex (de:hub) und Flo (IT.CON) vernetzt für weitere themenspezifische Gespräche."
     }
   },
   "Maas": {
@@ -602,6 +603,20 @@
       "relevanz_begruendung": "",
       "anzeige_name": "Inductoheat",
       "aktueller_stand": "Ein Erstgespräch mit einem neuen potenziellen Kunden wurde terminiert, weitere Details stehen noch aus."
+    }
+  },
+  "ZF-Friedrichshafen": {
+    "input_hash": "65196383a5d7c591",
+    "ergebnis": {
+      "status": "angebotsphase",
+      "sicherheit": "mittel",
+      "begruendung": "Keine inhaltlichen Unterlagen vorhanden, Einschätzung rein aus Ordnerstruktur.",
+      "quellen": [],
+      "warnsignal": null,
+      "ist_relevant": true,
+      "relevanz_begruendung": "",
+      "anzeige_name": "ZF-Friedrichshafen",
+      "aktueller_stand": ""
     }
   }
 }

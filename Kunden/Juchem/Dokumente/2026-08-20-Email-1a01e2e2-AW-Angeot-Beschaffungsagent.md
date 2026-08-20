@@ -1,0 +1,19 @@
+---
+type: email-korrespondenz
+kunde: Juchem
+von: Maas Thorsten <thorstenmaas@juchem.de>
+betreff: AW: Angeot Beschaffungsagent
+datum: 2026-08-20
+datum_email: Thu, 20 Aug 2026 07:58:53 +0000
+---
+
+# AW: Angeot Beschaffungsagent
+
+**Von:** Maas Thorsten <thorstenmaas@juchem.de>
+**Datum:** Thu, 20 Aug 2026 07:58:53 +0000
+
+## Zusammenfassung
+Guten Tag Herr Spuhler, Ja, ich hatte schon Kontakt, aber der Vorgeschlagene Termin passt bei mir nicht. Ich bin auch noch auf der Suche nach einer Förderung. Lassen Sie uns Mitte nächster Woche nochmal sprechen. Mit freundlichen Grüßen / Kind regards Thorsten Maas Managing Director [Bild] T: +49 (0) 6881/800280 M: +49 (0) 152 2888 9148 E: thorstenmaas@juchem.de W: www.juchem.de __________________________________________________ Juchem GmbH A member of the JUCHEM GROUP Juchem-Straße 1 66571 Eppelborn, Germany Gesetzliche Pflichtangaben Juchem GmbH Sitz der Gesellschaft: Eppelborn Registergeric…
+
+## Volltext
+Guten Tag Herr Spuhler, Ja, ich hatte schon Kontakt, aber der Vorgeschlagene Termin passt bei mir nicht. Ich bin auch noch auf der Suche nach einer Förderung. Lassen Sie uns Mitte nächster Woche nochmal sprechen. Mit freundlichen Grüßen / Kind regards Thorsten Maas Managing Director [Bild] T: +49 (0) 6881/800280 M: +49 (0) 152 2888 9148 E: thorstenmaas@juchem.de W: www.juchem.de __________________________________________________ Juchem GmbH A member of the JUCHEM GROUP Juchem-Straße 1 66571 Eppelborn, Germany Gesetzliche Pflichtangaben Juchem GmbH Sitz der Gesellschaft: Eppelborn Registergericht: Amtsgericht Saarbrücken HRB 43119 Geschäftsführer: Susanne Juchem, Thorsten Maas Our current General Terms and Conditions of Sale and Delivery and Terms and Conditions of Purchase apply. These can be found at: www.juchem.de/agb/ Required statutory information Juchem GmbH Registered office: Eppelborn. Registration court: Saarbrücken District Court HRB 43119 Managing Director: Susanne Juchem, Thorsten Maas Von: Sebastian Spuhler Datum: Freitag, 14. August 2026 um 09:31 An: Maas Thorsten Betreff: Re: Angeot Beschaffungsagent Guten Morgen Herr Maas, Konnten Sie bereits Rücksprache mit einem Ansprechpartner für das ERP-System halten? Falls es noch offene Fragen zu unserem Angebot gibt, lassen Sie es mich gerne wissen. Ansonsten wünsche ich Ihnen und Ihren Kollegen ein schönes Wochenende! Mit freundlichen Grüßen Sebastian Spuhler Geschäftsführer Prozessia Prozessia.de [https://ci3.googleusercontent.com/mail-sig/AIorK4z_X-NewHRf8IFqjaIOM-Ht18JP-CQTA7mWGDZ4abQ-ZUa1b0gcBkwJp47in3QNtxALbYSOW_Re7k8G] Am Di., 4. Aug. 2026 um 15:31 Uhr schrieb Sebastian Spuhler >: Sehr geehrter Herr Maas, Danke fürs Nachhaken. Grundsätzlich ist beim ersten KI-Projekt 50% des Aufwandes für die Einrichtung der Infrastruktur, der nötigen Sicherheits- und Berechtigungskonzepte, der Sprachmodelle und der nötigen Schnittstellen zum ERP, Microsoft etc. Wenn diese Strukturen und Verbindungen stehen, sind Agenten anderer Fachbereiche deutlich schneller zu implementieren. Das bedeutet für Sie konkret, dass bei einem Agenten mit gleichem Funktionsumfang wie der Beschaffungsagent ca. die Hälfte an Einrichtungsaufwand zu erwarten ist, da eine datenschutzkonforme Basis und die nötigen Schnittstellen mit internen Systemen bereits existieren. Mit freundlichen Grüßen Sebastian Spuhler Geschäftsführer Prozessia Prozessia.de [https://ci3.googleusercontent.com/mail-sig/AIorK4z_X-NewHRf8IFqjaIOM-Ht18JP-CQTA7mWGDZ4abQ-ZUa1b0gcBkwJp47in3QNtxALbYSOW_Re7k8G] Am Di., 4. Aug. 2026 um 14:32 Uhr schrieb Maas Thorsten >: Sehr geehrter Herr Spuhler, vielen Dank für Ihre ausführliche Rückmeldung und die transparenten Erläuterungen zu den technischen Grundlagen, den laufenden Kosten, der Skalierbarkeit sowie den Themen Dokumentation und Zukunftssicherheit. Ein Punkt ist für unsere Investitionsentscheidung noch besonders wichtig: Sie beschreiben, dass mit dem Beschaffungsagenten bereits die grundlegende Infrastruktur

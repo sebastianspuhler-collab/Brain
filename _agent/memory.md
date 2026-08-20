@@ -1,4 +1,7 @@
 ## KONTEXT
+- [2026-08-20 08:29] Dieses Dokument (AG0031) wurde am 04.08.2026 per Mail an Thorsten Maas versendet
+- [2026-08-19 21:46] [2026-08-19-_09.2025_Formenplanung_Nürnberg-Altgeschäft_02.10.2025 (003) (1).md] Produkt: 8HP-Großguss Getriebegehäuse, Standort Nürnberg-Altgeschäft; Getriebetypen: 8HP4.Gen, 8HP51
+- [2026-08-19 21:46] [2026-08-19-_09.2025_Formenplanung_Nürnberg-Altgeschäft_02.10.2025 (003) (1).md] Business Plan Basis Mai 2024: 3.003k Einheiten
 - [2026-08-19 21:41] [memory.md] Microsoft Teams-Besprechung Prozessia x ESF: Meeting-ID 327 145 469 180 864, Passcode 8bD9wt3v
 - [2026-08-19 21:40] [2026-08-11-Prozessia X TopDown.md] Gesprächsergebnis sehr positiv; Kunde fordert aktiv Angebot für interne Geschäftsführungs-Präsentation an
 - [2026-08-19 21:38] [2026-08-11-Email-19fefb5a-Prozessia-x-ESF.md] Microsoft Teams-Besprechung eingerichtet: Besprechungs-ID 327 145 469 180 864, Passcode 8bD9wt3v
@@ -337,6 +340,10 @@
 - [2026-08-11 17:34] [2026-06-09-Präsentation_ Datenschutz .md] Präsentation vom 2026-06-09 als Verkaufsunterstützung zur KI-Tool-Entscheidung für Voigt Salus
 
 ## KUNDE
+- [2026-08-20 08:32] Juchem GmbH, Firmensitz: Juchem-Straße 1, 66571 Eppelborn/Saarland, Teil der JUCHEM GROUP, Geschäftsführer: Susanne Juchem & Thorsten Maas.
+- [2026-08-20 08:24] Angebot AG0028 ging ca. am 03.-04.08.2026 an Juchem GmbH raus (nicht an Maas).
+- [2026-08-20 08:02] [memory.md] 8HP-Großguss Getriebegehäuse (Getriebetypen: 8HP4.Gen, 8HP51) am Standort Nürnberg-Altgeschäft
+- [2026-08-19 21:46] [2026-08-19-_09.2025_Formenplanung_Nürnberg-Altgeschäft_02.10.2025 (003) (1).md] Zielkunden: BMW, Audi, JLR, FCA
 - [2026-08-19 21:40] [2026-08-11-Prozessia X TopDown.md] Kontakt: Dominik Nussbaumer, IT-Projektmanager, dominik.nussbaumer@topdown-cf.com
 - [2026-08-19 14:57] [memory.md] TPG Packaging: jährliche Verarbeitung von ca. 17.000+ Auftragsbestätigungen (Automatisierungspotenzial)
 - [2026-08-19 14:55] [2026-08-19-Whitepaper-Wissensmanagement.md] Zielgruppe: Deutscher Mittelstand mit akutem Wissensverlust durch Renteneintritt (13,4 Mio. Erwerbstätige in 15 Jahren laut Statistisches Bundesamt)
@@ -780,6 +787,10 @@
 - [2026-06-26 12:49] [Sebastian, what's the next step? | warmu] Kontaktperson: Tanya G (tanya@onneract.com) vom Support-Team
 
 ## PROZESS
+- [2026-08-20 08:02] [2026-08-20-Email-1a01e2e2-AW-Angeot-Beschaffungsagent.md] Kontakt zu Maas wurde bereits hergestellt; Follow-up-Gespräch geplant
+- [2026-08-20 08:02] [2026-08-20-Email-1a01e2e2-AW-Angeot-Beschaffungsagent.md] Vorgeschlagener Termin passt Maas nicht; Neuer Termin: Mitte der Woche 2026-08-25 (nächste Woche)
+- [2026-08-20 08:01] [AW: Angeot Beschaffungsagent] Nächstes Gespräch vereinbart für Mitte nächster Woche (circa 26.08.2026)
+- [2026-08-19 21:46] [2026-08-19-_09.2025_Formenplanung_Nürnberg-Altgeschäft_02.10.2025 (003) (1).md] 2025 Stückzahlen 8HP-Großguss: 2.776k Einheiten (auf 244 Arbeitstage)
 - [2026-08-19 21:39] [2026-08-19-Email-1a01a5db-Lastenheft_Automatische_AB_Verarbeitung_.md] Projekt: Automatische AB-Verarbeitung (Automatische Abweichungsbearbeitung) für proALPHA ERP-System
 - [2026-08-19 19:49] [20260819-1a01b8d7-One-week-left-to-register-for-ApolloNext.md] Preisstaffelung: $99 (aktuell bis 26.08.), dann $199 nach Deadline
 - [2026-08-19 19:49] [20260819-1a01b8d7-One-week-left-to-register-for-ApolloNext.md] Anmeldungs-Deadline für $99 Ticketpreis: 26. August 2026 (eine Woche ab E-Mail-Datum)
@@ -1279,6 +1290,8 @@
 - [2026-07-01 14:21] [2026-06-30-AW-Potenzialanalyse-2.md] Cyril Dietz (ENDIN GmbH, Geschäftsführer) - Tel: +49(0)7934/99544-102, cyril.dietz@endin-email.eu
 
 ## KORREKTUR
+- [2026-08-20 08:32] Für Kunde Juchem gilt AG0031 mit 32.000,00 € netto / 38.080,00 € brutto als verbindlicher Angebotspreis, nicht die 25.000 € aus AG0028 (da AG0031 per E-Mail verschickt wurde).
+- [2026-08-19 21:46] [2026-08-19-_09.2025_Formenplanung_Nürnberg-Altgeschäft_02.10.2025 (003) (1).md] Abweichung: -227k (-7,56% unter Business Plan)
 - [2026-08-19 20:55] [Get 120k+ for Grandmas Chiropractic Serv] Unsolicited Marketing-Mail (Spam) von Lyft Capital mit verdächtiger URL - keine Geschäftsrelevanz
 - [2026-08-19 20:55] [Get 120k+ for Grandmas Chiropractic Serv] E-Mail ist falsch adressiert (Empfänger: Bob, Unternehmen: Catalyst Gifts Trading Co.) und nicht für Sebastian Spuhler/Prozessia GbR bestimmt
 - [2026-08-19 04:27] [memory.md] Angebotsgültigkeit AG0029 widersprochen: 14.09.2026 und 15.09.2026 erwähnt – Klärung erforderlich
