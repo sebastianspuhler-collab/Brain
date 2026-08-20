@@ -121,11 +121,14 @@ TOOLS = [
     {
         "name": "vault_delete",
         "description": (
-            "Löscht eine Datei oder einen Ordner (rekursiv) im Vault, endgültig. "
-            "Vor allem für automatisch angelegte Inhalte, die sich als falsch "
-            "erweisen (z.B. ein fälschlich erkannter Kalender-Lead in Leads/). "
-            "Bei Ordnern oder mehrdeutigen Anfragen vorher kurz den genauen Pfad "
-            "bestätigen lassen, bei eindeutigen Einzeldateien direkt ausführen."
+            "Verschiebt eine Datei oder einen Ordner (rekursiv) im Vault nach "
+            "_agent/trash/ (Papierkorb, wiederherstellbar - kein endgültiger "
+            "Verlust). Nur nutzen wenn Sebastian das für einen KONKRETEN Pfad "
+            "explizit verlangt (z.B. 'lösch die Datei X', 'die Präsentation Y "
+            "brauche ich nicht mehr') - niemals proaktiv oder spekulativ. Bei "
+            "Ordnern oder mehrdeutigen Anfragen (welche Datei genau gemeint ist "
+            "nicht eindeutig) vorher kurz den genauen Pfad bestätigen lassen, bei "
+            "eindeutig benannten Einzeldateien direkt ausführen."
         ),
         "input_schema": {
             "type": "object",

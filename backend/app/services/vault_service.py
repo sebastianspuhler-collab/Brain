@@ -3,6 +3,7 @@ brain_server.py (vault_list, vault_create_folder, vault_move, vault_rename).
 Path-Traversal-Guards 1:1 übernommen, da Pfade von der LLM-Tool-Eingabe kommen."""
 import shutil
 import threading
+from datetime import datetime
 
 from app.config import get_settings
 from app.services import rag
@@ -71,23 +72,50 @@ def vault_move(source: str, destination: str) -> dict:
 
 
 def vault_delete(path: str) -> dict:
-    """Löscht eine Datei oder einen Ordner (rekursiv) im Vault. Vor allem für
-    automatisch angelegte Inhalte gedacht, die sich als falsch/unnötig
-    herausstellen (z.B. ein fälschlich erkannter Kalender-Lead) - Sebastian
-    muss solche Fälle selbständig korrigieren können, ohne dass jemand anders
-    manuell im Dateisystem eingreifen muss."""
+    """Verschiebt eine Datei oder einen Ordner (rekursiv) im Vault nach
+    _agent/trash/ - Soft-Delete statt endgültigem Löschen (Sebastian,
+    2026-08-20: eine Löschfunktion für Chat UND Datei-Browser, aber explizit
+    mit Papierkorb statt permanentem Verlust - passt zur bestehenden
+    Vault-Regel "Dateien niemals löschen ohne explizite Bestätigung" und zum
+    schon etablierten Muster im System, Fragliches zu verschieben statt zu
+    löschen (siehe Dedup-/Trivial-Bild-Handling in classify.py). Vorher tat
+    diese Funktion einen echten shutil.rmtree()/unlink() - korrigiert, weil
+    das trotz der CLAUDE.md-Regel ohne jeden Code-seitigen Schutz lief.
+
+    Zielpfad unter trash/ spiegelt den ursprünglichen relativen Pfad (nicht
+    nur den Dateinamen), damit bei einer Wiederherstellung klar ist, wohin
+    die Datei gehörte, und damit gleichnamige Dateien aus verschiedenen
+    Ordnern nicht kollidieren. Bei Kollision (z.B. zweimal derselbe Pfad
+    gelöscht) wird durchnummeriert."""
     settings = get_settings()
     target = (settings.vault_path / path.strip()).resolve()
     if not _within_vault(target):
         return {"ok": False, "error": "Pfad ausserhalb des Vault"}
     if not target.exists():
         return {"ok": False, "error": f"Nicht gefunden: {path}"}
+
+    trash_root = settings.vault_path / "_agent" / "trash"
+    rel = target.relative_to(settings.vault_path)
+    trash_target = trash_root / rel
+    if trash_target.exists():
+        stamp = datetime.now().strftime("%Y%m%d%H%M%S")
+        trash_target = trash_root / rel.parent / f"{rel.stem}-{stamp}{rel.suffix}"
+
     try:
-        if target.is_dir():
-            shutil.rmtree(target)
-        else:
-            target.unlink()
-        return {"ok": True, "deleted": path}
+        trash_target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.move(str(target), str(trash_target))
+        # Alte(r) Pfad(e) aus dem RAG-Index raus - zeigen sonst auf eine Datei,
+        # die dort nicht mehr liegt. Bei einem Ordner betrifft das alle
+        # enthaltenen .md-Dateien, nicht nur den Ordnerpfad selbst.
+        if rag.is_loaded():
+            stale_paths = {str(rel).replace("\\", "/")}
+            if trash_target.is_dir():
+                stale_paths = {
+                    str((rel / p.relative_to(trash_target)).as_posix())
+                    for p in trash_target.rglob("*.md")
+                }
+            threading.Thread(target=rag.remove_paths, args=(stale_paths,), daemon=True).start()
+        return {"ok": True, "deleted": path, "trash_path": str(trash_target.relative_to(settings.vault_path))}
     except Exception as e:
         return {"ok": False, "error": str(e)}
 

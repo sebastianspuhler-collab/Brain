@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { ChevronDown, ChevronRight, File, Folder, Upload } from "lucide-react";
+import { ChevronDown, ChevronRight, File, Folder, Trash2, Upload } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { ApiError, api } from "@/api/client";
@@ -44,6 +44,8 @@ function FolderTree({
   onToggle,
   uploadingPath,
   onUploadToFolder,
+  deletingPath,
+  onDelete,
 }: {
   node: TreeNode;
   depth: number;
@@ -51,20 +53,36 @@ function FolderTree({
   onToggle: (path: string) => void;
   uploadingPath: string | null;
   onUploadToFolder: (path: string, file: File) => void;
+  deletingPath: string | null;
+  onDelete: (path: string, name: string) => void;
 }) {
   if (node.type === "file") {
+    const isDeleting = deletingPath === node.path;
     return (
-      <a
-        href={`${API_BASE}${node.url}`}
-        target="_blank"
-        rel="noreferrer"
-        className="flex items-center gap-2 rounded-lg px-2 py-1 text-sm hover:bg-muted hover:underline"
+      <div
+        className="group flex items-center gap-2 rounded-lg px-2 py-1 text-sm hover:bg-muted"
         style={{ paddingLeft: `${depth * 1.25 + 0.5}rem` }}
       >
-        <File className="size-3.5 shrink-0 text-muted-foreground" />
-        <span className="flex-1 truncate">{node.name}</span>
+        <a
+          href={`${API_BASE}${node.url}`}
+          target="_blank"
+          rel="noreferrer"
+          className="flex flex-1 items-center gap-2 truncate hover:underline"
+        >
+          <File className="size-3.5 shrink-0 text-muted-foreground" />
+          <span className="flex-1 truncate">{node.name}</span>
+        </a>
         <span className="shrink-0 text-xs text-muted-foreground">{formatSize(node.size ?? 0)}</span>
-      </a>
+        <button
+          type="button"
+          title="In den Papierkorb verschieben (_agent/trash/, wiederherstellbar)"
+          disabled={isDeleting}
+          className="shrink-0 rounded p-1 text-muted-foreground opacity-0 hover:bg-background hover:text-destructive group-hover:opacity-100 disabled:opacity-50"
+          onClick={() => onDelete(node.path, node.name)}
+        >
+          <Trash2 className={`size-3.5 ${isDeleting ? "animate-pulse" : ""}`} />
+        </button>
+      </div>
     );
   }
 
@@ -121,6 +139,8 @@ function FolderTree({
               onToggle={onToggle}
               uploadingPath={uploadingPath}
               onUploadToFolder={onUploadToFolder}
+              deletingPath={deletingPath}
+              onDelete={onDelete}
             />
           ))}
         </div>
@@ -142,6 +162,7 @@ export function FilesPage() {
   const [filter, setFilter] = useState("");
   const [uploading, setUploading] = useState(false);
   const [uploadingPath, setUploadingPath] = useState<string | null>(null);
+  const [deletingPath, setDeletingPath] = useState<string | null>(null);
   const [overridden, setOverridden] = useState<Set<string>>(new Set());
 
   const processInbox = useMutation({
@@ -193,6 +214,28 @@ export function FilesPage() {
       }
     } finally {
       setUploadingPath(null);
+    }
+  }
+
+  // Soft-Delete (Sebastian, 2026-08-20): verschiebt nach _agent/trash/ statt
+  // endgültig zu löschen, siehe vault_service.vault_delete(). Bestätigung per
+  // window.confirm() - im übrigen Frontend gibt es noch keinen Dialog-Baustein
+  // dafür, bei einer Einzelnutzer-App reicht das native Browser-Prompt.
+  async function handleDelete(path: string, name: string) {
+    if (!window.confirm(`"${name}" in den Papierkorb verschieben (_agent/trash/, wiederherstellbar)?`)) {
+      return;
+    }
+    setDeletingPath(path);
+    try {
+      const encodedPath = path.split("/").map(encodeURIComponent).join("/");
+      await api.del(`/api/files/${encodedPath}`);
+      await queryClient.invalidateQueries({ queryKey: ["files"] });
+      await queryClient.invalidateQueries({ queryKey: ["files-tree"] });
+      toast.success(`${name} in den Papierkorb verschoben`);
+    } catch {
+      toast.error("Löschen fehlgeschlagen");
+    } finally {
+      setDeletingPath(null);
     }
   }
 
@@ -250,6 +293,7 @@ export function FilesPage() {
                 <TableRow>
                   <TableHead>Pfad</TableHead>
                   <TableHead className="w-24">Größe</TableHead>
+                  <TableHead className="w-10" />
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -261,6 +305,17 @@ export function FilesPage() {
                       </a>
                     </TableCell>
                     <TableCell className="text-muted-foreground">{formatSize(f.size)}</TableCell>
+                    <TableCell>
+                      <button
+                        type="button"
+                        title="In den Papierkorb verschieben (_agent/trash/, wiederherstellbar)"
+                        disabled={deletingPath === f.path}
+                        className="rounded p-1 text-muted-foreground hover:bg-muted hover:text-destructive disabled:opacity-50"
+                        onClick={() => handleDelete(f.path, f.name)}
+                      >
+                        <Trash2 className={`size-3.5 ${deletingPath === f.path ? "animate-pulse" : ""}`} />
+                      </button>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -283,6 +338,8 @@ export function FilesPage() {
                 onToggle={toggle}
                 uploadingPath={uploadingPath}
                 onUploadToFolder={handleUploadToFolder}
+                deletingPath={deletingPath}
+                onDelete={handleDelete}
               />
             ))}
           </div>

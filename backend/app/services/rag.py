@@ -93,6 +93,10 @@ SKIP_PATH_PREFIXES = (
     "_agent/chat_sessions/",
     "_agent/inbox_altlast_",
     "_agent/templates/",
+    # Papierkorb (vault_service.vault_delete, 2026-08-20) - gelöschte Inhalte
+    # sollen nicht mehr durchsuchbar sein, auch wenn sie technisch noch
+    # (wiederherstellbar) im Vault liegen.
+    "_agent/trash/",
 )
 
 

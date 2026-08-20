@@ -12,7 +12,7 @@ from xhtml2pdf import pisa
 
 from app.config import get_settings
 from app.deps import get_current_user
-from app.services import rag
+from app.services import rag, vault_service
 
 router = APIRouter(prefix="/api", tags=["files"])
 
@@ -196,6 +196,23 @@ def list_meetings(user: str = Depends(get_current_user)):
         })
     meetings.sort(key=lambda m: m["datum"], reverse=True)
     return {"meetings": meetings}
+
+
+@router.delete("/files/{rel_path:path}")
+def delete_file(rel_path: str, user: str = Depends(get_current_user)):
+    """Manuelles Löschen im Datei-Browser (Sebastian, 2026-08-20) - Gegenpart
+    zum vault_delete-Chat-Tool, dieselbe Soft-Delete-Logik (Papierkorb unter
+    _agent/trash/, siehe vault_service.vault_delete)."""
+    settings = get_settings()
+    target = (settings.vault_path / rel_path).resolve()
+    if not str(target).startswith(str(settings.vault_path.resolve())):
+        raise HTTPException(status_code=403, detail="forbidden")
+    if not target.exists() or not target.is_file():
+        raise HTTPException(status_code=404, detail="not found")
+    result = vault_service.vault_delete(rel_path)
+    if not result.get("ok"):
+        raise HTTPException(status_code=500, detail=result.get("error", "Löschen fehlgeschlagen"))
+    return result
 
 
 @router.get("/files/download/{rel_path:path}")
