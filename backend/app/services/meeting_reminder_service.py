@@ -1,9 +1,15 @@
 """Automatische Termin-Erinnerungsmails (Sebastian, 2026-08-16): vorher schickte
 er Erinnerungen an externe Meeting-Teilnehmer immer von Hand, kurz vorher oder
-morgens ("kurze Erinnerung an unseren Termin..."). Legt jetzt automatisch einen
-Gmail-Entwurf an, sobald ein Kalendertermin mit externen Teilnehmern in
-REMINDER_LEAD_MINUTES bevorsteht - Sebastian prüft/schickt den Entwurf selbst,
-es wird NICHTS automatisch versendet (2026-08-16 explizit so entschieden).
+morgens ("kurze Erinnerung an unseren Termin..."). Legt automatisch eine
+Erinnerung an, sobald ein Kalendertermin mit externen Teilnehmern in
+REMINDER_LEAD_MINUTES bevorsteht.
+
+Versand (Sebastian, 2026-08-25 - Änderung der ursprünglichen 2026-08-16-
+Entscheidung "nur Entwurf, kein Auto-Versand"): sind ALLE externen
+Teilnehmer zuverlässig namentlich bekannt (kein generischer info@-Fall),
+wird die Mail automatisch versendet. Bleibt mindestens ein Teilnehmer ohne
+erkannten Namen (Anrede würde namenlos "Guten Tag," lauten), wird weiterhin
+nur ein Entwurf angelegt, damit Sebastian kurz drüberschaut.
 
 Anrede/Nachname wird NICHT vom LLM erfunden - das muss laut Sebastian
 zuverlässig stimmen. Reihenfolge: 1) bereits bekannter Kontakt im Vault
@@ -217,8 +223,10 @@ Antworte NUR als JSON: {{"subject": "...", "body": "..."}}"""
 
 def scan_and_draft_reminders() -> list[str]:
     """Prüft den Kalender auf Termine mit externen Teilnehmern innerhalb von
-    REMINDER_LEAD_MINUTES und legt dafür je einen Gmail-Entwurf an. Gibt die
-    Betreffzeilen der neu angelegten Entwürfe zurück (fürs Logging)."""
+    REMINDER_LEAD_MINUTES. Sind alle Teilnehmer namentlich bekannt, wird die
+    Erinnerung direkt versendet; sonst nur als Gmail-Entwurf angelegt. Gibt
+    die (mit "[gesendet]"/"[Entwurf]" markierten) Betreffzeilen zurück
+    (fürs Logging)."""
     if not gmail_client.is_authenticated() or not outlook_client.is_authenticated():
         return []
     cache = _load_cache()
@@ -250,8 +258,13 @@ def scan_and_draft_reminders() -> list[str]:
             contacts = [resolve_contact_name(a["address"], a["name"]) for a in externals]
             mail = _generate_email(event, contacts, round(minutes_until), start)
             to_addr = ", ".join(a["address"] for a in externals)
-            gmail_client.create_draft(to_addr, mail["subject"], mail["body"])
-            created.append(mail["subject"])
+            all_known = all(n.lower() not in _GENERIC_LOCAL_PARTS for _, n in contacts)
+            if all_known:
+                gmail_client.send_email(to_addr, mail["subject"], mail["body"])
+                created.append(f"[gesendet] {mail['subject']}")
+            else:
+                gmail_client.create_draft(to_addr, mail["subject"], mail["body"])
+                created.append(f"[Entwurf] {mail['subject']}")
         except Exception:
             continue  # nicht in den Cache aufnehmen -> nächster Poll versucht es erneut
         else:

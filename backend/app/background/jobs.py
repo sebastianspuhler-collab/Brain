@@ -136,15 +136,15 @@ async def calendar_lead_loop() -> None:
 
 
 async def meeting_reminder_loop() -> None:
-    """Legt automatisch einen Gmail-Entwurf an, wenn ein Kalendertermin mit
-    externen Teilnehmern kurz bevorsteht (Sebastian, 2026-08-16) - bewusst nur
-    ein Entwurf, kein Auto-Versand, siehe meeting_reminder_service.py."""
+    """Erinnert automatisch, wenn ein Kalendertermin mit externen Teilnehmern
+    kurz bevorsteht (Sebastian, 2026-08-16, Auto-Versand seit 2026-08-25 bei
+    zuverlässig bekanntem Namen) - siehe meeting_reminder_service.py."""
     await asyncio.sleep(90)
     while True:
         try:
             created = await asyncio.to_thread(meeting_reminder_service.scan_and_draft_reminders)
             if created:
-                logger.info("Termin-Erinnerung(en) als Entwurf angelegt: %s", ", ".join(created))
+                logger.info("Termin-Erinnerung(en) verarbeitet: %s", ", ".join(created))
         except Exception:
             logger.exception("Termin-Erinnerung-Scan Fehler")
         await asyncio.sleep(REMINDER_POLL_SECONDS)
