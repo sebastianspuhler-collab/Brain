@@ -226,10 +226,19 @@ def scan_and_draft_reminders() -> list[str]:
     created = []
     for event in outlook_client.get_calendar_events(days=1):
         event_id = event.get("id")
-        if not event_id or event_id in cache or event.get("isAllDay"):
+        if not event_id or event.get("isAllDay"):
             continue
         start = _event_start(event)
         if not start:
+            continue
+        # Cache-Key enthaelt die Startzeit, nicht nur die Event-ID: Sebastian
+        # verschiebt Termine oft, Outlook behaelt dabei aber dieselbe Event-ID
+        # bei - ohne die Startzeit im Key wuerde eine bereits einmal erinnerte
+        # Verschiebung fuer immer stumm uebersprungen (Live-Bug, 2026-08-25:
+        # Zillmer-Termin nach mehrfacher Verschiebung nie neu erinnert, weil
+        # die Event-ID vom initialen Testlauf noch im Cache stand).
+        cache_key = f"{event_id}|{start.isoformat()}"
+        if cache_key in cache:
             continue
         minutes_until = (start - now).total_seconds() / 60
         if not (0 <= minutes_until <= REMINDER_LEAD_MINUTES):
@@ -246,7 +255,7 @@ def scan_and_draft_reminders() -> list[str]:
         except Exception:
             continue  # nicht in den Cache aufnehmen -> nächster Poll versucht es erneut
         else:
-            cache.add(event_id)
+            cache.add(cache_key)
     if created:
         _save_cache(cache)
     return created
