@@ -136,8 +136,6 @@ services:
       - ${VAULT_PATH}:/vault
     restart: unless-stopped
     init: true
-    mem_limit: 2g
-    pids_limit: 500
     networks:
       - lead-agent-bridge
       - traefik_web
