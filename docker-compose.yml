@@ -31,6 +31,10 @@ services:
       # außer dev-agent selbst), und die Sandbox bekommt dadurch weiterhin
       # keinen Zugriff auf backend's eigenes default-Netzwerk/Volumes.
       - dev-agent-bridge
+      # Gleiches Prinzip für den Lead-Agenten (Umsetzungsplan 2026-09-04,
+      # /api/lead-agent/* in app/routers/lead_agent_proxy.py) - eigene
+      # schmale Brücke, kein gemeinsames Netzwerk mit dev-agent-bridge.
+      - lead-agent-bridge
 
   # LinkedIn-Karussell: generiert nur die Slide-Texte via Claude (Bilder/PDF/
   # Cloudinary-Upload/Buffer-Push laufen im backend-Service). Rein intern,
@@ -107,10 +111,60 @@ services:
           cpus: "1.5"
           memory: 2g
 
+  # Lead-Agent (Umsetzungsplan 2026-09-04): isolierter Container nach exaktem
+  # Vorbild von dev-agent oben (eigenes schmales Netzwerk zum Backend, kein
+  # Docker-Socket, kein --privileged) - mit EINER bewussten Abweichung: der
+  # Lead-Agent braucht Lese-/Schreibzugriff auf Leads/*.md im Vault (siehe
+  # lead-agent/vault_leads.py), bekommt deshalb denselben ${VAULT_PATH}-Mount
+  # wie backend (read-write), NICHT das vault-fremde /workspace-Volume von
+  # dev-agent.
+  #
+  # Zwei Netzwerke, zwei unterschiedliche Zwecke:
+  #   - lead-agent-bridge: Chat/Health nur fürs Backend erreichbar (Proxy mit
+  #     Cookie-Auth, siehe backend/app/routers/lead_agent_proxy.py) - wie bei
+  #     dev-agent.
+  #   - traefik_web: NUR für den öffentlichen Close-Webhook nötig (Close hat
+  #     keine Cookie-Session, kann also nicht durch den Backend-Proxy gehen -
+  #     siehe lead-agent/webhooks.py). Der Traefik-Router unten matcht
+  #     bewusst NUR PathPrefix `/lead-agent/webhook`, nicht den ganzen Host -
+  #     alles andere auf brain.prozessia.space geht weiterhin an den
+  #     `web`-Router.
+  lead-agent:
+    build: ./lead-agent
+    env_file: ./lead-agent/.env
+    volumes:
+      - ${VAULT_PATH}:/vault
+    restart: unless-stopped
+    init: true
+    mem_limit: 2g
+    pids_limit: 500
+    networks:
+      - lead-agent-bridge
+      - traefik_web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik_web"
+      - "traefik.http.routers.lead-agent-webhook.rule=Host(`${DOMAIN}`) && PathPrefix(`/lead-agent/webhook`)"
+      # Explizite Priorität statt uns auf Traefiks implizite
+      # Regel-Längen-Heuristik zu verlassen (der bestehende `brain`-Router
+      # matcht nur auf Host(`${DOMAIN}`), wäre also ohnehin kürzer/niedriger
+      # priorisiert - aber ein Auth-relevanter Routing-Fehler hier wäre
+      # unangenehm genug, um das nicht implizit zu lassen).
+      - "traefik.http.routers.lead-agent-webhook.priority=100"
+      - "traefik.http.routers.lead-agent-webhook.entrypoints=websecure"
+      - "traefik.http.routers.lead-agent-webhook.tls.certresolver=letsencrypt"
+      - "traefik.http.services.lead-agent-webhook.loadbalancer.server.port=8000"
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 1g
+
 networks:
   traefik_web:
     external: true
   dev-agent-bridge: {}
+  lead-agent-bridge: {}
 
 volumes:
   dev-agent-workspace: {}

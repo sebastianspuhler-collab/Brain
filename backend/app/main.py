@@ -17,7 +17,7 @@ from app.background.jobs import (
     vault_reorganize_loop,
 )
 from app.config import get_settings
-from app.routers import auth, chat, dashboard, files, inbox, linkedin, onboarding, youtube
+from app.routers import auth, chat, dashboard, files, inbox, lead_agent_proxy, linkedin, onboarding, youtube
 from app.routers.auth import limiter
 from app.services import claude_cli_pool
 from app.services.claude_cli import ensure_mcp_approval
@@ -73,6 +73,7 @@ def create_app() -> FastAPI:
     app.include_router(youtube.router)
     app.include_router(inbox.router)
     app.include_router(onboarding.router)
+    app.include_router(lead_agent_proxy.router)
 
     return app
 
