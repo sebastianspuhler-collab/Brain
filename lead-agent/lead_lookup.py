@@ -11,8 +11,14 @@ vorbehalten (--tools/--allowedTools in claude_agent.py). enrich_lead kann
 also nicht selbst recherchieren, sondern nur: (1) den Lead auflösen, (2)
 zeigen was bereits bekannt ist und welche Kernfelder fehlen. Der Agent
 recherchiert die Lücken danach SELBST per WebSearch und schreibt das Ergebnis
-über save_lead_enrichment zurück - siehe SYSTEM_PROMPT in claude_agent.py."""
+über save_lead_enrichment zurück - siehe SYSTEM_PROMPT in claude_agent.py.
+
+Seit 2026-09-06 löst resolve() zusätzlich Kunden/-Ordner auf (siehe
+vault_kunden.py) - genutzt von find_similar_leads_context, damit auch ein
+bestehender Kunde (nicht nur ein frischer Lead) als Rechercheausgangspunkt
+dienen kann ("finde mehr wie F-Tronic")."""
 import close_client
+import vault_kunden
 import vault_leads
 from close_client import CloseAPIError
 
@@ -26,9 +32,12 @@ def resolve(identifier: str) -> dict:
     """identifier: eine close_lead_id (beginnt mit 'lead_', Close-Konvention)
     ODER ein Firmenname/Dateiname-Stichwort (wie überall sonst im
     Lead-Agenten, siehe vault_leads.find_lead). Gibt immer
-    {"vault": dict|None, "close": dict|None, "close_lead_id": str|None}
-    zurück - beide None heißt: nichts gefunden."""
+    {"vault": dict|None, "kunde": dict|None, "close": dict|None,
+    "close_lead_id": str|None} zurück - "vault" ist ein frischer Lead
+    (Leads/*.md), "kunde" ein etablierter Kunden/-Ordner (siehe
+    vault_kunden.py) - beide können None sein, wenn nichts gefunden wurde."""
     vault_lead = None
+    kunde = None
     close_lead = None
     close_lead_id = None
 
@@ -39,16 +48,20 @@ def resolve(identifier: str) -> dict:
         vault_lead = vault_leads.find_lead(identifier)
         if vault_lead:
             close_lead_id = (vault_lead["fields"].get("close_lead_id") or "").strip() or None
+        if not close_lead_id:
+            kunde = vault_kunden.find_kunde(identifier)
+            if kunde and kunde["close_lead_id"]:
+                close_lead_id = kunde["close_lead_id"]
 
     if close_lead_id:
         try:
             close_lead = close_client.get_lead(close_lead_id)
         except CloseAPIError:
             close_lead = None
-    elif not vault_lead:
-        # Weder Vault-Treffer noch bekannte close_lead_id -> letzter Versuch:
-        # direkt in Close nach dem Namen suchen (deckt Leads ab, die nur in
-        # Close existieren, siehe close_search_leads-Tool).
+    elif not vault_lead and not kunde:
+        # Weder Vault-Lead noch Kundenordner noch bekannte close_lead_id ->
+        # letzter Versuch: direkt in Close nach dem Namen suchen (deckt
+        # Firmen ab, die nur in Close existieren, siehe close_search_leads).
         try:
             candidates = close_client.search_leads(identifier, limit=1)
         except CloseAPIError:
@@ -57,7 +70,7 @@ def resolve(identifier: str) -> dict:
             close_lead = candidates[0]
             close_lead_id = close_lead.get("id")
 
-    return {"vault": vault_lead, "close": close_lead, "close_lead_id": close_lead_id}
+    return {"vault": vault_lead, "kunde": kunde, "close": close_lead, "close_lead_id": close_lead_id}
 
 
 def missing_core_fields(resolved: dict) -> list[str]:

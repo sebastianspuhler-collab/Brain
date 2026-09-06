@@ -165,10 +165,17 @@ def get_combined_leads(filter: dict | None = None) -> list[dict]:
       freitext: str - Volltextsuche über Vault-Body UND Close-Quicksearch
       custom_fields: dict[str, str] - zusätzliche Close-Custom-Field-Filter
       quelle: "vault" | "close" | "beide" - Ergebnis auf eine Quelle einschränken
-      limit: int - Obergrenze für Close-Suche und Gesamtergebnis (Default 100)
+      limit: int - Obergrenze für Close-Suche und Gesamtergebnis. Default
+        5000 statt einer kleinen Zahl wie 100 (Bugfix 2026-09-06): das war
+        vorher zusätzlich zur eigentlichen Pagination-Lücke in
+        close_client.search_leads() eine zweite, künstliche Deckelung - ein
+        ungefilterter Aufruf ("zeig mir alle Leads") lieferte dadurch selbst
+        NACH einem reinen Pagination-Fix am Client immer noch nur 100 statt
+        aller. 5000 ist als praktische "de facto unbegrenzt"-Grenze für ein
+        Unternehmen dieser Größe gedacht, kein hartes Limit.
     """
     filter = filter or {}
-    limit = int(filter.get("limit") or 100)
+    limit = int(filter.get("limit") or 5000)
 
     vault_matches = [lead for lead in vault_leads.list_leads() if _vault_matches(lead, filter)]
 

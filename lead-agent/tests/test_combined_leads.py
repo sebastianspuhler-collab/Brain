@@ -162,6 +162,29 @@ def test_letzter_kontakt_vor_tagen_keeps_lead_with_old_activity(tmp_path, monkey
     assert results[0]["letzter_kontakt"] == "2020-01-01"
 
 
+def test_get_combined_leads_returns_all_close_only_leads_beyond_old_100_cap(tmp_path, monkeypatch):
+    """Regressionstest für den Pagination-Bugfix 2026-09-06: vorher wurde ein
+    ungefilterter Aufruf durch zwei überlagerte Ursachen stillschweigend auf
+    100 Treffer gedeckelt - close_client.search_leads() hat nur eine
+    Close-Seite abgerufen UND combined_leads hatte selbst einen limit=100-
+    Default. Hier direkt auf combined_leads-Ebene simuliert (close_client.
+    search_leads liefert bereits "alles", wie es nach dem Client-seitigen
+    Fix der Fall ist) - prüft NUR die zweite Ursache: den kombinierten
+    Default-Limit-Cutoff."""
+    monkeypatch.setattr(vault_leads, "get_settings", lambda: FakeSettings(tmp_path))
+    monkeypatch.setattr(
+        close_client, "search_leads",
+        lambda query, limit=5000: [
+            {"id": f"lead_{i}", "display_name": f"Close-Firma {i}", "contacts": []}
+            for i in range(300)
+        ],
+    )
+
+    results = svc.get_combined_leads()
+
+    assert len(results) == 300
+
+
 def test_letzter_kontakt_vor_tagen_drops_lead_with_recent_activity(tmp_path, monkeypatch):
     from datetime import datetime, timedelta
 

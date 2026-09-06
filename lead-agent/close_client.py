@@ -18,6 +18,48 @@ from config import get_settings
 _MAX_RETRIES = 3
 _RETRY_STATUS = {429, 500, 502, 503, 504}
 
+# Close-Pagination (developer.close.com/topics/pagination/, live abgeglichen
+# 2026-09-06): Offset-basiert über die Query-Parameter _skip/_limit, JEDE
+# List-Response trägt "has_more" (bool). KEIN Cursor. Bugfix 2026-09-06:
+# search_leads()/list_opportunities()/list_lead_custom_fields()/
+# list_activities() haben bisher genau EINE Seite abgerufen und has_more nie
+# geprüft - bei mehr Treffern als eine Seite (Close-Default bzw. der jeweils
+# übergebene _limit-Wert) wurden alle weiteren Seiten still verworfen, ohne
+# Fehler oder Warnung. _PAGE_SIZE=100 folgt dem offiziellen Doku-Beispiel
+# (_skip=0&_limit=100, _skip=100&_limit=100, ...) - die Doku selbst nennt für
+# _limit keinen festen Maximalwert.
+_PAGE_SIZE = 100
+# Notbremse gegen eine Endlosschleife, falls has_more fälschlich dauerhaft
+# true bleibt oder der laut Doku "je nach Ressource unterschiedliche"
+# _skip-Höchstwert erreicht wird (Close würde dann vermutlich einen 4xx-Fehler
+# werfen, der ohnehin sofort durchgereicht wird, siehe _request) - kein
+# Business in diesem Repo hat real 10.000+ Leads/Opportunities/Custom Fields.
+_MAX_PAGES = 100
+
+
+def _paginate(path: str, params: dict, max_results: int | None = None) -> list[dict]:
+    """Blättert vollständig durch eine Close-List-Ressource, bis has_more
+    False ist, eine leere Seite kommt, max_results erreicht ist, oder die
+    _MAX_PAGES-Notbremse greift. max_results=None heißt "alles holen" (siehe
+    list_opportunities/list_lead_custom_fields - dort gibt es semantisch
+    keinen sinnvollen Teil-Cutoff)."""
+    results: list[dict] = []
+    skip = 0
+    for _ in range(_MAX_PAGES):
+        remaining = None if max_results is None else max_results - len(results)
+        if remaining is not None and remaining <= 0:
+            break
+        page_params = dict(params)
+        page_params["_limit"] = _PAGE_SIZE if remaining is None else min(_PAGE_SIZE, remaining)
+        page_params["_skip"] = skip
+        data = _request("GET", path, params=page_params)
+        page_results = data.get("data", [])
+        results.extend(page_results)
+        if not page_results or not data.get("has_more"):
+            break
+        skip += len(page_results)
+    return results
+
 
 class CloseAPIError(Exception):
     def __init__(self, status_code: int, detail: str):
@@ -68,11 +110,14 @@ def _request(method: str, path: str, **kwargs) -> dict:
 # ── Leads ─────────────────────────────────────────────────────────────────
 
 def search_leads(query: str = "", limit: int = 25) -> list[dict]:
-    params = {"_limit": limit}
+    """limit ist jetzt eine ECHTE Obergrenze über beliebig viele Seiten
+    hinweg (siehe _paginate-Docstring), nicht mehr nur die _limit-Größe einer
+    einzelnen Anfrage - vorher wurden Treffer jenseits der ersten Seite
+    stillschweigend verworfen (Bugfix 2026-09-06)."""
+    params: dict = {}
     if query:
         params["query"] = query
-    data = _request("GET", "/lead/", params=params)
-    return data.get("data", [])
+    return _paginate("/lead/", params, max_results=limit)
 
 
 def get_lead(lead_id: str) -> dict:
@@ -113,19 +158,24 @@ def create_note(lead_id: str, text: str) -> dict:
 
 
 def list_activities(lead_id: str, limit: int = 25) -> list[dict]:
-    data = _request("GET", "/activity/", params={"lead_id": lead_id, "_limit": limit})
-    return data.get("data", [])
+    """Bisherige Aufrufer nutzen hier ausschließlich kleine limit-Werte (10,
+    1 - "die letzten N Activities"), sind also von der eigentlichen
+    Pagination-Lücke nie betroffen gewesen. Trotzdem auf _paginate
+    umgestellt (gleicher Bugfix 2026-09-06): identische Fehlerklasse, falls
+    limit künftig größer als eine Close-Seite gesetzt wird."""
+    return _paginate("/activity/", {"lead_id": lead_id}, max_results=limit)
 
 
 # ── Opportunities ─────────────────────────────────────────────────────────
 
 def list_opportunities(lead_id: str) -> list[dict]:
-    data = _request("GET", "/opportunity/", params={"lead_id": lead_id})
-    return data.get("data", [])
+    """Kein limit-Parameter - hier ist "alle Opportunities dieses Leads" die
+    einzig sinnvolle Semantik, siehe _paginate(max_results=None)."""
+    return _paginate("/opportunity/", {"lead_id": lead_id}, max_results=None)
 
 
 # ── Custom Fields (Lead-Ebene) ───────────────────────────────────────────
 
 def list_lead_custom_fields() -> list[dict]:
-    data = _request("GET", "/custom_field/lead/")
-    return data.get("data", [])
+    """Alle konfigurierten Lead-Custom-Field-Definitionen, kein Cutoff."""
+    return _paginate("/custom_field/lead/", {}, max_results=None)

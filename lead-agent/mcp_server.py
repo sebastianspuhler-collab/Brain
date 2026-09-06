@@ -17,15 +17,18 @@ Modells.
 Start (stdio-Transport, für Registrierung in .mcp.json):
     python -m mcp_server   (oder: python mcp_server.py)
 """
+import re
 from pathlib import Path
 
 from mcp.server.fastmcp import FastMCP
 
+import close_audit
 import close_client
 import combined_leads
 import export_leads as export_leads_module
 import gmail_client
 import lead_lookup
+import vault_kunden
 import vault_leads
 from close_client import CloseAPIError
 from config import get_settings
@@ -36,7 +39,7 @@ mcp = FastMCP("lead-agent-tools")
 def _build_lead_filter(
     branche: str = "", status: str = "", score_min: str = "", region: str = "",
     letzter_kontakt_vor_tagen: str = "", freitext: str = "", quelle: str = "",
-    limit: str = "100",
+    limit: str = "5000",
 ) -> dict:
     """Übersetzt die flachen Tool-Parameter (MCP/FastMCP-Schemata sind am
     einfachsten mit simplen Skalar-Typen, kein verschachteltes dict-Argument
@@ -73,12 +76,18 @@ def _format_lead_summary(lead: dict) -> str:
 
 
 @mcp.tool(description=(
-    "Legt einen NEU recherchierten Prospect an: schreibt einen Lead-Stub nach "
-    "Leads/*.md (Vault) UND legt ihn als Lead in Close CRM an (Quelle-Feld "
+    "Legt einen NEUEN Prospect an: schreibt einen Lead-Stub nach Leads/*.md "
+    "(Vault) UND legt ihn als Lead in Close CRM an (Quelle-Feld "
     "'prozessia-lead-agent'), verknüpft beide sofort über close_lead_id im "
-    "Frontmatter. Nutze dies NACH eigener Recherche (WebSearch) für jeden "
-    "Prospect, der zum ICP aus PLAYBOOK.md passt - nicht für bereits "
-    "bestehende Leads (dafür sync_lead_to_close)."
+    "Frontmatter - DAS flexible 'leg mir das in Close an'-Tool. Zwei "
+    "Auslöser: (1) NACH eigener, gründlicher Recherche (WebSearch, mehrere "
+    "Quellen gegengecheckt) für jeden Prospect, der zum ICP aus PLAYBOOK.md "
+    "passt, ODER (2) wenn Sebastian einen Kontakt direkt im Chat nennt/"
+    "pastet (z.B. eine E-Mail-Signatur, ein Messekontakt) - dann OHNE "
+    "Recherche und OHNE Rückfrage nach einem festen Format sofort mit den "
+    "aus dem Freitext extrahierten Angaben anlegen, fehlende Felder bleiben "
+    "leer. Nicht für bereits bestehende Vault-Leads/-Kunden nutzen (dafür "
+    "sync_lead_to_close)."
 ))
 def save_prospect(firma: str, kontakt_name: str = "", kontakt_email: str = "", notiz: str = "", quelle: str = "Recherche") -> dict:
     path = vault_leads.write_prospect(firma, kontakt_name, kontakt_email, notiz, quelle)
@@ -100,24 +109,33 @@ def save_prospect(firma: str, kontakt_name: str = "", kontakt_email: str = "", n
 
 
 @mcp.tool(description=(
-    "Verknüpft einen BEREITS bestehenden Vault-Lead (z.B. automatisch aus einer "
-    "E-Mail oder einem Kalendertermin erkannt, noch ohne close_lead_id) mit "
-    "Close CRM: legt ihn dort an (oder aktualisiert ihn, falls close_lead_id "
-    "schon gesetzt ist) und schreibt/aktualisiert close_lead_id im Frontmatter. "
-    "name_or_path: Dateiname/Stichwort/Pfad, wie bei jeder Vault-Datei-Referenz."
+    "Verknüpft eine BEREITS bestehende Vault-Firma mit Close CRM: entweder "
+    "ein Lead (Leads/*.md, z.B. automatisch aus einer E-Mail/einem "
+    "Kalendertermin erkannt) ODER ein etablierter Kunde (Kunden/<Firma>/-"
+    "Ordner - jemand, mit dem bereits Kontakt besteht). Legt sie in Close an "
+    "(oder aktualisiert sie, falls schon verknüpft) und schreibt die "
+    "Verknüpfung zurück (Lead-Frontmatter bzw. Kunden/<Firma>/"
+    "close_lead_id.txt). name_or_path: Dateiname/Ordnername/Stichwort. "
+    "WICHTIG: für einen bereits per Namensabgleich GEFUNDENEN Treffer aus "
+    "audit_vault_close_matches()['neu_verknuepfbar'] NICHT dieses Tool "
+    "nutzen (würde einen zweiten, doppelten Close-Lead anlegen), sondern "
+    "link_vault_to_close mit der schon bekannten close_lead_id."
 ))
 def sync_lead_to_close(name_or_path: str) -> dict:
     lead = vault_leads.find_lead(name_or_path)
-    if not lead:
-        return {"ok": False, "error": f"Kein Lead gefunden für '{name_or_path}'"}
+    kunde = None if lead else vault_kunden.find_kunde(name_or_path)
+    if not lead and not kunde:
+        return {"ok": False, "error": f"Kein Lead oder Kundenordner gefunden für '{name_or_path}'"}
 
-    firma = Path(lead["filename"]).stem
-    # Datumspräfix (YYYY-MM-DD-) aus dem Dateinamen entfernen, für einen
-    # saubereren Close-Lead-Namen.
-    import re as _re
-    firma = _re.sub(r"^\d{4}-\d{2}-\d{2}-", "", firma)
+    if lead:
+        # Datumspräfix (YYYY-MM-DD-) aus dem Dateinamen entfernen, für einen
+        # saubereren Close-Lead-Namen.
+        firma = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", Path(lead["filename"]).stem)
+        existing_id = (lead["fields"].get("close_lead_id") or "").strip()
+    else:
+        firma = kunde["firma"]
+        existing_id = kunde["close_lead_id"]
 
-    existing_id = lead["fields"].get("close_lead_id")
     try:
         if existing_id:
             close_client.update_lead(existing_id, {"name": firma})
@@ -126,8 +144,15 @@ def sync_lead_to_close(name_or_path: str) -> dict:
             close_lead = close_client.create_lead(firma)
             close_client.tag_lead_source(close_lead["id"])
             close_lead_id = close_lead["id"]
-        vault_leads.update_fields(Path(lead["path"]), {"close_lead_id": close_lead_id})
-        return {"ok": True, "close_lead_id": close_lead_id, "vault_path": lead["filename"]}
+
+        if lead:
+            vault_leads.update_fields(Path(lead["path"]), {"close_lead_id": close_lead_id})
+            vault_path = lead["filename"]
+        else:
+            vault_kunden.link_to_close(Path(kunde["path"]), close_lead_id)
+            vault_path = kunde["path"]
+
+        return {"ok": True, "close_lead_id": close_lead_id, "vault_path": vault_path}
     except CloseAPIError as e:
         return {"ok": False, "error": str(e)}
 
@@ -175,6 +200,96 @@ def close_get_lead_detail(close_lead_id: str) -> str:
 
 
 @mcp.tool(description=(
+    "Prüft GRÜNDLICH über Vault (Kunden/<Firma>/-Ordner MIT bestehendem "
+    "Kontakt UND Leads/*.md) und Close CRM hinweg, welche Firmen es in "
+    "BEIDEN Systemen gibt, aber noch NICHT über close_lead_id verknüpft "
+    "sind (Namensabgleich, z.B. 'F-Tronic' vs. 'f-tronic GmbH' - erkennt "
+    "auch Kunden, die längst als eigenständiger Close-Lead existieren, aber "
+    "nie verknüpft wurden). Rein LESEND, schreibt nichts. Liefert: "
+    "neu_verknuepfbar (Namensmatch gefunden, nur noch verknüpfen -> "
+    "link_vault_to_close nutzen, NICHT sync_lead_to_close - sonst entsteht "
+    "ein doppelter Close-Lead), kunden_ohne_close_kontakt (etablierte "
+    "Kunden OHNE jeden Close-Eintrag - Kandidaten fürs Neuanlegen, aber "
+    "erst mit Sebastian abstimmen WELCHE, nicht blind alle anlegen), "
+    "leads_ohne_close_kontakt (dasselbe für frische Leads), sowie "
+    "close_leads_ohne_vault_treffer_anzahl (nur eine Zahl + kleine "
+    "Vorschau, keine Vollliste - der Fokus liegt auf der Vault-Seite)."
+))
+def audit_vault_close_matches() -> dict:
+    return close_audit.audit()
+
+
+@mcp.tool(description=(
+    "Verknüpft eine Vault-Firma (Kunde ODER Lead) mit einer BEREITS "
+    "bekannten close_lead_id - für Treffer aus "
+    "audit_vault_close_matches()['neu_verknuepfbar']. Legt NICHTS neu in "
+    "Close an (reiner Vault-Schreibzugriff, keine Close-API-Aufrufe) - für "
+    "eine noch fehlende Close-Neuanlage stattdessen sync_lead_to_close nutzen."
+))
+def link_vault_to_close(firma_or_path: str, close_lead_id: str) -> dict:
+    return close_audit.link(firma_or_path, close_lead_id)
+
+
+@mcp.tool(description=(
+    "Recherche-AUSGANGSPUNKT (Sebastians 'Recherchetool'): liefert das "
+    "bekannte Profil eines Referenz-Leads ODER -Kunden (Firma, bekannte "
+    "Felder, Kontakt, Close-Link) als Vorlage, um WEITERE ähnliche "
+    "Prospects zu finden - NICHT selbst recherchierend (kein WebSearch-"
+    "Zugriff hier, siehe enrich_lead). name_or_close_id kann auch ein "
+    "bestehender Kunde sein (Kunden/<Firma>/), z.B. für 'finde mehr Firmen "
+    "wie F-Tronic'. IMMER SO NUTZEN: 1) find_similar_leads_context "
+    "aufrufen, 2) ist typ 'kunde', zusätzlich NATIV per Glob/Read in "
+    "vault_path/**/*.md (Meetings/Dokumente/Angebote) lesen für Branche/"
+    "Kontext - dort steht meist mehr als im schlanken Profil hier, 3) mit "
+    "diesem Profil per eigenem WebSearch nach ähnlichen Unternehmen suchen "
+    "(gleiche Branche/Region/Größenordnung), 4) JEDEN Treffer über "
+    "save_prospect anlegen (schreibt Vault-Lead UND Close-Lead in einem "
+    "Schritt - kein weiteres 'in Close anlegen'-Tool nötig)."
+))
+def find_similar_leads_context(name_or_close_id: str) -> dict:
+    resolved = lead_lookup.resolve(name_or_close_id)
+    vault_lead = resolved["vault"]
+    kunde = resolved["kunde"]
+    close_lead = resolved["close"]
+    if not vault_lead and not kunde and not close_lead:
+        return {
+            "ok": False,
+            "error": (
+                f"Kein Lead/Kunde gefunden für '{name_or_close_id}' - als "
+                "Referenz für die Recherche wird ein bekannter Ausgangspunkt gebraucht."
+            ),
+        }
+
+    profil: dict = {}
+    if vault_lead:
+        profil.update({k: v for k, v in vault_lead["fields"].items() if v})
+    if close_lead:
+        profil["close_name"] = close_lead.get("display_name") or close_lead.get("name") or ""
+
+    firma = (
+        Path(vault_lead["filename"]).stem if vault_lead
+        else kunde["firma"] if kunde
+        else profil.get("close_name") or name_or_close_id
+    )
+    typ = "kunde" if kunde else ("lead" if vault_lead else "nur_close")
+
+    return {
+        "ok": True,
+        "firma": firma,
+        "typ": typ,
+        "vault_path": kunde["path"] if kunde else (vault_lead["filename"] if vault_lead else ""),
+        "close_lead_id": resolved["close_lead_id"] or "",
+        "bekanntes_profil": profil,
+        "hinweis": (
+            "Ist typ 'kunde': zusätzlich nativ per Glob/Read in "
+            "vault_path/**/*.md recherchieren, dort steht der eigentliche "
+            "Kontext. Danach per WebSearch nach ähnlichen Firmen suchen und "
+            "jeden Treffer mit save_prospect anlegen."
+        ),
+    }
+
+
+@mcp.tool(description=(
     "Kombinierte Lead-Abfrage: führt Vault-Leads (Leads/*.md) UND Close-CRM-"
     "Leads in EINER strukturierten Liste zusammen, gematcht über "
     "close_lead_id. Deckt Filter-Kombinationen ab, die close_search_leads "
@@ -194,7 +309,7 @@ def close_get_lead_detail(close_lead_id: str) -> str:
 def get_combined_leads(
     branche: str = "", status: str = "", score_min: str = "", region: str = "",
     letzter_kontakt_vor_tagen: str = "", freitext: str = "", quelle: str = "",
-    limit: str = "100",
+    limit: str = "5000",
 ) -> list[dict]:
     filter = _build_lead_filter(branche, status, score_min, region, letzter_kontakt_vor_tagen, freitext, quelle, limit)
     return combined_leads.get_combined_leads(filter)
@@ -234,14 +349,17 @@ def export_leads(
 ))
 def enrich_lead(name_or_close_id: str) -> dict:
     resolved = lead_lookup.resolve(name_or_close_id)
-    if not resolved["vault"] and not resolved["close"]:
-        return {"ok": False, "error": f"Kein Lead gefunden für '{name_or_close_id}' (weder Vault noch Close)."}
+    if not resolved["vault"] and not resolved["kunde"] and not resolved["close"]:
+        return {"ok": False, "error": f"Kein Lead/Kunde gefunden für '{name_or_close_id}' (weder Vault noch Close)."}
 
     vault_lead = resolved["vault"]
+    kunde = resolved["kunde"]
     close_lead = resolved["close"]
     bekannt: dict = {}
     if vault_lead:
         bekannt.update({k: v for k, v in vault_lead["fields"].items() if v})
+    if kunde:
+        bekannt["vault_typ"] = "bestehender Kunde (Kunden/-Ordner, kein Frontmatter für Kernfelder)"
     if close_lead:
         bekannt["close_name"] = close_lead.get("display_name") or close_lead.get("name") or ""
         contacts = close_lead.get("contacts") or []
@@ -251,12 +369,16 @@ def enrich_lead(name_or_close_id: str) -> dict:
             if emails:
                 bekannt["close_email"] = emails[0]
 
-    firma = Path(vault_lead["filename"]).stem if vault_lead else bekannt.get("close_name") or name_or_close_id
+    firma = (
+        Path(vault_lead["filename"]).stem if vault_lead
+        else kunde["firma"] if kunde
+        else bekannt.get("close_name") or name_or_close_id
+    )
 
     return {
         "ok": True,
         "firma": firma,
-        "vault_path": vault_lead["filename"] if vault_lead else "",
+        "vault_path": vault_lead["filename"] if vault_lead else (kunde["path"] if kunde else ""),
         "close_lead_id": resolved["close_lead_id"] or "",
         "bekannt": bekannt,
         "fehlende_kernfelder": lead_lookup.missing_core_fields(resolved),
