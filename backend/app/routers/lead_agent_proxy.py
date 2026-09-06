@@ -27,8 +27,9 @@ from app.deps import get_current_user
 
 router = APIRouter(prefix="/api/lead-agent", tags=["lead-agent"])
 
-LEAD_AGENT_CHAT_URL = "http://lead-agent:8000/chat"
-LEAD_AGENT_UI_URL = "http://lead-agent:8000/ui"
+LEAD_AGENT_BASE_URL = "http://lead-agent:8000"
+LEAD_AGENT_CHAT_URL = f"{LEAD_AGENT_BASE_URL}/chat"
+LEAD_AGENT_UI_URL = f"{LEAD_AGENT_BASE_URL}/ui"
 
 
 class LeadAgentChatMessage(BaseModel):
@@ -81,3 +82,32 @@ async def lead_agent_ui(user: str = Depends(get_current_user)):
         return Response(content=resp.content, media_type="text/html")
     except httpx.HTTPError as ex:
         raise HTTPException(status_code=502, detail=f"Lead-Agent nicht erreichbar: {ex}") from ex
+
+
+@router.get("/exports/{filename}")
+async def lead_agent_export(filename: str, user: str = Depends(get_current_user)):
+    """Reicht eine von export_leads() (lead-agent/export_leads.py, Teil C)
+    erzeugte CSV/XLSX-Datei durch - Pendant zu lead_agent_ui() oben: auch
+    dieser Container hat außer /lead-agent/webhook keine eigene öffentliche
+    Traefik-Route (siehe docker-compose.yml), Export-Downloads laufen daher
+    genauso über diesen Cookie-auth-gated Proxy statt direkt auf den
+    Container. filename wird bewusst NICHT als Pfad interpretiert ('/' bzw.
+    '..' werden abgelehnt) - verhindert Path-Traversal auf beliebige Dateien
+    im Container über diesen Endpunkt."""
+    if "/" in filename or "\\" in filename or ".." in filename:
+        raise HTTPException(status_code=400, detail="Ungültiger Dateiname")
+    try:
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            resp = await client.get(f"{LEAD_AGENT_BASE_URL}/static/exports/{filename}")
+        if resp.status_code == 404:
+            raise HTTPException(status_code=404, detail="Export nicht gefunden (evtl. schon nach 24h aufgeräumt)")
+        resp.raise_for_status()
+    except httpx.HTTPError as ex:
+        raise HTTPException(status_code=502, detail=f"Lead-Agent nicht erreichbar: {ex}") from ex
+
+    media_type = "text/csv" if filename.endswith(".csv") else "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    return Response(
+        content=resp.content,
+        media_type=media_type,
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )

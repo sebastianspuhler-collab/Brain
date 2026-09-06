@@ -20,18 +20,29 @@ from pathlib import Path
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, StreamingResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 import claude_agent
 import webhooks
 
 STATIC_DIR = Path(__file__).resolve().parent / "static"
+EXPORTS_DIR = STATIC_DIR / "exports"
 
 app = FastAPI(title="Prozessia Lead-Agent")
 # Wie dev-agent: unkritisch breiter CORS-Origin, weil /chat/health nur aus dem
 # internen Docker-Netzwerk erreichbar sind (kein öffentlicher Port). Gilt
 # NICHT für /lead-agent/webhook/close - das läuft über HMAC-Auth, nicht CORS/Cookies.
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+
+# Export-Dateien aus export_leads.py (Teil C) - NUR intern über
+# lead-agent-bridge erreichbar (/static/exports/<datei>, kein öffentlicher
+# Port außer /lead-agent/webhook, siehe docker-compose.yml). Öffentlich
+# (authentifiziert) ausgeliefert wird darüber ausschließlich der
+# Backend-Proxy GET /api/lead-agent/exports/{filename}, siehe
+# export_leads.py-Docstring.
+EXPORTS_DIR.mkdir(parents=True, exist_ok=True)
+app.mount("/static/exports", StaticFiles(directory=EXPORTS_DIR), name="exports")
 
 
 @app.on_event("startup")

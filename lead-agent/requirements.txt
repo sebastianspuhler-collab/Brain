@@ -7,3 +7,6 @@ mcp==1.2.1
 google-auth==2.35.0
 google-auth-oauthlib==1.3.0
 google-api-python-client==2.190.0
+# Nur für export_leads.py (Teil C, echter xlsx-Export) - Version wie im
+# restlichen Repo (backend/requirements.txt, _agent/requirements.txt).
+openpyxl>=3.1.0

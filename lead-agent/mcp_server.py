@@ -22,12 +22,45 @@ from pathlib import Path
 from mcp.server.fastmcp import FastMCP
 
 import close_client
+import combined_leads
+import export_leads as export_leads_module
 import gmail_client
+import lead_lookup
 import vault_leads
 from close_client import CloseAPIError
 from config import get_settings
 
 mcp = FastMCP("lead-agent-tools")
+
+
+def _build_lead_filter(
+    branche: str = "", status: str = "", score_min: str = "", region: str = "",
+    letzter_kontakt_vor_tagen: str = "", freitext: str = "", quelle: str = "",
+    limit: str = "100",
+) -> dict:
+    """Übersetzt die flachen Tool-Parameter (MCP/FastMCP-Schemata sind am
+    einfachsten mit simplen Skalar-Typen, kein verschachteltes dict-Argument
+    wie beim Rest der Tools hier) in den dict-Filter, den
+    combined_leads.get_combined_leads() erwartet - gemeinsam genutzt von
+    get_combined_leads und export_leads, keine doppelte Mapping-Logik."""
+    filter: dict = {}
+    if branche:
+        filter["branche"] = branche
+    if status:
+        filter["status"] = status
+    if score_min:
+        filter["score_min"] = score_min
+    if region:
+        filter["region"] = region
+    if letzter_kontakt_vor_tagen:
+        filter["letzter_kontakt_vor_tagen"] = letzter_kontakt_vor_tagen
+    if freitext:
+        filter["freitext"] = freitext
+    if quelle:
+        filter["quelle"] = quelle
+    if limit:
+        filter["limit"] = limit
+    return filter
 
 
 def _format_lead_summary(lead: dict) -> str:
@@ -139,6 +172,144 @@ def close_get_lead_detail(close_lead_id: str) -> str:
     for act in activities:
         lines.append(f"  Activity [{act.get('_type', '?')}] {act.get('date_created', '')[:10]}: {(act.get('note') or act.get('subject') or '')[:120]}")
     return "\n".join(lines)
+
+
+@mcp.tool(description=(
+    "Kombinierte Lead-Abfrage: führt Vault-Leads (Leads/*.md) UND Close-CRM-"
+    "Leads in EINER strukturierten Liste zusammen, gematcht über "
+    "close_lead_id. Deckt Filter-Kombinationen ab, die close_search_leads "
+    "oder natives Glob allein nicht können (z.B. 'Status qualifiziert UND "
+    "Score über 7 UND letzter Kontakt vor 14 Tagen'). BEVORZUGTES Tool für "
+    "JEDE Anfrage nach 'meine Leads'/'zeig mir...'/einer Liste oder Tabelle "
+    "von Leads - nicht einzeln Glob(Leads/) und close_search_leads von Hand "
+    "kombinieren. Alle Parameter optional und frei kombinierbar, leer lassen "
+    "= kein Filter auf dieses Feld. branche/region entsprechen "
+    "Vault-Frontmatter-Feldern, die meist erst durch enrich_lead/"
+    "save_lead_enrichment befüllt werden - vorher greift für sie nur die "
+    "Freitextsuche im Notiz-Body. quelle: 'vault'|'close'|'beide' schränkt "
+    "das Ergebnis auf eine Herkunft ein. Willst du das Ergebnis als "
+    "herunterladbare Datei statt als Chat-Tabelle, nutze stattdessen/zusätzlich "
+    "export_leads mit denselben Filtern."
+))
+def get_combined_leads(
+    branche: str = "", status: str = "", score_min: str = "", region: str = "",
+    letzter_kontakt_vor_tagen: str = "", freitext: str = "", quelle: str = "",
+    limit: str = "100",
+) -> list[dict]:
+    filter = _build_lead_filter(branche, status, score_min, region, letzter_kontakt_vor_tagen, freitext, quelle, limit)
+    return combined_leads.get_combined_leads(filter)
+
+
+@mcp.tool(description=(
+    "Erzeugt eine ECHTE CSV- oder XLSX-Datei (kein CSV-Text im Chat!) aus "
+    "get_combined_leads mit denselben Filterparametern - IMMER nutzen, wenn "
+    "Sebastian eine Liste/Tabelle/einen Export von Leads als Datei will, "
+    "statt eine Tabelle als Rohtext auszugeben. format: 'csv' oder 'xlsx' "
+    "(xlsx bevorzugen, wenn nicht anders gewünscht). Gib den zurückgegebenen "
+    "download_url als klickbaren Markdown-Link in deiner Antwort aus (z.B. "
+    "'[Excel-Export herunterladen](download_url)') - die Datei wird nach 24h "
+    "automatisch aufgeräumt, also nicht als Dauerablage bewerben."
+))
+def export_leads(
+    format: str = "csv", branche: str = "", status: str = "", score_min: str = "",
+    region: str = "", letzter_kontakt_vor_tagen: str = "", freitext: str = "", quelle: str = "",
+) -> dict:
+    filter = _build_lead_filter(branche, status, score_min, region, letzter_kontakt_vor_tagen, freitext, quelle)
+    return export_leads_module.export_leads(filter, format)
+
+
+@mcp.tool(description=(
+    "Recherche-VORBEREITUNG für einen Lead mit dünnen Daten (fehlende "
+    "Branche/Größe/Produkt-Leistung/Zielgruppe): löst den Lead über Vault+"
+    "Close auf und zeigt, was bereits bekannt ist sowie welche Kernfelder "
+    "fehlen. WICHTIG: recherchiert NICHT selbst - dieses Tool läuft als "
+    "eigener Server-Prozess ohne Zugriff auf dein natives WebSearch-Tool. "
+    "IMMER SO NUTZEN, wenn für eine Bewertung/Filterung nötige Kernfelder "
+    "fehlen: 1) enrich_lead aufrufen, 2) die zurückgegebenen "
+    "fehlende_kernfelder per eigenem WebSearch recherchieren (Firma + ggf. "
+    "Domain aus close_email), 3) Ergebnis per save_lead_enrichment "
+    "zurückschreiben - ERST WENN WebSearch nichts Verwertbares liefert oder "
+    "die Lücke keine Faktenfrage ist (z.B. Präferenzfragen wie 'was zählt "
+    "für dich als perfekt'), den Nutzer fragen statt zu raten."
+))
+def enrich_lead(name_or_close_id: str) -> dict:
+    resolved = lead_lookup.resolve(name_or_close_id)
+    if not resolved["vault"] and not resolved["close"]:
+        return {"ok": False, "error": f"Kein Lead gefunden für '{name_or_close_id}' (weder Vault noch Close)."}
+
+    vault_lead = resolved["vault"]
+    close_lead = resolved["close"]
+    bekannt: dict = {}
+    if vault_lead:
+        bekannt.update({k: v for k, v in vault_lead["fields"].items() if v})
+    if close_lead:
+        bekannt["close_name"] = close_lead.get("display_name") or close_lead.get("name") or ""
+        contacts = close_lead.get("contacts") or []
+        if contacts:
+            bekannt["close_kontakt"] = contacts[0].get("name", "")
+            emails = [e.get("email") for e in contacts[0].get("emails", []) if e.get("email")]
+            if emails:
+                bekannt["close_email"] = emails[0]
+
+    firma = Path(vault_lead["filename"]).stem if vault_lead else bekannt.get("close_name") or name_or_close_id
+
+    return {
+        "ok": True,
+        "firma": firma,
+        "vault_path": vault_lead["filename"] if vault_lead else "",
+        "close_lead_id": resolved["close_lead_id"] or "",
+        "bekannt": bekannt,
+        "fehlende_kernfelder": lead_lookup.missing_core_fields(resolved),
+        "hinweis": (
+            "Fehlende Kernfelder jetzt per WebSearch recherchieren, danach "
+            "save_lead_enrichment aufrufen - Nutzer nur fragen, wenn die "
+            "Recherche nichts Verwertbares liefert."
+        ),
+    }
+
+
+@mcp.tool(description=(
+    "Schreibt recherchierte Kernfelder (branche, groesse, produkt_leistung, "
+    "zielgruppe) zu einem Lead zurück - als Close-Note UND als Update im "
+    "Vault-Frontmatter der zugehörigen Lead-Datei. Immer NACH eigener "
+    "WebSearch-Recherche nutzen (siehe enrich_lead), nur die tatsächlich "
+    "recherchierten Felder befüllen (andere leer lassen). quelle_notiz kurz "
+    "benennen, woher die Angaben stammen (z.B. 'Firmenwebsite + LinkedIn, "
+    "recherchiert 2026-09-06')."
+))
+def save_lead_enrichment(
+    name_or_close_id: str, branche: str = "", groesse: str = "",
+    produkt_leistung: str = "", zielgruppe: str = "", quelle_notiz: str = "",
+) -> dict:
+    resolved = lead_lookup.resolve(name_or_close_id)
+    if not resolved["vault"] and not resolved["close_lead_id"]:
+        return {"ok": False, "error": f"Kein Lead gefunden für '{name_or_close_id}'."}
+
+    updates = {k: v for k, v in {
+        "branche": branche, "groesse": groesse,
+        "produkt_leistung": produkt_leistung, "zielgruppe": zielgruppe,
+    }.items() if v}
+    if not updates:
+        return {"ok": False, "error": "Keine Felder zum Schreiben übergeben."}
+
+    result: dict = {"ok": True}
+
+    if resolved["vault"]:
+        vault_leads.update_fields(Path(resolved["vault"]["path"]), updates)
+        result["vault_path"] = resolved["vault"]["filename"]
+
+    close_lead_id = resolved["close_lead_id"]
+    if close_lead_id:
+        note = "Recherche-Anreicherung (Lead-Agent):\n" + "\n".join(f"{k}: {v}" for k, v in updates.items())
+        if quelle_notiz:
+            note += f"\nQuelle: {quelle_notiz}"
+        try:
+            close_client.create_note(close_lead_id, note)
+            result["close_lead_id"] = close_lead_id
+        except CloseAPIError as e:
+            result["close_error"] = str(e)
+
+    return result
 
 
 @mcp.tool(description="Trägt eine Notiz in Close bei einem Lead ein (per close_lead_id, siehe Vault-Frontmatter oder close_search_leads).")
