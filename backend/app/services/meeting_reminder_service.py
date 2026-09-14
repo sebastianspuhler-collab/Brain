@@ -5,11 +5,17 @@ Erinnerung an, sobald ein Kalendertermin mit externen Teilnehmern in
 REMINDER_LEAD_MINUTES bevorsteht.
 
 Versand (Sebastian, 2026-08-25 - Änderung der ursprünglichen 2026-08-16-
-Entscheidung "nur Entwurf, kein Auto-Versand"): sind ALLE externen
-Teilnehmer zuverlässig namentlich bekannt (kein generischer info@-Fall),
-wird die Mail automatisch versendet. Bleibt mindestens ein Teilnehmer ohne
-erkannten Namen (Anrede würde namenlos "Guten Tag," lauten), wird weiterhin
-nur ein Entwurf angelegt, damit Sebastian kurz drüberschaut.
+Entscheidung "nur Entwurf, kein Auto-Versand"; verschärft 2026-09-14 nach
+einem Live-Fehler): sind ALLE externen Teilnehmer namentlich bekannt UND
+bestätigt (Vault-Treffer oder echter Graph-Anzeigename, siehe
+resolve_contact_name()), wird die Mail automatisch versendet. Ist ein
+Nachname nur aus der reinen E-Mail-Adress-Heuristik geraten (keine zweite
+Quelle) oder bleibt ein Teilnehmer ganz ohne Namen, wird weiterhin nur ein
+Entwurf angelegt, damit Sebastian kurz drüberschaut - Live-Fehler
+14.09.2026: beim Progressiv2-Termin gab es für
+bernard.josephauguste@progressiv2.com keinen echten Graph-Namen, die reine
+Adress-Heuristik riet fälschlich "Josephauguste" als Nachname und die Mail
+ging trotzdem automatisch raus.
 
 Anrede/Nachname wird NICHT vom LLM erfunden - das muss laut Sebastian
 zuverlässig stimmen. Reihenfolge: 1) bereits bekannter Kontakt im Vault
@@ -158,35 +164,47 @@ def _lookup_known_contact(address: str) -> tuple[str, str] | None:
     return None
 
 
-def resolve_contact_name(address: str, graph_name: str) -> tuple[str, str]:
+def resolve_contact_name(address: str, graph_name: str) -> tuple[str, str, bool]:
     """Priorität laut Sebastian (2026-08-16): die E-Mail-Adresse selbst ist
     der zuverlässigste Indikator ("das kann man anhand der emailadresse
     erkennen meistens") - vorname.nachname@firma.de ist im B2B-Alltag die mit
     Abstand häufigste Konvention und eindeutig, anders als Freitext-Suche im
     Vault oder der oft nur die E-Mail-Adresse wiederholende Graph-Anzeigename.
     Vault-Suche/Graph-Name nur als Fallback bei generischen Adressen
-    (info@, kontakt@, ...) ohne verwertbaren Vor-/Nachnamen im Lokalteil."""
+    (info@, kontakt@, ...) ohne verwertbaren Vor-/Nachnamen im Lokalteil.
+
+    Gibt zusätzlich ein `verified`-Flag zurück (True nur bei Vault-Treffer
+    oder echtem, von der Adresse abweichendem Graph-Anzeigenamen). Live-Fehler
+    14.09.2026: beim Progressiv2-Termin kannte Graph für
+    bernard.josephauguste@progressiv2.com keinen echten Anzeigenamen (das
+    name-Feld war identisch mit der Adresse) - die reine Adress-Heuristik
+    ("Josephauguste" als ein zusammenhängender Nachname) war die EINZIGE
+    Quelle und lag falsch, wurde aber trotzdem automatisch verschickt. Ein
+    unbestätigter Nachname (verified=False) darf daher nie mehr automatisch
+    verschickt werden (siehe scan_and_draft_reminders), nur noch als Entwurf -
+    "der [Nachname] MUSS richtig erkennat werden" gilt für den Versand
+    strenger als für die reine Text-Vorlage."""
     local = address.split("@")[0]
     email_guess = _derive_name_from_email(address)
     generic = local.lower() in _GENERIC_LOCAL_PARTS or len(email_guess[0]) < 2 or len(email_guess[1]) < 2
     if not generic:
-        return email_guess
+        return (*email_guess, False)
     known = _lookup_known_contact(address)
     if known:
-        return known
+        return (*known, True)
     if graph_name and graph_name.strip().lower() != address.lower() and " " in graph_name:
         parts = graph_name.strip().split()
-        return parts[0], parts[-1]
-    return email_guess
+        return parts[0], parts[-1], True
+    return (*email_guess, False)
 
 
-def _generate_email(event: dict, contacts: list[tuple[str, str]], minutes_until: int, start: datetime) -> dict:
+def _generate_email(event: dict, contacts: list[tuple[str, str, bool]], minutes_until: int, start: datetime) -> dict:
     subject_line = event.get("subject") or "Meeting"
     link = _teams_link(event)
     # Bei generischen Sammel-Adressen (info@...) liefert resolve_contact_name()
     # bewusst keinen erfundenen Namen (z.B. ("Info", "Info")) - hier auf eine
     # namenlose, aber korrekte Anrede ausweichen statt "Herr Info" zu riskieren.
-    known = [(v, n) for v, n in contacts if n.lower() not in _GENERIC_LOCAL_PARTS]
+    known = [(v, n) for v, n, _ in contacts if n.lower() not in _GENERIC_LOCAL_PARTS]
     unknown_count = len(contacts) - len(known)
     namen_liste = "; ".join(f"Vorname={v}, Nachname={n}" for v, n in known) or "keine (nur generische Adresse)"
     prompt = f"""Du schreibst für Sebastian Spuhler (Geschäftsführer Prozessia GbR) eine kurze
@@ -258,7 +276,16 @@ def scan_and_draft_reminders() -> list[str]:
             contacts = [resolve_contact_name(a["address"], a["name"]) for a in externals]
             mail = _generate_email(event, contacts, round(minutes_until), start)
             to_addr = ", ".join(a["address"] for a in externals)
-            all_known = all(n.lower() not in _GENERIC_LOCAL_PARTS for _, n in contacts)
+            # Auto-Versand nur, wenn JEDER Nachname sowohl bekannt (nicht
+            # generisch) ALS AUCH bestätigt ist (Vault-Treffer oder echter
+            # Graph-Anzeigename) - eine reine, unbestätigte Adress-Heuristik
+            # reicht seit dem Live-Fehler 14.09.2026 (Progressiv2/
+            # "Josephauguste") nicht mehr für den automatischen Versand,
+            # sondern nur noch für den Entwurf.
+            all_known = all(
+                n.lower() not in _GENERIC_LOCAL_PARTS and verified
+                for _, n, verified in contacts
+            )
             if all_known:
                 gmail_client.send_email(to_addr, mail["subject"], mail["body"])
                 created.append(f"[gesendet] {mail['subject']}")
