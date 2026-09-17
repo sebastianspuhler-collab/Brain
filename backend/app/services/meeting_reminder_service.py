@@ -106,17 +106,6 @@ def _event_start(event: dict) -> datetime | None:
         return None
 
 
-def _teams_link(event: dict) -> str:
-    """Sebastian verlinkt in seinen Mails immer die kurze teams.microsoft.com/meet/-
-    Form aus der Einladung (bodyPreview), nicht die lange onlineMeeting.joinUrl -
-    also genau diese extrahieren, nicht das Graph-Feld direkt nehmen."""
-    body = event.get("bodyPreview") or ""
-    m = re.search(r"https://teams\.microsoft\.com/meet/\S+", body)
-    if m:
-        return m.group(0).rstrip(".,)")
-    return ((event.get("onlineMeeting") or {}).get("joinUrl")) or ""
-
-
 def _derive_name_from_email(address: str) -> tuple[str, str]:
     local = address.split("@")[0]
     parts = [p for p in re.split(r"[._\-]+", local) if p and not p.isdigit()]
@@ -256,7 +245,7 @@ Antworte NUR als JSON: {{"abgesagt": true}} oder {{"abgesagt": false}}"""
 
 def _generate_email(event: dict, contacts: list[tuple[str, str, bool]], minutes_until: int, start: datetime) -> dict:
     subject_line = event.get("subject") or "Meeting"
-    link = _teams_link(event)
+    link = outlook_client.extract_meeting_link(event)
     # Bei generischen Sammel-Adressen (info@...) liefert resolve_contact_name()
     # bewusst keinen erfundenen Namen (z.B. ("Info", "Info")) - hier auf eine
     # namenlose, aber korrekte Anrede ausweichen statt "Herr Info" zu riskieren.

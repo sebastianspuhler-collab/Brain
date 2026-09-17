@@ -4,6 +4,7 @@ Auth einmalig einrichten: siehe _agent/ms_login.py / ms_login_device.py.
 """
 import json
 import logging
+import re
 import time
 from datetime import datetime, timedelta
 
@@ -173,7 +174,7 @@ def get_calendar_events(days=7):
         "startDateTime": now.strftime("%Y-%m-%dT%H:%M:%S"),
         "endDateTime": end.strftime("%Y-%m-%dT%H:%M:%S"),
         "$orderby": "start/dateTime",
-        "$select": "id,subject,start,end,location,bodyPreview,attendees,isAllDay,organizer",
+        "$select": "id,subject,start,end,location,bodyPreview,attendees,isAllDay,organizer,onlineMeeting",
         "$top": 50,
     }
     headers = _headers()
@@ -181,6 +182,20 @@ def get_calendar_events(days=7):
     r = requests.get(f"{GRAPH}/me/calendarView", headers=headers, params=params, timeout=15)
     r.raise_for_status()
     return r.json().get("value", [])
+
+
+def extract_meeting_link(event: dict) -> str:
+    """Meeting-Link eines Kalendertermins - egal ob er woanders im System
+    angezeigt wird (Erinnerungsmails, Kalenderansicht), immer dieselbe Quelle:
+    zuerst die kurze teams.microsoft.com/meet/-Form aus der Einladung
+    (bodyPreview, so wie Sebastian sie in seinen eigenen Mails verlinkt),
+    sonst die lange Graph-onlineMeeting.joinUrl als Fallback (z.B. bei
+    Terminen ohne Teams-Einladungstext im bodyPreview)."""
+    body = event.get("bodyPreview") or ""
+    m = re.search(r"https://teams\.microsoft\.com/meet/\S+", body)
+    if m:
+        return m.group(0).rstrip(".,)")
+    return ((event.get("onlineMeeting") or {}).get("joinUrl")) or ""
 
 
 def create_calendar_event(subject, start_dt, end_dt, body="", attendees=None, location=""):

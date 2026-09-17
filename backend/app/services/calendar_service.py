@@ -46,6 +46,10 @@ def get_calendar_events() -> list[dict]:
                         "location": e.get("location", {}).get("displayName", ""),
                         "allDay": e.get("isAllDay", False),
                         "type": "meeting",
+                        # Sebastian, 17.09.2026: der Meeting-Link muss für alle im
+                        # System sichtbar sein, sobald der Termin aus Outlook
+                        # übernommen wird - nicht erst in der Erinnerungsmail.
+                        "link": outlook_client.extract_meeting_link(e),
                     })
                 except Exception:
                     logger.exception("Kalender-Event konnte nicht geparst werden")

@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Video } from "lucide-react";
 import { api } from "@/api/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -20,6 +20,7 @@ interface CalendarEvent {
   location?: string;
   allDay?: boolean;
   type: "meeting" | "deadline";
+  link?: string;
 }
 
 const MONTHS = [
@@ -123,6 +124,7 @@ export function CalendarPage() {
                   <TableHead>Titel</TableHead>
                   <TableHead>Ort</TableHead>
                   <TableHead className="w-28">Typ</TableHead>
+                  <TableHead className="w-10" />
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -135,6 +137,26 @@ export function CalendarPage() {
                       <StatusPill variant={e.type === "deadline" ? "danger" : "info"}>
                         {e.type === "deadline" ? "Deadline" : "Termin"}
                       </StatusPill>
+                    </TableCell>
+                    <TableCell>
+                      {e.link && (
+                        <Tooltip>
+                          <TooltipTrigger
+                            render={
+                              <a
+                                href={e.link}
+                                target="_blank"
+                                rel="noreferrer"
+                                aria-label="Meeting-Link öffnen"
+                                className="text-muted-foreground hover:text-primary"
+                              >
+                                <Video className="size-4" />
+                              </a>
+                            }
+                          />
+                          <TooltipContent>Meeting-Link öffnen</TooltipContent>
+                        </Tooltip>
+                      )}
                     </TableCell>
                   </TableRow>
                 ))}
@@ -166,6 +188,7 @@ export function CalendarPage() {
                     {e.title}
                     {time ? ` · ${time} Uhr` : ""}
                     {e.location ? ` · ${e.location}` : ""}
+                    {e.link ? " · Meeting-Link verfügbar" : ""}
                   </TooltipContent>
                 </Tooltip>
               );
@@ -192,6 +215,17 @@ export function CalendarPage() {
                           {e.location ? ` · ${e.location}` : ""}
                         </div>
                       </div>
+                      {e.link && (
+                        <a
+                          href={e.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label="Meeting-Link öffnen"
+                          className="mt-0.5 shrink-0 text-muted-foreground hover:text-primary"
+                        >
+                          <Video className="size-4" />
+                        </a>
+                      )}
                     </div>
                   );
                 }}
