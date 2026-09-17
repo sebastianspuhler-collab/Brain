@@ -27,6 +27,7 @@ entscheidet nur noch Anrede (Herr/Frau) und formuliert den Text im Stil der
 echten Beispiel-Mails unten.
 """
 import json
+import logging
 import re
 from datetime import datetime
 from zoneinfo import ZoneInfo
@@ -36,6 +37,8 @@ from app.constants import Models
 from app.services import gmail_client, outlook_client
 from app.services.anthropic_client import complete_json
 from app.services.calendar_lead_service import INTERNAL_DOMAIN, _external_attendees
+
+logger = logging.getLogger("brain.meeting_reminder")
 
 REMINDER_LEAD_MINUTES = 60
 BERLIN = ZoneInfo("Europe/Berlin")
@@ -198,6 +201,59 @@ def resolve_contact_name(address: str, graph_name: str) -> tuple[str, str, bool]
     return (*email_guess, False)
 
 
+def _attendee_declined(event: dict, externals: list[dict]) -> bool:
+    """True, wenn einer der externen Teilnehmer die Einladung im Kalender
+    abgelehnt hat (Graph attendees[].status.response == "declined"). Der
+    Termin bleibt dabei trotzdem im Kalender stehen - eine reine Ablehnung
+    löscht das Event nicht."""
+    external_addrs = {a["address"].lower() for a in externals if a.get("address")}
+    for a in event.get("attendees", []):
+        addr = ((a.get("emailAddress") or {}).get("address") or "").lower()
+        if addr in external_addrs and (a.get("status") or {}).get("response") == "declined":
+            return True
+    return False
+
+
+def _cancelled_via_message(externals: list[dict], subject: str) -> bool:
+    """Sebastian, 2026-09-17 (Nusbaumer-Fall): eine Absage kommt nicht immer
+    als Kalender-Ablehnung, sondern oft per formloser Mail ("der Termin passt
+    heute leider nicht", mit Begründung) - der Kalendertermin selbst bleibt
+    dabei unverändert stehen. Durchsucht deshalb zusätzlich die letzten Mails
+    der externen Teilnehmer per LLM auf eine Absage/Verschiebung dieses
+    Termins, bevor eine automatische Erinnerung raus geht."""
+    external_addrs = [a["address"] for a in externals if a.get("address")]
+    if not external_addrs:
+        return False
+    query = " OR ".join(f"from:{addr}" for addr in external_addrs) + " newer_than:3d"
+    try:
+        recent = gmail_client.get_emails(top=10, query=query)
+    except Exception:
+        logger.exception("Absage-Check: Mail-Suche fehlgeschlagen")
+        return False
+    if not recent:
+        return False
+    mails_text = "\n---\n".join(
+        f"Von: {m['from']}\nBetreff: {m['subject']}\nText: {(m.get('snippet') or m.get('body') or '')[:500]}"
+        for m in recent
+    )
+    prompt = f"""Prüft E-Mails von Termin-Teilnehmern auf eine ABSAGE oder
+VERSCHIEBUNG des Termins "{subject}" (z.B. "der Termin passt leider nicht",
+"muss den Termin absagen/verschieben", o.ä.) - NICHT bei normaler
+Terminbestätigung oder Mails ohne Bezug zum Termin.
+
+E-Mails:
+{mails_text}
+
+Antworte NUR als JSON: {{"abgesagt": true}} oder {{"abgesagt": false}}"""
+    try:
+        raw = complete_json(prompt, model=Models.HAIKU, max_tokens=50).strip()
+        raw = raw.replace("```json", "").replace("```", "").strip()
+        return bool(json.loads(raw).get("abgesagt"))
+    except Exception:
+        logger.exception("Absage-Check: LLM-Auswertung fehlgeschlagen")
+        return False
+
+
 def _generate_email(event: dict, contacts: list[tuple[str, str, bool]], minutes_until: int, start: datetime) -> dict:
     subject_line = event.get("subject") or "Meeting"
     link = _teams_link(event)
@@ -271,6 +327,17 @@ def scan_and_draft_reminders() -> list[str]:
             continue
         externals = _external_attendees(event)
         if not externals:
+            continue
+        # Nusbaumer-Fall, 2026-09-17: Termin steht noch im Kalender, wurde
+        # aber per Ablehnung ODER per formloser Mail abgesagt - in beiden
+        # Fällen keine automatische Erinnerung mehr, ohne den Cache-Key zu
+        # setzen (nächster Poll prüft erneut, falls die Absage doch nur ein
+        # Fehlalarm war).
+        if _attendee_declined(event, externals):
+            logger.info("Termin-Erinnerung übersprungen (im Kalender abgelehnt): %s", event.get("subject"))
+            continue
+        if _cancelled_via_message(externals, event.get("subject") or ""):
+            logger.info("Termin-Erinnerung übersprungen (per Mail abgesagt): %s", event.get("subject"))
             continue
         try:
             contacts = [resolve_contact_name(a["address"], a["name"]) for a in externals]

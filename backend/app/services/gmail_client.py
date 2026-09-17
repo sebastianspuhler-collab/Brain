@@ -102,9 +102,9 @@ def _header(message, name):
     return ""
 
 
-def get_emails(top=20, unread_only=False):
+def get_emails(top=20, unread_only=False, query=""):
     svc = get_service()
-    q = "is:unread" if unread_only else ""
+    q = query or ("is:unread" if unread_only else "")
     resp = svc.users().messages().list(
         userId="me", labelIds=["INBOX"], q=q, maxResults=top
     ).execute()
