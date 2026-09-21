@@ -66,7 +66,9 @@ def normalize_url(value: str) -> str:
 
 def parse_sources(quellen: str) -> list[str]:
     urls = []
-    for part in re.split(r"[\s,;|]+", quellen or ""):
+    # Trenner: Whitespace, ; und | - ein Komma nur, wenn danach die nächste URL beginnt
+    # (URLs enthalten selbst Kommas, z.B. northdata.com/Firma%20GmbH,%20Ort/...).
+    for part in re.split(r"[\s;|]+|,(?=\s*https?://)", quellen or ""):
         if not part:
             continue
         urls.append(normalize_url(part))
@@ -223,7 +225,8 @@ def _upsert_contact(close_lead: dict, name: str, role: str, email: str, phone: s
         match = next((c for c in contacts if email_l in [(e.get("email") or "").lower() for e in c.get("emails") or []]), None)
     if not match and name:
         nn = name_matching.normalize(name)
-        match = next((c for c in contacts if nn and name_matching.normalize(c.get("name") or "") == nn), None)
+        # Bestehende Kontakte tragen die Rolle teils im Namen ("Max Muster (Geschäftsführer)").
+        match = next((c for c in contacts if nn and name_matching.normalize(split_name_role(c.get("name") or "")[0]) == name_matching.normalize(split_name_role(name)[0])), None)
 
     if not match:
         close_client.create_contact(lead_id, name, role, [email] if email else None, [phone] if phone else None)
@@ -258,7 +261,7 @@ def _upsert_contact(close_lead: dict, name: str, role: str, email: str, phone: s
 def _apply_updates(
     vault_lead: dict | None, close_lead: dict | None, updates: dict, *, urls: list[str],
     overwrite: bool, contact: dict, notiz_text: str, close_status: str, vault_status: str, score: str,
-    close_note: str,
+    close_note: str, summary: str = "", remove_email: str = "",
 ) -> dict:
     """Wendet Änderungen auf Vault-Datei und/oder Close-Lead an.
     updates: website/ort/branche/mitarbeiter/umsatz/aehnlich_zu (nur nicht
@@ -283,7 +286,7 @@ def _apply_updates(
             else:
                 nicht_ueberschrieben.append(f"vault.{key}: behalten '{cur}' (vorgeschlagen: '{value}')")
         if urls:
-            existing = [u for u in re.split(r"[\s,;|]+", current.get("quellen") or "") if u]
+            existing = [u for u in re.split(r"[\s;|]+|,(?=\s*https?://)", current.get("quellen") or "") if u]
             merged = list(dict.fromkeys(existing + urls))
             if merged != existing:
                 vault_updates["quellen"] = " ".join(merged)
@@ -299,12 +302,30 @@ def _apply_updates(
         if notiz_text:
             vault_leads.append_note(path, notiz_text)
             geaendert.append("vault: Notiz angehängt")
+        # Vor dem Schreiben von Zusammenfassung/Kontakt: sonst würde die Entfernung auch den neuen Text treffen.
+        if remove_email:
+            body = path.read_text(encoding="utf-8", errors="ignore")
+            if remove_email.lower() in body.lower():
+                path.write_text(re.sub(re.escape(remove_email), "[E-Mail entfernt]", body, flags=re.IGNORECASE), encoding="utf-8")
+                geaendert.append(f"vault: E-Mail {remove_email} entfernt")
+        if summary:
+            if overwrite:
+                vault_leads.replace_section(path, "Zusammenfassung", summary)
+                geaendert.append("vault: Zusammenfassung ersetzt")
+            else:
+                nicht_ueberschrieben.append("vault.zusammenfassung: nur mit ueberschreiben=True ersetzbar - Text stattdessen als Notiz angehängt")
+                vault_leads.append_note(path, summary)
         if any(contact.get(k) for k in ("name", "email", "phone")):
             parts = [contact.get("name", ""), contact.get("role", "")]
             line = ", ".join(x for x in parts if x)
             extra = " ".join(x for x in (f"<{contact['email']}>" if contact.get("email") else "", contact.get("phone", "")) if x)
-            vault_leads.append_note(path, f"Kontakt: {(line + ' ' + extra).strip()}", heading="Kontakte")
-            geaendert.append("vault: Kontakt vermerkt")
+            entry = (line + " " + extra).strip()
+            if overwrite:
+                vault_leads.replace_section(path, "Kontakt", entry)
+                geaendert.append("vault: Kontaktabschnitt ersetzt")
+            else:
+                vault_leads.append_note(path, f"Kontakt: {entry}", heading="Kontakte")
+                geaendert.append("vault: Kontakt vermerkt")
 
     # Close
     if close_lead:
@@ -352,6 +373,13 @@ def _apply_updates(
         if payload:
             close_client.update_lead(lead_id, payload)
 
+        if remove_email:
+            for c in close_lead.get("contacts") or []:
+                have = [(e.get("email") or "") for e in c.get("emails") or []]
+                if remove_email.lower() in [h.lower() for h in have]:
+                    close_client.update_contact(c["id"], {"emails": [{"email": h, "type": "office"} for h in have if h.lower() != remove_email.lower()]})
+                    c["emails"] = [e for e in c.get("emails") or [] if (e.get("email") or "").lower() != remove_email.lower()]
+                    geaendert.append(f"close.kontakt '{c.get('name', '')}': E-Mail {remove_email} entfernt")
         if contact.get("name") or contact.get("email") or contact.get("phone"):
             c = _upsert_contact(close_lead, contact.get("name", ""), contact.get("role", ""), contact.get("email", ""), contact.get("phone", ""), overwrite)
             geaendert.append(f"close.kontakt: {c['aktion']}")
@@ -645,7 +673,7 @@ def update_lead(
     umsatz: str = "", kontakt_name: str = "", kontakt_email: str = "", kontakt_rolle: str = "",
     kontakt_telefon: str = "", notiz: str = "", close_status: str = "", status: str = "",
     score: str = "", aehnlich_zu: str = "", quellen: str = "", quelle: str = "Recherche",
-    ueberschreiben: bool = False,
+    ueberschreiben: bool = False, zusammenfassung: str = "", kontakt_email_entfernen: str = "",
 ) -> dict:
     facts = _clean_facts(ort=ort, branche=branche, mitarbeiter=mitarbeiter, umsatz=umsatz)
     try:
@@ -655,6 +683,8 @@ def update_lead(
 
     name, role = split_name_role(kontakt_name, kontakt_rolle)
     email = (kontakt_email or "").strip()
+    remove_email = (kontakt_email_entfernen or "").strip()
+    summary = (zusammenfassung or "").strip()
     status = (status or "").strip().lower()
     score = (score or "").strip()
     if status and status not in VAULT_STATUSES:
@@ -673,7 +703,7 @@ def update_lead(
         updates["aehnlich_zu"] = aehnlich_zu.strip()
     contact = {"name": name, "role": role, "email": email, "phone": (kontakt_telefon or "").strip()}
     notiz = (notiz or "").strip()
-    if not (updates or urls or any(contact.values()) or notiz or close_status or status or score):
+    if not (updates or urls or any(contact.values()) or notiz or close_status or status or score or summary or remove_email):
         return {"ok": False, "error": "Nichts zu ändern angegeben."}
 
     status_id = ""
@@ -706,14 +736,15 @@ def update_lead(
         applied = _apply_updates(
             vault, close, updates, urls=urls, overwrite=bool(ueberschreiben), contact=contact,
             notiz_text=notiz, close_status=status_id, vault_status=status, score=score, close_note=note_text,
+            summary=summary, remove_email=remove_email,
         )
     except CloseAPIError as e:
         return {"ok": False, "error": f"Close-Fehler beim Aktualisieren: {e}", "hinweis": "Ein Teil der Änderungen kann bereits geschrieben sein - Lead prüfen."}
 
-    summary = _entity_summary(vault, close, kunde)
-    out = {"ok": True, "aktion": "aktualisiert", **summary, **applied}
-    if summary["close_lead_id"]:
-        out["close_link"] = f"https://app.close.com/lead/{summary['close_lead_id']}/"
+    info = _entity_summary(vault, close, kunde)
+    out = {"ok": True, "aktion": "aktualisiert", **info, **applied}
+    if info["close_lead_id"]:
+        out["close_link"] = f"https://app.close.com/lead/{info['close_lead_id']}/"
     if not close and vault:
         out.setdefault("hinweise", []).append("Vault-Lead ist nicht mit Close verknüpft - Close wurde nicht geändert (sync_lead_to_close).")
     if warnings:

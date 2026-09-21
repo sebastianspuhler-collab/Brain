@@ -24,14 +24,22 @@ für die aktuelle Content-Zielgruppe.
 
 ✅ **Geografischer Fokus** (Sebastian, 2026-09-21): ganz Deutschland.
 
-✅ **Referenzkunde F-Tronic - belegte Merkmale** (Bedarfsanalyse 02.09.2026,
-`Kunden/F-Tronic/Meetings/`): ERP proAlpha inkl. DMS; ca. 600 Auftrags-
-bestätigungen/Rechnungen/Lieferscheine pro Monat; 500-800 aktive Lieferanten;
-Liefertermintreue ca. 70 %; manuelle AB-Prüfung 2-10 Minuten pro Beleg;
-Kernproblem: abweichende Liefertermine in Auftragsbestätigungen. Ähnliche
-Firmen = Fertiger/Händler mit vielen Lieferanten, hohem Belegaufkommen im
-Einkauf und ERP-gestütztem Prozess. Firmengröße (Mitarbeiter/Umsatz) von
-F-Tronic ist im Vault NICHT belegt - nicht raten.
+✅ **Referenzkunde F-Tronic - belegte Merkmale** (geprüft 2026-09-21):
+- Stammdaten (f-tronic.de Impressum/Über uns): f-tronic GmbH, Zum Gerlen 21-25,
+  66131 Saarbrücken-Ensheim, HRB 9402, Geschäftsführer Marvin Brück; **rund 250
+  Mitarbeiter**, 35+ Jahre am Markt, 1.100+ Produkte (Installationsdosen,
+  Verteiler, Zählerschränke, Brandschutz, Befestigung), Lieferung in 33 Länder.
+  Umsatz nur als Schätzung aus Firmenverzeichnissen (10-50 Mio €), nicht von
+  F-Tronic bestätigt.
+- Prozess (Bedarfsanalyse 02.09.2026, `Kunden/F-Tronic/Meetings/`): ERP proAlpha
+  inkl. DMS; ca. 600 Auftragsbestätigungen/Rechnungen/Lieferscheine pro Monat;
+  500-800 aktive Lieferanten; Liefertermintreue ca. 70 %; manuelle AB-Prüfung
+  2-10 Minuten pro Beleg; Kernproblem: abweichende Liefertermine.
+- Ähnliche Firmen = Hersteller/Händler mit ERP-gestütztem Einkauf, vielen
+  Lieferanten und hohem Belegaufkommen. Stärkstes Einzelsignal: **gleiches ERP
+  (proAlpha)** - belegt bei Spelsberg (seit 1998) und apra-norm (seit 2008).
+- Früher im Umlauf, aber FALSCH: "F-Tronic 150-220 MA / >50 Mio € / 15 Länder"
+  (Lead-Notes vom 06.-15.09.2026 sind korrigiert). Nicht wieder verwenden.
 
 🔲 **Erkennbare Schmerzpunkte/Trigger**, die einen Prospect qualifizieren
 (z.B. "manuelle Excel-Prozesse in der Angebotserstellung", "kein CRM im

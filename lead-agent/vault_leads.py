@@ -195,6 +195,21 @@ def append_note(path: Path, text: str, heading: str = "Notizen") -> None:
     path.write_text(content, encoding="utf-8")
 
 
+def replace_section(path: Path, heading: str, text: str) -> bool:
+    """Ersetzt den Inhalt von '## <heading>' (bis zur nächsten '## '-Überschrift
+    bzw. Dateiende) durch text; legt den Abschnitt am Ende an, falls er fehlt.
+    Gibt True zurück, wenn ein bestehender Abschnitt ersetzt wurde. Nur für
+    ausdrückliche Korrekturen gedacht (update_lead mit ueberschreiben=True)."""
+    content = path.read_text(encoding="utf-8", errors="ignore")
+    block = f"## {heading}\n{text.strip()}\n"
+    pattern = re.compile(rf"^## {re.escape(heading)}[ \t]*\n.*?(?=^## |\Z)", re.DOTALL | re.MULTILINE)
+    if pattern.search(content):
+        path.write_text(pattern.sub(lambda _: block, content, count=1), encoding="utf-8")
+        return True
+    path.write_text(content.rstrip("\n") + "\n\n" + block, encoding="utf-8")
+    return False
+
+
 def update_fields(path: Path, updates: dict) -> None:
     """Aktualisiert/ergänzt einzelne Frontmatter-Felder, ohne den restlichen
     Freitext-Body ODER andere Frontmatter-Zeilen anzufassen - genutzt von

@@ -222,3 +222,58 @@ def test_www_and_trailing_slash_differences_are_not_reported_as_conflict(vault, 
     lead = close.add_lead("Gleiche Site GmbH", url="https://gleiche-site.de")
     r = prospects.update_lead(lead["id"], website="https://www.gleiche-site.de/", quelle="Sebastian (manuell)")
     assert r["ok"] and r["nicht_ueberschrieben"] == [] and lead["url"] == "https://gleiche-site.de"
+
+
+# ── Korrekturen ──────────────────────────────────────────────────────────
+
+def test_summary_is_replaced_only_with_overwrite_and_other_sections_survive(vault, close):
+    r0 = prospects.save_prospect("Korrektur GmbH", kontakt_name="Anna Alt", notiz="ALTE FALSCHE ANGABE 999 MA")
+    lid = r0["close_lead_id"]
+    soft = prospects.update_lead(lid, zusammenfassung="Neu belegt: 120 MA", quelle="Sebastian (manuell)")
+    assert soft["nicht_ueberschrieben"] and "ALTE FALSCHE" in vault_leads.find_lead_by_close_id(lid)["body"]
+
+    hard = prospects.update_lead(lid, zusammenfassung="Neu belegt: 120 MA", quelle="Sebastian (manuell)", ueberschreiben=True)
+    body = vault_leads.find_lead_by_close_id(lid)["body"]
+    assert hard["ok"] and "ALTE FALSCHE" not in body and "Neu belegt: 120 MA" in body
+    assert "## Kontakt" in body and "Anna Alt" in body          # anderer Abschnitt unberührt
+    assert body.count("## Zusammenfassung") == 1
+
+
+def test_wrong_email_can_be_removed_from_contact_and_vault_text(vault, close):
+    r0 = prospects.save_prospect("Pollmann Test GmbH", kontakt_name="Hans Pollmann (Geschäftsführer)", kontakt_email="sabine.schroeder@pollmann-test.de")
+    lid = r0["close_lead_id"]
+    r = prospects.update_lead(lid, kontakt_email_entfernen="sabine.schroeder@pollmann-test.de", quelle="Sebastian (manuell)")
+    assert r["ok"] and any("entfernt" in c for c in r["geaendert"])
+    assert close.leads[lid]["contacts"][0]["emails"] == []
+    assert "sabine.schroeder@" not in vault_leads.find_lead_by_close_id(lid)["body"]
+    prospects.update_lead(lid, kontakt_name="Sabine Schröder", kontakt_email="sabine.schroeder@pollmann-test.de", quelle="Sebastian (manuell)")
+    assert [c["name"] for c in close.leads[lid]["contacts"]] == ["Hans Pollmann", "Sabine Schröder"]
+
+
+def test_replace_section_creates_missing_section(tmp_path):
+    f = tmp_path / "x.md"
+    f.write_text("---\na: b\n---\n\n# X\n\n## Kontakt\nAlt\n", encoding="utf-8")
+    assert vault_leads.replace_section(f, "Kontakt", "Neu") is True
+    assert vault_leads.replace_section(f, "Zusammenfassung", "Text") is False
+    assert "Alt" not in f.read_text() and "## Zusammenfassung\nText" in f.read_text()
+
+
+def test_contact_matching_ignores_role_in_existing_name_and_fixes_it_on_overwrite(vault, close):
+    lead = close.add_lead("Rolle GmbH", contacts=[{"id": "cont_r", "name": "Holger Ditzer (Einkaufsleiter)", "emails": [{"email": "holger.ditzer@rolle.de"}], "phones": []}])
+    prospects.update_lead(lead["id"], kontakt_name="Holger Ditzer", kontakt_rolle="Einkaufsleitung", quelle="Sebastian (manuell)", ueberschreiben=True)
+    assert len(lead["contacts"]) == 1
+    assert lead["contacts"][0]["name"] == "Holger Ditzer" and lead["contacts"][0]["title"] == "Einkaufsleitung"
+
+
+def test_source_urls_with_commas_survive_parsing():
+    url = "https://www.northdata.com/Pollmann%20Elektrotechnik%20GmbH,%20Oelde/Amtsgericht%20M%C3%BCnster%20HRB%207463"
+    assert prospects.parse_sources(f"https://a.de/x, {url}, https://b.de") == ["https://a.de/x", url, "https://b.de"]
+
+
+def test_email_removal_does_not_touch_newly_written_summary(vault, close):
+    r0 = prospects.save_prospect("Reihenfolge GmbH", kontakt_name="Hans Alt", kontakt_email="falsch@reihenfolge.de", website="reihenfolge.de")
+    lid = r0["close_lead_id"]
+    prospects.update_lead(lid, kontakt_email_entfernen="falsch@reihenfolge.de", zusammenfassung="Die Adresse falsch@reihenfolge.de war falsch zugeordnet.",
+                          quelle="Sebastian (manuell)", ueberschreiben=True)
+    body = vault_leads.find_lead_by_close_id(lid)["body"]
+    assert "Die Adresse falsch@reihenfolge.de war falsch zugeordnet." in body

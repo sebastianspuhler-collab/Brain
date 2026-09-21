@@ -118,17 +118,23 @@ def save_prospect(
     "bleiben stehen und erscheinen unter nicht_ueberschrieben; ueberschreiben=True ersetzt sie bewusst "
     "(nur nutzen, wenn Sebastian die Korrektur will oder ein Bestandswert nachweislich falsch ist). Das "
     "Ergebnis listet jede Änderung unter geaendert - dem Nutzer knapp wiedergeben. Faktenfelder brauchen bei "
-    "quelle='Recherche' Quell-URLs in quellen, bei Angaben von Sebastian quelle='Sebastian (manuell)'."
+    "quelle='Recherche' Quell-URLs in quellen, bei Angaben von Sebastian quelle='Sebastian (manuell)'. "
+    "KORREKTUREN (nur mit ueberschreiben=True): zusammenfassung ersetzt den Zusammenfassungs-Text im Vault-"
+    "Lead (z.B. wenn dort nachweislich falsche Angaben stehen - neuen, belegten Text schreiben); "
+    "kontakt_email_entfernen löscht eine falsch zugeordnete E-Mail aus Close-Kontakten und Vault-Text; "
+    "mit ueberschreiben=True ersetzt ein angegebener Kontakt außerdem den Kontakt-Abschnitt im Vault."
 ))
 def update_lead(
     lead: str, website: str = "", ort: str = "", branche: str = "", mitarbeiter: str = "", umsatz: str = "",
     kontakt_name: str = "", kontakt_email: str = "", kontakt_rolle: str = "", kontakt_telefon: str = "",
     notiz: str = "", close_status: str = "", status: str = "", score: str = "", aehnlich_zu: str = "",
     quellen: str = "", quelle: str = "Recherche", ueberschreiben: bool = False,
+    zusammenfassung: str = "", kontakt_email_entfernen: str = "",
 ) -> dict:
     return prospects.update_lead(
         lead, website, ort, branche, mitarbeiter, umsatz, kontakt_name, kontakt_email, kontakt_rolle,
         kontakt_telefon, notiz, close_status, status, score, aehnlich_zu, quellen, quelle, ueberschreiben,
+        zusammenfassung, kontakt_email_entfernen,
     )
 
 
