@@ -81,6 +81,14 @@ def find_lead(name_or_path: str) -> dict | None:
     return None
 
 
+def find_lead_by_filename(filename: str) -> dict | None:
+    """Exakter Dateiname (list_leads()/dedup liefern nur p.name, keinen Pfad)."""
+    for p in _all_lead_files():
+        if p.name == filename:
+            return read_lead(p)
+    return None
+
+
 def find_lead_by_close_id(close_lead_id: str) -> dict | None:
     for p in _all_lead_files():
         lead = read_lead(p)
@@ -104,33 +112,62 @@ def list_leads(filter_text: str = "") -> list[dict]:
     return result
 
 
-def write_prospect(firma: str, kontakt_name: str = "", kontakt_email: str = "", notiz: str = "", quelle: str = "Recherche") -> Path:
+def _one_line(value) -> str:
+    """Frontmatter wird zeilenweise geparst (kein YAML-Parser im Repo) - ein
+    Zeilenumbruch im Wert würde das Feld abschneiden bzw. eine Fremdzeile in
+    den Frontmatter-Block schreiben."""
+    return re.sub(r"\s*[\r\n]+\s*", " ", str(value)).strip()
+
+
+def _unique_path(directory: Path, datum: str, safe_name: str) -> Path:
+    """Nie eine bestehende Lead-Datei überschreiben (frühere Version tat das
+    bei gleichem Firmennamen am selben Tag stillschweigend)."""
+    path = directory / f"{datum}-{safe_name}.md"
+    n = 2
+    while path.exists():
+        path = directory / f"{datum}-{safe_name}-{n}.md"
+        n += 1
+    return path
+
+
+def write_prospect(
+    firma: str, kontakt_name: str = "", kontakt_email: str = "", notiz: str = "",
+    quelle: str = "Recherche", fields: dict | None = None, kontakt_rolle: str = "",
+) -> Path:
     """Legt einen neuen Lead an, den der Agent selbst recherchiert hat -
     Gegenstück zu email_lead_service._write_lead_stub()/
     calendar_lead_service._write_lead_stub() für die dritte Quelle
     "Lead-Agent-Recherche". Gleiche Frontmatter-Grundstruktur, ergänzt um die
-    drei Sync-Felder aus dem Modul-Docstring."""
+    drei Sync-Felder aus dem Modul-Docstring. fields: zusätzliche
+    strukturierte Frontmatter-Felder (website, ort, branche, mitarbeiter,
+    umsatz, aehnlich_zu, quellen) - leere Werte werden nicht geschrieben."""
     datum = datetime.now().strftime("%Y-%m-%d")
     safe_name = _sanitize(firma) or "Unbekannt"
-    path = leads_dir() / f"{datum}-{safe_name}.md"
+    path = _unique_path(leads_dir(), datum, safe_name)
     kontakt_block = ""
     if kontakt_name or kontakt_email:
         kontakt_block = f"\n## Kontakt\n{kontakt_name}".strip()
+        if kontakt_rolle:
+            kontakt_block += f", {kontakt_rolle}"
         if kontakt_email:
             kontakt_block += f" ({kontakt_email})"
         kontakt_block += "\n"
+
+    extra = "".join(
+        f"{k}: {_one_line(v)}\n" for k, v in (fields or {}).items() if v not in (None, "")
+    )
 
     body = f"""---
 tags:
   - Lead
   - Lead-Agent-Recherche
-quelle: {quelle}
+quelle: {_one_line(quelle)}
 datum: {datum}
 kategorie: Lead
 close_lead_id:
 status: neu
 score:
----
+{extra}---
 
 # {firma}
 
@@ -139,6 +176,23 @@ score:
 {kontakt_block}"""
     path.write_text(body, encoding="utf-8")
     return path
+
+
+def append_note(path: Path, text: str, heading: str = "Notizen") -> None:
+    """Hängt einen datierten Absatz an den Body an (unter '## <heading>', wird
+    bei Bedarf angelegt) - nie ein Überschreiben bestehenden Textes."""
+    text = (text or "").strip()
+    if not text:
+        return
+    content = path.read_text(encoding="utf-8", errors="ignore")
+    stamp = datetime.now().strftime("%Y-%m-%d")
+    entry = f"- {stamp}: {text}\n"
+    marker = f"\n## {heading}\n"
+    if marker in content:
+        content = content.rstrip("\n") + "\n" + entry
+    else:
+        content = content.rstrip("\n") + f"\n{marker}{entry}"
+    path.write_text(content, encoding="utf-8")
 
 
 def update_fields(path: Path, updates: dict) -> None:
@@ -162,7 +216,7 @@ def update_fields(path: Path, updates: dict) -> None:
     for i, line in enumerate(fm_lines):
         m = re.match(r"^([a-zA-Z_]+):\s*(.*)$", line)
         if m and m.group(1) in remaining:
-            fm_lines[i] = f"{m.group(1)}: {remaining.pop(m.group(1))}"
+            fm_lines[i] = f"{m.group(1)}: {_one_line(remaining.pop(m.group(1)))}"
     for key, value in remaining.items():
-        fm_lines.append(f"{key}: {value}")
+        fm_lines.append(f"{key}: {_one_line(value)}")
     path.write_text(f"---\n{chr(10).join(fm_lines)}\n---\n{body}", encoding="utf-8")

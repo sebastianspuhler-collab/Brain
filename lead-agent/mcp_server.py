@@ -25,9 +25,12 @@ from mcp.server.fastmcp import FastMCP
 import close_audit
 import close_client
 import combined_leads
+import dedup
 import export_leads as export_leads_module
 import gmail_client
 import lead_lookup
+import prospects
+import table_io
 import vault_kunden
 import vault_leads
 from close_client import CloseAPIError
@@ -76,36 +79,88 @@ def _format_lead_summary(lead: dict) -> str:
 
 
 @mcp.tool(description=(
-    "Legt einen NEUEN Prospect an: schreibt einen Lead-Stub nach Leads/*.md "
-    "(Vault) UND legt ihn als Lead in Close CRM an (Quelle-Feld "
-    "'prozessia-lead-agent'), verknüpft beide sofort über close_lead_id im "
-    "Frontmatter - DAS flexible 'leg mir das in Close an'-Tool. Zwei "
-    "Auslöser: (1) NACH eigener, gründlicher Recherche (WebSearch, mehrere "
-    "Quellen gegengecheckt) für jeden Prospect, der zum ICP aus PLAYBOOK.md "
-    "passt, ODER (2) wenn Sebastian einen Kontakt direkt im Chat nennt/"
-    "pastet (z.B. eine E-Mail-Signatur, ein Messekontakt) - dann OHNE "
-    "Recherche und OHNE Rückfrage nach einem festen Format sofort mit den "
-    "aus dem Freitext extrahierten Angaben anlegen, fehlende Felder bleiben "
-    "leer. Nicht für bereits bestehende Vault-Leads/-Kunden nutzen (dafür "
-    "sync_lead_to_close)."
+    "Legt einen Prospect an - DUBLETTENFREI: prüft vorher LIVE gegen Vault (Leads+Kunden) und Close "
+    "(Firmenname UND Domain). (a) Exakt dieselbe Firma vorhanden -> es wird KEIN neuer Lead angelegt, "
+    "sondern der bestehende ergänzt (nur leere Felder werden gefüllt, Abweichungen stehen unter "
+    "nicht_ueberschrieben, Ergebnis-aktion sagt es klar). (b) Nur ähnlicher Name (z.B. 'Kaiser GmbH' vs "
+    "'Kaiser Elektrotechnik') -> NICHTS wird geschrieben, Ergebnis enthält duplikat_verdacht + aehnliche: "
+    "dann Website/Ort prüfen und entweder update_lead (dieselbe Firma) oder save_prospect mit "
+    "bestaetigt_neu=True (andere Firma). (c) Sonst: Vault-Lead + Close-Lead (mit Website, Ort, Branche, "
+    "Mitarbeiterzahl, Umsatz, Kontakt mit Rolle als Titel) + Startnotiz mit Quellen in Close. "
+    "Zwei Auslöser: NACH eigener Recherche (mehrere Quellen gegengecheckt) ODER wenn Sebastian einen "
+    "Kontakt direkt nennt (dann ohne Recherche sofort anlegen, quelle z.B. 'Messekontakt'/'Sebastian "
+    "(manuell)'). PFLICHT bei quelle='Recherche...': jede Angabe zu branche/mitarbeiter/umsatz/ort braucht "
+    "belegende URLs in quellen (mit Leerzeichen/Komma getrennt) - ohne Beleg wird abgelehnt. NIE Fakten "
+    "raten: unbekannt = leer lassen. kontakt_name ohne Rolle in Klammern - die Rolle in kontakt_rolle. "
+    "warnungen im Ergebnis (z.B. E-Mail passt nicht zum Namen) MÜSSEN dem Nutzer genannt werden. "
+    "aehnlich_zu: Referenzfirma (z.B. 'F-Tronic') + konkrete Begründung in notiz."
 ))
-def save_prospect(firma: str, kontakt_name: str = "", kontakt_email: str = "", notiz: str = "", quelle: str = "Recherche") -> dict:
-    path = vault_leads.write_prospect(firma, kontakt_name, kontakt_email, notiz, quelle)
-    close_result: dict = {}
+def save_prospect(
+    firma: str, kontakt_name: str = "", kontakt_email: str = "", notiz: str = "", quelle: str = "Recherche",
+    website: str = "", ort: str = "", branche: str = "", mitarbeiter: str = "", umsatz: str = "",
+    kontakt_rolle: str = "", kontakt_telefon: str = "", aehnlich_zu: str = "", quellen: str = "",
+    bestaetigt_neu: bool = False,
+) -> dict:
+    return prospects.save_prospect(
+        firma, kontakt_name, kontakt_email, notiz, quelle, website, ort, branche, mitarbeiter, umsatz,
+        kontakt_rolle, kontakt_telefon, aehnlich_zu, quellen, bestaetigt_neu,
+    )
+
+
+@mcp.tool(description=(
+    "ÄNDERT einen BESTEHENDEN Lead in Vault UND Close (Firmenname, close_lead_id 'lead_...' oder Vault-"
+    "Dateiname; bei mehreren passenden Leads kommt eine mehrdeutig-Liste statt eines geratenen Treffers - "
+    "dann close_lead_id nehmen). Alle Felder optional, mindestens eines nötig: website, ort, branche, "
+    "mitarbeiter, umsatz, Kontakt (kontakt_name/_email/_rolle/_telefon: legt den Kontakt an oder ergänzt "
+    "den vorhandenen, Match per E-Mail bzw. Name), notiz (Vault-Notiz + Close-Note), close_status "
+    "(Close-Pipeline-Status, nur vorhandene Labels - siehe close_lead_statuses), status/score (Vault-"
+    "Bewertung), aehnlich_zu, quellen. STANDARD: nur LEERE Felder werden gefüllt, abweichende Bestandswerte "
+    "bleiben stehen und erscheinen unter nicht_ueberschrieben; ueberschreiben=True ersetzt sie bewusst "
+    "(nur nutzen, wenn Sebastian die Korrektur will oder ein Bestandswert nachweislich falsch ist). Das "
+    "Ergebnis listet jede Änderung unter geaendert - dem Nutzer knapp wiedergeben. Faktenfelder brauchen bei "
+    "quelle='Recherche' Quell-URLs in quellen, bei Angaben von Sebastian quelle='Sebastian (manuell)'."
+))
+def update_lead(
+    lead: str, website: str = "", ort: str = "", branche: str = "", mitarbeiter: str = "", umsatz: str = "",
+    kontakt_name: str = "", kontakt_email: str = "", kontakt_rolle: str = "", kontakt_telefon: str = "",
+    notiz: str = "", close_status: str = "", status: str = "", score: str = "", aehnlich_zu: str = "",
+    quellen: str = "", quelle: str = "Recherche", ueberschreiben: bool = False,
+) -> dict:
+    return prospects.update_lead(
+        lead, website, ort, branche, mitarbeiter, umsatz, kontakt_name, kontakt_email, kontakt_rolle,
+        kontakt_telefon, notiz, close_status, status, score, aehnlich_zu, quellen, quelle, ueberschreiben,
+    )
+
+
+@mcp.tool(description=(
+    "Gleicht eine LISTE von Firmen gegen Vault (Leads+Kunden) UND Close ab - rein lesend. Jeder Eintrag "
+    "'Firma' oder 'Firma | website' (optional '| email'; Website verbessert die Trefferquote über die "
+    "Domain). Ergebnis je Firma: vorhanden (exakt, mit close_lead_id/Status), aehnlich (Kandidaten prüfen) "
+    "oder neu. IMMER nutzen, bevor du eine Rechercheliste als Neuanlagen präsentierst, und für 'welche "
+    "davon sind schon in Close?'. Bei >5 Firmen lädt es einmal alle Close-Leads (erstmals ~30 s)."
+))
+def check_companies(firmen: list[str]) -> dict:
+    return prospects.check_companies(firmen)
+
+
+@mcp.tool(description=(
+    "Liest eine Excel-(.xlsx) oder CSV-Datei aus dem Vault (z.B. eine Firmenliste in _inbox/ oder ein "
+    "früherer Export) und gibt Spalten + Zeilen zurück (max. 1000). Danach z.B. check_companies mit den "
+    "Firmennamen/Websites der Zeilen. Pfad relativ zum Vault."
+))
+def read_table(path: str, sheet: str = "", max_rows: int = 500) -> dict:
+    return table_io.read_table(path, sheet, max_rows)
+
+
+@mcp.tool(description=(
+    "Liefert die in Close konfigurierten Lead-Status (Pipeline-Stufen) - nur diese können mit "
+    "update_lead(close_status=...) gesetzt werden."
+))
+def close_lead_statuses() -> dict:
     try:
-        contacts = []
-        if kontakt_name or kontakt_email:
-            contact: dict = {"name": kontakt_name or firma}
-            if kontakt_email:
-                contact["emails"] = [{"email": kontakt_email, "type": "office"}]
-            contacts = [contact]
-        close_lead = close_client.create_lead(firma, contacts=contacts or None)
-        close_client.tag_lead_source(close_lead["id"])
-        vault_leads.update_fields(path, {"close_lead_id": close_lead["id"]})
-        close_result = {"close_lead_id": close_lead["id"]}
+        return {"ok": True, "status": [s.get("label") for s in close_client.list_lead_statuses()]}
     except CloseAPIError as e:
-        close_result = {"close_error": str(e)}
-    return {"ok": True, "vault_path": str(path.relative_to(get_settings().vault_path)), **close_result}
+        return {"ok": False, "error": str(e)}
 
 
 @mcp.tool(description=(
@@ -121,7 +176,7 @@ def save_prospect(firma: str, kontakt_name: str = "", kontakt_email: str = "", n
     "nutzen (würde einen zweiten, doppelten Close-Lead anlegen), sondern "
     "link_vault_to_close mit der schon bekannten close_lead_id."
 ))
-def sync_lead_to_close(name_or_path: str) -> dict:
+def sync_lead_to_close(name_or_path: str, bestaetigt_neu: bool = False) -> dict:
     lead = vault_leads.find_lead(name_or_path)
     kunde = None if lead else vault_kunden.find_kunde(name_or_path)
     if not lead and not kunde:
@@ -141,9 +196,21 @@ def sync_lead_to_close(name_or_path: str) -> dict:
             close_client.update_lead(existing_id, {"name": firma})
             close_lead_id = existing_id
         else:
-            close_lead = close_client.create_lead(firma)
-            close_client.tag_lead_source(close_lead["id"])
-            close_lead_id = close_lead["id"]
+            # Erst prüfen, ob es die Firma in Close schon gibt (z.B. aus dem
+            # Massenimport) - sonst entsteht eine Dublette.
+            matches = dedup.find_matches(firma)
+            exact_with_id = [m for m in matches["exakt"] if m["close_lead_id"]]
+            if exact_with_id:
+                close_lead_id = exact_with_id[0]["close_lead_id"]
+            elif matches["aehnlich"] and not bestaetigt_neu:
+                return {
+                    "ok": False, "duplikat_verdacht": True, "aehnliche": matches["aehnlich"],
+                    "hinweis": "Ähnliche Firmen existieren bereits - nichts angelegt. Dieselbe Firma: link_vault_to_close mit deren close_lead_id; andere Firma: erneut mit bestaetigt_neu=True.",
+                }
+            else:
+                close_lead = close_client.create_lead(firma)
+                close_client.tag_lead_source(close_lead["id"])
+                close_lead_id = close_lead["id"]
 
         if lead:
             vault_leads.update_fields(Path(lead["path"]), {"close_lead_id": close_lead_id})
@@ -158,19 +225,38 @@ def sync_lead_to_close(name_or_path: str) -> dict:
 
 
 @mcp.tool(description=(
-    "Sucht Leads direkt in Close CRM (Name/Firma als Stichwort). Nutzen, um den "
-    "aktuellen Close-Stand zu sehen oder eine close_lead_id zu einem Firmennamen "
-    "zu finden, wenn der Vault-Lead selbst keine close_lead_id im Frontmatter hat."
+    "Sucht Leads direkt in Close CRM (Stichwort in Name/Kontakten/Website; leer = alle). Liefert je Lead "
+    "id, Name, Status, Website, Ort, Branche, Mitarbeiter, Kontakte (Name, Rolle, E-Mail) und Anlagedatum. "
+    "status: optional exakter Close-Status als Filter (z.B. 'Termin vereinbart'). limit (Default 50, max "
+    "500). Für Listen über Vault UND Close mit Filtern stattdessen get_combined_leads."
 ))
-def close_search_leads(query: str = "") -> str:
+def close_search_leads(query: str = "", status: str = "", limit: int = 50) -> dict:
+    limit = max(1, min(int(limit or 50), 500))
+    q = query.strip()
+    if status.strip():
+        q = f'{q} status:"{status.strip()}"'.strip()
     try:
-        leads = close_client.search_leads(query)
+        leads = close_client.search_leads(q, limit=limit + 1)
     except CloseAPIError as e:
-        return f"Close-Fehler: {e}"
-    if not leads:
-        return "Keine Treffer in Close."
-    lines = [f"- {lead.get('id')} | {lead.get('display_name') or lead.get('name')}" for lead in leads]
-    return "\n".join(lines)
+        return {"ok": False, "error": f"Close-Fehler: {e}"}
+    rows = []
+    for lead in leads[:limit]:
+        custom = lead.get("custom") or {}
+        rows.append({
+            "close_lead_id": lead.get("id"),
+            "firma": lead.get("display_name") or lead.get("name"),
+            "status": lead.get("status_label", ""),
+            "website": lead.get("url") or "",
+            "ort": combined_leads._close_city(lead),
+            "branche": combined_leads._close_custom(lead, "branche"),
+            "mitarbeiter": combined_leads._close_custom(lead, "mitarbeiteranzahl"),
+            "kontakte": [
+                {"name": c.get("name", ""), "rolle": c.get("title") or "", "emails": [e.get("email") for e in c.get("emails", []) if e.get("email")]}
+                for c in lead.get("contacts") or []
+            ],
+            "angelegt": (lead.get("date_created") or "")[:10],
+        })
+    return {"ok": True, "anzahl": len(rows), "gekuerzt": len(leads) > limit, "leads": rows}
 
 
 @mcp.tool(description=(
@@ -298,21 +384,31 @@ def find_similar_leads_context(name_or_close_id: str) -> dict:
     "JEDE Anfrage nach 'meine Leads'/'zeig mir...'/einer Liste oder Tabelle "
     "von Leads - nicht einzeln Glob(Leads/) und close_search_leads von Hand "
     "kombinieren. Alle Parameter optional und frei kombinierbar, leer lassen "
-    "= kein Filter auf dieses Feld. branche/region entsprechen "
-    "Vault-Frontmatter-Feldern, die meist erst durch enrich_lead/"
-    "save_lead_enrichment befüllt werden - vorher greift für sie nur die "
-    "Freitextsuche im Notiz-Body. quelle: 'vault'|'close'|'beide' schränkt "
-    "das Ergebnis auf eine Herkunft ein. Willst du das Ergebnis als "
+    "= kein Filter auf dieses Feld. status matcht den Vault-Status "
+    "(neu/kontaktiert/...) ODER den Close-Status (Nicht erreicht/Termin "
+    "vereinbart/...). branche/region/freitext durchsuchen Vault-Felder, "
+    "Notiztext UND Close-Felder (Branche, Ort, Kontakte, Website). "
+    "angelegt_seit_tagen: nur Leads jünger als N Tage. quelle: "
+    "'vault'|'close'|'beide' schränkt auf eine Herkunft ein. Jede Zeile "
+    "hat auch website, ort, branche, mitarbeiter, umsatz, close_status, "
+    "aehnlich_zu. WICHTIG: close_verfuegbar=false heißt, die Liste ist "
+    "unvollständig (nur Vault) - das dem Nutzer sagen. Willst du das Ergebnis als "
     "herunterladbare Datei statt als Chat-Tabelle, nutze stattdessen/zusätzlich "
-    "export_leads mit denselben Filtern."
+    "export_leads mit denselben Filtern (spalten wählbar)."
 ))
 def get_combined_leads(
     branche: str = "", status: str = "", score_min: str = "", region: str = "",
     letzter_kontakt_vor_tagen: str = "", freitext: str = "", quelle: str = "",
-    limit: str = "5000",
-) -> list[dict]:
+    limit: str = "5000", angelegt_seit_tagen: str = "",
+) -> dict:
     filter = _build_lead_filter(branche, status, score_min, region, letzter_kontakt_vor_tagen, freitext, quelle, limit)
-    return combined_leads.get_combined_leads(filter)
+    if angelegt_seit_tagen:
+        filter["angelegt_seit_tagen"] = angelegt_seit_tagen
+    rows, meta = combined_leads.get_combined_leads_with_meta(filter)
+    out = {"anzahl": len(rows), **meta, "leads": rows}
+    if not meta["close_verfuegbar"]:
+        out["warnung"] = "Close nicht erreichbar - Liste enthält NUR Vault-Leads und ist unvollständig. Dem Nutzer sagen."
+    return out
 
 
 @mcp.tool(description=(
@@ -323,14 +419,31 @@ def get_combined_leads(
     "(xlsx bevorzugen, wenn nicht anders gewünscht). Gib den zurückgegebenen "
     "download_url als klickbaren Markdown-Link in deiner Antwort aus (z.B. "
     "'[Excel-Export herunterladen](download_url)') - die Datei wird nach 24h "
-    "automatisch aufgeräumt, also nicht als Dauerablage bewerben."
+    "automatisch aufgeräumt, also nicht als Dauerablage bewerben. spalten: "
+    "kommagetrennt aus firma, kontakt, quelle, status, score, letzter_kontakt, "
+    "close_lead_id, close_link, vault_path, website, ort, branche, mitarbeiter, "
+    "umsatz, close_status, aehnlich_zu, quellen, angelegt (leer = Standardspalten)."
 ))
 def export_leads(
     format: str = "csv", branche: str = "", status: str = "", score_min: str = "",
     region: str = "", letzter_kontakt_vor_tagen: str = "", freitext: str = "", quelle: str = "",
+    spalten: str = "", angelegt_seit_tagen: str = "",
 ) -> dict:
     filter = _build_lead_filter(branche, status, score_min, region, letzter_kontakt_vor_tagen, freitext, quelle)
-    return export_leads_module.export_leads(filter, format)
+    if angelegt_seit_tagen:
+        filter["angelegt_seit_tagen"] = angelegt_seit_tagen
+    return export_leads_module.export_leads(filter, format, spalten or None)
+
+
+@mcp.tool(description=(
+    "Exportiert eine BELIEBIGE, von dir zusammengestellte Tabelle als echte xlsx/csv-Datei - z.B. "
+    "Rechercheergebnisse, das Ergebnis von check_companies, eine Auswahl/Umsortierung. rows: Liste von "
+    "Objekten (ein Objekt pro Zeile, gleiche Schlüssel); spalten: optionale Reihenfolge/Auswahl der "
+    "Schlüssel (leer = alle); dateiname: kurzer Name ohne Endung. download_url als klickbaren "
+    "Markdown-Link ausgeben. Für reine Vault/Close-Bestandslisten ist export_leads bequemer."
+))
+def export_table(rows: list[dict], spalten: list[str] | None = None, format: str = "xlsx", dateiname: str = "tabelle") -> dict:
+    return export_leads_module.export_table(rows, spalten, format, dateiname)
 
 
 @mcp.tool(description=(
@@ -455,9 +568,16 @@ def update_lead_status(name_or_path: str, status: str = "", score: str = "") -> 
         return {"ok": False, "error": f"Kein Lead gefunden für '{name_or_path}'"}
     updates = {}
     if status:
+        status = status.strip().lower()
+        if status not in prospects.VAULT_STATUSES:
+            return {"ok": False, "error": f"status '{status}' ungültig (erlaubt: {', '.join(prospects.VAULT_STATUSES)})."}
         updates["status"] = status
     if score:
-        updates["score"] = score
+        try:
+            float(score.replace(",", "."))
+        except ValueError:
+            return {"ok": False, "error": f"score '{score}' ist keine Zahl."}
+        updates["score"] = score.replace(",", ".")
     if not updates:
         return {"ok": False, "error": "Weder status noch score angegeben."}
     vault_leads.update_fields(Path(lead["path"]), updates)

@@ -7,6 +7,7 @@ Fuzzy-/Levenshtein-Matching) - für die überschaubare Zahl an Vault-Firmen
 close_audit.py ohnehin zur manuellen Bestätigung statt automatisch zu
 verknüpfen."""
 import re
+import unicodedata
 
 _DATE_PREFIX_RE = re.compile(r"^\d{4}-\d{2}-\d{2}-")
 
@@ -32,8 +33,21 @@ def strip_date_prefix(name: str) -> str:
     return _DATE_PREFIX_RE.sub("", name or "")
 
 
-def normalize(name: str) -> str:
+def fold(name: str) -> str:
+    """Kleinschreibung + Umlaut-/Akzent-Faltung ('Günther' == 'Guenther',
+    'Karré' == 'Karre'). Ohne das verschwanden Umlaute beim Tokenisieren
+    ([a-z0-9]) komplett - 'Günther' wurde zu 'gnther'."""
+    name = (name or "").lower().replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss")
+    name = unicodedata.normalize("NFKD", name)
+    return "".join(ch for ch in name if not unicodedata.combining(ch))
+
+
+def tokens(name: str) -> list[str]:
+    """Namens-Tokens ohne Datumspräfix und Rechtsformen."""
     name = strip_date_prefix(name)
     name = _EV_SUFFIX_RE.sub(" ", name)
-    tokens = [t for t in re.findall(r"[a-z0-9]+", name.lower()) if t not in _LEGAL_TOKENS]
-    return "".join(tokens)
+    return [t for t in re.findall(r"[a-z0-9]+", fold(name)) if t not in _LEGAL_TOKENS]
+
+
+def normalize(name: str) -> str:
+    return "".join(tokens(name))

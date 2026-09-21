@@ -165,3 +165,29 @@ Chat-Nachricht) steht noch aus.
   Webhook-Router (siehe docker-compose.yml-Kommentar) ist gegen Traefiks
   dokumentiertes Verhalten gebaut, aber noch nicht live gegen die bestehende
   `brain`-Route auf dem VPS verifiziert.
+
+
+## Prospect-Pflege ohne Dubletten (Stand 2026-09-21)
+
+Tools (Logik in `prospects.py`, Tests in `tests/`):
+
+| Tool | Zweck |
+|---|---|
+| `save_prospect` | Anlegen **dublettenfrei**: live-Prüfung gegen Vault (Leads+Kunden) und Close per Name (Umlaut-/Rechtsform-tolerant) und Domain. Exakt vorhanden -> bestehender Lead wird ergänzt; nur ähnlich -> nichts geschrieben (`duplikat_verdacht`), Freigabe per `bestaetigt_neu`. Close nicht erreichbar -> nichts angelegt. |
+| `update_lead` | Bestehenden Lead in Vault + Close ändern (Website, Ort, Branche, Mitarbeiter, Umsatz, Kontakt, Notiz, `close_status`, Vault-`status`/`score`). Füllt standardmäßig nur leere Felder; `ueberschreiben=True` ersetzt bewusst. Mehrdeutige Namen -> Kandidatenliste statt Raten. |
+| `check_companies` | Firmenliste gegen Vault + Close abgleichen (vorhanden / ähnlich / neu). |
+| `close_search_leads`, `close_lead_statuses` | Close lesen (Status, Kontakte, Website, Branche) bzw. gültige Pipeline-Status. |
+| `export_leads` (`spalten`), `export_table`, `read_table` | Excel/CSV: Bestandsliste mit wählbaren Spalten, beliebige Tabellen, Excel/CSV aus dem Vault einlesen. |
+
+Regeln, die im Code (nicht nur im Prompt) erzwungen werden: Quell-URL-Pflicht
+für recherchierte Fakten, URL-/Status-/Score-Validierung vor dem ersten
+Schreibzugriff, keine überschriebenen Vault-Dateien, Warnung bei E-Mail, die
+nicht zum Kontaktnamen bzw. zur Firmendomain passt.
+
+Close-Felder, die genutzt werden (müssen in Close existieren): `Branche`,
+`Mitarbeiteranzahl` (Zahl), `Umsatz`. Ein "Quelle"-Feld gibt es in diesem
+Account nicht (`CLOSE_SOURCE_FIELD_ID` leer) - die Herkunft steht deshalb in
+der Startnotiz jedes Leads.
+
+`get_combined_leads` filtert lokal auf einem 5-Minuten-Snapshot aller
+Close-Leads (`close_client.SNAPSHOT_PATH`, erster Abruf ~30 s bei ~1900 Leads).

@@ -3,18 +3,20 @@ import time
 
 import export_leads as svc
 
+_META = {"close_verfuegbar": True, "close_fehler": "", "gekuerzt": False}
+
 
 def test_export_leads_writes_csv_with_expected_columns(tmp_path, monkeypatch):
     exports_dir = tmp_path / "exports"
     monkeypatch.setattr(svc, "EXPORTS_DIR", exports_dir)
     monkeypatch.setattr(
-        svc.combined_leads, "get_combined_leads",
-        lambda filter=None: [{
+        svc.combined_leads, "get_combined_leads_with_meta",
+        lambda filter=None: ([{
             "firma": "Muster GmbH", "kontakt": "Max Muster <max@muster.de>", "quelle": "beide",
             "status": "qualifiziert", "score": "8", "letzter_kontakt": "2026-09-01",
             "close_lead_id": "lead_1", "close_link": "https://app.close.com/lead/lead_1/",
             "vault_path": "2026-09-01-Muster-GmbH.md",
-        }],
+        }], _META),
     )
 
     result = svc.export_leads({}, "csv")
@@ -37,9 +39,9 @@ def test_export_leads_writes_real_xlsx_file(tmp_path, monkeypatch):
     exports_dir = tmp_path / "exports"
     monkeypatch.setattr(svc, "EXPORTS_DIR", exports_dir)
     monkeypatch.setattr(
-        svc.combined_leads, "get_combined_leads",
-        lambda filter=None: [{"firma": "Excel Firma", "kontakt": "", "quelle": "vault", "status": "neu",
-                               "score": "", "letzter_kontakt": "", "close_lead_id": "", "close_link": "", "vault_path": "x.md"}],
+        svc.combined_leads, "get_combined_leads_with_meta",
+        lambda filter=None: ([{"firma": "Excel Firma", "kontakt": "", "quelle": "vault", "status": "neu",
+                               "score": "", "letzter_kontakt": "", "close_lead_id": "", "close_link": "", "vault_path": "x.md"}], _META),
     )
 
     result = svc.export_leads({}, "xlsx")
@@ -72,7 +74,7 @@ def test_export_leads_cleans_up_files_older_than_24h(tmp_path, monkeypatch):
     os.utime(old_file, (old_time, old_time))
 
     monkeypatch.setattr(svc, "EXPORTS_DIR", exports_dir)
-    monkeypatch.setattr(svc.combined_leads, "get_combined_leads", lambda filter=None: [])
+    monkeypatch.setattr(svc.combined_leads, "get_combined_leads_with_meta", lambda filter=None: ([], _META))
 
     svc.export_leads({}, "csv")
 
@@ -86,7 +88,7 @@ def test_export_leads_keeps_recent_files_during_cleanup(tmp_path, monkeypatch):
     recent_file.write_text("fresh", encoding="utf-8")
 
     monkeypatch.setattr(svc, "EXPORTS_DIR", exports_dir)
-    monkeypatch.setattr(svc.combined_leads, "get_combined_leads", lambda filter=None: [])
+    monkeypatch.setattr(svc.combined_leads, "get_combined_leads_with_meta", lambda filter=None: ([], _META))
 
     svc.export_leads({}, "csv")
 
