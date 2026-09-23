@@ -9,7 +9,7 @@ import re
 from pathlib import Path
 
 from app.config import get_settings
-from app.services import carousel_service, classify, gmail_client, linkedin_service, memory, rag
+from app.services import carousel_service, classify, document_service, gmail_client, linkedin_service, memory, rag
 from app.services import search_service, tasks_service, vault_service, youtube_service
 
 # Server-seitiges Anthropic-Tool (Sebastian, 2026-07-30: "muss auch selbst
@@ -166,6 +166,39 @@ TOOLS = [
                 "cc": {"type": "string", "description": "Optional"},
             },
             "required": ["to", "subject", "body"],
+        },
+    },
+    {
+        "name": "create_pdf",
+        "description": (
+            "Erstellt ein fertiges PDF-Dokument (Abnahmeprotokoll, Vertrag, Angebot, Zusammenfassung ...) direkt im Vault - "
+            "du KANNST PDFs erzeugen, sage NIEMALS 'ich kann keine PDF-Bytes erzeugen' und liefere keine .md-Ersatzdatei. "
+            "Inhalt als Markdown (Überschriften, Tabellen, Listen; Zeile aus '____  ____' = Unterschriftslinien). "
+            "FAKTEN-PFLICHT: `quellen` = Vault-Dateien (Bestellung, Angebot, Vertrag ...), aus denen JEDE Zahl, jedes Datum, "
+            "jede Nummer und jeder Name stammt - vorher mit read_file/Read WIRKLICH lesen, nie aus dem Gedächtnis schreiben. "
+            "Das Tool prüft alle Daten, Beträge, Prozente, Mengen ('12 Monate'), Kennungen (AG0024, HRB 1034), E-Mails, "
+            "Firmen und 'Herr/Frau/Dr. X' gegen die Quellen und erstellt das PDF NICHT, solange etwas nicht belegt ist "
+            "(Antwort listet die Abweichungen -> korrigieren und erneut aufrufen). Weitere Personen-/Firmen-/Adress-Angaben "
+            "in `weitere_fakten` nennen (wörtlich wie im Dokument), damit sie ebenfalls geprüft werden. `freigegeben` NUR für "
+            "bewusst neue oder berechnete Angaben, die Sebastian im Chat genannt hat bzw. die du offen herleitest "
+            "(z.B. '11.900 € (berechnet: 10.000 + 19 % USt)') - nie, um eine Abweichung zum Dokument zu überdecken. "
+            "Statusaussagen (z.B. 'Modul erfüllt') vorher gegen den echten Stand prüfen (Code/Features/Mails), das Tool kann "
+            "das nicht. Zielpfad z.B. 'Kunden/<Firma>/Vertraege/2026-09-23-Abnahmeprotokoll.pdf'. Im Ergebnis stehen path und "
+            "download_url - gib Sebastian den Link als Markdown [Dateiname](download_url) und nenne, gegen welche Quellen "
+            "geprüft wurde und was freigegeben wurde."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "pfad": {"type": "string", "description": "Zielpfad im Vault, endet auf .pdf"},
+                "titel": {"type": "string"},
+                "markdown": {"type": "string", "description": "Dokumentinhalt als Markdown"},
+                "quellen": {"type": "array", "items": {"type": "string"}, "description": "Vault-Dateien, aus denen die Fakten stammen"},
+                "weitere_fakten": {"type": "array", "items": {"type": "string"}, "description": "Namen/Firmen/Adressen wörtlich wie im Dokument, die ebenfalls gegen die Quellen geprüft werden"},
+                "freigegeben": {"type": "array", "items": {"type": "string"}, "description": "Bewusst neue/berechnete Angaben mit Begründung"},
+                "ueberschreiben": {"type": "boolean", "description": "Nur wenn Sebastian ausdrücklich diese bestehende Datei ändern will"},
+            },
+            "required": ["pfad", "titel", "markdown", "quellen"],
         },
     },
     {
@@ -428,6 +461,14 @@ def execute_tool(name: str, tool_input: dict) -> tuple[str, bool]:
                 return result["message"], False
             except Exception as e:
                 return f"Fehler beim Anlegen des Entwurfs: {e}", True
+
+        if name == "create_pdf":
+            result = document_service.create_pdf(
+                tool_input.get("pfad", ""), tool_input.get("titel", ""), tool_input.get("markdown", ""),
+                tool_input.get("quellen") or [], weitere_fakten=tool_input.get("weitere_fakten") or [],
+                freigegeben=tool_input.get("freigegeben") or [], ueberschreiben=bool(tool_input.get("ueberschreiben")),
+            )
+            return json.dumps(result, ensure_ascii=False, default=str), not result.get("ok")
 
         if name == "task_add":
             result = tasks_service.add_task(tool_input.get("text", ""))

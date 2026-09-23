@@ -19,7 +19,7 @@ from mcp.server.fastmcp import FastMCP
 
 from app.config import get_settings
 from app.services import carousel_service, classify, gmail_client, linkedin_service, memory, rag
-from app.services import search_service, youtube_service
+from app.services import document_service, search_service, youtube_service
 
 mcp = FastMCP("prozessia-tools")
 
@@ -267,6 +267,32 @@ def generate_carousel(hook: str = "", branche: str = "Alle", saeule: str = "Eink
     # wird - der direkte Aufruf umging _save_carousel_record().
     return linkedin_service.make_carousel(
         hook, branche=branche or "Alle", saeule=saeule or "Einkauf", due_at=due_at, variante=variante, draft=draft
+    )
+
+
+@mcp.tool(description=(
+    "Erstellt ein fertiges PDF-Dokument (Abnahmeprotokoll, Vertrag, Angebot, Zusammenfassung ...) direkt im Vault - "
+    "du KANNST PDFs erzeugen, sage NIEMALS 'ich kann keine PDF-Bytes erzeugen' und liefere keine .md-Ersatzdatei. "
+    "Inhalt als Markdown (Überschriften, Tabellen, Listen; Zeile aus '____  ____' = Unterschriftslinien). "
+    "FAKTEN-PFLICHT: `quellen` = Vault-Dateien (Bestellung, Angebot, Vertrag ...), aus denen JEDE Zahl, jedes Datum, "
+    "jede Nummer und jeder Name stammt - vorher mit read_file/Read WIRKLICH lesen, nie aus dem Gedächtnis schreiben. "
+    "Das Tool prüft alle Daten, Beträge, Prozente, Mengen ('12 Monate'), Kennungen (AG0024, HRB 1034), E-Mails, "
+    "Firmen und 'Herr/Frau/Dr. X' gegen die Quellen und erstellt das PDF NICHT, solange etwas nicht belegt ist "
+    "(Antwort listet die Abweichungen -> korrigieren und erneut aufrufen). Weitere Personen-/Firmen-/Adress-Angaben "
+    "in `weitere_fakten` nennen (wörtlich wie im Dokument), damit sie ebenfalls geprüft werden. `freigegeben` NUR für "
+    "bewusst neue oder berechnete Angaben, die Sebastian im Chat genannt hat bzw. die du offen herleitest "
+    "(z.B. '11.900 € (berechnet: 10.000 + 19 % USt)') - nie, um eine Abweichung zum Dokument zu überdecken. "
+    "Statusaussagen (z.B. 'Modul erfüllt') vorher gegen den echten Stand prüfen (Code/Features/Mails), das Tool kann "
+    "das nicht. Zielpfad z.B. 'Kunden/<Firma>/Vertraege/2026-09-23-Abnahmeprotokoll.pdf'. Im Ergebnis stehen path und "
+    "download_url - gib Sebastian den Link als Markdown [Dateiname](download_url) und nenne, gegen welche Quellen "
+    "geprüft wurde und was freigegeben wurde."
+))
+def create_pdf(pfad: str, titel: str, markdown: str, quellen: list[str],
+               weitere_fakten: list[str] | None = None, freigegeben: list[str] | None = None,
+               ueberschreiben: bool = False) -> dict:
+    return document_service.create_pdf(
+        pfad, titel, markdown, quellen, weitere_fakten=weitere_fakten,
+        freigegeben=freigegeben, ueberschreiben=ueberschreiben,
     )
 
 
