@@ -34,9 +34,6 @@ from datetime import date
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
-import markdown as md
-from xhtml2pdf import pisa
-
 from app.config import get_settings
 from app.services import classify, rag
 
@@ -370,7 +367,24 @@ def _signature_blocks(text: str) -> str:
     return _SIGNATURE_LINE.sub(repl, text)
 
 
+def _resource_policy():
+    """xhtml2pdf >= 0.2.18 sperrt lokale/entfernte Ressourcen außerhalb des
+    Basisverzeichnisses (gut: das Modell kann so keine beliebigen Dateien per
+    <img src="file://..."> ins PDF ziehen). Nur das Font-Verzeichnis wird
+    freigegeben, Remote bleibt aus. Ältere Versionen kennen keine Policy."""
+    try:
+        from xhtml2pdf.config.resources import ResourceAccessPolicy
+    except ImportError:
+        return None
+    return ResourceAccessPolicy(allow_remote=False, base_dir=_FONT_DIR, allow_local_outside_base=False)
+
+
 def markdown_to_pdf(markdown_text: str, title: str | None = None) -> bytes:
+    # Lazy: dieses Modul wird vom MCP-Server (eigene venv) beim Start importiert -
+    # fehlt dort ein PDF-Paket, soll nur create_pdf scheitern, nicht jedes Tool.
+    import markdown as md
+    from xhtml2pdf import pisa
+
     body = re.sub(r"^---\n.*?\n---\n", "", markdown_text, count=1, flags=re.DOTALL)
     body = _signature_blocks(body)
     if title and not re.match(r"\s*#\s", body):
@@ -382,7 +396,9 @@ def markdown_to_pdf(markdown_text: str, title: str | None = None) -> bytes:
         '<div id="footerContent">Seite <pdf:pagenumber> von <pdf:pagecount></div></body></html>'
     )
     buf = io.BytesIO()
-    result = pisa.CreatePDF(src=full, dest=buf, encoding="utf-8")
+    policy = _resource_policy()
+    kwargs = {"resource_policy": policy} if policy is not None else {}
+    result = pisa.CreatePDF(src=full, dest=buf, encoding="utf-8", **kwargs)
     if result.err:
         raise DocumentError(f"PDF-Rendering fehlgeschlagen ({result.err} Fehler)")
     return buf.getvalue()
